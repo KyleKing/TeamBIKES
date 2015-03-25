@@ -4,21 +4,109 @@
 # but you can also edit it by hand.
 
 meteor-platform
-less
+
+# Collections:
+dburles:collection-helpers
+matb33:collection-hooks
+reywood:publish-composite
+
+# Router:
+iron:router@1.0.0
+zimme:iron-router-active
+yasinuslu:blaze-meta
+
+# Authentication
 accounts-password
 useraccounts:bootstrap
 alanning:roles
-zimme:iron-router-active
-cmather:handlebars-server@0.2.0
-dburles:collection-helpers
-reywood:publish-composite
-momentjs:moment
-mrt:underscore-string-latest
-matb33:collection-hooks
+
+# Seed Data
 dburles:factory
 anti:fake
+
+# Preprocessors
+less
+# mquandalle:jade
+
+# Misc:
+momentjs:moment
+mrt:underscore-string-latest
 cunneen:mailgun
-iron:router@1.0.0
-yasinuslu:blaze-meta
+cmather:handlebars-server@0.2.0
 aldeed:collection2
 aldeed:autoform
+
+# Stored inside project as files
+# Bootstrap
+# Font Awesome
+
+
+
+
+
+
+
+# Tools - Languages
+# fourseven:scss@=0.9.6
+
+# Tools - General
+# meteorhacks:aggregate
+
+# Visuals
+# bootstrap
+# twbs:bootstrap
+# ian:accounts-ui-bootstrap-3
+# rajit:bootstrap3-datepicker
+# webix:webix
+# mrt:leaflet
+# maazalik:highcharts
+
+# Quick Start
+# clinical:accounts-famous-dead-people
+
+# ---To Be Integrated---
+# mdg:camera
+# lepozepo:accounting
+# mrt:nprogress
+
+
+
+
+
+# ---TBD---
+# pcuci:bootcards
+# matteodem:gridster
+# raix:handlebar-helpers
+# joshowens:accounts-entry
+
+# meteorhacks:fast-render
+# percolate:momentum
+# modweb:vivus
+# mrt:chartjs
+
+# ___Useful for secure remote DDP COnnections___
+# meteorhacks:firewall
+
+# ___Visual (Front End) Things___
+# wolves:bourbon
+# wolves:neat
+# fezvrasta:bootstrap-material-design
+# nsmeta:zurb-foundation
+# meteoric:ionic-sass
+# meteoric:ionicons-sass
+# meteoric:ionic
+# reactjs:react
+# zimme:iron-router-auth
+# mjn:famous
+# gadicohen:famous-views
+# jhuenges:highstock
+# ___Animation Things___
+# velocityjs:velocityjs
+
+# ___Cordova Things___
+# richsilv:cordova-notifications
+# fastclick # already in 'meteor show meteor-platform'
+
+# ___Speed User Things___
+# chriswessels:hammer
+# mousetrap:mousetrap
