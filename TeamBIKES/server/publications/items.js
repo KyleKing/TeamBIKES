@@ -19,7 +19,7 @@ Meteor.publishComposite("items", function() {
 });
 
 /*********************************************/
-/*   REMOVE Below content WHEN LIVE          */
+/*   Remove Below content for Production          */
 /********************************************/
 
   // Login Demo - Publish login information for test purposes

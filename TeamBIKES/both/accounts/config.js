@@ -9,8 +9,8 @@ AccountsTemplates.configureRoute('ensureSignedIn', {layoutTemplate: 'appLayout'}
 function mySubmitFunc(error, state) {
   // console.log('mySubmitFunc called with:');
   // console.log(['error: ', error]);
-  // console.log(['state: ', state]);
-  if (Meteor.userId()) {
+  // console.log(['state: ', state]); // 'signUp' or 'signIn'
+  if (Meteor.userId() !== undefined & state === 'signUp') {
     value = Meteor.call('mySubmitFunc', Meteor.userId());
     console.log('Set RFID code');
   }

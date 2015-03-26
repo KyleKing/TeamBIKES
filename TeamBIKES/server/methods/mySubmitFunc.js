@@ -2,7 +2,7 @@ Meteor.methods({
   'mySubmitFunc': function (currentUserId) {
     // Prepare fields to udpate MongoDB
     var fields = {};
-    fields.RFID = 'testRFIDsequence';
+    fields.RFID = Fake.word();
 
     var record = Meteor.users.findOne({_id: currentUserId});
 
@@ -21,5 +21,7 @@ Meteor.methods({
 });
 
 /*********************************************/
-/*   TODO: Check for accounts without an RFID field          */
+/*   TODO: Check for accounts without an RFID field and call this function          */
+// Use: http://docs.mongodb.org/manual/reference/operator/query/exists/
+// $exists: false
 /********************************************/

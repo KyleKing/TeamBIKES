@@ -11,9 +11,3 @@ UsersController = AppController.extend({
     Meta.setTitle('Users');
   }
 });
-
-// UsersController.events({
-//   'click [data-action=doSomething]': function (event, template) {
-//     event.preventDefault();
-//   }
-// });
