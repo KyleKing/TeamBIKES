@@ -4,6 +4,8 @@
       <h1>Dashboard</h1>
     </div>
 
+    <li><a href="{{ pathFor 'atChangePwd' }}" data-action="logout"><i class="fa fa-key"></i> Change Password</a></li>
+
     <ul class="list-group">
       {{#each items}}
         <li class="list-group-item"><span class="label label-default">{{ rating }}</span> {{ name }}</li>
