@@ -5,6 +5,10 @@ DashboardController = AppController.extend({
   data: {
     items: Items.find({})
   },
+  // onBeforeAction: function () {
+  //   // do some login checks or other custom logic
+  //   this.next();
+  // },
   onAfterAction: function () {
     Meta.setTitle('Dashboard');
   }

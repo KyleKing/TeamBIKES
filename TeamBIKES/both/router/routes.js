@@ -11,7 +11,7 @@ Router.route('/users', {
 });
 
 Router.plugin('ensureSignedIn', {
-    // // Array of pages only visible to users
+    // Array of pages only visible to users
     only: ['dashboard']
     // except: ['home', 'atSignIn', 'atSignUp', 'atForgotPassword']
 });
