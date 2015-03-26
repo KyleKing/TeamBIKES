@@ -26,7 +26,7 @@ anti:fake
 
 # Preprocessors
 less
-# mquandalle:jade
+mquandalle:jade
 
 # Misc:
 momentjs:moment
@@ -38,7 +38,9 @@ aldeed:autoform
 
 # Stored inside project as files
 # Bootstrap
+# mrt:bootstrap-3
 # Font Awesome
+# natestrauser:font-awesome
 
 
 

@@ -1,0 +1,42 @@
+template(name='users')
+  .template-home
+    .page-header
+      h1 Users
+    //- .panel.panel-default
+      //- .panel-heading Test Heading
+    //- .table-responsive
+    table.table.table-hover.table-condensed
+      //- Per user history
+      thead
+        tr
+          th #
+          th address
+          //- th verified
+          th UID
+          th gender
+          th handlebars
+          th name
+          th snack
+          th password.bcrypt
+      tbody
+        each users
+          tr
+            td #{listIndex}
+            each emails
+              td #{address}
+              //- td #{verified} // Blank, but should be false?
+            td #{profile.UID}
+            td #{profile.gender}
+            td #{profile.handlebars}
+            td #{profile.name}
+            td #{profile.snack}
+            td #{services.password.bcrypt}
+
+//-     each admin2layout
+//-       tr
+//-         td #{bike}
+//-         td {{formatDate timestamp "short"}}
+//-         //- td #{timestamp}
+//-         td #{user}
+//-         td #{lat}
+//-         td #{lng}

@@ -1,3 +1,7 @@
+/*********************************************/
+/*   Part of Boilerplate: Items collection          */
+/********************************************/
+
 Meteor.publishComposite("items", function() {
   return {
     find: function() {
@@ -11,5 +15,14 @@ Meteor.publishComposite("items", function() {
     //     }
     //   }
     // ]
-  }
+  };
 });
+
+/*********************************************/
+/*   REMOVE Below content WHEN LIVE          */
+/********************************************/
+
+  // Login Demo - Publish login information for test purposes
+  Meteor.publish("usersInfo", function() {
+    return Meteor.users.find();
+  });
