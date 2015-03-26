@@ -4,15 +4,10 @@ Meteor.methods({
     var fields = {};
     fields.RFID = 'testRFIDsequence';
 
-    // Less secure method using hidden sign up template:
-        // fields['profile.RFIDtemp'] = '';
-    // var record = Meteor.users.findOne({'profile.RFIDtemp': 'xkgj'});
-
     var record = Meteor.users.findOne({_id: currentUserId});
-    console.log(record);
 
     if (record.RFID !== undefined) {
-      console.log('RFID already set');
+      console.log(['RFID code already set for ', record._id]);
     } else {
       Meteor.users.update(
         record,
