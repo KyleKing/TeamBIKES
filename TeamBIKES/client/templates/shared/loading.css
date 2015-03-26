@@ -1,0 +1,68 @@
+/* Basic Spinkit Loading Demo */
+/*.loading-message {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+
+.sk-spinner-rotating-plane.sk-spinner {
+  background-color: #fff;
+}*/
+
+/* Custom loading logo/message styles */
+/*.pg-loading-screen .pg-loading-logo {
+  width: 200px;
+}*/
+
+.pg-loading-screen .pg-loading-html {
+  margin-top: 50px;
+}
+
+.loading-message {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+
+/* Change default spinner's CSS to #fff */
+.sk-spinner-rotating-plane.sk-spinner {
+  background-color: #fff;
+}
+
+.sk-spinner-double-bounce .sk-double-bounce1, .sk-spinner-double-bounce .sk-double-bounce2 {
+  background-color: #fff;
+}
+
+.sk-spinner-wave div {
+  background-color: #fff;
+}
+
+.sk-spinner-wandering-cubes .sk-cube1, .sk-spinner-wandering-cubes .sk-cube2 {
+  background-color: #fff;
+}
+
+.sk-spinner-pulse.sk-spinner {
+  background-color: #fff;
+}
+
+.sk-spinner-chasing-dots .sk-dot1, .sk-spinner-chasing-dots .sk-dot2 {
+  background-color: #fff;
+}
+
+.sk-spinner-three-bounce div {
+  background-color: #fff;
+}
+
+.sk-spinner-circle .sk-circle:before {
+  background-color: #fff;
+}
+
+.sk-spinner-cube-grid .sk-cube {
+  background: #fff;
+}
+
+.sk-spinner-fading-circle .sk-circle:before {
+  background-color: #fff;
+}
