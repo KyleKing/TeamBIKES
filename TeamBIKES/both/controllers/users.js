@@ -1,3 +1,5 @@
+// Meteor.call('mySubmitFunc');
+
 UsersController = AppController.extend({
   waitOn: function() {
     return this.subscribe('usersInfo');

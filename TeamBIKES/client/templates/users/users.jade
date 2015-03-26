@@ -10,6 +10,8 @@ template(name='users')
       thead
         tr
           th #
+          th _id
+          th RFID
           th address
           //- th verified
           th UID
@@ -17,11 +19,13 @@ template(name='users')
           th handlebars
           th name
           th snack
-          th password.bcrypt
+          //- th password.bcrypt
       tbody
         each users
           tr
             td #{listIndex}
+            td #{_id}
+            td #{RFID}
             each emails
               td #{address}
               //- td #{verified} // Blank, but should be false?
@@ -30,13 +34,4 @@ template(name='users')
             td #{profile.handlebars}
             td #{profile.name}
             td #{profile.snack}
-            td #{services.password.bcrypt}
-
-//-     each admin2layout
-//-       tr
-//-         td #{bike}
-//-         td {{formatDate timestamp "short"}}
-//-         //- td #{timestamp}
-//-         td #{user}
-//-         td #{lat}
-//-         td #{lng}
+            //- td #{services.password.bcrypt}
