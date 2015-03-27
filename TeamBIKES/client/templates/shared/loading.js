@@ -68,8 +68,8 @@ var messages = [
 ];
 
 // Backgrounds
-var backgrounds = [ '#7f8c8d', '#1abc9c', '#2980b9', '#7f8c8d',
-                    '#f1c40f', '#27ae60', '#7f8c8d', '#7f8c8d' ];
+// var backgrounds = [ '#7f8c8d', '#1abc9c', '#2980b9', '#7f8c8d', '#f1c40f', '#27ae60', '#7f8c8d', '#7f8c8d' ];
+var backgrounds = [ '#483C46', '#3C6E71', '#DA5552', '#BF2346', '#DA5552', '#5F7088', '#7f8c8d', '#7FC6A4' ];
 
 //
 // Spinners from SpinKit
