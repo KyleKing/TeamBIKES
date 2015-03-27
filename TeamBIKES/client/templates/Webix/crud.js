@@ -1,4 +1,3 @@
-'use strict';
 Template.webix.rendered = function () {
   var dataTable = {
     view: 'datatable',

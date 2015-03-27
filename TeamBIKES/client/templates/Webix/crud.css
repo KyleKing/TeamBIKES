@@ -11,7 +11,7 @@ body {
 }
 
 #webix-playground {
-  flex-grow: 1;  /* fill the remaining space in the parent element*/
+  flex-grow: 2;  /* fill the remaining space in the parent element*/
 }
 
 footer {
