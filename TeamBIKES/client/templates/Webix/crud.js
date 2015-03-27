@@ -61,7 +61,6 @@ Template.webix.rendered = function () {
   };
 
   Meteor.startup(function () {
-
     var webixContainer = webix.ui({
       container: 'webix-playground',
       view: 'layout',
@@ -106,4 +105,4 @@ Template.webix.rendered = function () {
     console.log('The DataTable is reactive. Try `Movies.insert({title: "Star Wars"})`');
 
   });
-}
+};

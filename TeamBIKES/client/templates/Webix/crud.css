@@ -1,17 +1,17 @@
-html {
+/*html {
   height: 100%;
-}
+}*/
 
-body {
+.webixZone {
   margin: 0;
   padding: 0;
-  min-height: 100%;
+  min-height: 50em;
   display: flex;
   flex-direction: column;
 }
 
 #webix-playground {
-  flex-grow: 2;  /* fill the remaining space in the parent element*/
+  flex-grow: 1;  /* fill the remaining space in the parent element*/
 }
 
 footer {
