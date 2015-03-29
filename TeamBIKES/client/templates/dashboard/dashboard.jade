@@ -1,0 +1,12 @@
+template(name='dashboard')
+  .template-dashboard
+    .page-header
+      h1 Dashboard
+    li
+      a(href="{{ pathFor 'atChangePwd' }}")
+        i.fa.fa-key Change Password
+    ul.list-group
+      each items
+        li.list-group-item
+          span.label.label-default #{rating}
+          | #{name}
