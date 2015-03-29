@@ -10,10 +10,6 @@ Router.route('/users', {
   name: 'users'
 });
 
-Router.route('/webix', {
-  name: 'webix'
-});
-
 Router.plugin('ensureSignedIn', {
     // Array of pages only visible to users
     only: ['dashboard']
