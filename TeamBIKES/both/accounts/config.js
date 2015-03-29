@@ -55,7 +55,7 @@ AccountsTemplates.configure({
   // Texts
   texts: {
     title: {
-      changePwd: "Password Title text",
+      changePwd: "Change Password",
       enrollAccount: "Enroll Title text",
       forgotPwd: "Recover Your Password",
       resetPwd: "Reset Password",
@@ -90,7 +90,7 @@ AccountsTemplates.configure({
     termsAnd: "and",
     termsTerms: "Terms and Conditions",
     button: {
-      changePwd: "Password Text text",
+      changePwd: "Submit",
       enrollAccount: "Enroll Text text",
       forgotPwd: "Reset Password",
       resetPwd: "Reset Pwd Text text",
