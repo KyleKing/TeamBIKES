@@ -69,33 +69,53 @@ ddpclient.connect(function(error) {
       console.log('data sent: ' + array);
 
 
-key = 'Dino';
-message = 'hi';
+// P-J's Suggestion
+var CryptoJS = require("crypto-js");
 
-// Alt #1: Source: http://lollyrock.com/articles/nodejs-encryption/
-// Nodejs encryption with cbc
-var crypto = require('crypto'),
-    algorithm = 'aes-256-cbc',
-    password = key;
+// var data = { message: "This is my message !", key: "This is my very secret key" };
+var info = { message: "This is my message !", key: "Dino" };
 
-function encrypt(text){
-  var cipher = crypto.createCipher(algorithm,password);
-  var crypted = cipher.update(text,'utf8','hex');
-  crypted += cipher.final('hex');
-  return crypted;
-}
+var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
+    mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.Pkcs7
+});
 
-function decrypt(text){
-  var decipher = crypto.createDecipher(algorithm,password);
-  var dec = decipher.update(text,'hex','utf8');
-  dec += decipher.final('utf8');
-  return dec;
-}
+var decrypted = CryptoJS.AES.decrypt(result, info.key, {
+    mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.Pkcs7
+});
 
-var encrypted = encrypt(message);
-console.log(encrypted);
-console.log(decrypt(encrypted));
-// console.log(decrypt(result));
+// console.log(encrypted.toString());
+console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
+
+
+// key = 'Dino';
+// message = 'hi';
+
+// // Alt #1: Source: http://lollyrock.com/articles/nodejs-encryption/
+// // Nodejs encryption with cbc
+// var crypto = require('crypto'),
+//     algorithm = 'aes-256-cbc',
+//     password = key;
+
+// function encrypt(text){
+//   var cipher = crypto.createCipher(algorithm,password);
+//   var crypted = cipher.update(text,'utf8','hex');
+//   crypted += cipher.final('hex');
+//   return crypted;
+// }
+
+// function decrypt(text){
+//   var decipher = crypto.createDecipher(algorithm,password);
+//   var dec = decipher.update(text,'hex','utf8');
+//   dec += decipher.final('utf8');
+//   return dec;
+// }
+
+// var encrypted = encrypt(message);
+// console.log(encrypted);
+// console.log(decrypt(encrypted));
+// // console.log(decrypt(result));
 
 
 
