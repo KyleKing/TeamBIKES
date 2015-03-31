@@ -14,7 +14,7 @@ reywood:publish-composite
 iron:router@1.0.0
 zimme:iron-router-active
 yasinuslu:blaze-meta
-pcel:loading
+# pcel:loading
 
 # Authentication
 accounts-password
@@ -27,6 +27,7 @@ anti:fake
 
 # Preprocessors
 less
+fourseven:scss
 mquandalle:jade
 
 # Misc:
@@ -43,7 +44,7 @@ aldeed:autoform
 # Font Awesome
 # natestrauser:font-awesome
 
-# PLaying around with:
+# RFID security:
 jparker:crypto-aes
 
 
