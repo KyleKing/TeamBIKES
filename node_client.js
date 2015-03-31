@@ -68,96 +68,20 @@ ddpclient.connect(function(error) {
     ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
       console.log('data sent: ' + array);
 
+      // P-J's Suggestion
+      var CryptoJS = require("crypto-js");
+      var info = { message: "This is my message !", key: "Dino" };
 
-// P-J's Suggestion
-var CryptoJS = require("crypto-js");
-
-// var data = { message: "This is my message !", key: "This is my very secret key" };
-var info = { message: "This is my message !", key: "Dino" };
-
-var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
-    mode: CryptoJS.mode.CBC,
-    padding: CryptoJS.pad.Pkcs7
-});
-
-var decrypted = CryptoJS.AES.decrypt(result, info.key, {
-    mode: CryptoJS.mode.CBC,
-    padding: CryptoJS.pad.Pkcs7
-});
-
-// console.log(encrypted.toString());
-console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
-
-
-// key = 'Dino';
-// message = 'hi';
-
-// // Alt #1: Source: http://lollyrock.com/articles/nodejs-encryption/
-// // Nodejs encryption with cbc
-// var crypto = require('crypto'),
-//     algorithm = 'aes-256-cbc',
-//     password = key;
-
-// function encrypt(text){
-//   var cipher = crypto.createCipher(algorithm,password);
-//   var crypted = cipher.update(text,'utf8','hex');
-//   crypted += cipher.final('hex');
-//   return crypted;
-// }
-
-// function decrypt(text){
-//   var decipher = crypto.createDecipher(algorithm,password);
-//   var dec = decipher.update(text,'hex','utf8');
-//   dec += decipher.final('utf8');
-//   return dec;
-// }
-
-// var encrypted = encrypt(message);
-// console.log(encrypted);
-// console.log(decrypt(encrypted));
-// // console.log(decrypt(result));
-
-
-
-// // Alt #2: SOurce: http://stackoverflow.com/questions/21292142/decyrpting-aes256-with-node-js-returns-wrong-final-block-length
-// var crypto = require('crypto');
-
-// var AESCrypt = {};
-
-// AESCrypt.decrypt = function(cryptkey, iv, encryptdata) {
-//   encryptdata = new Buffer(encryptdata, 'base64').toString('binary');
-
-//   var decipher = crypto.createDecipheriv('aes-256-cbc', cryptkey, iv),
-//   decoded = decipher.update(encryptdata, 'binary', 'utf8');
-
-//   decoded += decipher.final('utf8');
-//   return decoded;
-// };
-
-// AESCrypt.encrypt = function(cryptkey, iv, cleardata) {
-//   var encipher = crypto.createCipheriv('aes-256-cbc', cryptkey, iv),
-//   encryptdata = encipher.update(cleardata, 'utf8', 'binary');
-
-//   encryptdata += encipher.final('binary');
-//   encode_encryptdata = new Buffer(encryptdata, 'binary').toString('base64');
-//   return encode_encryptdata;
-// };
-
-// var cryptkey = crypto.createHash('sha256').update('Nixnogen').digest(),
-// iv = 'a2xhcgAAAAAAAAAA',
-// buf = "Here is some data for the encrypt", // 32 chars
-// enc = AESCrypt.encrypt(cryptkey, iv, buf);
-// var dec = AESCrypt.decrypt(cryptkey, iv, enc);
-
-// console.warn("encrypt length: ", enc.length);
-// console.warn("encrypt in Base64:", enc);
-// console.warn("decrypt all: " + dec);
-      // var encrypted = CryptoJS.AES.encrypt(dataSet.RFIDCode.toString(), 'Dino');
+      var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
+          mode: CryptoJS.mode.CBC,
+          padding: CryptoJS.pad.Pkcs7
+      });
+      var decrypted = CryptoJS.AES.decrypt(result, info.key, {
+          mode: CryptoJS.mode.CBC,
+          padding: CryptoJS.pad.Pkcs7
+      });
       // console.log(encrypted.toString());
-      // decrypted = CryptoJS.AES.decrypt('qMZPtYQliAsqvXJtWfg3Fjg=', "Dino");
-      // console.log(decrypted);
-      // decrypted2 = CryptoJS.AES.decrypt('U2FsdGVkX1/SNhyKDLJTeZfy58CaAlzvVdc03tH9Syk=', "Dino");
-      // console.log(decrypted2.toString());
+      console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
       console.log('called RFIDStreamData function, result: ' + result);
       console.log(' ');
     });
