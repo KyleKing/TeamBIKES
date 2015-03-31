@@ -1,4 +1,4 @@
-// Example Code:
+// // Example Code:
 // encrypted = CryptoJS.AES.encrypt("Message", "Dinosaurs");
 // console.log(encrypted.toString());
 // // 53616c7465645f5fe5b50dc580ac44b9be85d240abc5ff8b66ca327950f4ade5
@@ -13,3 +13,16 @@
 // // {0xE4, 0xDD, 0x05, 0x0F},
 // // {0x93, 0x24, 0xBE, 0xA9}
 // // Alternative Meteor Package: https://atmospherejs.com/altapp/aes
+
+
+// Experimenting with hex keys
+// var stuff = [ 0xF3, 0x44, 0x81, 0xEC ];
+// console.log(stuff);
+// var control = [ 0xF3, 0x44, 0x81, 0xEC ];
+// if (stuff === control) {
+//   console.log('true');
+// } else {
+//   console.log('false');
+//   var test = stuff - control;
+//   console.log(test);
+// }
