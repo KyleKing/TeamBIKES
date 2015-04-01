@@ -1,0 +1,35 @@
+template(name='_header')
+  nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse(role='navigation')
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#main-nav')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href="{{pathFor 'home'}}") Team Bikes
+      #main-nav.collapse.navbar-collapse
+        if currentUser
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(href='#' data-toggle='dropdown')
+                i.fa.fa-user {{ currentUser.profile.name }}
+                i.fa.fa-caret-down
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='#' data-action='logout')
+                    i.fa.fa-lock Sign Out
+        else
+          .navbar-right
+            a.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
+            a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
+        ul.nav.navbar-nav.navbar-right
+          li(class="{{ isActiveRoute regex='home' }}")
+            a(href="{{ pathFor 'home' }}")
+              i.fa.fa-home Home
+          li(class="{{ isActiveRoute regex='dashboard' }}")
+            a(href="{{ pathFor 'dashboard' }}")
+              i.fa.fa-gear Dashboard
+          li(class="{{ isActiveRoute regex='users' }}")
+            a(href="{{ pathFor 'users' }}")
+              i.fa.fa-users Users
