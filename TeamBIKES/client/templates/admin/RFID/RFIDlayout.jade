@@ -1,0 +1,10 @@
+template(name='RFIDlayout')
+  table.data-set
+    //- Labels Row
+    tr
+      td RFIDCode
+      td time
+    each RFIDlayout
+      tr
+        td #{RFIDCode}
+        td {{formatDate time "short"}}
