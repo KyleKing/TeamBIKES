@@ -33,6 +33,11 @@ Router.route('/users', {
   name: 'users'
 });
 
+Router.route('chartsAdmin', {
+  path: '/charts',
+  controller: 'AppController'
+});
+
 
 /*********************************************/
 /*   Remove Below content for Production          */
