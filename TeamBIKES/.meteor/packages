@@ -24,10 +24,12 @@ alanning:roles
 # Seed Data
 dburles:factory
 anti:fake
+clinical:accounts-famous-dead-people
 
 # Preprocessors
 less
 fourseven:scss
+# fourseven:scss@=0.9.6
 mquandalle:jade
 
 # JS Libraries
@@ -35,11 +37,15 @@ mrt:leaflet
 appshore:leaflet-awesome-markers
 momentjs:moment
 mrt:underscore-string-latest
+maazalik:highcharts
+# jhuenges:highstock
 
 # Forms
 aldeed:collection2
 aldeed:autoform
 
+# Tools - General
+meteorhacks:aggregate
 # RFID security:
 jparker:crypto-aes
 
@@ -50,34 +56,14 @@ cmather:handlebars-server@0.2.0
 # Stored inside project as files
 # Bootstrap
 # mrt:bootstrap-3
+# twbs:bootstrap
 # Font Awesome
 # natestrauser:font-awesome
 
-
-
-
-
-
 # Untested
 matdutour:outdated-browser
-
-
-# Tools - Languages
-# fourseven:scss@=0.9.6
-
-# Tools - General
-# meteorhacks:aggregate
-
-# Visuals
-# twbs:bootstrap
-# ian:accounts-ui-bootstrap-3
 # rajit:bootstrap3-datepicker
-# webix:webix
-# maazalik:highcharts
-
-# Quick Start
-# clinical:accounts-famous-dead-people
-
+# webix:webix # unreliable
 # ---To Be Integrated---
 # mdg:camera
 # lepozepo:accounting
@@ -92,7 +78,6 @@ matdutour:outdated-browser
 # matteodem:gridster
 # raix:handlebar-helpers
 # joshowens:accounts-entry
-
 # meteorhacks:fast-render
 # percolate:momentum
 # modweb:vivus
@@ -113,7 +98,6 @@ matdutour:outdated-browser
 # zimme:iron-router-auth
 # mjn:famous
 # gadicohen:famous-views
-# jhuenges:highstock
 # ___Animation Things___
 # velocityjs:velocityjs
 
@@ -124,5 +108,8 @@ matdutour:outdated-browser
 # ___Speed User Things___
 # chriswessels:hammer
 # mousetrap:mousetrap
+
+
+
 
 # NEW
