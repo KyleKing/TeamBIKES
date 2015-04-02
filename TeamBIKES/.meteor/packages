@@ -32,6 +32,7 @@ mquandalle:jade
 
 # JS Libraries
 mrt:leaflet
+appshore:leaflet-awesome-markers
 momentjs:moment
 mrt:underscore-string-latest
 
@@ -56,6 +57,9 @@ cmather:handlebars-server@0.2.0
 
 
 
+
+# Untested
+matdutour:outdated-browser
 
 
 # Tools - Languages
@@ -121,6 +125,4 @@ cmather:handlebars-server@0.2.0
 # chriswessels:hammer
 # mousetrap:mousetrap
 
-#NEW
-matdutour:outdated-browser
-# appshore:leaflet-awesome-markers
+# NEW
