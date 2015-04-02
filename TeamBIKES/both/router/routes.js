@@ -48,6 +48,26 @@ Router.route('admin3layout', {
   controller: 'AppController'
 });
 
+Router.route('RFIDlayout', {
+  path: '/RFIDlayout',
+  controller: 'AppController'
+});
+
+Router.route('mechanicView', {
+  path: '/mechanicView',
+  controller: 'AppController'
+});
+
+Router.route('mechmap', {
+  path: '/mechmap',
+  controller: 'MapController'
+});
+
+Router.route('timeseries', {
+  path: '/timeseries',
+  controller: 'AppController'
+});
+
 
 /*********************************************/
 /*   Remove Below content for Production          */
