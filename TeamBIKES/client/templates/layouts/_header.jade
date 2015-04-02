@@ -49,3 +49,9 @@ template(name='_header')
               li(class="{{ isActiveRoute regex='users' }}")
                 a(href="{{ pathFor 'users' }}")
                   i.fa.fa-users  Users
+              li(class="{{ isActiveRoute regex='admin2layout' }}")
+                a(href="{{ pathFor 'admin2layout' }}")
+                  i.fa.fa-table  Admin2
+              li(class="{{ isActiveRoute regex='admin3layout' }}")
+                a(href="{{ pathFor 'admin3layout' }}")
+                  i.fa.fa-table  Admin3
