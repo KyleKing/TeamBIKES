@@ -64,6 +64,8 @@ Template.map.created = function() {
       map.addLayer(markers);
 
 
+
+// Example fiddle here: http://jsfiddle.net/VPzu4/28/
       // Creates a red marker with the coffee icon
       var redMarker = L.AwesomeMarkers.icon({
         icon: 'coffee',
@@ -74,7 +76,6 @@ Template.map.created = function() {
 
 
 
-
       map.locate({
         setView: true
       }).on("locationfound", function(e) {
@@ -82,6 +83,7 @@ Template.map.created = function() {
         // console.log(markerGPS);
         console.log([e.latitude, e.longitude]);
       });
+
     }
   });
 };
