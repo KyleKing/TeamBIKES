@@ -38,6 +38,16 @@ Router.route('chartsAdmin', {
   controller: 'AppController'
 });
 
+Router.route('admin2layout', {
+  path: '/Admin2',
+  controller: 'AppController'
+});
+
+Router.route('admin3layout', {
+  path: '/Admin3',
+  controller: 'AppController'
+});
+
 
 /*********************************************/
 /*   Remove Below content for Production          */
