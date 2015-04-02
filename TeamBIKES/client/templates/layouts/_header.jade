@@ -13,12 +13,14 @@ template(name='_header')
           ul.nav.navbar-nav.navbar-right
             li.dropdown
               a.dropdown-toggle(href='#' data-toggle='dropdown')
-                i.fa.fa-user {{ currentUser.profile.name }}
+                i.fa.fa-user
+                  |  {{ currentUser.profile.name }}
                 i.fa.fa-caret-down
               ul.dropdown-menu(role='menu')
                 li
                   a(href='#' data-action='logout')
-                    i.fa.fa-lock Sign Out
+                    i.fa.fa-lock
+                      |  Sign Out
         else
           .navbar-right
             a.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
@@ -27,43 +29,56 @@ template(name='_header')
         ul.nav.navbar-nav.navbar-right
           li(class="{{ isActiveRoute regex='about' }}")
             a(href="{{ pathFor 'about' }}")
-              i.fa.fa-home  About
+              i.fa.fa-home
+                |  About
           li(class="{{ isActiveRoute regex='FAQ' }}")
             a(href="{{ pathFor 'FAQ' }}")
-              i.fa.fa-question  FAQ
+              i.fa.fa-question
+                |  FAQ
           li(class="{{ isActiveRoute regex='map' }}")
             a(href="{{ pathFor 'map' }}")
-              i.fa.fa-map-marker  Map
+              i.fa.fa-map-marker
+                |  Map
           li.dropdown
             a.dropdown-toggle(href='#' data-toggle='dropdown')
               //- i.fa.fa-ellipsis-h
-              i.fa.fa-lock  Private
+              i.fa.fa-lock
+                |  Private
               i.fa.fa-caret-down
             ul.dropdown-menu(role='menu')
               li(class="{{ isActiveRoute regex='dashboard' }}")
                 a(href="{{ pathFor 'dashboard' }}")
-                  i.fa.fa-gear  Dashboard
+                  i.fa.fa-gear
+                    |  Dashboard
               li(class="{{ isActiveRoute regex='chartsAdmin' }}")
                 a(href="{{ pathFor 'chartsAdmin' }}")
-                  i.fa.fa-gear  chartsAdmin
+                  i.fa.fa-gear
+                    |  chartsAdmin
               li(class="{{ isActiveRoute regex='users' }}")
                 a(href="{{ pathFor 'users' }}")
-                  i.fa.fa-users  Users
+                  i.fa.fa-users
+                    |  Users
               li(class="{{ isActiveRoute regex='admin2layout' }}")
                 a(href="{{ pathFor 'admin2layout' }}")
-                  i.fa.fa-table  Admin2
+                  i.fa.fa-table
+                    |  Admin2
               li(class="{{ isActiveRoute regex='admin3layout' }}")
                 a(href="{{ pathFor 'admin3layout' }}")
-                  i.fa.fa-table  Admin3
+                  i.fa.fa-table
+                    |  Admin3
               li(class="{{ isActiveRoute regex='RFIDlayout' }}")
                 a(href="{{ pathFor 'RFIDlayout' }}")
-                  i.fa.fa-table  RFIDlayout
+                  i.fa.fa-table
+                    |  RFIDlayout
               li(class="{{ isActiveRoute regex='mechanicView' }}")
                 a(href="{{ pathFor 'mechanicView' }}")
-                  i.fa.fa-table  mechanicView
+                  i.fa.fa-table
+                    |  mechanicView
               li(class="{{ isActiveRoute regex='mechmap' }}")
                 a(href="{{ pathFor 'mechmap' }}")
-                  i.fa.fa-table  mechmap
+                  i.fa.fa-table
+                    |  mechmap
               li(class="{{ isActiveRoute regex='timeseries' }}")
                 a(href="{{ pathFor 'timeseries' }}")
-                  i.fa.fa-table  timeseries
+                  i.fa.fa-table
+                    |  timeseries

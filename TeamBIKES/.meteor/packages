@@ -54,26 +54,23 @@ cunneen:mailgun
 cmather:handlebars-server@0.2.0
 
 # Stored inside project as files
-# Bootstrap
+# # Bootstrap
 # mrt:bootstrap-3
 # twbs:bootstrap
-# Font Awesome
+# # Font Awesome
 # natestrauser:font-awesome
 
 # Untested
 matdutour:outdated-browser
-# rajit:bootstrap3-datepicker
-# webix:webix # unreliable
-# ---To Be Integrated---
-# mdg:camera
-# lepozepo:accounting
-# mrt:nprogress
-
 
 
 
 
 # ---TBD---
+# rajit:bootstrap3-datepicker
+# mdg:camera
+# lepozepo:accounting
+# mrt:nprogress
 # pcuci:bootcards
 # matteodem:gridster
 # raix:handlebar-helpers
@@ -82,29 +79,31 @@ matdutour:outdated-browser
 # percolate:momentum
 # modweb:vivus
 # mrt:chartjs
+# fezvrasta:bootstrap-material-design
+# zimme:iron-router-auth
 
 # ___Useful for secure remote DDP COnnections___
 # meteorhacks:firewall
 
-# ___Visual (Front End) Things___
-# wolves:bourbon
-# wolves:neat
-# fezvrasta:bootstrap-material-design
-# nsmeta:zurb-foundation
+# # # # # # # # # # # #
+# # # # React Framework
+# reactjs:react
+# # # # # # # # # # # #
+# # # # Famous Animations
+# mjn:famous
+# gadicohen:famous-views
+# # # # # # # # # # # #
+# # # # Ionic
+# http://meteoric.github.io/ - Mobile components
 # meteoric:ionic-sass
 # meteoric:ionicons-sass
 # meteoric:ionic
-# reactjs:react
-# zimme:iron-router-auth
-# mjn:famous
-# gadicohen:famous-views
+
 # ___Animation Things___
 # velocityjs:velocityjs
-
 # ___Cordova Things___
 # richsilv:cordova-notifications
 # fastclick # already in 'meteor show meteor-platform'
-
 # ___Speed User Things___
 # chriswessels:hammer
 # mousetrap:mousetrap
