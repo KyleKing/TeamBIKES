@@ -30,13 +30,21 @@ less
 fourseven:scss
 mquandalle:jade
 
-# Misc:
+# JS Libraries
+mrt:leaflet
 momentjs:moment
 mrt:underscore-string-latest
-cunneen:mailgun
-cmather:handlebars-server@0.2.0
+
+# Forms
 aldeed:collection2
 aldeed:autoform
+
+# RFID security:
+jparker:crypto-aes
+
+# Misc:
+cunneen:mailgun
+cmather:handlebars-server@0.2.0
 
 # Stored inside project as files
 # Bootstrap
@@ -44,8 +52,6 @@ aldeed:autoform
 # Font Awesome
 # natestrauser:font-awesome
 
-# RFID security:
-jparker:crypto-aes
 
 
 
@@ -59,12 +65,10 @@ jparker:crypto-aes
 # meteorhacks:aggregate
 
 # Visuals
-# bootstrap
 # twbs:bootstrap
 # ian:accounts-ui-bootstrap-3
 # rajit:bootstrap3-datepicker
 # webix:webix
-# mrt:leaflet
 # maazalik:highcharts
 
 # Quick Start

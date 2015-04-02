@@ -9,6 +9,11 @@ Router.route('FAQ', {
   controller: 'AppController'
 });
 
+Router.route('map', {
+  path: '/map',
+  controller: 'MapController'
+});
+
 //
 // The Secuirty Barrier in between
 //
@@ -16,7 +21,7 @@ Router.plugin('ensureSignedIn', {
     // // Array of pages only visible to users
     // only: ['dashboard']
     // Array of pages not secured
-    except: ['about', 'FAQ']
+    except: ['about', 'FAQ', 'map']
 });
 
 // Private

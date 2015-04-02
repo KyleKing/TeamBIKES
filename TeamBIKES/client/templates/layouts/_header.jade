@@ -7,7 +7,7 @@ template(name='_header')
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        a.navbar-brand(href="{{pathFor 'home'}}") Team Bikes
+        a.navbar-brand(href="{{pathFor 'about'}}") Team Bikes
       #main-nav.collapse.navbar-collapse
         if currentUser
           ul.nav.navbar-nav.navbar-right
@@ -31,6 +31,9 @@ template(name='_header')
           li(class="{{ isActiveRoute regex='FAQ' }}")
             a(href="{{ pathFor 'FAQ' }}")
               i.fa.fa-question  FAQ
+          li(class="{{ isActiveRoute regex='map' }}")
+            a(href="{{ pathFor 'map' }}")
+              i.fa.fa-map-marker  Map
           li.dropdown
             a.dropdown-toggle(href='#' data-toggle='dropdown')
               //- i.fa.fa-ellipsis-h
