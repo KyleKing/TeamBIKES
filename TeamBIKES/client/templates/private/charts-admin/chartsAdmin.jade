@@ -1,0 +1,95 @@
+template(name="chartsAdmin")
+    //- p These are examples for the Meteor package
+    //-     a href="https://github.com/MaazAli/Meteor-HighCharts">Meteor-HighCharts
+    .dataFacts
+        .Quick-Info
+            h1 Charts Demo - Admin
+            ul
+                li Click on legend box to remove element
+                li Click to return it
+                li Hover on graph for tool tip
+                li Click on section of pie graph for pull-out slice
+        +pieDemo
+        +pieDemoUsers
+    h1 &nbsp;
+    .dataFacts
+        +columnDemo
+    h1 &nbsp;
+    .dataFacts
+        +areaDemo
+        //- p  http://www.highcharts.com/demo/arearange
+    h1 &nbsp;
+    .dataFacts
+        +pie_semi_circle_Demo
+    h1 &nbsp;
+    .dataFacts
+        +pie_big_circle_Demo
+    h1 &nbsp;
+    .dataFacts
+        +multiDemo
+    h1 &nbsp;
+    .dataFacts
+        +serverDemo
+
+    h1 &nbsp;
+    .dataFacts
+        h1 More Demos (not shown - all on JSFiddle):
+        h6 Multi-Demos
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/combo-regression/") Scatter and best fit line for...
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/combo-dual-axes/") Line and Bar chart for...
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/combo-multi-axes/") Another variation
+        a(href=" http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/error-bar/") Rain fall and temp, with error bar
+        h6 Areas:
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/areaspline/") Spline area demo (prettier than straight)
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/area-stacked-percent/") Precentage Area
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/area-stacked/") Stacked area
+        h6 Line:
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/spline-irregular-time/") Irregular sampling of line data
+        h6 Bar
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/waterfall/") Waterfall cost and income chart
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/bar-basic/") Y-axis bar
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/bar-stacked/") Stacked bar on y-axis
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/bar-negative-stack/") Population Pyramid
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/column-stacked-and-grouped/") Multi bar stacked
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/column-stacked-percent/") Stacked Column
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/columnrange/") Variation by month (alternative to line of per month rider use)
+        h6 Pie
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/pie-donut/") Crazy detailed Pie demo
+        h6 Scatter
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/scatter/") Nice red/blue male/female scatter plot
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/bubble/") Bubble Scatter
+        h6 Heatmaps
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/heatmap/") Employee salaries heatmap
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/treemap-coloraxis/") Simple treemap
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/treemap-large-dataset/") 2 Level Heatmap
+        h6 Polar Graphs
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/polar/") Basic polar chart
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/polar-spider/") Two lines
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/polar-wind-rose/") Stacked Bar
+        h6 Other
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/funnel/") Funnel
+        a(href="http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/pyramid/") pyramid
+
+template(name="pieDemo")
+    #container-pie.threeColumnChart
+
+template(name="pieDemoUsers")
+    #container-pie-users.threeColumnChart
+
+template(name="columnDemo")
+    #container-column
+
+template(name="areaDemo")
+    #container-area(style="min-width: 310px; height: 300px")
+
+template(name="pie_semi_circle_Demo")
+    #container_pie_semi_circle(style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto")
+
+template(name="pie_big_circle_Demo")
+    #container_pie_big_circle(style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto")
+
+template(name="multiDemo")
+    #container-multiDemo(style="min-width: 310px; height: 400px; margin: 0 auto")
+
+template(name="serverDemo")
+    #container_serverDemo(style="width: 600px; height: 250px; margin: 0 auto")
