@@ -43,6 +43,9 @@ template(name='_header')
               li(class="{{ isActiveRoute regex='dashboard' }}")
                 a(href="{{ pathFor 'dashboard' }}")
                   i.fa.fa-gear  Dashboard
+              li(class="{{ isActiveRoute regex='chartsAdmin' }}")
+                a(href="{{ pathFor 'chartsAdmin' }}")
+                  i.fa.fa-gear  chartsAdmin
               li(class="{{ isActiveRoute regex='users' }}")
                 a(href="{{ pathFor 'users' }}")
                   i.fa.fa-users  Users
