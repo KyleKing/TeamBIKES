@@ -1,13 +1,7 @@
+// Public
 Router.route('/', {
-  name: 'home'
-});
-
-Router.route('/dashboard', {
-  name: 'dashboard'
-});
-
-Router.route('/users', {
-  name: 'users'
+  name: 'about',
+  controller: 'AppController'
 });
 
 Router.route('FAQ', {
@@ -15,11 +9,23 @@ Router.route('FAQ', {
   controller: 'AppController'
 });
 
+//
+// The Secuirty Barrier in between
+//
 Router.plugin('ensureSignedIn', {
     // // Array of pages only visible to users
     // only: ['dashboard']
     // Array of pages not secured
-    except: ['home', 'FAQ']
+    except: ['about', 'FAQ']
+});
+
+// Private
+Router.route('/dashboard', {
+  name: 'dashboard'
+});
+
+Router.route('/users', {
+  name: 'users'
 });
 
 

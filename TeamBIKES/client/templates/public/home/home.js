@@ -1,3 +1,0 @@
-Template.home.rendered = function() {
-
-};
