@@ -23,13 +23,23 @@ template(name='_header')
           .navbar-right
             a.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
             a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
+        //- Add space before nav item
         ul.nav.navbar-nav.navbar-right
-          li(class="{{ isActiveRoute regex='home' }}")
-            a(href="{{ pathFor 'home' }}")
-              i.fa.fa-home Home
-          li(class="{{ isActiveRoute regex='dashboard' }}")
-            a(href="{{ pathFor 'dashboard' }}")
-              i.fa.fa-gear Dashboard
-          li(class="{{ isActiveRoute regex='users' }}")
-            a(href="{{ pathFor 'users' }}")
-              i.fa.fa-users Users
+          li(class="{{ isActiveRoute regex='about' }}")
+            a(href="{{ pathFor 'about' }}")
+              i.fa.fa-about  about
+          li(class="{{ isActiveRoute regex='FAQ' }}")
+            a(href="{{ pathFor 'FAQ' }}")
+              i.fa.fa-question  FAQ
+          li.dropdown
+            a.dropdown-toggle(href='#' data-toggle='dropdown')
+              //- i.fa.fa-ellipsis-h
+              i.fa.fa-lock  Private
+              i.fa.fa-caret-down
+            ul.dropdown-menu(role='menu')
+              li(class="{{ isActiveRoute regex='dashboard' }}")
+                a(href="{{ pathFor 'dashboard' }}")
+                  i.fa.fa-gear  Dashboard
+              li(class="{{ isActiveRoute regex='users' }}")
+                a(href="{{ pathFor 'users' }}")
+                  i.fa.fa-users  Users

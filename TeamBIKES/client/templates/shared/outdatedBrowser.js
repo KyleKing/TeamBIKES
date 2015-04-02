@@ -7,4 +7,4 @@ UI.body.rendered = function () {
     color: "#FFF",
     lowerThan: "transform"
   });
-}
+};
