@@ -1,0 +1,35 @@
+//- template(name='admin2layout')
+//-   if ViewUsersFunc
+//-     button.seeLess See Less
+//-   if ViewUsersFunc
+//-     table.data-set
+//-       //- Per user history
+//-       tr
+//-         td bike
+//-         td timestamp
+//-         td User
+//-         td Lat
+//-         td Lng
+//-       each admin2layout
+//-         tr
+//-           td #{bike}
+//-           td {{formatDate timestamp "short"}}
+//-           //- td #{timestamp}
+//-           td #{user}
+//-           td #{lat}
+//-           td #{lng}
+//-   else
+//-     table.data-set
+//-       //- Labels Row
+//-       tr
+//-         td ID
+//-         td User
+//-         td rides
+//-         td &nbsp;
+//-       each admin2layout
+//-         tr
+//-           td #{_id}
+//-           td #{user}
+//-           td #{rides}
+//-           td
+//-             button.seeMore See More
