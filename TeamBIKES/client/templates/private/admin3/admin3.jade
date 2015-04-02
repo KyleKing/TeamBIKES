@@ -1,0 +1,31 @@
+template(name='admin3layout')
+  if ViewUsersFunc
+    button.seeLess See Less
+  if ViewUsersFunc
+    table.data-set
+      //- Per user history
+      tr
+        td timestamp
+        td User
+        td Lat
+        td Lng
+      each admin3layout
+        tr
+          td {{formatDate timestamp "short"}}
+            //- Only works with {{ }} and not #{}
+          td #{user}
+          td #{lat}
+          td #{lng}
+  else
+    table.data-set
+      //- Labels Row
+      tr
+        td bike
+        td status
+        td &nbsp;
+      each admin3layout
+        tr
+          td #{bike}
+          td #{status}
+          td
+            button.seeMore See More
