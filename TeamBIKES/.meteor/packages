@@ -11,21 +11,19 @@ matb33:collection-hooks
 reywood:publish-composite
 
 # Router:
-# iron:router
-iron:router@1.0.0
+iron:router
 zimme:iron-router-active
 yasinuslu:blaze-meta
-# pcel:loading
 
 # Authentication
 accounts-password
 useraccounts:bootstrap
-alanning:roles
+# alanning:roles
 
 # Seed Data
 dburles:factory
 anti:fake
-clinical:accounts-famous-dead-people
+# clinical:accounts-famous-dead-people
 
 # Preprocessors
 less
@@ -35,6 +33,11 @@ mquandalle:jade
 
 # JS Libraries
 mrt:leaflet
+#
+#
+# (Uniumplemented..yet!)
+#
+#
 appshore:leaflet-awesome-markers
 momentjs:moment
 mrt:underscore-string-latest
@@ -42,8 +45,11 @@ maazalik:highcharts
 # jhuenges:highstock
 
 # Forms
-aldeed:collection2
-aldeed:autoform
+#
+# (Uniumplemented..yet!)
+# aldeed:collection2
+# aldeed:autoform
+#
 
 # Tools - General
 meteorhacks:aggregate
@@ -65,7 +71,10 @@ mdg:camera
 # natestrauser:font-awesome
 
 # Untested
-matdutour:outdated-browser
+#
+# (Uniumplemented..yet!)
+# matdutour:outdated-browser
+#
 
 
 
