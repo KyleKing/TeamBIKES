@@ -11,6 +11,7 @@ matb33:collection-hooks
 reywood:publish-composite
 
 # Router:
+# iron:router
 iron:router@1.0.0
 zimme:iron-router-active
 yasinuslu:blaze-meta
@@ -53,6 +54,9 @@ jparker:crypto-aes
 cunneen:mailgun
 cmather:handlebars-server@0.2.0
 
+# Mobile Functions
+mdg:camera
+
 # Stored inside project as files
 # # Bootstrap
 # mrt:bootstrap-3
@@ -68,7 +72,6 @@ matdutour:outdated-browser
 
 # ---TBD---
 # rajit:bootstrap3-datepicker
-# mdg:camera
 # lepozepo:accounting
 # mrt:nprogress
 # pcuci:bootcards
