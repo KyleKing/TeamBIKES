@@ -39,6 +39,10 @@ template(name='_header')
             a(href="{{ pathFor 'map' }}")
               i.fa.fa-map-marker
                 |  Map
+          li(class="{{ isActiveRoute regex='student' }}")
+            a(href="{{ pathFor 'student' }}")
+              i.fa.fa-user
+                |  student
           li.dropdown
             a.dropdown-toggle(href='#' data-toggle='dropdown')
               //- i.fa.fa-ellipsis-h
