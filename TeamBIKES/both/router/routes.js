@@ -14,6 +14,17 @@ Router.route('map', {
   controller: 'MapController'
 });
 
+/*********************************************/
+/*   Make sure sign in only, but student role          */
+/********************************************/
+
+Router.route('student', {
+  path: '/student',
+  controller: 'AppController'
+});
+
+
+
 //
 // The Secuirty Barrier in between
 //
@@ -21,7 +32,7 @@ Router.plugin('ensureSignedIn', {
     // // Array of pages only visible to users
     // only: ['dashboard']
     // Array of pages not secured
-    except: ['about', 'FAQ', 'map']
+    except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword']
 });
 
 // Private

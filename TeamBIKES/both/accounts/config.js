@@ -134,9 +134,9 @@ AccountsTemplates.addField({
       signUp: "UID"
   },
   required: true,
-  minLength: 9,
-  re: /(?=.*\d).{9,}/,
-  errStr: '9 digits',
+  minLength: 1,
+  re: /(?=.*\d).{1,}/,
+  errStr: '1 digits',
 });
 
 AccountsTemplates.addField({
