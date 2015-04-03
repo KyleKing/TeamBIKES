@@ -31,18 +31,23 @@ fourseven:scss
 # fourseven:scss@=0.9.6
 mquandalle:jade
 
-# JS Libraries
-mrt:leaflet
-#
-#
-# (Uniumplemented..yet!)
-#
-#
-appshore:leaflet-awesome-markers
+# JS Libraries - Tools
 momentjs:moment
 mrt:underscore-string-latest
+# JS Libraries - Visual
+mrt:leaflet
+#
+# (Uniumplemented..yet!)
+appshore:leaflet-awesome-markers
+#
 maazalik:highcharts
 # jhuenges:highstock
+#
+# (Uniumplemented..yet!)
+# jeremy:snapsvg
+mirageglobe:snapsvgcdn
+#
+
 
 # Forms
 #
@@ -125,4 +130,3 @@ mdg:camera
 
 # NEW
 ericchen0121:filter-collections
-jeremy:snapsvg
