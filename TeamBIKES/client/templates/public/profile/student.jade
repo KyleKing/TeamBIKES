@@ -1,0 +1,31 @@
+template(name='student')
+  +profile
+
+template(name="profile")
+  .profile-info
+    .user-info
+      img(src="profile/Prof_Pic_Placeholder.png")
+      +profPics
+      h1 Dr. Coke
+      p User since before it was cool
+      p Remaining Balance $210.50
+    .stats
+      +columnDemoProfile
+  .profile-data
+    +TempMapProfile
+
+template(name="columnDemoProfile")
+  #container-column-profile
+
+template(name='TempMapProfile')
+  //- Where the map will be generated based on the template helper in main.js
+  #map
+
+template(name="profPics")
+  h1 &nbsp;
+  h1 &nbsp;
+  button Take Photo
+
+  if photo
+    .image
+      img(src='{{photo}}')

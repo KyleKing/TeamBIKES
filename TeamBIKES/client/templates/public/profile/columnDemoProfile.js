@@ -58,6 +58,11 @@ function builtColumn(BarData) {
 Template.columnDemoProfile.rendered = function() {
     // Use a subscribe function to delay creating the chart until data is accessible by the client
     Meteor.subscribe("BarChartData", function() {
+
+/*********************************************/
+/*   Fix this \/          */
+/********************************************/
+        // No data called bar chart....?
         BarData = BarChart.findOne().data;
         // console.log('BarData');
         // console.log(BarData);
