@@ -27,6 +27,10 @@ template(name='_header')
             a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
         //- Add space before nav item
         ul.nav.navbar-nav.navbar-right
+          li(class="{{ isActiveRoute regex='progress' }}")
+            a(href="{{ pathFor 'progress' }}")
+              i.fa.fa-home
+                |  Progress
           li(class="{{ isActiveRoute regex='about' }}")
             a(href="{{ pathFor 'about' }}")
               i.fa.fa-home

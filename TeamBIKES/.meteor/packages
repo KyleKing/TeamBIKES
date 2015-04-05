@@ -18,7 +18,11 @@ yasinuslu:blaze-meta
 # Authentication
 accounts-password
 useraccounts:bootstrap
+# 
+# (Uniumplemented..yet!)
 # alanning:roles
+# (Uniumplemented..yet!)
+# 
 
 # Seed Data
 dburles:factory
@@ -36,19 +40,20 @@ momentjs:moment
 mrt:underscore-string-latest
 # JS Libraries - Visual
 mrt:leaflet
-#
+# 
 # (Uniumplemented..yet!)
 appshore:leaflet-awesome-markers
 # fuatsengul:leaflet-markercluster
 # jeremy:snapsvg
 mirageglobe:snapsvgcdn
-# maazalik:highcharts
-# jhuenges:highstock
-# (Uniumplemented..yet!)
-#
+tsega:skrollr
 # Impacting scroll on every page....
 # eahefnawy:meteor-onepage-scroll
 #
+# maazalik:highcharts
+# jhuenges:highstock
+# (Uniumplemented..yet!)
+# 
 
 
 # Forms
@@ -132,5 +137,3 @@ mdg:camera
 
 # NEW
 ericchen0121:filter-collections
-tsega:skrollr
-# mrt:skrollr-meteor

@@ -24,6 +24,11 @@ Router.route('/skrollr', {
   controller: 'AppController'
 });
 
+Router.route('/progress', {
+  name: 'progress',
+  controller: 'AppController'
+});
+
 /*********************************************/
 /*   Make sure sign in only, but student role          */
 /********************************************/
@@ -42,7 +47,7 @@ Router.plugin('ensureSignedIn', {
     // // Array of pages only visible to users
     // only: ['dashboard']
     // Array of pages not secured
-    except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr']
+    except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr', 'progress']
 });
 
 // Private
