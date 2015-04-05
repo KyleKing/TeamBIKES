@@ -43,6 +43,10 @@ template(name='_header')
             a(href="{{ pathFor 'onePageScroll' }}")
               i.fa.fa-gear
                 |  onePageScroll
+          li(class="{{ isActiveRoute regex='skrollr' }}")
+            a(href="{{ pathFor 'skrollr' }}")
+              i.fa.fa-gear
+                |  skrollr
           li(class="{{ isActiveRoute regex='student' }}")
             a(href="{{ pathFor 'student' }}")
               i.fa.fa-user
