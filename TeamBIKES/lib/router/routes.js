@@ -37,7 +37,7 @@ Router.plugin('ensureSignedIn', {
     // // Array of pages only visible to users
     // only: ['dashboard']
     // Array of pages not secured
-    except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword']
+    except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll']
 });
 
 // Private

@@ -39,13 +39,15 @@ mrt:leaflet
 #
 # (Uniumplemented..yet!)
 appshore:leaflet-awesome-markers
-#
-maazalik:highcharts
-# jhuenges:highstock
-#
-# (Uniumplemented..yet!)
+# fuatsengul:leaflet-markercluster
 # jeremy:snapsvg
 mirageglobe:snapsvgcdn
+# maazalik:highcharts
+# jhuenges:highstock
+# (Uniumplemented..yet!)
+#
+# Impacting scroll on every page....
+# eahefnawy:meteor-onepage-scroll
 #
 
 
@@ -130,5 +132,5 @@ mdg:camera
 
 # NEW
 ericchen0121:filter-collections
-# tsega:skrollr
-eahefnawy:meteor-onepage-scroll
+tsega:skrollr
+# mrt:skrollr-meteor
