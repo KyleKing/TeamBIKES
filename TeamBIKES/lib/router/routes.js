@@ -19,6 +19,11 @@ Router.route('/onePageScroll', {
   controller: 'MapController'
 });
 
+Router.route('/skrollr', {
+  name: 'skrollr',
+  controller: 'MapController'
+});
+
 /*********************************************/
 /*   Make sure sign in only, but student role          */
 /********************************************/
@@ -37,7 +42,7 @@ Router.plugin('ensureSignedIn', {
     // // Array of pages only visible to users
     // only: ['dashboard']
     // Array of pages not secured
-    except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll']
+    except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr']
 });
 
 // Private
