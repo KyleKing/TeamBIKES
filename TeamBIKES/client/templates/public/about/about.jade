@@ -1,63 +1,83 @@
 template(name='about')
   .jumbotron
-    h1 Welcome to the bike share of the future
-    p College transportation was just reinvented. Get hip
-    p
-      a.btn.btn-primary.btn-lg(href="{{pathFor 'progress'}}" role='button') Learn more
+    .container
+      h1.page-header
+      h1.page-header
+      h1 Welcome to the bike share of the future
+      p College transportation was just reinvented. Get hip
+      p
+        a.btn.btn-primary.btn-lg(href="{{pathFor 'progress'}}" role='button') Learn more
+      h1.page-header
+      h1.page-header
   h1.page-header
   .row
-    .col-md-8
-      .panel.panel-primary
-        .panel-heading
-          h3.panel-title Locate the Nearest Bike
-        .panel-body
-          | By visiting our
-          a(href="{{pathFor 'map'}}") modern web app
-          | quickly find the nearest bike and get to where you need to be faster.
-    .col-md-4
-      //- img.img-circle(src='images/unsplashBike.jpg').unsplash
-      img.img-rounded(src='images/iphone5s_spacegrey_portrait.png').unsplash
+    .container
+      .col-md-8
+        .panel.panel-primary
+          .panel-heading
+            h3.panel-title Locate the Nearest Bike
+          .panel-body
+            | By visiting our
+            a(href="{{pathFor 'map'}}") modern web app
+            | quickly find the nearest bike and get to where you need to be faster.
+      .col-md-4
+        //- img.img-circle(src='images/unsplashBike.jpg').unsplash
+        img.img-rounded(src='images/iphone5s_spacegrey_portrait.png').unsplash
   h1.page-header
   .row
-    .col-md-4
-      img.img-rounded(src='images/unsplashLock.jpg').unsplash
-    .col-md-8
-      .panel.panel-success
-        .panel-heading
-          h3.panel-title Unlock Your Bike
-        .panel-body
-          | Swipe your membership card and the bike will automatically unlock starting your journey.
+    .container
+      .col-md-4
+        img.img-rounded(src='images/unsplashLock.jpg').unsplash
+      .col-md-8
+        .panel.panel-success
+          .panel-heading
+            h3.panel-title Unlock Your Bike
+          .panel-body
+            | Swipe your membership card and the bike will automatically unlock starting your journey.
   h1.page-header
   .row
-    .col-md-8
-      .panel.panel-info
-        .panel-heading
-          h3.panel-title Ride and Return
-        .panel-body
-          | Go to your next class, lunch with friends, or all the way into DC. When you're finished, just lock your bike to a bike rack on campus.
-    .col-md-4
-      img.img-rounded(src='images/unsplashBike.jpg').unsplash
-  h1.page-header What are you waiting for?
-  .row
-    .col-md-4.col-md-offset-4
-      button.btn.btn-default.btn-lg.btn-block(type='button')
-        a(href="{{pathFor 'atSignUp'}}") Register!
+    .container
+      .col-md-8
+        .panel.panel-info
+          .panel-heading
+            h3.panel-title Ride and Return
+          .panel-body
+            | Go to your next class, lunch with friends, or all the way into DC. When you're finished, just lock your bike to a bike rack on campus.
+      .col-md-4
+        img.img-rounded(src='images/unsplashBike.jpg').unsplash
+  .container
+    h1.page-header What are you waiting for?
+    .row
+      .col-md-4.col-md-offset-4
+        button.btn.btn-default.btn-lg.btn-block(type='button')
+          a(href="{{pathFor 'atSignUp'}}") Register!
   h1.page-header
   .row
-  //- .panel.panel-warning ...
-  //- .panel.panel-danger ...
+  h1.page-header
+  .row
+  h1.page-header
+  .row
+  h1.page-header
+  .row
+  h1.page-header
+  .row
+  h1.page-header
+  .row
+    .container
+      .panel.panel-warning ...
+      .panel.panel-danger ...
 
-  //- .template-about
-  //-   .page-header
-  //-     h1 Welcome to the Team Bikes Bikeshare About page
-  //-   //- +admin1layout
-  //-   h3 Incredible Speed When You Need It
-  //-   p Pick up and drop off a bike anywhere there is a bike rack. Get to class as quickly as possible to sleep in those valuable 15 minutes.
-  //-   h3 Or as Slow as You Want
-  //-   p Explore DC atop one of our bikes for a night time ride through the monuments.
-  //-   h3 A Deal Built for College Students
-  //-   p For a fraction of the cost of owning and maintaining your own bike, pay for only the time you need a bike. With a small annual subscription, you get started with a Team BIKES RFID swipe, then use it whenever and wherever you want with our flexible pricing scale.
-  //-   h3 Personalized Metrics
-  //-   p Track your fitness, mileage and use in a sleek fast web app.
-  //-   h3 Choose the plan that fits your needs
-  //-   p sport, quick, needy
+      .template-about
+        .page-header
+          h1 Welcome to the Team Bikes Bikeshare About page
+        //- +admin1layout
+        h3 Incredible Speed When You Need It
+        p Pick up and drop off a bike anywhere there is a bike rack. Get to class as quickly as possible to sleep in those valuable 15 minutes.
+        h3 Or as Slow as You Want
+        p Explore DC atop one of our bikes for a night time ride through the monuments.
+        h3 A Deal Built for College Students
+        p For a fraction of the cost of owning and maintaining your own bike, pay for only the time you need a bike. With a small annual subscription, you get started with a Team BIKES RFID swipe, then use it whenever and wherever you want with our flexible pricing scale.
+        h3 Personalized Metrics
+        p Track your fitness, mileage and use in a sleek fast web app.
+        h3 Choose the plan that fits your needs
+        p sport, quick, needy
