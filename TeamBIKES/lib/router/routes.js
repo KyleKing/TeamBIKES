@@ -1,7 +1,7 @@
 // Public
 Router.route('/', {
   name: 'about',
-  controller: 'AppController'
+  controller: 'MapController'
 });
 
 Router.route('FAQ', {
