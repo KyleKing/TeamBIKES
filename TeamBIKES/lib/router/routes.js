@@ -14,6 +14,11 @@ Router.route('map', {
   controller: 'MapController'
 });
 
+Router.route('/onePageScroll', {
+  name: 'onePageScroll',
+  controller: 'MapController'
+});
+
 /*********************************************/
 /*   Make sure sign in only, but student role          */
 /********************************************/
