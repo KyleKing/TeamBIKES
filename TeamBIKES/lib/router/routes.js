@@ -21,7 +21,7 @@ Router.route('/onePageScroll', {
 
 Router.route('/skrollr', {
   name: 'skrollr',
-  controller: 'MapController'
+  controller: 'AppController'
 });
 
 /*********************************************/
