@@ -25,9 +25,10 @@ anti:fake
 # clinical:accounts-famous-dead-people
 
 # Preprocessors
-stylus
-# mquandalle:stylus
 mquandalle:jade
+coffeescript
+stylus
+# cryptoquick:stylus-multi
 
 # JS Libraries - Tools
 momentjs:moment
@@ -138,5 +139,31 @@ mrt:jquery-easing
 # https://atmospherejs.com/alexanderson1993/please.js
 # This looks fun:
 ## alexanderson1993:please.js
-# cryptoquick:stylus-multi
-## innovae:bootstrap-stylus
+
+
+
+
+
+# From Killer demo app #2
+# aldeed:collection2
+# aldeed:simple-schema
+# raix:handlebar-helpers
+# cfs:standard-packages
+# cfs:gridfs
+# aldeed:template-extension
+# yogiben:alerts
+# cfs:graphicsmagick
+# yogiben:helpers
+# yogiben:user-helpers
+# yogiben:autoform-modals@0.2.8
+# yogiben:favorites@0.0.4
+# yogiben:comments@0.0.8
+# yogiben:notifications@0.0.6
+# yogiben:pretty-emails
+# yogiben:pretty-email
+# yogiben:autoform-file
+# yogiben:admin
+# yogiben:autoform-map@0.0.2
+# multiply:iron-router-progress
+# manuelschoebel:ms-seo
+# spiderable
