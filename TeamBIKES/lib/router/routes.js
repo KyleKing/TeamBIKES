@@ -1,4 +1,9 @@
 // Public
+Router.route('/home', {
+  name: 'home',
+  controller: 'MapController'
+});
+
 Router.route('/', {
   name: 'about',
   controller: 'MapController'
@@ -47,7 +52,7 @@ Router.plugin('ensureSignedIn', {
     // // Array of pages only visible to users
     // only: ['dashboard']
     // Array of pages not secured
-    except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr', 'progress']
+    except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr', 'progress', 'home']
 });
 
 // Private
