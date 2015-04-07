@@ -138,3 +138,31 @@ mdg:camera
 # NEW
 ericchen0121:filter-collections
 meteorhacks:kadira
+percolate:velocityjs
+francocatena:compass
+
+# Motivation:
+# https://github.com/daneden/animate.css
+natestrauser:animate-css
+# https://github.com/alvarotrigo/fullPage.js
+# https://www.binpress.com/tutorial/creating-a-full-page-scrolling-website-with-fullpagejs/136
+# lawshe:full-page
+# https://github.com/modernassembly/threesixtyjs
+
+# http://prismjs.com/
+mrt:prismjs
+# https://atmospherejs.com/bkruse/pace
+# http://github.hubspot.com/pace/docs/welcome/
+bkruse:pace
+# http://rocha.la/jQuery-slimScroll
+
+# https://atmospherejs.com/timmyg/wow
+# http://mynameismatthieu.com/WOW/
+timmyg:wow
+# http://gsgd.co.uk/sandbox/jquery/easing/
+mrt:jquery-easing
+# Alt: https://atmospherejs.com/andreioprisan/ceaser-easing-sass
+
+# https://atmospherejs.com/alexanderson1993/please.js
+# This looks fun:
+alexanderson1993:please.js
