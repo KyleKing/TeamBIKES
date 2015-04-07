@@ -18,11 +18,6 @@ yasinuslu:blaze-meta
 # Authentication
 accounts-password
 useraccounts:bootstrap
-# 
-# (Uniumplemented..yet!)
-# alanning:roles
-# (Uniumplemented..yet!)
-# 
 
 # Seed Data
 dburles:factory
@@ -30,9 +25,8 @@ anti:fake
 # clinical:accounts-famous-dead-people
 
 # Preprocessors
-less
-fourseven:scss
-# fourseven:scss@=0.9.6
+stylus
+# mquandalle:stylus
 mquandalle:jade
 
 # JS Libraries - Tools
@@ -40,6 +34,36 @@ momentjs:moment
 mrt:underscore-string-latest
 # JS Libraries - Visual
 mrt:leaflet
+
+# Tools - General
+meteorhacks:kadira
+meteorhacks:aggregate
+jparker:crypto-aes
+
+# Misc:
+cunneen:mailgun
+cmather:handlebars-server@0.2.0
+
+# Mobile Functions
+mdg:camera
+
+
+
+
+
+
+
+# Untested
+# 
+# (Uniumplemented..yet!)
+# alanning:roles
+# (Uniumplemented..yet!)
+# 
+#
+# (Uniumplemented..yet!)
+# aldeed:collection2
+# aldeed:autoform
+#
 # 
 # (Uniumplemented..yet!)
 appshore:leaflet-awesome-markers
@@ -53,36 +77,6 @@ tsega:skrollr
 # maazalik:highcharts
 # jhuenges:highstock
 # (Uniumplemented..yet!)
-# 
-
-
-# Forms
-#
-# (Uniumplemented..yet!)
-# aldeed:collection2
-# aldeed:autoform
-#
-
-# Tools - General
-meteorhacks:aggregate
-# RFID security:
-jparker:crypto-aes
-
-# Misc:
-cunneen:mailgun
-cmather:handlebars-server@0.2.0
-
-# Mobile Functions
-mdg:camera
-
-# Stored inside project as files
-# # Bootstrap
-# mrt:bootstrap-3
-# twbs:bootstrap
-# # Font Awesome
-# natestrauser:font-awesome
-
-# Untested
 #
 # (Uniumplemented..yet!)
 # matdutour:outdated-browser
@@ -92,10 +86,8 @@ mdg:camera
 
 
 # ---TBD---
-# rajit:bootstrap3-datepicker
 # lepozepo:accounting
 # mrt:nprogress
-# pcuci:bootcards
 # matteodem:gridster
 # raix:handlebar-helpers
 # joshowens:accounts-entry
@@ -103,28 +95,11 @@ mdg:camera
 # percolate:momentum
 # modweb:vivus
 # mrt:chartjs
-# fezvrasta:bootstrap-material-design
 # zimme:iron-router-auth
 
 # ___Useful for secure remote DDP COnnections___
 # meteorhacks:firewall
 
-# # # # # # # # # # # #
-# # # # React Framework
-# reactjs:react
-# # # # # # # # # # # #
-# # # # Famous Animations
-# mjn:famous
-# gadicohen:famous-views
-# # # # # # # # # # # #
-# # # # Ionic
-# http://meteoric.github.io/ - Mobile components
-# meteoric:ionic-sass
-# meteoric:ionicons-sass
-# meteoric:ionic
-
-# ___Animation Things___
-# velocityjs:velocityjs
 # ___Cordova Things___
 # richsilv:cordova-notifications
 # fastclick # already in 'meteor show meteor-platform'
@@ -136,33 +111,32 @@ mdg:camera
 
 
 # NEW
-ericchen0121:filter-collections
-meteorhacks:kadira
-percolate:velocityjs
-francocatena:compass
+## ericchen0121:filter-collections
 
 # Motivation:
 # https://github.com/daneden/animate.css
-natestrauser:animate-css
+## natestrauser:animate-css
 # https://github.com/alvarotrigo/fullPage.js
 # https://www.binpress.com/tutorial/creating-a-full-page-scrolling-website-with-fullpagejs/136
-# lawshe:full-page
+## lawshe:full-page
 # https://github.com/modernassembly/threesixtyjs
 
 # http://prismjs.com/
-mrt:prismjs
+## mrt:prismjs
 # https://atmospherejs.com/bkruse/pace
 # http://github.hubspot.com/pace/docs/welcome/
-bkruse:pace
+## bkruse:pace
 # http://rocha.la/jQuery-slimScroll
 
 # https://atmospherejs.com/timmyg/wow
 # http://mynameismatthieu.com/WOW/
-timmyg:wow
+## timmyg:wow
 # http://gsgd.co.uk/sandbox/jquery/easing/
 mrt:jquery-easing
 # Alt: https://atmospherejs.com/andreioprisan/ceaser-easing-sass
 
 # https://atmospherejs.com/alexanderson1993/please.js
 # This looks fun:
-alexanderson1993:please.js
+## alexanderson1993:please.js
+# cryptoquick:stylus-multi
+## innovae:bootstrap-stylus
