@@ -194,9 +194,12 @@ main {
 /* Slide 2 */
 #slide-2 .bcg {background-image:url('../img/bcg_slide-2.jpg')}
 #slide-2 .hsContent {
-  margin-left: -450px;
-  bottom: 200px;
-  top: auto;
+    margin-left: -450px;
+    top: auto;
+}
+#slide-2 h2 {
+    position: fixed;
+    top: 70%;
 }
 
 /* Slide 3 */
@@ -212,13 +215,15 @@ main {
 /* Slide 4 */
 #slide-4 .bcg {background-image:url('../img/bcg_slide-4.jpg')}
 #slide-4 .hsContent {
-  margin-left: -450px;
+    margin-left: -450px;
+    position: fixed;
+    top: 250px;
 }
-  #slide-4 h2 {
+#slide-4 h2 {
     background: none;
     padding-left: 0;
     padding-right: 0;
-  }
+}
 
 /* ==========================================================================
    Helper classes
