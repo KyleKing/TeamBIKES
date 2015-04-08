@@ -1,10 +1,15 @@
 template(name='RFIDlayout')
-  table.data-set
-    //- Labels Row
-    tr
-      td RFIDCode
-      td time
-    each RFIDlayout
+  .template-home
+    .page-header
+      h1 RFID
+  table.table.table-hover.table-condensed
+    thead
+      //- Labels Row
       tr
-        td #{RFIDCode}
-        td {{formatDate time "short"}}
+        th RFIDCode
+        th time
+    tbody
+      each RFIDlayout
+        tr
+          td #{RFIDCode}
+          td {{formatDate time "short"}}

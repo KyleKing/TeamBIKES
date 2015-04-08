@@ -106,26 +106,28 @@ template(name='bikesList')
       //-   option(label="midpoint") 50
       //-   option 7
       //-   option 90
-  table.data-set
+  table.table.table-hover.table-condensed
     //- Labels Row
-    tr
-      td timestamp
-      td status
-      td mechanicNotes
-      td partslist
-      td mechanic
-      td role
-      td.pos lat
-      td.pos lng
-    //- Actual Bike Data
-    each bikes
+    thead
       tr
-        td {{formatDate timestamp "short"}}
-        //- td {{formatDate timestamp "shortest"}}
-        td #{status}
-        td #{mechanicNotes}
-        td #{partslist}
-        td #{mechanic}
-        td #{role}
-        td.pos #{lat}
-        td.pos #{lng}
+        th timestamp
+        th status
+        th mechanicNotes
+        th partslist
+        th mechanic
+        th role
+        th.pos lat
+        th.pos lng
+      //- Actual Bike Data
+    tbody
+      each bikes
+        tr
+          td {{formatDate timestamp "short"}}
+          //- td {{formatDate timestamp "shortest"}}
+          td #{status}
+          td #{mechanicNotes}
+          td #{partslist}
+          td #{mechanic}
+          td #{role}
+          td.pos #{lat}
+          td.pos #{lng}

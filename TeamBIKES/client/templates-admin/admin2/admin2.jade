@@ -1,35 +1,42 @@
 template(name='admin2layout')
+  .template-home
+    .page-header
+      h1 Admin 2
   if ViewUsersFunc
     button.seeLess See Less
   if ViewUsersFunc
-    table.data-set
-      //- Per user history
-      tr
-        td bike
-        td timestamp
-        td User
-        td Lat
-        td Lng
-      each admin2layout
+    table.table.table-hover.table-condensed
+      thead
+        //- Per user history
         tr
-          td #{bike}
-          td {{formatDate timestamp "short"}}
-          //- td #{timestamp}
-          td #{user}
-          td #{lat}
+          th bike
+          th timestamp
+          th User
+          th Lat
+          th Lng
+      tbody
+        each admin2layout
+          tr
+            td #{bike}
+            td {{formatDate timestamp "short"}}
+            //- td #{timestamp}
+            td #{user}
+            td #{lat}
           td #{lng}
   else
-    table.data-set
-      //- Labels Row
-      tr
-        td ID
-        td User
-        td rides
-        td &nbsp;
-      each admin2layout
+    table.table.table-hover.table-condensed
+      thead
+        //- Labels Row
         tr
-          td #{_id}
-          td #{user}
-          td #{rides}
-          td
-            button.seeMore See More
+          th ID
+          th User
+          th rides
+          th &nbsp;
+      tbody
+        each admin2layout
+          tr
+            td #{_id}
+            td #{user}
+            td #{rides}
+            td
+              button.seeMore See More
