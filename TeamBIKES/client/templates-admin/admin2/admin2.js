@@ -2,7 +2,21 @@ Meteor.subscribe("TestUsersData");
 /*********************************************/
 /*   Temporarily commented out for Eric                      */
 /********************************************/
-// Meteor.call('eachBike');
+Meteor.call('eachBike');
+
+
+
+
+Template.admin2layout.helpers({
+  postId: function () {
+    var controller = Iron.controller();
+    console.log('test');
+
+    // reactively return the value of postId
+    return controller.state.get('postId');
+  }
+});
+
 
 Template.admin2layout.created = function() {
   // Default to all users view
