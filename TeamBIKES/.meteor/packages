@@ -3,6 +3,8 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+# Try Ruby syntax highlighting! Or CoffeeScript!
+
 meteor-platform
 
 # Collections:
@@ -24,6 +26,15 @@ dburles:factory
 anti:fake
 # clinical:accounts-famous-dead-people
 
+# Tools - General
+meteorhacks:kadira
+meteorhacks:aggregate
+jparker:crypto-aes
+
+# Misc:
+cunneen:mailgun
+cmather:handlebars-server@0.2.0
+
 # Preprocessors
 mquandalle:jade
 coffeescript
@@ -36,14 +47,10 @@ mrt:underscore-string-latest
 # JS Libraries - Visual
 mrt:leaflet
 
-# Tools - General
-meteorhacks:kadira
-meteorhacks:aggregate
-jparker:crypto-aes
-
-# Misc:
-cunneen:mailgun
-cmather:handlebars-server@0.2.0
+# JS Libraries - Visuals
+# https://atmospherejs.com/timmyg/wow
+# http://mynameismatthieu.com/WOW/
+timmyg:wow
 
 # Mobile Functions
 mdg:camera
@@ -111,9 +118,6 @@ tsega:skrollr
 ## bkruse:pace
 # http://rocha.la/jQuery-slimScroll
 
-# https://atmospherejs.com/timmyg/wow
-# http://mynameismatthieu.com/WOW/
-## timmyg:wow
 # http://gsgd.co.uk/sandbox/jquery/easing/
 mrt:jquery-easing
 # Alt: https://atmospherejs.com/andreioprisan/ceaser-easing-sass
