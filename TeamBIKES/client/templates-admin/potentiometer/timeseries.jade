@@ -1,17 +1,22 @@
 template(name="timeseries")
+  .template-home
+    .page-header
+      h1 Potentiometer - Timeseries
   h3.cntr Bike Number #{timeseries.Bike} on Day: #{timeseries.MM}, #{timeseries.DD}, #{timeseries.YYYY}
-  table.data-set
-    //- Labels Row
-    tr
-      td this
-      td User
-      td Lat
-      td Long
-    //- every recording of bike __ at noon (i.e. 12 am) on above date
-    each timeseries.Time
-      each this
-        tr
-          td #{this}
-          td #{User}
-          td #{Lat}
-          td #{Long}
+  table.table.table-hover.table-condensed
+    thead
+      //- Labels Row
+      tr
+        th this
+        th User
+        th Lat
+        th Long
+      //- every recording of bike __ at noon (i.e. 12 am) on above date
+    tbody
+      each timeseries.Time
+        each this
+          tr
+            td #{this}
+            td #{User}
+            td #{Lat}
+            td #{Long}
