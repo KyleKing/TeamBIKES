@@ -1,0 +1,105 @@
+//- body
+//-   template(name='home')
+//-     #skrollr-body
+//-       +skrollrBackground
+//-       section#intro.colored.text-center
+//-         header
+//-           nav.navbar.navbar-default(role='navigation')
+//-             .container
+//-               .row
+//-                 a.navbar-brand(href="{{pathFor 'home'}}") {{Config.name}}
+//-                 #main-nav.navbar-collapse
+//-                   ul.social-links
+//-                     unless currentUser
+//-                       a#home-login(href="{{pathFor 'entrySignIn'}}")
+//-                         li Login
+//-                     each socialMedia
+//-                       a(href='{{url}}' target='_blank')
+//-                         li.fa(class="fa-{{icon}}")
+//-         .container
+//-           .intro-well.wow.animated.bounceIn
+//-             .row
+//-               .col-lg-12.col-sm-12
+//-                 h1 {{Config.title}}
+//-                 h2.hidden-xs(style='color:white;') {{Config.subtitle}}
+//-                 if currentUser
+//-                   a.btn.btn-success(href="{{pathFor 'dashboard'}}")
+//-                     i.fa.fa-dashboard
+//-                     |  Go to dashboard
+//-                 else
+//-                   a.btn.btn-success(href="{{pathFor 'entrySignUp'}}") Get started
+//-               //
+//-                 <div class="col-lg-6 col-sm-6">
+//-                 <img class="img-responsive" src="/img/image-header1.png" alt="">
+//-                 </div>
+//-       section#how-it-works.text-center
+//-         .container.wow.fadeIn.animated
+//-           .row.col-md-12
+//-             h3 How it works
+//-             h4 {{Config.name}} - {{Config.subtitle}}
+//-         .container
+//-           #icon-row.row
+//-             .col-md-4.wow.fadeInLeft.animated(data-wow-delay='0.4s')
+//-               .iconbox
+//-                 i.fa.fa-plane.fa-3x
+//-               p.icntitle 1. Step 1
+//-               p.icnp Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//-             .col-md-4.wow.fadeInUp.animated(data-wow-delay='0.8s')
+//-               .iconbox
+//-                 i.fa.fa-bolt.fa-3x
+//-               p.icntitle 2. Step 2
+//-               p.icnp
+//-                 | Oratio me istius philosophi non offendit; Qua tu etiam inprudens utebare non numquam.
+//-             .col-md-4.wow.fadeInRight.animated(data-wow-delay='1.2s')
+//-               .iconbox
+//-                 i.fa.fa-check.fa-3x
+//-               p.icntitle 3. Step 3
+//-               p.icnp Et ille ridens: Video, inquit, quid agas; Duo Reges: constructio interrete.
+//-       //
+//-         <section id="examples">
+//-         <div class="container wow fadeInUp animated">
+//-         <h1>Great features!</h1>
+//-         <h2>You can use {{Config.siteName}} to do anything</h2>
+//-         </div>
+//-         </section>
+//-       section#ipad.colored.text-center
+//-         .container
+//-           .row
+//-             .col-sm-6
+//-               h3 A revolutionary product
+//-               p Do really cool stuff really quickly
+//-               p.text-center
+//-                 a.btn.btn-success(href='{{Config.about}}' target='_blank')
+//-                   | Made by MeteorFactory
+//-             .col-sm-6
+//-               img#ipad.wow.animated.fadeInRight(src='/img/ipad.png' alt='' data-wow-delay='1s')
+//-       section#final
+//-         .container
+//-           .row
+//-             .col-md-4.text-center.wow.fadeInDown.animated(data-wow-delay='0.8s')
+//-               h3
+//-                 | Your life will be instantly better
+//-               .text-center
+//-                 a.btn.btn-primary(href="{{pathFor 'entrySignUp'}}") Take a look
+//-             .col-md-8.wow.fadeInUp.animated
+//-               img.img-responsive.wow(src='img/screenshot.png' data-wow-delay='0.6s' alt='picture')
+//-     +footerHome
+//-   template(name='skrollrBackground')
+//-     #skroll-background-intro.parallax-image-wrapper.parallax-image-wrapper-100(data-anchor-target='#intro' data-bottom-top='transform:translate3d(0px, 200%, 0px)' data-top-bottom='transform:translate3d(0px, 0%, 0px)')
+//-       .parallax-image.parallax-image-100(data-anchor-target='#intro' data-bottom-top='transform: translate3d(0px, -80%, 0px);' data-top-bottom='transform: translate3d(0px, 80%, 0px);')
+//-       // the +/-80% translation can be adjusted to control the speed difference of the image
+//-   template(name='footerHome')
+//-     footer#footer-home
+//-       .container
+//-         .row.text-center
+//-           .col-md-offset-2.col-md-8
+//-             ul.social-networks
+//-               each socialMedia
+//-                 li
+//-                   a(href='{{url}}' target='_blank')
+//-                     span.fa-stack.fa-2x
+//-                       i.fa.fa-circle.fa-stack-2x
+//-                       i.fa.fa-stack-1x.fa-inverse(class="fa-{{icon}}")
+//-         .row
+//-           .col-md-12.text-center
+//-             | {{{Config.footer}}}

@@ -55,18 +55,10 @@ mdg:camera
 
 
 # Untested
-# 
-# (Uniumplemented..yet!)
 # alanning:roles
-# (Uniumplemented..yet!)
-# 
-#
-# (Uniumplemented..yet!)
 # aldeed:collection2
 # aldeed:autoform
-#
-# 
-# (Uniumplemented..yet!)
+
 appshore:leaflet-awesome-markers
 # fuatsengul:leaflet-markercluster
 # jeremy:snapsvg
@@ -77,14 +69,7 @@ tsega:skrollr
 #
 # maazalik:highcharts
 # jhuenges:highstock
-# (Uniumplemented..yet!)
-#
-# (Uniumplemented..yet!)
 # matdutour:outdated-browser
-#
-
-
-
 
 # ---TBD---
 # lepozepo:accounting
@@ -110,9 +95,6 @@ tsega:skrollr
 
 
 
-
-# NEW
-## ericchen0121:filter-collections
 
 # Motivation:
 # https://github.com/daneden/animate.css
@@ -167,3 +149,7 @@ mrt:jquery-easing
 # multiply:iron-router-progress
 # manuelschoebel:ms-seo
 # spiderable
+
+
+# NEW
+## ericchen0121:filter-collections

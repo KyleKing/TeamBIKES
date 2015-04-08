@@ -1,9 +1,6 @@
-// Public
-Router.route('/home', {
-  name: 'home',
-  controller: 'MapController'
-});
-
+/*********************************************/
+/*   Public          */
+/********************************************/
 Router.route('/', {
   name: 'about',
   controller: 'MapController'
@@ -19,30 +16,13 @@ Router.route('map', {
   controller: 'MapController'
 });
 
-Router.route('/onePageScroll', {
-  name: 'onePageScroll',
-  controller: 'MapController'
-});
-
-Router.route('/skrollr', {
-  name: 'skrollr',
-  controller: 'AppController'
-});
-
-Router.route('/progress', {
-  name: 'progress',
-  controller: 'AppController'
-});
-
 /*********************************************/
 /*   Make sure sign in only, but student role          */
 /********************************************/
-
 Router.route('student', {
   path: '/student',
   controller: 'AppController'
 });
-
 
 
 //
@@ -55,7 +35,10 @@ Router.plugin('ensureSignedIn', {
     except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr', 'progress', 'home']
 });
 
-// Private
+
+/*********************************************/
+/*   Private          */
+/********************************************/
 Router.route('/dashboard', {
   name: 'dashboard'
 });
@@ -99,6 +82,29 @@ Router.route('timeseries', {
   controller: 'AppController'
 });
 
+/*********************************************/
+/*   WIP - Test Routes          */
+/********************************************/
+
+Router.route('/home', {
+  name: 'home',
+  controller: 'skrollrController'
+});
+
+Router.route('/onePageScroll', {
+  name: 'onePageScroll',
+  controller: 'MapController'
+});
+
+Router.route('/skrollr', {
+  name: 'skrollr',
+  controller: 'AppController'
+});
+
+Router.route('/progress', {
+  name: 'progress',
+  controller: 'AppController'
+});
 
 /*********************************************/
 /*   Remove Below content for Production          */
