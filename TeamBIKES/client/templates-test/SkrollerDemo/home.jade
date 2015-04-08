@@ -1,0 +1,27 @@
+template(name='home')
+  #preload
+    img(src='img/bcg_slide-1.jpg')
+    img(src='img/bcg_slide-2.jpg')
+    img(src='img/bcg_slide-3.jpg')
+    img(src='img/bcg_slide-4.jpg')
+  main
+    section#slide-1.homeSlide
+      .bcg(data-center='background-position: 50% 0px;' data-top-bottom='background-position: 50% -100px;' data-anchor-target='#slide-1')
+        .hsContainer
+          .hsContent(data-center='bottom: 200px; opacity: 1' data-top='bottom: 1200px; opacity: 0' data-anchor-target='#slide-1 h2')
+            h2 Simple parallax scrolling is...
+    section#slide-2.homeSlide
+      .bcg
+        .hsContainer
+          .hsContent
+            h2 great for story telling websites.
+    section#slide-3.homeSlide
+      .bcg
+        .hsContainer
+          .hsContent
+            h2 Now go and create your own story
+    section#slide-4.homeSlide
+      .bcg
+        .hsContainer
+          .hsContent
+            h2 and share mine.
