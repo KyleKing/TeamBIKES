@@ -52,11 +52,6 @@ Router.route('chartsAdmin', {
   controller: 'AppController'
 });
 
-Router.route('admin2layout', {
-  path: '/Admin2',
-  controller: 'AppController'
-});
-
 Router.route('admin3layout', {
   path: '/Admin3',
   controller: 'AppController'
@@ -104,6 +99,25 @@ Router.route('/skrollr', {
 Router.route('/progress', {
   name: 'progress',
   controller: 'AppController'
+});
+
+// Router.route('admin2layout', {
+//   path: '/Admin2',
+//   controller: 'AppController'
+// });
+
+Router.route('/admin2layout/:_id', {
+  name: 'admin2layout',
+  controller: 'PostController'
+});
+
+PostController = AppController.extend({
+  action: function () {
+    // set the reactive state variable "postId" with a value
+    // of the id from our url
+    this.state.set('postId', this.params._id);
+    this.render();
+  }
 });
 
 /*********************************************/

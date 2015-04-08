@@ -1,7 +1,7 @@
 template(name='admin2layout')
   .template-home
     .page-header
-      h1 Admin 2
+      h1 Admin 2 #{postId}
   if ViewUsersFunc
     button.seeLess See Less
   if ViewUsersFunc
@@ -22,7 +22,7 @@ template(name='admin2layout')
             //- td #{timestamp}
             td #{user}
             td #{lat}
-          td #{lng}
+            td #{lng}
   else
     table.table.table-hover.table-condensed
       thead
