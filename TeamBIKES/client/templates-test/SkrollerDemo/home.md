@@ -1,12 +1,18 @@
-/* 
- _____   _           _         _                        _                  
-|_   _| | |         | |       | |                      | |                 
-  | |   | |__   __ _| |_ ___  | |_ ___  _ __ ___   __ _| |_ ___   ___  ___ 
+// As .md to prevent issues with main stylesheets
+
+
+
+
+
+/*
+ _____   _           _         _                        _
+|_   _| | |         | |       | |                      | |
+  | |   | |__   __ _| |_ ___  | |_ ___  _ __ ___   __ _| |_ ___   ___  ___
   | |   | '_ \ / _` | __/ _ \ | __/ _ \| '_ ` _ \ / _` | __/ _ \ / _ \/ __|
  _| |_  | | | | (_| | ||  __/ | || (_) | | | | | | (_| | || (_) |  __/\__ \
  \___/  |_| |_|\__,_|\__\___|  \__\___/|_| |_| |_|\__,_|\__\___/ \___||___/
 
-Oh nice, welcome to the stylesheet of dreams. 
+Oh nice, welcome to the stylesheet of dreams.
 It has it all. Classes, ID's, comments...the whole lot:)
 Enjoy responsibly!
 @ihatetomatoes
@@ -112,7 +118,7 @@ body, html {
   background-color: #000000;
 }
 body {
-  
+
 }
 .no-js {
   padding-top: 106px;
