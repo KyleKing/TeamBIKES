@@ -10,10 +10,13 @@ Meteor.call('eachBike');
 Template.admin2layout.helpers({
   postId: function () {
     var controller = Iron.controller();
-    console.log('test');
+
+    var test = controller.state.get('postId');
+    console.log(test);
+    Session.set('ViewUsers', parseInt(test));
 
     // reactively return the value of postId
-    return controller.state.get('postId');
+    return test;
   }
 });
 
