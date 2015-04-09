@@ -6,21 +6,18 @@ Router.route('/', {
   controller: 'MapController'
 });
 
-Router.route('FAQ', {
-  path: '/FAQ',
+Router.route('/FAQ', {
   controller: 'AppController'
 });
 
-Router.route('map', {
-  path: '/map',
+Router.route('/map', {
   controller: 'MapController'
 });
 
 /*********************************************/
 /*   Make sure sign in only, but student role          */
 /********************************************/
-Router.route('student', {
-  path: '/student',
+Router.route('/student', {
   controller: 'AppController'
 });
 
@@ -40,40 +37,34 @@ Router.plugin('ensureSignedIn', {
 /*   Private          */
 /********************************************/
 Router.route('/dashboard', {
-  name: 'dashboard'
 });
 
 Router.route('/users', {
-  name: 'users'
 });
 
-Router.route('chartsAdmin', {
-  path: '/charts',
+Router.route('/charts', {
+  name: 'chartsAdmin',
   controller: 'AppController'
 });
 
-Router.route('admin3layout', {
-  path: '/Admin3',
+Router.route('/Admin3', {
+  name: 'admin3layout',
   controller: 'AppController'
 });
 
-Router.route('RFIDlayout', {
-  path: '/RFIDlayout',
+Router.route('/RFIDlayout', {
   controller: 'AppController'
 });
 
-Router.route('mechanicView', {
-  path: '/mechanicView',
+Router.route('/mechanicView', {
   controller: 'AppController'
 });
 
-Router.route('mechmap', {
-  path: '/mechmap',
+Router.route('/mechmap', {
   controller: 'MapController'
 });
 
-Router.route('timeseries', {
-  path: '/timeseries',
+Router.route('/timeseries', {
   controller: 'AppController'
 });
 
@@ -82,42 +73,44 @@ Router.route('timeseries', {
 /********************************************/
 
 Router.route('/home', {
-  name: 'home',
   controller: 'skrollrController'
 });
 
 Router.route('/onePageScroll', {
-  name: 'onePageScroll',
   controller: 'MapController'
 });
 
 Router.route('/skrollr', {
-  name: 'skrollr',
   controller: 'AppController'
 });
 
 Router.route('/progress', {
-  name: 'progress',
   controller: 'AppController'
 });
 
-// Router.route('admin2layout', {
-//   path: '/Admin2',
-//   controller: 'AppController'
-// });
 
-Router.route('/admin2layout/:_id', {
+
+
+Router.route('/Admin2', {
   name: 'admin2layout',
-  controller: 'PostController'
+  controller: 'AppController'
 });
 
-PostController = AppController.extend({
-  action: function () {
-    // set the reactive state variable "postId" with a value
-    // of the id from our url
-    this.state.set('postId', this.params._id);
-    this.render();
+Router.route('/admin2layoutAllData', {
+  controller: 'AppController',
+  // waitOn: function () {
+  //   return Meteor.subscribe("TestUsersData");
+  // },
+  data: function() {
+    return TestUsers.find({},{limit: 20});
   }
+});
+
+Router.route('/admin2layoutBikeData/:_id', {
+  name: 'admin2layoutBikeData',
+  controller: 'AppController',
+  // // Note: this.params._id is shorthand for {_id: id}
+  data: function() { return TestUsers.findOne(this.params._id); }
 });
 
 /*********************************************/
@@ -126,6 +119,7 @@ PostController = AppController.extend({
 
 // For testing loading page with no wait time
 // Todo: Integrate more seamlessly into app
-Router.route('/loading', {
-  name: 'loading'
-});
+Router.route('/loading');
+
+
+
