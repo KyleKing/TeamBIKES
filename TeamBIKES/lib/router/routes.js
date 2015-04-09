@@ -22,9 +22,9 @@ Router.route('/student', {
 });
 
 
-//
-// The Secuirty Barrier in between
-//
+/*********************************************/
+/*   The Secuirty Barrier in between          */
+/********************************************/
 Router.plugin('ensureSignedIn', {
     // // Array of pages only visible to users
     // only: ['dashboard']
@@ -68,6 +68,23 @@ Router.route('/timeseries', {
   controller: 'AppController'
 });
 
+Router.route('/admin2layoutAllData', {
+  controller: 'AppController',
+  // waitOn: function () {
+  //   return Meteor.subscribe("TestUsersData");
+  // },
+  data: function() {
+    return TestUsers.find({},{limit: 20});
+  }
+});
+
+Router.route('/admin2layoutBikeData/:_id', {
+  name: 'admin2layoutBikeData',
+  controller: 'AppController',
+  // // Note: this.params._id is shorthand for {_id: id}
+  data: function() { return TestUsers.findOne(this.params._id); }
+});
+
 /*********************************************/
 /*   WIP - Test Routes          */
 /********************************************/
@@ -89,30 +106,6 @@ Router.route('/progress', {
 });
 
 
-
-
-Router.route('/Admin2', {
-  name: 'admin2layout',
-  controller: 'AppController'
-});
-
-Router.route('/admin2layoutAllData', {
-  controller: 'AppController',
-  // waitOn: function () {
-  //   return Meteor.subscribe("TestUsersData");
-  // },
-  data: function() {
-    return TestUsers.find({},{limit: 20});
-  }
-});
-
-Router.route('/admin2layoutBikeData/:_id', {
-  name: 'admin2layoutBikeData',
-  controller: 'AppController',
-  // // Note: this.params._id is shorthand for {_id: id}
-  data: function() { return TestUsers.findOne(this.params._id); }
-});
-
 /*********************************************/
 /*   Remove Below content for Production          */
 /********************************************/
@@ -120,6 +113,3 @@ Router.route('/admin2layoutBikeData/:_id', {
 // For testing loading page with no wait time
 // Todo: Integrate more seamlessly into app
 Router.route('/loading');
-
-
-
