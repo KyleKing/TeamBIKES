@@ -14,7 +14,10 @@ fields = ["name", "username", "email", "phone", "website"]
   dataMargin: 5
   fastRender: true
   perPage: 20
-  router: "iron-router"
+  router: 'iron-router'
+  homeRoute: '/items/'
+  routerTemplate: 'items'
+  routerLayout: 'appLayout'
   sort:
     name: 1
   table:

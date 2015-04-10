@@ -1,10 +1,10 @@
 /*********************************************/
 /*   Public          */
 /********************************************/
-// Router.route('/', {
-//   name: 'about',
-//   controller: 'MapController'
-// });
+Router.route('/', {
+  name: 'about',
+  controller: 'MapController'
+});
 
 Router.route('/FAQ', {
   controller: 'AppController'
@@ -113,3 +113,8 @@ Router.route('/progress', {
 // For testing loading page with no wait time
 // Todo: Integrate more seamlessly into app
 Router.route('/loading');
+
+// Router.route('/items_0', {
+//   name: 'items',
+//   controller: 'AppController'
+// });
