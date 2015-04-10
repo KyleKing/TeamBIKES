@@ -1,10 +1,10 @@
 /*********************************************/
 /*   Public          */
 /********************************************/
-Router.route('/', {
-  name: 'about',
-  controller: 'MapController'
-});
+// Router.route('/', {
+//   name: 'about',
+//   controller: 'MapController'
+// });
 
 Router.route('/FAQ', {
   controller: 'AppController'
@@ -26,10 +26,10 @@ Router.route('/student', {
 /*   The Secuirty Barrier in between          */
 /********************************************/
 Router.plugin('ensureSignedIn', {
-    // // Array of pages only visible to users
-    // only: ['dashboard']
+    // Array of pages only visible to users
+    only: ['dashboard']
     // Array of pages not secured
-    except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr', 'progress', 'home']
+    // except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr', 'progress', 'home']
 });
 
 
@@ -73,9 +73,9 @@ Router.route('/admin2layoutAllData', {
   // waitOn: function () {
   //   return Meteor.subscribe("TestUsersData");
   // },
-  data: function() {
-    return TestUsers.find({},{limit: 20});
-  }
+  // data: function() {
+  //   return TestUsers.find({},{limit: 20});
+  // }
 });
 
 Router.route('/admin2layoutBikeData/:_id', {
