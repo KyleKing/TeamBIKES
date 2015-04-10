@@ -1,9 +1,9 @@
-Items = new Mongo.Collection('items');
+// Items = new Mongo.Collection('items');
 
-Items.helpers({
+// Items.helpers({
 
-});
+// });
 
-Items.before.insert(function (userId, doc) {
-  doc.createdAt = moment().toDate();
-});
+// Items.before.insert(function (userId, doc) {
+//   doc.createdAt = moment().toDate();
+// });
