@@ -68,7 +68,13 @@ if (Meteor.isServer) {
             } else {
               _(Bike.positions).each(function(position) {
                 if (!TestUsers.findOne({'positions.timestamp': position.timestamp})) {
-                  positionsData = {bike: BikeNum, timestamp: position.timestamp,  user: position.user, lat: position.lat, lng: position.lng};
+                  positionsData = {
+                    bike: BikeNum,
+                    timestamp: position.timestamp,
+                    user: position.user,
+                    lat: position.lat,
+                    lng: position.lng
+                  };
                   TestUsers.update(
                     record, {
                       $addToSet: {positions: positionsData},
