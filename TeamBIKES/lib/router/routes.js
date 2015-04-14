@@ -73,9 +73,9 @@ Router.route('/admin2layoutAllData', {
   // waitOn: function () {
   //   return Meteor.subscribe("TestUsersData");
   // },
-  // data: function() {
-  //   return TestUsers.find({},{limit: 20});
-  // }
+  data: function() {
+    return TestUsers.find({},{limit: 20});
+  }
 });
 
 Router.route('/admin2layoutBikeData/:_id', {
