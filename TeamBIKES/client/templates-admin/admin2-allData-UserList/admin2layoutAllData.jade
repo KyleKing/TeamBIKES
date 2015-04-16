@@ -3,6 +3,7 @@ template(name='admin2layoutAllData')
     .page-header
       h1 Admin 2 - All Data
     //- Use data context set by Iron Router
+
     #with
       table.table.table-hover.table-condensed
         thead
@@ -10,7 +11,7 @@ template(name='admin2layoutAllData')
           tr
             th ID
             th User
-            th rides
+            th Rides
             th &nbsp;
         tbody
           each this
@@ -20,4 +21,4 @@ template(name='admin2layoutAllData')
               td #{rides}
               td
                 a(href="{{pathFor 'admin2layoutBikeData'}}")
-                  button.seeMore See More
+                  button.seeMore Details

@@ -1,8 +1,8 @@
-template(name='admin2layoutBikeData')
+template(name='admin3layoutBikeData')
   .template-home
     .page-header
-      h1 Admin 2 - Bike Data
-    a(href="{{pathFor 'admin2layoutAllData'}}")
+      h1 Admin 3 - Bike Data
+    a(href="{{pathFor 'admin3layoutAllData'}}")
       button.seeLess Back
 
   #with
@@ -10,17 +10,15 @@ template(name='admin2layoutBikeData')
       thead
         //- Per user history
         tr
-          th User
-          th Bike
           th Timestamp
+          th User
           th Lat.
           th Lng.
       tbody
         each this.positions
           tr
-            td #{user}
-            td #{bike}
             td {{formatDate timestamp "short"}}
             //- td #{timestamp}
+            td #{user}
             td #{lat}
             td #{lng}

@@ -47,11 +47,6 @@ Router.route('/charts', {
   controller: 'AppController'
 });
 
-Router.route('/Admin3', {
-  name: 'admin3layout',
-  controller: 'AppController'
-});
-
 Router.route('/RFIDlayout', {
   controller: 'AppController'
 });
@@ -70,11 +65,11 @@ Router.route('/timeseries', {
 
 Router.route('/admin2layoutAllData', {
   controller: 'AppController',
-  // waitOn: function () {
-  //   return Meteor.subscribe("TestUsersData");
-  // },
+   waitOn: function () {
+     return Meteor.subscribe("TestUsersData");
+   },
   data: function() {
-    return TestUsers.find({},{limit: 20});
+	 return TestUsers.find({},{limit: 20});
   }
 });
 
@@ -82,7 +77,30 @@ Router.route('/admin2layoutBikeData/:_id', {
   name: 'admin2layoutBikeData',
   controller: 'AppController',
   // // Note: this.params._id is shorthand for {_id: id}
+  waitOn: function () {
+	return Meteor.subscribe("TestUsersData");
+  },
   data: function() { return TestUsers.findOne(this.params._id); }
+});
+
+Router.route('/admin3layoutAllData', {
+  name: 'admin3layoutAllData',
+  controller: 'AppController',
+  waitOn: function () {
+    return Meteor.subscribe("TimeSeriesData");
+  },
+  data: function() {
+	return TimeSeries.find({},{limit: 20});
+  }
+});
+
+Router.route('/admin3layoutBikeData/:_id', {
+  name: 'admin3layoutBikeData',
+  controller: 'AppController',
+  waitOn: function () {
+	return Meteor.subscribe("TimeSeriesData");
+  },
+  data: function() { return TimeSeries.findOne(this.params._id); }
 });
 
 /*********************************************/
