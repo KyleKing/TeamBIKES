@@ -76,8 +76,8 @@
   // });
 
   // Subscription call inside charts-admin/chartsAdmin.js
-  Meteor.publish("timeseriesData", function() {
-    return TimeSeries.find({day: 98});
+  Meteor.publish("TimeSeriesData", function() {
+    return TimeSeries.find();
   });
   // chartsAdmin.js
   Meteor.publish("informationTestData", function() {
