@@ -57,7 +57,7 @@ ddpclient.connect(function(error) {
   function showPortOpen() { console.log('port open. Data rate: ' + serialPort.options.baudRate); }
   function saveLatestData(data) {
 
-    var array = data.split(','); // CSV Data Parse:
+    var array = data.split(';'); // CSV Data Parse:
     array[1] = (new Date()).getTime();
     var dataSet = {
       RFIDCode: array[0],
@@ -83,6 +83,9 @@ ddpclient.connect(function(error) {
       // // console.log(encrypted.toString());
       // console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
       console.log('called RFIDStreamData function, result: ' + result);
+      if (result != undefined) {
+        serialPort.write(result);
+      }
       console.log(' ');
     });
   }
