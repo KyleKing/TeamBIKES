@@ -68,20 +68,20 @@ ddpclient.connect(function(error) {
     ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
       console.log('data sent: ' + array);
 
-      // P-J's Suggestion
-      var CryptoJS = require("crypto-js");
-      var info = { message: "This is my message !", key: "Dino" };
+      // // P-J's Suggestion
+      // var CryptoJS = require("crypto-js");
+      // var info = { message: "This is my message !", key: "Dino" };
 
-      var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
-          mode: CryptoJS.mode.CBC,
-          padding: CryptoJS.pad.Pkcs7
-      });
-      var decrypted = CryptoJS.AES.decrypt(result, info.key, {
-          mode: CryptoJS.mode.CBC,
-          padding: CryptoJS.pad.Pkcs7
-      });
-      // console.log(encrypted.toString());
-      console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
+      // var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
+      //     mode: CryptoJS.mode.CBC,
+      //     padding: CryptoJS.pad.Pkcs7
+      // });
+      // var decrypted = CryptoJS.AES.decrypt(result, info.key, {
+      //     mode: CryptoJS.mode.CBC,
+      //     padding: CryptoJS.pad.Pkcs7
+      // });
+      // // console.log(encrypted.toString());
+      // console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
       console.log('called RFIDStreamData function, result: ' + result);
       console.log(' ');
     });
