@@ -28,19 +28,22 @@
 
 Meteor.methods({
   'RFIDStreamData': function (dataSet) {
-    console.log(dataSet);
-    var code = 'lunchonthesky';
+    var incoming = dataSet.RFIDCode;
+    console.log(incoming.trim());
+
+    // Remove excess whitespace
+    var code = incoming.trim();
     if ( RFIDdata.find({RFIDCode: code}).count() === 1 ) {
         // Correct RFID Code Found
         var record = RFIDdata.find({RFIDCode: code});
-        return 'True';
-    } else if ( RFIDdata.findOne({RFIDCode: code}).count() === 0 ) {
+        return 'OPENSESAME*';
+    } else if ( RFIDdata.find({RFIDCode: code}).count() === 0 ) {
         // No RFID Code Found
-        return 'False';
+        return 'NO*';
     } else {
         // Too many RFID codes found
         console.log('Too many matching RFID codes....what the heck!?!?!');
-        return 'System Error';
+        return 'MongoDB Error';
     }
   }
 });

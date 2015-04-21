@@ -1,5 +1,5 @@
-if(RFIDdata.find({RFIDCode: 'lunchonthesky'}).count() === 0) {
-  RFIDdata.insert({
-    RFIDCode: 'lunchonthesky'
-  });
-}
+// if(RFIDdata.find({RFIDCode: 'e4dd050f'}).count() === 0) {
+//   RFIDdata.insert({
+//     RFIDCode: 'e4dd050f'
+//   });
+// }
