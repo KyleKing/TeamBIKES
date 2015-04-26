@@ -132,6 +132,8 @@ Router.route('/progress', {
 // Todo: Integrate more seamlessly into app
 Router.route('/loading');
 
+Router.route('/agency');
+
 // Router.route('/items_0', {
 //   name: 'items',
 //   controller: 'AppController'
