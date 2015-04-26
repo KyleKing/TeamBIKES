@@ -1,5 +1,6 @@
 accounts-base@1.2.0
 accounts-password@1.1.1
+aldeed:template-extension@3.4.3
 alethes:pages@1.8.4
 anti:fake@0.4.1
 appshore:leaflet-awesome-markers@1.0.3
@@ -52,7 +53,7 @@ less@1.0.14
 livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
-matb33:collection-hooks@0.7.11
+matb33:collection-hooks@0.7.13
 mdg:camera@1.1.4
 meteor@1.1.6
 meteor-platform@1.2.2
@@ -67,7 +68,7 @@ minifiers@1.1.5
 minimongo@1.0.8
 mirageglobe:snapsvgcdn@1.2.2
 mobile-status-bar@1.0.3
-momentjs:moment@2.10.2
+momentjs:moment@2.10.3
 mongo@1.1.0
 mongo-livedata@1.0.8
 mquandalle:jade@0.4.1
@@ -77,6 +78,9 @@ mrt:underscore-string-latest@2.3.3
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ordered-dict@1.0.3
+peerlibrary:assert@0.2.5
+peerlibrary:base-component@0.8.0
+peerlibrary:blaze-components@0.8.0
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5
@@ -98,11 +102,11 @@ tracker@1.0.7
 tsega:skrollr@0.0.2
 ui@1.0.6
 underscore@1.0.3
+underscorestring:underscore.string@3.0.3
 url@1.0.4
-useraccounts:bootstrap@1.8.1
-useraccounts:core@1.8.1
+useraccounts:bootstrap@1.9.1
+useraccounts:core@1.9.1
 webapp@1.2.0
 webapp-hashing@1.0.3
-wizonesolutions:underscore-string@1.0.0
 yasinuslu:blaze-meta@0.3.1
-zimme:iron-router-active@1.0.1
+zimme:iron-router-active@1.0.4

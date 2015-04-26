@@ -17,6 +17,10 @@ template(name='_header')
                   |  {{ currentUser.profile.name }}
                 i.fa.fa-caret-down
               ul.dropdown-menu(role='menu')
+                li(class="{{ isActiveRoute regex='student' }}")
+                  a(href="{{ pathFor 'student' }}")
+                    i.fa.fa-user
+                      |  student
                 li
                   a(href='#' data-action='logout')
                     i.fa.fa-lock
@@ -43,18 +47,6 @@ template(name='_header')
             a(href="{{ pathFor 'map' }}")
               i.fa.fa-map-marker
                 |  Map
-          li(class="{{ isActiveRoute regex='onePageScroll' }}")
-            a(href="{{ pathFor 'onePageScroll' }}")
-              i.fa.fa-gear
-                |  onePageScroll
-          li(class="{{ isActiveRoute regex='skrollr' }}")
-            a(href="{{ pathFor 'skrollr' }}")
-              i.fa.fa-gear
-                |  skrollr
-          li(class="{{ isActiveRoute regex='student' }}")
-            a(href="{{ pathFor 'student' }}")
-              i.fa.fa-user
-                |  student
           li.dropdown
             a.dropdown-toggle(href='#' data-toggle='dropdown')
               //- i.fa.fa-ellipsis-h
@@ -98,3 +90,11 @@ template(name='_header')
                 a(href="{{ pathFor 'timeseries' }}")
                   i.fa.fa-table
                     |  timeseries
+              li(class="{{ isActiveRoute regex='onePageScroll' }}")
+                a(href="{{ pathFor 'onePageScroll' }}")
+                  i.fa.fa-gear
+                    |  onePageScroll
+              li(class="{{ isActiveRoute regex='skrollr' }}")
+                a(href="{{ pathFor 'skrollr' }}")
+                  i.fa.fa-gear
+                    |  skrollr
