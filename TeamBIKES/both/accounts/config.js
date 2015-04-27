@@ -1,6 +1,12 @@
 // See UserAccounts Package for configuration options
-AccountsTemplates.configureRoute('signIn', {layoutTemplate: 'appLayout'});
-AccountsTemplates.configureRoute('signUp', {layoutTemplate: 'appLayout'});
+AccountsTemplates.configureRoute('signIn', {
+  layoutTemplate: 'appLayout',
+  redirect: '/student'
+});
+AccountsTemplates.configureRoute('signUp', {
+  layoutTemplate: 'appLayout',
+  redirect: '/student'
+});
 AccountsTemplates.configureRoute('forgotPwd', {layoutTemplate: 'appLayout'});
 AccountsTemplates.configureRoute('changePwd', {layoutTemplate: 'appLayout'});
 AccountsTemplates.configureRoute('ensureSignedIn', {layoutTemplate: 'appLayout'});
@@ -45,7 +51,7 @@ AccountsTemplates.configure({
 
   // Redirects
   homeRoutePath: '/',
-  redirectTimeout: 4000,
+  redirectTimeout: 3000,
 
   // // Need to create function:
   // // Hooks
