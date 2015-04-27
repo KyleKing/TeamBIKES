@@ -1,8 +1,8 @@
-// Template.about.rendered = function () {
-//   new WOW().init();
-// };
-
 Template.about.rendered = function () {
+  // such Wow.js animatinos for explanation section
+  new WOW().init();
+
+  // Typed.js demo -> outputs text for title
   $(function(){
         $(".typed-element").typed({
           strings: [" faster", " smarter", " cheaper", " better"],
