@@ -148,7 +148,7 @@ fieldset[disabled] .btn-xl.active
   border-color accent-color
   background-color accent-color
 
-.navbar-default.agency
+.navbar-default
   border-color transparent
   background-color #222
   .navbar-brand
@@ -175,29 +175,33 @@ fieldset[disabled] .btn-xl.active
         border-radius 0
         color #fff
         background-color accent-color
+  ul.dropdown-menu
+    // background-color #222
+    a
+      color #222
 
-.navbar-default.agency .navbar-brand:hover,
-.navbar-default.agency .navbar-brand:focus,
-.navbar-default.agency .navbar-brand:active,
-.navbar-default.agency .navbar-brand.active
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-brand.active
   color accent-color-2
 
-.navbar-default.agency .navbar-toggle:hover,
-.navbar-default.agency .navbar-toggle:focus
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus
   background-color accent-color
 
-.navbar-default.agency .nav li a:hover,
-.navbar-default.agency .nav li a:focus
+.navbar-default .nav li a:hover,
+.navbar-default .nav li a:focus
   outline 0
   color accent-color
 
-.navbar-default.agency .navbar-nav>.active>a:hover,
-.navbar-default.agency .navbar-nav>.active>a:focus
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus
   color #fff
   background-color accent-color-2
 
 @media(min-width:768px) {
-    .navbar-default.agency {
+    .navbar-default {
         padding: 25px 0;
         border: 0;
         background-color: transparent;
@@ -206,23 +210,23 @@ fieldset[disabled] .btn-xl.active
         transition: padding .3s;
     }
 
-    .navbar-default.agency .navbar-brand {
-        font-size: 2em;
+    .navbar-default .navbar-brand {
+        font-size: 3em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
-        transition: all .3s;
+        transition: all .5s;
     }
 
-    .navbar-default.agency .navbar-nav>.active>a {
+    .navbar-default .navbar-nav>.active>a {
         border-radius: 3px;
     }
 
-    .navbar-default.agency.navbar-shrink {
+    .navbar-default.navbar-shrink {
         padding: 10px 0;
         background-color: #222222;
     }
 
-    .navbar-default.agency.navbar-shrink .navbar-brand {
+    .navbar-default.navbar-shrink .navbar-brand {
         font-size: 1.5em;
     }
 }
