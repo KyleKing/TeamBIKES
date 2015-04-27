@@ -72,7 +72,8 @@ mobile-status-bar@1.0.3
 momentjs:moment@2.10.3
 mongo@1.1.0
 mongo-livedata@1.0.8
-mquandalle:jade@0.4.1
+mquandalle:jade@0.4.2
+mquandalle:jade-compiler@0.4.2
 mrt:jquery-easing@1.3.0
 mrt:leaflet@0.3.8
 mrt:underscore-string-latest@2.3.3
