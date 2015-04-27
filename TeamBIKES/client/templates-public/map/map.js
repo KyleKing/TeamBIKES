@@ -67,7 +67,10 @@ Template.map.rendered = function() {
 
       // Creates a red marker with the coffee icon
       var redMarker = L.AwesomeMarkers.icon({
-        icon: 'coffee',
+        prefix: 'fa',
+        icon: 'bicycle',
+        // prefix: 'ion',
+        // icon: 'coffee',
         markerColor: 'red',
         iconColor: 'white'
       });

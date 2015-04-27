@@ -46,11 +46,15 @@ momentjs:moment
 mrt:underscore-string-latest
 # JS Libraries - Visual
 mrt:leaflet
+appshore:leaflet-awesome-markers
+mrt:ionicons
+fortawesome:fontawesome
 
 # JS Libraries - Visuals
-# https://atmospherejs.com/timmyg/wow
-# http://mynameismatthieu.com/WOW/
 timmyg:wow
+chrisbutler:typed.js
+mrt:jquery-easing
+
 
 # Mobile Functions
 mdg:camera
@@ -158,12 +162,5 @@ meteorhacks:fast-render
 digilord:faker
 
 peerlibrary:blaze-components
-chrisbutler:typed.js
-
-mrt:jquery-easing
 maazalik:highcharts
 # jhuenges:highstock
-
-
-
-appshore:leaflet-awesome-markers
