@@ -1,22 +1,22 @@
-template(name='admin3layoutAllData')
-  .template-home
-    .page-header
-      h1 Admin 3 - All Data
-    //- Use data context set by Iron Router
+//- template(name='admin3layoutAllData')
+//-   .template-home
+//-     .page-header
+//-       h1 Admin 3 - All Data
+//-     //- Use data context set by Iron Router
 
-  #with
-    table.table.table-hover.table-condensed
-      thead
-        //- Labels Row
-        tr
-          th Bike
-          th Status
-          th &nbsp;
-      tbody
-        each this
-          tr
-            td #{bike}
-            td #{status}
-            td
-              a(href="{{pathFor 'admin3layoutBikeData'}}")
-                button.seeMore Details
+//-   #with
+//-     table.table.table-hover.table-condensed
+//-       thead
+//-         //- Labels Row
+//-         tr
+//-           th Bike
+//-           th Status
+//-           th &nbsp;
+//-       tbody
+//-         each this
+//-           tr
+//-             td #{bike}
+//-             td #{status}
+//-             td
+//-               a(href="{{pathFor 'admin3layoutBikeData'}}")
+//-                 button.seeMore Details

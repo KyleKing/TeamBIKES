@@ -66,7 +66,6 @@ mdg:camera
 # aldeed:collection2
 # aldeed:autoform
 
-appshore:leaflet-awesome-markers
 # fuatsengul:leaflet-markercluster
 # jeremy:snapsvg
 mirageglobe:snapsvgcdn
@@ -154,7 +153,7 @@ mirageglobe:snapsvgcdn
 
 # NEW
 ## ericchen0121:filter-collections
-alethes:pages
+# alethes:pages
 meteorhacks:fast-render
 digilord:faker
 
@@ -165,3 +164,6 @@ mrt:jquery-easing
 maazalik:highcharts
 # jhuenges:highstock
 
+
+
+appshore:leaflet-awesome-markers
