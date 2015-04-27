@@ -29,11 +29,11 @@
 		function scrollPage() {
 			var sy = scrollY();
 			if ( sy >= changeHeaderOn ) {
-				console.log('AH: Add');
+				// console.log('AH: Add');
 				classie.add( document.querySelector( '.navbar-default' ), 'navbar-shrink' );
 			}
 			else {
-				console.log('AH: Remove');
+				// console.log('AH: Remove');
 				classie.remove( document.querySelector( '.navbar-default' ), 'navbar-shrink' );
 			}
 			didScroll = false;

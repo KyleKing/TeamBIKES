@@ -2,8 +2,7 @@
 /*   Public          */
 /********************************************/
 Router.route('/', {
-  name: 'about',
-  controller: 'MapController'
+  name: 'about'
 });
 
 Router.route('/FAQ', {

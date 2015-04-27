@@ -1,86 +1,324 @@
 template(name='about')
-  .jumbotron
-    .container
-      h1.page-header
-      h1.page-header
-      h1 Welcome to the bike share of the future
-      p College transportation was just reinvented. Get hip
-      p
-        a.btn.btn-primary.btn-lg(href="{{pathFor 'progress'}}" role='button') Learn more
-      h1.page-header
-      h1.page-header
-  h1.page-header
-  .row
-    .container
-      .col-md-8
-        .panel.panel-primary
-          .panel-heading
-            .span3.wow.rollIn.animated(data-wow-delay="0.5s" style="visibility: visible; -webkit-animation-delay: 0.5s;")
-              p.circle.bg-green such easy
-            h3.panel-title Locate the Nearest Bike
-          .panel-body
-            | By visiting our
-            a(href="{{pathFor 'map'}}") modern web app
-            | quickly find the nearest bike and get to where you need to be faster.
-      .col-md-4
-        //- img.img-circle(src='images/unsplashBike.jpg').unsplash
-        img.img-rounded(src='images/iphone5s_spacegrey_portrait.png').unsplash
-  h1.page-header
-  .row
-    .container
-      .col-md-4
-        img.img-rounded(src='images/unsplashLock.jpg').unsplash
-      .col-md-8
-        h2.wow.bounceInUp and share mine.
-        .panel.panel-success
-          .panel-heading
-            h3.panel-title Unlock Your Bike
-          .panel-body
-            | Swipe your membership card and the bike will automatically unlock starting your journey.
-  h1.page-header
-  .row
-    .container
-      .col-md-8
-        .panel.panel-info
-          .panel-heading
-            h3.panel-title Ride and Return
-          .panel-body
-            | Go to your next class, lunch with friends, or all the way into DC. When you're finished, just lock your bike to a bike rack on campus.
-      .col-md-4
-        img.img-rounded(src='images/unsplashBike.jpg').unsplash
-  .container
-    h1.page-header What are you waiting for?
-    .row
-      .col-md-4.col-md-offset-4
-        button.btn.btn-default.btn-lg.btn-block(type='button')
-          a(href="{{pathFor 'atSignUp'}}") Register!
-  h1.page-header
-  .row
-  h1.page-header
-  .row
-  h1.page-header
-  .row
-  h1.page-header
-  .row
-  h1.page-header
-  .row
-  h1.page-header
-  .row
-    .container
-      .panel.panel-warning ...
-      .panel.panel-danger ...
+    //- Navigation
+    nav.navbar.navbar-default.agency.navbar-fixed-top
+      .container
+        //- Brand and toggle get grouped for better mobile display
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.page-scroll(href='#page-top') Red Bars
+        //- Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.hidden
+              a(href='#page-top')
+            li
+              a.page-scroll(href='#explanation') Bikeshares
+            li
+              a.page-scroll(href='#benefits') Benefits
+            li
+              a.page-scroll(href='#pricing') Pricing
+            li
+              a.page-scroll(href='#about') About
+            li
+              a.page-scroll(href='#team') Team
+        //- /.navbar-collapse
+      //- /.container-fluid
 
-      .template-about
-        .page-header
-          h1 Welcome to the Team Bikes Bikeshare About page
-        //- +admin1layout
-        h3 Incredible Speed When You Need It
-        p Pick up and drop off a bike anywhere there is a bike rack. Get to class as quickly as possible to sleep in those valuable 15 minutes.
-        h3 Or as Slow as You Want
-        p Explore DC atop one of our bikes for a night time ride through the monuments.
-        h3 A Deal Built for College Students
-        p For a fraction of the cost of owning and maintaining your own bike, pay for only the time you need a bike. With a small annual subscription, you get started with a Team BIKES RFID swipe, then use it whenever and wherever you want with our flexible pricing scale.
-        h3 Personalized Metrics
-        p Track your fitness, mileage and use in a sleek fast web app.
-        h3 Choose the plan that fits your needs
-        p sport, quick, needy
+    //- Header
+    header
+      .container
+        .intro-text
+          .intro-lead-in Want a
+            span.typed-element
+            span way to get around?
+          //- Want a faster, smarter, cheaper way to get around?
+          .intro-heading WELCOME TO THE BIKE SHARE OF THE FUTURE
+          a.btn.btn-xl(href="{{ pathFor 'atSignUp' }}") Sign Up for Free
+
+    //- Explanation Grid Section
+    section#explanation.bg-light-gray
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading What is a bikeshare?
+            img(src="img/about/bike-explained.png", alt="")
+            p.text-muted WeBike - Used without permission
+
+    //- benefits Section
+    section#benefits
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Benefits
+            h3.section-subheading.text-muted Bike renting has never been this easy
+        .row.text-center
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+              i.fa.fa-money.fa-stack-1x.fa-inverse
+            h4.service-heading Flexible Prices
+            p.text-muted
+              | Choose the pricing scheme that best fits your needs,
+              a.page-scroll(href="#pricing") find out more below.
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+              i.fa.fa-mobile.fa-stack-1x.fa-inverse
+            h4.service-heading Access Anywhere
+            p.text-muted
+              | Quickly find the nearest bike wherever you are -
+              a(href="{{ pathFor 'map' }}") see a demo here.
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+              i.fa.fa-unlock.fa-stack-1x.fa-inverse
+            h4.service-heading Red Bars ID
+            p.text-muted
+              | Using the smart Red Bars ID, swipe to unlock any bike -
+              a(href="{{ pathFor 'atSignUp' }}") register here.
+
+    //- Pricing Grid Section
+    section#pricing.bg-light-gray
+      h2.main-title Check Out Our Great Prices
+      .container
+        .row
+          .col-xs-12.col-sm-6.col-md-4
+            //- Price Table Item
+            .price-table.text-center
+              .price-table-heading
+                h4.title Base Plan
+              .price-table-body
+                p.value
+                  | $0
+                  small /month
+              ul.list-group
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  Casual use
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  Pay per ride
+              .price-table-footer
+                a.btn.btn-lg.btn-success(href="{pathFor 'atSignUp'}") Register Now!
+            //- END Price Table Item
+            //- START: Will be visible in tablet and mobile devices to make gap between tow price items
+            .col-xs-12.col-sm-12.margin-bottom-20
+            //- END: Will be visible in tablet and mobile devices to make gap between tow price items
+          .col-xs-12.col-sm-6.col-md-4
+            //- Price Table Item
+            .price-table.text-center
+              .price-table-heading
+                h4.title Daily Rider
+              .price-table-body
+                p.value
+                  | $15
+                  small /month
+              ul.list-group
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  Consistent use
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  5 free rides per day
+              .price-table-footer
+                a.btn.btn-lg.btn-success(href="{pathFor 'atSignUp'}") Register Now!
+            //- END Price Table Item
+            //- START: Will be visible in tablet and mobile devices to make gap between tow price items
+            .col-xs-12.col-sm-12.margin-bottom-20
+            //- END: Will be visible in tablet and mobile devices to make gap between tow price items
+          .col-xs-12.col-sm-6.col-md-4
+            //- Price Table Item
+            .price-table.text-center
+              .price-table-heading
+                h4.title Pro Commuter
+              .price-table-body
+                p.value
+                  | $25
+                  small /month
+              ul.list-group
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  Not for the faint of heart
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  Unlimited rides
+                //- li.list-group-item
+                //-   i.icon-ok.text-success
+                //-   |  27/7 support
+              .price-table-footer
+                a.btn.btn-lg.btn-success(href="{pathFor 'atSignUp'}") Register Now!
+            //- END Price Table Item
+            //- START: Will be visible in tablet and mobile devices to make gap between tow price items
+            .col-xs-12.col-sm-12.margin-bottom-20
+            //- END: Will be visible in tablet and mobile devices to make gap between tow price items
+
+    //- About Section
+    section#about
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading How did this all start?
+            h3.section-subheading.text-muted Teamwork, writing, planning, and engineering
+        .row
+          .col-lg-12
+            ul.timeline
+              li
+                .timeline-image
+                  img.img-circle.img-responsive(src='img/about/2_formation-1.jpg' alt='')
+                .timeline-panel
+                  .timeline-heading
+                    h4 2012-2013
+                    h4.subheading Our Humble Beginnings
+                  .timeline-body
+                    p.text-muted
+                      | Registered for the introductory Gemstone courses, we were familiarized with the program and undergraudate reasearch in general.
+              li.timeline-inverted
+                .timeline-image
+                  img.img-circle.img-responsive(src='img/about/1_bonding-1.jpg' alt='')
+                .timeline-panel
+                  .timeline-heading
+                    h4 April 2013
+                    h4.subheading Team Formation
+                  .timeline-body
+                    p.text-muted
+                      | Brought together by our interest in biking and a common camaraderie, we were put together on team formation night.
+              li
+                .timeline-image
+                  img.img-circle.img-responsive(src='img/about/3_third-1.jpg' alt='')
+                .timeline-panel
+                  .timeline-heading
+                    h4 Fall 2013
+                    h4.subheading Team Bonding
+                  .timeline-body
+                    p.text-muted
+                      | After extensive research in the field of bike safety and ....stuff
+              li.timeline-inverted
+                .timeline-image
+                  img.img-circle.img-responsive(src='img/about/4_fourth-1.jpg' alt='')
+                .timeline-panel
+                  .timeline-heading
+                    h4 2014+
+                    h4.subheading REPLACE ME WITH REAL CONTENT.
+                  .timeline-body
+                    p.text-muted
+                      | Stuff and gemstone to do with things and such and filler text goes here. Duh, don't forget to remove this @Kyle.
+              li.timeline-inverted
+                .timeline-image
+                  h4
+                    | Be Part
+                    br
+                    | Of Our
+                    br
+                    | Story!
+    //- Team Section
+    section#team.bg-light-gray
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Our Amazing Team
+            h3.section-subheading.text-muted Building Great Things
+        .row
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/0.png' alt='')
+              h4 Dr. Newcomb
+              p.text-muted Team Mentor
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/1.jpg' alt='')
+              h4 Luke Boegner
+              p.text-muted Geolocation Team Lead
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/2.png' alt='')
+              h4 Eric Huang
+              p.text-muted Geolocation Team Member
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/3.jpg' alt='')
+              h4 Joshua Lafond
+              p.text-muted Mechanical Team Lead
+        .row
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/4.jpg' alt='')
+              h4 Libby Wei
+              p.text-muted Business Team Lead
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/5.png' alt='')
+              h4 Kyle King
+              p.text-muted Geolocation Team Member
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/6.jpg' alt='')
+              h4 Tim McLaughlin
+              p.text-muted Overall Team Lead
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/7.jpg' alt='')
+              h4 William Poh
+              p.text-muted Mechanical Team Member
+        .row
+          .col-sm-3.col-sm-offset-1
+            .team-member
+              img.img-responsive.img-circle(src='img/team/8.png' alt='')
+              h4 Emily Ruppel
+              p.text-muted Access Control Team Leader
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/12.jpg' alt='')
+              h4 Nathanial Kruder
+              p.text-muted Mechanical Team Member
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/10.jpg' alt='')
+              h4 Peter Cho
+              p.text-muted Access Control Team Member
+        .row
+          .col-sm-3.col-sm-offset-1
+            .team-member
+              img.img-responsive.img-circle(src='img/team/11.jpg' alt='')
+              h4 Isaac Noh
+              p.text-muted Systems Engineer
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/13.jpg' alt='')
+              h4 Tyler Gilman
+              p.text-muted Mechanical Team Member
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/9.jpg' alt='')
+              h4 Nicholas Fleming
+              p.text-muted Mechanical Team Member
+        .row
+          .col-lg-8.col-lg-offset-2.text-center
+            p.large.text-muted
+              | With one more year left to go, expect great things!
+
+    footer
+      .container
+        .row
+          .col-md-4
+            span.copyright Built in gear 3 by Team BIKES
+          .col-md-4
+            ul.list-inline.social-buttons
+              li
+                a(href='https://twitter.com/TeamBIKES1')
+                  i.fa.fa-twitter
+              li
+                a(href='http://teambikes.weebly.com/')
+                  i.fa.fa-link
+              li
+                a(href='https://github.com/KyleKing/TeamBIKES')
+                  i.fa.fa-github
+          .col-md-4
+            ul.list-inline.quicklinks
+              li
+                a(href='#') Privacy Policy
+              li
+                a(href='#') Terms of Use
