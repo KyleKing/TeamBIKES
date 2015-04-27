@@ -61,11 +61,11 @@ template(name='about')
     //- Explanation Grid Section
     section#explanation.bg-light-gray
       .container
-        .row
+        .row.wow.bounceInUp
           .col-lg-12.text-center
             h2.section-heading What is a bikeshare?
             h3.section-subheading.text-muted Bike renting has never been this easy
-        .row.step-one
+        .row.wow.slideInLeft.animated(data-wow-delay="0.75s" style="visibility: visible; -webkit-animation-delay: 0.5s;")
           .col-sm-3.col-sm-offset-2
             .team-member
               img.img-responsive.img-circle(src='img/about/explanation/1.png' alt='')
@@ -75,7 +75,7 @@ template(name='about')
               h3 Find a Bike
               p Using the online map of each bike, find the nearest available bike.
 
-        .row.step-two
+        .row.wow.slideInRight.animated(data-wow-delay="1.25s" style="visibility: visible; -webkit-animation-delay: 0.5s;")
           .col-sm-5.col-sm-offset-2
             .explanation-text
               h5 &nbsp;
@@ -84,7 +84,7 @@ template(name='about')
           .col-sm-3
             .team-member
               img.img-responsive.img-circle(src='img/about/explanation/2.png' alt='')
-        .row.step-three
+        .row.wow.slideInLeft.animated(data-wow-delay="1.75s" style="visibility: visible; -webkit-animation-delay: 0.5s;")
           .col-sm-3.col-sm-offset-2
             .team-member
               img.img-responsive.img-circle(src='img/about/explanation/3.png' alt='')
