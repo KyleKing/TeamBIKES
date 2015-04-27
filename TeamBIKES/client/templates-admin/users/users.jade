@@ -1,39 +1,39 @@
-template(name='users')
-  .template-home
-    .page-header
-      h1 Users
-    //- .panel.panel-default
-      //- .panel-heading Test Heading
-    //- .table-responsive
-    table.table.table-hover.table-condensed
-      //- Per user history
-      thead
-        tr
-          th #
-          th _id
-          th RFID
-          th address
-          //- th verified
-          th UID
-          th gender
-          th handlebars
-          th name
-          th username
-          th snack
-          //- th password.bcrypt
-      tbody
-        each users
-          tr
-            td #{listIndex}
-            td #{_id}
-            td #{RFID}
-            each emails
-              td #{address}
-              //- td #{verified} // Blank, but should be false?
-            td #{profile.UID}
-            td #{profile.gender}
-            td #{profile.handlebars}
-            td #{profile.name}
-            td #{username}
-            td #{profile.snack}
-            //- td #{services.password.bcrypt}
+//- template(name='users')
+//-   .template-home
+//-     .page-header
+//-       h1 Users
+//-     //- .panel.panel-default
+//-       //- .panel-heading Test Heading
+//-     //- .table-responsive
+//-     table.table.table-hover.table-condensed
+//-       //- Per user history
+//-       thead
+//-         tr
+//-           th #
+//-           th _id
+//-           th RFID
+//-           th address
+//-           //- th verified
+//-           th UID
+//-           th gender
+//-           th handlebars
+//-           th name
+//-           th username
+//-           th snack
+//-           //- th password.bcrypt
+//-       tbody
+//-         each users
+//-           tr
+//-             td #{listIndex}
+//-             td #{_id}
+//-             td #{RFID}
+//-             each emails
+//-               td #{address}
+//-               //- td #{verified} // Blank, but should be false?
+//-             td #{profile.UID}
+//-             td #{profile.gender}
+//-             td #{profile.handlebars}
+//-             td #{profile.name}
+//-             td #{username}
+//-             td #{profile.snack}
+//-             //- td #{services.password.bcrypt}
