@@ -48,7 +48,7 @@ template(name='about')
                   |  FAQ
 
     //- Header
-    header
+    header#page-top
       .container
         .intro-text
           .intro-lead-in Want a
@@ -74,14 +74,16 @@ template(name='about')
               h5 &nbsp;
               h3 Find a Bike
               p Using the online map of each bike, find the nearest available bike.
-
         .row.wow.slideInRight.animated(data-wow-delay="1.25s" style="visibility: visible; -webkit-animation-delay: 0.5s;")
+          .col-sm-3.visible-xs-block
+            .team-member
+              img.img-responsive.img-circle(src='img/about/explanation/2.png' alt='')
           .col-sm-5.col-sm-offset-2
             .explanation-text
               h5 &nbsp;
               h3 Unlock
               p Using your Red Bars ID, swipe it by the lock pad and the bike will instantly unlock. Twist the lock into the riding position and you are ready to go.
-          .col-sm-3
+          .col-sm-3.hidden-xs
             .team-member
               img.img-responsive.img-circle(src='img/about/explanation/2.png' alt='')
         .row.wow.slideInLeft.animated(data-wow-delay="1.75s" style="visibility: visible; -webkit-animation-delay: 0.5s;")
@@ -270,7 +272,7 @@ template(name='about')
                     br
                     | Story!
     //- Team Section
-    section#team.bg-light-gray
+    section#team.bg-light-gray.hidden-xs
       .container
         .row
           .col-lg-12.text-center
