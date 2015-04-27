@@ -18,11 +18,14 @@ template(name='agency')
             li
               a.page-scroll(href='#benefits') Benefits
             li
+              a.page-scroll(href='#pricing') Pricing
+            li
               a.page-scroll(href='#about') About
             li
               a.page-scroll(href='#team') Team
         //- /.navbar-collapse
       //- /.container-fluid
+
     //- Header
     header
       .container
@@ -32,9 +35,10 @@ template(name='agency')
             span way to get around?
           //- Want a faster, smarter, cheaper way to get around?
           .intro-heading WELCOME TO THE BIKE SHARE OF THE FUTURE
-          a.page-scroll.btn.btn-xl(href="{{ pathFor 'atSignUp' }}") Sign Up for Free
+          a.btn.btn-xl(href="{{ pathFor 'atSignUp' }}") Sign Up for Free
+
     //- benefits Section
-    section#benefits.bg-light-gray
+    section#benefits
       .container
         .row
           .col-lg-12.text-center
@@ -48,7 +52,7 @@ template(name='agency')
             h4.service-heading Flexible Prices
             p.text-muted
               | Choose the pricing scheme that best fits your needs,
-              a(href="#pricing") find out more below.
+              a.page-scroll(href="#pricing") find out more below.
           .col-md-4
             span.fa-stack.fa-4x
               i.fa.fa-circle.fa-stack-2x.text-primary
@@ -65,6 +69,141 @@ template(name='agency')
             p.text-muted
               | Using the smart Red Bars ID, swipe to unlock any bike -
               a(href="{{ pathFor 'atSignUp' }}") register here.
+
+    //- Pricing Grid Section
+    section#pricing.bg-light-gray
+      //- .container
+      //-   .row
+      //-     .col-xs-6.col-sm-6.col-md-4.col-lg-4
+      //-       //- PRICE ITEM
+      //-       .panel.price.panel-red
+      //-         .panel-heading.text-center
+      //-           h3 BASE PLAN
+      //-         .panel-body.text-center
+      //-           p.lead(style='font-size:40px')
+      //-             strong $0 / month
+      //-         ul.list-group.list-group-flush.text-center
+      //-           li.list-group-item
+      //-             i.icon-ok.text-danger
+      //-             |  Casual use
+      //-           li.list-group-item
+      //-             i.icon-ok.text-danger
+      //-             |  Pay per ride
+      //-           //- li.list-group-item
+      //-           //-   i.icon-ok.text-danger
+      //-           //-   |  27/7 support
+      //-         .panel-footer
+      //-           a.btn.btn-lg.btn-block.btn-danger(href="{pathFor 'atSignUp}") Register Now!
+      //-       //- /PRICE ITEM
+      //-     .col-xs-6.col-sm-6.col-md-4.col-lg-4
+      //-       //- PRICE ITEM
+      //-       .panel.price.panel-blue
+      //-         .panel-heading.arrow_box.text-center
+      //-           h3 CASUAL RIDER
+      //-         .panel-body.text-center
+      //-           p.lead(style='font-size:40px')
+      //-             strong $15 / month
+      //-         ul.list-group.list-group-flush.text-center
+      //-           li.list-group-item
+      //-             i.icon-ok.text-info
+      //-             |  Consistent use
+      //-           li.list-group-item
+      //-             i.icon-ok.text-info
+      //-             |  5 rides/day
+      //-         .panel-footer
+      //-           a.btn.btn-lg.btn-block.btn-info(href="{pathFor 'atSignUp}") Register Now!
+      //-       //- /PRICE ITEM
+      //-     .col-xs-6.col-sm-6.col-md-4.col-lg-4
+      //-       //- PRICE ITEM
+      //-       .panel.price.panel-green
+      //-         .panel-heading.arrow_box.text-center
+      //-           h3 PRO COMMUTER
+      //-         .panel-body.text-center
+      //-           p.lead(style='font-size:40px')
+      //-             strong $20 / month
+      //-         ul.list-group.list-group-flush.text-center
+      //-           li.list-group-item
+      //-             i.icon-ok.text-success
+      //-             |  For every class comute
+      //-           li.list-group-item
+      //-             i.icon-ok.text-success
+      //-             |  Unlimited Rides
+      //-         .panel-footer
+      //-           a.btn.btn-lg.btn-block.btn-success(href="{pathFor 'atSignUp}") Register Now!
+      h2.main-title Check Out Our Great Prices
+      .container
+        .row
+          .col-xs-12.col-sm-6.col-md-4
+            //- Price Table Item
+            .price-table.text-center
+              .price-table-heading
+                h4.title Base Plan
+              .price-table-body
+                p.value
+                  | $0
+                  small /month
+              ul.list-group
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  Casual use
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  Pay per ride
+              .price-table-footer
+                a.btn.btn-lg.btn-success(href="{pathFor 'atSignUp'}") Register Now!
+            //- END Price Table Item
+            //- START: Will be visible in tablet and mobile devices to make gap between tow price items
+            .col-xs-12.col-sm-12.margin-bottom-20
+            //- END: Will be visible in tablet and mobile devices to make gap between tow price items
+          .col-xs-12.col-sm-6.col-md-4
+            //- Price Table Item
+            .price-table.text-center
+              .price-table-heading
+                h4.title Daily Rider
+              .price-table-body
+                p.value
+                  | $15
+                  small /month
+              ul.list-group
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  Consistent use
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  5 free rides per day
+              .price-table-footer
+                a.btn.btn-lg.btn-success(href="{pathFor 'atSignUp'}") Register Now!
+            //- END Price Table Item
+            //- START: Will be visible in tablet and mobile devices to make gap between tow price items
+            .col-xs-12.col-sm-12.margin-bottom-20
+            //- END: Will be visible in tablet and mobile devices to make gap between tow price items
+          .col-xs-12.col-sm-6.col-md-4
+            //- Price Table Item
+            .price-table.text-center
+              .price-table-heading
+                h4.title Pro Commuter
+              .price-table-body
+                p.value
+                  | $25
+                  small /month
+              ul.list-group
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  Not for the faint of heart
+                li.list-group-item
+                  i.icon-ok.text-success
+                  |  Unlimited rides
+                //- li.list-group-item
+                //-   i.icon-ok.text-success
+                //-   |  27/7 support
+              .price-table-footer
+                a.btn.btn-lg.btn-success(href="{pathFor 'atSignUp'}") Register Now!
+            //- END Price Table Item
+            //- START: Will be visible in tablet and mobile devices to make gap between tow price items
+            .col-xs-12.col-sm-12.margin-bottom-20
+            //- END: Will be visible in tablet and mobile devices to make gap between tow price items
+
+
     //- //- Portfolio Grid Section
     //- section#portfolio.bg-light-gray
     //-   .container
@@ -133,7 +272,7 @@ template(name='agency')
         .row
           .col-lg-12.text-center
             h2.section-heading Building Team BIKES
-            //- h3.section-subheading.text-muted Teamwork, writing, planning, and engineering
+            h3.section-subheading.text-muted Teamwork, writing, planning, and engineering
         .row
           .col-lg-12
             ul.timeline
@@ -176,16 +315,15 @@ template(name='agency')
                     h4.subheading REPLACE ME WITH REAL CONTENT.
                   .timeline-body
                     p.text-muted
-                      | Stuff and gemstone to do with things and such and filler text goes ehre. Duh, don't forget to remove this @Kyle.
+                      | Stuff and gemstone to do with things and such and filler text goes here. Duh, don't forget to remove this @Kyle.
               li.timeline-inverted
                 .timeline-image
                   h4
-                    a(href="{{ pathFor 'atSignUp'}}")
-                      | Be Part
-                      br
-                      | Of Our
-                      br
-                      | Story!
+                    | Be Part
+                    br
+                    | Of Our
+                    br
+                    | Story!
     //- Team Section
     section#team.bg-light-gray
       .container
@@ -236,7 +374,7 @@ template(name='agency')
               h4 William Poh
               p.text-muted Mechanical Team Member
         .row
-          .col-sm-3
+          .col-sm-3.col-sm-offset-1
             .team-member
               img.img-responsive.img-circle(src='img/team/8.png' alt='')
               h4 Emily Ruppel
@@ -251,18 +389,18 @@ template(name='agency')
               img.img-responsive.img-circle(src='img/team/10.jpg' alt='')
               h4 Peter Cho
               p.text-muted Access Control Team Member
-          .col-sm-3
+        .row
+          .col-sm-3.col-sm-offset-1
             .team-member
               img.img-responsive.img-circle(src='img/team/11.jpg' alt='')
               h4 Isaac Noh
               p.text-muted Systems Engineer
-        .row
-          .col-sm-6
+          .col-sm-3
             .team-member
               img.img-responsive.img-circle(src='img/team/13.jpg' alt='')
               h4 Tyler Gilman
               p.text-muted Mechanical Team Member
-          .col-sm-6
+          .col-sm-3
             .team-member
               img.img-responsive.img-circle(src='img/team/9.jpg' alt='')
               h4 Nicholas Fleming
