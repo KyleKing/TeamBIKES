@@ -64,8 +64,8 @@ Template.columnDemoProfile.rendered = function() {
 /********************************************/
         // No data called bar chart....?
         BarData = BarChart.findOne().data;
-        // console.log('BarData');
-        // console.log(BarData);
+        console.log('BarData:');
+        console.log(BarData);
         builtColumn(BarData);
     });
 };

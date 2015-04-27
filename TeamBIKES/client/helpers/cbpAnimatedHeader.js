@@ -34,7 +34,10 @@
 			}
 			else {
 				// console.log('AH: Remove');
-				classie.remove( document.querySelector( '.navbar-default' ), 'navbar-shrink' );
+				// if navbar isn't set at shrink state:
+				if (classie.has( document.querySelector('.navbar-default'), 'shrunk') === false) {
+					classie.remove( document.querySelector( '.navbar-default' ), 'navbar-shrink' );
+				}
 			}
 			didScroll = false;
 		}

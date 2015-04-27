@@ -70,12 +70,10 @@ appshore:leaflet-awesome-markers
 # fuatsengul:leaflet-markercluster
 # jeremy:snapsvg
 mirageglobe:snapsvgcdn
-tsega:skrollr
+# tsega:skrollr
 # Impacting scroll on every page....
 # eahefnawy:meteor-onepage-scroll
 #
-# maazalik:highcharts
-# jhuenges:highstock
 # matdutour:outdated-browser
 
 # ---TBD---
@@ -119,7 +117,6 @@ tsega:skrollr
 # http://rocha.la/jQuery-slimScroll
 
 # http://gsgd.co.uk/sandbox/jquery/easing/
-mrt:jquery-easing
 # Alt: https://atmospherejs.com/andreioprisan/ceaser-easing-sass
 
 # https://atmospherejs.com/alexanderson1993/please.js
@@ -163,3 +160,8 @@ digilord:faker
 
 peerlibrary:blaze-components
 chrisbutler:typed.js
+
+mrt:jquery-easing
+maazalik:highcharts
+jhuenges:highstock
+
