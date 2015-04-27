@@ -31,37 +31,33 @@ template(name='_header')
             a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
         //- Add space before nav item
         ul.nav.navbar-nav.navbar-right
-          li(class="{{ isActiveRoute regex='progress' }}")
-            a(href="{{ pathFor 'progress' }}")
-              i.fa.fa-home
-                |  Progress
-          li(class="{{ isActiveRoute regex='agency' }}")
-            a(href="{{ pathFor 'agency' }}")
-              i.fa.fa-home
-                |  agency
           li(class="{{ isActiveRoute regex='about' }}")
             a(href="{{ pathFor 'about' }}")
               i.fa.fa-home
                 |  About
-          li(class="{{ isActiveRoute regex='FAQ' }}")
-            a(href="{{ pathFor 'FAQ' }}")
-              i.fa.fa-question
-                |  FAQ
           li(class="{{ isActiveRoute regex='map' }}")
             a(href="{{ pathFor 'map' }}")
               i.fa.fa-map-marker
                 |  Map
+          li(class="{{ isActiveRoute regex='FAQ' }}")
+            a(href="{{ pathFor 'FAQ' }}")
+              i.fa.fa-question
+                |  FAQ
           li.dropdown
             a.dropdown-toggle(href='#' data-toggle='dropdown')
               //- i.fa.fa-ellipsis-h
               i.fa.fa-lock
-                |  Private
+                |  TBD
               i.fa.fa-caret-down
             ul.dropdown-menu(role='menu')
               li(class="{{ isActiveRoute regex='dashboard' }}")
                 a(href="{{ pathFor 'dashboard' }}")
                   i.fa.fa-gear
                     |  Dashboard
+              li(class="{{ isActiveRoute regex='progress' }}")
+                a(href="{{ pathFor 'progress' }}")
+                  i.fa.fa-home
+                    |  Progress
               li(class="{{ isActiveRoute regex='chartsAdmin' }}")
                 a(href="{{ pathFor 'chartsAdmin' }}")
                   i.fa.fa-gear
@@ -94,11 +90,3 @@ template(name='_header')
                 a(href="{{ pathFor 'timeseries' }}")
                   i.fa.fa-table
                     |  timeseries
-              li(class="{{ isActiveRoute regex='onePageScroll' }}")
-                a(href="{{ pathFor 'onePageScroll' }}")
-                  i.fa.fa-gear
-                    |  onePageScroll
-              li(class="{{ isActiveRoute regex='skrollr' }}")
-                a(href="{{ pathFor 'skrollr' }}")
-                  i.fa.fa-gear
-                    |  skrollr

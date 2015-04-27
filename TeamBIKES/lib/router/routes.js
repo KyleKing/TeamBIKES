@@ -111,17 +111,11 @@ Router.route('/home', {
   controller: 'skrollrController'
 });
 
-Router.route('/onePageScroll', {
-  controller: 'MapController'
-});
-
-Router.route('/skrollr', {
-  controller: 'AppController'
-});
-
 Router.route('/progress', {
   controller: 'AppController'
 });
+
+Router.route('/agency');
 
 
 /*********************************************/
@@ -131,8 +125,6 @@ Router.route('/progress', {
 // For testing loading page with no wait time
 // Todo: Integrate more seamlessly into app
 Router.route('/loading');
-
-Router.route('/agency');
 
 // Router.route('/items_0', {
 //   name: 'items',
