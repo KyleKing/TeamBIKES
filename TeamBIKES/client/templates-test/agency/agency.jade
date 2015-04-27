@@ -16,15 +16,11 @@ template(name='agency')
             li.hidden
               a(href='#page-top')
             li
-              a.page-scroll(href='#services') Services
-            li
-              a.page-scroll(href='#portfolio') Portfolio
+              a.page-scroll(href='#benefits') Benefits
             li
               a.page-scroll(href='#about') About
             li
               a.page-scroll(href='#team') Team
-            li
-              a.page-scroll(href='#contact') Contact
         //- /.navbar-collapse
       //- /.container-fluid
     //- Header
@@ -32,436 +28,468 @@ template(name='agency')
       .container
         .intro-text
           .intro-lead-in Want a
-            span.element-three
+            span.typed-element
             span way to get around?
           //- Want a faster, smarter, cheaper way to get around?
           .intro-heading WELCOME TO THE BIKE SHARE OF THE FUTURE
-          a.page-scroll.btn.btn-xl(href='#services') Sign Me Up for Free
-    //- Services Section
-    section#services
+          a.page-scroll.btn.btn-xl(href="{{ pathFor 'atSignUp' }}") Sign Up for Free
+    //- benefits Section
+    section#benefits.bg-light-gray
       .container
         .row
           .col-lg-12.text-center
-            h2.section-heading Services
-            h3.section-subheading.text-muted We are a bike rental service from the future
+            h2.section-heading Benefits
+            h3.section-subheading.text-muted Bike renting has never been this easy
         .row.text-center
           .col-md-4
             span.fa-stack.fa-4x
               i.fa.fa-circle.fa-stack-2x.text-primary
-              i.fa.fa-shopping-cart.fa-stack-1x.fa-inverse
+              i.fa.fa-money.fa-stack-1x.fa-inverse
             h4.service-heading Flexible Prices
             p.text-muted
-              | The price is right. Cheaper than owning and repairing your own bike, but still payable by your parents ;)
+              | Choose the pricing scheme that best fits your needs,
+              a(href="#pricing") find out more below.
           .col-md-4
             span.fa-stack.fa-4x
               i.fa.fa-circle.fa-stack-2x.text-primary
-              i.fa.fa-laptop.fa-stack-1x.fa-inverse
+              i.fa.fa-mobile.fa-stack-1x.fa-inverse
             h4.service-heading Access Anywhere
             p.text-muted
-              | Mobile first and always. Find a bike fast from any cellphone or computer
+              | Quickly find the nearest bike wherever you are -
+              a(href="{{ pathFor 'map' }}") see a demo here.
           .col-md-4
             span.fa-stack.fa-4x
               i.fa.fa-circle.fa-stack-2x.text-primary
-              i.fa.fa-lock.fa-stack-1x.fa-inverse
-            h4.service-heading Lock/Unlock
+              i.fa.fa-unlock.fa-stack-1x.fa-inverse
+            h4.service-heading Red Bars ID
             p.text-muted
-              | Unlock and lock your bike with a swipe with our Red Bars ID
-    //- Portfolio Grid Section
-    section#portfolio.bg-light-gray
-      .container
-        .row
-          .col-lg-12.text-center
-            h2.section-heading Portfolio
-            h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
-        .row
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal1' data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  i.fa.fa-plus.fa-3x
-              img.img-responsive(src='img/portfolio/roundicons.png' alt='')
-            .portfolio-caption
-              h4 Round Icons
-              p.text-muted Graphic Design
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal2' data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  i.fa.fa-plus.fa-3x
-              img.img-responsive(src='img/portfolio/startup-framework.png' alt='')
-            .portfolio-caption
-              h4 Startup Framework
-              p.text-muted Website Design
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal3' data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  i.fa.fa-plus.fa-3x
-              img.img-responsive(src='img/portfolio/treehouse.png' alt='')
-            .portfolio-caption
-              h4 Treehouse
-              p.text-muted Website Design
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal4' data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  i.fa.fa-plus.fa-3x
-              img.img-responsive(src='img/portfolio/golden.png' alt='')
-            .portfolio-caption
-              h4 Golden
-              p.text-muted Website Design
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal5' data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  i.fa.fa-plus.fa-3x
-              img.img-responsive(src='img/portfolio/escape.png' alt='')
-            .portfolio-caption
-              h4 Escape
-              p.text-muted Website Design
-          .col-md-4.col-sm-6.portfolio-item
-            a.portfolio-link(href='#portfolioModal6' data-toggle='modal')
-              .portfolio-hover
-                .portfolio-hover-content
-                  i.fa.fa-plus.fa-3x
-              img.img-responsive(src='img/portfolio/dreams.png' alt='')
-            .portfolio-caption
-              h4 Dreams
-              p.text-muted Website Design
+              | Using the smart Red Bars ID, swipe to unlock any bike -
+              a(href="{{ pathFor 'atSignUp' }}") register here.
+    //- //- Portfolio Grid Section
+    //- section#portfolio.bg-light-gray
+    //-   .container
+    //-     .row
+    //-       .col-lg-12.text-center
+    //-         h2.section-heading Portfolio
+    //-         h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
+    //-     .row
+    //-       .col-md-4.col-sm-6.portfolio-item
+    //-         a.portfolio-link(href='#portfolioModal1' data-toggle='modal')
+    //-           .portfolio-hover
+    //-             .portfolio-hover-content
+    //-               i.fa.fa-plus.fa-3x
+    //-           img.img-responsive(src='img/portfolio/roundicons.png' alt='')
+    //-         .portfolio-caption
+    //-           h4 Round Icons
+    //-           p.text-muted Graphic Design
+    //-       .col-md-4.col-sm-6.portfolio-item
+    //-         a.portfolio-link(href='#portfolioModal2' data-toggle='modal')
+    //-           .portfolio-hover
+    //-             .portfolio-hover-content
+    //-               i.fa.fa-plus.fa-3x
+    //-           img.img-responsive(src='img/portfolio/startup-framework.png' alt='')
+    //-         .portfolio-caption
+    //-           h4 Startup Framework
+    //-           p.text-muted Website Design
+    //-       .col-md-4.col-sm-6.portfolio-item
+    //-         a.portfolio-link(href='#portfolioModal3' data-toggle='modal')
+    //-           .portfolio-hover
+    //-             .portfolio-hover-content
+    //-               i.fa.fa-plus.fa-3x
+    //-           img.img-responsive(src='img/portfolio/treehouse.png' alt='')
+    //-         .portfolio-caption
+    //-           h4 Treehouse
+    //-           p.text-muted Website Design
+    //-       .col-md-4.col-sm-6.portfolio-item
+    //-         a.portfolio-link(href='#portfolioModal4' data-toggle='modal')
+    //-           .portfolio-hover
+    //-             .portfolio-hover-content
+    //-               i.fa.fa-plus.fa-3x
+    //-           img.img-responsive(src='img/portfolio/golden.png' alt='')
+    //-         .portfolio-caption
+    //-           h4 Golden
+    //-           p.text-muted Website Design
+    //-       .col-md-4.col-sm-6.portfolio-item
+    //-         a.portfolio-link(href='#portfolioModal5' data-toggle='modal')
+    //-           .portfolio-hover
+    //-             .portfolio-hover-content
+    //-               i.fa.fa-plus.fa-3x
+    //-           img.img-responsive(src='img/portfolio/escape.png' alt='')
+    //-         .portfolio-caption
+    //-           h4 Escape
+    //-           p.text-muted Website Design
+    //-       .col-md-4.col-sm-6.portfolio-item
+    //-         a.portfolio-link(href='#portfolioModal6' data-toggle='modal')
+    //-           .portfolio-hover
+    //-             .portfolio-hover-content
+    //-               i.fa.fa-plus.fa-3x
+    //-           img.img-responsive(src='img/portfolio/dreams.png' alt='')
+    //-         .portfolio-caption
+    //-           h4 Dreams
+    //-           p.text-muted Website Design
     //- About Section
     section#about
       .container
         .row
           .col-lg-12.text-center
-            h2.section-heading About
-            h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
+            h2.section-heading Building Team BIKES
+            //- h3.section-subheading.text-muted Teamwork, writing, planning, and engineering
         .row
           .col-lg-12
             ul.timeline
               li
                 .timeline-image
-                  img.img-circle.img-responsive(src='img/about/1.jpg' alt='')
+                  img.img-circle.img-responsive(src='img/about/2_formation-1.jpg' alt='')
                 .timeline-panel
                   .timeline-heading
-                    h4 2009-2011
+                    h4 2012-2013
                     h4.subheading Our Humble Beginnings
                   .timeline-body
                     p.text-muted
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+                      | Registered for the introductory Gemstone courses, we were familiarized with the program and undergraudate reasearch in general.
               li.timeline-inverted
                 .timeline-image
-                  img.img-circle.img-responsive(src='img/about/2.jpg' alt='')
+                  img.img-circle.img-responsive(src='img/about/1_bonding-1.jpg' alt='')
                 .timeline-panel
                   .timeline-heading
-                    h4 March 2011
-                    h4.subheading An Agency is Born
+                    h4 April 2013
+                    h4.subheading Team Formation
                   .timeline-body
                     p.text-muted
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+                      | Brought together by our interest in biking and a common camaraderie, we were put together on team formation night.
               li
                 .timeline-image
-                  img.img-circle.img-responsive(src='img/about/3.jpg' alt='')
+                  img.img-circle.img-responsive(src='img/about/3_third-1.jpg' alt='')
                 .timeline-panel
                   .timeline-heading
-                    h4 December 2012
-                    h4.subheading Transition to Full Service
+                    h4 Fall 2013
+                    h4.subheading Team Bonding
                   .timeline-body
                     p.text-muted
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+                      | After extensive research in the field of bike safety and ....stuff
               li.timeline-inverted
                 .timeline-image
-                  img.img-circle.img-responsive(src='img/about/4.jpg' alt='')
+                  img.img-circle.img-responsive(src='img/about/4_fourth-1.jpg' alt='')
                 .timeline-panel
                   .timeline-heading
-                    h4 July 2014
-                    h4.subheading Phase Two Expansion
+                    h4 2014+
+                    h4.subheading REPLACE ME WITH REAL CONTENT.
                   .timeline-body
                     p.text-muted
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+                      | Stuff and gemstone to do with things and such and filler text goes ehre. Duh, don't forget to remove this @Kyle.
               li.timeline-inverted
                 .timeline-image
                   h4
-                    | Be Part
-                    br
-                    | Of Our
-                    br
-                    | Story!
+                    a(href="{{ pathFor 'atSignUp'}}")
+                      | Be Part
+                      br
+                      | Of Our
+                      br
+                      | Story!
     //- Team Section
     section#team.bg-light-gray
       .container
         .row
           .col-lg-12.text-center
             h2.section-heading Our Amazing Team
-            h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
+            h3.section-subheading.text-muted Building Great Things
         .row
-          .col-sm-4
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/0.png' alt='')
+              h4 Dr. Newcomb
+              p.text-muted Team Mentor
+          .col-sm-3
             .team-member
               img.img-responsive.img-circle(src='img/team/1.jpg' alt='')
-              h4 Kay Garland
-              p.text-muted Lead Designer
-              ul.list-inline.social-buttons
-                li
-                  a(href='#')
-                    i.fa.fa-twitter
-                li
-                  a(href='#')
-                    i.fa.fa-facebook
-                li
-                  a(href='#')
-                    i.fa.fa-linkedin
-          .col-sm-4
+              h4 Luke Boegner
+              p.text-muted Geolocation Team Lead
+          .col-sm-3
             .team-member
-              img.img-responsive.img-circle(src='img/team/2.jpg' alt='')
-              h4 Larry Parker
-              p.text-muted Lead Marketer
-              ul.list-inline.social-buttons
-                li
-                  a(href='#')
-                    i.fa.fa-twitter
-                li
-                  a(href='#')
-                    i.fa.fa-facebook
-                li
-                  a(href='#')
-                    i.fa.fa-linkedin
-          .col-sm-4
+              img.img-responsive.img-circle(src='img/team/2.png' alt='')
+              h4 Eric Huang
+              p.text-muted Geolocation Team Member
+          .col-sm-3
             .team-member
               img.img-responsive.img-circle(src='img/team/3.jpg' alt='')
-              h4 Diana Pertersen
-              p.text-muted Lead Developer
-              ul.list-inline.social-buttons
-                li
-                  a(href='#')
-                    i.fa.fa-twitter
-                li
-                  a(href='#')
-                    i.fa.fa-facebook
-                li
-                  a(href='#')
-                    i.fa.fa-linkedin
+              h4 Joshua Lafond
+              p.text-muted Mechanical Team Lead
         .row
-          .col-lg-8.col-lg-offset-2.text-center
-            p.large.text-muted
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.
-    //- Clients Aside
-    aside.clients
-      .container
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/4.jpg' alt='')
+              h4 Libby Wei
+              p.text-muted Business Team Lead
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/5.png' alt='')
+              h4 Kyle King
+              p.text-muted Geolocation Team Member
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/6.jpg' alt='')
+              h4 Tim McLaughlin
+              p.text-muted Overall Team Lead
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/7.jpg' alt='')
+              h4 William Poh
+              p.text-muted Mechanical Team Member
         .row
-          .col-md-3.col-sm-6
-            a(href='#')
-              img.img-responsive.img-centered(src='img/logos/envato.jpg' alt='')
-          .col-md-3.col-sm-6
-            a(href='#')
-              img.img-responsive.img-centered(src='img/logos/designmodo.jpg' alt='')
-          .col-md-3.col-sm-6
-            a(href='#')
-              img.img-responsive.img-centered(src='img/logos/themeforest.jpg' alt='')
-          .col-md-3.col-sm-6
-            a(href='#')
-              img.img-responsive.img-centered(src='img/logos/creative-market.jpg' alt='')
-    //- Contact Section
-    section#contact
-      .container
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/8.png' alt='')
+              h4 Emily Ruppel
+              p.text-muted Access Control Team Leader
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/12.jpg' alt='')
+              h4 Nathanial Kruder
+              p.text-muted Mechanical Team Member
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/10.jpg' alt='')
+              h4 Peter Cho
+              p.text-muted Access Control Team Member
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/team/11.jpg' alt='')
+              h4 Isaac Noh
+              p.text-muted Systems Engineer
         .row
-          .col-lg-12.text-center
-            h2.section-heading Contact Us
-            h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
-        .row
-          .col-lg-12
-            form#contactForm(name='sentMessage' novalidate='')
-              .row
-                .col-md-6
-                  .form-group
-                    input#name.form-control(type='text' placeholder='Your Name *' required='' data-validation-required-message='Please enter your name.')
-                    p.help-block.text-danger
-                  .form-group
-                    input#email.form-control(type='email' placeholder='Your Email *' required='' data-validation-required-message='Please enter your email address.')
-                    p.help-block.text-danger
-                  .form-group
-                    input#phone.form-control(type='tel' placeholder='Your Phone *' required='' data-validation-required-message='Please enter your phone number.')
-                    p.help-block.text-danger
-                .col-md-6
-                  .form-group
-                    textarea#message.form-control(placeholder='Your Message *' required='' data-validation-required-message='Please enter a message.')
-                    p.help-block.text-danger
-                .clearfix
-                .col-lg-12.text-center
-                  #success
-                  button.btn.btn-xl(type='submit') Send Message
+          .col-sm-6
+            .team-member
+              img.img-responsive.img-circle(src='img/team/13.jpg' alt='')
+              h4 Tyler Gilman
+              p.text-muted Mechanical Team Member
+          .col-sm-6
+            .team-member
+              img.img-responsive.img-circle(src='img/team/9.jpg' alt='')
+              h4 Nicholas Fleming
+              p.text-muted Mechanical Team Member
+        //- .row
+        //-   .col-lg-8.col-lg-offset-2.text-center
+        //-     p.large.text-muted
+        //-       | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.
+    //- //- Clients Aside
+    //- aside.clients
+    //-   .container
+    //-     .row
+    //-       .col-md-3.col-sm-6
+    //-         a(href='#')
+    //-           img.img-responsive.img-centered(src='img/logos/envato.jpg' alt='')
+    //-       .col-md-3.col-sm-6
+    //-         a(href='#')
+    //-           img.img-responsive.img-centered(src='img/logos/designmodo.jpg' alt='')
+    //-       .col-md-3.col-sm-6
+    //-         a(href='#')
+    //-           img.img-responsive.img-centered(src='img/logos/themeforest.jpg' alt='')
+    //-       .col-md-3.col-sm-6
+    //-         a(href='#')
+    //-           img.img-responsive.img-centered(src='img/logos/creative-market.jpg' alt='')
+    //- //- Contact Section
+    //- section#contact
+    //-   .container
+    //-     .row
+    //-       .col-lg-12.text-center
+    //-         h2.section-heading Contact Us
+    //-         h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
+    //-     .row
+    //-       .col-lg-12
+    //-         form#contactForm(name='sentMessage' novalidate='')
+    //-           .row
+    //-             .col-md-6
+    //-               .form-group
+    //-                 input#name.form-control(type='text' placeholder='Your Name *' required='' data-validation-required-message='Please enter your name.')
+    //-                 p.help-block.text-danger
+    //-               .form-group
+    //-                 input#email.form-control(type='email' placeholder='Your Email *' required='' data-validation-required-message='Please enter your email address.')
+    //-                 p.help-block.text-danger
+    //-               .form-group
+    //-                 input#phone.form-control(type='tel' placeholder='Your Phone *' required='' data-validation-required-message='Please enter your phone number.')
+    //-                 p.help-block.text-danger
+    //-             .col-md-6
+    //-               .form-group
+    //-                 textarea#message.form-control(placeholder='Your Message *' required='' data-validation-required-message='Please enter a message.')
+    //-                 p.help-block.text-danger
+    //-             .clearfix
+    //-             .col-lg-12.text-center
+    //-               #success
+    //-               button.btn.btn-xl(type='submit') Send Message
     footer
       .container
         .row
           .col-md-4
-            span.copyright Copyright &copy; Your Website 2014
+            span.copyright Built in gear 3 by Team BIKES
           .col-md-4
             ul.list-inline.social-buttons
               li
-                a(href='#')
+                a(href='https://twitter.com/TeamBIKES1')
                   i.fa.fa-twitter
               li
-                a(href='#')
-                  i.fa.fa-facebook
+                a(href='http://teambikes.weebly.com/')
+                  i.fa.fa-link
               li
-                a(href='#')
-                  i.fa.fa-linkedin
+                a(href='https://github.com/KyleKing/TeamBIKES')
+                  i.fa.fa-github
           .col-md-4
             ul.list-inline.quicklinks
               li
                 a(href='#') Privacy Policy
               li
                 a(href='#') Terms of Use
-    //- Portfolio Modals
-    //- Use the modals below to showcase details about your portfolio projects!
-    //- Portfolio Modal 1
-    #portfolioModal1.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
-      .modal-content
-        .close-modal(data-dismiss='modal')
-          .lr
-            .rl
-        .container
-          .row
-            .col-lg-8.col-lg-offset-2
-              .modal-body
-                //- Project Details Go Here
-                h2 Project Name
-                p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
-                img.img-responsive.img-centered(src='img/portfolio/roundicons-free.png' alt='')
-                p
-                  | Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!
-                p
-                  strong Want these icons in this portfolio item sample?
-                  | You can download 60 of them for free, courtesy of
-                  a(href='https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc') RoundIcons.com
-                  | , or you can purchase the 1500 icon set
-                  a(href='https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc') here
-                  | .
-                ul.list-inline
-                  li Date: July 2014
-                  li Client: Round Icons
-                  li Category: Graphic Design
-                button.btn.btn-primary(type='button' data-dismiss='modal')
-                  i.fa.fa-times
-                  |  Close Project
-    //- Portfolio Modal 2
-    #portfolioModal2.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
-      .modal-content
-        .close-modal(data-dismiss='modal')
-          .lr
-            .rl
-        .container
-          .row
-            .col-lg-8.col-lg-offset-2
-              .modal-body
-                h2 Project Heading
-                p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
-                img.img-responsive.img-centered(src='img/portfolio/startup-framework-preview.png' alt='')
-                p
-                  a(href='http://designmodo.com/startup/?u=787') Startup Framework
-                  |  is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.
-                p
-                  | You can preview Startup Framework
-                  a(href='http://designmodo.com/startup/?u=787') here
-                  | .
-                button.btn.btn-primary(type='button' data-dismiss='modal')
-                  i.fa.fa-times
-                  |  Close Project
-    //- Portfolio Modal 3
-    #portfolioModal3.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
-      .modal-content
-        .close-modal(data-dismiss='modal')
-          .lr
-            .rl
-        .container
-          .row
-            .col-lg-8.col-lg-offset-2
-              .modal-body
-                //- Project Details Go Here
-                h2 Project Name
-                p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
-                img.img-responsive.img-centered(src='img/portfolio/treehouse-preview.png' alt='')
-                p
-                  | Treehouse is a free PSD web template built by
-                  a(href='https://www.behance.net/MathavanJaya') Mathavan Jaya
-                  | . This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.
-                p
-                  | You can download the PSD template in this portfolio sample item at
-                  a(href='http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/') FreebiesXpress.com
-                  | .
-                button.btn.btn-primary(type='button' data-dismiss='modal')
-                  i.fa.fa-times
-                  |  Close Project
-    //- Portfolio Modal 4
-    #portfolioModal4.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
-      .modal-content
-        .close-modal(data-dismiss='modal')
-          .lr
-            .rl
-        .container
-          .row
-            .col-lg-8.col-lg-offset-2
-              .modal-body
-                //- Project Details Go Here
-                h2 Project Name
-                p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
-                img.img-responsive.img-centered(src='img/portfolio/golden-preview.png' alt='')
-                p
-                  | Start Bootstrap&apos;s Agency theme is based on Golden, a free PSD website template built by
-                  a(href='https://www.behance.net/MathavanJaya') Mathavan Jaya
-                  | . Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.
-                p
-                  | You can download the PSD template in this portfolio sample item at
-                  a(href='http://freebiesxpress.com/gallery/golden-free-one-page-web-template/') FreebiesXpress.com
-                  | .
-                button.btn.btn-primary(type='button' data-dismiss='modal')
-                  i.fa.fa-times
-                  |  Close Project
-    //- Portfolio Modal 5
-    #portfolioModal5.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
-      .modal-content
-        .close-modal(data-dismiss='modal')
-          .lr
-            .rl
-        .container
-          .row
-            .col-lg-8.col-lg-offset-2
-              .modal-body
-                //- Project Details Go Here
-                h2 Project Name
-                p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
-                img.img-responsive.img-centered(src='img/portfolio/escape-preview.png' alt='')
-                p
-                  | Escape is a free PSD web template built by
-                  a(href='https://www.behance.net/MathavanJaya') Mathavan Jaya
-                  | . Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.
-                p
-                  | You can download the PSD template in this portfolio sample item at
-                  a(href='http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/') FreebiesXpress.com
-                  | .
-                button.btn.btn-primary(type='button' data-dismiss='modal')
-                  i.fa.fa-times
-                  |  Close Project
-    //- Portfolio Modal 6
-    #portfolioModal6.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
-      .modal-content
-        .close-modal(data-dismiss='modal')
-          .lr
-            .rl
-        .container
-          .row
-            .col-lg-8.col-lg-offset-2
-              .modal-body
-                //- Project Details Go Here
-                h2 Project Name
-                p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
-                img.img-responsive.img-centered(src='img/portfolio/dreams-preview.png' alt='')
-                p
-                  | Dreams is a free PSD web template built by
-                  a(href='https://www.behance.net/MathavanJaya') Mathavan Jaya
-                  | . Dreams is a modern one page web template designed for almost any purpose. It&rsquo;s a beautiful template that&rsquo;s designed with the Bootstrap framework in mind.
-                p
-                  | You can download the PSD template in this portfolio sample item at
-                  a(href='http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/') FreebiesXpress.com
-                  | .
-                button.btn.btn-primary(type='button' data-dismiss='modal')
-                  i.fa.fa-times
-                  |  Close Project
+    //- //- Portfolio Modals
+    //- //- Use the modals below to showcase details about your portfolio projects!
+    //- //- Portfolio Modal 1
+    //- #portfolioModal1.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    //-   .modal-content
+    //-     .close-modal(data-dismiss='modal')
+    //-       .lr
+    //-         .rl
+    //-     .container
+    //-       .row
+    //-         .col-lg-8.col-lg-offset-2
+    //-           .modal-body
+    //-             //- Project Details Go Here
+    //-             h2 Project Name
+    //-             p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
+    //-             img.img-responsive.img-centered(src='img/portfolio/roundicons-free.png' alt='')
+    //-             p
+    //-               | Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!
+    //-             p
+    //-               strong Want these icons in this portfolio item sample?
+    //-               | You can download 60 of them for free, courtesy of
+    //-               a(href='https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc') RoundIcons.com
+    //-               | , or you can purchase the 1500 icon set
+    //-               a(href='https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc') here
+    //-               | .
+    //-             ul.list-inline
+    //-               li Date: July 2014
+    //-               li Client: Round Icons
+    //-               li Category: Graphic Design
+    //-             button.btn.btn-primary(type='button' data-dismiss='modal')
+    //-               i.fa.fa-times
+    //-               |  Close Project
+    //- //- Portfolio Modal 2
+    //- #portfolioModal2.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    //-   .modal-content
+    //-     .close-modal(data-dismiss='modal')
+    //-       .lr
+    //-         .rl
+    //-     .container
+    //-       .row
+    //-         .col-lg-8.col-lg-offset-2
+    //-           .modal-body
+    //-             h2 Project Heading
+    //-             p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
+    //-             img.img-responsive.img-centered(src='img/portfolio/startup-framework-preview.png' alt='')
+    //-             p
+    //-               a(href='http://designmodo.com/startup/?u=787') Startup Framework
+    //-               |  is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.
+    //-             p
+    //-               | You can preview Startup Framework
+    //-               a(href='http://designmodo.com/startup/?u=787') here
+    //-               | .
+    //-             button.btn.btn-primary(type='button' data-dismiss='modal')
+    //-               i.fa.fa-times
+    //-               |  Close Project
+    //- //- Portfolio Modal 3
+    //- #portfolioModal3.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    //-   .modal-content
+    //-     .close-modal(data-dismiss='modal')
+    //-       .lr
+    //-         .rl
+    //-     .container
+    //-       .row
+    //-         .col-lg-8.col-lg-offset-2
+    //-           .modal-body
+    //-             //- Project Details Go Here
+    //-             h2 Project Name
+    //-             p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
+    //-             img.img-responsive.img-centered(src='img/portfolio/treehouse-preview.png' alt='')
+    //-             p
+    //-               | Treehouse is a free PSD web template built by
+    //-               a(href='https://www.behance.net/MathavanJaya') Mathavan Jaya
+    //-               | . This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.
+    //-             p
+    //-               | You can download the PSD template in this portfolio sample item at
+    //-               a(href='http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/') FreebiesXpress.com
+    //-               | .
+    //-             button.btn.btn-primary(type='button' data-dismiss='modal')
+    //-               i.fa.fa-times
+    //-               |  Close Project
+    //- //- Portfolio Modal 4
+    //- #portfolioModal4.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    //-   .modal-content
+    //-     .close-modal(data-dismiss='modal')
+    //-       .lr
+    //-         .rl
+    //-     .container
+    //-       .row
+    //-         .col-lg-8.col-lg-offset-2
+    //-           .modal-body
+    //-             //- Project Details Go Here
+    //-             h2 Project Name
+    //-             p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
+    //-             img.img-responsive.img-centered(src='img/portfolio/golden-preview.png' alt='')
+    //-             p
+    //-               | Start Bootstrap&apos;s Agency theme is based on Golden, a free PSD website template built by
+    //-               a(href='https://www.behance.net/MathavanJaya') Mathavan Jaya
+    //-               | . Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.
+    //-             p
+    //-               | You can download the PSD template in this portfolio sample item at
+    //-               a(href='http://freebiesxpress.com/gallery/golden-free-one-page-web-template/') FreebiesXpress.com
+    //-               | .
+    //-             button.btn.btn-primary(type='button' data-dismiss='modal')
+    //-               i.fa.fa-times
+    //-               |  Close Project
+    //- //- Portfolio Modal 5
+    //- #portfolioModal5.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    //-   .modal-content
+    //-     .close-modal(data-dismiss='modal')
+    //-       .lr
+    //-         .rl
+    //-     .container
+    //-       .row
+    //-         .col-lg-8.col-lg-offset-2
+    //-           .modal-body
+    //-             //- Project Details Go Here
+    //-             h2 Project Name
+    //-             p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
+    //-             img.img-responsive.img-centered(src='img/portfolio/escape-preview.png' alt='')
+    //-             p
+    //-               | Escape is a free PSD web template built by
+    //-               a(href='https://www.behance.net/MathavanJaya') Mathavan Jaya
+    //-               | . Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your benefits.
+    //-             p
+    //-               | You can download the PSD template in this portfolio sample item at
+    //-               a(href='http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/') FreebiesXpress.com
+    //-               | .
+    //-             button.btn.btn-primary(type='button' data-dismiss='modal')
+    //-               i.fa.fa-times
+    //-               |  Close Project
+    //- //- Portfolio Modal 6
+    //- #portfolioModal6.portfolio-modal.modal.fade(tabindex='-1' role='dialog' aria-hidden='true')
+    //-   .modal-content
+    //-     .close-modal(data-dismiss='modal')
+    //-       .lr
+    //-         .rl
+    //-     .container
+    //-       .row
+    //-         .col-lg-8.col-lg-offset-2
+    //-           .modal-body
+    //-             //- Project Details Go Here
+    //-             h2 Project Name
+    //-             p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
+    //-             img.img-responsive.img-centered(src='img/portfolio/dreams-preview.png' alt='')
+    //-             p
+    //-               | Dreams is a free PSD web template built by
+    //-               a(href='https://www.behance.net/MathavanJaya') Mathavan Jaya
+    //-               | . Dreams is a modern one page web template designed for almost any purpose. It&rsquo;s a beautiful template that&rsquo;s designed with the Bootstrap framework in mind.
+    //-             p
+    //-               | You can download the PSD template in this portfolio sample item at
+    //-               a(href='http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/') FreebiesXpress.com
+    //-               | .
+    //-             button.btn.btn-primary(type='button' data-dismiss='modal')
+    //-               i.fa.fa-times
+    //-               |  Close Project
