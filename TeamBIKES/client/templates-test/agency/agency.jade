@@ -16,6 +16,8 @@ template(name='agency')
             li.hidden
               a(href='#page-top')
             li
+              a.page-scroll(href='#explanation') Bikeshares
+            li
               a.page-scroll(href='#benefits') Benefits
             li
               a.page-scroll(href='#pricing') Pricing
@@ -36,6 +38,13 @@ template(name='agency')
           //- Want a faster, smarter, cheaper way to get around?
           .intro-heading WELCOME TO THE BIKE SHARE OF THE FUTURE
           a.btn.btn-xl(href="{{ pathFor 'atSignUp' }}") Sign Up for Free
+
+    //- Explanation Grid Section
+    section#explanation.bg-light-gray
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading What is a bikeshare?
 
     //- benefits Section
     section#benefits
@@ -72,64 +81,6 @@ template(name='agency')
 
     //- Pricing Grid Section
     section#pricing.bg-light-gray
-      //- .container
-      //-   .row
-      //-     .col-xs-6.col-sm-6.col-md-4.col-lg-4
-      //-       //- PRICE ITEM
-      //-       .panel.price.panel-red
-      //-         .panel-heading.text-center
-      //-           h3 BASE PLAN
-      //-         .panel-body.text-center
-      //-           p.lead(style='font-size:40px')
-      //-             strong $0 / month
-      //-         ul.list-group.list-group-flush.text-center
-      //-           li.list-group-item
-      //-             i.icon-ok.text-danger
-      //-             |  Casual use
-      //-           li.list-group-item
-      //-             i.icon-ok.text-danger
-      //-             |  Pay per ride
-      //-           //- li.list-group-item
-      //-           //-   i.icon-ok.text-danger
-      //-           //-   |  27/7 support
-      //-         .panel-footer
-      //-           a.btn.btn-lg.btn-block.btn-danger(href="{pathFor 'atSignUp}") Register Now!
-      //-       //- /PRICE ITEM
-      //-     .col-xs-6.col-sm-6.col-md-4.col-lg-4
-      //-       //- PRICE ITEM
-      //-       .panel.price.panel-blue
-      //-         .panel-heading.arrow_box.text-center
-      //-           h3 CASUAL RIDER
-      //-         .panel-body.text-center
-      //-           p.lead(style='font-size:40px')
-      //-             strong $15 / month
-      //-         ul.list-group.list-group-flush.text-center
-      //-           li.list-group-item
-      //-             i.icon-ok.text-info
-      //-             |  Consistent use
-      //-           li.list-group-item
-      //-             i.icon-ok.text-info
-      //-             |  5 rides/day
-      //-         .panel-footer
-      //-           a.btn.btn-lg.btn-block.btn-info(href="{pathFor 'atSignUp}") Register Now!
-      //-       //- /PRICE ITEM
-      //-     .col-xs-6.col-sm-6.col-md-4.col-lg-4
-      //-       //- PRICE ITEM
-      //-       .panel.price.panel-green
-      //-         .panel-heading.arrow_box.text-center
-      //-           h3 PRO COMMUTER
-      //-         .panel-body.text-center
-      //-           p.lead(style='font-size:40px')
-      //-             strong $20 / month
-      //-         ul.list-group.list-group-flush.text-center
-      //-           li.list-group-item
-      //-             i.icon-ok.text-success
-      //-             |  For every class comute
-      //-           li.list-group-item
-      //-             i.icon-ok.text-success
-      //-             |  Unlimited Rides
-      //-         .panel-footer
-      //-           a.btn.btn-lg.btn-block.btn-success(href="{pathFor 'atSignUp}") Register Now!
       h2.main-title Check Out Our Great Prices
       .container
         .row
@@ -271,7 +222,7 @@ template(name='agency')
       .container
         .row
           .col-lg-12.text-center
-            h2.section-heading Building Team BIKES
+            h2.section-heading How did this all start?
             h3.section-subheading.text-muted Teamwork, writing, planning, and engineering
         .row
           .col-lg-12
