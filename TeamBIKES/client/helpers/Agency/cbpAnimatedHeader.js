@@ -1,4 +1,4 @@
-Template.agency.rendered = function () {
+// Template.agency.rendered = function () {
 	/**
 	 * cbpAnimatedHeader.js v1.0.0
 	 * http://www.codrops.com
@@ -47,4 +47,4 @@ Template.agency.rendered = function () {
 		init();
 
 	})();
-};
+// };
