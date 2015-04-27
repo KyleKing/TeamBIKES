@@ -36,6 +36,7 @@ Router.plugin('ensureSignedIn', {
 /*   Private          */
 /********************************************/
 Router.route('/dashboard', {
+  controller: 'AppController'
 });
 
 Router.route('/users', {
@@ -105,10 +106,6 @@ Router.route('/admin3layoutBikeData/:_id', {
 /*********************************************/
 /*   WIP - Test Routes          */
 /********************************************/
-
-Router.route('/home', {
-  controller: 'skrollrController'
-});
 
 Router.route('/progress', {
   controller: 'AppController'
