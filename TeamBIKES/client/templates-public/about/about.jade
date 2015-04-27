@@ -94,9 +94,35 @@ template(name='about')
         .row
           .col-lg-12.text-center
             h2.section-heading What is a bikeshare?
-            img(src="img/about/bike-explained.png", alt="")
-            p.text-muted WeBike - Used without permission
+            h3.section-subheading.text-muted Bike renting has never been this easy
+        .row.step-one
+          .col-sm-3.col-sm-offset-2
+            .team-member
+              img.img-responsive.img-circle(src='img/about/explanation/1.png' alt='')
+          .col-sm-5
+            .explanation-text
+              h5 &nbsp;
+              h3 Find a Bike
+              p Using the online map of each bike, find the nearest available bike.
 
+        .row.step-two
+          .col-sm-5.col-sm-offset-2
+            .explanation-text
+              h5 &nbsp;
+              h3 Unlock
+              p Using your Red Bars ID, swipe it by the lock pad and the bike will instantly unlock. Twist the lock into the riding position and you are ready to go.
+          .col-sm-3
+            .team-member
+              img.img-responsive.img-circle(src='img/about/explanation/2.png' alt='')
+        .row.step-three
+          .col-sm-3.col-sm-offset-2
+            .team-member
+              img.img-responsive.img-circle(src='img/about/explanation/3.png' alt='')
+          .col-sm-5
+            .explanation-text
+              h5 &nbsp;
+              h3 Return
+              p This is the best part, when you are done, return the bike to any bike rack on campus. We won't limit you to just a handful of stations.
     //- benefits Section
     section#benefits
       .container
@@ -111,28 +137,38 @@ template(name='about')
               i.fa.fa-money.fa-stack-1x.fa-inverse
             h4.service-heading Flexible Prices
             p.text-muted
-              | Choose the pricing scheme that best fits your needs,
+              | Cheaper and easier than maintaing your own bike, have acces to an entire fleet of bikes wherever you are
               a.page-scroll(href="#pricing") find out more below.
+              //- | Choose the pricing scheme that best fits your needs,
+              //- a.page-scroll(href="#pricing") find out more below.
           .col-md-4
             span.fa-stack.fa-4x
               i.fa.fa-circle.fa-stack-2x.text-primary
               i.fa.fa-mobile.fa-stack-1x.fa-inverse
             h4.service-heading Access Anywhere
             p.text-muted
-              | Quickly find the nearest bike wherever you are -
-              a(href="{{ pathFor 'map' }}") see a demo here.
+              | We tirelessly work to make sure that the bikes are where you need them. We crunch big data to make your day even better. See all of our bikes
+              a(href="{{ pathFor 'map' }}") here
+              //- | Quickly find the nearest bike wherever you are -
+              //- a(href="{{ pathFor 'map' }}") see a demo here.
           .col-md-4
             span.fa-stack.fa-4x
               i.fa.fa-circle.fa-stack-2x.text-primary
               i.fa.fa-unlock.fa-stack-1x.fa-inverse
             h4.service-heading Red Bars ID
             p.text-muted
-              | Using the smart Red Bars ID, swipe to unlock any bike -
+              | When you sign up to Red Bars, you receive you're excluse Red Bars ID and you don't need to pay us anything until you are ready to ride. We chose to make it simple,
               a(href="{{ pathFor 'atSignUp' }}") register here.
+              //- | Using the smart Red Bars ID, swipe to unlock any bike -
+              //- a(href="{{ pathFor 'atSignUp' }}") register here.
 
     //- Pricing Grid Section
     section#pricing.bg-light-gray
-      h2.main-title Check Out Our Great Prices
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.main-title Check Out Our Great Prices
+            h3.section-subheading.text-muted And if you're reading this, then you probably have the opportunity to help us improve them!
       .container
         .row
           .col-xs-12.col-sm-6.col-md-4
@@ -318,7 +354,7 @@ template(name='about')
               img.img-responsive.img-circle(src='img/team/8.png' alt='')
               h4 Emily Ruppel
               p.text-muted Access Control Team Leader
-          .col-sm-3
+          .col-sm-4
             .team-member
               img.img-responsive.img-circle(src='img/team/12.jpg' alt='')
               h4 Nathanial Kruder
@@ -334,7 +370,7 @@ template(name='about')
               img.img-responsive.img-circle(src='img/team/11.jpg' alt='')
               h4 Isaac Noh
               p.text-muted Systems Engineer
-          .col-sm-3
+          .col-sm-4
             .team-member
               img.img-responsive.img-circle(src='img/team/13.jpg' alt='')
               h4 Tyler Gilman
