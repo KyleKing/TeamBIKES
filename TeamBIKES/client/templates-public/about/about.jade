@@ -10,23 +10,72 @@ template(name='about')
             span.icon-bar
             span.icon-bar
           a.navbar-brand.page-scroll(href='#page-top') Red Bars
-        //- Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          if currentUser
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a.dropdown-toggle(href='#' data-toggle='dropdown')
+                  i.fa.fa-user
+                    |  {{ currentUser.profile.name }}
+                  i.fa.fa-caret-down
+                ul.dropdown-menu(role='menu')
+                  li(class="{{ isActiveRoute regex='student' }}")
+                    a(href="{{ pathFor 'student' }}")
+                      i.fa.fa-user
+                        |  student
+                  li
+                    a(href='#' data-action='logout')
+                      i.fa.fa-lock
+                        |  Sign Out
+          else
+            .navbar-right
+              a.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
+              a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
           ul.nav.navbar-nav.navbar-right
             li.hidden
               a(href='#page-top')
-            li
-              a.page-scroll(href='#explanation') Bikeshares
-            li
-              a.page-scroll(href='#benefits') Benefits
-            li
-              a.page-scroll(href='#pricing') Pricing
-            li
-              a.page-scroll(href='#about') About
-            li
-              a.page-scroll(href='#team') Team
-        //- /.navbar-collapse
-      //- /.container-fluid
+            li(class="{{ isActiveRoute regex='about' }}")
+              a(href="{{ pathFor 'about' }}")
+                i.fa.fa-home
+                  |  About
+            li(class="{{ isActiveRoute regex='map' }}")
+              a(href="{{ pathFor 'map' }}")
+                i.fa.fa-map-marker
+                  |  Map
+            li(class="{{ isActiveRoute regex='FAQ' }}")
+              a(href="{{ pathFor 'FAQ' }}")
+                i.fa.fa-question
+                  |  FAQ
+        //- #main-nav.collapse.navbar-collapse
+        //- if currentUser
+        //-   ul.nav.navbar-nav.navbar-right
+        //-     li.dropdown
+        //-       a.dropdown-toggle(href='#' data-toggle='dropdown')
+        //-         i.fa.fa-user
+        //-           |  {{ currentUser.profile.name }}
+        //-         i.fa.fa-caret-down
+        //-       ul.dropdown-menu(role='menu')
+        //-         li(class="{{ isActiveRoute regex='student' }}")
+        //-           a(href="{{ pathFor 'student' }}")
+        //-             i.fa.fa-user
+        //-               |  student
+        //-         li
+        //-           a(href='#' data-action='logout')
+        //-             i.fa.fa-lock
+        //-               |  Sign Out
+        //- else
+        //-   .navbar-right
+        //-     a.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
+        //-     a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
+
+
+        //- Collect the nav links, forms, and other content for toggling
+        //- #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        //-   ul.nav.navbar-nav.navbar-right
+        //-     li.hidden
+        //-       a(href='#page-top')
+        //-     li
+        //-       a.page-scroll(href='#explanation') Bikeshares
 
     //- Header
     header
