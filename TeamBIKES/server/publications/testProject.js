@@ -109,10 +109,10 @@
 //   Meteor.publish("users", function() {
 //     return Meteor.users.find();
 //   });
-//   // Map data
-//   Meteor.publish("currentData", function() {
-//     return Current.find();
-//   });
+  // Map data
+  Meteor.publish("currentData", function() {
+    return Current.find();
+  });
 
 
 // /*********************************************/

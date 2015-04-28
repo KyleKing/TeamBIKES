@@ -47,6 +47,7 @@ mrt:underscore-string-latest
 
 # JS Libraries - Visual
 mrt:leaflet
+fuatsengul:leaflet-markercluster
 appshore:leaflet-awesome-markers
 mrt:ionicons
 fortawesome:fontawesome
@@ -68,7 +69,6 @@ mdg:camera
 # aldeed:collection2
 # aldeed:autoform
 
-# fuatsengul:leaflet-markercluster
 # jeremy:snapsvg
 mirageglobe:snapsvgcdn
 # tsega:skrollr

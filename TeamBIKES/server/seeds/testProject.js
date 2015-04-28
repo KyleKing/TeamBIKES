@@ -1,39 +1,40 @@
-// var totalBikeCount = 200;
+var totalBikeCount = 200;
 
-// // Calculate current day of year without momentjs
-//   // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
-// var currentDay = (function() {
-//   var dateFunc = new Date();
-//   var start = new Date(dateFunc.getFullYear(), 0, 0);
-//   var diff = dateFunc - start;
-//   var oneDay = 1000 * 60 * 60 * 24;
-//   var day = Math.floor(diff / oneDay);
-//   return day;
-// });
+// Calculate current day of year without momentjs
+  // Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
+var currentDay = (function() {
+  var dateFunc = new Date();
+  var start = new Date(dateFunc.getFullYear(), 0, 0);
+  var diff = dateFunc - start;
+  var oneDay = 1000 * 60 * 60 * 24;
+  var day = Math.floor(diff / oneDay);
+  return day;
+});
 
-// var now = new Date().getTime();
+var now = new Date().getTime();
 
-//   // Bottom Right: Latitude : 38.980296 | Longitude : -76.933479
-//   // Bottom Left: Latitude : 38.982297 | Longitude : -76.957941
-//   // Top Left: Latitude : 38.999109 | Longitude : -76.956053
-//   // Top Right: Latitude : 39.003778 | Longitude : -76.932278
-// var randGPS = (function(max) {
-//   // Calculate random GPS coordinates within campus
-//   var leftLat = 38.994052;
-//   var rightLat = 38.981376;
-//   var bottomLng = -76.936569;
-//   var topLng = -76.950603;
-//   var skew = 1000000;
+  // Bottom Right: Latitude : 38.980296 | Longitude : -76.933479
+  // Bottom Left: Latitude : 38.982297 | Longitude : -76.957941
+  // Top Left: Latitude : 38.999109 | Longitude : -76.956053
+  // Top Right: Latitude : 39.003778 | Longitude : -76.932278
+var randGPS = (function(max) {
+  // Calculate random GPS coordinates within campus
+  var leftLat = 38.994052;
+  var rightLat = 38.981376;
+  var bottomLng = -76.936569;
+  var topLng = -76.950603;
+  var skew = 1000000;
 
-//   var randLat = [];  var randLng = [];
-//   _.times(max, function(){ randLat.push(_.random(leftLat*skew, rightLat*skew)/skew); });
-//   _.times(max, function(){ randLng.push(_.random(bottomLng*skew, topLng*skew)/skew); });
+  var randLat = [];  var randLng = [];
+  _.times(max, function(){ randLat.push(_.random(leftLat*skew, rightLat*skew)/skew); });
+  _.times(max, function(){ randLng.push(_.random(bottomLng*skew, topLng*skew)/skew); });
 
-//   // Save in object to return
-//   var randCoordinates = {lat: randLat, lng: randLng};
-//   return randCoordinates;
-// });
-// // console.log(randGPS(25).lng[Math.round(24*Math.random())]);
+  // Save in object to return
+  var randCoordinates = {lat: randLat, lng: randLng};
+  return randCoordinates;
+});
+// console.log(randGPS(25).lng[Math.round(24*Math.random())]);
+// console.log(randGPS(1).lng[0]);
 
 // var randNames = [
 //   'Anastasia Romanoff',
@@ -209,16 +210,16 @@
 //   console.log("Created Bikes dataschema");
 // }
 
-// if (Current.find().count() === 0) {
-//   // console.log("Starting MongoDB with math!");
-//   for (var i = 0; i < totalBikeCount; i++) { // For 10 bikes
-//     Current.insert({
-//       bike: i,
-//       lat: NaN,
-//       lng: NaN
-//     });
-//   }
-// }
+if (Current.find().count() === 0) {
+  console.log("Created Current with " + totalBikeCount.toString() + " fake bike locations");
+  for (var i = 0; i < totalBikeCount; i++) { // For 10 bikes
+    Current.insert({
+      bike: i,
+      lat: randGPS(1).lat[0],
+      lng: randGPS(1).lng[0]
+    });
+  }
+}
 
 if (BarChart.find().count() === 0) {
   console.log("Starting BarChart with math!");
