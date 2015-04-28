@@ -1,3 +1,4 @@
+// Global Styles
 Router.configure({
   loadingTemplate: 'loading'
 });

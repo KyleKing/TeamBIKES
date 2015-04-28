@@ -1,52 +1,7 @@
 template(name='about')
-    //- Navigation
-    nav.navbar.navbar-default.agency.navbar-fixed-top
-      .container
-        //- Brand and toggle get grouped for better mobile display
-        .navbar-header.page-scroll
-          button.navbar-toggle(type='button' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand.page-scroll(href='#page-top') Red Bars
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          if currentUser
-            ul.nav.navbar-nav.navbar-right
-              li.dropdown
-                a.dropdown-toggle(href='#' data-toggle='dropdown')
-                  i.fa.fa-user
-                    |  {{ currentUser.profile.name }}
-                  i.fa.fa-caret-down
-                ul.dropdown-menu(role='menu')
-                  li(class="{{ isActiveRoute regex='student' }}")
-                    a(href="{{ pathFor 'student' }}")
-                      i.fa.fa-user
-                        |  student
-                  li
-                    a(href="{{ pathFor 'signOut' }}")
-                      i.fa.fa-lock
-                        |  Sign Out
-          else
-            ul.nav.navbar-nav.navbar-right.login-buttons
-              //- .navbar-right
-              a.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
-              a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
-          ul.nav.navbar-nav.navbar-right
-            li.hidden
-              a(href='#page-top')
-            li(class="{{ isActiveRoute regex='about' }}")
-              a(href="{{ pathFor 'about' }}")
-                i.fa.fa-home
-                  |  About
-            li(class="{{ isActiveRoute regex='map' }}")
-              a(href="{{ pathFor 'map' }}")
-                i.fa.fa-map-marker
-                  |  Map
-            li(class="{{ isActiveRoute regex='FAQ' }}")
-              a(href="{{ pathFor 'FAQ' }}")
-                i.fa.fa-question
-                  |  FAQ
+    //- Navigation Bar
+    nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse(role='navigation')
+      +navigation_bar
 
     //- Header
     header#page-top
@@ -56,7 +11,7 @@ template(name='about')
             span.typed-element
             span way to get around?
           //- Want a faster, smarter, cheaper way to get around?
-          .intro-heading WELCOME TO BIKE RIDING OF THE FUTURE
+          .intro-heading WELCOME TO THE FUTURE OFw BIKE RIDING
           a.btn.btn-xl(href="{{ pathFor 'atSignUp' }}") Sign Up for Free
 
     //- Explanation Grid Section
