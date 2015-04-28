@@ -66,7 +66,7 @@ Template.map.rendered = function() {
 
 
       // Creates a red marker with the coffee icon
-      var redMarker = L.AwesomeMarkers.icon({
+      var redBike = L.AwesomeMarkers.icon({
         prefix: 'fa',
         icon: 'bicycle',
         // prefix: 'ion',
@@ -74,15 +74,23 @@ Template.map.rendered = function() {
         markerColor: 'red',
         iconColor: 'white'
       });
-      var marker = L.marker([38.9820409, -76.94257429999999], {icon: redMarker}).addTo(map);
+      var marker = L.marker([38.9820409, -76.94257429999999], {icon: redBike}).addTo(map);
       // console.log(marker);
 
 
 
+      var meMarker = L.AwesomeMarkers.icon({
+        prefix: 'fa',
+        icon: 'user',
+        // prefix: 'ion',
+        // icon: 'coffee',
+        markerColor: 'blue',
+        iconColor: 'white'
+      });
       map.locate({
         setView: true
       }).on("locationfound", function(e) {
-        var marker = L.marker([e.latitude, e.longitude], {icon: redMarker}).addTo(map);
+        var marker = L.marker([e.latitude, e.longitude], {icon: meMarker}).addTo(map);
         // console.log(markerGPS);
         console.log([e.latitude, e.longitude]);
       });
