@@ -19,7 +19,12 @@ Router.route('/FAQ', {
 });
 
 Router.route('/map', {
-  layoutTemplate: 'fullLayout'
+  // subscriptions: function() {
+  //   // returning a subscription handle or an array of subscription handles
+  //   // adds them to the wait list.
+  //   return Meteor.subscribe('currentData');
+  // },
+  layoutTemplate: 'fullLayout',
 });
 
 /*********************************************/

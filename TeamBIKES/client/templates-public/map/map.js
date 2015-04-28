@@ -1,7 +1,10 @@
 Template.map.rendered = function() {
-  // return Meteor.subscribe("currentData", function() {
+  if (Meteor.isClient) {
+    return Meteor.subscribe("currentData", function() {
 
-    if (Meteor.isClient) {
+      /*********************************************/
+      /*   Configure Leaflet Map          */
+      /********************************************/
 
       // L.Icon.Default.imagePath = 'leaflet/images';
 
@@ -30,55 +33,42 @@ Template.map.rendered = function() {
       var zoomControl = L.control.zoom({
         position: 'bottomleft'
       });
-
       map.addControl(zoomControl);
 
-      // // Use Leaflet cluster group plugin
-      // var markers = new L.MarkerClusterGroup();
-      // bikesData = Current.find().fetch();
-
-      // var bikeIconGR = L.icon({
-      //     iconUrl: 'leaflet/bikes/marker-icon.png',
-      //     shadowUrl: 'leaflet/bikes/marker-icon.png',
-
-      //     iconSize:     [50, 50], // size of the icon
-      //     shadowSize:   [0, 0], // size of the shadow
-      //     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-      //     shadowAnchor: [0, 0],  // the same for the shadow
-      //     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-      // });
-
-      // map.addLayer(markers);
-
-      // // New serial port connection:
-      // var i = bikesData.length - 1;
-      // while (i >= 1) {
-      //   if (!isNaN(bikesData[i].Lat)) {
-      //     markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].Lat, bikesData[i].Long), {icon: bikeIconGR} ) );
-      //     console.log(bikesData[i]);
-      //   } else {
-      //     console.log("Bad Bike Location (NaN) - i.e. the current database is empty");
-      //   }
-      //   i--;
-      // }
-      // map.addLayer(markers);
-
-
-
+      /*********************************************/
+      /*   Plot 'current' collection with available bike locations  */
+      /********************************************/
       // Creates a red marker with the coffee icon
       var redBike = L.AwesomeMarkers.icon({
         prefix: 'fa',
         icon: 'bicycle',
-        // prefix: 'ion',
-        // icon: 'coffee',
         markerColor: 'red',
         iconColor: 'white'
       });
-      var marker = L.marker([38.9820409, -76.94257429999999], {icon: redBike}).addTo(map);
-      // console.log(marker);
 
+      // Use Leaflet markercluster group plugin
+      var markers = new L.MarkerClusterGroup();
+      map.addLayer(markers);
 
+      // Collect bike location data
+      bikesData = Current.find().fetch();
+      var i = bikesData.length - 1;
+      while (i >= 1) {
+        if (!isNaN(bikesData[i].lat)) {
+          markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].lat, bikesData[i].lng), {icon: redBike} ) );
+          // console.log(bikesData[i]);
+        } else {
+          console.log("Bad Bike Location (NaN) - i.e. the current database is empty");
+          console.log(bikesData[i]);
+        }
+        i--;
+      }
+      map.addLayer(markers);
 
+      /*********************************************/
+      /*   Plot the user          */
+      /********************************************/
+      // Create marker
       var meMarker = L.AwesomeMarkers.icon({
         prefix: 'fa',
         icon: 'user',
@@ -87,14 +77,14 @@ Template.map.rendered = function() {
         markerColor: 'blue',
         iconColor: 'white'
       });
+      // Locate, zoom and plot
       map.locate({
         setView: true
       }).on("locationfound", function(e) {
         var marker = L.marker([e.latitude, e.longitude], {icon: meMarker}).addTo(map);
-        // console.log(markerGPS);
-        console.log([e.latitude, e.longitude]);
+        // console.log([e.latitude, e.longitude]);
       });
 
-    }
-  // });
+    });
+  }
 };
