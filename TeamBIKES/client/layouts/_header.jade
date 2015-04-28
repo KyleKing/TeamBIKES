@@ -22,7 +22,7 @@ template(name='_header')
                     i.fa.fa-user
                       |  student
                 li
-                  a(href='#' data-action='logout')
+                  a(href="{{ pathFor 'signOut' }}")
                     i.fa.fa-lock
                       |  Sign Out
         else

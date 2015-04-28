@@ -81,6 +81,7 @@ mrt:leaflet@0.3.8
 mrt:underscore-string-latest@2.3.3
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
+okgrow:iron-router-autoscroll@0.0.8
 ordered-dict@1.0.3
 peerlibrary:assert@0.2.5
 peerlibrary:base-component@0.8.0

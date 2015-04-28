@@ -1,23 +1,31 @@
+Router.configure({
+  loadingTemplate: 'loading'
+});
+
+// Do these even work?
+Router.plugin('dataNotFound', {dataNotFoundTemplate: 'notFound'});
+
+
 /*********************************************/
 /*   Public          */
 /********************************************/
 Router.route('/', {
-  name: 'about'
+  name: 'about',
 });
 
 Router.route('/FAQ', {
-  controller: 'AppController'
+  layoutTemplate: 'appLayout'
 });
 
 Router.route('/map', {
-  controller: 'MapController'
+  layoutTemplate: 'fullLayout'
 });
 
 /*********************************************/
 /*   Make sure sign in only, but student role          */
 /********************************************/
 Router.route('/student', {
-  controller: 'AppController'
+  layoutTemplate: 'appLayout'
 });
 
 
@@ -29,6 +37,18 @@ Router.plugin('ensureSignedIn', {
     only: ['dashboard']
     // Array of pages not secured
     // except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr', 'progress', 'home']
+});
+
+
+// Sign out and go to home page with route control
+// Useful, from: http://stackoverflow.com/questions/27743660/proper-syntax-for-iron-routers-router-route
+Router.route('/sign-out', function() { }, {
+  name: 'signOut',
+  onBeforeAction: function () {
+    if (Meteor.userId()) { Meteor.logout(); }
+    this.next();
+  },
+  onAfterAction: function () { Router.go('/'); }
 });
 
 

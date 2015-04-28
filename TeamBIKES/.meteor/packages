@@ -15,7 +15,7 @@ reywood:publish-composite
 # Router:
 iron:router
 zimme:iron-router-active
-yasinuslu:blaze-meta
+okgrow:iron-router-autoscroll
 
 # Authentication
 accounts-password
@@ -44,17 +44,15 @@ stylus
 # JS Libraries - Tools
 momentjs:moment
 mrt:underscore-string-latest
+
 # JS Libraries - Visual
 mrt:leaflet
 appshore:leaflet-awesome-markers
 mrt:ionicons
 fortawesome:fontawesome
-
-# JS Libraries - Visuals
 timmyg:wow
 chrisbutler:typed.js
 mrt:jquery-easing
-
 
 # Mobile Functions
 mdg:camera
@@ -164,3 +162,8 @@ digilord:faker
 peerlibrary:blaze-components
 maazalik:highcharts
 # jhuenges:highstock
+
+
+# Alternative
+# https://atmospherejs.com/lookback/seo
+yasinuslu:blaze-meta

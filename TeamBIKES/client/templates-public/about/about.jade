@@ -24,11 +24,12 @@ template(name='about')
                       i.fa.fa-user
                         |  student
                   li
-                    a(href='#' data-action='logout')
+                    a(href="{{ pathFor 'signOut' }}")
                       i.fa.fa-lock
                         |  Sign Out
           else
-            .navbar-right
+            ul.nav.navbar-nav.navbar-right.login-buttons
+              //- .navbar-right
               a.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
               a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
           ul.nav.navbar-nav.navbar-right
