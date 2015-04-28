@@ -7,7 +7,7 @@ Router.plugin('dataNotFound', {dataNotFoundTemplate: 'notFound'});
 
 
 /*********************************************/
-/*   Public          */
+/*   Public                                                         */
 /********************************************/
 Router.route('/', {
   name: 'about',
