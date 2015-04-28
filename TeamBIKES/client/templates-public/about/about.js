@@ -1,17 +1,60 @@
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
+
+
 Template.about.rendered = function () {
+  // var typedStrings = [" better"];
+
+  // jQuery(function($) {
+  //     if (!isMobile.any()) {
+  //       var typedStrings = [" better"];
+  //       $('#is-mobile').toggleClass('show hide');
+  //     }
+  //     if (isMobile.any()) {
+  //       var typedStrings = [" faster", " smarter", " cheaper", " better"];
+  //       $('#is-desktop').toggleClass('show hide');
+  //     }
+  // });
+
   // such Wow.js animatinos for explanation section
   new WOW().init();
 
   // Typed.js demo -> outputs text for title
   $(function(){
-        $(".typed-element").typed({
-          strings: [" faster", " smarter", " cheaper", " better"],
-          typeSpeed: 150,
-          // time before typing starts
-          startDelay: 300,
-          // time before backspacing
-          backDelay: 500,
-        });
+      if (!isMobile.any()) {
+        // Is non-mobile device
+        var typedStrings = [" faster", " smarter", " cheaper", " better"];
+      }
+      if (isMobile.any()) {
+        // Is mobile device
+        var typedStrings = [" better"];
+      }
+      $(".typed-element").typed({
+        strings: typedStrings,
+        typeSpeed: 150,
+        // time before typing starts
+        startDelay: 300,
+        // time before backspacing
+        backDelay: 500,
+      });
     });
 
     /*!
