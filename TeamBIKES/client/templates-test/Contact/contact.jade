@@ -8,6 +8,7 @@ template(name="contact")
       form
         | Do you think this page will be useful?
         br
+        br
         input(type='text' name='firstname')
         br
 
@@ -16,6 +17,7 @@ template(name="contact")
     .col-md-4
       form
         | Submit general comments here:
+        br
         br
         input(type='text' name='comments')
         br
@@ -27,7 +29,6 @@ template(name="profPics")
       img(src='{{photo}}')
       //- else...?
       //- img(src="profile/Prof_Pic_Placeholder.png")
-
   p Submit a photo of any broken bikes here:
   h1.text-center(style='height: 60px; width: auto;')
     button.fa.fa-camera
