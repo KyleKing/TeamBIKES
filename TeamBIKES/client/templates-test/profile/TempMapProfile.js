@@ -1108,11 +1108,11 @@ Template.TempMapProfile.rendered = function() {
     map.addControl(zoomControl);
 
     var polygon = L.polyline(addressPoints.slice(15,19)).addTo(map);
-      // console.log(addressPoints.slice(15,19));
+      console.log(addressPoints.slice(15,19));
       polygon.bindPopup('My last ride').openPopup();
 
     var heat = L.heatLayer(addressPoints).addTo(map);
-
+      console.log('addressPoints');
       /*********************************************/
       /*   Plot the user          */
       /********************************************/
