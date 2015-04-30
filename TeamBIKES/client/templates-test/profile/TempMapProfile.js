@@ -1107,7 +1107,7 @@ Template.TempMapProfile.rendered = function() {
     });
     map.addControl(zoomControl);
 
-    var polygon = L.polyline(addressPoints.slice(15,19)).addTo(map);
+    var polygon = L.polyline(addressPoints.slice(21,28)).addTo(map);
       console.log(addressPoints.slice(15,19));
       polygon.bindPopup('My last ride').openPopup();
 
