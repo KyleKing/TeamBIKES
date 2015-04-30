@@ -2,20 +2,32 @@ template(name="contact")
   .row
     .col-md-12
       h1.text-center Report any problems below:
+      br
   .row
     .col-md-4
+      form
+        | Do you think this page will be useful?
+        br
+        input(type='text' name='firstname')
+        br
+
+    .col-md-4
       +profPics
-    .col-md-8
-      h1 A text form will go here
-      button(style='padding: 30px;') Send Feedback
+    .col-md-4
+      form
+        | Submit general comments here:
+        br
+        input(type='text' name='comments')
+        br
+      button(style='height: 30px; width: auto;') Submit Feedback
 
 template(name="profPics")
-  h1 &nbsp;
-  h1.text-center
-    button.fa.fa-camera
-
   if photo
     .image
       img(src='{{photo}}')
-//- else...?
-//- img(src="profile/Prof_Pic_Placeholder.png")
+      //- else...?
+      //- img(src="profile/Prof_Pic_Placeholder.png")
+
+  p Submit a photo of any broken bikes here:
+  h1.text-center(style='height: 60px; width: auto;')
+    button.fa.fa-camera
