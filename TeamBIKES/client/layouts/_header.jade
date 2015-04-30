@@ -42,10 +42,10 @@ template(name='navigation_bar')
             a(href="{{ pathFor 'map' }}")
               i.fa.fa-map-marker
                 |  Map
-          li(class="{{ isActiveRoute regex='FAQ' }}")
-            a(href="{{ pathFor 'FAQ' }}")
+          li(class="{{ isActiveRoute regex='contact' }}")
+            a(href="{{ pathFor 'contact' }}")
               i.fa.fa-question
-                |  FAQ
+                |  Contact
           //- li.dropdown
             a.dropdown-toggle(href='#' data-toggle='dropdown')
               //- i.fa.fa-ellipsis-h

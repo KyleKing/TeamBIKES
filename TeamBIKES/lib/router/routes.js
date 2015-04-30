@@ -14,7 +14,7 @@ Router.route('/', {
   name: 'about',
 });
 
-Router.route('/FAQ', {
+Router.route('/contact', {
   layoutTemplate: 'appLayout'
 });
 
