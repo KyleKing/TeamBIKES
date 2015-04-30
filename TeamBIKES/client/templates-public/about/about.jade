@@ -169,8 +169,18 @@ template(name='about')
             .col-xs-12.col-sm-12.margin-bottom-20
             //- END: Will be visible in tablet and mobile devices to make gap between tow price items
 
+    //- FAQ Section
+    section#FAQ
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Most Common Questions
+            h3.section-subheading.text-muted &nbsp;
+        .row
+          +FAQ
+
     //- About Section
-    section#about
+    section#about.bg-light-gray
       .container
         .row
           .col-lg-12.text-center
@@ -228,7 +238,7 @@ template(name='about')
                     br
                     | Story!
     //- Team Section
-    section#team.bg-light-gray.hidden-xs
+    section#team.hidden-xs
       .container
         .row
           .col-lg-12.text-center
@@ -314,7 +324,7 @@ template(name='about')
               | With one more year left to go, expect great things!
 
     footer
-      .container
+      .container.bg-light-gray
         .row
           .col-md-4
             span.copyright Built in gear 3 by Team BIKES
