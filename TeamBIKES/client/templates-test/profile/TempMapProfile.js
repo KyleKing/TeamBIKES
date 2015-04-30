@@ -1112,5 +1112,26 @@ Template.TempMapProfile.rendered = function() {
       polygon.bindPopup('My last ride').openPopup();
 
     var heat = L.heatLayer(addressPoints).addTo(map);
+
+      /*********************************************/
+      /*   Plot the user          */
+      /********************************************/
+      // Create marker
+      var meMarker = L.AwesomeMarkers.icon({
+        prefix: 'fa',
+        icon: 'user',
+        // prefix: 'ion',
+        // icon: 'coffee',
+        markerColor: 'blue',
+        iconColor: 'white'
+      });
+      // Locate, zoom and plot
+      map.locate({
+        setView: true
+      }).on("locationfound", function(e) {
+        var marker = L.marker([e.latitude, e.longitude], {icon: meMarker}).addTo(map);
+        // console.log([e.latitude, e.longitude]);
+      });
+
   }
 };

@@ -55,7 +55,7 @@ Template.map.rendered = function() {
       var i = bikesData.length - 1;
       while (i >= 1) {
         if (!isNaN(bikesData[i].lat)) {
-          markers.addLayer( new L.Marker(new L.LatLng(bikesData[i].lat, bikesData[i].lng), {icon: redBike} ) );
+          markers.addLayer( new L.Marker( new L.LatLng(bikesData[i].lat, bikesData[i].lng), {icon: redBike} ) );
           // console.log(bikesData[i]);
         } else {
           console.log("Bad Bike Location (NaN) - i.e. the current database is empty");
