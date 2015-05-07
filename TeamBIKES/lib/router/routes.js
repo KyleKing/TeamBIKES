@@ -73,9 +73,9 @@ Router.route('/sign-out', function() { }, {
 //   controller: 'AppController'
 // });
 
-// Router.route('/RFIDlayout', {
-//   controller: 'AppController'
-// });
+Router.route('/RFIDlayout', {
+  layoutTemplate: 'appLayout'
+});
 
 // Router.route('/mechanicView', {
 //   controller: 'AppController'
