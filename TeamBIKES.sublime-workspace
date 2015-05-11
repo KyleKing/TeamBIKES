@@ -1,0 +1,426 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Ka",
+				"KaFactor"
+			],
+			[
+				"bst-col",
+				"bst-col:9	bst-col-9"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "sav",
+		"selected_items":
+		[
+			[
+				"sav",
+				"Project: Save As"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"project",
+				"Project: Close"
+			],
+			[
+				"themr",
+				"Themr: List favorite themes"
+			],
+			[
+				"colo",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"col",
+				"Colorsublime: Browse Themes"
+			],
+			[
+				"them",
+				"Themr: List favorite themes"
+			],
+			[
+				"con",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"conv",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"instal",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"anac",
+				"Anaconda: Display object docs"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"pytho",
+				"Set Syntax: Python"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"matl",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"git pre",
+				"GitHub Flavored Markdown: Preview"
+			],
+			[
+				"les",
+				"Set Syntax: LESS"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"colorsublim",
+				"Colorsublime: Browse Themes"
+			],
+			[
+				"pack li",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"themrr",
+				"Themr: Random favorite theme"
+			],
+			[
+				"pack list",
+				"Package Control: List Packages"
+			],
+			[
+				"gith",
+				"BracketHighlighter: Toggle High Visibility Mode"
+			],
+			[
+				"package list",
+				"Package Control: List Packages"
+			],
+			[
+				"ista",
+				"Package Control: Install Package"
+			],
+			[
+				"them add",
+				"Themr: Add current theme to favorites"
+			],
+			[
+				"themr a",
+				"Themr: Add current theme to favorites"
+			],
+			[
+				"thm",
+				"Themr: List themes"
+			],
+			[
+				"themr: add",
+				"Themr: Add current theme to favorites"
+			],
+			[
+				"thme",
+				"Themr: List themes"
+			]
+		],
+		"width": 610.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/kyleking/Developer/Meteor/TeamBIKES"
+	],
+	"file_history":
+	[
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"cmd",
+			"opt",
+			"option",
+			"example",
+			"examples",
+			"Readme",
+			"\n",
+			"read",
+			"kyleking/flatdoc",
+			"repo=flatdoc",
+			"flatdoc",
+			"Flatdoc",
+			"flatdoc",
+			"rstacruz",
+			"REPO",
+			"USER",
+			"Your Project",
+			"REPO",
+			"repo",
+			"REPO",
+			"repo",
+			"REPO",
+			"USER",
+			"user",
+			"USER",
+			"user",
+			"USER",
+			"getColumn",
+			")))",
+			"))",
+			"np.array(map(float,",
+			"fig1",
+			"i)",
+			"int(",
+			"Fu",
+			"Sharing X axis",
+			"s=5",
+			"Dratio",
+			"Dratio1",
+			"pH",
+			"float",
+			")",
+			"getC",
+			"time",
+			"*pow(10",
+			"filename",
+			"filena",
+			"Ka",
+			"rfid",
+			"Ka",
+			"Dratio1",
+			"Ka",
+			"-",
+			"pp",
+			"pprint",
+			"/",
+			"#",
+			">>> ",
+			"'',",
+			"false",
+			"// ",
+			"@import ",
+			"false",
+			"icon-font-path",
+			"true",
+			"clearfix",
+			"stylus",
+			"stylusPath",
+			"getStylusContent",
+			"getAsset",
+			"handler",
+			"Handler",
+			"handler",
+			"userConfiguration",
+			"kyl",
+			"icon-font-path",
+			"glyphicons",
+			"font",
+			"false",
+			"BOOTSTRAP_DIR/",
+			"false"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": true,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 156.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Anaconda Python Builder",
+	"project": "TeamBIKES.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"data2.csv"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 206.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
