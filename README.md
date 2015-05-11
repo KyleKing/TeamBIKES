@@ -19,39 +19,43 @@ Getting started
 ---------------
 
 # Download and install the necessary tools
-> This guide is written for *nix systems, Windows guide coming soon
+This guide is written for *nix systems, Windows guide coming soon
 
 ## Run the general application
-> Skip if you already use Meteor and are comfortable in terminal
+Skip if you already use Meteor and are comfortable in terminal
 
 1. Install Meteor ([Guide ](http://docs.meteor.com))
 
-  ```
-  curl https://install.meteor.com | /bin/sh
-  ```
+```
+curl https://install.meteor.com | /bin/sh
+```
 
 2. Change to the working directory
 
-  ```
-  cd testProject/
-  ```
+```
+cd testProject/
+```
 
 3. Run Meteor
 
-  ```
-  meteor
-  ```
+```
+meteor
+```
 
 4. Point your browser to [Localhost:3000](http://localhost:3000)
 
 ## Connect with hardware
-> Note: designed for and Arduino or comparable device
+Note: designed for and Arduino or comparable device
 
 1. Install NodeJS
-2. While inside the project folder, run: ``` npm install ```
-	This fetches necessary Node packages that the Node server depends on
-3. In a separate terminal window, run ``` node node-client.js ```
-	This starts the node server to listen to serial port communication from connected hardware
+2. First you must fetch necessary Node packages that the Node server depends on. While inside the project folder, run this command:
+
+``` npm install ```
+
+3. In a separate terminal window, run (this starts the node server to listen to serial port communication from connected hardware):
+
+``` node node-client.js ```
+
 4. If you have a comparable device, try downloading the Arduino code from the [Default theme template >][template] folder
 
 How it works
@@ -61,7 +65,7 @@ Flatdoc is a hosted `.js` file (along with a theme and its assets) that you can
 add into any page hosted anywhere.
 
 #### The mysteries of MeteorJS
-> Or why Meteor is the fastest way to develop
+Or why Meteor is the fastest way to develop
 
 ...
 
