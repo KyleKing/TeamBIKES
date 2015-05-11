@@ -1,15 +1,15 @@
-<p align="center">
-  <a href="http://kyleking.github.io">
-    <img height="200" width=auto src="/README/BlockBike.png">
-  </a>
-</p>
-![What team are we?](https://img.shields.io/badge/Team-BIKES-red.svg?style=flat)
-![How do we ride?](https://img.shields.io/badge/Ride-With%20No%20Handlebars-green.svg?style=flat)
-![#](https://img.shields.io/badge/hashtag-Gemstone-blue.svg?style=flat)
-![#](https://img.shields.io/badge/hashtag-UMD-orange.svg?style=flat)
-![#](https://img.shields.io/badge/Nothing-To%20See%20Here-yellow.svg?style=flat)
-# TeamBIKES
-TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES TeamBIKES
+Team BIKES
+==========
+> A bike share for college students by college students
+
+# Getting started
+
+Visit our growing documentation at [kyleking.github.io/teambikes](http://kyleking.github.io/teambikes)
+To follow ongoing development, see our [Trello board](https://trello.com/b/iNYyD0BJ/team-bikes)
+
+# The Home Page
+> To visit the website, go to [teambikes.party](http://teambikes.party)
+
 <p align="center">
   <a href="http://teambikes.me">
     <img width="800" height=auto src="/README/Website.png">
