@@ -1,83 +1,58 @@
-Flatdoc
+Team BIKES
 =======
 
-Flatdoc is a small JavaScript file that fetches Markdown files and renders them
-as full pages. Essentially, it's the easiest
-way to make open source documentation from *Readme* files.
+Team BIKES is a MeteorJS web application that manages a customized station less bike share for university campuses. The code has been entirely open sourced and this page describes how to get started using it quickly.
 
- * No server-side components
- * No build process needed
- * Deployable via GitHub Pages
- * Can fetch GitHub Readme files
- * Gorgeous default theme (and it's responsive)
- * Just create an HTML file and deploy!
+ * User accounts
+ * Maps
+ * Cool bike icons
+ * Gorgeous theme (and it's responsive)
+ * Just ride with no handlebars and deploy!
 
-*Current version: [v0.9.0][dist]*
+Outline
+-------
 
-[![Build Status](https://travis-ci.org/rstacruz/flatdoc.svg?branch=gh-pages)](https://travis-ci.org/rstacruz/flatdoc)
+Everything included in this guide. Click any link to quickly go to the right section or read the getting started section for general information.
+
 
 Getting started
 ---------------
 
-Create a file based on the template, which has a bare DOM, link to the
-scripts, and a link to a theme. It will look something like this (not exact).
-For GitHub projects, simply place this file in your [GitHub pages] branch and
-you're all good to go.
+# Download and install the necessary tools
+> This guide is written for *nix systems, Windows guide coming soon
 
-*In short: just download this file and upload it somewhere.*
+## Run the general application
+> Skip if you already use Meteor and are comfortable in terminal
 
-The main JS and CSS files are also available in [npm] and [bower].
+1. Install Meteor ([Guide ](http://docs.meteor.com))
 
-[Default theme template >][template]
+  ```
+  curl https://install.meteor.com | /bin/sh
+  ```
 
-[Blank template >][blank]
+2. Change to the working directory
 
-[bower]: http://bower.io/search/?q=flatdoc
-[npm]: https://www.npmjs.org/package/flatdoc
+  ```
+  cd testProject/
+  ```
 
-### Via GitHub
+3. Run Meteor
 
-To fetch a Github Repository's readme file, use the `Flatdoc.github` fetcher.
-This will fetch the Readme file of the repository's default branch.
+  ```
+  meteor
+  ```
 
-``` javascript
-Flatdoc.run({
-  fetcher: Flatdoc.github('USER/REPO')
-});
-```
+4. Point your browser to [Localhost:3000](http://localhost:3000)
 
-You may also fetch another file other than the Readme file, just specify it as
-the 2nd parameter.
+## Connect with hardware
+> Note: designed for and Arduino or comparable device
 
-``` javascript
-Flatdoc.run({
-  fetcher: Flatdoc.github('USER/REPO', 'Changelog.md')
-});
-```
-
-After you've done this, you probably want to deploy it via [GitHub Pages].
-
-[GitHub Pages guide >][GitHub Pages]
-
-### Via a file
-
-You may also fetch a file. In this example, this fetches the file `Readme.md` in
-the same folder as the HTML file.
-
-``` javascript
-Flatdoc.run({
-  fetcher: Flatdoc.file('Readme.md')
-});
-```
-
-You may actually supply any URL here. It will be fetched via AJAX. This is
-useful for local testing.
-
-``` javascript
-Flatdoc.run({
-  fetcher: Flatdoc.file('http://yoursite.com/Readme.md')
-});
-```
+1. Install NodeJS
+2. While inside the project folder, run: ``` npm install ```
+	This fetches necessary Node packages that the Node server depends on
+3. In a separate terminal window, run ``` node node-client.js ```
+	This starts the node server to listen to serial port communication from connected hardware
+4. If you have a comparable device, try downloading the Arduino code from the [Default theme template >][template] folder
 
 How it works
 ------------
@@ -85,62 +60,10 @@ How it works
 Flatdoc is a hosted `.js` file (along with a theme and its assets) that you can
 add into any page hosted anywhere.
 
-#### All client-side
+#### The mysteries of MeteorJS
+> Or why Meteor is the fastest way to develop
 
-There are no build scripts or 3rd-party services involved. Everything is done in
-the browser. Worried about performance? Oh, It's pretty fast.
-
-Flatdoc utilizes the [GitHub API] to fetch your project's Readme files. You may
-also configure it to fetch any arbitrary URL via AJAX.
-
-#### Lightning-fast parsing
-
-Next, it uses [marked], an extremely fast Markdown parser that has support for
-GitHub flavored Markdown.
-
-Flatdoc then simply renders *menu* and *content* DOM elements to your HTML
-document. Flatdoc also comes with a default theme to style your page for you, or
-you may opt to create your own styles.
-
-Markdown extras
----------------
-
-Flatdoc offers a few harmless, unobtrusive extras that come in handy in building
-documentation sites.
-
-#### Code highlighting
-
-You can use Markdown code fences to make syntax-highlighted text. Simply
-surround your text with three backticks. This works in GitHub as well.
-See [GitHub Syntax Highlighting][fences] for more info.
-
-    ``` html
-    <strong>Hola, mundo</strong>
-    ```
-
-#### Blockquotes
-
-Blockquotes show up as side figures. This is useful for providing side
-information or non-code examples.
-
-> Blockquotes are blocks that begin with `>`.
-
-#### Smart quotes
-
-Single quotes, double quotes, and double-hyphens are automatically replaced to
-their typographically-accurate equivalent. This, of course, does not apply to
-`<code>` and `<pre>` blocks to leave code alone.
-
-> "From a certain point onward there is no longer any turning back. That is the
-> point that must be reached."  
-> --Franz Kafka
-
-#### Buttons
-
-If your link text has a `>` at the end (for instance: `Continue >`), they show
-up as buttons.
-
-> [View in GitHub >][project]
+...
 
 Customizing
 ===========
@@ -225,7 +148,7 @@ The following projects have inspired Flatdoc.
 
  * [Stripe] - Flatdoc took inspiration on the look of their API documentation.
 
- * [DocumentUp] - This service has the same idea but does a hosted readme 
+ * [DocumentUp] - This service has the same idea but does a hosted readme
  parsing approach.
 
 Attributions
@@ -237,10 +160,10 @@ licensed under Creative Commons.
 Acknowledgements
 ----------------
 
-© 2013, 2014, Rico Sta. Cruz. Released under the [MIT 
+© 2013, 2014, Rico Sta. Cruz. Released under the [MIT
 License](http://www.opensource.org/licenses/mit-license.php).
 
-**Flatdoc** is authored and maintained by [Rico Sta. Cruz][rsc] with help from its 
+**Flatdoc** is authored and maintained by [Rico Sta. Cruz][rsc] with help from its
 [contributors][c].
 
  * [My website](http://ricostacruz.com) (ricostacruz.com)
