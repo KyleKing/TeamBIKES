@@ -23,17 +23,17 @@ Note: This guide is written for *nix systems, Windows guide coming soon
 
 #### Install Meteor
 For more information, visit the ([Guide ](http://docs.meteor.com))
-```
+```bash
 curl https://install.meteor.com | /bin/sh
 ```
 Change to the working directory
 
-```
+```bash
 cd testProject/
 ```
 Run Meteor
 
-```
+```bash
 meteor
 ```
 Point your browser to [Localhost:3000](http://localhost:3000)
@@ -43,14 +43,16 @@ Note: designed for and Arduino or comparable device
 
 Install NodeJS
 Fetch the necessary Node packages. While inside the project folder, run this command:
-```
+```bash
 npm install
 ```
 While the Meteor app is running, open a new terminal window to run the node application in parallel.
-```
+```bash
 node node-client.js
 ```
-If you have a comparable device, try downloading the Arduino code from the __ADD FILE LINK HERE__ [Default theme template >][template] folder with a demo LED circuit to show functionality. See additional wiring schematics and complete code to replicate the system.
+If you have a comparable device, try downloading the Arduino code from the __ADD FILE LINK HERE__ folder with a demo LED circuit to show functionality. See additional wiring schematics and complete code to replicate the system.
+<!--[Default theme template >][template] -->
+
 
 How it works
 ------------
