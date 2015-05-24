@@ -22,8 +22,9 @@ function mySubmitFunc(error, state) {
   }
 }
 
+// <personalization>
 AccountsTemplates.configure({
-  // Behaviour
+  // Behavior
   confirmPassword: false,
   enablePasswordChange: true,
   forbidClientAccountCreation: false,
@@ -53,8 +54,7 @@ AccountsTemplates.configure({
   homeRoutePath: '/',
   redirectTimeout: 3000,
 
-  // // Need to create function:
-  // // Hooks
+  // Hooke
   // onLogoutHook: myLogoutFunc,
   onSubmitHook: mySubmitFunc,
 
@@ -67,62 +67,10 @@ AccountsTemplates.configure({
       resetPwd: "Reset Password",
       signIn: "Sign In",
       signUp: "Sign Up",
-      // verifyEmail: "Verify Email Title text",
     },
-    navSignIn: "signIn text",
-    navSignOut: "signOut text",
-    optionalField: "optional text",
-    pwdLink_pre: " ",
-    pwdLink_link: "Forgot your password?",
-    pwdLink_suff: " ",
-    sep: "OR text",
-    signInLink_pre: "If you already have an account",
-    signInLink_link: "Sign In",
-    signInLink_suff: " ",
-    signUpLink_pre: "Dont have an account?",
-    signUpLink_link: "Register",
-    signUpLink_suff: " ",
-    // socialAdd: "add text",
-    // socialConfigure: "configure text",
-    // socialIcons: {
-    //     "meteor-developer": "fa fa-rocket text",
-    // },
-    // socialRemove: "remove text",
-    // socialSignIn: "signIn text",
-    // socialSignUp: "signUp text",
-    // socialWith: "with text",
-    termsPreamble: "By clicking sign up, you agree to our ",
-    termsPrivacy: "Privacy Policy",
-    termsAnd: "and",
-    termsTerms: "Terms and Conditions",
-    button: {
-      changePwd: "Submit",
-      enrollAccount: "Enroll Text text",
-      forgotPwd: "Reset Password",
-      resetPwd: "Reset Pwd Text text",
-      signIn: "Sign In",
-      signUp: "Sign Up!",
-    },
-    // info: {
-    //     emailSent: "info.emailSent text",
-    //     emailVerified: "info.emailVerified text",
-    //     pwdChanged: "info.passwordChanged text",
-    //     pwdReset: "info.passwordReset text",
-    //     pwdSet: "info.passwordReset text",
-    //     signUpVerifyEmail: "Registration Successful! Please check your email and follow the instructions. text",
-    // },
-    inputIcons: {
-        isValidating: "fa fa-spinner fa-spin text",
-        hasSuccess: "fa fa-check text",
-        hasError: "fa fa-times text",
-    },
-    errors: {
-      // loginForbidden: "error.accounts.Login forbidden text",
-      mustBeLoggedIn: "You must log in to access this page",
-      pwdMismatch: "Error: Passwords Dont Match",
-    }
   }
 });
+// </personalization>
 
 AccountsTemplates.addField({
   _id: 'name',
@@ -145,46 +93,46 @@ AccountsTemplates.addField({
   errStr: '1 digits',
 });
 
-AccountsTemplates.addField({
-    _id: "gender",
-    type: "select",
-    displayName: "Gender",
-    select: [
-        {
-            text: "Male",
-            value: "male",
-        },
-        {
-            text: "Female",
-            value: "female",
-        },
-    ],
-});
+// AccountsTemplates.addField({
+//     _id: "gender",
+//     type: "select",
+//     displayName: "Gender",
+//     select: [
+//         {
+//             text: "Male",
+//             value: "male",
+//         },
+//         {
+//             text: "Female",
+//             value: "female",
+//         },
+//     ],
+// });
 
-AccountsTemplates.addField({
-    _id: "snack",
-    type: "radio",
-    displayName: "Preferred Snack",
-    select: [
-        {
-        text: "Apple",
-        value: "aa",
-      }, {
-        text: "Banana",
-        value: "bb",
-      }, {
-        text: "Nutella",
-        value: "nn",
-      },
-    ],
-});
+// AccountsTemplates.addField({
+//     _id: "snack",
+//     type: "radio",
+//     displayName: "Preferred Snack",
+//     select: [
+//         {
+//         text: "Apple",
+//         value: "aa",
+//       }, {
+//         text: "Banana",
+//         value: "bb",
+//       }, {
+//         text: "Nutella",
+//         value: "nn",
+//       },
+//     ],
+// });
 
-AccountsTemplates.addField({
-    _id: "handlebars",
-    type: "checkbox",
-    // displayName: "Subscribe me to mailing List",
-    displayName: "I ride my bike with no handlebars",
-});
+// AccountsTemplates.addField({
+//     _id: "handlebars",
+//     type: "checkbox",
+//     // displayName: "Subscribe me to mailing List",
+//     displayName: "I ride my bike with no handlebars",
+// });
 
 // AccountsTemplates.addField({
 //     _id: 'RFIDtemp',
