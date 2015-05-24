@@ -1,6 +1,7 @@
 // Global Styles
 Router.configure({
-  loadingTemplate: 'loading'
+  loadingTemplate: 'loading',
+  notFoundTemplate: 'notFound'
 });
 
 // Do these even work?
@@ -39,10 +40,10 @@ Router.route('/student', {
 /*   The Secuirty Barrier in between          */
 /********************************************/
 Router.plugin('ensureSignedIn', {
-    // Array of pages only visible to users
-    only: ['dashboard']
-    // Array of pages not secured
-    // except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr', 'progress', 'home']
+  // Array of pages only visible to users
+  only: ['dashboard']
+  // Array of pages not secured
+  // except: ['about', 'FAQ', 'map', 'atSignIn', 'atSignUp', 'atForgotPassword', 'onePageScroll', 'skrollr', 'progress', 'home']
 });
 
 
