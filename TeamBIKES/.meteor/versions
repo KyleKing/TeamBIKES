@@ -52,6 +52,8 @@ jparker:crypto-mode@0.1.1
 jparker:crypto-padding@0.1.0
 jquery@1.11.3_2
 json@1.0.3
+kyleking:customizable-bootstrap-stylus@3.3.4
+kyleking:customizable-bootstrap-stylus-data@4.0.4
 launch-screen@1.0.2
 less@1.0.14
 livedata@1.0.13
