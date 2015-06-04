@@ -19,6 +19,7 @@ okgrow:iron-router-autoscroll
 
 # Authentication
 accounts-password
+alanning:roles
 useraccounts:bootstrap
 
 # Seed Data
@@ -27,7 +28,7 @@ anti:fake
 # clinical:accounts-famous-dead-people
 
 # Tools - General
-meteorhacks:kadira
+# meteorhacks:kadira
 meteorhacks:aggregate
 jparker:crypto-aes
 
@@ -39,6 +40,7 @@ cmather:handlebars-server@0.2.0
 mquandalle:jade
 coffeescript
 stylus
+kyleking:customizable-bootstrap-stylus
 # cryptoquick:stylus-multi
 
 # JS Libraries - Tools
@@ -65,16 +67,12 @@ mdg:camera
 
 
 # Untested
-# alanning:roles
 # aldeed:collection2
 # aldeed:autoform
 
 # jeremy:snapsvg
-mirageglobe:snapsvgcdn
-# tsega:skrollr
-# Impacting scroll on every page....
-# eahefnawy:meteor-onepage-scroll
-#
+# mirageglobe:snapsvgcdn
+
 # matdutour:outdated-browser
 
 # ---TBD---
@@ -94,7 +92,6 @@ mirageglobe:snapsvgcdn
 
 # ___Cordova Things___
 # richsilv:cordova-notifications
-# fastclick # already in 'meteor show meteor-platform'
 # ___Speed User Things___
 # chriswessels:hammer
 # mousetrap:mousetrap
@@ -167,5 +164,6 @@ maazalik:highcharts
 # Alternative
 # https://atmospherejs.com/lookback/seo
 yasinuslu:blaze-meta
-alanning:roles
-kyleking:customizable-bootstrap-stylus
+
+# New Packages
+meteortoys:allthings
