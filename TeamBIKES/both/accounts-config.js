@@ -1,28 +1,20 @@
+// Core routes for accounts
 // See UserAccounts Package for configuration options
-AccountsTemplates.configureRoute('signIn', {
-  layoutTemplate: 'appLayout',
-  redirect: '/student'
-});
-AccountsTemplates.configureRoute('signUp', {
-  layoutTemplate: 'appLayout',
-  redirect: '/student'
-});
+AccountsTemplates.configureRoute('signIn', { layoutTemplate: 'appLayout', redirect: '/student' });
+AccountsTemplates.configureRoute('signUp', { layoutTemplate: 'appLayout', redirect: '/student' });
 AccountsTemplates.configureRoute('forgotPwd', {layoutTemplate: 'appLayout'});
 AccountsTemplates.configureRoute('changePwd', {layoutTemplate: 'appLayout'});
 AccountsTemplates.configureRoute('ensureSignedIn', {layoutTemplate: 'appLayout'});
 
-// mySubmitFunc
+// mySubmitFunc - Randomly creates an RFID code
 function mySubmitFunc(error, state) {
-  // console.log('mySubmitFunc called with:');
-  // console.log(['error: ', error]);
-  // console.log(['state: ', state]); // 'signUp' or 'signIn'
-  if (Meteor.userId() !== undefined & state === 'signUp') {
-    value = Meteor.call('mySubmitFunc', Meteor.userId());
-    console.log('Set RFID code');
-  }
+  // if (Meteor.userId() !== undefined & state === 'signUp') {
+  //   value = Meteor.call('mySubmitFunc', Meteor.userId());
+  //   console.log('Set RFID code');
+  // }
 }
 
-// <personalization>
+// Accounts Personalization
 AccountsTemplates.configure({
   // Behavior
   confirmPassword: false,
@@ -70,8 +62,8 @@ AccountsTemplates.configure({
     },
   }
 });
-// </personalization>
 
+// Name Field
 AccountsTemplates.addField({
   _id: 'name',
   type: 'text',
@@ -80,7 +72,7 @@ AccountsTemplates.addField({
   },
   required: true,
 });
-
+// UID
 AccountsTemplates.addField({
   _id: 'UID',
   type: 'text',
@@ -92,51 +84,3 @@ AccountsTemplates.addField({
   re: /(?=.*\d).{1,}/,
   errStr: '1 digits',
 });
-
-// AccountsTemplates.addField({
-//     _id: "gender",
-//     type: "select",
-//     displayName: "Gender",
-//     select: [
-//         {
-//             text: "Male",
-//             value: "male",
-//         },
-//         {
-//             text: "Female",
-//             value: "female",
-//         },
-//     ],
-// });
-
-// AccountsTemplates.addField({
-//     _id: "snack",
-//     type: "radio",
-//     displayName: "Preferred Snack",
-//     select: [
-//         {
-//         text: "Apple",
-//         value: "aa",
-//       }, {
-//         text: "Banana",
-//         value: "bb",
-//       }, {
-//         text: "Nutella",
-//         value: "nn",
-//       },
-//     ],
-// });
-
-// AccountsTemplates.addField({
-//     _id: "handlebars",
-//     type: "checkbox",
-//     // displayName: "Subscribe me to mailing List",
-//     displayName: "I ride my bike with no handlebars",
-// });
-
-// AccountsTemplates.addField({
-//     _id: 'RFIDtemp',
-//     type: 'hidden'
-// });
-
-// ?RFIDtemp=xkgj
