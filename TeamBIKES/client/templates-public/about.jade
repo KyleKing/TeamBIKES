@@ -1,0 +1,346 @@
+template(name='about')
+  h1 About Page
+  h6 Quick Info
+  ul
+    li What is a bikeshare? [UMD has a fleet of bikes at your disposal. Using an RFID card tap to unlock any bike and return the bike to any bike rack on campus. You only pay for when you use it, so sign up for free below to get your account activated]
+    li How to use it? [Three steps? Sign up online, receive RFID card in mail, enter code on RFID, then tap nearest bike to unlock, return the bike anywhere within campus]
+    li How much does it cost? [Pricing diagram]
+    li Sign Up! [Use exising login template with new styles]
+    li Embeded Map Page ["See evey currently available bike"]
+    li Contact Blurb (Footer)
+    //- //- Navigation Bar
+    //- nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse(role='navigation')
+    //-   +navigation_bar
+
+    //- //- Header
+    //- header#page-top
+    //-   .container
+    //-     .intro-text
+    //-       .intro-lead-in Want a
+    //-         span.typed-element
+    //-         span way to get around?
+    //-       //- Want a faster, smarter, cheaper way to get around?
+    //-       .intro-heading Welcome to the Future of Bike Riding
+    //-       a.btn.btn-xl(href="{{ pathFor 'atSignUp' }}") Sign Up for Free
+
+    //- //- Explanation Grid Section
+    //- section#explanation.bg-light-gray
+    //-   .container
+    //-     .row.wow.bounceInUp.animated(data-wow-delay="0.1s")
+    //-       .col-lg-12.text-center
+    //-         h2.section-heading What is a bikeshare?
+    //-         h3.section-subheading.text-muted &nbsp;
+    //-     .row.wow.slideInLeft.animated(data-wow-delay="0.5s" style="visibility: visible; -webkit-animation-delay: 0.5s;")
+    //-       .col-sm-3.col-sm-offset-2
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/about/explanation/1.png' alt='')
+    //-       .col-sm-5
+    //-         .explanation-text
+    //-           h5 &nbsp;
+    //-           h3 Find a Bike
+    //-           p Using the online map of each bike, find the nearest available bike.
+    //-     .row.wow.slideInRight.animated(data-wow-delay="0.5s" style="visibility: visible; -webkit-animation-delay: 0.5s;")
+    //-       .col-sm-3.visible-xs-block
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/about/explanation/2.png' alt='')
+    //-       .col-sm-5.col-sm-offset-2
+    //-         .explanation-text
+    //-           h5 &nbsp;
+    //-           h3 Unlock
+    //-           p Using your Red Bars ID, swipe it by the lock pad and the bike will instantly unlock. Twist the lock into the riding position and you are ready to go.
+    //-       .col-sm-3.hidden-xs
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/about/explanation/2.png' alt='')
+    //-     .row.wow.slideInLeft.animated(data-wow-delay="0.5s" style="visibility: visible; -webkit-animation-delay: 0.5s;")
+    //-       .col-sm-3.col-sm-offset-2
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/about/explanation/3.png' alt='')
+    //-       .col-sm-5
+    //-         .explanation-text
+    //-           h5 &nbsp;
+    //-           h3 Return
+    //-           p This is the best part, when you are done, return the bike to any bike rack on campus. We won't limit you to just a handful of stations.
+    //- //- benefits Section
+    //- section#benefits
+    //-   .container
+    //-     .row
+    //-       .col-lg-12.text-center
+    //-         h2.section-heading Benefits
+    //-         h3.section-subheading.text-muted Bike renting has never been this easy
+    //-     .row.text-center
+    //-       .col-md-4
+    //-         span.fa-stack.fa-4x
+    //-           i.fa.fa-circle.fa-stack-2x.text-primary
+    //-           i.fa.fa-money.fa-stack-1x.fa-inverse
+    //-         h4.service-heading Flexible Prices
+    //-         p.text-muted
+    //-           | Cheaper and easier than maintaing your own bike, have acces to an entire fleet of bikes wherever you are
+    //-           a.page-scroll(href="#pricing") find out more below.
+    //-           //- | Choose the pricing scheme that best fits your needs,
+    //-           //- a.page-scroll(href="#pricing") find out more below.
+    //-       .col-md-4
+    //-         span.fa-stack.fa-4x
+    //-           i.fa.fa-circle.fa-stack-2x.text-primary
+    //-           i.fa.fa-mobile.fa-stack-1x.fa-inverse
+    //-         h4.service-heading Access Anywhere
+    //-         p.text-muted
+    //-           | We tirelessly work to make sure that the bikes are where you need them. We crunch big data to make your day even better. See all of our bikes
+    //-           a(href="{{ pathFor 'map' }}") here
+    //-           //- | Quickly find the nearest bike wherever you are -
+    //-           //- a(href="{{ pathFor 'map' }}") see a demo here.
+    //-       .col-md-4
+    //-         span.fa-stack.fa-4x
+    //-           i.fa.fa-circle.fa-stack-2x.text-primary
+    //-           i.fa.fa-unlock.fa-stack-1x.fa-inverse
+    //-         h4.service-heading Red Bars ID
+    //-         p.text-muted
+    //-           | When you sign up to Red Bars, you receive you're excluse Red Bars ID and you don't need to pay us anything until you are ready to ride. We chose to make it simple,
+    //-           a(href="{{ pathFor 'atSignUp' }}") register here.
+    //-           //- | Using the smart Red Bars ID, swipe to unlock any bike -
+    //-           //- a(href="{{ pathFor 'atSignUp' }}") register here.
+
+    //- //- Pricing Grid Section
+    //- section#pricing.bg-light-gray
+    //-   .container
+    //-     .row
+    //-       .col-lg-12.text-center
+    //-         h2.main-title Check Out Our Great Prices
+    //-         h3.section-subheading.text-muted And if you're reading this, then you probably have the opportunity to help us improve them!
+    //-   .container
+    //-     .row
+    //-       .col-xs-12.col-sm-4.col-lg-4
+    //-         //- Price Table Item
+    //-         .price-table.text-center
+    //-           .price-table-heading
+    //-             h4.title Base Plan
+    //-           .price-table-body
+    //-             p.value
+    //-               | $0
+    //-               small /semester
+    //-           ul.list-group
+    //-             li.list-group-item
+    //-               i.icon-ok.text-success
+    //-               |  Casual use
+    //-             li.list-group-item
+    //-               i.icon-ok.text-success
+    //-               |  Pay per ride
+    //-           .price-table-footer
+    //-             a.btn.btn-lg.btn-success(href="{{ pathFor 'atSignUp' }}") Register Now!
+    //-         //- END Price Table Item
+    //-         //- START: Will be visible in tablet and mobile devices to make gap between tow price items
+    //-         .col-xs-12.col-sm-12.margin-bottom-20
+    //-         //- END: Will be visible in tablet and mobile devices to make gap between tow price items
+    //-       .col-xs-12.col-sm-4.col-lg-4
+    //-         //- Price Table Item
+    //-         .price-table.text-center
+    //-           .price-table-heading
+    //-             h4.title Daily Rider
+    //-           .price-table-body
+    //-             p.value
+    //-               | $15
+    //-               small /semester
+    //-           ul.list-group
+    //-             li.list-group-item
+    //-               i.icon-ok.text-success
+    //-               |  Consistent use
+    //-             li.list-group-item
+    //-               i.icon-ok.text-success
+    //-               |  5 free rides per day
+    //-           .price-table-footer
+    //-             a.btn.btn-lg.btn-success(href="{{ pathFor 'atSignUp' }}") Register Now!
+    //-         //- END Price Table Item
+    //-         //- START: Will be visible in tablet and mobile devices to make gap between tow price items
+    //-         .col-xs-12.col-sm-12.margin-bottom-20
+    //-         //- END: Will be visible in tablet and mobile devices to make gap between tow price items
+    //-       .col-xs-12.col-sm-4.col-lg-4
+    //-         //- Price Table Item
+    //-         .price-table.text-center
+    //-           .price-table-heading
+    //-             h4.title Pro Commuter
+    //-           .price-table-body
+    //-             p.value
+    //-               | $25
+    //-               small /semester
+    //-           ul.list-group
+    //-             li.list-group-item
+    //-               i.icon-ok.text-success
+    //-               |  Not for the faint of heart
+    //-             li.list-group-item
+    //-               i.icon-ok.text-success
+    //-               |  Unlimited rides
+    //-             //- li.list-group-item
+    //-             //-   i.icon-ok.text-success
+    //-             //-   |  27/7 support
+    //-           .price-table-footer
+    //-             a.btn.btn-lg.btn-success(href="{{ pathFor 'atSignUp' }}") Register Now!
+    //-         //- END Price Table Item
+    //-         //- START: Will be visible in tablet and mobile devices to make gap between tow price items
+    //-         .col-xs-12.col-sm-12.margin-bottom-20
+    //-         //- END: Will be visible in tablet and mobile devices to make gap between tow price items
+
+    //- //- About Section
+    //- section#about.bg-light-gray
+    //-   .container
+    //-     .row
+    //-       .col-lg-12.text-center
+    //-         h2.section-heading How did this all start?
+    //-         h3.section-subheading.text-muted Teamwork, writing, planning, and engineering
+    //-     .row
+    //-       .col-lg-12
+    //-         ul.timeline
+    //-           li
+    //-             .timeline-image
+    //-               img.img-circle.img-responsive(src='img/about/2_formation-1.jpg' alt='')
+    //-             .timeline-panel
+    //-               .timeline-heading
+    //-                 h4 2012-2013
+    //-                 h4.subheading Our Humble Beginnings
+    //-               .timeline-body
+    //-                 p.text-muted
+    //-                   | Registered for the introductory Gemstone courses, we were familiarized with the program and undergraudate reasearch in general.
+    //-           li.timeline-inverted
+    //-             .timeline-image
+    //-               img.img-circle.img-responsive(src='img/about/1_bonding-1.jpg' alt='')
+    //-             .timeline-panel
+    //-               .timeline-heading
+    //-                 h4 April 2013
+    //-                 h4.subheading Team Formation
+    //-               .timeline-body
+    //-                 p.text-muted
+    //-                   | Brought together by our interest in biking and a common camaraderie, we were put together on team formation night.
+    //-           li
+    //-             .timeline-image
+    //-               img.img-circle.img-responsive(src='img/about/3_third-1.jpg' alt='')
+    //-             .timeline-panel
+    //-               .timeline-heading
+    //-                 h4 Fall 2013
+    //-                 h4.subheading Team Bonding
+    //-               .timeline-body
+    //-                 p.text-muted
+    //-                   | After extensive research in the field of bike safety, we began pursuing bikeshare development
+    //-           li.timeline-inverted
+    //-             .timeline-image
+    //-               img.img-circle.img-responsive(src='img/about/4_fourth-1.jpg' alt='')
+    //-             .timeline-panel
+    //-               .timeline-heading
+    //-                 h4 2014+
+    //-                 h4.subheading Next Steps
+    //-               .timeline-body
+    //-                 p.text-muted
+    //-                   | As we continue to grow, so does our website and material that we publish. Always check back to see what we are up to next.
+    //-           li.timeline-inverted
+    //-             .timeline-image
+    //-               h4
+    //-                 | Be Part
+    //-                 br
+    //-                 | Of Our
+    //-                 br
+    //-                 | Story!
+    //- //- Team Section
+    //- section#team.hidden-xs
+    //-   .container
+    //-     .row
+    //-       .col-lg-12.text-center
+    //-         h2.section-heading Our Amazing Team
+    //-         h3.section-subheading.text-muted Building Great Things
+    //-     .row
+    //-       .col-sm-3
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/0.png' alt='')
+    //-           h4 Dr. Newcomb
+    //-           p.text-muted Team Mentor
+    //-       .col-sm-3
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/1.jpg' alt='')
+    //-           h4 Luke Boegner
+    //-           p.text-muted Geolocation Team Lead
+    //-       .col-sm-3
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/2.png' alt='')
+    //-           h4 Eric Huang
+    //-           p.text-muted Geolocation Team Member
+    //-       .col-sm-3
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/3.jpg' alt='')
+    //-           h4 Joshua Lafond
+    //-           p.text-muted Mechanical Team Lead
+    //-     .row
+    //-       .col-sm-3
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/4.jpg' alt='')
+    //-           h4 Libby Wei
+    //-           p.text-muted Business Team Lead
+    //-       .col-sm-3
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/5.png' alt='')
+    //-           h4 Kyle King
+    //-           p.text-muted Geolocation Team Member
+    //-       .col-sm-3
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/6.jpg' alt='')
+    //-           h4 Tim McLaughlin
+    //-           p.text-muted Overall Team Lead
+    //-       .col-sm-3
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/7.jpg' alt='')
+    //-           h4 William Poh
+    //-           p.text-muted Mechanical Team Member
+    //-     .row
+    //-       .col-sm-3.col-sm-offset-1
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/8.png' alt='')
+    //-           h4 Emily Ruppel
+    //-           p.text-muted Access Control Team Leader
+    //-       .col-sm-4
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/12.jpg' alt='')
+    //-           h4 Nathanial Kruder
+    //-           p.text-muted Mechanical Team Member
+    //-       .col-sm-3
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/10.jpg' alt='')
+    //-           h4 Peter Cho
+    //-           p.text-muted Access Control Team Member
+    //-     .row
+    //-       .col-sm-3.col-sm-offset-1
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/11.jpg' alt='')
+    //-           h4 Isaac Noh
+    //-           p.text-muted Systems Engineer
+    //-       .col-sm-4
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/13.jpg' alt='')
+    //-           h4 Tyler Gilman
+    //-           p.text-muted Mechanical Team Member
+    //-       .col-sm-3
+    //-         .team-member
+    //-           img.img-responsive.img-circle(src='img/team/9.jpg' alt='')
+    //-           h4 Nicholas Fleming
+    //-           p.text-muted Mechanical Team Member
+    //-     .row
+    //-       .col-lg-8.col-lg-offset-2.text-center
+    //-         p.large.text-muted
+    //-           | With one more year left to go, expect great things!
+
+    //- footer.bg-light-gray
+    //-   .container
+    //-     .row
+    //-       .col-md-4
+    //-         span.copyright Built in gear 3 by Team BIKES
+    //-       .col-md-4
+    //-         ul.list-inline.social-buttons
+    //-           li
+    //-             a(href='https://twitter.com/TeamBIKES1')
+    //-               i.fa.fa-twitter
+    //-           li
+    //-             a(href='http://teambikes.weebly.com/')
+    //-               i.fa.fa-link
+    //-           li
+    //-             a(href='https://github.com/KyleKing/TeamBIKES')
+    //-               i.fa.fa-github
+    //-       .col-md-4
+    //-         ul.list-inline.quicklinks
+    //-           li
+    //-             a(href='#') Privacy Policy
+    //-           li
+    //-             a(href='#') Terms of Use
