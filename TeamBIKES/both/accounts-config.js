@@ -1,7 +1,7 @@
 // Core routes for accounts
 // See UserAccounts Package for configuration options
-AccountsTemplates.configureRoute('signIn', { layoutTemplate: 'appLayout', redirect: '/student' });
-AccountsTemplates.configureRoute('signUp', { layoutTemplate: 'appLayout', redirect: '/student' });
+AccountsTemplates.configureRoute('signIn', { layoutTemplate: 'appLayout', redirect: '/' });
+AccountsTemplates.configureRoute('signUp', { layoutTemplate: 'appLayout', redirect: '/' });
 AccountsTemplates.configureRoute('forgotPwd', {layoutTemplate: 'appLayout'});
 AccountsTemplates.configureRoute('changePwd', {layoutTemplate: 'appLayout'});
 AccountsTemplates.configureRoute('ensureSignedIn', {layoutTemplate: 'appLayout'});
