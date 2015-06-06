@@ -1,4 +1,4 @@
-/*
+
 
 
 Meteor.subscribe("TestUsersData");
@@ -74,4 +74,3 @@ Template.admin3layout.events({
 });
 
 
-*/

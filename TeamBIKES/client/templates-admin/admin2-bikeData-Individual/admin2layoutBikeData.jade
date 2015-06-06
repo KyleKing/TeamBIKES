@@ -1,0 +1,26 @@
+template(name='admin2layoutBikeData')
+  .template-home
+    .page-header
+      h1 Admin 2 - Bike Data
+    a(href="{{pathFor 'admin2layoutAllData'}}")
+      button.seeLess Back
+
+  #with
+    table.table.table-hover.table-condensed
+      thead
+        //- Per user history
+        tr
+          th User
+          th Bike
+          th Timestamp
+          th Lat.
+          th Lng.
+      tbody
+        each this.positions
+          tr
+            td #{user}
+            td #{bike}
+            td {{formatDate timestamp "short"}}
+            //- td #{timestamp}
+            td #{lat}
+            td #{lng}
