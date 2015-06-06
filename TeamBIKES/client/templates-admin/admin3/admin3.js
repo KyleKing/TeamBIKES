@@ -1,9 +1,6 @@
-/*
-
-
 Meteor.subscribe("TestUsersData");
 Meteor.call('eachBike');
-// Meteor.subscribe("TestUsersDataSorted");
+Meteor.subscribe("TestUsersDataSorted");
 
 Template.admin3layout.created = function() {
   // Default to all users view
@@ -35,29 +32,26 @@ Template.admin3layout.helpers({
     // Used for testing and direct access to second page
     // Session.set('ViewUsers', TimeSeries.findOne({bike: 1})._id);
     // Return all bikes in system
-	return TimeSeries.find();
-    //if (Session.get('ViewUsers') === 0) {
+    if (Session.get('ViewUsers') === 0) {
       // var data = TimeSeries.find({day: 71}).fetch();
-      //var data = TimeSeries.find().fetch();
-      //return _.sortBy(data, "bike");
-
-    //} else {
+      var data = TimeSeries.find().fetch();
+      return _.sortBy(data, "bike");
+    } else {
       // Return only the clicked bike:
-     // var bikeData = TimeSeries.findOne({_id: Session.get('ViewUsers')}).positions;
-     // return _.sortBy(bikeData, "timestamp").reverse();
-   // }
-  }
+      var bikeData = TimeSeries.findOne({_id: Session.get('ViewUsers')}).positions;
+      return _.sortBy(bikeData, "timestamp").reverse();
+    }
+  },
   // Determing which view to return (true = all, false = single user)
-
-  // ViewUsersFunc: function () {
-    // if (Session.get('ViewUsers') === 0) {
+  ViewUsersFunc: function () {
+    if (Session.get('ViewUsers') === 0) {
       // console.log('True: ' + Session.get('ViewUsers'));
-      // return false;
-    // } else {
+      return false;
+    } else {
       // console.log('False: ' + Session.get('ViewUsers'));
-      // return true;
-    // }
-  // }
+      return true;
+    }
+  }
 });
 
 // open the particular users history
@@ -72,6 +66,3 @@ Template.admin3layout.events({
     Session.set('ViewUsers', 0);
   }
 });
-
-
-*/
