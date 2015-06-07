@@ -135,5 +135,7 @@ useraccounts:bootstrap@1.11.1
 useraccounts:core@1.11.1
 webapp@1.2.0
 webapp-hashing@1.0.3
+webix:skin-flat@2.3.14
+webix:webix@2.3.8_1
 yasinuslu:blaze-meta@0.3.1
 zimme:iron-router-active@1.0.4

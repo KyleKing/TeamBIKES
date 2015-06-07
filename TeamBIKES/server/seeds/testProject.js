@@ -74,11 +74,11 @@ var randNames = [
   '','','','','','','','','','','','','','','','','','','','','','','','','','','','',
   '','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
 
-if(RandNames.find().count() === 0) {
-  RandNames.insert({
-    names: _.without(randNames, '')
-  });
-}
+// if(RandNames.find().count() === 0) {
+//   RandNames.insert({
+//     names: _.without(randNames, '')
+//   });
+// }
 
 // Insert database of bikes if no data for today
 if (TimeSeries.find({day: currentDay()}).count() === 0) {
@@ -173,11 +173,11 @@ var mechanics = [{
     role: 'Mechanic'
   }];
 
-if(RandMechanicNames.find().count() === 0) {
-  RandMechanicNames.insert({
-    staff: mechanics
-  });
-}
+// if(RandMechanicNames.find().count() === 0) {
+//   RandMechanicNames.insert({
+//     staff: mechanics
+//   });
+// }
 
 // Insert database of bikes if no data for today
 if (Bikes.find({month: currentDay()}).count() === 0) {

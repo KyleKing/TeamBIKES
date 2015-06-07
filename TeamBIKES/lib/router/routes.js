@@ -94,3 +94,9 @@ Router.route('/agency');
 // // For testing loading page with no wait time
 // // Todo: Integrate more seamlessly into app
 // Router.route('/loading');
+
+
+
+Router.route('/webix', {
+  layoutTemplate: 'fullLayout'
+});

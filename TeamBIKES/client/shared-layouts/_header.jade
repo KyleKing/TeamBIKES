@@ -42,6 +42,10 @@ template(name='navigation_bar')
             a(href="{{ pathFor 'map' }}")
               i.fa.fa-map-marker
                 |  Map
+          li(class="{{ isActiveRoute regex='webix' }}")
+            a(href="{{ pathFor 'webix' }}")
+              i.fa.fa-map-marker
+                |  Webix
           li.dropdown
             a.dropdown-toggle(href='#' data-toggle='dropdown')
               //- i.fa.fa-ellipsis-h
