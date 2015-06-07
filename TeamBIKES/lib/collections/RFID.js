@@ -1,1 +1,0 @@
-RFIDdata = new Mongo.Collection('RFIDdata');

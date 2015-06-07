@@ -28,7 +28,7 @@ anti:fake
 # clinical:accounts-famous-dead-people
 
 # Tools - General
-# meteorhacks:kadira
+meteorhacks:kadira
 meteorhacks:aggregate
 jparker:crypto-aes
 
@@ -48,20 +48,21 @@ momentjs:moment
 mrt:underscore-string-latest
 
 # JS Libraries - Visual
+maazalik:highcharts
+# jhuenges:highstock
 mrt:leaflet
 fuatsengul:leaflet-markercluster
 appshore:leaflet-awesome-markers
-mrt:ionicons
-fortawesome:fontawesome
 timmyg:wow
 chrisbutler:typed.js
 mrt:jquery-easing
 
+# Icons
+mrt:ionicons
+fortawesome:fontawesome
+
 # Mobile Functions
 mdg:camera
-
-
-
 
 
 
@@ -102,9 +103,6 @@ matdutour:outdated-browser
 # Motivation:
 # https://github.com/daneden/animate.css
 ## natestrauser:animate-css
-# https://github.com/alvarotrigo/fullPage.js
-# https://www.binpress.com/tutorial/creating-a-full-page-scrolling-website-with-fullpagejs/136
-## lawshe:full-page
 # https://github.com/modernassembly/threesixtyjs
 
 # http://prismjs.com/
@@ -120,8 +118,6 @@ matdutour:outdated-browser
 # https://atmospherejs.com/alexanderson1993/please.js
 # This looks fun:
 ## alexanderson1993:please.js
-
-
 
 
 
@@ -157,8 +153,6 @@ meteorhacks:fast-render
 digilord:faker
 
 peerlibrary:blaze-components
-maazalik:highcharts
-# jhuenges:highstock
 
 
 # Alternative
