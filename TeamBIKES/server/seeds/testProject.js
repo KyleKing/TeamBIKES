@@ -77,7 +77,6 @@ var randNames = [
 if(RandNames.find().count() === 0) {
   RandNames.insert({
     names: _.without(randNames, '')
-    // .slice(0, 31)
   });
 }
 
