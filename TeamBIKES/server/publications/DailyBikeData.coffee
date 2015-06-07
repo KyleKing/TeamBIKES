@@ -1,7 +1,7 @@
-# server/publications/MeteorUsers.coffee
+# server/publications/DailyBikeData.coffee
 
 # Give authorized users access to sensitive data by group
-# Includes PII like login names, emails and roles
+# Published as null so no subscription call necessary, for now
 Meteor.publish null, (group) ->
   if Roles.userIsInRole(@userId, ['Admin'], group)
     DailyBikeData.find()
@@ -9,5 +9,3 @@ Meteor.publish null, (group) ->
     # user not authorized. do not publish DailyBikeData
     @stop()
     return
-
-# Note list of all available roles: Meteor.roles
