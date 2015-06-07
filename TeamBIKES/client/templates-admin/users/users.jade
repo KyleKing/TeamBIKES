@@ -13,13 +13,16 @@ template(name='users')
           th _id
           th RFID
           th address
+          th profile.name
+          th createdAt
+          th roles
           //- th verified
-          th UID
-          th gender
-          th handlebars
-          th name
-          th username
-          th snack
+          //- th UID
+          //- th gender
+          //- th handlebars
+          //- th name
+          //- th username
+          //- th snack
           //- th password.bcrypt
       tbody
         each users
@@ -29,11 +32,14 @@ template(name='users')
             td #{RFID}
             each emails
               td #{address}
-              //- td #{verified} // Blank, but should be false?
-            td #{profile.UID}
-            td #{profile.gender}
-            td #{profile.handlebars}
             td #{profile.name}
-            td #{username}
-            td #{profile.snack}
+            td #{createdAt}
+            td #{roles}
+              //- td #{verified} // Blank, but should be false?
+            //- td #{users.UID}
+            //- td #{users.gender}
+            //- td #{users.handlebars}
+            //- td #{users.name}
+            //- td #{username}
+            //- td #{users.snack}
             //- td #{services.password.bcrypt}
