@@ -98,11 +98,9 @@ if DailyBikeData.find({Day: today}).count() == 0
       countTime++
     DailyBikeData.insert
       Bike: i
-      # simplified version
-      Tag:
-        if Math.round(0.65 * Math.random()) == 0 then 'Available'
-        else 'RepairInProgress'
       Day: today
+      # simplified version
+      Tag: if Math.round(0.65 * Math.random()) == 0 then 'Available' else 'RepairInProgress'
       Positions: Position
     i++
   console.log 'Created DailyBikeData data schema'
