@@ -48,6 +48,8 @@ momentjs:moment
 mrt:underscore-string-latest
 
 # JS Libraries - Visual
+webix:webix
+webix:skin-flat
 maazalik:highcharts
 # jhuenges:highstock
 mrt:leaflet
