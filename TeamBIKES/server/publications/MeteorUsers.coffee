@@ -1,3 +1,16 @@
-# Login Demo - Publish login information for test purposes
-Meteor.publish 'MeteorUsers', ->
-  Meteor.users.find()
+# server/publications/MeteorUsers.coffee
+
+# Give authorized users access to sensitive data by group
+# Includes PII like login names, emails and roles
+Meteor.publish 'MeteorUsers', (group) ->
+  if Roles.userIsInRole(@userId, [
+      'Admin'
+      'Mechanic'
+    ], group)
+    Meteor.users.find()
+  else
+    # user not authorized. do not publish secrets
+    @stop()
+    return
+
+# Note list of all available roles: Meteor.roles
