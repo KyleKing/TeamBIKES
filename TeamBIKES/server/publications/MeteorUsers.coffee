@@ -6,6 +6,7 @@ Meteor.publish 'MeteorUsers', (group) ->
   if Roles.userIsInRole(@userId, [
       'Admin'
       'Mechanic'
+      'Root'
     ], group)
     Meteor.users.find()
   else
