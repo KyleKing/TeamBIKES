@@ -71,7 +71,7 @@ Template.map.rendered = ->
         marker = L.marker([
           e.latitude
           e.longitude
-        ], icon: redMarker).addTo(map)
+        ], icon: meMarker).addTo(map)
         # console.log([e.latitude, e.longitude]);
         return
       return
