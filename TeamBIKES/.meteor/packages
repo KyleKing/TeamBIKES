@@ -4,8 +4,10 @@
 # but you can also edit it by hand.
 
 # Try Ruby syntax highlighting! Or CoffeeScript!
-
 meteor-platform
+
+# Dev
+meteortoys:allthings # Pres ctrl-m to activate
 
 # Collections:
 dburles:collection-helpers
@@ -27,30 +29,25 @@ dburles:factory
 anti:fake
 # clinical:accounts-famous-dead-people
 
-# Tools - General
-meteorhacks:kadira
-meteorhacks:aggregate
-jparker:crypto-aes
-
-# Misc:
-cunneen:mailgun
-cmather:handlebars-server@0.2.0
-
 # Preprocessors
 mquandalle:jade
 coffeescript
 stylus
-kyleking:customizable-bootstrap-stylus
 # cryptoquick:stylus-multi
+kyleking:customizable-bootstrap-stylus
 
 # JS Libraries - Tools
 momentjs:moment
 mrt:underscore-string-latest
+meteorhacks:kadira
+meteorhacks:aggregate
+jparker:crypto-aes
 
 # JS Libraries - Visual
 # webix:webix
 # webix:skin-flat
 maazalik:highcharts
+maazalik:highcharts-gauge
 # jhuenges:highstock
 mrt:leaflet
 fuatsengul:leaflet-markercluster
@@ -66,19 +63,21 @@ fortawesome:fontawesome
 # Mobile Functions
 mdg:camera
 
-
-
-
-# Untested
-# aldeed:collection2
-# aldeed:autoform
-
-# jeremy:snapsvg
-# mirageglobe:snapsvgcdn
-
+# Misc:
+cunneen:mailgun
+cmather:handlebars-server@0.2.0
 matdutour:outdated-browser
+peerlibrary:blaze-components
+
+# https://atmospherejs.com/lookback/seo
+yasinuslu:blaze-meta
+
 
 # ---TBD---
+# aldeed:collection2
+# aldeed:autoform
+# jeremy:snapsvg
+# mirageglobe:snapsvgcdn
 # lepozepo:accounting
 # mrt:nprogress
 # matteodem:gridster
@@ -89,18 +88,20 @@ matdutour:outdated-browser
 # modweb:vivus
 # mrt:chartjs
 # zimme:iron-router-auth
+# meteorhacks:fast-render
+# digilord:faker
+## ericchen0121:filter-collections
+# alethes:pages
 
 # ___Useful for secure remote DDP COnnections___
 # meteorhacks:firewall
 
 # ___Cordova Things___
 # richsilv:cordova-notifications
+
 # ___Speed User Things___
 # chriswessels:hammer
 # mousetrap:mousetrap
-
-
-
 
 # Motivation:
 # https://github.com/daneden/animate.css
@@ -147,19 +148,4 @@ matdutour:outdated-browser
 # manuelschoebel:ms-seo
 # spiderable
 
-
-# NEW
-## ericchen0121:filter-collections
-# alethes:pages
-meteorhacks:fast-render
-digilord:faker
-
-peerlibrary:blaze-components
-
-
-# Alternative
-# https://atmospherejs.com/lookback/seo
-yasinuslu:blaze-meta
-
 # New Packages
-meteortoys:allthings
