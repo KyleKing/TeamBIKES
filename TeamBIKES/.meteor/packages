@@ -5,6 +5,7 @@
 
 # Try Ruby syntax highlighting! Or CoffeeScript!
 meteor-platform
+autopublish
 
 # Dev
 meteortoys:allthings # Pres ctrl-m to activate
