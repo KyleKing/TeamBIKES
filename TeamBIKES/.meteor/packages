@@ -6,6 +6,10 @@
 # Try Ruby syntax highlighting! Or CoffeeScript!
 meteor-platform
 
+# Current DEV
+autopublish
+insecure
+
 # Dev
 meteortoys:allthings # Pres ctrl-m to activate
 
@@ -45,7 +49,7 @@ jparker:crypto-aes
 
 # JS Libraries - Visual
 # webix:webix
-# webix:skin-flat
+# webix:skin-web
 maazalik:highcharts
 maazalik:highcharts-gauge
 # jhuenges:highstock
