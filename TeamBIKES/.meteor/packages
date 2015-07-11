@@ -10,7 +10,7 @@ meteor-platform
 autopublish
 insecure
 
-# Dev
+# Developer Tools
 meteortoys:allthings # Pres ctrl-m to activate
 
 # Collections:
