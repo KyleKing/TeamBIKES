@@ -22,7 +22,7 @@ webix.proxy.meteor = {
 		}
 	},
 	/*
-	some.load("meteor->ref");
+	some.load("meteor->books");
 	or
 	some.load( webix.proxy("meteor", Books) )
 	or
@@ -32,7 +32,7 @@ webix.proxy.meteor = {
 	*/
 	load:function(view, callback){
 		this.parseSource();
-		this.cursor.observe({
+		this.query = this.cursor.observe({
 			//data in meteor collection added
 			added: function(post) {
 				//event can be triggered while initial data loading - ignoring
@@ -99,14 +99,13 @@ webix.proxy.meteor = {
 		delete obj.data.id;
 		if (obj.operation == "update"){
 			//data changed
-			this.collection.update(obj.id, obj.data);
+			this.collection.update(obj.id, { $set: obj.data } );
 			webix.delay(function(){
 				callback.success("", { }, -1);
 			});
 		} else if (obj.operation == "insert"){
 			//data added
 			var id = this.collection.insert(obj.data);
-			console.log(id);
 			webix.delay(function(){
 				callback.success("", { newid: id }, -1);
 			});
@@ -119,6 +118,11 @@ webix.proxy.meteor = {
 		}
 
 		view.meteor_saving = false;
+	},
+	//called when data source is not used anymore
+	release:function(){
+		if (this.query)
+			this.query.stop();
 	}
 };
 
