@@ -1,40 +1,43 @@
 Books = new Mongo.Collection("books");
-Meteor.subscribe('BooksPub');
 
-Router.route("WebixHome", function(){
-	this.render("WebixHome");
-});
+if (Meteor.isClient) {
+	Meteor.subscribe('BooksPub');
 
-Router.route("/datatable", function(){
-	this.render("Datatable");
-});
+	Router.route("WebixHome", function(){
+		this.render("WebixHome");
+	});
 
-Router.route("/dataloading", function(){
-	this.render("DataLoading");
-});
+	Router.route("/datatable", function(){
+		this.render("Datatable");
+	});
 
-Router.route("/fullscreen", function(){
-	this.render("FullScreen");
-});
+	Router.route("/dataloading", function(){
+		this.render("DataLoading");
+	});
 
-Router.route("/template", function(){
-	this.render("Template");
-});
+	Router.route("/fullscreen", function(){
+		this.render("FullScreen");
+	});
 
-Router.route("/window", function(){
-	this.render("WindowHost");
-});
+	Router.route("/template", function(){
+		this.render("Template");
+	});
 
-if (Meteor.isServer){
-	if (!Books.find().count()){
-		Books.insert({
-			author:"Anthony Doerr",
-			name:"All the Light We Cannot See"
-		});
+	Router.route("/window", function(){
+		this.render("WindowHost");
+	});
 
-		Books.insert({
-			author:"Paula Hawkins",
-			name:"The girl on the train"
-		});
+	if (Meteor.isServer){
+		if (!Books.find().count()){
+			Books.insert({
+				author:"Anthony Doerr",
+				name:"All the Light We Cannot See"
+			});
+
+			Books.insert({
+				author:"Paula Hawkins",
+				name:"The girl on the train"
+			});
+		}
 	}
 }
