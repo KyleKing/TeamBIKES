@@ -1,0 +1,15 @@
+template(name="PageContent")
+  // Page Content
+  #page-content-wrapper
+    .container-fluid
+      .row
+        .col-lg-12
+          h1 Simple Sidebar
+          p
+            | This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.
+          p
+            | Make sure to keep all page content within the
+            code #page-content-wrapper
+            | .
+          a#menu-toggle.btn.btn-default(href='#menu-toggle') Toggle Menu
+  // /#page-content-wrapper

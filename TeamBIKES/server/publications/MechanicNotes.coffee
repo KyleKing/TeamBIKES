@@ -8,3 +8,6 @@ Meteor.publish 'MechanicNotesPub', (group) ->
     # user not authorized. do not publish MechanicNotes
     @stop()
     return
+
+Meteor.publish "ManageMechanicNotes", ->
+  MechanicNotes.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})

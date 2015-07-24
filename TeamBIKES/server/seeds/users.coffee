@@ -33,6 +33,8 @@ if Meteor.users.find({}).count() == 0
       # after `Accounts.createUser` or `Accounts.onCreate`
       Roles.addUsersToRoles id, user.roles
     return
+
+
 # server/publish.js
 # Give authorized users access to sensitive data by group
 Meteor.publish 'secrets', (group) ->
@@ -61,6 +63,8 @@ Meteor.methods updateRoles: (targetUserId, roles, group) ->
     throw new (Meteor.Error)(403, 'Access denied')
   Roles.setUserRoles targetUserId, roles, group
   return
+
+
 # // Seed users
 # Meteor.startup(function() {
 #   Factory.define('user', Meteor.users, {
