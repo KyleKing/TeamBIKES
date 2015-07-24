@@ -4,18 +4,21 @@ Template.map.rendered = ->
   map = new (L.Map)('BikeMap', center: new (L.LatLng)(38.987701, -76.940989))
   L.tileLayer.provider('OpenStreetMap.Mapnik').addTo map
   map.spin false
-  # // Receive data from server and display on map and rerun on server updates
-  # Meteor.autorun(function() {
-  #   var bikesData = AvailableBikeLocations.find().fetch();
-  #   bikesData.forEach(function(bike) {
-  #     var latlng = [bike.Positions.lat, bike.Positions.lng];
-  #     var marker = L.marker(latlng).addTo(map);
-  #     marker.bindPopup("#" + bike.Bike + " is " + bike.Tag);
-  #   });
-  # });
+
+  # Creates a red marker with the coffee icon
+  redBike = L.AwesomeMarkers.icon(
+    prefix: 'fa'
+    icon: 'bicycle'
+    markerColor: 'red'
+    iconColor: 'white')
+
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   markers = []
+  # # Notes for using included MarkCluster Package
+  # markers = new (L.MarkerClusterGroup)
+  # markers.addLayer new (L.Marker)(latlng)
+  # map.addLayer markers
   AvailableBikeLocations.find({}).observe
     added: (bike) ->
       latlng = [
@@ -24,43 +27,77 @@ Template.map.rendered = ->
       ]
       marker = L.marker(latlng,
         title: '#' + bike.Bike + ' is ' + bike.Tag
-        opacity: 0.5).addTo(map)
+        opacity: 0.8
+        icon: redBike).addTo(map)
       # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag);
       # Store this marker instance within the markers object.
       markers[bike._id] = marker
-      console.log markers[bike._id] + ' added to map on ADDED event'
+      # console.log bike._id + ' added to map on ADDED event'
     changed: (bike, oldDocument) ->
       latlng = [
         bike.Lat
         bike.Lng
       ]
       markers[bike._id].setLatLng(latlng).update()
-      console.log markers[bike._id] + ' changed on map on CHANGED event'
+      # console.log bike._id + ' changed on map on CHANGED event'
     removed: (oldBike) ->
       console.log oldBike
       # Remove the marker from the map
       map.removeLayer markers[oldBike._id]
       # Remove the reference to this marker instance
       delete markers[oldBike._id]
-      console.log markers[oldBike._id] + ' removed from map on REMOVED event'
+      # console.log oldBike._id + ' removed from map on REMOVED event'
 
-  bottomLng = -76.936569
-  topLng = -76.950603
-  leftLat = 38.994052
-  rightLat = 38.981376
+  # Manually drawn from: http://www.latlong.net/
   polygon = L.polygon([
-    [ rightLat, bottomLng ]
-    [ rightLat, topLng ]
-    [ leftLat, topLng ]
-    [ leftLat, bottomLng ]
-  ]).addTo(map)
-  # // Zoom to user location
-  # map.locate({ setView: true })
+    [ 39.000276, -76.943264 ]
+    [ 38.998642, -76.946397 ]
+    [ 38.992438, -76.951632 ]
+    [ 38.986300, -76.956096 ]
+    [ 38.985433, -76.955495 ]
+    [ 38.984733, -76.952019 ]
+    [ 38.983765, -76.952190 ]
+    [ 38.983532, -76.948543 ]
+    [ 38.981330, -76.946354 ]
+    [ 38.977527, -76.937985 ]
+    [ 38.983065, -76.937771 ]
+    [ 38.983131, -76.934423 ]
+    [ 38.983832, -76.933479 ]
+    [ 38.984833, -76.934423 ]
+    [ 38.984799, -76.937299 ]
+    [ 38.992671, -76.933093 ]
+    [ 38.993105, -76.935153 ]
+    [ 38.996074, -76.935325 ]
+    [ 38.996174, -76.937728 ]
+    [ 39.000243, -76.942277 ]
+    [ 39.001777, -76.940989 ]
+    [ 39.003244, -76.940818 ]
+    [ 39.003711, -76.942706 ]
+    [ 39.001210, -76.943436 ]
+  ], {
+    fill: false
+    color: 'blue'
+    smoothFactor: 7
+    weight: 10
+  }
+
+  ).addTo(map)
+
+  # # // Zoom to user location
+  # # Create marker
+  # meMarker = L.AwesomeMarkers.icon(
+  #   prefix: 'fa'
+  #   icon: 'user'
+  #   markerColor: 'blue'
+  #   iconColor: 'white')
+  # # Locate, zoom and plot
+  # map.locate(setView: true).on 'locationfound', (e) ->
+  #   marker = L.marker([
+  #     e.latitude
+  #     e.longitude
+  #   ], icon: meMarker).addTo(map)
+  # # map.locate({ setView: true })
   map.setView new (L.LatLng)(38.987701, -76.940989), 13
-  # Notes for using included MarkCluster Package
-  # var markers = new L.MarkerClusterGroup();
-  # markers.addLayer(new L.Marker([51.5, -0.09]));
-  # map.addLayer(markers);
 
 # Template.map.rendered = ->
 #   return Meteor.subscribe('AvailableBikeLocationsPub', ->
