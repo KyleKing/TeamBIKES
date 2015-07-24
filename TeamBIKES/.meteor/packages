@@ -1,55 +1,37 @@
 # Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
 #
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-# Try Ruby syntax highlighting! Or CoffeeScript!
 meteor-platform
-
-# Current DEV
 autopublish
-insecure
+# insecure
 
 # Developer Tools
-meteortoys:allthings # Pres ctrl-m to activate
+meteortoys:allthings@1.2.1 # Pres ctrl-m to activate
 
-# Collections:
-dburles:collection-helpers
-matb33:collection-hooks
-reywood:publish-composite
-
-# Router:
-iron:router
-zimme:iron-router-active
-okgrow:iron-router-autoscroll
-
-# Authentication
-accounts-password
-alanning:roles
-useraccounts:bootstrap
-
-# Seed Data
-dburles:factory
-anti:fake
-# clinical:accounts-famous-dead-people
+## Visuals
+davidsichau:sidebar
+aldeed:tabular
+aldeed:autoform
+aldeed:collection2
 
 # Preprocessors
 mquandalle:jade
 coffeescript
 stylus
+
+# Icons
+mrt:ionicons
+fortawesome:fontawesome
+
+# Libraries
 # cryptoquick:stylus-multi
 kyleking:customizable-bootstrap-stylus
 
-# JS Libraries - Tools
-momentjs:moment
-mrt:underscore-string-latest
-meteorhacks:kadira
-meteorhacks:aggregate
-jparker:crypto-aes
 
 # JS Libraries - Visual
-# webix:webix
-# webix:skin-web
 maazalik:highcharts
 maazalik:highcharts-gauge
 # jhuenges:highstock
@@ -60,9 +42,34 @@ timmyg:wow
 chrisbutler:typed.js
 mrt:jquery-easing
 
-# Icons
-mrt:ionicons
-fortawesome:fontawesome
+## Tools
+
+# JS Libraries - Tools
+momentjs:moment
+mrt:underscore-string-latest
+meteorhacks:kadira
+meteorhacks:aggregate
+jparker:crypto-aes
+
+# Router:
+iron:router
+zimme:iron-router-active
+okgrow:iron-router-autoscroll
+
+# Collections:
+dburles:collection-helpers
+matb33:collection-hooks
+reywood:publish-composite
+
+# Authentication
+accounts-password
+alanning:roles
+useraccounts:bootstrap
+
+# Seed Data
+dburles:factory
+anti:fake
+# clinical:accounts-famous-dead-people
 
 # Mobile Functions
 mdg:camera
@@ -78,8 +85,6 @@ yasinuslu:blaze-meta
 
 
 # ---TBD---
-# aldeed:collection2
-# aldeed:autoform
 # jeremy:snapsvg
 # mirageglobe:snapsvgcdn
 # lepozepo:accounting

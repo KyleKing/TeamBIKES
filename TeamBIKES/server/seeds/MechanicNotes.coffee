@@ -1,3 +1,5 @@
+## \/ NOTE! CHANGED \/
+
 # MechanicNotes {
 #   CurrentTag: <see below>
 #   ...
@@ -10,39 +12,50 @@
 #     RepairInProgress, WaitingOnParts, Available>
 #     ]
 # }
+
+## /\ Not THE SAME - CHANGED /\
+
+
 if Meteor.users.find().count() != 0
   # Create staff roles (for more info see roles package)
   if MechanicNotes.find({}).count() == 0
     # local variable to populate collection
     BikeNotes = [
       {
-        CurrentTag: "ToBeRedistributed"
-        RepairHistory:
-          MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
-          Timestamp: "NUMBER"
-          Notes: "string of useless information"
-          Tag: "ToBeRedistributed"
+        MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
+        Timestamp: "NUMBER"
+        Bike: 1
+        Notes: 'Only a string'
+        Tag: "ToBeRedistributed"
       }
       {
-        CurrentTag: "Available"
-        RepairHistory:
-          [{
-            MechanicID: Meteor.users.findOne({'profile.name': "Root"})._id
-            Timestamp: "NUMBER"
-            Notes: "I am Groot"
-            Tag: "Available"
-          }
-          {
-            MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
-            Timestamp: "NUMBER"
-            Notes: "string of useless information"
-            Tag: "ToBeRedistributed"
-          }]
+        MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
+        Timestamp: "NUMBER"
+        Bike: 1
+        Notes: "string of something information"
+        Tag: "ToBeRedistributed"
+      }
+      {
+        MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
+        Timestamp: "NUMBER"
+        Bike: 3
+        Notes: "I am Groot"
+        Tag: "ToBeRedistributed"
+      }
+      {
+        MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
+        Timestamp: "NUMBER"
+        Bike: 1
+        Notes: 'Only a string'
+        Tag: "ToBeRedistributed"
       }
     ]
     # Populate Accounts db
     _.each BikeNotes, (BikeNote) ->
       MechanicNotes.insert
-        CurrentTag: BikeNote.CurrentTag
-        RepairHistory: [BikeNote.RepairHistory]
+        MechanicID: BikeNote.MechanicID
+        Timestamp: BikeNote.Timestamp
+        Bike: BikeNote.Bike
+        Notes: BikeNote.Notes
+        Tag: BikeNote.Tag
     console.log 'MechanicNotes Created'
