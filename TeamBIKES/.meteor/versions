@@ -12,6 +12,7 @@ autopublish@1.0.3
 autoupdate@1.2.1
 babrahams:editable-json@0.4.3
 base64@1.0.3
+bevanhunt:leaflet@0.3.18
 binary-heap@1.0.3
 blaze@2.1.2
 blaze-tools@1.0.3
@@ -32,8 +33,6 @@ ejson@1.0.6
 email@1.0.6
 fastclick@1.0.3
 fortawesome:fontawesome@4.3.0
-fuatsengul:leaflet@1.0.1
-fuatsengul:leaflet-markercluster@1.0.2
 geojson-utils@1.0.3
 gwendall:session-json@0.1.7
 handlebars@1.0.3
@@ -101,7 +100,6 @@ mquandalle:jade@0.4.3
 mquandalle:jade-compiler@0.4.3
 mrt:ionicons@2.0.0
 mrt:jquery-easing@1.3.0
-mrt:leaflet@0.3.8
 mrt:underscore-string-latest@2.3.3
 msavin:jetsetter@1.0.19
 msavin:mongol@1.0.102

@@ -66,8 +66,8 @@ randGPS = (max) ->
     return
   # Save in object to return
   randCoordinates =
-    lat: randLat
-    lng: randLng
+    Lat: randLat
+    Lng: randLng
   randCoordinates
 
 
@@ -91,8 +91,8 @@ if DailyBikeData.find({Day: today}).count() == 0
       blank =
         Rider: randNames[namePoint]
         Timestamp: randomNow
-        Lat: randGPS(2).lat[randGPSPoint]
-        Lng: randGPS(2).lng[randGPSPoint]
+        Lat: randGPS(2).Lat[randGPSPoint]
+        Lng: randGPS(2).Lng[randGPSPoint]
       # console.log('name = ' + blank.User);
       Position.push blank
       countTime++

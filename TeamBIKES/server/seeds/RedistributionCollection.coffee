@@ -1,5 +1,4 @@
 [today, now] = CurrentDay()
-console.log DailyBikeData.find({Day: today}).count()
 # seeds/RedistributionCollection.coffee
 
 # To help with load order, make sure there is DailyBikeData available
