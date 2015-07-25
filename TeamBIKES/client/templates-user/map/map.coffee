@@ -1,4 +1,5 @@
 Template.map.rendered = ->
+  Meteor.subscribe("AvailableBikeLocationsPub");
   # Create the Leaflet Map
   L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images'
   map = new (L.Map)('BikeMap', center: new (L.LatLng)(38.987701, -76.940989))
