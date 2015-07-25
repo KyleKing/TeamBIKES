@@ -11,14 +11,22 @@ template(name="menu")
         li.sidebar-brand
           a(href='/')
             | Team BIKES
-        li(class="{{ activeIfTemplateIs 'Table' }}")
-          a(href="{{pathFor 'Table'}}") Table
-        li(class="{{ activeIfTemplateIs 'ManageBikes' }}")
-          a(href="{{pathFor 'ManageBikes'}}") ManageBikes
-        li(class="{{ activeIfTemplateIs 'ManageMechanicNotes' }}")
-          a(href="{{pathFor 'ManageMechanicNotes'}}") ManageMechanicNotes
-        li(class="{{ activeIfTemplateIs 'ManageUsers' }}")
-          a(href="{{pathFor 'ManageUsers'}}") ManageUsers
+        li(class="{{ isActiveRoute regex='Table' }}")
+          a(href="{{ pathFor 'Table' }}")
+            i.fa.fa-table
+              |  Table
+        li(class="{{ isActiveRoute regex='ManageBikes' }}")
+          a(href="{{ pathFor 'ManageBikes' }}")
+            i.fa.fa-car
+              |  ManageBikes
+        li(class="{{ isActiveRoute regex='ManageMechanicNotes' }}")
+          a(href="{{ pathFor 'ManageMechanicNotes' }}")
+            i.fa.fa-paperclip
+              |  ManageMechanicNotes
+        li(class="{{ isActiveRoute regex='ManageUsers' }}")
+          a(href="{{ pathFor 'ManageUsers' }}")
+            i.fa.fa-group
+              |  ManageUsers
     // /#sidebar-wrapper
     +yield
   // /#wrapper

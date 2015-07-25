@@ -15,20 +15,20 @@ Template.map.rendered = ->
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   markers = []
-  # # Notes for using included MarkCluster Package
-  # markers = new (L.MarkerClusterGroup)
-  # markers.addLayer new (L.Marker)(latlng)
-  # map.addLayer markers
+  # Notes for using included MarkCluster Package
+  ClusterLayer = new (L.MarkerClusterGroup)
   AvailableBikeLocations.find({}).observe
     added: (bike) ->
       latlng = [
         bike.Lat
         bike.Lng
       ]
-      marker = L.marker(latlng,
-        title: '#' + bike.Bike + ' is ' + bike.Tag
-        opacity: 0.8
-        icon: redBike).addTo(map)
+      marker = ClusterLayer.addLayer new (L.Marker)(latlng)
+      map.addLayer ClusterLayer
+      # marker = L.marker(latlng,
+      #   title: '#' + bike.Bike + ' is ' + bike.Tag
+      #   opacity: 0.8
+      #   icon: redBike).addTo(map)
       # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag);
       # Store this marker instance within the markers object.
       markers[bike._id] = marker
