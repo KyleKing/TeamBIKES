@@ -105,7 +105,4 @@ if DailyBikeData.find({Day: today}).count() == 0
       Lng: Position[0].Lng
       Positions: Position
     i++
-    console.log 'Position[0]'
-    console.log Position[0]
-    console.log Position[0].Lat
   console.log 'Created DailyBikeData data schema'
