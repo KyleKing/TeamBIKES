@@ -4,29 +4,32 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1')
 
 template(name="menu")
-  #wrapper
-    // Sidebar
-    #sidebar-wrapper
-      ul.sidebar-nav
-        li.sidebar-brand
-          a(href='/')
-            | Team BIKES
-        li(class="{{ isActiveRoute regex='Table' }}")
-          a(href="{{ pathFor 'Table' }}")
-            i.fa.fa-table
-              |  Table
-        li(class="{{ isActiveRoute regex='ManageBikes' }}")
-          a(href="{{ pathFor 'ManageBikes' }}")
-            i.fa.fa-car
-              |  ManageBikes
-        li(class="{{ isActiveRoute regex='ManageMechanicNotes' }}")
-          a(href="{{ pathFor 'ManageMechanicNotes' }}")
-            i.fa.fa-paperclip
-              |  ManageMechanicNotes
-        li(class="{{ isActiveRoute regex='ManageUsers' }}")
-          a(href="{{ pathFor 'ManageUsers' }}")
-            i.fa.fa-group
-              |  ManageUsers
-    // /#sidebar-wrapper
-    +yield
-  // /#wrapper
+  +_header
+  .AdminNavSpacing
+  .container
+    #wrapper
+      // Sidebar
+      #sidebar-wrapper
+        ul.sidebar-nav
+          li.sidebar-brand
+            a(href='/')
+              | Team BIKES
+          li(class="{{ isActiveRoute regex='Table' }}")
+            a(href="{{ pathFor 'Table' }}")
+              i.fa.fa-table
+                |  Table
+          li(class="{{ isActiveRoute regex='ManageBikes' }}")
+            a(href="{{ pathFor 'ManageBikes' }}")
+              i.fa.fa-car
+                |  ManageBikes
+          li(class="{{ isActiveRoute regex='ManageMechanicNotes' }}")
+            a(href="{{ pathFor 'ManageMechanicNotes' }}")
+              i.fa.fa-paperclip
+                |  ManageMechanicNotes
+          li(class="{{ isActiveRoute regex='ManageUsers' }}")
+            a(href="{{ pathFor 'ManageUsers' }}")
+              i.fa.fa-group
+                |  ManageUsers
+      // /#sidebar-wrapper
+      +yield
+    // /#wrapper
