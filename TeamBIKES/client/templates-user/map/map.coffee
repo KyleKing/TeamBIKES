@@ -8,9 +8,10 @@ Meteor.startup ->
     stack: true
     offset: 0
 
-Meteor.subscribe("AvailableBikeLocationsPub");
-
 Template.map.rendered = ->
+  Meteor.subscribe("AvailableBikeLocationsPub")
+  Meteor.subscribe("ReservedBike")
+
   # Create the Leaflet Map
   L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images'
   map = new (L.Map)('BikeMap', center: new (L.LatLng)(38.987701, -76.940989))
@@ -63,10 +64,14 @@ Template.map.rendered = ->
   DailyBikeData.find({}).observe
     added: (bike) ->
       latlng = [ bike.Lat, bike.Lng ]
+      if bike.Tag == 'Available'
+        BikeIcon = GreyBike
+      else
+        BikeIcon = GreenBike
       markers[bike._id] = L.marker(latlng,
         title: bike.Bike
-        opacity: 0.8
-        icon: GreyBike).on("click", (e) ->
+        opacity: 0.5
+        icon: BikeIcon).on("click", (e) ->
           # Remove previously selected bike
           if Session.get 'selectedBike'
             last = Session.get 'selectedBike'
