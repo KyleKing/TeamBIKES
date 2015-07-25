@@ -2,7 +2,7 @@ Meteor.startup ->
   sAlert.config
     effect: 'stackslide'
     position: 'bottom'
-    timeout: 1000
+    timeout: 2000
     html: false
     onRouteClose: true
     stack: true
@@ -148,3 +148,9 @@ Template.map.helpers
         "Select a new bike"
     else
       "Click marker to reserve bike"
+
+Template.map.events
+  'click #ReserveBtn': (e) ->
+    Bike = Session.get 'selectedBike'
+    result = Meteor.call('UserReserveBike', Meteor.userId(), Bike)
+    sAlert.success('Bike #' + Bike + ' successfully reserved!')
