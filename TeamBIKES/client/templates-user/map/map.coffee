@@ -44,44 +44,48 @@ Template.map.rendered = ->
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   markers = []
+  Session.set "selectedBike", 151
   # Notes for using included MarkCluster Package
   ClusterLayer = new (L.MarkerClusterGroup)
   ClusterLayer = L.markerClusterGroup(disableClusteringAtZoom: 16)
   AvailableBikeLocations.find({}).observe
     added: (bike) ->
-      latlng = [
-        bike.Lat
-        bike.Lng
-      ]
-      marker = L.marker(latlng,
+      latlng = [ bike.Lat, bike.Lng ]
+      markers[bike._id] = L.marker(latlng,
         title: bike.Bike
         opacity: 0.8
         icon: GreyBike).on("click", (e) ->
+          # Remove previously selected bike
+          if Session.get 'selectedBike'
+            last = Session.get "selectedBike"
+            last_id = AvailableBikeLocations.findOne({Bike: last})._id
+            markers[last_id].setIcon GreyBike
+          # Highlight new bike
           @setIcon RedBike
-          console.log e.target
-          console.log e.target._leaflet_id
-          console.log e.target.options.title
-          Session.set "selectedBike", e.target.options.title )
-      marker = ClusterLayer.addLayer marker
+          Session.set "selectedBike", e.target.options.title
+          # console.log e.target
+          # console.log e.target._leaflet_id
+          # console.log e.target.options.title
+        )
+      ClusterLayer.addLayer markers[bike._id]
       map.addLayer ClusterLayer
       # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag);
-      # Store this marker instance within the markers object.
-      markers[bike._id] = marker
-      # console.log bike._id + ' added to map on ADDED event'
     changed: (bike, oldDocument) ->
-      latlng = [
-        bike.Lat
-        bike.Lng
-      ]
+      latlng = [ bike.Lat, bike.Lng ]
       markers[bike._id].setLatLng(latlng).update()
       # console.log bike._id + ' changed on map on CHANGED event'
     removed: (oldBike) ->
-      console.log oldBike
       # Remove the marker from the map
       map.removeLayer markers[oldBike._id]
       # Remove the reference to this marker instance
       delete markers[oldBike._id]
       # console.log oldBike._id + ' removed from map on REMOVED event'
+
+  # TestMarker = markers["LMpMQYoj4HKJsA6Na"]
+  # TestMarker.setIcon RedBike
+
+  console.log markers
+
 
   # Manually drawn from: http://www.latlong.net/
   polygon = L.polygon([
