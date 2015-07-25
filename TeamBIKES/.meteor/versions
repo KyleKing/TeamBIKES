@@ -8,7 +8,6 @@ aldeed:tabular@1.2.0
 aldeed:template-extension@3.4.3
 anti:fake@0.4.1
 appshore:leaflet-awesome-markers@1.0.3
-autopublish@1.0.3
 autoupdate@1.2.1
 babrahams:editable-json@0.4.3
 base64@1.0.3
@@ -59,6 +58,8 @@ jparker:crypto-mode@0.1.1
 jparker:crypto-padding@0.1.0
 jquery@1.11.3_2
 json@1.0.3
+juliancwirko:s-alert@2.4.1
+juliancwirko:s-alert-stackslide@1.1.3
 kyleking:customizable-bootstrap-stylus@3.5.0_1
 kyleking:customizable-bootstrap-stylus-data@4.0.4
 lai:collection-extensions@0.1.4

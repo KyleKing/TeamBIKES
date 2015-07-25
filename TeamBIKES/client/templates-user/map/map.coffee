@@ -1,3 +1,13 @@
+Meteor.startup ->
+  sAlert.config
+    effect: 'stackslide'
+    position: 'bottom'
+    timeout: 1000
+    html: false
+    onRouteClose: true
+    stack: true
+    offset: 0
+
 Meteor.subscribe("AvailableBikeLocationsPub");
 
 Template.map.rendered = ->
@@ -44,7 +54,9 @@ Template.map.rendered = ->
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   markers = []
-  Session.set "selectedBike", 151
+  Session.set
+    "selectedBike": false
+    "available": true
   # Notes for using included MarkCluster Package
   ClusterLayer = new (L.MarkerClusterGroup)
   ClusterLayer = L.markerClusterGroup(disableClusteringAtZoom: 16)
@@ -57,12 +69,15 @@ Template.map.rendered = ->
         icon: GreyBike).on("click", (e) ->
           # Remove previously selected bike
           if Session.get 'selectedBike'
-            last = Session.get "selectedBike"
+            last = Session.get 'selectedBike'
             last_id = AvailableBikeLocations.findOne({Bike: last})._id
             markers[last_id].setIcon GreyBike
+
           # Highlight new bike
           @setIcon RedBike
-          Session.set "selectedBike", e.target.options.title
+          Session.set
+            "selectedBike": e.target.options.title
+            "available": true
           # console.log e.target
           # console.log e.target._leaflet_id
           # console.log e.target.options.title
@@ -75,18 +90,21 @@ Template.map.rendered = ->
       markers[bike._id].setLatLng(latlng).update()
       # console.log bike._id + ' changed on map on CHANGED event'
     removed: (oldBike) ->
+      # If removed bike is currently selected bike...
+      if Session.get("selectedBike") == oldBike.Bike
+        # Updated reserve bike text
+        Session.set
+          "available": false
+        # And alert user
+        sAlert.warning('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
       map.removeLayer markers[oldBike._id]
       # Remove the reference to this marker instance
       delete markers[oldBike._id]
       # console.log oldBike._id + ' removed from map on REMOVED event'
 
-  # TestMarker = markers["LMpMQYoj4HKJsA6Na"]
-  # TestMarker.setIcon RedBike
 
-  console.log markers
-
-
+  # Active area of bike map
   # Manually drawn from: http://www.latlong.net/
   polygon = L.polygon([
     [ 39.000276, -76.943264 ]
@@ -120,9 +138,13 @@ Template.map.rendered = ->
     weight: 10
   }).addTo(map)
 
+# Provide context for user
 Template.map.helpers
   selectedBike: ->
     if Session.get 'selectedBike'
-      "Bike #" + Session.get 'selectedBike'
+      if Session.get 'available'
+        "Bike #" + Session.get 'selectedBike'
+      else
+        "Select a new bike"
     else
       "Click marker to reserve bike"
