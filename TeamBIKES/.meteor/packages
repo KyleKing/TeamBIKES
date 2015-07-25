@@ -5,7 +5,7 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
+# autopublish
 # insecure
 
 # Developer Tools
@@ -38,6 +38,8 @@ maazalik:highcharts-gauge
 bevanhunt:leaflet
 appshore:leaflet-awesome-markers
 herrhelms:meteor-leaflet-locatecontrol
+juliancwirko:s-alert
+juliancwirko:s-alert-stackslide
 timmyg:wow
 chrisbutler:typed.js
 mrt:jquery-easing
