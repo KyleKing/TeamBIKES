@@ -33,7 +33,40 @@ Router.route '/', name: 'about'
 ### User ###
 
 Router.route '/student'
-Router.route '/map', layoutTemplate: 'fullLayout'
+# Router.route '/map', ->
+#   @layout 'fullLayout'
+#   # add the subscription handle to our waitlist
+#   @wait Meteor.subscribe('AvailableBikeLocationsPub')
+#   if @ready()
+#     @render()
+#   # else
+#   #   @render 'Loading'
+Router.route '/map',
+  name: 'map'
+  path: '/map'
+  # controller: 'CustomController'
+  template: 'map'
+  layoutTemplate: 'fullLayout'
+  # yieldRegions:
+  #   'MyAside': to: 'aside'
+  #   'MyFooter': to: 'footer'
+  # subscriptions: ->
+  #   @subscribe 'AvailableBikeLocationsPub'
+  #   # add the subscription to the waitlist
+  #   @subscribe('AvailableBikeLocationsPub').wait()
+  waitOn: ->
+    Meteor.subscribe 'AvailableBikeLocationsPub'
+  # data: ->
+  #   Posts.findOne _id: @params._id
+  # onRun: ->
+  # onRerun: ->
+  # onBeforeAction: ->
+  # onAfterAction: ->
+  # onStop: ->
+  action: ->
+    # render all templates and regions for this route
+    @render()
+
 
 ### Administrator ###
 
