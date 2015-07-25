@@ -17,6 +17,7 @@ Template.map.rendered = ->
   markers = []
   # Notes for using included MarkCluster Package
   ClusterLayer = new (L.MarkerClusterGroup)
+  ClusterLayer = L.markerClusterGroup(disableClusteringAtZoom: 16)
   AvailableBikeLocations.find({}).observe
     added: (bike) ->
       latlng = [
