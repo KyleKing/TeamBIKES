@@ -23,12 +23,12 @@ Template.map.rendered = ->
         bike.Lat
         bike.Lng
       ]
-      marker = ClusterLayer.addLayer new (L.Marker)(latlng)
+      marker = L.marker(latlng,
+        title: '#' + bike.Bike + ' is ' + bike.Tag
+        opacity: 0.8
+        icon: redBike)
+      marker = ClusterLayer.addLayer marker
       map.addLayer ClusterLayer
-      # marker = L.marker(latlng,
-      #   title: '#' + bike.Bike + ' is ' + bike.Tag
-      #   opacity: 0.8
-      #   icon: redBike).addTo(map)
       # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag);
       # Store this marker instance within the markers object.
       markers[bike._id] = marker
