@@ -34,49 +34,6 @@ Router.route '/', name: 'about'
 
 Router.route '/student'
 Router.route '/map'
-# Router.map ->
-#   @route 'map',
-#     path: '/map'
-#     template: 'map'
-#     layoutTemplate: 'fullLayout'
-# Needs more work to get functioning:
-#     waitOn: ->
-#       Meteor.subscribe 'AvailableBikeLocationsPub'
-#     cache: true
-#   # @route 'postPage',
-#   #   path: '/post/:_id'
-#   #   template: 'postPage'
-#   #   waitOn: ->
-#   #     Meteor.subscribe 'post', @params._id
-#   #   cache: 5
-#   #   expire: 3
-
-# # Router.route '/map',
-# #   name: 'map'
-# #   path: '/map'
-# #   # controller: 'CustomController'
-# #   template: 'map'
-# #   layoutTemplate: 'fullLayout'
-# #   # yieldRegions:
-# #   #   'MyAside': to: 'aside'
-# #   #   'MyFooter': to: 'footer'
-# #   # subscriptions: ->
-# #   #   @subscribe 'AvailableBikeLocationsPub'
-# #   #   # add the subscription to the waitlist
-# #   #   @subscribe('AvailableBikeLocationsPub').wait()
-# #   waitOn: ->
-# #     Meteor.subscribe 'AvailableBikeLocationsPub'
-# #   # data: ->
-# #   #   Posts.findOne _id: @params._id
-# #   # onRun: ->
-# #   # onRerun: ->
-# #   # onBeforeAction: ->
-# #   # onAfterAction: ->
-# #   # onStop: ->
-# #   action: ->
-# #     # render all templates and regions for this route
-# #     @render()
-
 
 ### Administrator ###
 

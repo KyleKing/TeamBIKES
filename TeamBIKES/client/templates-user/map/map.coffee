@@ -6,6 +6,16 @@ Template.map.rendered = ->
   L.tileLayer.provider('OpenStreetMap.Mapnik').addTo map
   map.spin false
 
+  LocateControl = L.control.locate(
+    drawCircle: true
+    follow: true
+    setView: true
+    keepCurrentZoomLevel: false
+    remainActive: false
+    markerClass: L.circleMarker).addTo map
+  # Start automatically
+  LocateControl.start()
+
   # Creates a red marker with the coffee icon
   redBike = L.AwesomeMarkers.icon(
     prefix: 'fa'
