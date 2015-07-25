@@ -8,5 +8,9 @@ Meteor.publish 'DailyBikeDataPub', (group) ->
     # user not authorized. do not publish DailyBikeData
     @stop()
 
+
+Meteor.publish 'AvailableBikeLocationsPub', ->
+	DailyBikeData.find {Tag: 'Available'}, fields: Positions: 0
+
 Meteor.publish "ManageBikes", ->
   DailyBikeData.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})

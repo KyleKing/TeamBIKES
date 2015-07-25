@@ -13,6 +13,10 @@ DailyBikeData.attachSchema new SimpleSchema(
   Tag:
     type: String
     label: 'Tag'
+  Lat:
+    type: String
+  Lng:
+    type: String
   Positions:
     type: [ Object ]
   'Positions.$.Rider':

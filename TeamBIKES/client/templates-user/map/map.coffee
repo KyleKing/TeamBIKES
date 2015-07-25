@@ -60,7 +60,7 @@ Template.map.rendered = ->
   # Notes for using included MarkCluster Package
   ClusterLayer = new (L.MarkerClusterGroup)
   ClusterLayer = L.markerClusterGroup(disableClusteringAtZoom: 16)
-  AvailableBikeLocations.find({}).observe
+  DailyBikeData.find({}).observe
     added: (bike) ->
       latlng = [ bike.Lat, bike.Lng ]
       markers[bike._id] = L.marker(latlng,
@@ -70,7 +70,7 @@ Template.map.rendered = ->
           # Remove previously selected bike
           if Session.get 'selectedBike'
             last = Session.get 'selectedBike'
-            last_id = AvailableBikeLocations.findOne({Bike: last})._id
+            last_id = DailyBikeData.findOne({Bike: last})._id
             markers[last_id].setIcon GreyBike
 
           # Highlight new bike
@@ -154,3 +154,4 @@ Template.map.events
     Bike = Session.get 'selectedBike'
     result = Meteor.call('UserReserveBike', Meteor.userId(), Bike)
     sAlert.success('Bike #' + Bike + ' successfully reserved!')
+    # then change view to only show revered bike and timer

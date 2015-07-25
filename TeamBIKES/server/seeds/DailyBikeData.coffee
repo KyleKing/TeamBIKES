@@ -76,7 +76,7 @@ randGPS = (max) ->
 # Insert database of bikes if no data for today
 if DailyBikeData.find({Day: today}).count() == 0
   i = 1
-  while i <= 200
+  while i <= 4
     # create template for each DailyBikeData data stored
     Position = []
     randomNow = NaN
@@ -101,6 +101,11 @@ if DailyBikeData.find({Day: today}).count() == 0
       Day: today
       # simplified version
       Tag: if Math.round(0.65 * Math.random()) == 0 then 'Available' else 'RepairInProgress'
+      Lat: Position[0].Lat
+      Lng: Position[0].Lng
       Positions: Position
     i++
+    console.log 'Position[0]'
+    console.log Position[0]
+    console.log Position[0].Lat
   console.log 'Created DailyBikeData data schema'
