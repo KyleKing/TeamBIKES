@@ -12,6 +12,7 @@
 #   any: ->
 #     isMobile.Android() or isMobile.BlackBerry() or isMobile.iOS() or isMobile.Opera() or isMobile.Windows()
 
+
 # Template.about.rendered = ->
 #   # var typedStrings = [" better"];
 #   # jQuery(function($) {
