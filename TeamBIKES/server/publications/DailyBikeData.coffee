@@ -11,8 +11,8 @@ Meteor.publish 'DailyBikeDataPub', (group) ->
 
 Meteor.publish 'AvailableBikeLocationsPub', ->
 	DailyBikeData.find {Tag: 'Available'}, fields: Positions: 0
+
 Meteor.publish 'ReservedBike', ->
-	console.log @userId
 	DailyBikeData.find {Tag: @userId}, fields: Positions: 0
 
 Meteor.publish "ManageBikes", ->

@@ -55,6 +55,7 @@ Template.map.rendered = ->
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   markers = []
+  darn = []
   Session.set
     "selectedBike": false
     "available": true
@@ -70,13 +71,17 @@ Template.map.rendered = ->
         BikeIcon = GreenBike
       markers[bike._id] = L.marker(latlng,
         title: bike.Bike
-        opacity: 0.5
-        icon: BikeIcon).on("click", (e) ->
+        opacity: 0.8
+        icon: BikeIcon).on "click", (e) ->
           # Remove previously selected bike
-          if Session.get 'selectedBike'
+          if Session.get('selectedBike') && Session.get('available')
+            if bike.Tag == 'Available'
+              BikeIcon = GreyBike
+            else
+              BikeIcon = GreenBike
             last = Session.get 'selectedBike'
             last_id = DailyBikeData.findOne({Bike: last})._id
-            markers[last_id].setIcon GreyBike
+            markers[last_id].setIcon BikeIcon
 
           # Highlight new bike
           @setIcon RedBike
@@ -86,27 +91,44 @@ Template.map.rendered = ->
           # console.log e.target
           # console.log e.target._leaflet_id
           # console.log e.target.options.title
-        )
+
       ClusterLayer.addLayer markers[bike._id]
-      map.addLayer ClusterLayer
-      # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag);
-    changed: (bike, oldDocument) ->
-      latlng = [ bike.Lat, bike.Lng ]
-      markers[bike._id].setLatLng(latlng).update()
-      # console.log bike._id + ' changed on map on CHANGED event'
+      darn[bike._id] = map.addLayer ClusterLayer
+      console.log darn
+      # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag)
+      console.log "Added: " + markers[bike._id]._leaflet_id
+
+    changed: (bike, oldBike) ->
+      if oldBike.Tag == bike.Tag
+        latlng = [ bike.Lat, bike.Lng ]
+        markers[bike._id].setLatLng(latlng).update()
+        console.log markers[bike._id]._leaflet_id + ' changed on map on CHANGED event'
+      else if bike.Tag == Meteor.userId()
+        markers[bike._id].setIcon GreenBike
+        console.log 'Changed to green icon color for # ' + bike.Bike
+      else if bike.Tag == "Available"
+        markers[bike._id].setIcon GreyBike
+        console.log 'Changed to gray icon color for # ' + bike.Bike
+      else
+        console.log "changed, but not with this logic"
+
     removed: (oldBike) ->
-      # If removed bike is currently selected bike...
-      if Session.get("selectedBike") == oldBike.Bike
-        # Updated reserve bike text
-        Session.set
-          "available": false
-        # And alert user
-        sAlert.warning('Bike reserved by different user. Select new bike')
+      if oldBike.Tag != Meteor.userId()
+        # If removed bike is currently selected bike...
+        if Session.get("selectedBike") == oldBike.Bike
+          # Updated reserve bike text
+          Session.set
+            "available": false
+          # And alert user
+          sAlert.warning('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
       map.removeLayer markers[oldBike._id]
+      map.removeLayer darn[oldBike._id]
+      console.log markers[oldBike._id]._leaflet_id + ' removed from map on REMOVED event and...'
+      console.log darn[oldBike._id]._leaflet_id + ' removed from map on REMOVED event'
       # Remove the reference to this marker instance
       delete markers[oldBike._id]
-      # console.log oldBike._id + ' removed from map on REMOVED event'
+
 
 
   # Active area of bike map
@@ -156,7 +178,15 @@ Template.map.helpers
 
 Template.map.events
   'click #ReserveBtn': (e) ->
+    # Get selected bike, remove current icon, and update selected bike logic
     Bike = Session.get 'selectedBike'
-    result = Meteor.call('UserReserveBike', Meteor.userId(), Bike)
-    sAlert.success('Bike #' + Bike + ' successfully reserved!')
+    Meteor.call('UserReserveBike', )
+    Meteor.call 'UserReserveBike', Meteor.userId(), Bike, (error, result) ->
+      if error
+        console.log error.reason
+      else
+        sAlert.success('Bike #' + Bike + ' successfully reserved!')
+        if result != 0
+          sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
+
     # then change view to only show revered bike and timer
