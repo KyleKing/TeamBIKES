@@ -1,12 +1,12 @@
 Meteor.startup ->
   sAlert.config
     effect: 'stackslide'
-    position: 'bottom'
+    position: 'top-right'
     timeout: 3000
     html: false
     onRouteClose: true
     stack: true
-    offset: 0
+    offset: 10
 
 Template.map.rendered = ->
   Meteor.subscribe("AvailableBikeLocationsPub")
@@ -14,9 +14,9 @@ Template.map.rendered = ->
 
   # Create the Leaflet Map
   L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images'
-  map = new (L.Map)('BikeMap', center: new (L.LatLng)(38.987701, -76.940989))
-  L.tileLayer.provider('OpenStreetMap.Mapnik').addTo map
-  map.spin false
+  window.map = new (L.Map)('BikeMap', center: new (L.LatLng)(38.987701, -76.940989))
+  L.tileLayer.provider('OpenStreetMap.Mapnik').addTo window.map
+  window.map.spin false
 
   # Give user control over location
   LocateControl = L.control.locate(
@@ -25,12 +25,13 @@ Template.map.rendered = ->
     setView: true
     keepCurrentZoomLevel: false
     remainActive: false
-    markerClass: L.circleMarker).addTo map
-  # # Start automatically
-  # LocateControl.start()
+    markerClass: L.circleMarker).addTo window.map
+  # Start automatically
+  LocateControl.start()
+  window.map.on 'dragstart', LocateControl._stopFollowing, LocateControl
 
   # Otherwise center on UMD
-  map.setView new (L.LatLng)(38.987701, -76.940989), 16
+  # window.map.setView new (L.LatLng)(38.987701, -76.940989), 16
 
   # Bike icons
   # Unselected, but available
@@ -61,7 +62,7 @@ Template.map.rendered = ->
 
   DailyBikeData.find({}).observe
     added: (bike) ->
-      latlng = bike.Location.coordinates
+      latlng = bike.Coordinates
       if bike.Tag == 'Available'
         BikeIcon = GreyBike
       else
@@ -88,36 +89,16 @@ Template.map.rendered = ->
           # console.log e.target
           # console.log e.target._leaflet_id
           # console.log e.target.options.title
-          ).addTo(map)
+          ).addTo(window.map)
 
       # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag)
-      console.log "Added: " + markers[bike._id]._leaflet_id
-
-      home = [38.987701, -76.940989]
-      closest = DailyBikeData.find({Location:{$near:{$geometry:{type:"point",coordinates:home},$maxDistance:99999}}}).fetch()
-      console.log closest[0]
-      console.log closest[0].Location.coordinates
-
-      polygon = L.polyline([
-        home
-        closest[0].Location.coordinates
-      ], {color: 'red'}).addTo(map)
-
-      polygon = L.polyline([
-        home
-        closest[1].Location.coordinates
-      ], {color: 'blue'}).addTo(map)
-
-      polygon = L.polyline([
-        home
-        closest[2].Location.coordinates
-      ], {color: 'purple'}).addTo(map)
+      # console.log "Added: " + markers[bike._id]._leaflet_id
 
     changed: (bike, oldBike) ->
       if oldBike.Tag == bike.Tag
-        latlng = bike.Location.coordinates.coordinates
+        latlng = bike.Coordinates
         markers[bike._id].setLatLng(latlng).update()
-        console.log markers[bike._id]._leaflet_id + ' changed on map on CHANGED event'
+        console.log markers[bike._id]._leaflet_id + ' changed on window.map on CHANGED event'
       else if bike.Tag == Meteor.userId()
         markers[bike._id].setIcon GreenBike
         console.log 'Changed to green icon color for # ' + bike.Bike
@@ -135,10 +116,10 @@ Template.map.rendered = ->
           Session.set
             "available": false
           # And alert user
-          sAlert.warning('Bike reserved by different user. Select new bike')
+          sAlert.error('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
-      map.removeLayer markers[oldBike._id]
-      console.log markers[oldBike._id]._leaflet_id + ' removed from map on REMOVED event and...'
+      window.map.removeLayer markers[oldBike._id]
+      console.log markers[oldBike._id]._leaflet_id + ' removed from window.map on REMOVED event and...'
       # Remove the reference to this marker instance
       delete markers[oldBike._id]
 
@@ -176,7 +157,7 @@ Template.map.rendered = ->
     color: 'blue'
     smoothFactor: 7
     weight: 10
-  }).addTo(map)
+  }).addTo(window.map)
 
 # Provide context for user
 Template.map.helpers
@@ -192,14 +173,55 @@ Template.map.helpers
 Template.map.events
   'click #ReserveBtn': (e) ->
     # Get selected bike, remove current icon, and update selected bike logic
-    Bike = Session.get 'selectedBike'
-    Session.set "available": false
-    Meteor.call 'UserReserveBike', Meteor.userId(), Bike, (error, result) ->
-      if error
-        console.log error.reason
-      else
-        sAlert.success('Bike #' + Bike + ' successfully reserved!')
-        if result != 0
-          sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
+    if Session.get 'selectedBike'
+      Bike = Session.get 'selectedBike'
+      coords = DailyBikeData.findOne({Bike: Bike}).Coordinates
+      console.log coords
+      window.map.panTo coords, 18
+      Session.set "available": false
+      Meteor.call 'UserReserveBike', Meteor.userId(), Bike, (error, result) ->
+        if error
+          console.log error.reason
+        else
+          sAlert.success('Bike #' + Bike + ' successfully reserved!')
+          if result == 1
+            sAlert.warning(result + ' previously reserved bike was re-listed as Available')
+          else if result != 0
+            sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
+    else
+      sAlert.error('Error: Choose a bike to reserve')
+  'click #ClosestBikes': (e) ->
+    center = window.map.getCenter()
+    closest = DailyBikeData.find(
+      Coordinates:
+        $near: center
+      ).fetch()
+
+    console.log closest
+
+    polygon = L.polyline([
+      center
+      closest[0].Coordinates
+    ], {
+      color: 'blue'
+      title: 'Closest'
+    }).addTo(window.map)
+
+    polygon = L.polyline([
+      center
+      closest[1].Coordinates
+    ], {
+      color: 'red'
+      title: 'Next Closest'
+    }).addTo(window.map)
+
+    polygon = L.polyline([
+      center
+      closest[2].Coordinates
+    ], {
+      color: 'purple'
+      title: 'Furthest'
+    }).addTo(window.map)
+
 
     # then change view to only show revered bike and timer
