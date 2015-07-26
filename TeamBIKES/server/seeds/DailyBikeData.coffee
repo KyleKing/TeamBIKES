@@ -91,8 +91,9 @@ if DailyBikeData.find({Day: today}).count() == 0
       blank =
         Rider: randNames[namePoint]
         Timestamp: randomNow
-        Lat: randGPS(2).Lat[randGPSPoint]
-        Lng: randGPS(2).Lng[randGPSPoint]
+        Location:
+          type: 'point'
+          coordinates: [randGPS(2).Lat[randGPSPoint], randGPS(2).Lng[randGPSPoint]]
       # console.log('name = ' + blank.User);
       Position.push blank
       countTime++
@@ -101,8 +102,9 @@ if DailyBikeData.find({Day: today}).count() == 0
       Day: today
       # simplified version
       Tag: if Math.round(0.65 * Math.random()) == 0 then 'Available' else 'RepairInProgress'
-      Lat: Position[0].Lat
-      Lng: Position[0].Lng
+      Location:
+        type: 'point'
+        coordinates: [randGPS(2).Lat[randGPSPoint], randGPS(2).Lng[randGPSPoint]]
       Positions: Position
     i++
   console.log 'Created DailyBikeData data schema'
