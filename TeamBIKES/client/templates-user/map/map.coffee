@@ -2,7 +2,7 @@ Meteor.startup ->
   sAlert.config
     effect: 'stackslide'
     position: 'bottom'
-    timeout: 2000
+    timeout: 3000
     html: false
     onRouteClose: true
     stack: true
@@ -55,13 +55,10 @@ Template.map.rendered = ->
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   markers = []
-  darn = []
   Session.set
     "selectedBike": false
     "available": true
-  # Notes for using included MarkCluster Package
-  ClusterLayer = new (L.MarkerClusterGroup)
-  ClusterLayer = L.markerClusterGroup(disableClusteringAtZoom: 16)
+
   DailyBikeData.find({}).observe
     added: (bike) ->
       latlng = [ bike.Lat, bike.Lng ]
@@ -71,8 +68,8 @@ Template.map.rendered = ->
         BikeIcon = GreenBike
       markers[bike._id] = L.marker(latlng,
         title: bike.Bike
-        opacity: 0.8
-        icon: BikeIcon).on "click", (e) ->
+        opacity: 0.25
+        icon: BikeIcon).on("click", (e) ->
           # Remove previously selected bike
           if Session.get('selectedBike') && Session.get('available')
             if bike.Tag == 'Available'
@@ -91,10 +88,8 @@ Template.map.rendered = ->
           # console.log e.target
           # console.log e.target._leaflet_id
           # console.log e.target.options.title
+          ).addTo(map)
 
-      ClusterLayer.addLayer markers[bike._id]
-      darn[bike._id] = map.addLayer ClusterLayer
-      console.log darn
       # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag)
       console.log "Added: " + markers[bike._id]._leaflet_id
 
@@ -113,7 +108,7 @@ Template.map.rendered = ->
         console.log "changed, but not with this logic"
 
     removed: (oldBike) ->
-      if oldBike.Tag != Meteor.userId()
+      if oldBike.Tag != Meteor.userId() && Session.get 'available'
         # If removed bike is currently selected bike...
         if Session.get("selectedBike") == oldBike.Bike
           # Updated reserve bike text
@@ -123,9 +118,7 @@ Template.map.rendered = ->
           sAlert.warning('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
       map.removeLayer markers[oldBike._id]
-      map.removeLayer darn[oldBike._id]
       console.log markers[oldBike._id]._leaflet_id + ' removed from map on REMOVED event and...'
-      console.log darn[oldBike._id]._leaflet_id + ' removed from map on REMOVED event'
       # Remove the reference to this marker instance
       delete markers[oldBike._id]
 
@@ -180,7 +173,7 @@ Template.map.events
   'click #ReserveBtn': (e) ->
     # Get selected bike, remove current icon, and update selected bike logic
     Bike = Session.get 'selectedBike'
-    Meteor.call('UserReserveBike', )
+    Session.set "available": false
     Meteor.call 'UserReserveBike', Meteor.userId(), Bike, (error, result) ->
       if error
         console.log error.reason
