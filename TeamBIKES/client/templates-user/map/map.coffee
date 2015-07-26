@@ -61,14 +61,14 @@ Template.map.rendered = ->
 
   DailyBikeData.find({}).observe
     added: (bike) ->
-      latlng = [ bike.Lat, bike.Lng ]
+      latlng = bike.Location.coordinates
       if bike.Tag == 'Available'
         BikeIcon = GreyBike
       else
         BikeIcon = GreenBike
       markers[bike._id] = L.marker(latlng,
         title: bike.Bike
-        opacity: 0.25
+        opacity: 0.75
         icon: BikeIcon).on("click", (e) ->
           # Remove previously selected bike
           if Session.get('selectedBike') && Session.get('available')
@@ -93,9 +93,29 @@ Template.map.rendered = ->
       # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag)
       console.log "Added: " + markers[bike._id]._leaflet_id
 
+      home = [38.987701, -76.940989]
+      closest = DailyBikeData.find({Location:{$near:{$geometry:{type:"point",coordinates:home},$maxDistance:99999}}}).fetch()
+      console.log closest[0]
+      console.log closest[0].Location.coordinates
+
+      polygon = L.polyline([
+        home
+        closest[0].Location.coordinates
+      ], {color: 'red'}).addTo(map)
+
+      polygon = L.polyline([
+        home
+        closest[1].Location.coordinates
+      ], {color: 'blue'}).addTo(map)
+
+      polygon = L.polyline([
+        home
+        closest[2].Location.coordinates
+      ], {color: 'purple'}).addTo(map)
+
     changed: (bike, oldBike) ->
       if oldBike.Tag == bike.Tag
-        latlng = [ bike.Lat, bike.Lng ]
+        latlng = bike.Location.coordinates.coordinates
         markers[bike._id].setLatLng(latlng).update()
         console.log markers[bike._id]._leaflet_id + ' changed on map on CHANGED event'
       else if bike.Tag == Meteor.userId()

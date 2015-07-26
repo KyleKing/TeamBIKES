@@ -13,10 +13,13 @@ DailyBikeData.attachSchema new SimpleSchema(
   Tag:
     type: String
     label: 'Tag'
-  Lat:
+  Location:
+    type: Object
+  'Location.type':
     type: String
-  Lng:
-    type: String
+  'Location.coordinates':
+    type: [Number]
+    decimal: true
   Positions:
     type: [ Object ]
   'Positions.$.Rider':
@@ -24,39 +27,13 @@ DailyBikeData.attachSchema new SimpleSchema(
     optional: true
   'Positions.$.Timestamp':
     type: Date
-  'Positions.$.Lat':
+  'Positions.$.Location':
+    type: Object
+  'Positions.$.Location.type':
     type: String
-  'Positions.$.Lng':
-    type: String)
-
-# Subset of above collection. Only bikes tagged with 'Avilable'
-@AvailableBikeLocations = new Mongo.Collection 'availableBikeLocations'
-AvailableBikeLocations.attachSchema new SimpleSchema(
-  Bike:
-    type: Number
-    label: 'Bike Number'
-    min: 0
-  Day:
-    type: Number
-    label: 'Day'
-    min: 0
-    max: 367
-  Tag:
-    type: String
-    label: 'Tag'
-  Rider:
-    type: String
-    optional: true
-  Timestamp:
-    type: Date
-  Lat:
-    type: String
-  Lng:
-    type: String)
-
-# AvailableBikeLocations.before.insert (userId, doc) ->
-#   doc.createdAt = moment().toDate()
-#   return
+  'Positions.$.Location.coordinates':
+    type: [Number]
+    decimal: true)
 
 # Specific bike information: repairs, serial number, etc.
 @MechanicNotes = new Mongo.Collection 'mechanicNotes'
