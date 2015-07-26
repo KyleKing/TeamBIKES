@@ -13,11 +13,7 @@ DailyBikeData.attachSchema new SimpleSchema(
   Tag:
     type: String
     label: 'Tag'
-  Location:
-    type: Object
-  'Location.type':
-    type: String
-  'Location.coordinates':
+  Coordinates:
     type: [Number]
     decimal: true
   Positions:
@@ -27,11 +23,7 @@ DailyBikeData.attachSchema new SimpleSchema(
     optional: true
   'Positions.$.Timestamp':
     type: Date
-  'Positions.$.Location':
-    type: Object
-  'Positions.$.Location.type':
-    type: String
-  'Positions.$.Location.coordinates':
+  'Positions.$.Coordinates':
     type: [Number]
     decimal: true)
 
