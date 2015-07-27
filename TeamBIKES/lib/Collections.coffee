@@ -53,12 +53,6 @@ MechanicNotes.attachSchema new SimpleSchema(
 # TBD: Bikes to be redistributed?
 @RedistributionCollection = new Mongo.Collection 'redistributionCollection'
 
-@RFIDdata = new Mongo.Collection 'RFIDdata'
-
-# For testing Webix
-@Movies = new Mongo.Collection 'movies'
-@Books = new Mongo.Collection 'books'
-
 
 # # All the options from the core documentation at:
 # # https://github.com/aldeed/meteor-collection2#attach-a-schema-to-meteorusers
@@ -92,3 +86,9 @@ MechanicNotes.attachSchema new SimpleSchema(
 #     type: [ String ]
 #     optional: true)
 # Meteor.users.attachSchema Schema.User
+
+
+# Used in user profile
+@BarChart = new (Meteor.Collection)('barchart')
+@AdminBarChart = new (Meteor.Collection)('adminbarchart')
+@AdminAreaChart = new (Meteor.Collection)('adminareachart')
