@@ -50,10 +50,14 @@ mrt:jquery-easing
 momentjs:moment
 mrt:underscore-string-latest
 meteorhacks:kadira
+kadira:debug
+
 meteorhacks:aggregate
 jparker:crypto-aes
 
 # Router:
+# meteorhacks:flow-router
+
 iron:router
 zimme:iron-router-active
 okgrow:iron-router-autoscroll
