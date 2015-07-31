@@ -52,6 +52,12 @@ MechanicNotes.attachSchema new SimpleSchema(
 ## WIP
 # TBD: Bikes to be redistributed?
 @RedistributionCollection = new Mongo.Collection 'redistributionCollection'
+# @RFIDdata = new Mongo.Collection 'RFIDdata'
+
+# Used in user profile
+@BarChart = new (Meteor.Collection)('barchart')
+@AdminBarChart = new (Meteor.Collection)('adminbarchart')
+@AdminAreaChart = new (Meteor.Collection)('adminareachart')
 
 
 # # All the options from the core documentation at:
@@ -86,9 +92,3 @@ MechanicNotes.attachSchema new SimpleSchema(
 #     type: [ String ]
 #     optional: true)
 # Meteor.users.attachSchema Schema.User
-
-
-# Used in user profile
-@BarChart = new (Meteor.Collection)('barchart')
-@AdminBarChart = new (Meteor.Collection)('adminbarchart')
-@AdminAreaChart = new (Meteor.Collection)('adminareachart')
