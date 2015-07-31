@@ -1,7 +1,19 @@
 TabularTables = {}
 
+# # Example Tabular Datatable
+# Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
+# TabularTables.Books = new (Tabular.Table)(
+#   name: 'BookList'
+#   collection: Books
+#   autoWidth: false
+#   columns: [
+#     { data: 'title', title: 'Title' }
+#     { data: 'author', title: 'Author' }
+#     { data: 'info.url', title: 'Web address' }
+#   ])
+
 # ManageBikes
-Meteor.isClient and Template.registerHelper('ManageBikesTable', TabularTables)
+Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 TabularTables.ManageBikes = new (Tabular.Table)(
   name: 'ManageBikes'
   collection: DailyBikeData
@@ -13,7 +25,7 @@ TabularTables.ManageBikes = new (Tabular.Table)(
   ])
 
 # ManageMechanicNotes
-Meteor.isClient and Template.registerHelper('ManageMechanicNotesTable', TabularTables)
+Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 TabularTables.ManageMechanicNotes = new (Tabular.Table)(
   name: 'ManageMechanicNotes'
   collection: MechanicNotes
@@ -27,7 +39,7 @@ TabularTables.ManageMechanicNotes = new (Tabular.Table)(
   ])
 
 # ManageUsers
-Meteor.isClient and Template.registerHelper('ManageUsersTable', TabularTables)
+Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 TabularTables.ManageUsers = new (Tabular.Table)(
   name: 'ManageUsers'
   collection: Meteor.users
