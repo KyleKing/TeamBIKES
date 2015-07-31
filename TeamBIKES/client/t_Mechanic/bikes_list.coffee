@@ -11,8 +11,10 @@ getRadioValue = (theRadioGroup) ->
     i++
   return
 
-Meteor.subscribe 'bikesData'
-Meteor.subscribe 'RandMechanicNamesData'
+Template.bikesList.rendered = ->
+  Meteor.subscribe("AvailableBikeLocationsPub")
+  Meteor.subscribe("DailyBikeDataPub")
+# Meteor.subscribe 'RandMechanicNamesData'
 
 Template.bikesList.created = ->
   # Default to all users view
@@ -32,6 +34,7 @@ Template.bikesList.helpers sortType: [
   'lat'
   'lng'
 ]
+
 Template.bikesList.events 'submit form': (event) ->
   event.preventDefault()
   BikeNumber = parseFloat(event.target.BikeNumber.value)
@@ -47,9 +50,9 @@ Template.bikesList.events 'submit form': (event) ->
   return
 # Tracker.autorun(function () {
 Template.bikesList.helpers bikes: ->
-  if Bikes.findOne(bike: Session.get('BikeNumber'))
+  if DailyBikeData.findOne(bike: Session.get('BikeNumber'))
     # this helper returns a cursor of all of the posts in the collection
-    bikeData = Bikes.findOne(bike: Session.get('BikeNumber')).updates
+    bikeData = DailyBikeData.findOne(bike: Session.get('BikeNumber')).updates
     # Return only specific mechanic
     if Session.get('mechanic')
       bikeData = _.filter(bikeData, (bikes) ->
