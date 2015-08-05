@@ -49,20 +49,20 @@ mrt:jquery-easing
 # JS Libraries - Tools
 momentjs:moment
 mrt:underscore-string-latest
+
 meteorhacks:kadira
 kadira:debug
 
 meteorhacks:aggregate
-jparker:crypto-aes
+# jparker:crypto-aes
 
-# Router:
-# meteorhacks:flow-router
+## Routing:
+kadira:flow-router
+kadira:blaze-layout # for page Rendering
+arillo:flow-router-helpers # for pathFor
+zimme:active-route # for activeRoute
 
-iron:router
-zimme:iron-router-active
-okgrow:iron-router-autoscroll
-
-# Collections:
+# Collection Management:
 dburles:collection-helpers
 matb33:collection-hooks
 reywood:publish-composite
@@ -82,12 +82,12 @@ mdg:camera
 
 # Misc:
 cunneen:mailgun
-cmather:handlebars-server@0.2.0
+# cmather:handlebars-server@0.2.0
 matdutour:outdated-browser
 peerlibrary:blaze-components
 
 # https://atmospherejs.com/lookback/seo
-yasinuslu:blaze-meta
+# yasinuslu:blaze-meta
 
 
 # ---TBD---
@@ -102,7 +102,6 @@ yasinuslu:blaze-meta
 # percolate:momentum
 # modweb:vivus
 # mrt:chartjs
-# zimme:iron-router-auth
 # meteorhacks:fast-render
 # digilord:faker
 ## ericchen0121:filter-collections
@@ -159,9 +158,8 @@ yasinuslu:blaze-meta
 # yogiben:autoform-file
 # yogiben:admin
 # yogiben:autoform-map@0.0.2
-# multiply:iron-router-progress
 # manuelschoebel:ms-seo
 # spiderable
 
 # New Packages
-kadira:flow-router
+

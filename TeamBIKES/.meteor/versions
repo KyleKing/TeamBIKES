@@ -8,6 +8,7 @@ aldeed:tabular@1.2.0
 aldeed:template-extension@3.4.3
 anti:fake@0.4.1
 appshore:leaflet-awesome-markers@1.0.3
+arillo:flow-router-helpers@0.4.1
 autoupdate@1.2.1
 babrahams:editable-json@0.4.3
 base64@1.0.3
@@ -19,7 +20,6 @@ boilerplate-generator@1.0.3
 callback-hook@1.0.3
 check@1.0.5
 chrisbutler:typed.js@1.1.0
-cmather:handlebars-server@0.2.0
 coffeescript@1.0.6
 cosmos:browserify@0.5.0
 cunneen:mailgun@0.9.1
@@ -35,7 +35,6 @@ fastclick@1.0.3
 fortawesome:fontawesome@4.3.0
 geojson-utils@1.0.3
 gwendall:session-json@0.1.7
-handlebars@1.0.3
 herrhelms:meteor-leaflet-locatecontrol@1.0.1
 html-tools@1.0.4
 htmljs@1.0.4
@@ -49,18 +48,11 @@ iron:location@1.0.9
 iron:middleware-stack@1.0.9
 iron:router@1.0.9
 iron:url@1.0.9
-jparker:crypto-aes@0.1.0
-jparker:crypto-base64@0.1.0
-jparker:crypto-cipher-core@0.1.1
-jparker:crypto-core@0.1.0
-jparker:crypto-evpkdf@0.1.1
-jparker:crypto-md5@0.1.1
-jparker:crypto-mode@0.1.1
-jparker:crypto-padding@0.1.0
 jquery@1.11.3_2
 json@1.0.3
 juliancwirko:s-alert@2.4.1
 juliancwirko:s-alert-stackslide@1.1.3
+kadira:blaze-layout@2.0.0
 kadira:debug@2.1.0
 kadira:flow-router@2.0.1
 kyleking:customizable-bootstrap-stylus@3.5.0_1
@@ -110,7 +102,6 @@ msavin:jetsetter@1.0.19
 msavin:mongol@1.0.102
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
-okgrow:iron-router-autoscroll@0.0.8
 ordered-dict@1.0.3
 peerlibrary:assert@0.2.5
 peerlibrary:base-component@0.10.0
@@ -135,11 +126,9 @@ timmyg:wow@1.0.1
 tracker@1.0.7
 ui@1.0.6
 underscore@1.0.3
-underscorestring:underscore.string@3.0.3_1
 url@1.0.4
 useraccounts:bootstrap@1.11.1
 useraccounts:core@1.11.1
 webapp@1.2.0
 webapp-hashing@1.0.3
-yasinuslu:blaze-meta@0.3.1
-zimme:iron-router-active@1.0.4
+zimme:active-route@2.3.0
