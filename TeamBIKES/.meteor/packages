@@ -60,17 +60,18 @@ meteorhacks:aggregate
 kadira:flow-router
 kadira:blaze-layout # for page Rendering
 arillo:flow-router-helpers # for pathFor
-zimme:active-route # for activeRoute
+zimme:active-route # for isActiveRoute
 
 # Collection Management:
 dburles:collection-helpers
 matb33:collection-hooks
 reywood:publish-composite
 
-# Authentication
+# # Authentication
 accounts-password
 alanning:roles
-useraccounts:bootstrap
+# # useraccounts:bootstrap
+# useraccounts:core
 
 # Seed Data
 dburles:factory
@@ -81,10 +82,10 @@ anti:fake
 mdg:camera
 
 # Misc:
-cunneen:mailgun
+# cunneen:mailgun
 # cmather:handlebars-server@0.2.0
 matdutour:outdated-browser
-peerlibrary:blaze-components
+# peerlibrary:blaze-components
 
 # https://atmospherejs.com/lookback/seo
 # yasinuslu:blaze-meta
