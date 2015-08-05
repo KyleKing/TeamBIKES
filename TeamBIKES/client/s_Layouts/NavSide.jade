@@ -19,4 +19,4 @@ template(name="NavSide")
             a(href="{{ pathFor 'ManageUsers' }}")
               i.fa.fa-group
                 |  ManageUsers
-      +yield
+      +Template.dynamic template=body
