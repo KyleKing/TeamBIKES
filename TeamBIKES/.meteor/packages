@@ -8,90 +8,82 @@ meteor-platform
 # autopublish
 # insecure
 
-# Developer Tools
 meteortoys:allthings # Pres ctrl-m to activate
 
-## Visuals
-davidsichau:sidebar
-aldeed:tabular
-aldeed:autoform
-aldeed:collection2
-
-# Preprocessors
-mquandalle:jade
-coffeescript
-stylus
-
-# Icons
+#### Libraries ####
+kyleking:customizable-bootstrap-stylus
 mrt:ionicons
 fortawesome:fontawesome
-
-# Libraries
+### Preprocessors ###
 # cryptoquick:stylus-multi
-kyleking:customizable-bootstrap-stylus
+stylus
+coffeescript
+mquandalle:jade
 
-
-# JS Libraries - Visual
-maazalik:highcharts
-maazalik:highcharts-gauge
-# jhuenges:highstock
-bevanhunt:leaflet
-appshore:leaflet-awesome-markers
-herrhelms:meteor-leaflet-locatecontrol
-juliancwirko:s-alert
-juliancwirko:s-alert-stackslide
-timmyg:wow
-chrisbutler:typed.js
-mrt:jquery-easing
-
-## Tools
-
-# JS Libraries - Tools
-momentjs:moment
-mrt:underscore-string-latest
-
-meteorhacks:kadira
-kadira:debug
-
-meteorhacks:aggregate
-# jparker:crypto-aes
-
-## Routing:
+### Routing ###
 kadira:flow-router
 kadira:blaze-layout # for page Rendering
 arillo:flow-router-helpers # for pathFor
 zimme:active-route # for isActiveRoute
 
-# Collection Management:
+#### Visual Things ####
+### Tables ###
+aldeed:tabular # data tables
+aldeed:autoform # form input for above data tables
+aldeed:collection2 # attach a schema
+### Charts ###
+# jhuenges:highstock
+maazalik:highcharts
+maazalik:highcharts-gauge
+### Maps ###
+bevanhunt:leaflet
+appshore:leaflet-awesome-markers
+herrhelms:meteor-leaflet-locatecontrol
+### User Alerts ###
+juliancwirko:s-alert # Banner alerts
+juliancwirko:s-alert-stackslide # animation style
+### Fun Things ###
+timmyg:wow # animation library
+chrisbutler:typed.js # specific for animating text if typed
+mrt:jquery-easing # an animation (easing) plugin by GSGD
+
+#### Tools ####
+momentjs:moment # Date and Time
+mrt:underscore-string-latest # Lots of functions
+### Performance Monitoring ###
+meteorhacks:kadira # server
+kadira:debug # local/client
+
+#### Collection Management ####
 dburles:collection-helpers
 matb33:collection-hooks
 reywood:publish-composite
 
-# # Authentication
+#### Authentication ####
 accounts-password
 alanning:roles
-# # useraccounts:bootstrap
-# useraccounts:core
+# useraccounts:bootstrap
 
-# Seed Data
+#### Seed Data ####
 dburles:factory
 anti:fake
-# clinical:accounts-famous-dead-people
 
-# Mobile Functions
+#### Mobile Functions ####
 mdg:camera
 
 # Misc:
-# cunneen:mailgun
-# cmather:handlebars-server@0.2.0
-matdutour:outdated-browser
-# peerlibrary:blaze-components
-
-# https://atmospherejs.com/lookback/seo
-# yasinuslu:blaze-meta
+matdutour:outdated-browser # warn outdated users
+meteorhacks:aggregate
 
 
 # ---TBD---
+# https://atmospherejs.com/lookback/seo
+# yasinuslu:blaze-meta
+# jparker:crypto-aes
+# cunneen:mailgun
+# cmather:handlebars-server@0.2.0
+# peerlibrary:blaze-components
+# clinical:accounts-famous-dead-people
 # jeremy:snapsvg
 # mirageglobe:snapsvgcdn
 # lepozepo:accounting
@@ -163,4 +155,3 @@ matdutour:outdated-browser
 # spiderable
 
 # New Packages
-
