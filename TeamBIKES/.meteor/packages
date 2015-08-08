@@ -8,15 +8,15 @@ meteor-platform
 # autopublish
 # insecure
 
-meteortoys:allthings # Pres ctrl-m to activate
+meteortoys:allthings@1.2.3 # Pres ctrl-m to activate
 
 #### Libraries ####
 kyleking:customizable-bootstrap-stylus
 mrt:ionicons
 fortawesome:fontawesome
 ### Preprocessors ###
-# cryptoquick:stylus-multi
-stylus
+stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
+# stylus
 coffeescript
 mquandalle:jade
 
