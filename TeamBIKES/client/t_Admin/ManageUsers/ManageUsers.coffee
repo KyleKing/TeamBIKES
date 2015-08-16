@@ -7,7 +7,20 @@ Template.ManageUsers.events 'click tbody > tr': (event) ->
   $('.selected').removeClass 'selected'
   $(event.currentTarget).toggleClass 'selected'
 
-Template.ManageUsers.helpers
+# Template.ManageUsers.helpers
+#   # Return the id of selected row
+#   SelectedRow: ->
+#     Meteor.users.findOne {_id: Session.get "IDofSelectedRow"}
+
+Template.LinkToSpecificUser.events 'click .FLOWGO': ->
+  FlowRouter.go('/ManageUsers_Form/' + Session.get "IDofSelectedRow")
+
+Template.ManageUsers_Form.onCreated ->
+  # Use this.subscribe inside onCreated callback
+  @subscribe 'ManageUsers'
+
+Template.ManageUsers_Form.helpers
   # Return the id of selected row
   SelectedRow: ->
-    Meteor.users.findOne {_id: Session.get "IDofSelectedRow"}
+    current = FlowRouter.current()
+    Meteor.users.findOne {_id: current.params.IDofSelectedRow}

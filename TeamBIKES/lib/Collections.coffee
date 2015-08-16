@@ -89,4 +89,57 @@ MechanicNotes.attachSchema new SimpleSchema(
 #   roles:
 #     type: [ String ]
 #     optional: true)
+
+
+Meteor.users.attachSchema new SimpleSchema(
+  createdAt:
+    type: Date
+  services:
+    type: Object
+    optional: true
+    blackbox: true
+  emails:
+    type: [ Object ]
+    optional: true
+  'emails.$.address':
+    type: String
+    regEx: SimpleSchema.RegEx.Email
+  'emails.$.verified': type: Boolean
+  'profile.name':
+    type: String
+  roles:
+    type: [ String ]
+    optional: true)
+
+# # All the options from the core documentation at:
+# # https://github.com/aldeed/meteor-collection2#attach-a-schema-to-meteorusers
+# Schema = {}
+# Schema.UserProfile = new SimpleSchema(
+#   firstName:
+#     type: String
+#     regEx: /^[a-zA-Z-]{2,25}$/
+#     optional: true
+#   lastName:
+#     type: String
+#     regEx: /^[a-zA-Z]{2,25}$/
+#     optional: true)
+# Schema.User = new SimpleSchema(
+#   emails:
+#     type: [ Object ]
+#     optional: true
+#   'emails.$.address':
+#     type: String
+#     regEx: SimpleSchema.RegEx.Email
+#   'emails.$.verified': type: Boolean
+#   createdAt: type: Date
+#   profile:
+#     type: Schema.UserProfile
+#     optional: true
+#   roles:
+#     type: Object
+#     optional: true
+#     blackbox: true
+#   roles:
+#     type: [ String ]
+#     optional: true)
 # Meteor.users.attachSchema Schema.User

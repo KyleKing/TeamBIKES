@@ -7,3 +7,15 @@ template(name='ManageUsers')
 			p DailyBikeData Top-Level Data
 		+tabular table=TabularTables.ManageUsers class="table table-striped table-hover table-bordered table-condensed"
 		//- +quickForm collection="Meteor.users" doc=SelectedRow id="updateMeteorUsersForm" type="update"
+
+template(name='LinkToSpecificUser')
+	button.btn.btn-xs.FLOWGO(type='button') Link
+
+template(name='ManageUsers_Form')
+	a#NavSide-toggle.btn.btn-default(href='#NavSide-toggle')
+		i.fa.fa-bars
+	.container.toggled
+		.page-header
+			h1 ManageUsers
+			p Editable Form
+		+quickForm collection="Meteor.users" doc=SelectedRow id="updateMeteorUsersForm" type="update"

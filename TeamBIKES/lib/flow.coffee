@@ -57,7 +57,6 @@ FlowRouter.route '/ManageMechanicNotes',
   name: 'ManageMechanicNotes',
   action: ->
     BlazeLayout.render 'NavSide', body: 'ManageMechanicNotes'
-
 FlowRouter.route '/ManageMechanicNotes_Form/:IDofSelectedRow',
   name: 'ManageMechanicNotes_Form',
   action: (params, queryParams) ->
@@ -68,3 +67,8 @@ FlowRouter.route '/ManageUsers',
   name: 'ManageUsers',
   action: ->
     BlazeLayout.render 'NavSide', body: 'ManageUsers'
+FlowRouter.route '/ManageUsers_Form/:IDofSelectedRow',
+  name: 'ManageUsers_Form',
+  action: (params, queryParams) ->
+    BlazeLayout.render 'NavSide', body: 'ManageUsers_Form'
+    console.log 'Yeah! We are on the post:', params.IDofSelectedRow

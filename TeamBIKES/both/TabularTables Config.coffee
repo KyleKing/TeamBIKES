@@ -36,9 +36,7 @@ TabularTables.ManageMechanicNotes = new (Tabular.Table)(
     { data: 'Bike', title: 'Bike' }
     { data: 'Notes', title: 'Notes' }
     { data: 'Tag', title: 'Tag' }
-    {
-      tmpl: Meteor.isClient && Template.LinkToSpecific
-    }
+    { tmpl: Meteor.isClient && Template.LinkToSpecific, title: 'Link' }
   ])
 
 # ManageUsers
@@ -47,9 +45,10 @@ TabularTables.ManageUsers = new (Tabular.Table)(
   collection: Meteor.users
   autoWidth: false
   columns: [
-    { data: 'profile.name', title: 'profile.name' }
-    { data: 'createdAt', title: 'createdAt' }
-    { data: 'emails.0.address', title: 'emails.0.address' }
-    { data: 'emails.0.verified', title: 'ver?' }
-    { data: 'roles', title: 'roles' }
+    { data: 'profile.name', title: 'Name' }
+    # { data: 'createdAt', title: 'Created At' }
+    { data: 'emails.0.address', title: 'Email' }
+    { data: 'emails.0.verified', title: 'Verified?' } # should be overlaid with a color?
+    { data: 'roles', title: 'Roles' }
+    { tmpl: Meteor.isClient && Template.LinkToSpecificUser, title: 'Link' }
   ])
