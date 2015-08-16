@@ -36,6 +36,9 @@ TabularTables.ManageMechanicNotes = new (Tabular.Table)(
     { data: 'Bike', title: 'Bike' }
     { data: 'Notes', title: 'Notes' }
     { data: 'Tag', title: 'Tag' }
+    {
+      tmpl: Meteor.isClient && Template.LinkToSpecific
+    }
   ])
 
 # ManageUsers

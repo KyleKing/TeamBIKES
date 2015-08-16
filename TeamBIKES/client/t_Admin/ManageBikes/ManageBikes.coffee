@@ -12,6 +12,6 @@ Template.ManageBikes.helpers
   SelectedRow: ->
     DailyBikeData.findOne {_id: Session.get "IDofSelectedRow"}
 
-Template.ManageBikes.onCreated ->
-  # Use this.subscribe inside onCreated callback
-  @subscribe 'DailyBikeDataPub'
+# Template.ManageBikes.onCreated ->
+#   # Use this.subscribe inside onCreated callback
+#   @subscribe 'DailyBikeDataPub'

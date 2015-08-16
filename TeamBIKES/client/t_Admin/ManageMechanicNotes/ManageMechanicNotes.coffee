@@ -7,7 +7,21 @@ Template.ManageMechanicNotes.events 'click tbody > tr': (event) ->
   $('.selected').removeClass 'selected'
   $(event.currentTarget).toggleClass 'selected'
 
-Template.ManageMechanicNotes.helpers
+# Template.ManageMechanicNotes.helpers
+#   # Return the id of selected row
+#   SelectedRow: ->
+#     MechanicNotes.findOne {_id: Session.get "IDofSelectedRow"}
+
+Template.LinkToSpecific.events 'click .FLOWGO': ->
+  FlowRouter.go('/ManageMechanicNotes_Form/' + Session.get "IDofSelectedRow")
+
+
+Template.ManageMechanicNotes_Form.onCreated ->
+  # Use this.subscribe inside onCreated callback
+  @subscribe 'ManageMechanicNotes'
+
+Template.ManageMechanicNotes_Form.helpers
   # Return the id of selected row
   SelectedRow: ->
-    MechanicNotes.findOne {_id: Session.get "IDofSelectedRow"}
+    current = FlowRouter.current()
+    MechanicNotes.findOne {_id: current.params.IDofSelectedRow}

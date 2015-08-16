@@ -4,7 +4,19 @@ template(name='ManageMechanicNotes')
 	.container.toggled
 		.page-header
 			h1 ManageMechanicNotes
-			p DailyBikeData Top-Level Data
+			p Searchable Table
 		+tabular table=TabularTables.ManageMechanicNotes class="table table-striped table-hover table-bordered table-condensed"
-		//- +quickForm collection="MechanicNotes" id="insertMechanicNotesForm" type="insert"
+		//- +quickForm collection="MechanicNotes" doc=SelectedRow id="updateMechanicNotesForm" type="update"
+
+template(name='LinkToSpecific')
+	button.btn.btn-xs.FLOWGO(type='button') Link
+
+template(name='ManageMechanicNotes_Form')
+	a#NavSide-toggle.btn.btn-default(href='#NavSide-toggle')
+		i.fa.fa-bars
+	.container.toggled
+		.page-header
+			h1 ManageMechanicNotes
+			p Editable Form
+		+quickForm collection="MechanicNotes" id="insertMechanicNotesForm" type="insert"
 		+quickForm collection="MechanicNotes" doc=SelectedRow id="updateMechanicNotesForm" type="update"
