@@ -31,5 +31,4 @@ Template.ManageUsers_Form.helpers
 Template.CurrentUser_Form.helpers
   UserFact: ->
     current = FlowRouter.current()
-    console.log Meteor.users.findOne {_id: current.params.IDofSelectedRow}
     Meteor.users.find {_id: current.params.IDofSelectedRow}

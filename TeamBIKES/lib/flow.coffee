@@ -71,4 +71,3 @@ FlowRouter.route '/ManageUsers_Form/:IDofSelectedRow',
   name: 'ManageUsers_Form',
   action: (params, queryParams) ->
     BlazeLayout.render 'NavSide', body: 'ManageUsers_Form'
-    console.log 'Yeah! We are on the post:', params.IDofSelectedRow

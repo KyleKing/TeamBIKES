@@ -3,4 +3,5 @@ template(name='UniversalLayout')
 	+NavTop
 	.navSpacing
 	.container
-		+Template.dynamic template=body
+		+momentum(plugin='flow-router')
+			+Template.dynamic template=body
