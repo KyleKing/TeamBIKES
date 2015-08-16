@@ -329,6 +329,10 @@ mechanics = [
   }
 ]
 
+if RandMechanicNames.find().count() == 0
+  RandMechanicNames.insert
+    staff: mechanics
+
 if BarChart.find().count() == 0
   console.log 'Starting BarChart with math!'
   randArray = []
