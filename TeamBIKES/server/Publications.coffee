@@ -2,12 +2,12 @@
 
 # Give authorized users access to sensitive data by group
 Meteor.publish 'DailyBikeDataPub', (group) ->
-  if Roles.userIsInRole(@userId, ['Admin', 'Root'], group)
-    DailyBikeData.find()
-  else
-    # user not authorized. do not publish DailyBikeData
-    @stop()
-
+  # if Roles.userIsInRole(@userId, ['Admin', 'Root'], group)
+  #   DailyBikeData.find()
+  # else
+  #   # user not authorized. do not publish DailyBikeData
+  #   @stop()
+  DailyBikeData.find()
 
 Meteor.publish 'AvailableBikeLocationsPub', ->
   DailyBikeData.find {Tag: 'Available'}, fields: Positions: 0

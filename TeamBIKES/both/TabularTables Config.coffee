@@ -1,4 +1,5 @@
 TabularTables = {}
+Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 
 # # Example Tabular Datatable
 # Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
@@ -13,10 +14,10 @@ TabularTables = {}
 #   ])
 
 # ManageBikes
-Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 TabularTables.ManageBikes = new (Tabular.Table)(
   name: 'ManageBikes'
   collection: DailyBikeData
+  pub: "DailyBikeDataPub"
   autoWidth: false
   columns: [
     { data: 'Bike', title: 'Bike' }
@@ -24,8 +25,29 @@ TabularTables.ManageBikes = new (Tabular.Table)(
     { data: 'Tag', title: 'Tag' }
   ])
 
+
+# Define helper with dburles:collection-helpers package
+# We'll reference this in our table columns with "positions(value)"
+DailyBikeData.helpers
+  Positions: (Value) ->
+    something = DailyBikeData.findOne().Positions
+    console.log "Positions helper called!"
+    something[0].Timestamp
+
+# ManageBike
+TabularTables.ManageBike = new (Tabular.Table)(
+  name: 'ManageBike'
+  collection: DailyBikeData
+  pub: "DailyBikeDataPub"
+  autoWidth: false
+  columns: [
+    { data: 'Bike', title: 'Rider' }
+    { data: 'Positions.0.Timestamp', title: 'Timestamp' }
+    { data: 'Positions(Coordinates)', title: 'Lat' }
+    { data: 'Positions(Coordinates)', title: 'Lng' }
+  ])
+
 # ManageMechanicNotes
-Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 TabularTables.ManageMechanicNotes = new (Tabular.Table)(
   name: 'ManageMechanicNotes'
   collection: MechanicNotes
@@ -39,7 +61,6 @@ TabularTables.ManageMechanicNotes = new (Tabular.Table)(
   ])
 
 # ManageUsers
-Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 TabularTables.ManageUsers = new (Tabular.Table)(
   name: 'ManageUsers'
   collection: Meteor.users
