@@ -58,6 +58,12 @@ FlowRouter.route '/ManageMechanicNotes',
   action: ->
     BlazeLayout.render 'NavSide', body: 'ManageMechanicNotes'
 
+FlowRouter.route '/ManageMechanicNotes_Form/:IDofSelectedRow',
+  name: 'ManageMechanicNotes_Form',
+  action: (params, queryParams) ->
+    BlazeLayout.render 'NavSide', body: 'ManageMechanicNotes_Form'
+    console.log 'Yeah! We are on the post:', params.IDofSelectedRow
+
 FlowRouter.route '/ManageUsers',
   name: 'ManageUsers',
   action: ->

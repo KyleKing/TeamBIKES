@@ -134,28 +134,28 @@ if Meteor.users.find().count() != 0
     BikeNotes = [
       {
         MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
-        Timestamp: "NUMBER"
+        Timestamp: now - (10000000 * Math.random())
         Bike: 1
         Notes: 'Only a string'
         Tag: "ToBeRedistributed"
       }
       {
         MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
-        Timestamp: "NUMBER"
+        Timestamp: now - (10000000 * Math.random())
         Bike: 1
         Notes: "string of something information"
         Tag: "ToBeRedistributed"
       }
       {
         MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
-        Timestamp: "NUMBER"
+        Timestamp: now - (10000000 * Math.random())
         Bike: 3
         Notes: "I am Groot"
         Tag: "ToBeRedistributed"
       }
       {
         MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
-        Timestamp: "NUMBER"
+        Timestamp: now - (10000000 * Math.random())
         Bike: 1
         Notes: 'Only a string'
         Tag: "ToBeRedistributed"

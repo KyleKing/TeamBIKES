@@ -33,20 +33,17 @@ DailyBikeData.attachSchema new SimpleSchema(
 MechanicNotes.attachSchema new SimpleSchema(
   MechanicID:
     type: String
-    label: 'ID'
+    label: 'MechanicID'
   Timestamp:
-    type: String
-    label: 'Timestamp'
+    type: Number
+    decimal: true
   Bike:
     type: Number
-    label: 'Bike Number'
     min: 0
   Notes:
     type: String
-    label: 'Notes'
   Tag:
-    type: String
-    label: 'Tag')
+    type: String)
 
 
 
