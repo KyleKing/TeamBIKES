@@ -22,7 +22,8 @@ DailyBikeData.attachSchema new SimpleSchema(
     type: String
     optional: true
   'Positions.$.Timestamp':
-    type: Date
+    type: Number
+    decimal: true
   'Positions.$.Coordinates':
     type: [Number]
     decimal: true)

@@ -124,6 +124,9 @@ if DailyBikeData.find({Day: today}).count() == 0
 ## /\ Not THE SAME - CHANGED /\
 
 
+# # Potential method for single reset and load:
+# Meteor.users.find().observeChanges
+#   added: () ->
 if Meteor.users.find().count() != 0
   # Create staff roles (for more info see roles package)
   if MechanicNotes.find({}).count() == 0
