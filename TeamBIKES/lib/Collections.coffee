@@ -50,6 +50,7 @@ MechanicNotes.attachSchema new SimpleSchema(
 ## WIP
 # TBD: Bikes to be redistributed?
 @RedistributionCollection = new Mongo.Collection 'redistributionCollection'
+@RandMechanicNames = new Mongo.Collection 'randMechanicNames'
 # @RFIDdata = new Mongo.Collection 'RFIDdata'
 
 # Used in user profile
