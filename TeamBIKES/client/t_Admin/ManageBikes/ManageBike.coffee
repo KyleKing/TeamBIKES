@@ -62,8 +62,9 @@ Template.ManageBike.rendered = ->
     "available": true
 
 
-
-  DailyBikeData.find({_id: Session.get("IDofSelectedRowBikes")}).observe
+  current = FlowRouter.current()
+  DailyBikeData.find({_id: current.params.IDofSelectedRow}).observe
+  # DailyBikeData.find({_id: Session.get("IDofSelectedRowBikes")}).observe
     added: (bike) ->
       polyline = L.polyline([bike.Positions[0].Coordinates, bike.Positions[1].Coordinates], color: 'blue').addTo(map)
       _.each bike.Positions, (BikeRecord) ->
