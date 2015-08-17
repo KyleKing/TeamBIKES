@@ -63,7 +63,7 @@ Template.ManageBike.rendered = ->
 
 
 
-  DailyBikeData.find({_id: Session.get("IDofSelectedRow")}).observe
+  DailyBikeData.find({_id: Session.get("IDofSelectedRowBikes")}).observe
     added: (bike) ->
       polyline = L.polyline([bike.Positions[0].Coordinates, bike.Positions[1].Coordinates], color: 'blue').addTo(map)
       _.each bike.Positions, (BikeRecord) ->
