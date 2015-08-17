@@ -1,5 +1,3 @@
-
-
 FlowRouter.route '/progress',
   name: 'progress',
   action: ->
@@ -53,10 +51,16 @@ FlowRouter.route '/AdminCompilation',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'AdminCompilation'
 
+
 FlowRouter.route '/ManageBikes',
   name: 'ManageBikes',
   action: ->
     BlazeLayout.render 'NavSide', body: 'ManageBikes'
+FlowRouter.route '/ManageBike/:IDofSelectedRow',
+  name: 'ManageBike',
+  action: (params, queryParams) ->
+    BlazeLayout.render 'UniversalLayout', body: 'ManageBike'
+
 
 FlowRouter.route '/ManageMechanicNotes',
   name: 'ManageMechanicNotes',
@@ -67,6 +71,11 @@ FlowRouter.route '/ManageMechanicNotes_Form/:IDofSelectedRow',
   action: (params, queryParams) ->
     BlazeLayout.render 'UniversalLayout', body: 'ManageMechanicNotes_Form'
     console.log 'Yeah! We are on the post:', params.IDofSelectedRow
+FlowRouter.route '/ManageMechanicNotes_Insert',
+  name: 'ManageMechanicNotes_Insert',
+  action: ->
+    BlazeLayout.render 'UniversalLayout', body: 'ManageMechanicNotes_Insert'
+
 
 FlowRouter.route '/ManageUsers',
   name: 'ManageUsers',
@@ -76,3 +85,8 @@ FlowRouter.route '/ManageUsers_Form/:IDofSelectedRow',
   name: 'ManageUsers_Form',
   action: (params, queryParams) ->
     BlazeLayout.render 'UniversalLayout', body: 'ManageUsers_Form'
+
+# Scroll to the top of every page
+FlowRouter.triggers.enter () ->
+  # Gotta love a mature programming language: http://stackoverflow.com/questions/9316415/the-same-old-issue-scrolltop0-not-working-in-chrome-safari
+  $(window).scrollTop 0

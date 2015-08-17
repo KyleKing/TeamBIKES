@@ -1,22 +1,5 @@
 template(name='ManageBikes')
-	//- a#NavSide-toggle.btn.btn-default(href='#NavSide-toggle')
-	//- 	i.fa.fa-bars
-	//- .container.toggled
-	+ManageBike
 	.page-header
 		h1 ManageBikes
 		p DailyBikeData Top-Level Data
 	+tabular table=TabularTables.ManageBikes class="table table-striped table-hover table-bordered table-condensed"
-
-	//- +quickForm collection="DailyBikeData" doc=SelectedRow id="updateDailyBikeDataForm" type="update"
-	//- +autoForm collection="DailyBikeData" doc=SelectedRow id="updateDailyBikeDataForm" type="update"
-	//-   fieldset
-	//-     legend Update Selected Bike History
-	//-     +afQuickField name='Bike'
-	//-     +afQuickField name='Positions'
-	//-   button.btn.btn-primary(type='submit') Update
-
-template(name='ManageBike')
-	//- Where the map will be generated based on the template helper in map.coffee
-	.row
-		#ManageBikeMap.float-map

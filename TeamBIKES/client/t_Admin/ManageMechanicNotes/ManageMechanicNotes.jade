@@ -6,6 +6,8 @@ template(name='ManageMechanicNotes')
 		h1 ManageMechanicNotes
 		p Searchable Table
 	+tabular table=TabularTables.ManageMechanicNotes class="table table-striped table-hover table-bordered table-condensed"
+	h4
+		a(href="{{pathFor 'ManageMechanicNotes_Insert'}}") Insert New Note
 	//- +quickForm collection="MechanicNotes" doc=SelectedRow id="updateMechanicNotesForm" type="update"
 
 template(name='LinkToSpecific')
@@ -20,5 +22,12 @@ template(name='ManageMechanicNotes_Form')
 			a(href="{{pathFor 'AdminCompilation'}}") Back
 		h1 ManageMechanicNotes
 		p Editable Form
-	+quickForm collection="MechanicNotes" id="insertMechanicNotesForm" type="insert"
 	+quickForm collection="MechanicNotes" doc=SelectedRow id="updateMechanicNotesForm" type="update"
+
+template(name='ManageMechanicNotes_Insert')
+	.page-header
+		h2
+			a(href="{{pathFor 'AdminCompilation'}}") Back
+		h1 ManageMechanicNotes
+		p Insert New Note
+	+quickForm collection="MechanicNotes" id="insertMechanicNotesForm" type="insert"
