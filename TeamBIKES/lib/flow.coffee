@@ -89,4 +89,6 @@ FlowRouter.route '/ManageUsers_Form/:IDofSelectedRow',
 # Scroll to the top of every page
 FlowRouter.triggers.enter () ->
   # Gotta love a mature programming language: http://stackoverflow.com/questions/9316415/the-same-old-issue-scrolltop0-not-working-in-chrome-safari
-  $(window).scrollTop 0
+  # $(window).scrollTop 0
+  # Not so fast: http://stackoverflow.com/a/5580456/3219667
+  $('html,body').animate { scrollTop: 0 }, 'slow'
