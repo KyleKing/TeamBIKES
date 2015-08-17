@@ -24,4 +24,4 @@ Template.ManageMechanicNotes_Form.helpers
   # Return the id of selected row
   SelectedRow: ->
     current = FlowRouter.current()
-    MechanicNotes.findOne {_id: current.params.IDofSelectedRowNotes}
+    MechanicNotes.findOne {_id: current.params.IDofSelectedRow}
