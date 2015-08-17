@@ -48,6 +48,11 @@ FlowRouter.route '/timeseries',
 
 
 # DEV - TabularTables
+FlowRouter.route '/AdminCompilation',
+  name: 'AdminCompilation',
+  action: ->
+    BlazeLayout.render 'UniversalLayout', body: 'AdminCompilation'
+
 FlowRouter.route '/ManageBikes',
   name: 'ManageBikes',
   action: ->
@@ -60,7 +65,7 @@ FlowRouter.route '/ManageMechanicNotes',
 FlowRouter.route '/ManageMechanicNotes_Form/:IDofSelectedRow',
   name: 'ManageMechanicNotes_Form',
   action: (params, queryParams) ->
-    BlazeLayout.render 'NavSide', body: 'ManageMechanicNotes_Form'
+    BlazeLayout.render 'UniversalLayout', body: 'ManageMechanicNotes_Form'
     console.log 'Yeah! We are on the post:', params.IDofSelectedRow
 
 FlowRouter.route '/ManageUsers',
@@ -70,4 +75,4 @@ FlowRouter.route '/ManageUsers',
 FlowRouter.route '/ManageUsers_Form/:IDofSelectedRow',
   name: 'ManageUsers_Form',
   action: (params, queryParams) ->
-    BlazeLayout.render 'NavSide', body: 'ManageUsers_Form'
+    BlazeLayout.render 'UniversalLayout', body: 'ManageUsers_Form'

@@ -2,21 +2,22 @@ Template.ManageUsers.events 'click tbody > tr': (event) ->
   # Store the id of the row clicked by the user
   dataTable = $(event.target).closest('table').DataTable()
   rowData = dataTable.row(event.currentTarget).data()
-  Session.set "IDofSelectedRow", rowData._id
-  # Provide user feedback with a highlighted
-  $('.selected').removeClass 'selected'
-  $(event.currentTarget).toggleClass 'selected'
+  FlowRouter.go('/ManageUsers_Form/' + rowData._id)
+  # Session.set "IDofSelectedRowUsers", rowData._id
+  # # Provide user feedback with a highlighted
+  # $('.selected').removeClass 'selected'
+  # $(event.currentTarget).toggleClass 'selected'
 
 # Template.ManageUsers.helpers
 #   # Return the id of selected row
 #   SelectedRow: ->
-#     Meteor.users.findOne {_id: Session.get "IDofSelectedRow"}
+#     Meteor.users.findOne {_id: Session.get "IDofSelectedRowUsers"}
 
-Template.LinkToSpecificUser.events 'click .FLOWGO': ->
-  if Session.get "IDofSelectedRow"
-    FlowRouter.go('/ManageUsers_Form/' + Session.get "IDofSelectedRow")
-  else
-    console.log Session.get "IDofSelectedRow"
+# Template.LinkToSpecificUser.events 'click tbody tr .FLOWGO': ->
+#   if Session.get "IDofSelectedRowUsers"
+#     FlowRouter.go('/ManageUsers_Form/' + Session.get "IDofSelectedRowUsers")
+#   else
+#     console.log Session.get "IDofSelectedRowUsers"
 
 Template.ManageUsers_Form.onCreated ->
   # Use this.subscribe inside onCreated callback
@@ -26,9 +27,9 @@ Template.ManageUsers_Form.helpers
   # Return the id of selected row
   SelectedRow: ->
     current = FlowRouter.current()
-    Meteor.users.findOne {_id: current.params.IDofSelectedRow}
+    Meteor.users.findOne {_id: current.params.IDofSelectedRowUsers}
 
 Template.CurrentUser_Form.helpers
   UserFact: ->
     current = FlowRouter.current()
-    Meteor.users.find {_id: current.params.IDofSelectedRow}
+    Meteor.users.find {_id: current.params.IDofSelectedRowUsers}

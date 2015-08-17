@@ -2,7 +2,7 @@ template(name="NavSide")
   +NavTop
   .container#NavSide-Container
     #wrapper
-      //- #sidebar-wrapper
+      #sidebar-wrapper
         ul.sidebar-nav
           li.sidebar-brand
             a(href='/')
@@ -19,6 +19,4 @@ template(name="NavSide")
             a(href="{{ pathFor 'ManageUsers' }}")
               i.fa.fa-group
                 |  ManageUsers
-      +momentum(plugin='flow-router')
-        //- +contentWrapper
-        +Template.dynamic template=body
+      +Template.dynamic template=body
