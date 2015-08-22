@@ -72,7 +72,7 @@ Template.map.rendered = ->
         opacity: 0.75
         icon: BikeIcon).on("click", (e) ->
           # Remove previously selected bike
-          if Session.get('selectedBike') && Session.get('available')
+          if Session.get('selectedBike')
             if bike.Tag == 'Available'
               BikeIcon = GreyBike
             else
@@ -80,6 +80,8 @@ Template.map.rendered = ->
             last = Session.get 'selectedBike'
             last_id = DailyBikeData.findOne({Bike: last})._id
             markers[last_id].setIcon BikeIcon
+            # console.log last_id
+            # console.log markers[last_id]._icon.title
 
           # Highlight new bike
           @setIcon RedBike
@@ -179,15 +181,18 @@ Template.map.events
       console.log coords
       window.map.panTo coords, 18
       Session.set "available": false
-      Meteor.call 'UserReserveBike', Meteor.userId(), Bike, (error, result) ->
-        if error
-          console.log error.reason
-        else
-          sAlert.success('Bike #' + Bike + ' successfully reserved!')
-          if result == 1
-            sAlert.warning(result + ' previously reserved bike was re-listed as Available')
-          else if result != 0
-            sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
+      if Meteor.userId()
+        Meteor.call 'UserReserveBike', Meteor.userId(), Bike, (error, result) ->
+          if error
+            console.log error.reason
+          else
+            sAlert.success('Bike #' + Bike + ' successfully reserved!')
+            if result == 1
+              sAlert.warning(result + ' previously reserved bike was re-listed as Available')
+            else if result != 0
+              sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
+      else
+        sAlert.warning('You must sign in to reserve a bike')
     else
       sAlert.error('Error: Choose a bike to reserve')
   'click #ClosestBikes': (e) ->
@@ -204,6 +209,7 @@ Template.map.events
       closest[0].Coordinates
     ], {
       color: 'blue'
+      opacity: 1
       title: 'Closest'
     }).addTo(window.map)
 
@@ -211,17 +217,37 @@ Template.map.events
       center
       closest[1].Coordinates
     ], {
-      color: 'red'
-      title: 'Next Closest'
+      color: 'blue'
+      opacity: 0.4
+      title: 'Closest'
     }).addTo(window.map)
 
     polygon = L.polyline([
       center
       closest[2].Coordinates
     ], {
-      color: 'purple'
-      title: 'Furthest'
+      color: 'blue'
+      opacity: 0.2
+      title: 'Closest'
     }).addTo(window.map)
+
+    # polygon = L.polyline([
+    #   center
+    #   closest[3].Coordinates
+    # ], {
+    #   color: 'blue'
+    #   opacity: 0.2
+    #   title: 'Next Closest'
+    # }).addTo(window.map)
+
+    # polygon = L.polyline([
+    #   center
+    #   closest[4].Coordinates
+    # ], {
+    #   color: 'blue'
+    #   opacity: 0.1
+    #   title: 'Furthest'
+    # }).addTo(window.map)
 
 
     # then change view to only show revered bike and timer
