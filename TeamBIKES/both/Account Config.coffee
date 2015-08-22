@@ -1,3 +1,14 @@
+AccountsTemplates.configure
+  # defaultTemplate: 'myCustomFullPageAtForm'
+  defaultLayout: 'UniversalLayout'
+  defaultLayoutRegions: {}
+  defaultContentRegion: 'body'
+
+AccountsTemplates.configureRoute 'signIn'
+AccountsTemplates.configureRoute 'signUp'
+# AccountsTemplates.configureRoute 'forgotPwd'
+# AccountsTemplates.configureRoute 'changePwd'
+
 # # Core routes for accounts
 # # See UserAccounts Package for configuration options
 # # mySubmitFunc - Randomly creates an RFID code
