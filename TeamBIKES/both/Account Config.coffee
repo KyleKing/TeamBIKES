@@ -1,3 +1,8 @@
+# The complete guide:
+# https://github.com/meteor-useraccounts/core/blob/master/Guide.md
+# The flow router specific version:
+# https://atmospherejs.com/useraccounts/flow-routing
+
 AccountsTemplates.configure
   # defaultTemplate: 'myCustomFullPageAtForm'
   defaultLayout: 'UniversalLayout'

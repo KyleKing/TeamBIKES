@@ -70,3 +70,11 @@ template(name='NavTop')
                   a(href="{{ pathFor 'timeseries' }}")
                     i.fa.fa-table
                       |  Potentiometer -- timeseries
+                li(class="{{ isActiveRoute regex='Slide_In_Panel' }}")
+                  a(href="{{ pathFor 'Slide_In_Panel' }}")
+                    i.fa.fa-table
+                      |  Slide_In_Panel
+                li(class="{{ isActiveRoute regex='Slide_In_Panel_UniversalLayoutBlank' }}")
+                  a(href="{{ pathFor 'Slide_In_Panel_UniversalLayoutBlank' }}")
+                    i.fa.fa-table
+                      |  Slide_In_Panel_UniversalLayoutBlank

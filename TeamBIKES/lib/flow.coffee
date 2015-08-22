@@ -49,7 +49,10 @@ FlowRouter.route '/timeseries',
 FlowRouter.route '/AdminCompilation',
   name: 'AdminCompilation',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'AdminCompilation'
+    BlazeLayout.render 'UniversalLayout_Admin', {
+      body: 'AdminCompilation'
+      Slide_In_Panel_Content: 'ManageBike'
+    }
 
 
 FlowRouter.route '/ManageBikes',
@@ -92,3 +95,16 @@ FlowRouter.triggers.enter () ->
   # $(window).scrollTop 0
   # Not so fast: http://stackoverflow.com/a/5580456/3219667
   $('html,body').animate { scrollTop: 0 }, 'slow'
+
+
+
+# In development
+FlowRouter.route '/Slide_In_Panel',
+  name: 'Slide_In_Panel',
+  action: ->
+    BlazeLayout.render 'NavSide', body: 'Slide_In_Panel'
+
+FlowRouter.route '/Slide_In_Panel_UniversalLayoutBlank',
+  name: 'Slide_In_Panel_UniversalLayoutBlank',
+  action: ->
+    BlazeLayout.render 'UniversalLayout', body: 'Slide_In_Panel'

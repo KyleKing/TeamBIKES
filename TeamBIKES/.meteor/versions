@@ -31,6 +31,7 @@ ejson@1.0.6
 email@1.0.6
 fastclick@1.0.3
 fortawesome:fontawesome@4.4.0
+fourseven:scss@3.2.0
 geojson-utils@1.0.3
 gwendall:session-json@0.1.7
 herrhelms:meteor-leaflet-locatecontrol@1.0.1
@@ -122,4 +123,5 @@ useraccounts:core@1.12.3
 useraccounts:flow-routing@1.12.3
 webapp@1.2.0
 webapp-hashing@1.0.3
+wolves:bourbon@2.0.0
 zimme:active-route@2.3.1
