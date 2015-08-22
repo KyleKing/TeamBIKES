@@ -12,10 +12,8 @@ Meteor.publish 'DailyBikeDataPub', (group) ->
 
 Meteor.publish 'AvailableBikeLocationsPub', ->
   DailyBikeData.find {Tag: 'Available'}, fields: Positions: 0
-
 Meteor.publish 'ReservedBike', ->
   DailyBikeData.find {Tag: @userId}, fields: Positions: 0
-
 Meteor.publish "ManageBikes", ->
   DailyBikeData.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})
 

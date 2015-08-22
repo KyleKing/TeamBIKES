@@ -1,0 +1,17 @@
+template(name='UniversalLayout_Admin')
+	+sAlert
+	+NavTop
+	main.cd-main-content
+		h1 Slide In Panel
+		a.cd-btn(href='#0') Fire Panel
+		// your content here
+		.container
+			+momentum(plugin='flow-router')
+				+Template.dynamic template=body
+	.cd-panel.from-right
+		header.cd-panel-header
+			h1 Title Goes Here
+			a.cd-panel-close(href='#0') Close
+		.cd-panel-container
+			.cd-panel-content
+				+Template.dynamic template=Slide_In_Panel_Content

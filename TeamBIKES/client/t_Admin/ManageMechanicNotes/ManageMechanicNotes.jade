@@ -4,10 +4,10 @@ template(name='ManageMechanicNotes')
 	//- .container.toggled
 	.page-header
 		h1 ManageMechanicNotes
-		p Searchable Table
+		button.btn.btn-default.btn-lg
+			a(href="{{pathFor 'ManageMechanicNotes_Insert'}}") Insert New Note
 	+tabular table=TabularTables.ManageMechanicNotes class="table table-striped table-hover table-bordered table-condensed"
-	h4
-		a(href="{{pathFor 'ManageMechanicNotes_Insert'}}") Insert New Note
+
 	//- +quickForm collection="MechanicNotes" doc=SelectedRow id="updateMechanicNotesForm" type="update"
 
 template(name='LinkToSpecific')

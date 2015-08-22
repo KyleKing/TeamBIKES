@@ -73,15 +73,15 @@ Template.map.rendered = ->
         icon: BikeIcon).on("click", (e) ->
           # Remove previously selected bike
           if Session.get('selectedBike')
-            if bike.Tag == 'Available'
+            last = Session.get 'selectedBike'
+            lastBike = DailyBikeData.findOne({Bike: last})
+            if lastBike.Tag == 'Available'
               BikeIcon = GreyBike
             else
               BikeIcon = GreenBike
-            last = Session.get 'selectedBike'
-            last_id = DailyBikeData.findOne({Bike: last})._id
-            markers[last_id].setIcon BikeIcon
-            # console.log last_id
-            # console.log markers[last_id]._icon.title
+            markers[lastBike._id].setIcon BikeIcon
+            # console.log lastBike._id
+            # console.log markers[lastBike._id]._icon.title
 
           # Highlight new bike
           @setIcon RedBike
