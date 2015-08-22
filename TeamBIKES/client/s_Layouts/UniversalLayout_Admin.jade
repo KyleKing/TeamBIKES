@@ -10,7 +10,7 @@ template(name='UniversalLayout_Admin')
 				+Template.dynamic template=body
 	.cd-panel.from-right
 		header.cd-panel-header
-			h1 Title Goes Here
+			+Template.dynamic template=Slide_In_Panel_Title
 			a.cd-panel-close(href='#0') Close
 		.cd-panel-container
 			.cd-panel-content

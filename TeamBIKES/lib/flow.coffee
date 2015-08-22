@@ -51,7 +51,8 @@ FlowRouter.route '/AdminCompilation',
   action: ->
     BlazeLayout.render 'UniversalLayout_Admin', {
       body: 'AdminCompilation'
-      Slide_In_Panel_Content: 'ManageBike'
+      Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
+      Slide_In_Panel_Content: 'ManageMechanicNotes_Form'
     }
 
 
