@@ -7,7 +7,8 @@ Meteor.publish 'DailyBikeDataPub', (group) ->
   # else
   #   # user not authorized. do not publish DailyBikeData
   #   @stop()
-  DailyBikeData.find()
+  [today] = CurrentDay()
+  DailyBikeData.find({Day: today})
 
 Meteor.publish 'AvailableBikeLocationsPub', ->
   DailyBikeData.find {Tag: 'Available'}, fields: Positions: 0

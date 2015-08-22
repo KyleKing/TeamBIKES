@@ -8,7 +8,7 @@ aldeed:tabular@1.2.0
 aldeed:template-extension@3.4.3
 anti:fake@0.4.1
 appshore:leaflet-awesome-markers@1.0.3
-arillo:flow-router-helpers@0.4.1
+arillo:flow-router-helpers@0.4.3
 autoupdate@1.2.1
 babrahams:editable-json@0.4.3
 base64@1.0.3
@@ -54,7 +54,7 @@ livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
 maazalik:highcharts@0.4.0
-maazalik:highcharts-gauge@0.3.1
+maazalik:highcharts-gauge@0.4.0
 matb33:collection-hooks@0.7.14
 matdutour:outdated-browser@0.1.1
 mdg:camera@1.1.5
@@ -118,4 +118,4 @@ underscore@1.0.3
 url@1.0.4
 webapp@1.2.0
 webapp-hashing@1.0.3
-zimme:active-route@2.3.0
+zimme:active-route@2.3.1
