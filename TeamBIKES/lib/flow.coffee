@@ -108,4 +108,4 @@ FlowRouter.route '/Slide_In_Panel',
 FlowRouter.route '/Slide_In_Panel_UniversalLayoutBlank',
   name: 'Slide_In_Panel_UniversalLayoutBlank',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'Slide_In_Panel'
+    BlazeLayout.render 'UniversalLayoutBlank', body: 'Slide_In_Panel'
