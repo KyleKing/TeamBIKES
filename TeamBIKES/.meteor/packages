@@ -13,8 +13,6 @@ meteortoys:allthings@1.2.3 # Pres ctrl-m to activate
 #### Libraries and Preprocessors ####
 stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
 kyleking:customizable-bootstrap-stylus
-fourseven:scss
-wolves:bourbon
 # materialize:materialize # they have an awesome icon
 mrt:ionicons
 fortawesome:fontawesome
