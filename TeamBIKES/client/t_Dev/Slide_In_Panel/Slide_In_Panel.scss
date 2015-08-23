@@ -22,12 +22,12 @@ $color-5: #89ba2c; // green
 
 // panel size
 
-$panel-width-S: 90%;
-$panel-width-M: 70%;
-$panel-width-L: 50%;
+$panel-width-S: 95%;
+$panel-width-M: 80%;
+$panel-width-L: 60%;
 
 $title-panel-height: 75px;
-$title-panel-offset: 75px;
+$title-panel-offset: 70px;
 
 // @import '../partials/mixins'; // custom mixins
 // rem fallback - credits: http://zerosixthree.se/
@@ -209,6 +209,7 @@ Main components
   width: $panel-width-S; // variables inside partials > _variables.scss
   height: $title-panel-height;
   line-height: 50px;
+  margin: 0;
   background: rgba($color-4, .96);
   z-index: 2;
   box-shadow: 0 1px 1px rgba(#000, .08);
@@ -219,7 +220,7 @@ Main components
     color: $color-1;
     padding-left: 5%;
     // THis should be vertically centered (possibly flexbox with Lost grid?):
-    margin: ($title-panel-height - 50)/2;
+    margin-top: ($title-panel-height - 50)/2;
   }
 
   .from-right &, .from-left & {
