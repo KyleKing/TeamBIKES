@@ -1,4 +1,4 @@
-template(name='UniversalLayout_Admin')
+template(name='UniversalLayout_Admin_left')
 	+sAlert
 	+NavTop
 
@@ -7,7 +7,7 @@ template(name='UniversalLayout_Admin')
 			+momentum(plugin='flow-router')
 				+Template.dynamic template=body
 
-	.cd-panel.from-right
+	.cd-panel.from-left
 		header.cd-panel-header
 			+Template.dynamic template=Slide_In_Panel_Title
 			a.cd-panel-close(href='#0') Close

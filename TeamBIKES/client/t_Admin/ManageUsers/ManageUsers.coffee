@@ -15,12 +15,6 @@ Template.ManageUsers.events 'click tbody > tr': (event) ->
 #   SelectedRow: ->
 #     Meteor.users.findOne {_id: Session.get "IDofSelectedRowUsers"}
 
-# Template.LinkToSpecificUser.events 'click tbody tr .FLOWGO': ->
-#   if Session.get "IDofSelectedRowUsers"
-#     FlowRouter.go('/ManageUsers_Form/' + Session.get "IDofSelectedRowUsers")
-#   else
-#     console.log Session.get "IDofSelectedRowUsers"
-
 Template.ManageUsers_Form.onCreated ->
   # Use this.subscribe inside onCreated callback
   @subscribe 'ManageUsers'

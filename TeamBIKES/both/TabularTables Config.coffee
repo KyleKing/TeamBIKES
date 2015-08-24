@@ -21,8 +21,11 @@ TabularTables.ManageBikes = new (Tabular.Table)(
   autoWidth: false
   columns: [
     { data: 'Bike', title: 'Bike' }
-    { data: 'Day', title: 'Day' }
+    # { data: 'Day', title: 'Day' }
     { data: 'Tag', title: 'Tag' }
+    { data: 'Positions.0.Timestamp', title: 'Last Timestamp' }
+    { data: 'Positions.0.Coordinates.0', title: 'Lat' }
+    { data: 'Positions.0.Coordinates.1', title: 'Lng' }
   ])
 
 # ManageMechanicNotes

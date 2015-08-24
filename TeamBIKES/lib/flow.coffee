@@ -70,9 +70,9 @@ FlowRouter.route '/AdminCompilation/ManageBike/:IDofSelectedRow',
 FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Insert/',
   name: 'AdminCompilation/ManageMechanicNotes_Insert',
   action: () ->
-    BlazeLayout.render 'UniversalLayout_Admin', {
+    BlazeLayout.render 'UniversalLayout_Admin_left', {
       body: 'AdminCompilation'
-      Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
+      Slide_In_Panel_Title: 'ManageMechanicNotes_Insert_Title'
       Slide_In_Panel_Content: 'ManageMechanicNotes_Insert'
     }
 
@@ -101,7 +101,13 @@ ScrollToTop = ->
   # Not so fast: http://stackoverflow.com/a/5580456/3219667
   $('html,body').animate { scrollTop: 0 }, 'slow'
 
-FlowRouter.triggers.enter ScrollToTop, except: [ 'AdminCompilation/ManageBike', 'AdminCompilation/ManageMechanicNotes_Form', 'AdminCompilation/ManageUsers_Form', 'AdminCompilation/ManageUsers_Insert']
+FlowRouter.triggers.enter ScrollToTop, except: [
+  'AdminCompilation'
+  'AdminCompilation/ManageBike'
+  'AdminCompilation/ManageMechanicNotes_Form'
+  'AdminCompilation/ManageUsers_Form'
+  'AdminCompilation/ManageUsers_Insert'
+]
 
 # In development
 FlowRouter.route '/Slide_In_Panel',

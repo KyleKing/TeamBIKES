@@ -19,7 +19,6 @@ fortawesome:fontawesome
 coffeescript
 mquandalle:jade
 
-
 ### Routing ###
 kadira:flow-router
 philippspo:momentum-flow-router # page-transitions
