@@ -54,9 +54,28 @@ FlowRouter.route '/AdminCompilation',
   action: ->
     BlazeLayout.render 'UniversalLayout_Admin', {
       body: 'AdminCompilation'
-      Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
-      Slide_In_Panel_Content: 'ManageMechanicNotes_Form'
+      Slide_In_Panel_Title: 'Slide_In_Panel_Placeholder_Title'
+      Slide_In_Panel_Content: 'Slide_In_Panel_Placeholder'
     }
+
+FlowRouter.route '/AdminCompilation/ManageBike/:IDofSelectedRow',
+  name: 'AdminCompilation/ManageBike',
+  action: (params, queryParams) ->
+    BlazeLayout.render 'UniversalLayout_Admin', {
+      body: 'AdminCompilation'
+      Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
+      Slide_In_Panel_Content: 'ManageBike'
+    }
+
+FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Insert/',
+  name: 'AdminCompilation/ManageMechanicNotes_Insert',
+  action: () ->
+    BlazeLayout.render 'UniversalLayout_Admin', {
+      body: 'AdminCompilation'
+      Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
+      Slide_In_Panel_Content: 'ManageMechanicNotes_Insert'
+    }
+
 FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Form/:IDofSelectedRow',
   name: 'AdminCompilation/ManageMechanicNotes_Form',
   action: (params, queryParams) ->
@@ -65,41 +84,15 @@ FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Form/:IDofSelectedRow',
       Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
       Slide_In_Panel_Content: 'ManageMechanicNotes_Form'
     }
-    console.log 'Yeah! We are on the post:', params.IDofSelectedRow
 
-FlowRouter.route '/ManageBikes',
-  name: 'ManageBikes',
-  action: ->
-    BlazeLayout.render 'NavSide', body: 'ManageBikes'
-FlowRouter.route '/ManageBike/:IDofSelectedRow',
-  name: 'ManageBike',
+FlowRouter.route '/AdminCompilation/ManageUsers_Form/:IDofSelectedRow',
+  name: 'AdminCompilation/ManageUsers_Form',
   action: (params, queryParams) ->
-    BlazeLayout.render 'UniversalLayout', body: 'ManageBike'
-
-
-FlowRouter.route '/ManageMechanicNotes',
-  name: 'ManageMechanicNotes',
-  action: ->
-    BlazeLayout.render 'NavSide', body: 'ManageMechanicNotes'
-FlowRouter.route '/ManageMechanicNotes_Form/:IDofSelectedRow',
-  name: 'ManageMechanicNotes_Form',
-  action: (params, queryParams) ->
-    BlazeLayout.render 'UniversalLayout', body: 'ManageMechanicNotes_Form'
-    console.log 'Yeah! We are on the post:', params.IDofSelectedRow
-FlowRouter.route '/ManageMechanicNotes_Insert',
-  name: 'ManageMechanicNotes_Insert',
-  action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'ManageMechanicNotes_Insert'
-
-
-FlowRouter.route '/ManageUsers',
-  name: 'ManageUsers',
-  action: ->
-    BlazeLayout.render 'NavSide', body: 'ManageUsers'
-FlowRouter.route '/ManageUsers_Form/:IDofSelectedRow',
-  name: 'ManageUsers_Form',
-  action: (params, queryParams) ->
-    BlazeLayout.render 'UniversalLayout', body: 'ManageUsers_Form'
+    BlazeLayout.render 'UniversalLayout_Admin', {
+      body: 'AdminCompilation'
+      Slide_In_Panel_Title: 'ManageUsers_Form_Title'
+      Slide_In_Panel_Content: 'ManageUsers_Form'
+    }
 
 # Scroll to the top of every page
 ScrollToTop = ->
@@ -108,7 +101,7 @@ ScrollToTop = ->
   # Not so fast: http://stackoverflow.com/a/5580456/3219667
   $('html,body').animate { scrollTop: 0 }, 'slow'
 
-FlowRouter.triggers.enter ScrollToTop, except: ['AdminCompilation/ManageMechanicNotes_Form']
+FlowRouter.triggers.enter ScrollToTop, except: [ 'AdminCompilation/ManageBike', 'AdminCompilation/ManageMechanicNotes_Form', 'AdminCompilation/ManageUsers_Form', 'AdminCompilation/ManageUsers_Insert']
 
 # In development
 FlowRouter.route '/Slide_In_Panel',

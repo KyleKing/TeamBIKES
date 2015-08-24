@@ -2,7 +2,9 @@ Template.ManageUsers.events 'click tbody > tr': (event) ->
   # Store the id of the row clicked by the user
   dataTable = $(event.target).closest('table').DataTable()
   rowData = dataTable.row(event.currentTarget).data()
-  FlowRouter.go('/ManageUsers_Form/' + rowData._id)
+  # FlowRouter.go('/ManageUsers_Form/' + rowData._id)
+  FlowRouter.go('/AdminCompilation/ManageUsers_Form/' + rowData._id)
+  $('.cd-panel').addClass('is-visible')
   # Session.set "IDofSelectedRowUsers", rowData._id
   # # Provide user feedback with a highlighted
   # $('.selected').removeClass 'selected'
