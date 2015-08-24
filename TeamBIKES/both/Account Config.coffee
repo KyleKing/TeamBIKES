@@ -3,16 +3,22 @@
 # The flow router specific version:
 # https://atmospherejs.com/useraccounts/flow-routing
 
+myPostLogout = ->
+  #example redirect after logout
+  FlowRouter.go '/'
+
 AccountsTemplates.configure
   # defaultTemplate: 'myCustomFullPageAtForm'
   defaultLayout: 'UniversalLayout'
   defaultLayoutRegions: {}
   defaultContentRegion: 'body'
+  onLogoutHook: myPostLogout
 
 AccountsTemplates.configureRoute 'signIn'
 AccountsTemplates.configureRoute 'signUp'
 # AccountsTemplates.configureRoute 'forgotPwd'
 # AccountsTemplates.configureRoute 'changePwd'
+
 
 # # Core routes for accounts
 # # See UserAccounts Package for configuration options
