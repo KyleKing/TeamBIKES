@@ -14,17 +14,12 @@ template(name='LinkToSpecific')
 	button.btn.btn-xs.FLOWGO(type='button') Link
 
 template(name='ManageMechanicNotes_Title')
-	h1.cd ManageMechanicNotes_Title
+	h1.cd Change Mechanic Note
 
 template(name='ManageMechanicNotes_Form')
 	//- a#NavSide-toggle.btn.btn-default(href='#NavSide-toggle')
 	//- 	i.fa.fa-bars
 	//- .container.toggled
-	.page-header
-		h2
-			a(href="{{pathFor 'AdminCompilation'}}") Back
-		h1 ManageMechanicNotes
-		p Editable Form
 	+quickForm collection="MechanicNotes" doc=SelectedRow id="updateMechanicNotesForm" type="update"
 
 template(name='ManageMechanicNotes_Insert')

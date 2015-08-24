@@ -1,5 +1,5 @@
 # Block all pages
-# FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn]
+FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ["about"] }
 
 FlowRouter.route '/progress',
   name: 'progress',
@@ -20,7 +20,6 @@ FlowRouter.route '/',
 
 ### User ###
 FlowRouter.route '/Profile',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'Profile',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'Profile'
@@ -32,22 +31,18 @@ FlowRouter.route '/map',
 
 ### Administrator ###
 FlowRouter.route '/charts',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'chartsAdmin',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'chartsAdmin'
 FlowRouter.route '/RFIDlayout',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'RFIDlayout',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'RFIDlayout'
 FlowRouter.route '/mechanicView',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'mechanicView',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'mechanicView'
 FlowRouter.route '/timeseries',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'timeseries',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'timeseries'
@@ -55,7 +50,6 @@ FlowRouter.route '/timeseries',
 
 # DEV - TabularTables
 FlowRouter.route '/AdminCompilation',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'AdminCompilation',
   action: ->
     BlazeLayout.render 'UniversalLayout_Admin', {
@@ -63,10 +57,17 @@ FlowRouter.route '/AdminCompilation',
       Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
       Slide_In_Panel_Content: 'ManageMechanicNotes_Form'
     }
-
+FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Form/:IDofSelectedRow',
+  name: 'AdminCompilation/ManageMechanicNotes_Form',
+  action: (params, queryParams) ->
+    BlazeLayout.render 'UniversalLayout_Admin', {
+      body: 'AdminCompilation'
+      Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
+      Slide_In_Panel_Content: 'ManageMechanicNotes_Form'
+    }
+    console.log 'Yeah! We are on the post:', params.IDofSelectedRow
 
 FlowRouter.route '/ManageBikes',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'ManageBikes',
   action: ->
     BlazeLayout.render 'NavSide', body: 'ManageBikes'
@@ -77,52 +78,45 @@ FlowRouter.route '/ManageBike/:IDofSelectedRow',
 
 
 FlowRouter.route '/ManageMechanicNotes',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'ManageMechanicNotes',
   action: ->
     BlazeLayout.render 'NavSide', body: 'ManageMechanicNotes'
 FlowRouter.route '/ManageMechanicNotes_Form/:IDofSelectedRow',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'ManageMechanicNotes_Form',
   action: (params, queryParams) ->
     BlazeLayout.render 'UniversalLayout', body: 'ManageMechanicNotes_Form'
     console.log 'Yeah! We are on the post:', params.IDofSelectedRow
 FlowRouter.route '/ManageMechanicNotes_Insert',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'ManageMechanicNotes_Insert',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'ManageMechanicNotes_Insert'
 
 
 FlowRouter.route '/ManageUsers',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'ManageUsers',
   action: ->
     BlazeLayout.render 'NavSide', body: 'ManageUsers'
 FlowRouter.route '/ManageUsers_Form/:IDofSelectedRow',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'ManageUsers_Form',
   action: (params, queryParams) ->
     BlazeLayout.render 'UniversalLayout', body: 'ManageUsers_Form'
 
 # Scroll to the top of every page
-FlowRouter.triggers.enter () ->
+ScrollToTop = ->
   # Gotta love a mature programming language: http://stackoverflow.com/questions/9316415/the-same-old-issue-scrolltop0-not-working-in-chrome-safari
   # $(window).scrollTop 0
   # Not so fast: http://stackoverflow.com/a/5580456/3219667
   $('html,body').animate { scrollTop: 0 }, 'slow'
 
-
+FlowRouter.triggers.enter ScrollToTop, except: ['AdminCompilation/ManageMechanicNotes_Form']
 
 # In development
 FlowRouter.route '/Slide_In_Panel',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'Slide_In_Panel',
   action: ->
     BlazeLayout.render 'NavSide', body: 'Slide_In_Panel'
 
 FlowRouter.route '/Slide_In_Panel_UniversalLayoutBlank',
-  triggersEnter: [AccountsTemplates.ensureSignedIn],
   name: 'Slide_In_Panel_UniversalLayoutBlank',
   action: ->
     BlazeLayout.render 'UniversalLayoutBlank', body: 'Slide_In_Panel'
