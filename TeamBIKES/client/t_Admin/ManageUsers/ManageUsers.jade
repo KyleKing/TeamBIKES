@@ -31,14 +31,14 @@ template(name='CurrentUser_Form')
 					//- NOTE: Need the double {{ }}
 					//- otherwise the [0] and formatDate won't work
 
+template(name='ManageUsers_Form_Title')
+	h1.cd Change User Information
+
 template(name='ManageUsers_Form')
 	//- a#NavSide-toggle.btn.btn-default(href='#NavSide-toggle')
 	//- 	i.fa.fa-bars
 	//- .container.toggled
 	.page-header
-		h2
-			a(href="{{pathFor 'AdminCompilation'}}") Back
-		h1 ManageUsers
 		+CurrentUser_Form
 	//- +quickForm collection="Meteor.users" doc=SelectedRow id="updateMeteorUsersForm" type="update"
 	+autoForm collection="Meteor.users" doc=SelectedRow id="updateMeteorUsersForm" type="update"
