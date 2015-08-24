@@ -30,6 +30,10 @@ Template.map.rendered = ->
   LocateControl.start()
   window.map.on 'dragstart', LocateControl._stopFollowing, LocateControl
 
+  # coords = [38.987701, -76.940989]
+  # console.log coords
+  # window.map.setView coords, 18
+
   # Otherwise center on UMD
   # window.map.setView new (L.LatLng)(38.987701, -76.940989), 16
 

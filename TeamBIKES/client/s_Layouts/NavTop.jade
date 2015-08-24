@@ -22,13 +22,15 @@ template(name='NavTop')
                       i.fa.fa-user
                         |  Profile
                   li
-                    a(href="{{ pathFor 'signOut' }}")
-                      i.fa.fa-lock
-                        |  Sign Out
+                    +atNavButton
+                    //- a(href="{{ pathFor 'signOut' }}")
+                    //-   i.fa.fa-lock
+                    //-     |  Sign Out
           else
             ul.nav.navbar-nav.navbar-right.login-buttons
-              a.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
-              a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
+              +atNavButton
+              //- a.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
+              //- a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
           //- Add space before nav item
           ul.nav.navbar-nav.navbar-right
             li(class="{{ isActiveRoute regex='about' }}")
