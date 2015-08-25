@@ -80,4 +80,4 @@
     markerColor: 'green'
     iconColor: 'white')
 
-  [window.map, GreyBike, RedBike, GreenBike]
+  [GreyBike, RedBike, GreenBike]

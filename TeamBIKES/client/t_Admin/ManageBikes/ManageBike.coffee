@@ -1,80 +1,23 @@
-# Tracker.autorun ->
-#   FlowRouter.watchPathChange()
-#   RouteID = FlowRouter.getParam("IDofSelectedRow")
-#   if DailyBikeData.findOne({_id: RouteID})
-#     if isUndefined(Session.get("OldRouteID"))
-#       console.log 'OldRouteID was undefined, so reset session var'
-#       Session.set "OldRouteID": false
-#     # markers = foo(markers, RouteID, Session.get("OldRouteID"))
-#     # console.log markers.getLayers()
-#     if Session.get("OldRouteID") != RouteID && Session.get("OldRouteID") != false
-#       UI.remove ManageBike.view
-#     Session.set "OldRouteID": RouteID
+foo = (RouteID, OldRouteID) ->
+  [GreyBike, RedBike, GreenBike] = MapInit(false, false, false, false)
 
-# # Template.ManageBike.created = ->
-# Tracker.autorun ->
-#   FlowRouter.watchPathChange()
-#   RouteID = FlowRouter.getParam("IDofSelectedRow")
-#   if DailyBikeData.findOne({_id: RouteID})
-#     if isUndefined(Session.get("OldRouteID"))
-#       console.log 'OldRouteID was undefined, so reset session var'
-#       Session.set "OldRouteID": false
-#     if Session.get("OldRouteID") != RouteID && Session.get("OldRouteID") != false
-#       console.log 'Removing UI view'
-#       # ManageBike.destroy
-#       Blaze._globalHelpers.destroy()
-
-# Template.ManageBike.helpers
-#   destroy: () ->
-#     RouteID = FlowRouter.getParam("IDofSelectedRow")
-#     # if DailyBikeData.findOne({_id: RouteID})
-#     if isUndefined(Session.get("OldRouteID"))
-#       console.log 'OldRouteID was undefined, so reset session var'
-#       Session.set "OldRouteID": false
-#     if Session.get("OldRouteID") != RouteID && Session.get("OldRouteID") != false
-#       console.log 'Removing UI view'
-#       Blaze.remove @view
-
-Template.ManageBike.created = ->
-  @autorun ->
-    RouteID = FlowRouter.getParam("IDofSelectedRow")
-    console.log 'Autorun? ' + RouteID
-    if isUndefined(Session.get("OldRouteID"))
-      console.log 'OldRouteID was undefined, so reset session var'
-      Session.set "OldRouteID": false
-    if Session.get("OldRouteID") != RouteID && Session.get("OldRouteID") != false
-      console.log 'Removing UI view'
-      UI.remove @view
-
-Template.ManageBike.rendered = ->
-  Meteor.subscribe("DailyBikeDataPub")
-
-  # Call MapInit function from s_Helpers to create the Leaflet Map
-  coords = [38.987701, -76.940989]
-  [window.map, GreyBike, RedBike, GreenBike] = MapInit('ManageBikeMap', false, false, coords)
-
-  # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
-  # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
-  Session.set
-    "OldRouteID": false
-    "selectedBike": false
-    "available": true
-
-  marker = []
+  # marker = []
   # console.log 'OldRouteID = ' + OldRouteID
   # console.log 'RouteID = ' + RouteID
   # console.log OldRouteID != RouteID
   # console.log OldRouteID != false
 
-  # if OldRouteID != RouteID && OldRouteID != false
-    # console.log 'Both conditions are true'
-    # console.log markers.getLayers()
-    # window.map.removeLayer(markers)
-    # markers.clearLayers()
+  if OldRouteID == false
+    console.log 'created markers'
+    window.markers = new L.FeatureGroup()
 
-  # console.log 'created markers'
-  # markers = new L.FeatureGroup()
-  RouteID = FlowRouter.getParam("IDofSelectedRow")
+  # if OldRouteID != RouteID
+  #   # console.log 'Both conditions are true'
+  #   # console.log Session.get('markers').getLayers()
+  #   # window.map.removeLayer(window.markers)
+  console.log 'clear those pesky markers'
+  window.markers.clearLayers()
+
   DailyBikeData.find({_id: RouteID}).observe
     added: (bike) ->
       polyline = L.polyline([
@@ -84,8 +27,8 @@ Template.ManageBike.rendered = ->
         color: 'blue'
         opacity: 0.4
         title: 'Next'
-      }).addTo(window.map)
-
+      })
+      # .addTo(window.map)
       _.each bike.Positions, (BikeRecord) ->
         latlng = BikeRecord.Coordinates
         polyline.addLatLng(latlng) # extend polyline with new location
@@ -98,10 +41,12 @@ Template.ManageBike.rendered = ->
         marker = L.marker(latlng,
           title: BikeRecord.Bike
           opacity: 0.75
-          icon: BikeIcon).addTo(window.map)
-        # markers.addLayer(marker)
+          icon: BikeIcon)
+        # .addTo(window.map)
+        window.markers.addLayer(marker)
       console.log 'bike.Bike = ' + bike.Bike
-      # window.map.addLayer(markers)
+      window.markers.addLayer(polyline)
+      window.map.addLayer(window.markers)
 
     # changed: (bike, oldBike) ->
     #   if oldBike.Tag == bike.Tag
@@ -123,4 +68,41 @@ Template.ManageBike.rendered = ->
     #   console.log markers[Math.floor(oldBike.Positions.Timestamp)]._leaflet_id + ' removed from window.map on REMOVED event and...'
     #   # Remove the reference to this marker instance
     #   delete markers[Math.floor(oldBike.Positions.Timestamp)]
-  Session.set "OldRouteID": RouteID
+
+
+
+
+# REMOVE BIKE BETWEEN ROUTES? Do it without recreating the map?
+# No ._id value for each element of the array
+
+
+Template.ManageBike.rendered = ->
+  Meteor.subscribe("DailyBikeDataPub")
+
+  # Call MapInit function from s_Helpers to create the Leaflet Map
+  coords = [38.987701, -76.940989]
+  [GreyBike, RedBike, GreenBike] = MapInit('ManageBikeMap', false, false, coords)
+
+  # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
+  # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
+  Session.set
+    "OldRouteID": false
+    "selectedBike": false
+    "available": true
+
+  @autorun ->
+    FlowRouter.watchPathChange()
+    RouteID = FlowRouter.getParam("IDofSelectedRow")
+    # Wait for data to be available
+    if DailyBikeData.findOne({_id: RouteID})
+      if isUndefined(Session.get("OldRouteID"))
+        console.log 'OldRouteID was undefined, so reset markers layer and session var'
+        window.markers = new L.FeatureGroup()
+        Session.set "OldRouteID": false
+
+      foo(RouteID, Session.get("OldRouteID"))
+      # console.log 'markers.getLayers() from autorun function'
+      # console.log window.markers.getLayers()
+      # window.markers.clearLayers()
+
+      Session.set "OldRouteID": RouteID
