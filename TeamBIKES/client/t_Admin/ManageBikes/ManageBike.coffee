@@ -1,21 +1,16 @@
-foo = (RouteID, OldRouteID) ->
+plot = (RouteID, OldRouteID) ->
   [GreyBike, RedBike, GreenBike] = MapInit(false, false, false, false)
 
-  # marker = []
-  # console.log 'OldRouteID = ' + OldRouteID
-  # console.log 'RouteID = ' + RouteID
-  # console.log OldRouteID != RouteID
-  # console.log OldRouteID != false
+  console.log 'OldRouteID = ' + OldRouteID
+  console.log 'RouteID = ' + RouteID
+  console.log OldRouteID != RouteID
+  console.log OldRouteID != false
 
-  if OldRouteID == false
-    console.log 'created markers'
-    window.markers = new L.FeatureGroup()
+  # if OldRouteID == false
+  #   console.log 'Creating layer group for markers'
+  #   window.markers = new L.FeatureGroup()
 
-  # if OldRouteID != RouteID
-  #   # console.log 'Both conditions are true'
-  #   # console.log Session.get('markers').getLayers()
-  #   # window.map.removeLayer(window.markers)
-  console.log 'clear those pesky markers'
+  console.log 'Removing old markers'
   window.markers.clearLayers()
 
   DailyBikeData.find({_id: RouteID}).observe
@@ -86,23 +81,19 @@ Template.ManageBike.rendered = ->
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   Session.set
-    "OldRouteID": false
     "selectedBike": false
     "available": true
 
   @autorun ->
-    FlowRouter.watchPathChange()
+    # FlowRouter.watchPathChange()
     RouteID = FlowRouter.getParam("IDofSelectedRow")
     # Wait for data to be available
     if DailyBikeData.findOne({_id: RouteID})
       if isUndefined(Session.get("OldRouteID"))
-        console.log 'OldRouteID was undefined, so reset markers layer and session var'
-        window.markers = new L.FeatureGroup()
+        console.log 'OldRouteID was undefined, so reset session var'
         Session.set "OldRouteID": false
-
-      foo(RouteID, Session.get("OldRouteID"))
-      # console.log 'markers.getLayers() from autorun function'
-      # console.log window.markers.getLayers()
-      # window.markers.clearLayers()
-
+      if isUndefined(window.markers)
+        console.log 'Creating layer group for markers'
+        window.markers = new L.FeatureGroup()
+      plot(RouteID, Session.get("OldRouteID"))
       Session.set "OldRouteID": RouteID
