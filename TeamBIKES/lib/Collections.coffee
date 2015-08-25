@@ -18,6 +18,8 @@ DailyBikeData.attachSchema new SimpleSchema(
     decimal: true
   Positions:
     type: [ Object ]
+  'Positions.$.Tag':
+    type: String
   'Positions.$.Rider':
     type: String
     optional: true
