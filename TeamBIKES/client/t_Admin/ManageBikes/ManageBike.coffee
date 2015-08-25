@@ -1,24 +1,78 @@
-foo = (RouteID, OldRouteID) ->
-  console.log Session.get('OldRouteID')
-  markers = []
+foo = (markers, RouteID, OldRouteID) ->
   [window.map, GreyBike, RedBike, GreenBike] = MapInit(false, false, false, false)
+
+  marker = []
+  # console.log 'OldRouteID = ' + OldRouteID
+  # console.log 'RouteID = ' + RouteID
+  # console.log OldRouteID != RouteID
+  # console.log OldRouteID != false
+
+  if OldRouteID != RouteID && OldRouteID != false
+    console.log 'Both conditions are true'
+    console.log markers.getLayers()
+    window.map.removeLayer(markers)
+    # markers.clearLayers()
+
+  console.log 'created markers'
+  markers = new L.FeatureGroup()
 
   DailyBikeData.find({_id: RouteID}).observe
     added: (bike) ->
-      polyline = L.polyline([bike.Positions[0].Coordinates, bike.Positions[1].Coordinates], color: 'blue').addTo(window.map)
+      polyline = L.polyline([
+        bike.Positions[0].Coordinates
+        bike.Positions[1].Coordinates
+      ], {
+        color: 'blue'
+        opacity: 0.4
+        title: 'Next'
+      }).addTo(window.map)
       _.each bike.Positions, (BikeRecord) ->
         latlng = BikeRecord.Coordinates
         polyline.addLatLng(latlng) # extend polyline with new location
-        if BikeRecord.Tag = 'Available'
+        if BikeRecord.Tag == 'Available'
           BikeIcon = GreyBike
-        else if BikeRecord.Tag = 'RepairInProgress'
+        else if BikeRecord.Tag == 'RepairInProgress'
           BikeIcon = RedBike
         else
           BikeIcon = GreenBike
-        markers[BikeRecord._id] = L.marker(latlng,
+        marker = L.marker(latlng,
           title: BikeRecord.Bike
           opacity: 0.75
-          icon: BikeIcon).addTo(window.map)
+          icon: BikeIcon)
+        # .addTo(window.map)
+        markers.addLayer(marker)
+      console.log 'bike.Bike = ' + bike.Bike
+      window.map.addLayer(markers)
+  markers
+
+    # changed: (bike, oldBike) ->
+    #   if oldBike.Tag == bike.Tag
+    #     latlng = bike.Coordinates
+    #     markers[bike._id].setLatLng(latlng).update()
+    #     console.log markers[bike._id]._leaflet_id + ' changed on window.map on CHANGED event'
+    #   else if bike.Tag == Meteor.userId()
+    #     markers[bike._id].setIcon GreenBike
+    #     console.log 'Changed to green icon color for # ' + bike.Bike
+    #   else if bike.Tag == "Available"
+    #     markers[bike._id].setIcon GreyBike
+    #     console.log 'Changed to gray icon color for # ' + bike.Bike
+    #   else
+    #     console.log "changed, but not with this logic"
+
+    # removed: (oldBike) ->
+    #   # Remove the marker from the map
+    #   window.map.removeLayer markers[Math.floor(oldBike.Positions.Timestamp)]
+    #   console.log markers[Math.floor(oldBike.Positions.Timestamp)]._leaflet_id + ' removed from window.map on REMOVED event and...'
+    #   # Remove the reference to this marker instance
+    #   delete markers[Math.floor(oldBike.Positions.Timestamp)]
+
+
+
+
+# REMOVE BIKE BETWEEN ROUTES? Do it without recreating the map?
+# No ._id value for each element of the array
+
+
 
 
 Tracker.autorun ->
@@ -26,8 +80,11 @@ Tracker.autorun ->
   RouteID = FlowRouter.getParam("IDofSelectedRow")
   if DailyBikeData.findOne({_id: RouteID})
     if isUndefined(Session.get("OldRouteID"))
+      console.log 'OldRouteID was undefined, so reset markers layer and session var'
+      markers = new L.FeatureGroup()
       Session.set "OldRouteID": false
-    foo(RouteID, Session.get("OldRouteID"))
+    markers = foo(markers, RouteID, Session.get("OldRouteID"))
+    # console.log markers.getLayers()
     Session.set "OldRouteID": RouteID
 
 Template.ManageBike.rendered = ->
@@ -40,5 +97,6 @@ Template.ManageBike.rendered = ->
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   Session.set
+    "OldRouteID": false
     "selectedBike": false
     "available": true
