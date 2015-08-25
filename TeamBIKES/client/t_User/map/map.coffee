@@ -71,6 +71,8 @@ Template.map.rendered = ->
         BikeIcon = GreyBike
       else
         BikeIcon = GreenBike
+        console.log 'bike.Tag = ' + bike.Tag
+        console.log 'bike.Bike = ' + bike.Bike
       markers[bike._id] = L.marker(latlng,
         title: bike.Bike
         opacity: 0.75
