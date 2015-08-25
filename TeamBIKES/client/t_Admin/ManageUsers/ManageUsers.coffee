@@ -22,10 +22,12 @@ Template.ManageUsers_Form.onCreated ->
 Template.ManageUsers_Form.helpers
   # Return the id of selected row
   SelectedRow: ->
-    current = FlowRouter.current()
-    Meteor.users.findOne {_id: current.params.IDofSelectedRow}
+    # current = FlowRouter.current()
+    # Meteor.users.findOne {_id: current.params.IDofSelectedRow}
+    Meteor.users.findOne {_id: FlowRouter.getParam ("IDofSelectedRow") }
 
 Template.CurrentUser_Form.helpers
   UserFact: ->
-    current = FlowRouter.current()
-    Meteor.users.find {_id: current.params.IDofSelectedRow}
+    Meteor.users.find {_id: FlowRouter.getParam ("IDofSelectedRow") }
+    # current = FlowRouter.current()
+    # Meteor.users.find {_id: current.params.IDofSelectedRow}
