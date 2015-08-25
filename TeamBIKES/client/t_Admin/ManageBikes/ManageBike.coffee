@@ -11,63 +11,20 @@ Meteor.startup ->
 Template.ManageBike.rendered = ->
   Meteor.subscribe("DailyBikeDataPub")
 
-  # Create the Leaflet Map
-  L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images'
-  window.map = new (L.Map)('ManageBikeMap', center: new (L.LatLng)(38.987701, -76.940989))
-  L.tileLayer.provider('OpenStreetMap.Mapnik').addTo window.map
-  window.map.spin false
-
-  # Give user control over location
-  LocateControl = L.control.locate(
-    drawCircle: true
-    follow: true
-    setView: true
-    keepCurrentZoomLevel: false
-    remainActive: false
-    markerClass: L.circleMarker).addTo window.map
-  # # Start automatically
-  # LocateControl.start()
-  # window.map.on 'dragstart', LocateControl._stopFollowing, LocateControl
-
+  # Call MapInit function from s_Helpers to create the Leaflet Map
   coords = [38.987701, -76.940989]
-  console.log coords
-  window.map.setView coords, 18
-
-  # Otherwise center on UMD
-  # window.map.setView new (L.LatLng)(38.987701, -76.940989), 16
-
-  # Bike icons
-  # Unselected, but available
-  GreyBike = L.AwesomeMarkers.icon(
-    prefix: 'fa'
-    icon: 'bicycle'
-    markerColor: 'cadetblue'
-    iconColor: 'white')
-  # Selected bike
-  RedBike = L.AwesomeMarkers.icon(
-    prefix: 'fa'
-    icon: 'bicycle'
-    markerColor: 'red'
-    iconColor: 'white')
-  # Reserved
-  GreenBike = L.AwesomeMarkers.icon(
-    prefix: 'fa'
-    icon: 'bicycle'
-    markerColor: 'green'
-    iconColor: 'white')
+  [window.map, GreyBike, RedBike, GreenBike] = MapInit('ManageBikeMap', false, false, coords)
 
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   markers = []
-
-
   Session.set
     "selectedBike": false
     "available": true
 
-
-  current = FlowRouter.current()
-  DailyBikeData.find({_id: current.params.IDofSelectedRow}).observe
+  # current = FlowRouter.current()
+  # DailyBikeData.find({_id: current.params.IDofSelectedRow}).observe
+  DailyBikeData.find({_id: FlowRouter.getParam ("IDofSelectedRow")}).observe
   # DailyBikeData.find({_id: Session.get("IDofSelectedRowBikes")}).observe
     added: (bike) ->
       polyline = L.polyline([bike.Positions[0].Coordinates, bike.Positions[1].Coordinates], color: 'blue').addTo(map)
