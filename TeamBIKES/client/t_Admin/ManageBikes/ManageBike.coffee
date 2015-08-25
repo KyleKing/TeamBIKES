@@ -1,23 +1,23 @@
-plot = (RouteID) ->
+PlotAdminBikes = (RouteID) ->
   if window.markers.getLayers()
     console.log 'Removing old markers'
     window.markers.clearLayers()
 
   DailyBikeData.find({_id: RouteID}).observe
     added: (bike) ->
-      polyline = L.polyline([
-        bike.Positions[0].Coordinates
-        bike.Positions[1].Coordinates
-      ], {
-        color: 'blue'
-        opacity: 0.4
-        title: 'Next'
-      })
+      # polyline = L.polyline([
+      #   bike.Positions[0].Coordinates
+      #   bike.Positions[1].Coordinates
+      # ], {
+      #   color: 'blue'
+      #   opacity: 0.4
+      #   title: 'Next'
+      # })
 
       PositionCount = 0
       _.each bike.Positions, (BikeRecord) ->
         latlng = BikeRecord.Coordinates
-        polyline.addLatLng(latlng) # extend polyline with new location
+        # polyline.addLatLng(latlng) # extend polyline with new location
 
         BikeIcon = IconLogic(BikeRecord.Tag)
         markers[PositionCount] = L.marker(latlng,
@@ -44,7 +44,7 @@ plot = (RouteID) ->
         PositionCount++
       # Confirm that one loop has been run and add layers to map
       console.log 'bike.Bike = ' + bike.Bike
-      window.markers.addLayer(polyline)
+      # window.markers.addLayer(polyline)
       window.map.addLayer(window.markers)
 
     # changed: (bike, oldBike) ->
@@ -74,7 +74,8 @@ Template.ManageBike.rendered = ->
 
   # Call MapInit function from s_Helpers to create the Leaflet Map
   coords = [38.987701, -76.940989]
-  MapInit('ManageBikeMap', false, false, coords)
+  # MapInit(MapName, LocateUser, DrawOutline, Center)
+  MapInit('ManageBikeMap', false, true, coords)
 
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
@@ -90,4 +91,4 @@ Template.ManageBike.rendered = ->
       if isUndefined(window.markers)
         console.log 'Creating layer group for markers'
         window.markers = new L.FeatureGroup()
-      plot(RouteID)
+      PlotAdminBikes(RouteID)
