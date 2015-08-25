@@ -25,14 +25,17 @@
       remainActive: false
       markerClass: L.circleMarker).addTo window.map
 
+    # # Quickly load map (Doesn't seem to work reliably)
+    # window.map.setView Center, 16
+
     # Automatically track user or center on UMD at arbitrary location
     if LocateUser
       # Start automatically
       LocateControl.start()
       window.map.on 'dragstart', LocateControl._stopFollowing, LocateControl
     else
+      # Quickly load map
       window.map.setView Center, 16
-      # window.map.setView new (L.LatLng)(38.987701, -76.940989), 16
 
     # Active area of bike map
     # Manually drawn from: http://www.latlong.net/
@@ -70,6 +73,9 @@
       }).addTo(window.map)
 
   # Bike icons
+  # Color choices: 'red', 'darkred', 'orange', 'green'
+  # 'darkgreen', 'blue', 'purple', 'darkpuple', 'cadetblue'
+
   # Unselected, but available
   window.Available = L.AwesomeMarkers.icon(
     prefix: 'fa'
@@ -80,17 +86,23 @@
   window.Damaged = L.AwesomeMarkers.icon(
     prefix: 'fa'
     icon: 'bicycle'
-    markerColor: 'red'
+    markerColor: 'darkred'
     iconColor: 'white')
   # Reserved
   window.Reserved = L.AwesomeMarkers.icon(
     prefix: 'fa'
     icon: 'bicycle'
-    markerColor: 'green'
+    markerColor: 'orange'
     iconColor: 'white')
   # Selected
   window.Selected = L.AwesomeMarkers.icon(
     prefix: 'fa'
     icon: 'bicycle'
-    markerColor: 'darkred'
+    markerColor: 'green'
+    iconColor: 'white')
+  # Redistributed
+  window.Redistributed = L.AwesomeMarkers.icon(
+    prefix: 'fa'
+    icon: 'bicycle'
+    markerColor: 'purple'
     iconColor: 'white')
