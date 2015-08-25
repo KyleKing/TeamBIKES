@@ -63,7 +63,7 @@ FlowRouter.route '/AdminCompilation/ManageBike/:IDofSelectedRow',
   action: (params, queryParams) ->
     BlazeLayout.render 'UniversalLayout_Admin', {
       body: 'AdminCompilation'
-      Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
+      Slide_In_Panel_Title: 'ManageBike_Title'
       Slide_In_Panel_Content: 'ManageBike'
     }
 
