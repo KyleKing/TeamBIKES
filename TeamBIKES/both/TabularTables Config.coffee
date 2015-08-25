@@ -23,10 +23,29 @@ TabularTables.ManageBikes = new (Tabular.Table)(
     { data: 'Bike', title: 'Bike' }
     # { data: 'Day', title: 'Day' }
     { data: 'Tag', title: 'Tag' }
-    { data: 'Positions.0.Timestamp', title: 'Last Timestamp' }
+    { data: 'Timestamp()', title: 'Last Timestamp' }
     { data: 'Positions.0.Coordinates.0', title: 'Lat' }
     { data: 'Positions.0.Coordinates.1', title: 'Lng' }
-  ])
+  ]
+  # extraFields: ['Positions.0.Timestamp']
+)
+
+DailyBikeData.helpers
+  Timestamp: ->
+    DateFormats =
+      shortest: 'hh:mm:ss a'
+      short: 'hh:mm:ss a M-D-YY'
+      long: 'dddd DD.MM.YYYY hh:mm:ss a'
+    # UI.registerHelper 'formatDate', (@Positions[0].Timestamp, format) ->
+    if moment
+      format = 'shortest'
+      # can use other formats like 'lll' too
+      format = DateFormats[format] or format
+      moment(@Positions[0].Timestamp).format format
+    else
+      @Positions[0].Timestamp
+
+
 
 # ManageMechanicNotes
 TabularTables.ManageMechanicNotes = new (Tabular.Table)(
