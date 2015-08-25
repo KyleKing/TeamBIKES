@@ -13,7 +13,8 @@ Template.map.rendered = ->
     "selectedBike": false
     "available": true
 
-  DailyBikeData.find({}).observe
+  [today, now] = CurrentDay()
+  DailyBikeData.find({Day: today}).observe
     added: (bike) ->
       latlng = bike.Coordinates
       if bike.Tag == 'Available'

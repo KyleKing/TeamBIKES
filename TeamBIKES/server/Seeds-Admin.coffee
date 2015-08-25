@@ -108,46 +108,49 @@ randGPS = (max) ->
 [today, now] = CurrentDay()
 # Insert database of bikes if no data for today
 if DailyBikeData.find({Day: today}).count() == 0
+  console.log 'Started creating DailyBikeData data schema'
   j = 0
   while j < 4
-    i = 1
-    while i <= 100
-      # create template for each DailyBikeData data stored
-      Position = []
-      randomNow = NaN
-      blank = {}
-      countTime = 0
-      while countTime < 30
-        # For 60 minutes in an hour
-        randomNow = now - (10000000 * Math.random())
-        namePoint = Math.round((randNames.length - 1) * Math.random())
-        # console.log('randNames = ' + randNames);
-        randGPSPoint = Math.round(1 * Math.random())
-        if Math.round(0.75 * Math.random()) == 0
-          if Math.round(1.1 * Math.random()) == 0
-            RandTag = 'asdfahdfghsdlkfjsad'
+    if DailyBikeData.find({Day: (today-j) }).count() == 0
+      i = 1
+      while i <= 100
+        # create template for each DailyBikeData data stored
+        Position = []
+        randomNow = NaN
+        blank = {}
+        countTime = 0
+        while countTime < 30
+          # For 60 minutes in an hour
+          randomNow = now - (10000000 * Math.random())
+          namePoint = Math.round((randNames.length - 1) * Math.random())
+          # console.log('randNames = ' + randNames);
+          randGPSPoint = Math.round(1 * Math.random())
+          if Math.round(0.75 * Math.random()) == 0
+            if Math.round(1.1 * Math.random()) == 0
+              RandTag = 'asdfahdfghsdlkfjsad'
+            else
+              RandTag = 'Available'
           else
-            RandTag = 'Available'
-        else
-          RandTag = 'RepairInProgress'
-        blank =
+            RandTag = 'RepairInProgress'
+          blank =
+            Tag: RandTag
+            Rider: if RandTag == 'asdfahdfghsdlkfjsad' then AllRandNames[namePoint] else ''
+            Timestamp: randomNow
+            Coordinates: [randGPS(2).Lat[randGPSPoint], randGPS(2).Lng[randGPSPoint]]
+          # console.log('name = ' + blank.User);
+          Position.push blank
+          countTime++
+        DailyBikeData.insert
+          Bike: i
+          Day: today - j
+          # simplified version
           Tag: RandTag
-          Rider: if RandTag == 'asdfahdfghsdlkfjsad' then AllRandNames[namePoint] else ''
-          Timestamp: randomNow
           Coordinates: [randGPS(2).Lat[randGPSPoint], randGPS(2).Lng[randGPSPoint]]
-        # console.log('name = ' + blank.User);
-        Position.push blank
-        countTime++
-      DailyBikeData.insert
-        Bike: i
-        Day: today - j
-        # simplified version
-        Tag: RandTag
-        Coordinates: [randGPS(2).Lat[randGPSPoint], randGPS(2).Lng[randGPSPoint]]
-        Positions: Position
-      i++
-    console.log 'Created DailyBikeData data schema for ' + j + ' days behind today'
+          Positions: Position
+        i++
+      console.log 'Created DailyBikeData data schema for ' + j + ' days behind today'
     j++
+  console.log 'Done creating DailyBikeData data schema'
 
 
 ## \/ NOTE! CHANGED \/
