@@ -4,7 +4,7 @@ Template.map.rendered = ->
 
   # Call MapInit function from s_Helpers
   coords = [38.987701, -76.940989]
-  [GreyBike, RedBike, GreenBike] = MapInit('BikeMap', true, true, coords)
+  MapInit('BikeMap', true, true, coords)
 
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
@@ -14,13 +14,13 @@ Template.map.rendered = ->
     "available": true
 
   [today, now] = CurrentDay()
-  DailyBikeData.find({Day: today}).observe
+  DailyBikeData.find({ Day: today, Tag: {$in: ['Available', Meteor.userId()] }}).observe
     added: (bike) ->
       latlng = bike.Coordinates
       if bike.Tag == 'Available'
-        BikeIcon = GreyBike
+        BikeIcon = window.Available
       else
-        BikeIcon = GreenBike
+        BikeIcon = window.Reserved
         console.log 'bike.Tag = ' + bike.Tag
         console.log 'bike.Bike = ' + bike.Bike
       markers[bike._id] = L.marker(latlng,
@@ -31,16 +31,12 @@ Template.map.rendered = ->
           if Session.get('selectedBike')
             last = Session.get 'selectedBike'
             lastBike = DailyBikeData.findOne({Bike: last})
-            if lastBike.Tag == 'Available'
-              BikeIcon = GreyBike
-            else
-              BikeIcon = GreenBike
-            markers[lastBike._id].setIcon BikeIcon
+            markers[lastBike._id].setIcon IconLogic(lastBike.Tag)
             # console.log lastBike._id
             # console.log markers[lastBike._id]._icon.title
 
           # Highlight new bike
-          @setIcon RedBike
+          @setIcon window.Selected
           Session.set
             "selectedBike": e.target.options.title
             "available": true
@@ -55,10 +51,10 @@ Template.map.rendered = ->
         markers[bike._id].setLatLng(latlng).update()
         console.log markers[bike._id]._leaflet_id + ' changed on window.map on CHANGED event'
       else if bike.Tag == Meteor.userId()
-        markers[bike._id].setIcon GreenBike
+        markers[bike._id].setIcon window.Reserved
         console.log 'Changed to green icon color for # ' + bike.Bike
       else if bike.Tag == "Available"
-        markers[bike._id].setIcon GreyBike
+        markers[bike._id].setIcon window.Available
         console.log 'Changed to gray icon color for # ' + bike.Bike
       else
         console.log "changed, but not with this logic"

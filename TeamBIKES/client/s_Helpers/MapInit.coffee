@@ -1,3 +1,12 @@
+@IconLogic = (Tag) ->
+  if Tag == 'Available'
+    BikeIcon = window.Available
+  else if Tag == 'RepairInProgress'
+    BikeIcon = window.Damaged
+  else
+    BikeIcon = window.Reserved
+  BikeIcon
+
 @MapInit = (MapName, LocateUser, DrawOutline, Center) ->
   # Just to call for the bike variables and not an entire init
   if MapName != false
@@ -62,22 +71,26 @@
 
   # Bike icons
   # Unselected, but available
-  GreyBike = L.AwesomeMarkers.icon(
+  window.Available = L.AwesomeMarkers.icon(
     prefix: 'fa'
     icon: 'bicycle'
     markerColor: 'cadetblue'
     iconColor: 'white')
-  # Selected bike
-  RedBike = L.AwesomeMarkers.icon(
+  # Damaged (InRepair) bike
+  window.Damaged = L.AwesomeMarkers.icon(
     prefix: 'fa'
     icon: 'bicycle'
     markerColor: 'red'
     iconColor: 'white')
   # Reserved
-  GreenBike = L.AwesomeMarkers.icon(
+  window.Reserved = L.AwesomeMarkers.icon(
     prefix: 'fa'
     icon: 'bicycle'
     markerColor: 'green'
     iconColor: 'white')
-
-  [GreyBike, RedBike, GreenBike]
+  # Selected
+  window.Selected = L.AwesomeMarkers.icon(
+    prefix: 'fa'
+    icon: 'bicycle'
+    markerColor: 'darkred'
+    iconColor: 'white')

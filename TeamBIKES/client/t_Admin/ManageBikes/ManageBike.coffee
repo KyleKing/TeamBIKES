@@ -1,6 +1,4 @@
 plot = (RouteID) ->
-  [GreyBike, RedBike, GreenBike] = MapInit(false, false, false, false)
-
   if window.markers.getLayers()
     console.log 'Removing old markers'
     window.markers.clearLayers()
@@ -16,21 +14,34 @@ plot = (RouteID) ->
         title: 'Next'
       })
 
+      PositionCount = 0
       _.each bike.Positions, (BikeRecord) ->
         latlng = BikeRecord.Coordinates
         polyline.addLatLng(latlng) # extend polyline with new location
-        if BikeRecord.Tag == 'Available'
-          BikeIcon = GreyBike
-        else if BikeRecord.Tag == 'RepairInProgress'
-          BikeIcon = RedBike
-        else
-          BikeIcon = GreenBike
-        marker = L.marker(latlng,
-          title: BikeRecord.Bike
+
+        BikeIcon = IconLogic(BikeRecord.Tag)
+        markers[PositionCount] = L.marker(latlng,
+          title: PositionCount
           opacity: 0.75
-          icon: BikeIcon)
-        # .addTo(window.map)
-        window.markers.addLayer(marker)
+          icon: BikeIcon).on("click", (e) ->
+            # Highlight new bike
+            @setIcon window.Selected
+
+            # On previously selected bike, change icon back to proper icon
+            if Session.get('SelectedBike_Position')
+              ArrayPosition = Session.get 'SelectedBike_Position'
+              ThisBike = DailyBikeData.findOne({_id: FlowRouter.getParam("IDofSelectedRow")})
+              BikeTag =  ThisBike.Positions[ArrayPosition].Tag
+              markers[ArrayPosition].setIcon IconLogic(BikeTag)
+
+            # Store info for later use
+            Session.set
+              "SelectedBike_Position": e.target.options.title
+              "available": true
+            # console.log e.target.options.title
+            ) # .addTo(window.map)
+        window.markers.addLayer(markers[PositionCount])
+        PositionCount++
       # Confirm that one loop has been run and add layers to map
       console.log 'bike.Bike = ' + bike.Bike
       window.markers.addLayer(polyline)
@@ -63,12 +74,12 @@ Template.ManageBike.rendered = ->
 
   # Call MapInit function from s_Helpers to create the Leaflet Map
   coords = [38.987701, -76.940989]
-  [GreyBike, RedBike, GreenBike] = MapInit('ManageBikeMap', false, false, coords)
+  MapInit('ManageBikeMap', false, false, coords)
 
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   Session.set
-    "selectedBike": false
+    "SelectedBike_Position": false
     "available": true
 
   @autorun ->
