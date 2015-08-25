@@ -1,24 +1,24 @@
 foo = (RouteID, OldRouteID) ->
-  console.log Session.get(OldRouteID)
-  # markers = []
-  # [window.map, GreyBike, RedBike, GreenBike] = MapInit(false, false, false, false)
+  console.log Session.get('OldRouteID')
+  markers = []
+  [window.map, GreyBike, RedBike, GreenBike] = MapInit(false, false, false, false)
 
-  # DailyBikeData.find({_id: RouteID}).observe
-  #   added: (bike) ->
-  #     polyline = L.polyline([bike.Positions[0].Coordinates, bike.Positions[1].Coordinates], color: 'blue').addTo(window.map)
-  #     _.each bike.Positions, (BikeRecord) ->
-  #       latlng = BikeRecord.Coordinates
-  #       polyline.addLatLng(latlng) # extend polyline with new location
-  #       if BikeRecord.Tag = 'Available'
-  #         BikeIcon = GreyBike
-  #       else if BikeRecord.Tag = 'RepairInProgress'
-  #         BikeIcon = RedBike
-  #       else
-  #         BikeIcon = GreenBike
-  #       markers[BikeRecord._id] = L.marker(latlng,
-  #         title: BikeRecord.Bike
-  #         opacity: 0.75
-  #         icon: BikeIcon).addTo(window.map)
+  DailyBikeData.find({_id: RouteID}).observe
+    added: (bike) ->
+      polyline = L.polyline([bike.Positions[0].Coordinates, bike.Positions[1].Coordinates], color: 'blue').addTo(window.map)
+      _.each bike.Positions, (BikeRecord) ->
+        latlng = BikeRecord.Coordinates
+        polyline.addLatLng(latlng) # extend polyline with new location
+        if BikeRecord.Tag = 'Available'
+          BikeIcon = GreyBike
+        else if BikeRecord.Tag = 'RepairInProgress'
+          BikeIcon = RedBike
+        else
+          BikeIcon = GreenBike
+        markers[BikeRecord._id] = L.marker(latlng,
+          title: BikeRecord.Bike
+          opacity: 0.75
+          icon: BikeIcon).addTo(window.map)
 
 
 Tracker.autorun ->
