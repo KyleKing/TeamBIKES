@@ -1,17 +1,9 @@
-plot = (RouteID, OldRouteID) ->
+plot = (RouteID) ->
   [GreyBike, RedBike, GreenBike] = MapInit(false, false, false, false)
 
-  console.log 'OldRouteID = ' + OldRouteID
-  console.log 'RouteID = ' + RouteID
-  console.log OldRouteID != RouteID
-  console.log OldRouteID != false
-
-  # if OldRouteID == false
-  #   console.log 'Creating layer group for markers'
-  #   window.markers = new L.FeatureGroup()
-
-  console.log 'Removing old markers'
-  window.markers.clearLayers()
+  if window.markers.getLayers()
+    console.log 'Removing old markers'
+    window.markers.clearLayers()
 
   DailyBikeData.find({_id: RouteID}).observe
     added: (bike) ->
@@ -23,7 +15,7 @@ plot = (RouteID, OldRouteID) ->
         opacity: 0.4
         title: 'Next'
       })
-      # .addTo(window.map)
+
       _.each bike.Positions, (BikeRecord) ->
         latlng = BikeRecord.Coordinates
         polyline.addLatLng(latlng) # extend polyline with new location
@@ -39,6 +31,7 @@ plot = (RouteID, OldRouteID) ->
           icon: BikeIcon)
         # .addTo(window.map)
         window.markers.addLayer(marker)
+      # Confirm that one loop has been run and add layers to map
       console.log 'bike.Bike = ' + bike.Bike
       window.markers.addLayer(polyline)
       window.map.addLayer(window.markers)
@@ -65,12 +58,6 @@ plot = (RouteID, OldRouteID) ->
     #   delete markers[Math.floor(oldBike.Positions.Timestamp)]
 
 
-
-
-# REMOVE BIKE BETWEEN ROUTES? Do it without recreating the map?
-# No ._id value for each element of the array
-
-
 Template.ManageBike.rendered = ->
   Meteor.subscribe("DailyBikeDataPub")
 
@@ -89,11 +76,7 @@ Template.ManageBike.rendered = ->
     RouteID = FlowRouter.getParam("IDofSelectedRow")
     # Wait for data to be available
     if DailyBikeData.findOne({_id: RouteID})
-      if isUndefined(Session.get("OldRouteID"))
-        console.log 'OldRouteID was undefined, so reset session var'
-        Session.set "OldRouteID": false
       if isUndefined(window.markers)
         console.log 'Creating layer group for markers'
         window.markers = new L.FeatureGroup()
-      plot(RouteID, Session.get("OldRouteID"))
-      Session.set "OldRouteID": RouteID
+      plot(RouteID)
