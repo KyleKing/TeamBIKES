@@ -4,14 +4,16 @@ Template.ManageMechanicNotes.events
     dataTable = $(event.target).closest('table').DataTable()
     rowData = dataTable.row(event.currentTarget).data()
     FlowRouter.go('/AdminCompilation/ManageMechanicNotes_Form/' + rowData._id)
-    $('.cd-panel').addClass('is-visible')
+    $('.cd-panel').addClass 'is-visible'
+    $('body').addClass 'noscroll'
     # Session.set "IDofSelectedRowNotes", rowData._id
     # # Provide user feedback with a highlighted
     # $('.selected').removeClass 'selected'
     # $(event.currentTarget).toggleClass 'selected'
   'click .ManageMechanicNotes_Insert': () ->
     FlowRouter.go('/AdminCompilation/ManageMechanicNotes_Insert/')
-    $('.cd-panel').addClass('is-visible')
+    $('.cd-panel').addClass 'is-visible'
+    $('body').addClass 'noscroll'
 
 # Template.ManageMechanicNotes.helpers
 #   # Return the id of selected row
