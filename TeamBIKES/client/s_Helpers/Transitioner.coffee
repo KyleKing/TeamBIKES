@@ -20,7 +20,7 @@
 
   # Set default value to fade
   Transitions['default'] = 'fade'
-  console.log Transitions
+  # console.log Transitions
 
   # Return transitions to Transitioner.setTransitions
   Transitions
