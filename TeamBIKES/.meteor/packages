@@ -53,6 +53,7 @@ mrt:underscore-string-latest # Lots of functions
 ### Performance Monitoring ###
 meteorhacks:kadira # server
 kadira:debug # local/client
+percolate:synced-cron # TIming for bike rentals and email verification
 
 #### Collection Management ####
 dburles:collection-helpers

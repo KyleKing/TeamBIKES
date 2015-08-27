@@ -94,6 +94,7 @@ npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ordered-dict@1.0.3
 percolate:momentum@0.7.2
+percolate:synced-cron@1.2.1
 percolate:velocityjs@1.1.0
 philippspo:momentum-flow-router@0.0.5
 random@1.0.3

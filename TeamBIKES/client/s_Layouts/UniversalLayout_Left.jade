@@ -1,7 +1,8 @@
-template(name='UniversalLayout_Admin_left')
+template(name='UniversalLayout_Left')
 	+sAlert
 	+NavTop
-
+	//- +contentWrapper
+	.navSpacing
 	main.cd-main-content
 		.container
 			+momentum(plugin='flow-router')
@@ -9,9 +10,9 @@ template(name='UniversalLayout_Admin_left')
 
 	.cd-panel.from-left
 		header.cd-panel-header
-			+Template.dynamic template=Slide_In_Panel_Title
+			+Template.dynamic template=Slide_In_Panel_Title_Left
 			a.cd-panel-close(href='#0') Close
 
 		.cd-panel-container
 			.cd-panel-content
-				+Template.dynamic template=Slide_In_Panel_Content
+				+Template.dynamic template=Slide_In_Panel_Content_Left
