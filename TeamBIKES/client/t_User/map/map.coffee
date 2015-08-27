@@ -5,8 +5,8 @@ Template.map.rendered = ->
   # Call MapInit function from s_Helpers
   coords = [38.987701, -76.940989]
   # MapInit(MapName, LocateUser, DrawOutline, Center)
-  MapInit('BikeMap', false, true, coords)
-  # MapInit('BikeMap', true, true, coords)
+  # MapInit('BikeMap', false, true, coords)
+  MapInit('BikeMap', true, true, coords)
 
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
@@ -113,7 +113,10 @@ Template.map.events
       sAlert.error('Error: Choose a bike to reserve')
   'click #ClosestBikes': (e) ->
     center = window.map.getCenter()
+    [today, now] = CurrentDay()
     closest = DailyBikeData.find(
+      Day: today
+      Tag: {$in: ['Available', Meteor.userId()]}
       Coordinates:
         $near: center
       ).fetch()

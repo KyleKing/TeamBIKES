@@ -5,7 +5,8 @@ Template.ManageBikes.events 'click tbody > tr': (event) ->
 	Session.set "IDofSelectedRowBikes", rowData._id
 	# FlowRouter.go('/ManageBike/' + rowData._id)
 	FlowRouter.go('/AdminCompilation/ManageBike/' + rowData._id)
-	$('.cd-panel').addClass('is-visible')
+	$('.cd-panel').addClass 'is-visible'
+	$('body').addClass 'noscroll'
 
 	# # Provide user feedback with a highlighted
 	# $('.selected').removeClass 'selected'

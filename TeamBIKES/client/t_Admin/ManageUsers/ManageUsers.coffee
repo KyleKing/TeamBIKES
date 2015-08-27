@@ -4,7 +4,8 @@ Template.ManageUsers.events 'click tbody > tr': (event) ->
   rowData = dataTable.row(event.currentTarget).data()
   # FlowRouter.go('/ManageUsers_Form/' + rowData._id)
   FlowRouter.go('/AdminCompilation/ManageUsers_Form/' + rowData._id)
-  $('.cd-panel').addClass('is-visible')
+  $('.cd-panel').addClass 'is-visible'
+  $('body').addClass 'noscroll'
   # Session.set "IDofSelectedRowUsers", rowData._id
   # # Provide user feedback with a highlighted
   # $('.selected').removeClass 'selected'
