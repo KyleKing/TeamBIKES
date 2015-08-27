@@ -72,8 +72,8 @@ FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Insert/',
   action: () ->
     BlazeLayout.render 'UniversalLayout_Left', {
       body: 'AdminCompilation'
-      Slide_In_Panel_Title_left: 'ManageMechanicNotes_Insert_Title'
-      Slide_In_Panel_Content_left: 'ManageMechanicNotes_Insert'
+      Slide_In_Panel_Title_Left: 'ManageMechanicNotes_Insert_Title'
+      Slide_In_Panel_Content_Left: 'ManageMechanicNotes_Insert'
     }
 
 FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Form/:IDofSelectedRow',
@@ -94,6 +94,14 @@ FlowRouter.route '/AdminCompilation/ManageUsers_Form/:IDofSelectedRow',
       Slide_In_Panel_Content: 'ManageUsers_Form'
     }
 
+# Quick Dev Route
+# FlowRouter.route '/dev/kyle',
+#   name: 'ManageMechanicNotes_Insert',
+#   action: () ->
+#     BlazeLayout.render 'UniversalLayout', {
+#       body: 'ManageMechanicNotes_Insert'
+#     }
+
 # Scroll to the top of every page
 ScrollToTop = ->
   # Gotta love a mature programming language: http://stackoverflow.com/questions/9316415/the-same-old-issue-scrolltop0-not-working-in-chrome-safari
@@ -103,10 +111,10 @@ ScrollToTop = ->
 
 FlowRouter.triggers.enter ScrollToTop, except: [
   'AdminCompilation'
-  'AdminCompilation/ManageBike'
-  'AdminCompilation/ManageMechanicNotes_Form'
-  'AdminCompilation/ManageUsers_Form'
-  'AdminCompilation/ManageUsers_Insert'
+#   'AdminCompilation/ManageBike'
+#   'AdminCompilation/ManageMechanicNotes_Form'
+#   'AdminCompilation/ManageUsers_Form'
+#   'AdminCompilation/ManageUsers_Insert'
 ]
 
 # In development
