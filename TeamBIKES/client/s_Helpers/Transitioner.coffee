@@ -1,14 +1,46 @@
-Transitioner.setTransitions
-  'AdminCompilation->ManageMechanicNotes_Form': 'right-to-left'
-  'ManageMechanicNotes_Form->AdminCompilation': 'left-to-right'
+@TransitionOrder = (Pages) ->
+  # init vars
+  Transitions = {}
+  LastPage = ''
+  # Loop through array of named flow routes
+  _.each Pages, (Page) ->
+    if LastPage != ''
+      # console.log Page
 
-  'AdminCompilation->ManageUsers_Form': 'right-to-left'
-  'ManageUsers_Form->AdminCompilation': 'left-to-right'
+      # Create object for one direction of motion
+      ForwardPageKey = LastPage + '->' + Page
+      Transitions[ForwardPageKey] = 'right-to-left'
+      # Then create the same concept in reverse
+      ReversePageKey = Page + '->' + LastPage
+      Transitions[ReversePageKey] = 'left-to-right'
 
-  'AdminCompilation->ManageBike': 'right-to-left'
-  'ManageBike->AdminCompilation': 'left-to-right'
+    # Store last page, to compare against
+    LastPage = Page
+    # console.log LastPage
 
-  'AdminCompilation->ManageMechanicNotes_Insert': 'left-to-right'
-  'ManageMechanicNotes_Insert->AdminCompilation': 'right-to-left'
+  # Set default value to fade
+  Transitions['default'] = 'fade'
+  console.log Transitions
 
-  'default': 'fade'
+  # Return transitions to Transitioner.setTransitions
+  Transitions
+
+# Old demo of variable
+# window.Transitions = {
+#   'AdminCompilation->ManageMechanicNotes_Form': 'right-to-left'
+#   'ManageMechanicNotes_Form->AdminCompilation': 'left-to-right'
+#   'default': 'fade'
+# }
+
+# Order from left to right and the above function will spit out necessary object
+Transitioner.setTransitions TransitionOrder [
+  'about'
+  'map'
+  'mechanicView'
+  'AdminCompilation'
+  'progress'
+  'chartsAdmin'
+  'RFIDlayout'
+  'timeseries'
+  'Profile'
+]

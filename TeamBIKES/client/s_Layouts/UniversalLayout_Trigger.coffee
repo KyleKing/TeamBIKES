@@ -1,4 +1,6 @@
-Template.UniversalLayout_Admin.events
+# Legacy support for trigger button for panel
+
+Template.UniversalLayout.events
   #open the lateral panel
   'click .cd-btn': (event) ->
     event.preventDefault()
@@ -12,7 +14,7 @@ Template.UniversalLayout_Admin.events
       $('body').removeClass 'noscroll'
       event.preventDefault()
 
-Template.UniversalLayout_Admin_left.events
+Template.UniversalLayout_Left.events
   #open the lateral panel
   'click .cd-btn': (event) ->
     event.preventDefault()
