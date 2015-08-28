@@ -152,3 +152,7 @@ Meteor.users.attachSchema new SimpleSchema(
 #     type: [ String ]
 #     optional: true)
 # Meteor.users.attachSchema Schema.User
+
+
+# # Cron scheduling
+# @FutureTasks = new (Meteor.Collection)('future_tasks')
