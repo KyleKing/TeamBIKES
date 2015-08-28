@@ -4,18 +4,20 @@
 
 // enable cross-browser mixins such as linear-gradient and border-radius
 // From Stylus Meteor package
-// @import 'nib'
+@import 'nib'
 
 // Custom Files
-// @import 'Lib/agency.import.styl'
-// @import 'Lib/pricing.import.styl'
+@import 'Lib/agency.import.styl'
+@import 'Lib/pricing.import.styl'
+
+NavHeight = 70px
 
 .mapContainer
   position fixed
   // space for bottom bar
   bottom 40px
   // space for nav bar
-  top 50px
+  top NavHeight
   left 0
   right 0
   height auto
@@ -60,16 +62,19 @@ header
 		padding-top 11px
 		make-sm-column(3)
 
-header
-  make-row()
+// header
+//   make-row()
 
 header
 	.brand
 		make-sm-column(3)
 
-body
-  padding-top 50px
-.navSpacing { padding-top: 50px }
+// body
+//   padding-top NavHeight
+.navSpacing
+  padding-top 30px
+  +above(750px)
+    padding-top: NavHeight
 // .AdminNavSpacing { padding-top: 50px }
 
 

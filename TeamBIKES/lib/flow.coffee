@@ -1,20 +1,21 @@
 # Block all pages
-FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ["about", "map"] }
+FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ["about", 'agency', "map"] }
 
 FlowRouter.route '/progress',
   name: 'progress',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'progress'
-FlowRouter.route '/agency',
-  name: 'agency',
+
+FlowRouter.route '/',
+  name: 'about',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'agency'
+    BlazeLayout.render 'UniversalLayout', full: 'agency'
 
 
 
 ###   Public ###
-FlowRouter.route '/',
-  name: 'about',
+FlowRouter.route '/about_Ideas',
+  name: 'about_Ideas',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'about'
 
@@ -111,6 +112,10 @@ ScrollToTop = ->
 
 FlowRouter.triggers.enter ScrollToTop, except: [
   'AdminCompilation'
+  'AdminCompilation/ManageBike'
+  'AdminCompilation/ManageMechanicNotes_Insert'
+  'AdminCompilation/ManageMechanicNotes_Form'
+  'AdminCompilation/ManageUsers_Form'
 #   'AdminCompilation/ManageBike'
 #   'AdminCompilation/ManageMechanicNotes_Form'
 #   'AdminCompilation/ManageUsers_Form'
