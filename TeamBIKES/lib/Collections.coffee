@@ -53,7 +53,7 @@ MechanicNotes.attachSchema new SimpleSchema(
 # TBD: Bikes to be redistributed?
 @RedistributionCollection = new Mongo.Collection 'redistributionCollection'
 @RandMechanicNames = new Mongo.Collection 'randMechanicNames'
-# @RFIDdata = new Mongo.Collection 'RFIDdata'
+@RFIDdata = new Mongo.Collection 'RFIDdata'
 
 # Used in user profile
 @BarChart = new (Meteor.Collection)('barchart')

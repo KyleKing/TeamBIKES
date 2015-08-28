@@ -93,14 +93,14 @@ Meteor.publish 'RedistributionCollectionPub', (group) ->
 
 # ###**********************###
 
-# # Used in user profile
-# Meteor.publish 'BarChartData', ->
-#   BarChart.find()
-# # Used on admin page:
-# Meteor.publish 'AdminBarChartData', ->
-#   AdminBarChart.find()
-# Meteor.publish 'AdminAreaChartData', ->
-#   AdminAreaChart.find()
+# Used in user profile
+Meteor.publish 'BarChartData', ->
+  BarChart.find()
+# Used on admin page:
+Meteor.publish 'AdminBarChartData', ->
+  AdminBarChart.find()
+Meteor.publish 'AdminAreaChartData', ->
+  AdminAreaChart.find()
 
 # ###**********************###
 
