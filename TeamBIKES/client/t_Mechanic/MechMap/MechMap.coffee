@@ -9,7 +9,7 @@ Template.MechMap.rendered = ->
 
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
-  window.MechMarkers = []
+  MechMarkers = []
   Session.set
     "selectedBike": false
     "available": true
@@ -19,7 +19,7 @@ Template.MechMap.rendered = ->
     added: (bike) ->
       latlng = bike.Coordinates
       BikeIcon = IconLogic(bike.Tag)
-      window.MechMarkers[bike._id] = L.marker(latlng,
+      MechMarkers[bike._id] = L.marker(latlng,
         title: bike.Bike
         opacity: 0.75
         icon: BikeIcon).on("click", (e) ->
@@ -27,9 +27,9 @@ Template.MechMap.rendered = ->
           if Session.get('selectedBike')
             last = Session.get 'selectedBike'
             lastBike = DailyBikeData.findOne({Bike: last, Day: today})
-            window.MechMarkers[lastBike._id].setIcon IconLogic(lastBike.Tag)
+            MechMarkers[lastBike._id].setIcon IconLogic(lastBike.Tag)
             # console.log lastBike._id
-            # console.log window.MechMarkers[lastBike._id]._icon.title
+            # console.log MechMarkers[lastBike._id]._icon.title
 
           # Highlight new bike
           @setIcon window.Selected
@@ -44,13 +44,13 @@ Template.MechMap.rendered = ->
     changed: (bike, oldBike) ->
       if oldBike.Tag == bike.Tag
         latlng = bike.Coordinates
-        window.MechMarkers[bike._id].setLatLng(latlng).update()
-        console.log window.MechMarkers[bike._id]._leaflet_id + ' changed on window.map on CHANGED event'
+        MechMarkers[bike._id].setLatLng(latlng).update()
+        console.log MechMarkers[bike._id]._leaflet_id + ' changed on window.map on CHANGED event'
       else if bike.Tag == Meteor.userId()
-        window.MechMarkers[bike._id].setIcon window.Reserved
+        MechMarkers[bike._id].setIcon window.Reserved
         console.log 'Changed to green icon color for # ' + bike.Bike
       else if bike.Tag == "Available"
-        window.MechMarkers[bike._id].setIcon window.Available
+        MechMarkers[bike._id].setIcon window.Available
         console.log 'Changed to gray icon color for # ' + bike.Bike
       else
         console.log "changed, but not with this logic"
@@ -65,10 +65,10 @@ Template.MechMap.rendered = ->
           # And alert user
           sAlert.error('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
-      window.map.removeLayer window.MechMarkers[oldBike._id]
-      console.log window.MechMarkers[oldBike._id]._leaflet_id + ' removed from window.map on REMOVED event and...'
+      window.map.removeLayer MechMarkers[oldBike._id]
+      console.log MechMarkers[oldBike._id]._leaflet_id + ' removed from window.map on REMOVED event and...'
       # Remove the reference to this marker instance
-      delete window.MechMarkers[oldBike._id]
+      delete MechMarkers[oldBike._id]
 
 
 # Provide context for user
