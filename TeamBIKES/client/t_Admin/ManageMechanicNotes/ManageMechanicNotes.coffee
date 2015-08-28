@@ -14,6 +14,7 @@ Template.ManageMechanicNotes.events
     FlowRouter.go('/AdminCompilation/ManageMechanicNotes_Insert/')
     $('.cd-panel').addClass 'is-visible'
     $('body').addClass 'noscroll'
+    console.log 'no scroll'
 
 # Template.ManageMechanicNotes.helpers
 #   # Return the id of selected row
