@@ -10,6 +10,7 @@
 @import 'Lib/agency.import.styl'
 @import 'Lib/pricing.import.styl'
 
+MobileNavHeight = 30px
 NavHeight = 70px
 
 .mapContainer
@@ -17,7 +18,9 @@ NavHeight = 70px
   // space for bottom bar
   bottom 40px
   // space for nav bar
-  top NavHeight
+  top MobileNavHeight
+  +above(750px)
+    top: NavHeight
   left 0
   right 0
   height auto
@@ -72,7 +75,7 @@ header
 // body
 //   padding-top NavHeight
 .navSpacing
-  padding-top 30px
+  padding-top MobileNavHeight
   +above(750px)
     padding-top: NavHeight
 // .AdminNavSpacing { padding-top: 50px }
