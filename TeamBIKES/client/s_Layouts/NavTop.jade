@@ -7,68 +7,68 @@ template(name='NavTop')
             span.icon-bar
             //- span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="{{pathFor 'about'}}") Red Bars
+          a.Aloo.navbar-brand(href="{{pathFor 'about'}}") Red Bars
         #main-nav.collapse.navbar-collapse
           if currentUser
             ul.nav.navbar-nav.navbar-right
               li.dropdown
-                a.dropdown-toggle(href='#' data-toggle='dropdown')
+                a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
                   i.fa.fa-user
                     |  {{ currentUser.profile.name }}
                   i.fa.fa-caret-down
                 ul.dropdown-menu(role='menu')
                   li(class="{{ isActiveRoute regex='Profile' }}")
-                    a(href="{{ pathFor 'Profile' }}")
+                    a.Aloo(href="{{ pathFor 'Profile' }}")
                       i.fa.fa-user
                         |  Profile
                   li
                     +atNavButton
-                    //- a(href="{{ pathFor 'signOut' }}")
+                    //- a.Aloo(href="{{ pathFor 'signOut' }}")
                     //-   i.fa.fa-lock
                     //-     |  Sign Out
           else
             ul.nav.navbar-nav.navbar-right.login-buttons
               +atNavButton
-              //- a.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
-              //- a.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
+              //- a.Aloo.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
+              //- a.Aloo.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
           //- Add space before nav item
           ul.nav.navbar-nav.navbar-right
             li(class="{{ isActiveRoute regex='about' }}")
-              a(href="{{ pathFor 'about' }}")
+              a.Aloo(href="{{ pathFor 'about' }}")
                 i.fa.fa-home
                   |  About
             li(class="{{ isActiveRoute regex='map' }}")
-              a(href="{{ pathFor 'map' }}")
+              a.Aloo(href="{{ pathFor 'map' }}")
                 i.fa.fa-map-marker
                   |  Map
             li(class="{{ isActiveRoute regex='mechanicView' }}")
-              a(href="{{ pathFor 'mechanicView' }}")
+              a.Aloo(href="{{ pathFor 'mechanicView' }}")
                 i.fa.fa-table
                   |  mechanicView
             li(class="{{ isActiveRoute regex='AdminCompilation' }}")
-              a(href="{{ pathFor 'AdminCompilation' }}")
+              a.Aloo(href="{{ pathFor 'AdminCompilation' }}")
                 i.fa.fa-table
                   |  AdminCompilation
             li.dropdown
-              a.dropdown-toggle(href='#' data-toggle='dropdown')
+              a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
                 //- i.fa.fa-ellipsis-h
                 i.fa.fa-lock
                   |  Dev
                 i.fa.fa-caret-down
               ul.dropdown-menu(role='menu')
                 li(class="{{ isActiveRoute regex='progress' }}")
-                  a(href="{{ pathFor 'progress' }}")
+                  a.Aloo(href="{{ pathFor 'progress' }}")
                     i.fa.fa-home
                       |  Progress
                 li(class="{{ isActiveRoute regex='chartsAdmin' }}")
-                  a(href="{{ pathFor 'chartsAdmin' }}")
+                  a.Aloo(href="{{ pathFor 'chartsAdmin' }}")
                     i.fa.fa-gear
                       |  chartsAdmin
                 li(class="{{ isActiveRoute regex='RFIDlayout' }}")
-                  a(href="{{ pathFor 'RFIDlayout' }}")
+                  a.Aloo(href="{{ pathFor 'RFIDlayout' }}")
                     i.fa.fa-table
                       |  RFIDlayout
                 li(class="{{ isActiveRoute regex='timeseries' }}")
-                  a(href="{{ pathFor 'timeseries' }}")
+                  a.Aloo(href="{{ pathFor 'timeseries' }}")
                     i.fa.fa-table
                       |  Potentiometer -- timeseries
