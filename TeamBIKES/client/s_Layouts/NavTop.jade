@@ -10,45 +10,60 @@ template(name='NavTop')
           a.Aloo.navbar-brand(href="{{pathFor 'about'}}") Red Bars
         #main-nav.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
-            li(class="{{ isActiveRoute regex='about' }}")
-              a.Aloo(href="{{ pathFor 'about' }}")
-                i.fa.fa-home
-                  |  About
-            li(class="{{ isActiveRoute regex='map' }}")
-              a.Aloo(href="{{ pathFor 'map' }}")
-                i.fa.fa-map-marker
-                  |  Map
-            li(class="{{ isActiveRoute regex='mechanicView' }}")
-              a.Aloo(href="{{ pathFor 'mechanicView' }}")
-                i.fa.fa-table
-                  |  mechanicView
-            li(class="{{ isActiveRoute regex='AdminCompilation' }}")
-              a.Aloo(href="{{ pathFor 'AdminCompilation' }}")
-                i.fa.fa-table
-                  |  AdminCompilation
-            li.dropdown
-              a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
-                i.fa.fa-ellipsis-h
-                  |  Dev
-                i.fa.fa-caret-down
-              ul.dropdown-menu(role='menu')
-                li(class="{{ isActiveRoute regex='progress' }}")
-                  a.Aloo(href="{{ pathFor 'progress' }}")
-                    i.fa.fa-home
-                      |  Progress
+            unless isInRole 'Employee'
+              li(class="{{ isActiveRoute regex='about' }}")
+                a.Aloo(href="{{ pathFor 'about' }}")
+                  i.fa.fa-home
+                    |  About
+              li(class="{{ isActiveRoute regex='map' }}")
+                a.Aloo(href="{{ pathFor 'map' }}")
+                  i.fa.fa-map-marker
+                    |  Map
+            if currentUser
+              if isInRole 'Mechanic'
+                li(class="{{ isActiveRoute regex='MechMap' }}")
+                  a.Aloo(href="{{ pathFor 'MechMap' }}")
+                    i.fa.fa-map-marker
+                      |  MechMap
+              if  isInRole 'Admin'
+                li(class="{{ isActiveRoute regex='MechMap' }}")
+                  a.Aloo(href="{{ pathFor 'MechMap' }}")
+                    i.fa.fa-map-marker
+                      |  Mechanic Map
+                li(class="{{ isActiveRoute regex='AdminCompilation' }}")
+                  a.Aloo(href="{{ pathFor 'AdminCompilation' }}")
+                    i.fa.fa-table
+                      |  All Admin Data
                 li(class="{{ isActiveRoute regex='chartsAdmin' }}")
                   a.Aloo(href="{{ pathFor 'chartsAdmin' }}")
                     i.fa.fa-gear
-                      |  chartsAdmin
-                li(class="{{ isActiveRoute regex='RFIDlayout' }}")
-                  a.Aloo(href="{{ pathFor 'RFIDlayout' }}")
-                    i.fa.fa-table
-                      |  RFIDlayout
-                li(class="{{ isActiveRoute regex='timeseries' }}")
-                  a.Aloo(href="{{ pathFor 'timeseries' }}")
-                    i.fa.fa-table
-                      |  Potentiometer -- timeseries
-            if currentUser
+                      |  Example Charts
+              //- li.dropdown
+              //-   a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
+              //-     i.fa.fa-ellipsis-h
+              //-       |  Dev
+              //-     i.fa.fa-caret-down
+              //-   ul.dropdown-menu(role='menu')
+                  //- li(class="{{ isActiveRoute regex='about_Ideas' }}")
+                  //-   a.Aloo(href="{{ pathFor 'about_Ideas' }}")
+                  //-     i.fa.fa-home
+                  //-       |  about_Ideas
+                  //- li(class="{{ isActiveRoute regex='progress' }}")
+                  //-   a.Aloo(href="{{ pathFor 'progress' }}")
+                  //-     i.fa.fa-home
+                  //-       |  Progress
+                  //- li(class="{{ isActiveRoute regex='mechanicView' }}")
+                  //-   a.Aloo(href="{{ pathFor 'mechanicView' }}")
+                  //-     i.fa.fa-table
+                  //-       |  mechanicView
+                  //- li(class="{{ isActiveRoute regex='RFIDlayout' }}")
+                  //-   a.Aloo(href="{{ pathFor 'RFIDlayout' }}")
+                  //-     i.fa.fa-table
+                  //-       |  RFIDlayout
+                  //- li(class="{{ isActiveRoute regex='timeseries' }}")
+                  //-   a.Aloo(href="{{ pathFor 'timeseries' }}")
+                  //-     i.fa.fa-table
+                  //-       |  Potentiometer -- timeseries
               li.dropdown
                 a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
                   //- i.fa.fa-lock

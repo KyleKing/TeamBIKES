@@ -62,8 +62,10 @@ reywood:publish-composite
 
 #### Authentication ####
 accounts-password
+# accounts:password
 alanning:roles
-useraccounts:unstyled
+# useraccounts:unstyled
+useraccounts:bootstrap
 useraccounts:flow-routing
 
 

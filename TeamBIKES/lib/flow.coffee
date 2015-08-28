@@ -28,6 +28,10 @@ FlowRouter.route '/map',
   name: 'map',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'map'
+FlowRouter.route '/MechMap',
+  name: 'MechMap',
+  action: ->
+    BlazeLayout.render 'UniversalLayout', body: 'MechMap'
 
 
 ### Administrator ###

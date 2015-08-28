@@ -231,23 +231,23 @@ if Meteor.users.find({}).count() == 0
     {
       FullName: 'Mechanic'
       Email: 'mechanic@example.com'
-      Roles: ['Mechanic']
+      Roles: ['Mechanic', 'Employee']
     }
     {
       FullName: 'Redistribution'
       Email: 'redistribution@example.com'
-      Roles: ['Redistribution']
+      Roles: ['Redistribution', 'Employee']
     }
     {
       FullName: 'Admin'
       Email: 'admin@example.com'
       Roles: ['Admin']
     }
-    {
-      FullName: 'Root'
-      Email: 'root@example.com'
-      Roles: ['Root']
-    }
+    # {
+    #   FullName: 'Root'
+    #   Email: 'root@example.com'
+    #   Roles: ['Root']
+    # }
   ]
 
   # Populate Accounts db
