@@ -110,9 +110,15 @@ Meteor.users.attachSchema new SimpleSchema(
   'emails.$.verified': type: Boolean
   'profile.name':
     type: String
+  # # Always use Roles.addUsersToRoles(userId, ["admin"], Roles.GLOBAL_GROUP);
+  # roles:
+  #   type: Object
+  #   optional: true
+  #   blackbox: true)
   roles:
     type: [ String ]
     optional: true)
+
 
 # # All the options from the core documentation at:
 # # https://github.com/aldeed/meteor-collection2#attach-a-schema-to-meteorusers
