@@ -7,6 +7,9 @@ template(name='UniversalLayout')
 		.container
 			+momentum(plugin='flow-router')
 				+Template.dynamic template=body
+	main.cd-main-content
+		+momentum(plugin='flow-router')
+			+Template.dynamic template=full
 
 	//- Cody house panels -> left was moved to its own template
 	//- .cd-panel.from-left
