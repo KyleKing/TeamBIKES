@@ -9,29 +9,6 @@ template(name='NavTop')
             span.icon-bar
           a.Aloo.navbar-brand(href="{{pathFor 'about'}}") Red Bars
         #main-nav.collapse.navbar-collapse
-          if currentUser
-            ul.nav.navbar-nav.navbar-right
-              li.dropdown
-                a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
-                  i.fa.fa-user
-                    |  {{ currentUser.profile.name }}
-                  i.fa.fa-caret-down
-                ul.dropdown-menu(role='menu')
-                  li(class="{{ isActiveRoute regex='Profile' }}")
-                    a.Aloo(href="{{ pathFor 'Profile' }}")
-                      i.fa.fa-user
-                        |  Profile
-                  li
-                    +atNavButton
-                    //- a.Aloo(href="{{ pathFor 'signOut' }}")
-                    //-   i.fa.fa-lock
-                    //-     |  Sign Out
-          else
-            ul.nav.navbar-nav.navbar-right.login-buttons
-              +atNavButton
-              //- a.Aloo.btn.btn-default.navbar-btn(href="{{ pathFor 'atSignIn' }}") Sign in
-              //- a.Aloo.btn.btn-primary.navbar-btn(href="{{ pathFor 'atSignUp' }}") Register
-          //- Add space before nav item
           ul.nav.navbar-nav.navbar-right
             li(class="{{ isActiveRoute regex='about' }}")
               a.Aloo(href="{{ pathFor 'about' }}")
@@ -51,8 +28,7 @@ template(name='NavTop')
                   |  AdminCompilation
             li.dropdown
               a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
-                //- i.fa.fa-ellipsis-h
-                i.fa.fa-lock
+                i.fa.fa-ellipsis-h
                   |  Dev
                 i.fa.fa-caret-down
               ul.dropdown-menu(role='menu')
@@ -72,3 +48,20 @@ template(name='NavTop')
                   a.Aloo(href="{{ pathFor 'timeseries' }}")
                     i.fa.fa-table
                       |  Potentiometer -- timeseries
+            if currentUser
+              li.dropdown
+                a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
+                  //- i.fa.fa-lock
+                  i.fa.fa-user
+                    |  {{ currentUser.profile.name }}
+                  i.fa.fa-caret-down
+                ul.dropdown-menu(role='menu')
+                  li(class="{{ isActiveRoute regex='Profile' }}")
+                    a.Aloo(href="{{ pathFor 'Profile' }}")
+                      i.fa.fa-user
+                        |  Profile
+                  li
+                    +atNavButton
+            else
+              li
+                +atNavButton

@@ -174,7 +174,7 @@ fieldset[disabled] .btn-xl.active
       & > a
         border-radius 0
         color #fff
-        background-color accent-color
+        background-color accent-color !important
   ul.dropdown-menu
     // background-color #222
     a
@@ -202,9 +202,10 @@ fieldset[disabled] .btn-xl.active
   color #fff
   background-color accent-color-2
 
-// ul.dropdown-menu li
-//   background-color accent-color
-//   color #fff
+// Fixed highlighting of navbar elements
+ul.dropdown-menu > li.active > a
+  background-color accent-color
+  color #fff
 
 @media(min-width:768px) {
     .navbar-default {
