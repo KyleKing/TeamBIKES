@@ -88,7 +88,8 @@ Template.map.events
     # Get selected bike, remove current icon, and update selected bike logic
     if Session.get 'selectedBike'
       Bike = Session.get 'selectedBike'
-      coords = DailyBikeData.findOne({Bike: Bike}).Coordinates
+      [today, now] = CurrentDay()
+      coords = DailyBikeData.findOne({Bike: Bike, Day: today}).Coordinates
       console.log coords
       window.map.panTo coords, 18
       Session.set "available": false
@@ -106,44 +107,66 @@ Template.map.events
         sAlert.warning('You must sign in to reserve a bike')
     else
       sAlert.error('Error: Choose a bike to reserve')
+
   'click #ClosestBikes': (e) ->
-    center = window.map.getCenter()
-    [today, now] = CurrentDay()
-    closest = DailyBikeData.find(
-      Day: today
-      Tag: {$in: ['Available', Meteor.userId()]}
-      Coordinates:
-        $near: center
-      ).fetch()
+    Session.set "AlooPolylineComplete": false
+    onLocationFound = (pos) ->
+      console.log 'Location FOUND!'
+      if !Session.get "AlooPolylineComplete"
+        radius = pos.accuracy / 2
+        # console.log pos
+        # console.log pos.latlng
+        # L.marker(pos.latlng).addTo(map).bindPopup('You are within ' + radius + ' meters from this point').openPopup()
+        # L.circle(pos.latlng, radius).addTo map
+        center = pos.latlng
+        console.log center
 
-    console.log closest
+        [today, now] = CurrentDay()
+        closest = DailyBikeData.find(
+          Day: today
+          Tag: {$in: ['Available', Meteor.userId()]}
+          Coordinates:
+            $near: center
+          ).fetch()
 
-    polygon = L.polyline([
-      center
-      closest[0].Coordinates
-    ], {
-      color: 'blue'
-      opacity: 1
-      title: 'Closest'
-    }).addTo(window.map)
+        console.log closest
 
-    polygon = L.polyline([
-      center
-      closest[1].Coordinates
-    ], {
-      color: 'blue'
-      opacity: 0.4
-      title: 'Closest'
-    }).addTo(window.map)
+        polygon = L.polyline([
+          center
+          closest[0].Coordinates
+        ], {
+          color: 'blue'
+          opacity: 1
+          title: 'Closest'
+        }).addTo(window.map)
 
-    polygon = L.polyline([
-      center
-      closest[2].Coordinates
-    ], {
-      color: 'blue'
-      opacity: 0.2
-      title: 'Closest'
-    }).addTo(window.map)
+        polygon = L.polyline([
+          center
+          closest[1].Coordinates
+        ], {
+          color: 'blue'
+          opacity: 0.4
+          title: 'Closest'
+        }).addTo(window.map)
+
+        polygon = L.polyline([
+          center
+          closest[2].Coordinates
+        ], {
+          color: 'blue'
+          opacity: 0.2
+          title: 'Closest'
+        }).addTo(window.map)
+        Session.set "AlooPolylineComplete": true
+
+    map.on 'locationfound', onLocationFound
+    map.locate {setView: true, maxZoom: 18}
+    console.log 'Pressed the button!'
+
+
+    # center = window.map.getCenter()
+    # console.log 'Get changes'
+    # console.log center
 
 
     # then change view to only show revered bike and timer
