@@ -1,7 +1,8 @@
 # Server/Publications.coffee
 
 # Give authorized users access to sensitive data by group
-Meteor.publish 'DailyBikeDataPub', (group) ->
+# Meteor.publish 'DailyBikeDataPub', (group) ->
+Meteor.publish 'DailyBikeDataPub', () ->
   # if Roles.userIsInRole(@userId, ['Admin', 'Root', 'Mechanic'], group)
   #   DailyBikeData.find()
   # else
@@ -181,3 +182,33 @@ Meteor.publish 'RedistributionCollectionPub', (group) ->
 # # Map data
 # Meteor.publish 'currentData', ->
 #   Current.find()
+
+
+
+# # server/publish.js
+# # Give authorized users access to sensitive data by group
+# Meteor.publish 'secrets', (group) ->
+#   if Roles.userIsInRole(@userId, [ 'admin' ], group)
+#     Meteor.secrets.find group: group
+#   else
+#     # user not authorized. do not publish secrets
+#     @stop()
+
+# Accounts.validateNewUser (user) ->
+#   loggedInUser = Meteor.user()
+#   if Roles.userIsInRole(loggedInUser, [
+#       'admin'
+#       'manage-users'
+#     ])
+#     return true
+#   throw new (Meteor.Error)(403, 'Not authorized to create new users')
+
+# # server/userMethods.js
+# Meteor.methods updateRoles: (targetUserId, roles, group) ->
+#   loggedInUser = Meteor.user()
+#   if !loggedInUser or !Roles.userIsInRole(loggedInUser, [
+#       'manage-users'
+#       'support-staff'
+#     ], group)
+#     throw new (Meteor.Error)(403, 'Access denied')
+#   Roles.setUserRoles targetUserId, roles, group

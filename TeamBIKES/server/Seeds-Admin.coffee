@@ -224,7 +224,7 @@ if Meteor.users.find({}).count() == 0
   # local variable with sample user profiles
   users = [
     {
-      FullName: 'Kyle'
+      FullName: 'Normal'
       Email: 'normal@example.com'
       Roles: []
     }
@@ -237,11 +237,6 @@ if Meteor.users.find({}).count() == 0
       FullName: 'Redistribution'
       Email: 'redistribution@example.com'
       Roles: ['Redistribution']
-    }
-    {
-      FullName: 'Num1Employee'
-      Email: 'Num1Employee@example.com'
-      Roles: ['Mechanic', 'Redistribution']
     }
     {
       FullName: 'Admin'
@@ -266,7 +261,9 @@ if Meteor.users.find({}).count() == 0
       # Need _id of existing user record so this call must come
       # after `Accounts.createUser` or `Accounts.onCreate`
       Roles.addUsersToRoles id, user.Roles
-    return
+      # Roles.addUsersToRoles id, user.Roles, 'Professional'
+      # Roles.GLOBAL_GROUP
+  console.log 'Created basic set of users with roles!'
 
 
 
@@ -291,68 +288,3 @@ if DailyBikeData.find({Day: today}).count() != 0
           Lat: BikeDatum.Positions[1].Lat
           Lng: BikeDatum.Positions[1].Lng
     console.log 'Created RedistributionCollection data schema'
-
-
-# See roles
-if Meteor.users.find({}).count() == 0
-  users = [
-    {
-      name: 'Normal User'
-      email: 'normal@example.com'
-      roles: []
-    }
-    {
-      name: 'Mechanic'
-      email: 'mechanic@example.com'
-      roles: [ 'mechanic' ]
-    }
-    {
-      name: 'Manage-Users User'
-      email: 'manage@example.com'
-      roles: [ 'SOMETHING' ]
-    }
-    {
-      name: 'Admin'
-      email: 'admin@example.com'
-      roles: [ 'admin' ]
-    }
-  ]
-  _.each users, (user) ->
-    id = undefined
-    id = Accounts.createUser(
-      email: user.email
-      password: 'password'
-      profile: name: user.name)
-    if user.roles.length > 0
-      # Need _id of existing user record so this call must come
-      # after `Accounts.createUser` or `Accounts.onCreate`
-      Roles.addUsersToRoles id, user.roles
-
-
-# server/publish.js
-# Give authorized users access to sensitive data by group
-Meteor.publish 'secrets', (group) ->
-  if Roles.userIsInRole(@userId, [ 'admin' ], group)
-    Meteor.secrets.find group: group
-  else
-    # user not authorized. do not publish secrets
-    @stop()
-
-Accounts.validateNewUser (user) ->
-  loggedInUser = Meteor.user()
-  if Roles.userIsInRole(loggedInUser, [
-      'admin'
-      'manage-users'
-    ])
-    return true
-  throw new (Meteor.Error)(403, 'Not authorized to create new users')
-
-# server/userMethods.js
-Meteor.methods updateRoles: (targetUserId, roles, group) ->
-  loggedInUser = Meteor.user()
-  if !loggedInUser or !Roles.userIsInRole(loggedInUser, [
-      'manage-users'
-      'support-staff'
-    ], group)
-    throw new (Meteor.Error)(403, 'Access denied')
-  Roles.setUserRoles targetUserId, roles, group
