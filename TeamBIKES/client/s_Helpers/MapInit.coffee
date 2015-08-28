@@ -32,6 +32,10 @@
     if LocateUser
       # Start automatically
       LocateControl.start()
+      map.on 'locationfound', (self) ->
+        console.log self
+        console.log {lat: self.latitude, lng: self.longitude}
+        Session.set "UserLocation": {lat: self.latitude, lng: self.longitude}
       window.map.on 'dragstart', LocateControl._stopFollowing, LocateControl
     else
       # Quickly load map

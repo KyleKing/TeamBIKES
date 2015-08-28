@@ -109,59 +109,104 @@ Template.map.events
       sAlert.error('Error: Choose a bike to reserve')
 
   'click #ClosestBikes': (e) ->
-    Session.set "AlooPolylineComplete": false
-    onLocationFound = (pos) ->
-      console.log 'Location FOUND!'
-      if !Session.get "AlooPolylineComplete"
-        radius = pos.accuracy / 2
-        # console.log pos
-        # console.log pos.latlng
-        # L.marker(pos.latlng).addTo(map).bindPopup('You are within ' + radius + ' meters from this point').openPopup()
-        # L.circle(pos.latlng, radius).addTo map
-        center = pos.latlng
-        console.log center
+    console.log Session.get "UserLocation"
+    if isUndefined Session.get "UserLocation"
+      console.log 'Undefined...'
+    else
+      center = Session.get "UserLocation"
+      console.log center
 
-        [today, now] = CurrentDay()
-        closest = DailyBikeData.find(
-          Day: today
-          Tag: {$in: ['Available', Meteor.userId()]}
-          Coordinates:
-            $near: center
-          ).fetch()
+      [today, now] = CurrentDay()
+      closest = DailyBikeData.find(
+        Day: today
+        Tag: {$in: ['Available', Meteor.userId()]}
+        Coordinates:
+          $near: center
+        ).fetch()
 
-        console.log closest
+      console.log closest
 
-        polygon = L.polyline([
-          center
-          closest[0].Coordinates
-        ], {
-          color: 'blue'
-          opacity: 1
-          title: 'Closest'
-        }).addTo(window.map)
+      polygon = L.polyline([
+        center
+        closest[0].Coordinates
+      ], {
+        color: 'blue'
+        opacity: 1
+        title: 'Closest'
+      }).addTo(window.map)
 
-        polygon = L.polyline([
-          center
-          closest[1].Coordinates
-        ], {
-          color: 'blue'
-          opacity: 0.4
-          title: 'Closest'
-        }).addTo(window.map)
+      polygon = L.polyline([
+        center
+        closest[1].Coordinates
+      ], {
+        color: 'blue'
+        opacity: 0.4
+        title: 'Closest'
+      }).addTo(window.map)
 
-        polygon = L.polyline([
-          center
-          closest[2].Coordinates
-        ], {
-          color: 'blue'
-          opacity: 0.2
-          title: 'Closest'
-        }).addTo(window.map)
-        Session.set "AlooPolylineComplete": true
+      polygon = L.polyline([
+        center
+        closest[2].Coordinates
+      ], {
+        color: 'blue'
+        opacity: 0.2
+        title: 'Closest'
+      }).addTo(window.map)
+      Session.set "AlooPolylineComplete": true
 
-    map.on 'locationfound', onLocationFound
-    map.locate {setView: true, maxZoom: 18}
-    console.log 'Pressed the button!'
+    # Session.set "AlooPolylineComplete": false
+    # onLocationFound = (pos) ->
+    #   console.log 'Location FOUND!'
+    #   if !Session.get "AlooPolylineComplete"
+    #     radius = pos.accuracy / 2
+    #     # console.log pos
+    #     # console.log pos.latlng
+    #     # L.marker(pos.latlng).addTo(map).bindPopup('You are within ' + radius + ' meters from this point').openPopup()
+    #     # L.circle(pos.latlng, radius).addTo map
+    #     center = pos.latlng
+    #     console.log center
+
+    #     [today, now] = CurrentDay()
+    #     closest = DailyBikeData.find(
+    #       Day: today
+    #       Tag: {$in: ['Available', Meteor.userId()]}
+    #       Coordinates:
+    #         $near: center
+    #       ).fetch()
+
+    #     console.log closest
+
+    #     polygon = L.polyline([
+    #       center
+    #       closest[0].Coordinates
+    #     ], {
+    #       color: 'blue'
+    #       opacity: 1
+    #       title: 'Closest'
+    #     }).addTo(window.map)
+
+    #     polygon = L.polyline([
+    #       center
+    #       closest[1].Coordinates
+    #     ], {
+    #       color: 'blue'
+    #       opacity: 0.4
+    #       title: 'Closest'
+    #     }).addTo(window.map)
+
+    #     polygon = L.polyline([
+    #       center
+    #       closest[2].Coordinates
+    #     ], {
+    #       color: 'blue'
+    #       opacity: 0.2
+    #       title: 'Closest'
+    #     }).addTo(window.map)
+    #     Session.set "AlooPolylineComplete": true
+
+    # map.on 'locationfound', onLocationFound
+    # map.locate {setView: true, maxZoom: 18}
+    # console.log 'Pressed the button!'
 
 
     # center = window.map.getCenter()
