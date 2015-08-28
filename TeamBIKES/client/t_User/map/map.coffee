@@ -109,50 +109,64 @@ Template.map.events
       sAlert.error('Error: Choose a bike to reserve')
 
   'click #ClosestBikes': (e) ->
-    console.log Session.get "UserLocation"
+    # console.log Session.get "UserLocation"
+
+    # Remove old polylines
+    if !isUndefined window.LineToNearestBike
+      console.log window.LineToNearestBike
+
+      _.each window.LineToNearestBike, (Line) ->
+        window.map.removeLayer Line
+        console.log Line._leaflet_id + ' removed from window.map on REMOVED event and...'
+        # # Remove the reference to this marker instance
+        # delete Line
+    # else
+    #   console.log 'window.LineToNearestBike is undefined'
+
     if isUndefined Session.get "UserLocation"
-      console.log 'Undefined...'
+      sAlert.warning('Your GPS location could not be found, using map center instead')
+      center = window.map.getCenter()
     else
       center = Session.get "UserLocation"
-      console.log center
 
-      [today, now] = CurrentDay()
-      closest = DailyBikeData.find(
-        Day: today
-        Tag: {$in: ['Available', Meteor.userId()]}
-        Coordinates:
-          $near: center
-        ).fetch()
+    [today, now] = CurrentDay()
+    closest = DailyBikeData.find(
+      Day: today
+      Tag: {$in: ['Available', Meteor.userId()]}
+      Coordinates:
+        $near: center
+      ).fetch()
 
-      console.log closest
+    console.log closest
 
-      polygon = L.polyline([
-        center
-        closest[0].Coordinates
-      ], {
-        color: 'blue'
-        opacity: 1
-        title: 'Closest'
-      }).addTo(window.map)
+    window.LineToNearestBike = []
 
-      polygon = L.polyline([
-        center
-        closest[1].Coordinates
-      ], {
-        color: 'blue'
-        opacity: 0.4
-        title: 'Closest'
-      }).addTo(window.map)
+    window.LineToNearestBike[0] = L.polyline([
+      center
+      closest[0].Coordinates
+    ], {
+      color: 'blue'
+      opacity: 1
+      title: 'Closest'
+    }).addTo(window.map)
 
-      polygon = L.polyline([
-        center
-        closest[2].Coordinates
-      ], {
-        color: 'blue'
-        opacity: 0.2
-        title: 'Closest'
-      }).addTo(window.map)
-      Session.set "AlooPolylineComplete": true
+    window.LineToNearestBike[1] = L.polyline([
+      center
+      closest[1].Coordinates
+    ], {
+      color: 'blue'
+      opacity: 0.4
+      title: 'Closest'
+    }).addTo(window.map)
+
+    window.LineToNearestBike[2] = L.polyline([
+      center
+      closest[2].Coordinates
+    ], {
+      color: 'blue'
+      opacity: 0.2
+      title: 'Closest'
+    }).addTo(window.map)
 
     # Session.set "AlooPolylineComplete": false
     # onLocationFound = (pos) ->
