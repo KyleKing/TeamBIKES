@@ -10,7 +10,7 @@ Template.map.rendered = ->
 
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
-  markers = []
+  window.MapMarkers = []
   Session.set
     "selectedBike": false
     "available": true
@@ -19,23 +19,18 @@ Template.map.rendered = ->
   DailyBikeData.find({ Day: today, Tag: {$in: ['Available', Meteor.userId()] }}).observe
     added: (bike) ->
       latlng = bike.Coordinates
-      if bike.Tag == 'Available'
-        BikeIcon = window.Available
-      else
-        BikeIcon = window.Reserved
-        console.log 'bike.Tag = ' + bike.Tag
-        console.log 'bike.Bike = ' + bike.Bike
-      markers[bike._id] = L.marker(latlng,
+      BikeIcon = IconLogic(bike.Tag)
+      window.MapMarkers[bike._id] = L.marker(latlng,
         title: bike.Bike
         opacity: 0.75
         icon: BikeIcon).on("click", (e) ->
           # Remove previously selected bike
           if Session.get('selectedBike')
             last = Session.get 'selectedBike'
-            lastBike = DailyBikeData.findOne({Bike: last})
-            markers[lastBike._id].setIcon IconLogic(lastBike.Tag)
+            lastBike = DailyBikeData.findOne({Bike: last, Day: today})
+            window.MapMarkers[lastBike._id].setIcon IconLogic(lastBike.Tag)
             # console.log lastBike._id
-            # console.log markers[lastBike._id]._icon.title
+            # console.log window.MapMarkers[lastBike._id]._icon.title
 
           # Highlight new bike
           @setIcon window.Selected
@@ -50,13 +45,13 @@ Template.map.rendered = ->
     changed: (bike, oldBike) ->
       if oldBike.Tag == bike.Tag
         latlng = bike.Coordinates
-        markers[bike._id].setLatLng(latlng).update()
-        console.log markers[bike._id]._leaflet_id + ' changed on window.map on CHANGED event'
+        window.MapMarkers[bike._id].setLatLng(latlng).update()
+        console.log window.MapMarkers[bike._id]._leaflet_id + ' changed on window.map on CHANGED event'
       else if bike.Tag == Meteor.userId()
-        markers[bike._id].setIcon window.Reserved
+        window.MapMarkers[bike._id].setIcon window.Reserved
         console.log 'Changed to green icon color for # ' + bike.Bike
       else if bike.Tag == "Available"
-        markers[bike._id].setIcon window.Available
+        window.MapMarkers[bike._id].setIcon window.Available
         console.log 'Changed to gray icon color for # ' + bike.Bike
       else
         console.log "changed, but not with this logic"
@@ -71,10 +66,10 @@ Template.map.rendered = ->
           # And alert user
           sAlert.error('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
-      window.map.removeLayer markers[oldBike._id]
-      console.log markers[oldBike._id]._leaflet_id + ' removed from window.map on REMOVED event and...'
+      window.map.removeLayer window.MapMarkers[oldBike._id]
+      console.log window.MapMarkers[oldBike._id]._leaflet_id + ' removed from window.map on REMOVED event and...'
       # Remove the reference to this marker instance
-      delete markers[oldBike._id]
+      delete window.MapMarkers[oldBike._id]
 
 
 # Provide context for user
