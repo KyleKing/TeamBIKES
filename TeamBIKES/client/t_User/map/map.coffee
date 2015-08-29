@@ -8,6 +8,40 @@ Template.map.rendered = ->
   # MapInit('BikeMap', false, true, coords)
   MapInit('BikeMap', true, true, coords, true)
 
+
+  LeafletReserveButton = L.easyButton(states: [
+    {
+      stateName: 'Reserve'
+      icon: 'fa-shopping-cart'
+      onClick: (control) ->
+        # Get selected bike, remove current icon, and update selected bike logic
+        if Session.get 'selectedBike'
+          Bike = Session.get 'selectedBike'
+          [today, now] = CurrentDay()
+          coords = DailyBikeData.findOne({Bike: Bike, Day: today}).Coordinates
+          console.log coords
+          window.map.panTo coords, 18
+          Session.set "available": false
+          if Meteor.userId()
+            Meteor.call 'UserReserveBike', Meteor.userId(), Bike, (error, result) ->
+              if error
+                console.log error.reason
+              else
+                sAlert.success('Bike #' + Bike + ' successfully reserved!')
+                if result == 1
+                  sAlert.warning(result + ' previously reserved bike was re-listed as Available')
+                else if result != 0
+                  sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
+          else
+            sAlert.warning('You must sign in to reserve a bike')
+        else
+          sAlert.error('Error: Choose a bike to reserve')
+        return
+      title: 'Reserve selected bike'
+    }
+  ])
+  LeafletReserveButton.addTo window.map
+
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   MapMarkers = []
