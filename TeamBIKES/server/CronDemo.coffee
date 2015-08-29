@@ -16,11 +16,8 @@ Meteor.startup ->
 	  name: 'Update DB'
 	  schedule: (parser) ->
 	    # parser is a later.parse object
-	    # parser.text 'at 2:01 am'
-	    parser.text 'at 7:10 pm'
+	    parser.text 'at 2:01 am'
 	  job: ->
-	    numbersCrunched = 12
-	    console.log numbersCrunched
-	    numbersCrunched
+	    PopulateDailyBikeData()
   SyncedCron.start()
   return
