@@ -66,8 +66,8 @@ Template.map.rendered = ->
           # And alert user
           sAlert.error('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
-      window.map.removeLayer MapMarkers[oldBike._id]
       console.log MapMarkers[oldBike._id]._leaflet_id + ' removed from window.map on REMOVED event and...'
+      window.map.removeLayer MapMarkers[oldBike._id]
       # Remove the reference to this marker instance
       delete MapMarkers[oldBike._id]
 
@@ -114,12 +114,14 @@ Template.map.events
     # Remove old polylines
     if !isUndefined window.LineToNearestBike
       console.log window.LineToNearestBike
-
-      _.each window.LineToNearestBike, (Line) ->
-        window.map.removeLayer Line
-        console.log Line._leaflet_id + ' removed from window.map on REMOVED event and...'
+      # console.log window.LineToNearestBike.length
+      Num = 0
+      while Num < window.LineToNearestBike.length
+        console.log window.LineToNearestBike[Num]._leaflet_id + ' removed from window.map on REMOVED event and...'
+        window.map.removeLayer window.LineToNearestBike[Num]
         # # Remove the reference to this marker instance
-        # delete Line
+        delete window.LineToNearestBike[Num]
+        Num++
     # else
     #   console.log 'window.LineToNearestBike is undefined'
 
@@ -137,95 +139,19 @@ Template.map.events
         $near: center
       ).fetch()
 
+    # Init Vars
     console.log closest
-
     window.LineToNearestBike = []
-
-    window.LineToNearestBike[0] = L.polyline([
-      center
-      closest[0].Coordinates
-    ], {
-      color: 'blue'
-      opacity: 1
-      title: 'Closest'
-    }).addTo(window.map)
-
-    window.LineToNearestBike[1] = L.polyline([
-      center
-      closest[1].Coordinates
-    ], {
-      color: 'blue'
-      opacity: 0.4
-      title: 'Closest'
-    }).addTo(window.map)
-
-    window.LineToNearestBike[2] = L.polyline([
-      center
-      closest[2].Coordinates
-    ], {
-      color: 'blue'
-      opacity: 0.2
-      title: 'Closest'
-    }).addTo(window.map)
-
-    # Session.set "AlooPolylineComplete": false
-    # onLocationFound = (pos) ->
-    #   console.log 'Location FOUND!'
-    #   if !Session.get "AlooPolylineComplete"
-    #     radius = pos.accuracy / 2
-    #     # console.log pos
-    #     # console.log pos.latlng
-    #     # L.marker(pos.latlng).addTo(map).bindPopup('You are within ' + radius + ' meters from this point').openPopup()
-    #     # L.circle(pos.latlng, radius).addTo map
-    #     center = pos.latlng
-    #     console.log center
-
-    #     [today, now] = CurrentDay()
-    #     closest = DailyBikeData.find(
-    #       Day: today
-    #       Tag: {$in: ['Available', Meteor.userId()]}
-    #       Coordinates:
-    #         $near: center
-    #       ).fetch()
-
-    #     console.log closest
-
-    #     polygon = L.polyline([
-    #       center
-    #       closest[0].Coordinates
-    #     ], {
-    #       color: 'blue'
-    #       opacity: 1
-    #       title: 'Closest'
-    #     }).addTo(window.map)
-
-    #     polygon = L.polyline([
-    #       center
-    #       closest[1].Coordinates
-    #     ], {
-    #       color: 'blue'
-    #       opacity: 0.4
-    #       title: 'Closest'
-    #     }).addTo(window.map)
-
-    #     polygon = L.polyline([
-    #       center
-    #       closest[2].Coordinates
-    #     ], {
-    #       color: 'blue'
-    #       opacity: 0.2
-    #       title: 'Closest'
-    #     }).addTo(window.map)
-    #     Session.set "AlooPolylineComplete": true
-
-    # map.on 'locationfound', onLocationFound
-    # map.locate {setView: true, maxZoom: 18}
-    # console.log 'Pressed the button!'
-
-
-    # center = window.map.getCenter()
-    # console.log 'Get changes'
-    # console.log center
+    Num = 0
+    while Num < 4
+      window.LineToNearestBike[Num] = L.polyline([
+        center
+        closest[Num].Coordinates
+      ], {
+        color: 'blue'
+        opacity: 1/(Num+1)
+      }).addTo(window.map)
+      Num++
 
 
     # then change view to only show revered bike and timer
