@@ -34,12 +34,45 @@
       LocateControl.start()
       map.on 'locationfound', (self) ->
         # console.log self
-        Session.set "ShowClosestBikes": ShowClosestBikes
         Session.set "UserLocation": {lat: self.latitude, lng: self.longitude}
       window.map.on 'dragstart', LocateControl._stopFollowing, LocateControl
     else
       # Quickly load map
       window.map.setView Center, 16
+
+    # Add toggle button if requested
+    if ShowClosestBikes
+      # HtmlStar = L.easyButton states: [ {
+      #   icon: '<span class="star">&starf;</span>'
+      #   onClick: ->
+      #     alert 'you just clicked the html entity &starf;'
+      #     return
+      # }]
+      # HtmlStar.addTo window.map
+
+      ShowClosestBikesToggle = L.easyButton(states: [
+        {
+          stateName: 'adding-markers'
+          icon: 'fa-compass'
+          onClick: (control) ->
+            Session.set "ShowClosestBikes": true
+            console.log 'set ShowClosestBikes true'
+            control.state 'removing-markers'
+            return
+          title: 'add random markers'
+        }
+        {
+          stateName: 'removing-markers'
+          icon: 'fa-undo'
+          onClick: (control) ->
+            Session.set "ShowClosestBikes": false
+            console.log 'set ShowClosestBikes false'
+            control.state 'adding-markers'
+            return
+          title: 'remove markers'
+        }
+      ])
+      ShowClosestBikesToggle.addTo window.map
 
     # Active area of bike map
     # Manually drawn from: http://www.latlong.net/
