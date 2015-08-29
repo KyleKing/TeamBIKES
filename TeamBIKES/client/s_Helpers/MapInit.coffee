@@ -12,7 +12,13 @@
   if MapName != false
     # Create the Leaflet Map
     L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images'
-    window.map = new (L.Map)( MapName, center: Center )
+    window.map = new (L.Map)( MapName, {
+      center: Center
+      fullscreenControl: true
+      fullscreenControlOptions: {
+        position: 'topleft'
+      }
+    })
     L.tileLayer.provider('OpenStreetMap.Mapnik').addTo window.map
     window.map.spin false
 

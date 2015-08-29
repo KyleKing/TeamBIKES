@@ -25,6 +25,17 @@ NavHeight = 70px
   right 0
   height auto
 
+.mapContainerFull
+  position fixed
+  bottom 0
+  left 0
+  right 0
+  // space for nav bar
+  top MobileNavHeight
+  +above(750px)
+    top: NavHeight
+  height auto
+
 .full-screen-map
   height 100%
   width 100%
