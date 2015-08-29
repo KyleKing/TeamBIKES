@@ -65,8 +65,8 @@ Template.MechMap.rendered = ->
           # And alert user
           sAlert.error('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
-      window.map.removeLayer MechMarkers[oldBike._id]
       console.log MechMarkers[oldBike._id]._leaflet_id + ' removed from window.map on REMOVED event and...'
+      window.map.removeLayer MechMarkers[oldBike._id]
       # Remove the reference to this marker instance
       delete MechMarkers[oldBike._id]
 
