@@ -7,7 +7,7 @@
     BikeIcon = window.Reserved
   BikeIcon
 
-@MapInit = (MapName, LocateUser, DrawOutline, Center) ->
+@MapInit = (MapName, LocateUser, DrawOutline, Center, ShowClosestBikes) ->
   # Just to call for the bike variables and not an entire init
   if MapName != false
     # Create the Leaflet Map
@@ -33,8 +33,8 @@
       # Start automatically
       LocateControl.start()
       map.on 'locationfound', (self) ->
-        console.log self
-        console.log {lat: self.latitude, lng: self.longitude}
+        # console.log self
+        Session.set "ShowClosestBikes": ShowClosestBikes
         Session.set "UserLocation": {lat: self.latitude, lng: self.longitude}
       window.map.on 'dragstart', LocateControl._stopFollowing, LocateControl
     else

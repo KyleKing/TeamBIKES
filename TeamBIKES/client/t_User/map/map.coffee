@@ -6,7 +6,7 @@ Template.map.rendered = ->
   coords = [38.987701, -76.940989]
   # MapInit(MapName, LocateUser, DrawOutline, Center)
   # MapInit('BikeMap', false, true, coords)
-  MapInit('BikeMap', true, true, coords)
+  MapInit('BikeMap', true, true, coords, true)
 
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
@@ -83,6 +83,66 @@ Template.map.helpers
     else
       "Click marker to reserve bike"
 
+
+  # oldest = _.max(Monkeys.find().fetch(), (monkey) ->
+  #   monkey.age
+  # )
+  # if oldest
+  #   Session.set 'oldest', oldest.name
+  # return
+# DrawClosestBikes = () ->
+Tracker.autorun ->
+  console.log 'Autorun is auto-running!'
+  # Remove old polylines
+  if !isUndefined(window.LineToNearestBike) && !isUndefined(window.LineToNearestBike[0])
+    console.log 'removing old polylines'
+    Num = 0
+    while Num < window.LineToNearestBike.length
+      # console.log window.LineToNearestBike[Num]._leaflet_id + ' removed from window.map on REMOVED event and...'
+      window.map.removeLayer window.LineToNearestBike[Num]
+      # # Remove the reference to this marker instance
+      delete window.LineToNearestBike[Num]
+      Num++
+
+  console.log "UserLocation = " + Session.get "UserLocation"
+  console.log "ShowClosestBikes = " + Session.get "ShowClosestBikes"
+  # If true, then plot lines to nearest bikes
+  if Session.get "ShowClosestBikes"
+    # COnsider case of user without a GPS location
+    if isUndefined Session.get "UserLocation"
+      sAlert.warning('Your GPS location could not be found, using map center instead')
+      center = window.map.getCenter()
+    else
+      center = Session.get "UserLocation"
+
+    # Use MongoDB to find nearest bikes
+    [today, now] = CurrentDay()
+    closest = DailyBikeData.find(
+      Day: today
+      Tag: {$in: ['Available', Meteor.userId()]}
+      Coordinates:
+        $near: center
+      ).fetch()
+
+    # Check error case and draw
+    if closest.length == 0
+      console.log 'No close bikes found'
+    else
+      # Init Vars
+      console.log closest
+      window.LineToNearestBike = []
+      Num = 0
+      while Num < 4
+        window.LineToNearestBike[Num] = L.polyline([
+          center
+          closest[Num].Coordinates
+        ], {
+          color: 'blue'
+          opacity: 1/(Num+1)
+        }).addTo(window.map)
+        Num++
+      return
+
 Template.map.events
   'click #ReserveBtn': (e) ->
     # Get selected bike, remove current icon, and update selected bike logic
@@ -109,49 +169,11 @@ Template.map.events
       sAlert.error('Error: Choose a bike to reserve')
 
   'click #ClosestBikes': (e) ->
-    # console.log Session.get "UserLocation"
-
-    # Remove old polylines
-    if !isUndefined window.LineToNearestBike
-      console.log window.LineToNearestBike
-      # console.log window.LineToNearestBike.length
-      Num = 0
-      while Num < window.LineToNearestBike.length
-        console.log window.LineToNearestBike[Num]._leaflet_id + ' removed from window.map on REMOVED event and...'
-        window.map.removeLayer window.LineToNearestBike[Num]
-        # # Remove the reference to this marker instance
-        delete window.LineToNearestBike[Num]
-        Num++
-    # else
-    #   console.log 'window.LineToNearestBike is undefined'
-
-    if isUndefined Session.get "UserLocation"
-      sAlert.warning('Your GPS location could not be found, using map center instead')
-      center = window.map.getCenter()
+    # Toggle reactive data source
+    if Session.get "ShowClosestBikes"
+      Session.set "ShowClosestBikes": false
     else
-      center = Session.get "UserLocation"
-
-    [today, now] = CurrentDay()
-    closest = DailyBikeData.find(
-      Day: today
-      Tag: {$in: ['Available', Meteor.userId()]}
-      Coordinates:
-        $near: center
-      ).fetch()
-
-    # Init Vars
-    console.log closest
-    window.LineToNearestBike = []
-    Num = 0
-    while Num < 4
-      window.LineToNearestBike[Num] = L.polyline([
-        center
-        closest[Num].Coordinates
-      ], {
-        color: 'blue'
-        opacity: 1/(Num+1)
-      }).addTo(window.map)
-      Num++
+      Session.set "ShowClosestBikes": true
 
 
     # then change view to only show revered bike and timer
