@@ -4,9 +4,13 @@ Template.map.rendered = ->
 
   # Call MapInit function from s_Helpers
   coords = [38.987701, -76.940989]
-  # MapInit(MapName, LocateUser, DrawOutline, Center)
-  # MapInit('BikeMap', false, true, coords)
-  MapInit('BikeMap', true, true, coords, true)
+  MapInit
+    MapName: 'BikeMap'
+    LocateUser: true
+    DrawOutline: true
+    Center: coords
+    ShowClosestBikes: true
+    FullScreenButton: false
 
 
   LeafletReserveButton = L.easyButton(states: [

@@ -7,14 +7,14 @@
     BikeIcon = window.Reserved
   BikeIcon
 
-@MapInit = (MapName, LocateUser, DrawOutline, Center, ShowClosestBikes) ->
+@MapInit = (MapInitSettings) ->
   # Just to call for the bike variables and not an entire init
-  if MapName != false
+  if MapInitSettings.MapName != false
     # Create the Leaflet Map
     L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images'
-    window.map = new (L.Map)( MapName, {
-      center: Center
-      fullscreenControl: true
+    window.map = new (L.Map)( MapInitSettings.MapName, {
+      center: MapInitSettings.Center
+      fullscreenControl: MapInitSettings.FullScreenButton
       fullscreenControlOptions: {
         position: 'topleft'
       }
@@ -32,10 +32,10 @@
       markerClass: L.circleMarker).addTo window.map
 
     # # Quickly load map (Doesn't seem to work reliably)
-    # window.map.setView Center, 16
+    # window.map.setView MapInitSettings.Center, 16
 
     # Automatically track user or center on UMD at arbitrary location
-    if LocateUser
+    if MapInitSettings.LocateUser
       # Start automatically
       LocateControl.start()
       map.on 'locationfound', (self) ->
@@ -44,10 +44,10 @@
       window.map.on 'dragstart', LocateControl._stopFollowing, LocateControl
     else
       # Quickly load map
-      window.map.setView Center, 16
+      window.map.setView MapInitSettings.Center, 16
 
     # Add toggle button if requested
-    if ShowClosestBikes
+    if MapInitSettings.ShowClosestBikes
       # HtmlStar = L.easyButton states: [ {
       #   icon: '<span class="star">&starf;</span>'
       #   onClick: ->
@@ -82,7 +82,7 @@
 
     # Active area of bike map
     # Manually drawn from: http://www.latlong.net/
-    if DrawOutline
+    if MapInitSettings.DrawOutline
       polygon = L.polygon([
         [ 39.000276, -76.943264 ]
         [ 38.998642, -76.946397 ]
