@@ -271,7 +271,8 @@ if Meteor.users.find({}).count() == 0
 # seeds/RedistributionCollection.coffee
 
 # To help with load order, make sure there is DailyBikeData available
-PopulateDailyBikeData = () ->
+@PopulateDailyBikeData = () ->
+  console.log 'Checking DailyBikeData Collection'
   if DailyBikeData.find({Day: today}).count() != 0
     # If collection is empty
     if RedistributionCollection.find().count() == 0
