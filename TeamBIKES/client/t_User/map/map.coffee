@@ -12,39 +12,39 @@ Template.map.rendered = ->
     ShowClosestBikes: true
     FullScreenButton: false
 
-
-  LeafletReserveButton = L.easyButton(states: [
-    {
-      stateName: 'Reserve'
-      icon: 'fa-shopping-cart'
-      onClick: (control) ->
-        # Get selected bike, remove current icon, and update selected bike logic
-        if Session.get 'selectedBike'
-          Bike = Session.get 'selectedBike'
-          [today, now] = CurrentDay()
-          coords = DailyBikeData.findOne({Bike: Bike, Day: today}).Coordinates
-          console.log coords
-          window.map.panTo coords, 18
-          Session.set "available": false
-          if Meteor.userId()
-            Meteor.call 'UserReserveBike', Meteor.userId(), Bike, (error, result) ->
-              if error
-                console.log error.reason
-              else
-                sAlert.success('Bike #' + Bike + ' successfully reserved!')
-                if result == 1
-                  sAlert.warning(result + ' previously reserved bike was re-listed as Available')
-                else if result != 0
-                  sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
-          else
-            sAlert.warning('You must sign in to reserve a bike')
-        else
-          sAlert.error('Error: Choose a bike to reserve')
-        return
-      title: 'Reserve selected bike'
-    }
-  ])
-  LeafletReserveButton.addTo window.map
+  # Reserve Bike Button, replaced by dblclick action
+  # LeafletReserveButton = L.easyButton(states: [
+  #   {
+  #     stateName: 'Reserve'
+  #     icon: 'fa-shopping-cart'
+  #     onClick: (control) ->
+  #       # Get selected bike, remove current icon, and update selected bike logic
+  #       if Session.get 'selectedBike'
+  #         Bike = Session.get 'selectedBike'
+  #         [today, now] = CurrentDay()
+  #         coords = DailyBikeData.findOne({Bike: Bike, Day: today}).Coordinates
+  #         console.log coords
+  #         window.map.panTo coords, 18
+  #         Session.set "available": false
+  #         if Meteor.userId()
+  #           Meteor.call 'UserReserveBike', Meteor.userId(), Bike, (error, result) ->
+  #             if error
+  #               console.log error.reason
+  #             else
+  #               sAlert.success('Bike #' + Bike + ' successfully reserved!')
+  #               if result == 1
+  #                 sAlert.warning(result + ' previously reserved bike was re-listed as Available')
+  #               else if result != 0
+  #                 sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
+  #         else
+  #           sAlert.warning('You must sign in to reserve a bike')
+  #       else
+  #         sAlert.error('Error: Choose a bike to reserve')
+  #       return
+  #     title: 'Reserve selected bike'
+  #   }
+  # ])
+  # LeafletReserveButton.addTo window.map
 
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
@@ -62,24 +62,31 @@ Template.map.rendered = ->
         title: bike.Bike
         opacity: 0.75
         # icon: BikeIcon).on("dblclick", (e) ->
-        icon: BikeIcon).on("click", (e) ->
-          # Remove previously selected bike
-          if Session.get('selectedBike')
-            last = Session.get 'selectedBike'
-            lastBike = DailyBikeData.findOne({Bike: last, Day: today})
-            MapMarkers[lastBike._id].setIcon IconLogic(lastBike.Tag)
-            # console.log lastBike._id
-            # console.log MapMarkers[lastBike._id]._icon.title
-
-          # Highlight new bike
-          @setIcon window.Selected
+        icon: BikeIcon).on("dblclick", (e) ->
+          # Important Vars
+          [today, now] = CurrentDay()
+          SelectedBike = e.target.options.title
           Session.set
-            "selectedBike": e.target.options.title
-            "available": true
-          # console.log e.target.options.title
+            'selectedBike': SelectedBike
+            'available': false
+          # Find bike info
+          coords = DailyBikeData.findOne({Bike: SelectedBike, Day: today}).Coordinates
+          window.map.panTo coords, 18
+          # Reserve bike
+          if Meteor.userId()
+            Meteor.call 'UserReserveBike', Meteor.userId(), SelectedBike, (error, result) ->
+              # Inform user of results
+              if error
+                console.log error.reason
+              else
+                sAlert.success('Bike #' + SelectedBike + ' successfully reserved!')
+                if result == 1
+                  sAlert.warning('1 previously reserved bike was re-listed as Available')
+                else if result != 0
+                  sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
+          else
+            sAlert.warning('You must sign in to reserve a bike')
           ).addTo(window.map)
-
-      # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag)
 
     changed: (bike, oldBike) ->
       if oldBike.Tag == bike.Tag
@@ -100,8 +107,7 @@ Template.map.rendered = ->
         # If removed bike is currently selected bike...
         if Session.get("selectedBike") == oldBike.Bike
           # Updated reserve bike text
-          Session.set
-            "available": false
+          Session.set "available": false
           # And alert user
           sAlert.error('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
@@ -123,12 +129,6 @@ Template.map.helpers
       "Click marker to reserve bike"
 
 
-  # oldest = _.max(Monkeys.find().fetch(), (monkey) ->
-  #   monkey.age
-  # )
-  # if oldest
-  #   Session.set 'oldest', oldest.name
-  # return
 # DrawClosestBikes = () ->
 Tracker.autorun ->
   console.log 'Autorun is auto-running!'
@@ -183,30 +183,6 @@ Tracker.autorun ->
       return
 
 Template.map.events
-  'click #ReserveBtn': (e) ->
-    # Get selected bike, remove current icon, and update selected bike logic
-    if Session.get 'selectedBike'
-      Bike = Session.get 'selectedBike'
-      [today, now] = CurrentDay()
-      coords = DailyBikeData.findOne({Bike: Bike, Day: today}).Coordinates
-      console.log coords
-      window.map.panTo coords, 18
-      Session.set "available": false
-      if Meteor.userId()
-        Meteor.call 'UserReserveBike', Meteor.userId(), Bike, (error, result) ->
-          if error
-            console.log error.reason
-          else
-            sAlert.success('Bike #' + Bike + ' successfully reserved!')
-            if result == 1
-              sAlert.warning(result + ' previously reserved bike was re-listed as Available')
-            else if result != 0
-              sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
-      else
-        sAlert.warning('You must sign in to reserve a bike')
-    else
-      sAlert.error('Error: Choose a bike to reserve')
-
   'click #ClosestBikes': (e) ->
     # Toggle reactive data source
     if Session.get "ShowClosestBikes"
