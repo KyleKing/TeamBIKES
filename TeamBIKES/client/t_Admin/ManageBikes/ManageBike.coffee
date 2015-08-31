@@ -26,19 +26,23 @@ PlotAdminBikes = (RouteID) ->
           icon: BikeIcon).on("click", (e) ->
             # Highlight new bike
             @setIcon window.Selected
-
             # On previously selected bike, change icon back to proper icon
-            if Session.get('SelectedBike_Position')
+            if Session.get('SelectedBike_Position') || Session.get('SelectedBike_Position') == 0
               ArrayPosition = Session.get 'SelectedBike_Position'
+              console.log ArrayPosition
               ThisBike = DailyBikeData.findOne({_id: FlowRouter.getParam("IDofSelectedRow")})
+              console.log ThisBike
               BikeTag =  ThisBike.Positions[ArrayPosition].Tag
+              console.log BikeTag
               markers[ArrayPosition].setIcon IconLogic(BikeTag)
+              console.log IconLogic(BikeTag)
+              console.log '-----break------'
 
             # Store info for later use
             Session.set
               "SelectedBike_Position": e.target.options.title
               "available": true
-            # console.log e.target.options.title
+            console.log e.target.options.title
             ) # .addTo(window.map)
         window.markers.addLayer(markers[PositionCount])
         PositionCount++
