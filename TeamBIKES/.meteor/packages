@@ -50,6 +50,7 @@ mrt:jquery-easing # an animation (easing) plugin by GSGD
 
 #### Tools ####
 momentjs:moment # Date and Time
+aldeed:moment-timezone
 mrt:underscore-string-latest # Lots of functions
 ### Performance Monitoring ###
 meteorhacks:kadira # server
