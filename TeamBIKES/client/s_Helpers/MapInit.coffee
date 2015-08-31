@@ -40,7 +40,13 @@
       # Start automatically
       LocateControl.start()
       map.on 'locationfound', (self) ->
-        # console.log self
+        if MapInitSettings.PopupGuide
+          console.log self
+          # Create popup with user guide
+          popup = L.popup()
+          popup.setLatLng [self.latitude, self.longitude]
+          popup.setContent MapInitSettings.PopupGuide
+          popup.openOn window.map
         Session.set "UserLocation": {lat: self.latitude, lng: self.longitude}
       window.map.on 'dragstart', LocateControl._stopFollowing, LocateControl
     else

@@ -1,3 +1,33 @@
+Template.ManageBike.rendered = ->
+  Meteor.subscribe("DailyBikeDataPub")
+
+  # Call MapInit function from s_Helpers to create the Leaflet Map
+  MapInit
+    MapName: 'ManageBikeMap'
+    LocateUser: false
+    DrawOutline: true
+    Center: [38.987701, -76.940989]
+    ShowClosestBikes: false
+    FullScreenButton: true
+    PopupGuide: false
+
+  # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
+  # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
+  Session.set
+    "SelectedBike_Position": false
+    "available": true
+
+  @autorun ->
+    # FlowRouter.watchPathChange()
+    RouteID = FlowRouter.getParam("IDofSelectedRow")
+    # Wait for data to be available
+    if DailyBikeData.findOne({_id: RouteID})
+      if isUndefined(window.markers)
+        console.log 'Creating layer group for markers'
+        window.markers = new L.FeatureGroup()
+      PlotAdminBikes(RouteID)
+
+
 PlotAdminBikes = (RouteID) ->
   if window.markers.getLayers()
     console.log 'Removing old markers'
@@ -71,32 +101,3 @@ PlotAdminBikes = (RouteID) ->
     #   console.log markers[Math.floor(oldBike.Positions.Timestamp)]._leaflet_id + ' removed from window.map on REMOVED event and...'
     #   # Remove the reference to this marker instance
     #   delete markers[Math.floor(oldBike.Positions.Timestamp)]
-
-
-Template.ManageBike.rendered = ->
-  Meteor.subscribe("DailyBikeDataPub")
-
-  # Call MapInit function from s_Helpers to create the Leaflet Map
-  MapInit
-    MapName: 'ManageBikeMap'
-    LocateUser: false
-    DrawOutline: true
-    Center: [38.987701, -76.940989]
-    ShowClosestBikes: false
-    FullScreenButton: true
-
-  # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
-  # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
-  Session.set
-    "SelectedBike_Position": false
-    "available": true
-
-  @autorun ->
-    # FlowRouter.watchPathChange()
-    RouteID = FlowRouter.getParam("IDofSelectedRow")
-    # Wait for data to be available
-    if DailyBikeData.findOne({_id: RouteID})
-      if isUndefined(window.markers)
-        console.log 'Creating layer group for markers'
-        window.markers = new L.FeatureGroup()
-      PlotAdminBikes(RouteID)
