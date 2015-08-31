@@ -1,15 +1,18 @@
 # Reserve a bike
 Meteor.methods 'UserReserveBike': (currentUserId, Bike) ->
   # Check if other reserved bikes and remove reservations
-  [today, now] = CurrentDay()
-  count = DailyBikeData.find({Tag: currentUserId, Day: today}).count()
-  DailyBikeData.update { Tag: currentUserId}, {$set: Tag: 'Available' }, multi: true
+  # [today, now] = CurrentDay()
+  # count = DailyBikeData.find({Tag: currentUserId, Day: today}).count()
+  # DailyBikeData.update { Tag: currentUserId}, {$set: Tag: 'Available' }, multi: true
+  count = RemoveReservation(currentUserId)
 
   # Find and reserve requested bike
+  [today, now] = CurrentDay()
   record = DailyBikeData.findOne({Bike: Bike, Day: today})
   if record
     DailyBikeData.update record, {$set: {Tag: currentUserId} }
     console.log 'Set tag for bike # ' + Bike
+  StartReservationCountdown(currentUserId, Bike)
   count
 
 Meteor.methods 'mySubmitFunc': (currentUserId) ->
