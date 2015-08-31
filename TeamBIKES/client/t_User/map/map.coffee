@@ -146,4 +146,4 @@ Template.map.events
       Session.set "ShowClosestBikes": true
 
 
-    # then change view to only show revered bike and timer
+# then change view to only show revered bike and timer. Possibly only show bike rack locations as well??
