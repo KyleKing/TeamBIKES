@@ -1,4 +1,5 @@
 @IconLogic = (Tag) ->
+  # Determine color of bike marker based on bike tag
   if Tag == 'Available'
     BikeIcon = window.Available
   else if Tag == 'RepairInProgress'
@@ -48,14 +49,7 @@
 
     # Add toggle button if requested
     if MapInitSettings.ShowClosestBikes
-      # HtmlStar = L.easyButton states: [ {
-      #   icon: '<span class="star">&starf;</span>'
-      #   onClick: ->
-      #     alert 'you just clicked the html entity &starf;'
-      #     return
-      # }]
-      # HtmlStar.addTo window.map
-
+      # Create toggle button to show lines to nearest bikes
       ShowClosestBikesToggle = L.easyButton(states: [
         {
           stateName: 'adding-markers'
