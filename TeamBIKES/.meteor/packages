@@ -25,6 +25,9 @@ philippspo:momentum-flow-router # page-transitions
 kadira:blaze-layout # for page Rendering
 arillo:flow-router-helpers # for pathFor
 zimme:active-route # for isActiveRoute
+# HTTPS
+spiderable
+force-ssl
 
 #### Visual Things ####
 ### Tables ###
