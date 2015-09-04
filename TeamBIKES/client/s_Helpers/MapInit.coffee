@@ -13,45 +13,45 @@
   if MapInitSettings.MapName != false
     # Create the Leaflet Map
     L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images'
-    window.map = new (L.Map)( MapInitSettings.MapName, {
+    window[MapInitSettings.MapName] = new (L.Map)( MapInitSettings.MapName, {
       center: MapInitSettings.Center
       fullscreenControl: MapInitSettings.FullScreenButton
       fullscreenControlOptions: {
         position: 'topleft'
       }
     })
-    L.tileLayer.provider('OpenStreetMap.Mapnik').addTo window.map
-    window.map.spin false
+    L.tileLayer.provider('OpenStreetMap.Mapnik').addTo window[MapInitSettings.MapName]
+    window[MapInitSettings.MapName].spin false
 
     # Give user control over location
-    LocateControl = L.control.locate(
+    window.LocateControl = L.control.locate(
       drawCircle: true
       follow: true
       setView: true
       keepCurrentZoomLevel: false
       remainActive: false
-      markerClass: L.circleMarker).addTo window.map
+      markerClass: L.circleMarker).addTo window[MapInitSettings.MapName]
 
     # # Quickly load map (Doesn't seem to work reliably)
-    # window.map.setView MapInitSettings.Center, 16
+    # window[MapInitSettings.MapName].setView MapInitSettings.Center, 16
 
     # Automatically track user or center on UMD at arbitrary location
     if MapInitSettings.LocateUser
       # Start automatically
-      LocateControl.start()
-      map.on 'locationfound', (self) ->
+      window.LocateControl.start()
+      window[MapInitSettings.MapName].on 'locationfound', (self) ->
         if MapInitSettings.PopupGuide
           console.log self
           # Create popup with user guide
           popup = L.popup()
           popup.setLatLng [self.latitude, self.longitude]
           popup.setContent MapInitSettings.PopupGuide
-          popup.openOn window.map
+          popup.openOn window[MapInitSettings.MapName]
         Session.set "UserLocation": {lat: self.latitude, lng: self.longitude}
-      window.map.on 'dragstart', LocateControl._stopFollowing, LocateControl
+      window[MapInitSettings.MapName].on 'dragstart', window.LocateControl._stopFollowing, window.LocateControl
     else
       # Quickly load map
-      window.map.setView MapInitSettings.Center, 16
+      window[MapInitSettings.MapName].setView MapInitSettings.Center, 16
 
     # Add toggle button if requested
     if MapInitSettings.ShowClosestBikes
@@ -78,7 +78,7 @@
           title: 'remove markers'
         }
       ])
-      ShowClosestBikesToggle.addTo window.map
+      ShowClosestBikesToggle.addTo window[MapInitSettings.MapName]
 
     # Active area of bike map
     # Manually drawn from: http://www.latlong.net/
@@ -113,7 +113,7 @@
         color: 'blue'
         smoothFactor: 7
         weight: 10
-      }).addTo(window.map)
+      }).addTo(window[MapInitSettings.MapName])
 
   # Bike icons
   # Color choices: 'red', 'darkred', 'orange', 'green'
