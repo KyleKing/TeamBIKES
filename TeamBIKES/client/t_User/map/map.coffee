@@ -11,7 +11,7 @@ Template.map.rendered = ->
     Center: coords
     ShowClosestBikes: true
     FullScreenButton: false
-    PopupGuide: 'Double click any bike icon to reserve a bike'
+    PopupGuide: 'Double click any bike icon to reserve a bike for 5 minutes'
 
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
@@ -46,7 +46,7 @@ Template.map.rendered = ->
               if error
                 console.log error.reason
               else
-                sAlert.success('Bike #' + SelectedBike + ' successfully reserved!')
+                sAlert.success('Bike #' + SelectedBike + ' successfully reserved for the next FIVE minutes!')
                 if result == 1
                   sAlert.warning('1 previously reserved bike was re-listed as Available')
                 else if result != 0
