@@ -2,15 +2,14 @@
 # Based on demo from: http://richsilv.github.io/meteor/scheduling-events-in-the-future-with-meteor/
 
 @StartReservationCountdown = (ID, Bike) ->
-  # Text date proved to be most reliable
-  # [today, now] = CurrentDay()
-  # Note: synced-cron doesn't seem to consider the number of seconds on which it should run
-  # and so the job tends to be +/` 1 minute
-  now = moment().tz('America/New_York').add(2, 'minutes').format('h:mm:ss a z')
-  # now = new Date.now()
+  timeout = 1
+  # now = moment().tz('America/New_York').add(timeout, 'minutes').format('h:mm:ss a z')
+  future = moment().add(timeout, 'minutes').format()
+  future = new Date(future) # reformat for cron
   # Create Task object for queue
   Task = {
-    date: now
+    date: future
+    timeout: timeout
     ID: ID
     Bike: Bike
   }
@@ -22,14 +21,12 @@
   SyncedCron.add
     name: 'Destruct Reservation for ' + ID
     schedule: (parser) ->
-      # parser is a later.parse object
-      # parser.text 'at 2:01 am'
-      parser.text 'at ' + Task.date
-      # parser.recur().on(Task.date).fullDate()
+      # parser.text 'at ' + Task.date
+      parser.recur().on(Task.date).fullDate()
     job: ->
       # Remove specified reservation
       RemoveReservation Task.ID
-      console.log 'Runnning Cron Job on what should be: ' + Task.date
+      console.log 'Running Cron Job on what should be: ' + Task.date
       # Already included in remove reservation:
       # ClearTaskBackups(Task.ID)
 
@@ -43,9 +40,14 @@
 
 Meteor.startup ->
   FutureTasks.find().forEach (Task) ->
+    console.log 'Checking Current list of tasks:'
     console.log Task
+
+    # day = moment(Task.date, 'h:mm:ss a z')
+    # console.log day
+
     # If in the past, make action right away
-    if Task.date < new Date
+    if Task.date <= new Date moment().add(Task.timeout, 'minutes')
       RemoveReservation Task.ID
       ClearTaskBackups Task.ID
     # Otherwise reschedule that event
