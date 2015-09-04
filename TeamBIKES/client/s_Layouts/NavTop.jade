@@ -24,7 +24,7 @@ template(name='NavTop')
                 li(class="{{ isActiveRoute regex='MechMap' }}")
                   a.Aloo(href="{{ pathFor 'MechMap' }}")
                     i.fa.fa-map-marker
-                      |  MechMap
+                      |  Mechanic Map
               if  isInRole 'Admin'
                 li(class="{{ isActiveRoute regex='MechMap' }}")
                   a.Aloo(href="{{ pathFor 'MechMap' }}")
@@ -33,11 +33,15 @@ template(name='NavTop')
                 li(class="{{ isActiveRoute regex='AdminCompilation' }}")
                   a.Aloo(href="{{ pathFor 'AdminCompilation' }}")
                     i.fa.fa-table
-                      |  All Admin Data
-                li(class="{{ isActiveRoute regex='chartsAdmin' }}")
-                  a.Aloo(href="{{ pathFor 'chartsAdmin' }}")
+                      |  Home
+                li(class="{{ isActiveRoute regex='Dev' }}")
+                  a.Aloo(href="{{ pathFor 'Dev' }}")
                     i.fa.fa-gear
-                      |  Example Charts
+                      |  Dev
+                //- li(class="{{ isActiveRoute regex='chartsAdmin' }}")
+                //-   a.Aloo(href="{{ pathFor 'chartsAdmin' }}")
+                //-     i.fa.fa-gear
+                //-       |  Charts
               //- li.dropdown
               //-   a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
               //-     i.fa.fa-ellipsis-h

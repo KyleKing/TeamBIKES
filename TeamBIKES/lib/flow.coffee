@@ -100,12 +100,12 @@ FlowRouter.route '/AdminCompilation/ManageUsers_Form/:IDofSelectedRow',
     }
 
 # Quick Dev Route
-# FlowRouter.route '/dev/kyle',
-#   name: 'ManageMechanicNotes_Insert',
-#   action: () ->
-#     BlazeLayout.render 'UniversalLayout', {
-#       body: 'ManageMechanicNotes_Insert'
-#     }
+FlowRouter.route '/dev/kyle',
+  name: 'Dev',
+  action: () ->
+    BlazeLayout.render 'UniversalLayout', {
+      body: 'ReactiveTables'
+    }
 
 # Scroll to the top of every page
 ScrollToTop = ->

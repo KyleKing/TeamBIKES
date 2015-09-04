@@ -32,6 +32,7 @@ force-ssl
 #### Visual Things ####
 ### Tables ###
 aldeed:tabular # data tables
+aslagle:reactive-table # Alt table - suggested on Github
 aldeed:autoform # form input for above data tables
 aldeed:collection2 # attach a schema
 ### Charts ###
