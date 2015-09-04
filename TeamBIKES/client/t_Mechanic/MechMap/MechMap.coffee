@@ -20,7 +20,7 @@ Template.MechMap.rendered = ->
     "available": true
 
   [today, now] = CurrentDay()
-  DailyBikeData.find({ Day: today}).observe
+  window.MechMapObserveHandle = DailyBikeData.find({ Day: today}).observe
     added: (bike) ->
       latlng = bike.Coordinates
       BikeIcon = IconLogic(bike.Tag)
@@ -42,7 +42,7 @@ Template.MechMap.rendered = ->
             "selectedBike": e.target.options.title
             "available": true
           # console.log e.target.options.title
-          ).addTo(window.map)
+          ).addTo(window.MechMap)
 
       # marker.bindPopup("#" + bike.Bike + " is " + bike.Tag)
 
@@ -50,7 +50,7 @@ Template.MechMap.rendered = ->
       if oldBike.Tag == bike.Tag
         latlng = bike.Coordinates
         MechMarkers[bike._id].setLatLng(latlng).update()
-        console.log MechMarkers[bike._id]._leaflet_id + ' changed on window.map on CHANGED event'
+        console.log MechMarkers[bike._id]._leaflet_id + ' changed on window.MechMap on CHANGED event'
       else if bike.Tag == Meteor.userId()
         MechMarkers[bike._id].setIcon window.Reserved
         console.log 'Changed to green icon color for # ' + bike.Bike
@@ -70,11 +70,19 @@ Template.MechMap.rendered = ->
           # And alert user
           sAlert.error('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
-      console.log MechMarkers[oldBike._id]._leaflet_id + ' removed from window.map on REMOVED event and...'
-      window.map.removeLayer MechMarkers[oldBike._id]
+      console.log MechMarkers[oldBike._id]._leaflet_id + ' removed from window.MechMap on REMOVED event and...'
+      window.MechMap.removeLayer MechMarkers[oldBike._id]
       # Remove the reference to this marker instance
       delete MechMarkers[oldBike._id]
 
+Template.MechMap.destroyed = ->
+  # Stop observing DailyBikeData
+  window.MechMapObserveHandle.stop()
+  # console.log 'Deleting window.MechMap'
+  # delete window.MechMap
+  console.log 'Stopping LocateControl'
+  # delete LocateControl
+  window.LocateControl.stop()
 
 # Provide context for user
 Template.MechMap.helpers
