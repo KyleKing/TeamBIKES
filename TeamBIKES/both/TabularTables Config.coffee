@@ -66,7 +66,7 @@ TabularTables.ManageUsers = new (Tabular.Table)(
   collection: Meteor.users
   autoWidth: false
   columns: [
-    { data: 'profile.name', title: 'Name' }
+    { data: 'profile.name', title: 'Name', class: "my_col" }
     # { data: 'createdAt', title: 'Created At' }
     { data: 'emails.0.address', title: 'Email' }
     { data: 'emails.0.verified', title: 'Verified?' } # should be overlaid with a color?

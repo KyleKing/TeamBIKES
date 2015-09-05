@@ -1,5 +1,6 @@
-Template.ReactiveTables.rendered = ->
-  Meteor.subscribe("DailyBikeDataPub")
+Template.ReactiveTables.onCreated ->
+  # Use this.subscribe inside onCreated callback
+  @subscribe 'DailyBikeDataPub'
 
 Template.ReactiveTables.helpers settings: ->
   return {

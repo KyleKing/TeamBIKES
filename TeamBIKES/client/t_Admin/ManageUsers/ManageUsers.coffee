@@ -32,3 +32,33 @@ Template.CurrentUser_Form.helpers
     Meteor.users.find {_id: FlowRouter.getParam ("IDofSelectedRow") }
     # current = FlowRouter.current()
     # Meteor.users.find {_id: current.params.IDofSelectedRow}
+
+# Reactive Var Modulation example
+# Source: https://github.com/aldeed/meteor-tabular/issues/79
+Template.ManageUsers.created = ->
+  window.currentSelector = new ReactiveVar({})
+
+Template.ManageUsers.rendered = ->
+  $table = $('#ManageUsers')
+  $input = $('<input name="my_col" type="text" />')
+  $table.find('thead th.my_col').append $input
+  # column class can be set in TabularTable definition
+  $input.on 'keyup', (e) ->
+    e.stopPropagation()
+    sel = window.currentSelector.get()
+    if @value
+      sel.my_col =
+        $regex: @value
+        $options: 'ig'
+      sel.value = @value
+      console.log 'Value received on keyup: ' + @value
+    else
+      delete sel.my_col
+    window.currentSelector.set sel
+
+Template.ManageUsers.helpers
+  currentSelector: ->
+    console.log 'Printing selector returned to Tabular'
+    name = window.currentSelector.get()
+    console.log name.value
+    {'profile.name': name.value}
