@@ -5,7 +5,7 @@ template(name='ManageUsers')
 	.page-header
 		h1 ManageUsers
 		p DailyBikeData Top-Level Data
-	+tabular table=TabularTables.ManageUsers selector=currentSelector class="table table-striped table-hover table-bordered table-condensed" id="ManageUsers"
+	+tabular table=TabularTables.ManageUsers class="table table-striped table-hover table-bordered table-condensed" selector=currentSelector id="ManageUsers"
 	//- +quickForm collection="Meteor.users" doc=SelectedRow id="updateMeteorUsersForm" type="update"
 
 //- template(name='LinkToSpecificUser')
