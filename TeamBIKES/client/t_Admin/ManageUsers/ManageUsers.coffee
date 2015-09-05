@@ -49,7 +49,7 @@ Template.ManageUsers.rendered = ->
     if @value
       sel.my_col =
         $regex: @value
-        $options: 'ig'
+        $options: 'i'
       sel.value = @value
       console.log 'Value received on keyup: ' + @value
     else
@@ -61,4 +61,4 @@ Template.ManageUsers.helpers
     console.log 'Printing selector returned to Tabular'
     name = window.currentSelector.get()
     console.log name.value
-    {'profile.name': name.value}
+    {'profile.name': name.my_col}
