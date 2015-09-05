@@ -20,12 +20,12 @@ TabularTables.ManageBikes = new (Tabular.Table)(
   pub: "DailyBikeDataPub"
   autoWidth: false
   columns: [
-    { data: 'Bike', title: 'Bike' }
+    { data: 'Bike', title: 'Bike', class: 'Bike' }
     # { data: 'Day', title: 'Day' }
-    { data: 'Tag', title: 'Tag' }
-    { data: 'Timestamp()', title: 'Last Timestamp' }
-    { data: 'Positions.0.Coordinates.0', title: 'Lat' }
-    { data: 'Positions.0.Coordinates.1', title: 'Lng' }
+    { data: 'Tag', title: 'Tag', class: 'Tag' }
+    { data: 'Timestamp()', title: 'Last Timestamp', class: 'Timestamp()' }
+    { data: 'Positions.0.Coordinates.0', title: 'Lat', class: 'Positions.0.Coordinates.0' }
+    { data: 'Positions.0.Coordinates.1', title: 'Lng', class: 'Positions.0.Coordinates.1' }
   ]
   # extraFields: ['Positions.0.Timestamp']
 )
@@ -53,11 +53,11 @@ TabularTables.ManageMechanicNotes = new (Tabular.Table)(
   collection: MechanicNotes
   autoWidth: false
   columns: [
-    { data: 'MechanicID', title: 'MechanicID' }
+    { data: 'MechanicID', title: 'MechanicID', class: 'MechanicID' }
     { data: 'Timestamp', title: 'Timestamp' }
     { data: 'Bike', title: 'Bike' }
-    { data: 'Notes', title: 'Notes' }
-    { data: 'Tag', title: 'Tag' }
+    { data: 'Notes', title: 'Notes', class: 'Notes' }
+    { data: 'Tag', title: 'Tag', class: 'Tag' }
   ])
 
 # ManageUsers
