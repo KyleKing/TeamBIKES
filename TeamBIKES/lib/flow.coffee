@@ -104,7 +104,7 @@ FlowRouter.route '/dev/kyle',
   name: 'Dev',
   action: () ->
     BlazeLayout.render 'UniversalLayout', {
-      body: 'ReactiveTables'
+      body: 'VisComponents'
     }
 
 # Scroll to the top of every page
