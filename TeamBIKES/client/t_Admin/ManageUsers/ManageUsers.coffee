@@ -28,10 +28,15 @@ Template.CurrentUser_Form.helpers
 # Source: https://github.com/aldeed/meteor-tabular/issues/79
 Template.ManageUsers.created = ->
   window.ManageUsers = new ReactiveVar({})
+  window.ManageUsers.get().titles = []
 
 Template.ManageUsers.rendered = ->
   $('#ManageUsers thead th').each ->
     title = $('#ManageUsers thead th').eq($(this).index()).text()
+    # Collect list of titles to allow multi-column filter
+    sel = window.ManageUsers.get()
+    if isUndefined _.findWhere(sel, title)
+      sel.titles.push(title)
     # Get specific data as set in Tabular Tables definition (i.e. class = 'profile.name')
     ThisClass = $('#ManageUsers thead th').eq($(this).index()).attr('class')
     # Remove excess sorting, sorting_asc class etc.
@@ -50,7 +55,6 @@ Template.ManageUsers.rendered = ->
       $input.on 'keyup', (e) ->
         console.log 'searching: ' + title + ' and ThisClass: ' + ThisClass
         sel = window.ManageUsers.get()
-        sel.titles = ['Name', 'Email', 'Verified?', 'Roles']
         sel[title] = {}
         sel[title].search = ThisClass
         if @value
@@ -70,12 +74,7 @@ Template.ManageUsers.helpers
     sel = window.ManageUsers.get()
 
     ReactiveTest = {}
-    unless isUndefined sel.titles
-      _.each sel.titles, (title) ->
-        console.log title
-        unless isUndefined sel[title]
-          console.log title + ' is defined'
-          ReactiveTest[sel[title].search] = sel[title].value
-          console.log ReactiveTest
-    console.log ReactiveTest
+    _.each sel.titles, (title) ->
+      unless isUndefined sel[title]
+        ReactiveTest[sel[title].search] = sel[title].value
     ReactiveTest
