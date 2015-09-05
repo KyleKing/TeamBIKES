@@ -5,6 +5,7 @@ Template.pie_big_circle_Demo.rendered = ->
       plotBackgroundColor: null
       plotBorderWidth: null
       plotShadow: false
+      # width: 300
     title: text: 'Browser market shares at a specific website, 2014'
     tooltip: pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
     plotOptions: pie:
@@ -16,32 +17,12 @@ Template.pie_big_circle_Demo.rendered = ->
       type: 'pie'
       name: 'Browser share'
       data: [
-        [
-          'Firefox'
-          45.0
-        ]
-        [
-          'IE'
-          26.8
-        ]
-        {
-          name: 'Chrome'
-          y: 12.8
-          sliced: true
-          selected: true
-        }
-        [
-          'Safari'
-          8.5
-        ]
-        [
-          'Opera'
-          6.2
-        ]
-        [
-          'Others'
-          0.7
-        ]
+        [ 'Firefox', 45.0 ]
+        [ 'IE', 26.8 ]
+        { name: 'Chrome', y: 12.8, sliced: true, selected: true }
+        [ 'Safari', 8.5 ]
+        [ 'Opera', 6.2 ]
+        [ 'Others', 0.7 ]
       ]
     } ]
   return

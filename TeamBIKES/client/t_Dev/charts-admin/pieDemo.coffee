@@ -26,6 +26,7 @@ builtPie = ->
       plotBackgroundColor: null
       plotBorderWidth: null
       plotShadow: false
+      # width: 300
     title: text: 'Bikes by Condition'
     credits: enabled: false
     tooltip: pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
