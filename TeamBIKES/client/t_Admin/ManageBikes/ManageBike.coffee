@@ -46,6 +46,7 @@ PlotAdminBikes = (RouteID) ->
       # })
 
       PositionCount = 0
+      NumDataPoints = bike.Positions.length
       _.each bike.Positions, (BikeRecord) ->
         latlng = BikeRecord.Coordinates
         # polyline.addLatLng(latlng) # extend polyline with new location
@@ -53,7 +54,7 @@ PlotAdminBikes = (RouteID) ->
         BikeIcon = IconLogic(BikeRecord.Tag)
         markers[PositionCount] = L.marker(latlng,
           title: PositionCount
-          opacity: 0.75
+          opacity: PositionCount/NumDataPoints
           icon: BikeIcon).on("click", (e) ->
             # Highlight new bike
             @setIcon window.Selected
