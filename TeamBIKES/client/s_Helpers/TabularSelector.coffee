@@ -1,8 +1,10 @@
 @TabularSelectorInit = (template) ->
-  window.TabularSelector = new ReactiveVar({})
+  if isUndefined window.TabularSelector
+    window.TabularSelector = new ReactiveVar({})
   sel = window.TabularSelector.get()
   sel[template] = {}
   sel[template].titles = []
+  window.TabularSelector.set sel
 
 @TabularSelectorMain = (template) ->
   SelectedTable = '#' + template + ' thead th'
@@ -10,6 +12,8 @@
     title = $(SelectedTable).eq($(this).index()).text()
     # Collect list of titles to allow multi-column filter
     sel = window.TabularSelector.get()
+    # console.log 'Overall sel - line 15'
+    # console.log sel
     sel = sel[template]
 
     if isUndefined _.findWhere(sel, title)
@@ -45,14 +49,18 @@
           delete sel[title]
           # delete sel['profile.name']
         # need new variable to encompass to template-level object
-        overall = {}
+        overall = window.TabularSelector.get()
         overall[template] = sel
+        # console.log 'OVERALL:'
+        # console.log overall
         window.TabularSelector.set overall
 
 @TabularSelectorHelper = (template) ->
   # console.log 'Current Selector'
   sel = window.TabularSelector.get()
   sel = sel[template]
+  # console.log 'Template sel - line 62'
+  # console.log sel
 
   ReactiveTest = {}
   _.each sel.titles, (title) ->
