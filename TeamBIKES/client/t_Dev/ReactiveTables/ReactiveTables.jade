@@ -1,3 +1,4 @@
 template(name='ReactiveTables')
-	+reactiveTable collection=myCollection
-	//- +reactiveTableFilter id=myFilter label=Filter
+	if subsReady
+		+reactiveTable settings=settings
+		+reactiveTableFilter class="table table-bordered table-hover" id=myFilter label=Filter
