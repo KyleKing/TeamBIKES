@@ -50,26 +50,29 @@ Template.ManageUsers.rendered = ->
   $table.find('thead th.profile').append $input
   InputID = 'profile.name'
   # column class can be set in TabularTable definition
-  $input.on 'keyup', (e) ->
+  # Prevent sorting
+  $input.on 'click', (e) ->
     e.stopPropagation()
+  $input.on 'keyup', (e) ->
     sel = window.currentSelector.get()
-    # sel.search = 'profile.name'
+    sel.search = 'profile.name'
     if @value
-      # sel.value =
-      sel['profile.name'] =
+      # sel['profile.name'] =
+      sel.value =
         $regex: @value
         $options: 'i'
     else
-      # delete sel.value
-      delete sel['profile.name']
+      delete sel.value
+      # delete sel['profile.name']
     window.currentSelector.set sel
 
 Template.ManageUsers.helpers
   currentSelector: ->
-    console.log 'Current Selector'
+    # console.log 'Current Selector'
     sel = window.currentSelector.get()
-    console.log sel
-    # search = sel.search
-    # test = {}
-    # test[search] = sel.value
-    sel
+    # console.log sel
+    # sel
+    search = sel.search
+    ReactiveTest = {}
+    ReactiveTest[search] = sel.value
+    ReactiveTest
