@@ -41,30 +41,30 @@ Template.ManageUsers.created = ->
 Template.ManageUsers.rendered = ->
   $('#ManageUsers thead th').each ->
     title = $('#ManageUsers thead th').eq($(this).index()).text()
-    id = $('#ManageUsers thead th').eq($(this).index()).attr('class')
-    $input = $('<input type="text" placeholder="Search ' + title + '"' + 'id="' + id + '"/>')
+    # Get specific data as set in Tabular Tables definition (i.e. class = 'profile.name')
+    ThisClass = $('#ManageUsers thead th').eq($(this).index()).attr('class')
+    # Remove excess sorting, sorting_asc class etc.
+    ThisClass = ThisClass.replace /( sortin)\w+/g, ''
+    # Create input text input
+    $input = $('<input type="text" placeholder="Search ' + title + '"' + 'class="' + ThisClass + '"/>')
     $(this).prepend $input
-
-  $table = $('#ManageUsers')
-  $input = $('<input name="profile" type="text" />')
-  $table.find('thead th.profile').append $input
-  InputID = 'profile.name'
-  # column class can be set in TabularTable definition
-  # Prevent sorting
-  $input.on 'click', (e) ->
-    e.stopPropagation()
-  $input.on 'keyup', (e) ->
-    sel = window.currentSelector.get()
-    sel.search = 'profile.name'
-    if @value
-      # sel['profile.name'] =
-      sel.value =
-        $regex: @value
-        $options: 'i'
-    else
-      delete sel.value
-      # delete sel['profile.name']
-    window.currentSelector.set sel
+    # Prevent sorting on lick of input box
+    $input.on 'click', (e) ->
+      e.stopPropagation()
+    # Capture events on typing
+    $input.on 'keyup', (e) ->
+      console.log 'searching: ' + title + ' and ThisClass: ' + ThisClass
+      sel = window.currentSelector.get()
+      sel.search = ThisClass
+      if @value
+        # sel['profile.name'] =
+        sel.value =
+          $regex: @value
+          $options: 'i'
+      else
+        delete sel.value
+        # delete sel['profile.name']
+      window.currentSelector.set sel
 
 Template.ManageUsers.helpers
   currentSelector: ->
