@@ -11,7 +11,6 @@ Template.ManageMechanicNotes.events
     FlowRouter.go('/AdminCompilation/ManageMechanicNotes_Insert/')
     $('.cd-panel').addClass 'is-visible'
     $('body').addClass 'noscroll'
-    console.log 'no scroll'
 
 Template.ManageMechanicNotes_Form.onCreated ->
   # Use this.subscribe inside onCreated callback
@@ -32,14 +31,12 @@ Template.ManageMechanicNotes.created = ->
 Template.ManageMechanicNotes.rendered = ->
   $('#ManageMechanicNotes thead th').each ->
     title = $('#ManageMechanicNotes thead th').eq($(this).index()).text()
-    console.log title
     # Collect list of titles to allow multi-column filter
     sel = window.ManageMechanicNotes.get()
     if isUndefined _.findWhere(sel, title)
       sel.titles.push(title)
     # Get specific data as set in Tabular Tables definition (i.e. class = 'profile.name')
     ThisClass = $('#ManageMechanicNotes thead th').eq($(this).index()).attr('class')
-    console.log ThisClass
     # Remove excess sorting, sorting_asc class etc.
     ThisClass = ThisClass.replace(/(sortin)\w+/gi, '').trim()
     # console.log ThisClass
@@ -54,7 +51,7 @@ Template.ManageMechanicNotes.rendered = ->
         e.stopPropagation()
       # Capture events on typing
       $input.on 'keyup', (e) ->
-        console.log 'searching: ' + title + ' and ThisClass: ' + ThisClass
+        # console.log 'searching: ' + title + ' and ThisClass: ' + ThisClass
         sel = window.ManageMechanicNotes.get()
         sel[title] = {}
         sel[title].search = ThisClass
@@ -66,7 +63,7 @@ Template.ManageMechanicNotes.rendered = ->
         else
           delete sel[title]
           # delete sel['profile.name']
-        console.log sel
+        # console.log sel
         window.ManageMechanicNotes.set sel
 
 Template.ManageMechanicNotes.helpers
