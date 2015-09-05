@@ -69,7 +69,7 @@ TabularTables.ManageUsers = new (Tabular.Table)(
     { data: 'profile.name', title: 'Name', class: "profile.name" }
     # { data: 'createdAt', title: 'Created At' }
     { data: 'emails.0.address', title: 'Email', class: "emails.0.address" }
-    { data: 'emails.0.verified', title: 'Verified?', class: "emails.0.verified" } # should be overlaid with a color?
+    { data: 'emails.0.verified', title: 'Verified?'} # should be overlaid with a color?
     { data: 'roles', title: 'Roles', class: "roles"  }
     # { tmpl: Meteor.isClient && Template.LinkToSpecificUser, title: 'Link' }
   ])
