@@ -39,26 +39,37 @@ Template.ManageUsers.created = ->
   window.currentSelector = new ReactiveVar({})
 
 Template.ManageUsers.rendered = ->
+  $('#ManageUsers thead th').each ->
+    title = $('#ManageUsers thead th').eq($(this).index()).text()
+    id = $('#ManageUsers thead th').eq($(this).index()).attr('class')
+    $input = $('<input type="text" placeholder="Search ' + title + '"' + 'id="' + id + '"/>')
+    $(this).prepend $input
+
   $table = $('#ManageUsers')
-  $input = $('<input name="my_col" type="text" />')
-  $table.find('thead th.my_col').append $input
+  $input = $('<input name="profile" type="text" />')
+  $table.find('thead th.profile').append $input
+  InputID = 'profile.name'
   # column class can be set in TabularTable definition
   $input.on 'keyup', (e) ->
     e.stopPropagation()
     sel = window.currentSelector.get()
+    # sel.search = 'profile.name'
     if @value
-      sel.my_col =
+      # sel.value =
+      sel['profile.name'] =
         $regex: @value
         $options: 'i'
-      sel.value = @value
-      console.log 'Value received on keyup: ' + @value
     else
-      delete sel.my_col
+      # delete sel.value
+      delete sel['profile.name']
     window.currentSelector.set sel
 
 Template.ManageUsers.helpers
   currentSelector: ->
-    console.log 'Printing selector returned to Tabular'
-    name = window.currentSelector.get()
-    console.log name.value
-    {'profile.name': name.my_col}
+    console.log 'Current Selector'
+    sel = window.currentSelector.get()
+    console.log sel
+    # search = sel.search
+    # test = {}
+    # test[search] = sel.value
+    sel
