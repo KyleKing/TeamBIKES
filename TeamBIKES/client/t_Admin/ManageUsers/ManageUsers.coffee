@@ -1,3 +1,5 @@
+
+
 Template.ManageUsers.events 'click tbody > tr': (event) ->
   # Store the id of the row clicked by the user
   dataTable = $(event.target).closest('table').DataTable()
@@ -25,7 +27,7 @@ Template.CurrentUser_Form.helpers
 # Reactive Var Modulation example
 # Source: https://github.com/aldeed/meteor-tabular/issues/79
 Template.ManageUsers.created = ->
-  window.currentSelector = new ReactiveVar({})
+  window.ManageUsers = new ReactiveVar({})
 
 Template.ManageUsers.rendered = ->
   $('#ManageUsers thead th').each ->
@@ -34,38 +36,46 @@ Template.ManageUsers.rendered = ->
     ThisClass = $('#ManageUsers thead th').eq($(this).index()).attr('class')
     # Remove excess sorting, sorting_asc class etc.
     ThisClass = ThisClass.replace(/(sortin)\w+/gi, '').trim()
-    console.log ThisClass
-    if isUndefined(ThisClass) || ThisClass == ''
-      console.log 'No class set in Tabular Tables for this value'
-    else
+    # console.log ThisClass
+    unless isUndefined(ThisClass) or ThisClass is ''
       # Create input text input
+      # $input = $('<br><input type="text" placeholder="Search ' + title + '"' + 'class="' + ThisClass + '"/>')
       $input = $('<input type="text" placeholder="Search ' + title + '"' + 'class="' + ThisClass + '"/>')
-      $(this).prepend $input
-      # Prevent sorting on lick of input box
+      # $(this).append $input
+      $(this).html $input
+      # Prevent sorting on click of input box
       $input.on 'click', (e) ->
         e.stopPropagation()
       # Capture events on typing
       $input.on 'keyup', (e) ->
         console.log 'searching: ' + title + ' and ThisClass: ' + ThisClass
-        sel = window.currentSelector.get()
-        sel.search = ThisClass
+        sel = window.ManageUsers.get()
+        sel.titles = ['Name', 'Email', 'Verified?', 'Roles']
+        sel[title] = {}
+        sel[title].search = ThisClass
         if @value
           # sel['profile.name'] =
-          sel.value =
+          sel[title].value =
             $regex: @value
             $options: 'i'
         else
-          delete sel.value
+          delete sel[title]
           # delete sel['profile.name']
-        window.currentSelector.set sel
+        console.log sel
+        window.ManageUsers.set sel
 
 Template.ManageUsers.helpers
   currentSelector: ->
     # console.log 'Current Selector'
-    sel = window.currentSelector.get()
-    # console.log sel
-    # sel
-    search = sel.search
+    sel = window.ManageUsers.get()
+
     ReactiveTest = {}
-    ReactiveTest[search] = sel.value
+    unless isUndefined sel.titles
+      _.each sel.titles, (title) ->
+        console.log title
+        unless isUndefined sel[title]
+          console.log title + ' is defined'
+          ReactiveTest[sel[title].search] = sel[title].value
+          console.log ReactiveTest
+    console.log ReactiveTest
     ReactiveTest
