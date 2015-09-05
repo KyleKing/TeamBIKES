@@ -20,10 +20,10 @@ TabularTables.ManageBikes = new (Tabular.Table)(
   pub: "DailyBikeDataPub"
   autoWidth: false
   columns: [
-    { data: 'Bike', title: 'Bike', class: 'Bike' }
+    { data: 'Bike', title: 'Bike' }
     # { data: 'Day', title: 'Day' }
-    { data: 'Tag', title: 'Tag', class: 'Tag' }
-    { data: 'Timestamp()', title: 'Last Timestamp', class: 'Timestamp()' }
+    { data: 'Tag', title: 'Tag', class: 'Tag', class: 'Tag' }
+    { data: 'Timestamp()', title: 'Last Timestamp' }
     { data: 'Positions.0.Coordinates.0', title: 'Lat', class: 'Positions.0.Coordinates.0' }
     { data: 'Positions.0.Coordinates.1', title: 'Lng', class: 'Positions.0.Coordinates.1' }
   ]

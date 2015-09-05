@@ -29,9 +29,7 @@ Template.ManageUsers.created = ->
 
 Template.ManageUsers.rendered = ->
   TabularSelectorMain('ManageUsers')
-  return
 
 Template.ManageUsers.helpers
   currentSelector: ->
-    ReactiveTest = TabularSelectorHelper('ManageUsers')
-    ReactiveTest
+    TabularSelectorHelper('ManageUsers')
