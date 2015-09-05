@@ -47,32 +47,32 @@ Template.map.rendered = ->
                 console.log error.reason
               else
                 sAlert.success('Bike #' + SelectedBike + ' successfully reserved for the next FIVE minutes!')
-                if result == 1
+                if result is 1
                   sAlert.warning('1 previously reserved bike was re-listed as Available')
-                else if result != 0
+                else if result isnt 0
                   sAlert.warning(result + ' previously reserved bikes were re-listed as Available')
           else
             sAlert.warning('You must sign in to reserve a bike')
           ).addTo(window.BikeMap)
 
     changed: (bike, oldBike) ->
-      if oldBike.Tag == bike.Tag
+      if oldBike.Tag is bike.Tag
         latlng = bike.Coordinates
         MapMarkers[bike._id].setLatLng(latlng).update()
         console.log MapMarkers[bike._id]._leaflet_id + ' changed on window.BikeMap on CHANGED event'
-      else if bike.Tag == Meteor.userId()
+      else if bike.Tag is Meteor.userId()
         MapMarkers[bike._id].setIcon window.Reserved
         console.log 'Changed to green icon color for # ' + bike.Bike
-      else if bike.Tag == "Available"
+      else if bike.Tag is "Available"
         MapMarkers[bike._id].setIcon window.Available
         console.log 'Changed to gray icon color for # ' + bike.Bike
       else
         console.log "changed, but not with this logic"
 
     removed: (oldBike) ->
-      if oldBike.Tag != Meteor.userId() && Session.get 'available'
+      if oldBike.Tag isnt Meteor.userId() and Session.get 'available'
         # If removed bike is currently selected bike...
-        if Session.get("selectedBike") == oldBike.Bike
+        if Session.get("selectedBike") is oldBike.Bike
           # Updated reserve bike text
           Session.set "available": false
           # And alert user
@@ -102,7 +102,7 @@ Tracker.autorun ->
   if Session.equals 'MapTemplate', true
     # console.log 'Autorun is auto-running!'
     # Remove old polylines
-    if !isUndefined(window.LineToNearestBike) && !isUndefined(window.LineToNearestBike[0])
+    unless isUndefined(window.LineToNearestBike) and isUndefined(window.LineToNearestBike[0])
       console.log 'removing old polylines'
       Num = 0
       while Num < window.LineToNearestBike.length
@@ -133,7 +133,7 @@ Tracker.autorun ->
         ).fetch()
 
       # Check error case and draw
-      if closest.length == 0
+      if closest.length is 0
         console.log 'No close bikes found'
       else
         # Init Vars
