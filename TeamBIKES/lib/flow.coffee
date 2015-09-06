@@ -103,8 +103,8 @@ FlowRouter.route '/AdminCompilation/ManageUsers_Form/:IDofSelectedRow',
 FlowRouter.route '/dev/kyle',
   name: 'Dev',
   action: () ->
-    BlazeLayout.render 'UniversalLayout', {
-      body: 'VisComponents'
+    BlazeLayout.render 'UniversalLayout_Basic', {
+      body: 'LoginFormCD'
     }
 
 # Scroll to the top of every page
