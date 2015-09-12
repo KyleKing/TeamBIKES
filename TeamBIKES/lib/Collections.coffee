@@ -1,3 +1,5 @@
+@RackNames = new Mongo.Collection 'racknames'
+
 # All bike positional information
 @DailyBikeData = new Mongo.Collection 'dailyBikeData'
 DailyBikeData.attachSchema new SimpleSchema(

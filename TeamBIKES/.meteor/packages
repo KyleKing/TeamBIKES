@@ -8,7 +8,8 @@ meteor-platform
 # autopublish
 # insecure
 
-meteortoys:allthings@1.2.3 # Pres ctrl-m to activate
+# meteortoys:allthings@1.2.3 # Pres ctrl-m to activate
+meteortoys:allthings # Pres ctrl-m to activate
 
 #### Libraries and Preprocessors ####
 stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
@@ -168,3 +169,4 @@ meteorhacks:aggregate
 # spiderable
 
 # New Packages
+mrt:bootstrap3-typeahead

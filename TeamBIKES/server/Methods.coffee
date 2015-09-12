@@ -1,3 +1,21 @@
+# Fetch Bike Rack Locations from UMD API
+Meteor.methods 'QueryRackNames': () ->
+  try
+    # Fetch the data and parse into JSON
+    console.log 'Starting Query RackNames'
+    url = 'http://maps.umd.edu/arcgis/rest/services/Layers/CampusBikeRacks/MapServer/4/query?f=json&returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometry=%7B%22xmin%22%3A-8.564587000000438547065%2C%22ymin%22%3A4.717655000000053482285%2C%22xmax%22%3A-856275200.945278078%2C%22ymax%22%3A471948900.546751272%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100'
+    response = Meteor.http.get url, {timeout:30000}
+    RackNamesInfo = JSON.parse(response.content)
+    # Don't overflow a single document and place each in own doc
+    _.each RackNamesInfo.features, (RackData) ->
+      doc =
+        attributes: RackData.attributes
+        geometry: RackData.geometry
+      InsertedID = RackNames.insert doc
+  catch error
+    console.log error
+
+
 Meteor.methods 'UserReserveBike': (currentUserId, Bike) ->
   # Check if other reserved bikes and remove reservations
   count = RemoveReservation(currentUserId)

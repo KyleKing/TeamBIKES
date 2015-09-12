@@ -1,8 +1,12 @@
+Meteor.publish 'RackNamesGet', ->
+  RackNames.find()
+
+
 # Server/Publications.coffee
 
 # Give authorized users access to sensitive data by group
 # Meteor.publish 'DailyBikeDataPub', (group) ->
-Meteor.publish 'DailyBikeDataPub', () ->
+Meteor.publish 'DailyBikeDataPub', ->
   # if Roles.userIsInRole(@userId, ['Admin', 'Root', 'Mechanic'], group)
   #   DailyBikeData.find()
   # else
