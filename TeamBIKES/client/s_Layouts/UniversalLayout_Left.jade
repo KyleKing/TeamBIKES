@@ -1,9 +1,9 @@
 template(name='UniversalLayout_Left')
 	+sAlert
-	+NavTop
+	+momentum(plugin='flow-router')
+		+NavTop
 	//- +contentWrapper
-	.navSpacing
-	main.cd-main-content
+	main.cd-main-content.navSpacing
 		.container
 			+momentum(plugin='flow-router')
 				+Template.dynamic template=body
