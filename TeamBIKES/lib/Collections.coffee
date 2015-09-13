@@ -1,4 +1,5 @@
 @RackNames = new Mongo.Collection 'racknames'
+@OuterLimit = new Mongo.Collection 'outerlimit'
 
 # All bike positional information
 @DailyBikeData = new Mongo.Collection 'dailyBikeData'

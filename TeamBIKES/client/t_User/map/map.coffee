@@ -3,6 +3,7 @@ Template.map.rendered = ->
   Meteor.subscribe("ReservedBike")
 
   Meteor.subscribe 'RackNamesGet'
+  Meteor.subscribe 'OuterLimitGet'
   Meteor.call 'QueryRackNames'
 
   # Call MapInit function from s_Helpers
@@ -104,6 +105,8 @@ Template.map.rendered = ->
 Template.map.created = ->
   Session.set 'MapTemplate', true
 Template.map.destroyed = ->
+  # Call this function to properly remove any functions called in Map Init Function
+  MapInitDestroyedFunction()
   Session.set 'MapTemplate', false
   window.MapObserveHandle.stop() # also stop observing DailyBikeData
   # Then clear window.BikeMap variable before loading a new map

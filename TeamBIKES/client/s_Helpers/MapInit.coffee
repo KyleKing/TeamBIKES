@@ -83,39 +83,48 @@
       ShowClosestBikesToggle.addTo window[MapInitSettings.MapName]
 
     # Active area of bike map
-    # Manually drawn from: http://www.latlong.net/
     if MapInitSettings.DrawOutline
-      polygon = L.polygon([
-        [ 39.000276, -76.943264 ]
-        [ 38.998642, -76.946397 ]
-        [ 38.992438, -76.951632 ]
-        [ 38.986300, -76.956096 ]
-        [ 38.985433, -76.955495 ]
-        [ 38.984733, -76.952019 ]
-        [ 38.983765, -76.952190 ]
-        [ 38.983532, -76.948543 ]
-        [ 38.981330, -76.946354 ]
-        [ 38.977527, -76.937985 ]
-        [ 38.983065, -76.937771 ]
-        [ 38.983131, -76.934423 ]
-        [ 38.983832, -76.933479 ]
-        [ 38.984833, -76.934423 ]
-        [ 38.984799, -76.937299 ]
-        [ 38.992671, -76.933093 ]
-        [ 38.993105, -76.935153 ]
-        [ 38.996074, -76.935325 ]
-        [ 38.996174, -76.937728 ]
-        [ 39.000243, -76.942277 ]
-        [ 39.001777, -76.940989 ]
-        [ 39.003244, -76.940818 ]
-        [ 39.003711, -76.942706 ]
-        [ 39.001210, -76.943436 ]
-      ], {
-        fill: false
-        color: 'blue'
-        smoothFactor: 7
-        weight: 10
-      }).addTo(window[MapInitSettings.MapName])
+      window.MapObserveOuterLineHandle = OuterLimit.find().observe
+        added: (outerline) ->
+          console.log outerline
+          L.polygon(outerline.Details, {
+            fill: false
+            color: 'purple'
+            smoothFactor: 5
+            weight: 7
+          }).addTo(window[MapInitSettings.MapName])
+      # Manually drawn from: http://www.latlong.net/
+      # polygon = L.polygon([
+      #   [ 39.000276, -76.943264 ]
+      #   [ 38.998642, -76.946397 ]
+      #   [ 38.992438, -76.951632 ]
+      #   [ 38.986300, -76.956096 ]
+      #   [ 38.985433, -76.955495 ]
+      #   [ 38.984733, -76.952019 ]
+      #   [ 38.983765, -76.952190 ]
+      #   [ 38.983532, -76.948543 ]
+      #   [ 38.981330, -76.946354 ]
+      #   [ 38.977527, -76.937985 ]
+      #   [ 38.983065, -76.937771 ]
+      #   [ 38.983131, -76.934423 ]
+      #   [ 38.983832, -76.933479 ]
+      #   [ 38.984833, -76.934423 ]
+      #   [ 38.984799, -76.937299 ]
+      #   [ 38.992671, -76.933093 ]
+      #   [ 38.993105, -76.935153 ]
+      #   [ 38.996074, -76.935325 ]
+      #   [ 38.996174, -76.937728 ]
+      #   [ 39.000243, -76.942277 ]
+      #   [ 39.001777, -76.940989 ]
+      #   [ 39.003244, -76.940818 ]
+      #   [ 39.003711, -76.942706 ]
+      #   [ 39.001210, -76.943436 ]
+      # ], {
+      #   fill: false
+      #   color: 'blue'
+      #   smoothFactor: 7
+      #   weight: 10
+      # }).addTo(window[MapInitSettings.MapName])
 
   # Bike icons
   # Color choices: 'red', 'darkred', 'orange', 'green'
@@ -157,3 +166,6 @@
     icon: 'archive'
     markerColor: 'purple'
     iconColor: 'white')
+
+@MapInitDestroyedFunction = ->
+  window.MapObserveOuterLineHandle.stop()
