@@ -83,27 +83,28 @@
       ShowClosestBikesToggle.addTo window[MapInitSettings.MapName]
 
   # Create toggle button for displaying bike rack locations
-  ShowBikeRacksToggle = L.easyButton(states: [
-    {
-      stateName: 'show'
-      icon: 'fa-archive'
-      onClick: (control) ->
-        Session.set 'OptionalBikeRacks', true
-        console.log 'set OptionalBikeRacks true'
-        control.state 'hide'
-      title: 'Show Bike Rack Locations'
-    }
-    {
-      stateName: 'hide'
-      icon: 'fa-history'
-      onClick: (control) ->
-        Session.set 'OptionalBikeRacks', false
-        console.log 'set OptionalBikeRacks false'
-        control.state 'show'
-      title: 'Hide Bike Rack Locations'
-    }
-  ])
-  ShowBikeRacksToggle.addTo window[MapInitSettings.MapName]
+  # Below button does the toggling anyway
+  # ShowBikeRacksToggle = L.easyButton(states: [
+  #   {
+  #     stateName: 'show'
+  #     icon: 'fa-archive'
+  #     onClick: (control) ->
+  #       Session.set 'OptionalBikeRacks', true
+  #       console.log 'set OptionalBikeRacks true'
+  #       control.state 'hide'
+  #     title: 'Show Bike Rack Locations'
+  #   }
+  #   {
+  #     stateName: 'hide'
+  #     icon: 'fa-history'
+  #     onClick: (control) ->
+  #       Session.set 'OptionalBikeRacks', false
+  #       console.log 'set OptionalBikeRacks false'
+  #       control.state 'show'
+  #     title: 'Hide Bike Rack Locations'
+  #   }
+  # ])
+  # ShowBikeRacksToggle.addTo window[MapInitSettings.MapName]
 
   # Create toggle button for markers - more of a dev feature
   if MapInitSettings.ShowBikeRacksMarkerToggle
