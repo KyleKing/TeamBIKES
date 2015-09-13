@@ -105,12 +105,50 @@
   ])
   ShowBikeRacksToggle.addTo window[MapInitSettings.MapName]
 
+  # Create toggle button for markers - more of a dev feature
+  if MapInitSettings.ShowBikeRacksMarkerToggle
+    # Create toggle button for displaying bike rack locations
+    ShowBikeRacksMarkerToggle = L.easyButton(states: [
+      {
+        stateName: 'show-markers'
+        icon: 'fa-map-marker'
+        onClick: (control) ->
+          Session.set 'OptionalBikeRacksMarkers', true
+          # Toggle Bike Racks to update subscription
+          Session.set 'OptionalBikeRacks', 7
+          console.log 'set OptionalBikeRacksMarkers true'
+          control.state 'hide-markers'
+        title: 'Show Bike Rack Markers'
+      }
+      {
+        stateName: 'hide-markers'
+        icon: 'fa-history'
+        onClick: (control) ->
+          Session.set 'OptionalBikeRacksMarkers', false
+          # Toggle Bike Racks to update subscription
+          Session.set 'OptionalBikeRacks', 7
+          console.log 'set OptionalBikeRacksMarkers false'
+          control.state 'show-markers'
+        title: 'Hide Bike Rack Markers'
+      }
+    ])
+    ShowBikeRacksMarkerToggle.addTo window[MapInitSettings.MapName]
+  if isUndefined MapInitSettings.ShowBikeRacksMarkerToggle
+    Session.set 'OptionalBikeRacksMarkers', true
+  else
+    Session.set 'OptionalBikeRacksMarkers', MapInitSettings.ShowBikeRacksMarkerToggle
+
   # Plot Bike Racks
   # Allow for user to toggle bike racks on and off
   if isUndefined Session.get 'OptionalBikeRacks'
     Session.set 'OptionalBikeRacks', false
   # Session.set 'OptionalBikeRacks', false
   Tracker.autorun ->
+    if Session.equals 'OptionalBikeRacks', 7
+      # Wait to unsubscribe
+      if RackNames.find().count() is 0
+        Session.set 'OptionalBikeRacks', true
+    # Toggle Bike Racks to update subscription
     Meteor.subscribe 'RackNamesGet', Session.get 'OptionalBikeRacks'
   # Subscribe to rest of data
   Meteor.subscribe 'OuterLimitGet'
@@ -124,7 +162,9 @@
       BikeIcon = IconLogic('BikeRack')
       RackPositionMarkers[EachRackData._id] = L.marker(EachRackData.Coordinates, {
         icon: BikeIcon
-        }).addTo window[MapInitSettings.MapName]
+        })
+      if Session.get 'OptionalBikeRacksMarkers'
+        RackPositionMarkers[EachRackData._id].addTo window[MapInitSettings.MapName]
       RackOutlinePolygons[EachRackData._id] = L.polygon(EachRackData.Details, {
         fill: true
         color: 'purple'

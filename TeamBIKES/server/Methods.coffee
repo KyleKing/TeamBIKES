@@ -4,6 +4,7 @@ Meteor.methods 'QueryRackNames': ->
     try
       # Fetch the data and parse into JSON
       console.log 'Starting Query RackNames'
+      # format pjson is a formatted version
       url = 'http://maps.umd.edu/arcgis/rest/services/Layers/CampusBikeRacks/MapServer/4/query?f=json&returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometry=%7B%22xmin%22%3A0%2C%22ymin%22%3A0%2C%22xmax%22%3A-900000000%2C%22ymax%22%3A900000000%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100'
       response = Meteor.http.get url, {timeout:30000}
       RackNamesInfo = JSON.parse(response.content)

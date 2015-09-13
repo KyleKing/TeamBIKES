@@ -10,6 +10,7 @@ Template.ManageBike.rendered = ->
     ShowClosestBikes: false
     FullScreenButton: true
     PopupGuide: false
+    ShowBikeRacksMarkerToggle: true
 
   # Source: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
