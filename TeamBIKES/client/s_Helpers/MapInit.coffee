@@ -84,15 +84,21 @@
 
     # Active area of bike map
     if MapInitSettings.DrawOutline
+      CampusOutlinePolygons = []
       window.MapObserveOuterLineHandle = OuterLimit.find().observe
         added: (outerline) ->
-          console.log outerline
-          L.polygon(outerline.Details, {
+          CampusOutlinePolygons[outerline._id] = L.polygon(outerline.Details, {
             fill: false
             color: 'purple'
             smoothFactor: 5
             weight: 7
           }).addTo(window[MapInitSettings.MapName])
+        removed: (OldOuterline) ->
+          # Remove the marker from the map
+          console.log CampusOutlinePolygons[OldOuterline._id]._leaflet_id + ' removed from window.BikeMap on REMOVED event and...'
+          window.BikeMap.removeLayer CampusOutlinePolygons[OldOuterline._id]
+          # Remove the reference to this marker instance
+          delete CampusOutlinePolygons[OldOuterline._id]
       # Manually drawn from: http://www.latlong.net/
       # polygon = L.polygon([
       #   [ 39.000276, -76.943264 ]
@@ -169,3 +175,9 @@
 
 @MapInitDestroyedFunction = ->
   window.MapObserveOuterLineHandle.stop()
+  # Then clear  window[MapInitSettings.MapName] variable before loading a new map
+  # console.log 'Deleting ' + window[MapInitSettings.MapName]
+  # delete window[MapInitSettings.MapName]
+  console.log 'Stopping LocateControl'
+  # delete LocateControl
+  window.LocateControl.stop()

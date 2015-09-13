@@ -20,6 +20,8 @@ Template.map.rendered = ->
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   MapMarkers = []
+  RackPositionMarkers = []
+  RackOutlinePolygons = []
   Session.set
     "selectedBike": false
     "available": true
@@ -28,9 +30,8 @@ Template.map.rendered = ->
   RackNames.find().observe
     added: (EachRackData) ->
       BikeIcon = IconLogic('BikeRack')
-      L.marker(EachRackData.Coordinates, {icon: BikeIcon}).addTo window.BikeMap
-      # Manually drawn from: http://www.latlong.net/
-      L.polygon(EachRackData.Details, {
+      RackPositionMarkers[EachRackData._id] = L.marker(EachRackData.Coordinates, {icon: BikeIcon}).addTo window.BikeMap
+      RackOutlinePolygons[EachRackData._id] = L.polygon(EachRackData.Details, {
         fill: true
         color: 'purple'
         smoothFactor: 7
@@ -38,6 +39,14 @@ Template.map.rendered = ->
       }).addTo window.BikeMap
       # _.each EachRackData.Details, (coord) ->
       #   L.marker(coord, {icon: BikeIcon}).addTo window.BikeMap
+    removed: (EachRackData) ->
+      # Remove the marker from the map
+      console.log RackPositionMarkers[EachRackData._id]._leaflet_id + ' removed from window.BikeMap on REMOVED event and...'
+      window.BikeMap.removeLayer RackPositionMarkers[EachRackData._id]
+      window.BikeMap.removeLayer RackOutlinePolygons[EachRackData._id]
+      # Remove the reference to this marker instance
+      delete RackPositionMarkers[EachRackData._id]
+      delete RackOutlinePolygons[EachRackData._id]
 
   [today, now] = CurrentDay()
   window.MapObserveHandle = DailyBikeData.find({ Day: today, Tag: {$in: ['Available', Meteor.userId()] }}).observe
@@ -109,12 +118,6 @@ Template.map.destroyed = ->
   MapInitDestroyedFunction()
   Session.set 'MapTemplate', false
   window.MapObserveHandle.stop() # also stop observing DailyBikeData
-  # Then clear window.BikeMap variable before loading a new map
-  # console.log 'Deleting window.BikeMap'
-  # delete window.BikeMap
-  console.log 'Stopping LocateControl'
-  # delete LocateControl
-  window.LocateControl.stop()
 
 DrawClosestBikes = () ->
 Tracker.autorun ->
