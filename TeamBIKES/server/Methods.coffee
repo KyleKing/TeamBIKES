@@ -11,8 +11,12 @@ Meteor.methods 'QueryRackNames': ->
       urlDetails = 'http://maps.umd.edu/arcgis/rest/services/Layers/CampusBikeRacks/MapServer/0/query?f=pjson&returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometry=%7B%22xmin%22%3A0%2C%22ymin%22%3A0%2C%22xmax%22%3A-900000000%2C%22ymax%22%3A900000000%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100'
       responseDetails = Meteor.http.get urlDetails, {timeout:30000}
       RackNamesDetails = JSON.parse(responseDetails.content)
-      console.log RackNamesDetails.features[1].attributes.OBJECTID
-      console.log RackNamesDetails.features[1].geometry.rings
+
+      urlOuterLimit = 'http://maps.umd.edu/arcgis/rest/services/Layers/CampusBoundary/MapServer/0/query?f=json&returnGeometry=true&spatialRel=esriSpatialRelIntersects&maxAllowableOffset=1&geometry=%7B%22xmin%22%3A0%2C%22ymin%22%3A0%2C%22xmax%22%3A-900000000%2C%22ymax%22%3A900000000%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100'
+      responseOuterLimit = Meteor.http.get urlOuterLimit, {timeout:30000}
+      CampusOuterLimit = JSON.parse(responseOuterLimit.content)
+      console.log CampusOuterLimit
+
       # Don't overflow a single document and place each in own doc
       _.each RackNamesInfo.features, (RackData) ->
         # Convert to decimal from projection
@@ -26,7 +30,8 @@ Meteor.methods 'QueryRackNames': ->
             # console.log '--- Originally ---'
             # console.log coordinate
             output = proj4('GOOGLE', 'WGS84', coordinate)
-            BikeRackShapeData.push(output)
+            # Account for weirdly flipped coordinates...
+            BikeRackShapeData.push(output.reverse())
             # console.log '--- One Iteration ---'
             # console.log CurrentID
             # console.log output

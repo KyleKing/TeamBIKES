@@ -28,7 +28,15 @@ Template.map.rendered = ->
     added: (EachRackData) ->
       BikeIcon = IconLogic('BikeRack')
       L.marker(EachRackData.Coordinates, {icon: BikeIcon}).addTo window.BikeMap
-
+      # Manually drawn from: http://www.latlong.net/
+      L.polygon(EachRackData.Details, {
+        fill: true
+        color: 'purple'
+        smoothFactor: 7
+        weight: 2
+      }).addTo window.BikeMap
+      # _.each EachRackData.Details, (coord) ->
+      #   L.marker(coord, {icon: BikeIcon}).addTo window.BikeMap
 
   [today, now] = CurrentDay()
   window.MapObserveHandle = DailyBikeData.find({ Day: today, Tag: {$in: ['Available', Meteor.userId()] }}).observe
