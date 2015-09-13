@@ -1,5 +1,5 @@
 Template.MechMap.rendered = ->
-  Meteor.subscribe("DailyBikeDataPub")
+  @subscribe("DailyBikeDataPub")
 
   # Call MapInit function from s_Helpers
   coords = [38.987701, -76.940989]
@@ -70,7 +70,7 @@ Template.MechMap.rendered = ->
           # And alert user
           sAlert.error('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
-      console.log MechMarkers[oldBike._id]._leaflet_id + ' removed from window.MechMap on REMOVED event and...'
+      console.log MechMarkers[oldBike._id]._leaflet_id + ' removed from window.MechMap on REMOVED event'
       window.MechMap.removeLayer MechMarkers[oldBike._id]
       # Remove the reference to this marker instance
       delete MechMarkers[oldBike._id]
@@ -78,11 +78,8 @@ Template.MechMap.rendered = ->
 Template.MechMap.destroyed = ->
   # Stop observing DailyBikeData
   window.MechMapObserveHandle.stop()
-  # console.log 'Deleting window.MechMap'
-  # delete window.MechMap
-  console.log 'Stopping LocateControl'
-  # delete LocateControl
-  window.LocateControl.stop()
+  # Call this function to properly remove any functions called in Map Init Function
+  MapInitDestroyedFunction()
 
 # Provide context for user
 Template.MechMap.helpers

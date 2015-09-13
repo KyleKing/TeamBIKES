@@ -67,7 +67,7 @@
             console.log 'set ShowClosestBikes true'
             control.state 'removing-markers'
             return
-          title: 'add random markers'
+          title: 'Show nearest bikes'
         }
         {
           stateName: 'removing-markers'
@@ -77,10 +77,70 @@
             console.log 'set ShowClosestBikes false'
             control.state 'adding-markers'
             return
-          title: 'remove markers'
+          title: 'Undo'
         }
       ])
       ShowClosestBikesToggle.addTo window[MapInitSettings.MapName]
+
+  # Create toggle button for displaying bike rack locations
+  ShowBikeRacksToggle = L.easyButton(states: [
+    {
+      stateName: 'show'
+      icon: 'fa-archive'
+      onClick: (control) ->
+        Session.set 'OptionalBikeRacks', true
+        console.log 'set OptionalBikeRacks true'
+        control.state 'hide'
+      title: 'Show Bike Rack Locations'
+    }
+    {
+      stateName: 'hide'
+      icon: 'fa-history'
+      onClick: (control) ->
+        Session.set 'OptionalBikeRacks', false
+        console.log 'set OptionalBikeRacks false'
+        control.state 'show'
+      title: 'Hide Bike Rack Locations'
+    }
+  ])
+  ShowBikeRacksToggle.addTo window[MapInitSettings.MapName]
+
+  # Plot Bike Racks
+  # Allow for user to toggle bike racks on and off
+  if isUndefined Session.get 'OptionalBikeRacks'
+    Session.set 'OptionalBikeRacks', false
+  # Session.set 'OptionalBikeRacks', false
+  Tracker.autorun ->
+    Meteor.subscribe 'RackNamesGet', Session.get 'OptionalBikeRacks'
+  # Subscribe to rest of data
+  Meteor.subscribe 'OuterLimitGet'
+  Meteor.call 'QueryRackNames'
+  # Init Vars
+  RackPositionMarkers = []
+  RackOutlinePolygons = []
+  # Watch bike racks for change in availability (not built yet)
+  RackNames.find().observe
+    added: (EachRackData) ->
+      BikeIcon = IconLogic('BikeRack')
+      RackPositionMarkers[EachRackData._id] = L.marker(EachRackData.Coordinates, {
+        icon: BikeIcon
+        }).addTo window[MapInitSettings.MapName]
+      RackOutlinePolygons[EachRackData._id] = L.polygon(EachRackData.Details, {
+        fill: true
+        color: 'purple'
+        smoothFactor: 0
+        weight: 2
+      }).addTo window[MapInitSettings.MapName]
+      # _.each EachRackData.Details, (coord) ->
+      #   L.marker(coord, {icon: BikeIcon}).addTo window[MapInitSettings.MapName]
+    removed: (EachRackData) ->
+      # Remove the marker from the map
+      console.log RackPositionMarkers[EachRackData._id]._leaflet_id + ' removed on REMOVED event'
+      window[MapInitSettings.MapName].removeLayer RackPositionMarkers[EachRackData._id]
+      window[MapInitSettings.MapName].removeLayer RackOutlinePolygons[EachRackData._id]
+      # Remove the reference to this marker instance
+      delete RackPositionMarkers[EachRackData._id]
+      delete RackOutlinePolygons[EachRackData._id]
 
     # Active area of bike map
     if MapInitSettings.DrawOutline
@@ -95,8 +155,8 @@
           }).addTo(window[MapInitSettings.MapName])
         removed: (OldOuterline) ->
           # Remove the marker from the map
-          console.log CampusOutlinePolygons[OldOuterline._id]._leaflet_id + ' removed from window.BikeMap on REMOVED event and...'
-          window.BikeMap.removeLayer CampusOutlinePolygons[OldOuterline._id]
+          console.log CampusOutlinePolygons[OldOuterline._id]._leaflet_id + ' removed on REMOVED event'
+          window[MapInitSettings.MapName].removeLayer CampusOutlinePolygons[OldOuterline._id]
           # Remove the reference to this marker instance
           delete CampusOutlinePolygons[OldOuterline._id]
       # Manually drawn from: http://www.latlong.net/

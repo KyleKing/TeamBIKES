@@ -35,6 +35,8 @@ Meteor.methods 'QueryRackNames': ->
           attributes: RackData.attributes
           Coordinates: [RackData.geometry.y, RackData.geometry.x]
           Details: BikeRackShapeData
+          Optional: true
+          Availablility: RackData.attributes.Rack_Capac
         InsertedID = RackNames.insert doc
 
   # console.log 'OuterLimit = ' + OuterLimit.find().count()
@@ -58,6 +60,7 @@ Meteor.methods 'QueryRackNames': ->
         doc =
           attributes: OuterLine.attributes
           Details: BikeRackShapeData
+          Optional: true
         InsertedID = OuterLimit.insert doc
     catch error
       console.log error

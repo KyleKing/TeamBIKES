@@ -1,10 +1,6 @@
 Template.map.rendered = ->
-  Meteor.subscribe("AvailableBikeLocationsPub")
-  Meteor.subscribe("ReservedBike")
-
-  Meteor.subscribe 'RackNamesGet'
-  Meteor.subscribe 'OuterLimitGet'
-  Meteor.call 'QueryRackNames'
+  @subscribe("AvailableBikeLocationsPub")
+  @subscribe("ReservedBike")
 
   # Call MapInit function from s_Helpers
   coords = [38.987701, -76.940989]
@@ -20,33 +16,9 @@ Template.map.rendered = ->
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
   MapMarkers = []
-  RackPositionMarkers = []
-  RackOutlinePolygons = []
   Session.set
     "selectedBike": false
     "available": true
-
-  # Plot Bike Racks
-  RackNames.find().observe
-    added: (EachRackData) ->
-      BikeIcon = IconLogic('BikeRack')
-      RackPositionMarkers[EachRackData._id] = L.marker(EachRackData.Coordinates, {icon: BikeIcon}).addTo window.BikeMap
-      RackOutlinePolygons[EachRackData._id] = L.polygon(EachRackData.Details, {
-        fill: true
-        color: 'purple'
-        smoothFactor: 7
-        weight: 2
-      }).addTo window.BikeMap
-      # _.each EachRackData.Details, (coord) ->
-      #   L.marker(coord, {icon: BikeIcon}).addTo window.BikeMap
-    removed: (EachRackData) ->
-      # Remove the marker from the map
-      console.log RackPositionMarkers[EachRackData._id]._leaflet_id + ' removed from window.BikeMap on REMOVED event and...'
-      window.BikeMap.removeLayer RackPositionMarkers[EachRackData._id]
-      window.BikeMap.removeLayer RackOutlinePolygons[EachRackData._id]
-      # Remove the reference to this marker instance
-      delete RackPositionMarkers[EachRackData._id]
-      delete RackOutlinePolygons[EachRackData._id]
 
   [today, now] = CurrentDay()
   window.MapObserveHandle = DailyBikeData.find({ Day: today, Tag: {$in: ['Available', Meteor.userId()] }}).observe
@@ -105,7 +77,7 @@ Template.map.rendered = ->
           # And alert user
           sAlert.error('Bike reserved by different user. Select new bike')
       # Remove the marker from the map
-      console.log MapMarkers[oldBike._id]._leaflet_id + ' removed from window.BikeMap on REMOVED event and...'
+      console.log MapMarkers[oldBike._id]._leaflet_id + ' removed from window.BikeMap on REMOVED event'
       window.BikeMap.removeLayer MapMarkers[oldBike._id]
       # Remove the reference to this marker instance
       delete MapMarkers[oldBike._id]
@@ -113,13 +85,14 @@ Template.map.rendered = ->
 # Run autorun function on only map template
 Template.map.created = ->
   Session.set 'MapTemplate', true
+
 Template.map.destroyed = ->
   # Call this function to properly remove any functions called in Map Init Function
   MapInitDestroyedFunction()
   Session.set 'MapTemplate', false
   window.MapObserveHandle.stop() # also stop observing DailyBikeData
 
-DrawClosestBikes = () ->
+# DrawClosestBikes = () ->
 Tracker.autorun ->
   # Run on only map template
   if Session.equals 'MapTemplate', true
