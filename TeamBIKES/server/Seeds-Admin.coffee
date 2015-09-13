@@ -1,3 +1,10 @@
+if RackNames.find().count() is 0
+  console.log 'Found zero racknames in db'
+  Meteor.call 'QueryRackNames'
+
+
+
+
 # DailyBikeData {
 #   Bike: <number>,
 #   Day: <number out of 365>,

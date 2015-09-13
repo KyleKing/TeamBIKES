@@ -1,19 +1,42 @@
 # Fetch Bike Rack Locations from UMD API
-Meteor.methods 'QueryRackNames': () ->
-  try
-    # Fetch the data and parse into JSON
-    console.log 'Starting Query RackNames'
-    url = 'http://maps.umd.edu/arcgis/rest/services/Layers/CampusBikeRacks/MapServer/4/query?f=json&returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometry=%7B%22xmin%22%3A-8.564587000000438547065%2C%22ymin%22%3A4.717655000000053482285%2C%22xmax%22%3A-856275200.945278078%2C%22ymax%22%3A471948900.546751272%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100'
-    response = Meteor.http.get url, {timeout:30000}
-    RackNamesInfo = JSON.parse(response.content)
-    # Don't overflow a single document and place each in own doc
-    _.each RackNamesInfo.features, (RackData) ->
-      doc =
-        attributes: RackData.attributes
-        geometry: RackData.geometry
-      InsertedID = RackNames.insert doc
-  catch error
-    console.log error
+Meteor.methods 'QueryRackNames': ->
+  if RackNames.find().count() is 0
+    try
+      # Fetch the data and parse into JSON
+      console.log 'Starting Query RackNames'
+      # Breaking down the link....
+      # http://maps.umd.edu/arcgis/rest/services/Layers/CampusBikeRacks/MapServer/4/query?f=json&
+      # returnGeometry=true&
+      # spatialRel=esriSpatialRelIntersects&
+      # geometry={"xmin":-8.564587000000438547065, "ymin":4.717655000000053482285, "xmax":-856275200.945278078, "ymax":471948900.546751272,
+      # "spatialReference": { "wkid":102100 }}&
+      # geometryType=esriGeometryEnvelope&
+      # inSR=102100&
+      # outFields=*&
+      # outSR=102100
+      # url = 'http://maps.umd.edu/arcgis/rest/services/Layers/CampusBikeRacks/MapServer/4/query?f=json&returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometry=%7B%22xmin%22%3A-8.564587000000438547065%2C%22ymin%22%3A4.717655000000053482285%2C%22xmax%22%3A-856275200.945278078%2C%22ymax%22%3A471948900.546751272%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100'
+      # Better box limits:
+      # url = 'http://maps.umd.edu/arcgis/rest/services/Layers/CampusBikeRacks/MapServer/4/query?f=json&returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometry=%7B%22xmin%22%3A0%2C%22ymin%22%3A0%2C%22xmax%22%3A-900000000%2C%22ymax%22%3A900000000%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100'
+      url = 'http://maps.umd.edu/arcgis/rest/services/Layers/CampusBikeRacks/MapServer/4/query?f=pjson&returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometry=%7B%22xmin%22%3A0%2C%22ymin%22%3A0%2C%22xmax%22%3A-900000000%2C%22ymax%22%3A900000000%2C%22spatialReference%22%3A%7B%22wkid%22%3AEPSG%3A4326%7D%7D&geometryType=esriGeometryEnvelope&&outFields=*'
+      # And the whole shape of the bike rack!
+      # http://maps.umd.edu/arcgis/rest/services/Layers/CampusBikeRacks/MapServer/0/query?f=pjson&returnGeometry=true&spatialRel=esriSpatialRelIntersects&geometry=%7B%22xmin%22%3A0%2C%22ymin%22%3A0%2C%22xmax%22%3A-900000000%2C%22ymax%22%3A900000000%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100
+      response = Meteor.http.get url, {timeout:30000}
+      RackNamesInfo = JSON.parse(response.content)
+      # Don't overflow a single document and place each in own doc
+      # RackData = RackNamesInfo.features[1]
+      # if true is true
+      _.each RackNamesInfo.features, (RackData) ->
+        firstProjection = 'GOOGLE'
+        secondProjection = 'WGS84'
+        proj4(firstProjection, secondProjection, RackData.geometry)
+        doc =
+          attributes: RackData.attributes
+          Coordinates: [RackData.geometry.y, RackData.geometry.x]
+        InsertedID = RackNames.insert doc
+    catch error
+      console.log error
+  else
+    console.log 'You\'ve got all the racks that you need already'
 
 
 Meteor.methods 'UserReserveBike': (currentUserId, Bike) ->
