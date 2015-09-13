@@ -87,36 +87,39 @@ AllRandNames = [
 # Bottom Left: Latitude : 38.982297 | Longitude : -76.957941
 # Top Left: Latitude : 38.999109 | Longitude : -76.956053
 # Top Right: Latitude : 39.003778 | Longitude : -76.932278
-randGPS = (max) ->
-  # Calculate random GPS coordinates within campus
-  leftLat = 38.994052
-  rightLat = 38.981376
-  bottomLng = -76.936569
-  topLng = -76.950603
-  skew = 1000000
-  randLat = []
-  randLng = []
-  _.times max, ->
-    randLat.push _.random(leftLat * skew, rightLat * skew) / skew
-    return
-  _.times max, ->
-    randLng.push _.random(bottomLng * skew, topLng * skew) / skew
-    return
-  # Save in object to return
-  randCoordinates =
-    Lat: randLat
-    Lng: randLng
-  randCoordinates
+# randGPS = (max) ->
+  # # Calculate random GPS coordinates within campus
+  # leftLat = 38.994052
+  # rightLat = 38.981376
+  # bottomLng = -76.936569
+  # topLng = -76.950603
+  # skew = 1000000
+  # randLat = []
+  # randLng = []
+  # _.times max, ->
+  #   randLat.push _.random(leftLat * skew, rightLat * skew) / skew
+  #   return
+  # _.times max, ->
+  #   randLng.push _.random(bottomLng * skew, topLng * skew) / skew
+  #   return
+  # # Save in object to return
+  # randCoordinates =
+  #   Lat: randLat
+  #   Lng: randLng
+  # randCoordinates
+randGPS = () ->
+  RandID = _.random(1, RackNames.find().count())
+  RackNames.findOne({'attributes.OBJECTID': RandID}).Coordinates
 
 
 # Useful function from lib/CurrentDay.coffee for current date and time
 [today, now] = CurrentDay()
 # Insert database of bikes if no data for today
-if DailyBikeData.find({Day: today}).count() == 0
+if DailyBikeData.find({Day: today}).count() is 0 and RackNames.find().count() isnt 0
   console.log 'Started creating DailyBikeData data schema'
   j = 0
   while j < 4
-    if DailyBikeData.find({Day: (today-j) }).count() == 0
+    if DailyBikeData.find({Day: (today-j) }).count() is 0
       i = 1
       while i <= 100
         # create template for each DailyBikeData data stored
@@ -129,9 +132,8 @@ if DailyBikeData.find({Day: today}).count() == 0
           randomNow = now - (10000000 * Math.random())
           namePoint = Math.round((randNames.length - 1) * Math.random())
           # console.log('randNames = ' + randNames);
-          randGPSPoint = Math.round(1 * Math.random())
-          if Math.round(0.75 * Math.random()) == 0
-            if Math.round(1.1 * Math.random()) == 0
+          if Math.round(0.75 * Math.random()) is 0
+            if Math.round(1.1 * Math.random()) is 0
               RandTag = 'asdfahdfghsdlkfjsad'
             else
               RandTag = 'Available'
@@ -139,9 +141,9 @@ if DailyBikeData.find({Day: today}).count() == 0
             RandTag = 'RepairInProgress'
           blank =
             Tag: RandTag
-            Rider: if RandTag == 'asdfahdfghsdlkfjsad' then AllRandNames[namePoint] else ''
+            Rider: if RandTag is 'asdfahdfghsdlkfjsad' then AllRandNames[namePoint] else ''
             Timestamp: randomNow
-            Coordinates: [randGPS(2).Lat[randGPSPoint], randGPS(2).Lng[randGPSPoint]]
+            Coordinates: randGPS()
           # console.log('name = ' + blank.User);
           Position.push blank
           countTime++
@@ -150,7 +152,7 @@ if DailyBikeData.find({Day: today}).count() == 0
           Day: today - j
           # simplified version
           Tag: RandTag
-          Coordinates: [randGPS(2).Lat[randGPSPoint], randGPS(2).Lng[randGPSPoint]]
+          Coordinates: randGPS()
           Positions: Position
         i++
       console.log 'Created DailyBikeData data schema for ' + j + ' days behind today'
@@ -179,9 +181,9 @@ if DailyBikeData.find({Day: today}).count() == 0
 # # Potential method for single reset and load:
 # Meteor.users.find().observeChanges
 #   added: () ->
-if Meteor.users.find({'profile.name': "Mechanic"}).count() != 0
+if Meteor.users.find({'profile.name': "Mechanic"}).count() isnt 0
   # Create staff roles (for more info see roles package)
-  if MechanicNotes.find({}).count() == 0
+  if MechanicNotes.find({}).count() is 0
     # local variable to populate collection
     BikeNotes = [
       {
@@ -225,7 +227,7 @@ if Meteor.users.find({'profile.name': "Mechanic"}).count() != 0
 
 
 # Create staff roles (for more info see roles package)
-if Meteor.users.find({}).count() == 0
+if Meteor.users.find({}).count() is 0
   # local variable with sample user profiles
   users = [
     {
@@ -278,9 +280,9 @@ if Meteor.users.find({}).count() == 0
 # To help with load order, make sure there is DailyBikeData available
 @PopulateDailyBikeData = () ->
   console.log 'Checking DailyBikeData Collection'
-  if DailyBikeData.find({Day: today}).count() != 0
+  if DailyBikeData.find({Day: today}).count() isnt 0
     # If collection is empty
-    if RedistributionCollection.find().count() == 0
+    if RedistributionCollection.find().count() is 0
       # Find all bikes
       BikeData = DailyBikeData.find({Day: today}).fetch()
       # Then strip out PII for redistribution access
