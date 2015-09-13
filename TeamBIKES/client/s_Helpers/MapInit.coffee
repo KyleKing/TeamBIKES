@@ -4,6 +4,8 @@
     BikeIcon = window.Available
   else if Tag == 'RepairInProgress'
     BikeIcon = window.Damaged
+  else if Tag == 'BikeRack'
+    BikeIcon = window.BikeRack
   else
     BikeIcon = window.Reserved
   BikeIcon
@@ -147,5 +149,11 @@
   window.Redistributed = L.AwesomeMarkers.icon(
     prefix: 'fa'
     icon: 'bicycle'
+    markerColor: 'purple'
+    iconColor: 'white')
+  # BikeRack
+  window.BikeRack = L.AwesomeMarkers.icon(
+    prefix: 'fa'
+    icon: 'archive'
     markerColor: 'purple'
     iconColor: 'white')
