@@ -1,4 +1,4 @@
-if RackNames.find().count() is 0
+if RackNames.find().count() is 0 or OuterLimit.find().count() is 0
   console.log 'Found zero racknames in db'
   Meteor.call 'QueryRackNames'
 

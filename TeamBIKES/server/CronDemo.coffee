@@ -59,7 +59,7 @@ Meteor.startup ->
     name: 'Update DB'
     schedule: (parser) ->
       # parser is a later.parse object
-      parser.text 'at 2:01 am'
+      parser.text 'at 12:01 am'
     job: ->
       # Check to add a new day's worth of bike data
       PopulateDailyBikeData()

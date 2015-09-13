@@ -12,11 +12,6 @@ Meteor.methods 'QueryRackNames': ->
       responseDetails = Meteor.http.get urlDetails, {timeout:30000}
       RackNamesDetails = JSON.parse(responseDetails.content)
 
-      urlOuterLimit = 'http://maps.umd.edu/arcgis/rest/services/Layers/CampusBoundary/MapServer/0/query?f=json&returnGeometry=true&spatialRel=esriSpatialRelIntersects&maxAllowableOffset=1&geometry=%7B%22xmin%22%3A0%2C%22ymin%22%3A0%2C%22xmax%22%3A-900000000%2C%22ymax%22%3A900000000%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100'
-      responseOuterLimit = Meteor.http.get urlOuterLimit, {timeout:30000}
-      CampusOuterLimit = JSON.parse(responseOuterLimit.content)
-      console.log CampusOuterLimit
-
       # Don't overflow a single document and place each in own doc
       _.each RackNamesInfo.features, (RackData) ->
         # Convert to decimal from projection
@@ -41,10 +36,31 @@ Meteor.methods 'QueryRackNames': ->
           Coordinates: [RackData.geometry.y, RackData.geometry.x]
           Details: BikeRackShapeData
         InsertedID = RackNames.insert doc
+
+  # console.log 'OuterLimit = ' + OuterLimit.find().count()
+  if OuterLimit.find().count() is 0
+    try
+      console.log 'Running OuterLimit'
+      urlOuterLimit = 'http://maps.umd.edu/arcgis/rest/services/Layers/CampusBoundary/MapServer/0/query?f=json&returnGeometry=true&spatialRel=esriSpatialRelIntersects&maxAllowableOffset=1&geometry=%7B%22xmin%22%3A0%2C%22ymin%22%3A0%2C%22xmax%22%3A-900000000%2C%22ymax%22%3A900000000%2C%22spatialReference%22%3A%7B%22wkid%22%3A102100%7D%7D&geometryType=esriGeometryEnvelope&inSR=102100&outFields=*&outSR=102100'
+      responseOuterLimit = Meteor.http.get urlOuterLimit, {timeout:30000}
+      CampusOuterLimit = JSON.parse(responseOuterLimit.content)
+      _.each CampusOuterLimit.features, (OuterLine) ->
+        BikeRackShapeData = []
+        _.each OuterLine.geometry.paths, (CoordinateRing) ->
+          _.each CoordinateRing, (coordinate) ->
+            console.log '--- Originally ---'
+            console.log coordinate
+            output = proj4('GOOGLE', 'WGS84', coordinate)
+            # Account for weirdly flipped coordinates...
+            BikeRackShapeData.push(output.reverse())
+            console.log '--- Output ---'
+            console.log output
+        doc =
+          attributes: OuterLine.attributes
+          Details: BikeRackShapeData
+        InsertedID = OuterLimit.insert doc
     catch error
       console.log error
-  else
-    console.log 'You\'ve got all the racks that you need already'
 
 
 Meteor.methods 'UserReserveBike': (currentUserId, Bike) ->
