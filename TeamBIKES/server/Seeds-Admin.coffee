@@ -3,8 +3,6 @@ if RackNames.find().count() is 0 or OuterLimit.find().count() is 0
   Meteor.call 'QueryRackNames'
 
 
-
-
 # DailyBikeData {
 #   Bike: <number>,
 #   Day: <number out of 365>,

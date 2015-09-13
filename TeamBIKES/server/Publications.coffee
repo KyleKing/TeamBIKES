@@ -1,8 +1,8 @@
-Meteor.publish 'RackNamesGet', ->
-  RackNames.find()
+Meteor.publish 'RackNamesGet', (Optional) ->
+  RackNames.find({Optional: Optional})
 
 Meteor.publish 'OuterLimitGet', ->
-  OuterLimit.find()
+    OuterLimit.find()
 
 
 # Server/Publications.coffee
@@ -28,7 +28,7 @@ Meteor.publish 'ReservedBike', ->
 Meteor.publish "ManageBikes", ->
   DailyBikeData.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})
 
-Meteor.publish 'ManageUsers', () ->
+Meteor.publish 'ManageUsers', ->
   Meteor.users.find()
 
 # server/publications/MechanicNotes.coffee
