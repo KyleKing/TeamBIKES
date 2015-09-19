@@ -27,8 +27,8 @@ kadira:blaze-layout # for page Rendering
 arillo:flow-router-helpers # for pathFor
 zimme:active-route # for isActiveRoute
 # HTTPS
-spiderable
-force-ssl
+# spiderable
+# force-ssl
 
 #### Visual Things ####
 ### Tables and Forms ###
