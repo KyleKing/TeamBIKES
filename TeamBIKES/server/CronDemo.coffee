@@ -37,20 +37,32 @@
     job: ->
       if Task.Type is 'Destruct Reservation'
         # Remove specified reservation
-        RemoveReservation Task.ID
+        RemoveReservation Task.ID, Task
         console.log 'Running Cron Job on what should be: ' + Task.date
         # Already included in remove reservation:
         # ClearTaskBackups(Task.ID)
       else if Task.Type is 'CreateDailyBikeData'
         Meteor.call 'CreateDailyBikeData'
+        ClearTaskBackups ID, Task
 
-@ClearTaskBackups = (ID) ->
+@RemoveReservation = (ID, Task) ->
+  # Init vars
+  [today, now] = CurrentDay()
+  # Count number of reserved bikes under this user
+  count = DailyBikeData.find({Tag: ID, Day: today}).count()
+  # Make all reserved bikes available
+  DailyBikeData.update { Tag: ID}, {$set: Tag: 'Available' }, multi: true
+  # Remove associated cron/backup task from queue to reduce server function
+  ClearTaskBackups ID, Task
+  # Alert test environment of progress
+  console.log 'Updated: ' + count + ' bike tags'
+
+@ClearTaskBackups = (ID, Task) ->
   # Remove both queued task and cron task, this allows the task to be run once
   FutureTasks.remove
     ID: ID
-  SyncedCron.remove 'Destruct Reservation for ' + ID
+  SyncedCron.remove Task.Type + ' for ' + ID
   console.log 'Cleared: ' + ID
-  ID
 
 Meteor.startup ->
   FutureTasks.find().forEach (Task) ->
@@ -62,8 +74,10 @@ Meteor.startup ->
 
     # If in the past, make action right away
     if Task.date <= new Date moment().add(Task.timeout, 'minutes')
-      RemoveReservation Task.ID
-      ClearTaskBackups Task.ID
+      if Task.Type is 'Destruct Reservation'
+        RemoveReservation Task.ID
+      else
+        ClearTaskBackups Task.ID
     # Otherwise reschedule that event
     else
       addTask Task._id, Task
