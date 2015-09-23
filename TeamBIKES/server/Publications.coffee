@@ -2,7 +2,7 @@ Meteor.publish 'RackNamesGet', (Optional) ->
   RackNames.find({Optional: Optional})
 
 Meteor.publish 'OuterLimitGet', ->
-    OuterLimit.find()
+  OuterLimit.find()
 
 
 # Server/Publications.coffee

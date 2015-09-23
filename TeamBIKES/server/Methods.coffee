@@ -60,13 +60,13 @@ Meteor.methods 'QueryRackNames': ->
         BikeRackShapeData = []
         _.each OuterLine.geometry.paths, (CoordinateRing) ->
           _.each CoordinateRing, (coordinate) ->
-            console.log '--- Originally ---'
-            console.log coordinate
+            # console.log '--- Originally ---'
+            # console.log coordinate
             output = proj4('GOOGLE', 'WGS84', coordinate)
             # Account for weirdly flipped coordinates...
             BikeRackShapeData.push(output.reverse())
-            console.log '--- Output ---'
-            console.log output
+            # console.log '--- Output ---'
+            # console.log output
         doc =
           attributes: OuterLine.attributes
           Details: BikeRackShapeData
