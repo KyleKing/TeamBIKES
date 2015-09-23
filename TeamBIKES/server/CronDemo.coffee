@@ -12,23 +12,37 @@
     timeout: timeout
     ID: ID
     Bike: Bike
+    Type: 'Destruct Reservation'
   }
   # Store in database as backup and add task to Cron queue for direct action
   thisId = FutureTasks.insert Task
   addTask(thisId, Task)
 
+@DelayCreateDailyBikeData = ->
+  future = moment().add(2, 'minutes').format()
+  future = new Date(future) # reformat for cron
+  # Create Task object for queue
+  Task = { date: future, Type: 'CreateDailyBikeData' }
+  # Store in database as backup and add task to Cron queue for direct action
+  thisId = FutureTasks.insert Task
+  addTask(thisId, Task)
+
+
 @addTask = (ID, Task) ->
   SyncedCron.add
-    name: 'Destruct Reservation for ' + ID
+    name: Task.Type + ' for ' + ID
     schedule: (parser) ->
       # parser.text 'at ' + Task.date
       parser.recur().on(Task.date).fullDate()
     job: ->
-      # Remove specified reservation
-      RemoveReservation Task.ID
-      console.log 'Running Cron Job on what should be: ' + Task.date
-      # Already included in remove reservation:
-      # ClearTaskBackups(Task.ID)
+      if Task.Type is 'Destruct Reservation'
+        # Remove specified reservation
+        RemoveReservation Task.ID
+        console.log 'Running Cron Job on what should be: ' + Task.date
+        # Already included in remove reservation:
+        # ClearTaskBackups(Task.ID)
+      else if Task.Type is 'CreateDailyBikeData'
+        Meteor.call 'CreateDailyBikeData'
 
 @ClearTaskBackups = (ID) ->
   # Remove both queued task and cron task, this allows the task to be run once
@@ -53,7 +67,11 @@ Meteor.startup ->
     # Otherwise reschedule that event
     else
       addTask Task._id, Task
-    return
+
+  # CreateDailyBikeData on a delay
+  [today, now] = CurrentDay()
+  if FutureTasks.find({Type: 'CreateDailyBikeData'}).count() is 0 and DailyBikeData.find({Day: today}).count() is 0
+    DelayCreateDailyBikeData()
 
   SyncedCron.add
     name: 'Update DB'
@@ -64,4 +82,3 @@ Meteor.startup ->
       # Check to add a new day's worth of bike data
       PopulateDailyBikeData()
   SyncedCron.start()
-  return
