@@ -15,6 +15,11 @@
 // enable cross-browser mixins such as linear-gradient and border-radius
 // From Stylus Meteor package
 @import "nib"
+// padding(top, right, bottom, left)
+//   padding-top: top
+//   padding-right: right
+//   padding-bottom: bottom
+//   padding-left: left
 
 // Generic
 // The Generic layer is the first one that actually produces any CSS. It houses very high-level, far reaching styles. This layer is seldom modified, and is usually the same across any projects you work on. It contains things like Normalize. css, global box-sizing rules, CSS resets and so on. The Generic layer affects a lot of the DOM, hence it being nice and wide in the Triangle model, and occurring very early on.
@@ -35,6 +40,7 @@ section + section
 // These are bare, un-classed HTML elements. What does an h1 look like without a class on it? What does an a look like without a class on it? The Elements layer binds onto bare HTML element (or ‘type') selectors only. It is slightly more explicit than the previous layer in that we are now saying ‘make every h1 this big'
 
 @import 'Imports/map.import.styl'
+@import 'Imports/Login-Form.import.styl'
 
 #explanation
 	.row
