@@ -78,34 +78,11 @@ column($percentage, $float-direction = left)
 Primary style
 
 -------------------------------- */
-html *
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-
 // Clever trick from: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 html
   box-sizing: border-box
 *, *:before, *:after
   box-sizing: inherit
-// *, *:after, *:before {
-// 	@include box-sizing(border-box);
-// }
-
-body
-  // font-family: $primary-font
-  // variables inside partials > _variables.scss
-  color: $main-text
-  background-color: $navbar-default-bg
-a
-  color: $brand-primary
-  text-decoration: none
-img
-  max-width: 100%
-input, textarea
-  // font-family: $primary-font
-  &::-ms-clear
-    display: none
-
 
 /* --------------------------------
 
