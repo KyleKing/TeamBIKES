@@ -19,11 +19,28 @@
 // Generic
 // The Generic layer is the first one that actually produces any CSS. It houses very high-level, far reaching styles. This layer is seldom modified, and is usually the same across any projects you work on. It contains things like Normalize. css, global box-sizing rules, CSS resets and so on. The Generic layer affects a lot of the DOM, hence it being nice and wide in the Triangle model, and occurring very early on.
 
+@import 'Imports/nav.import.styl'
+@import 'Imports/footer.import.styl'
+
+// For the about page
+// Only affects first section
+section
+	padding-top 20px
+	padding-bottom 20px
+section + section
+	padding-bottom 50px
+	padding-top 50px
 
 // Elements
 // These are bare, un-classed HTML elements. What does an h1 look like without a class on it? What does an a look like without a class on it? The Elements layer binds onto bare HTML element (or ‘type') selectors only. It is slightly more explicit than the previous layer in that we are now saying ‘make every h1 this big'
 
 @import 'Imports/map.import.styl'
+
+#explanation
+	.row
+		margin-top 10px
+		span.fa-stack.fa-4x
+			padding-top 5px
 
 // Objects
 // Users of OOCSS will be familiar with the concept of objects. This is the first layer in which we find class-based selectors. These are concerned with styling non-cosmetic design patterns, or 'objects.' Objects can range from something as simple as a .wrapper element, to layout systems, through to things like the OOCSS poster child – the Media Object. This layer affects less of the DOM than the last layer, has a higher specificity, and is slightly more explicit in that we are now targeting sections of the DOM with classes.
@@ -35,3 +52,4 @@
 
 // Trumps
 // Those special case that need the !important
+@import 'Imports/BootstrapTrumps.import.styl'
