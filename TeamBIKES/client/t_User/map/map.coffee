@@ -6,7 +6,7 @@ Template.map.rendered = ->
   coords = [38.987701, -76.940989]
   MapInit
     MapName: 'BikeMap'
-    LocateUser: true
+    LocateUser: false
     DrawOutline: true
     Center: coords
     ShowClosestBikes: true
