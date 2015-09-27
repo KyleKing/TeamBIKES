@@ -6,6 +6,10 @@ if RackNames.find().count() is 0 or OuterLimit.find().count() is 0
 # Useful function from lib/CurrentDay.coffee for current date and time
 [today, now] = CurrentDay()
 
+
+if DailyBikeData.find({Day: today}).count() is 0 and RackNames.find().count() isnt 0
+  Meteor.call 'CreateDailyBikeData'
+
 ## \/ NOTE! CHANGED \/
 
 # MechanicNotes {
