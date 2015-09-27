@@ -1,0 +1,51 @@
+// Center and add a gray background, as otherwise hidden behind nav bar
+// http://stackoverflow.com/questions/6794000/fixed-position-but-relative-to-container
+.loading
+  position fixed
+  padding 2em
+  left 50%
+  top 50%
+  transform translate(-50%, -50%)
+
+.rowS
+  make-row()
+  make-sm-column(3)
+
+header
+  .rowS
+    padding-top 11px
+    make-sm-column(3)
+
+// header
+//   make-row()
+
+header
+  .brand
+    make-sm-column(3)
+
+// body
+//   padding-top NavHeight
+.navSpacing
+  padding-top MobileNavHeight
+  +above(750px)
+    padding-top: NavHeight
+// .AdminNavSpacing { padding-top: 50px }
+
+
+body
+  overflow-y scroll
+  overflow-x visible
+
+.container.toggled
+  width 700px
+
+#menu-toggle
+  position fixed
+  top 10px
+  left 260px
+  &.toggled
+    left 10px
+
+tr.selected
+  background-color gray !important
+  color white !important
