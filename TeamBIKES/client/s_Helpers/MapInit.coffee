@@ -163,7 +163,6 @@
     Meteor.subscribe 'RackNamesGet', Session.get 'OptionalBikeRacks'
   # Subscribe to rest of data
   Meteor.subscribe 'OuterLimitGet'
-  Meteor.call 'QueryRackNames'
   # Init Vars
   RackPositionMarkers = []
   RackOutlinePolygons = []

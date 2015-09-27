@@ -12,17 +12,7 @@
     timeout: timeout
     ID: ID
     Bike: Bike
-    Type: 'Destruct Reservation'
   }
-  # Store in database as backup and add task to Cron queue for direct action
-  thisId = FutureTasks.insert Task
-  addTask(thisId, Task)
-
-@DelayCreateDailyBikeData = ->
-  future = moment().add(2, 'minutes').format()
-  future = new Date(future) # reformat for cron
-  # Create Task object for queue
-  Task = { date: future, Type: 'CreateDailyBikeData' }
   # Store in database as backup and add task to Cron queue for direct action
   thisId = FutureTasks.insert Task
   addTask(thisId, Task)
@@ -30,20 +20,16 @@
 
 @addTask = (ID, Task) ->
   SyncedCron.add
-    name: Task.Type + ' for ' + ID
+    name: 'Destruct Reservation for ' + ID
     schedule: (parser) ->
       # parser.text 'at ' + Task.date
       parser.recur().on(Task.date).fullDate()
     job: ->
-      if Task.Type is 'Destruct Reservation'
-        # Remove specified reservation
-        RemoveReservation Task.ID, Task
-        console.log 'Running Cron Job on what should be: ' + Task.date
-        # Already included in remove reservation:
-        # ClearTaskBackups(Task.ID)
-      else if Task.Type is 'CreateDailyBikeData'
-        Meteor.call 'CreateDailyBikeData'
-        ClearTaskBackups ID, Task
+      # Remove specified reservation
+      RemoveReservation Task.ID, Task
+      console.log 'Running Cron Job on what should be: ' + Task.date
+      # Already included in remove reservation:
+      # ClearTaskBackups(Task.ID)
 
 @RemoveReservation = (ID, Task) ->
   # Init vars
@@ -61,7 +47,7 @@
   # Remove both queued task and cron task, this allows the task to be run once
   FutureTasks.remove
     ID: ID
-  SyncedCron.remove Task.Type + ' for ' + ID
+  SyncedCron.remove 'Destruct Reservation for ' + ID
   console.log 'Cleared: ' + ID
 
 Meteor.startup ->
@@ -81,11 +67,6 @@ Meteor.startup ->
     # Otherwise reschedule that event
     else
       addTask Task._id, Task
-
-  # CreateDailyBikeData on a delay
-  [today, now] = CurrentDay()
-  if !isUndefined(FutureTasks.find({Type: 'CreateDailyBikeData'}).count()) and FutureTasks.find({Type: 'CreateDailyBikeData'}).count() is 0 and DailyBikeData.find({Day: today}).count() is 0
-    DelayCreateDailyBikeData()
 
   SyncedCron.add
     name: 'Update DB'

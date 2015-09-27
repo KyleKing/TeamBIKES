@@ -1,14 +1,11 @@
-if RackNames.find().count() is 0 or OuterLimit.find().count() is 0
-  console.log 'Found zero racknames in db'
-  Meteor.call 'QueryRackNames'
+# if RackNames.find().count() is 0 or OuterLimit.find().count() is 0
+#   console.log 'Found zero racknames in db'
+#   Meteor.call 'QueryRackNames'
 
 # This is used by a few things
 # Useful function from lib/CurrentDay.coffee for current date and time
 [today, now] = CurrentDay()
 
-
-if DailyBikeData.find({Day: today}).count() is 0 and RackNames.find().count() isnt 0
-  Meteor.call 'CreateDailyBikeData'
 
 ## \/ NOTE! CHANGED \/
 
@@ -121,29 +118,3 @@ if Meteor.users.find({}).count() is 0
       # Roles.addUsersToRoles id, user.Roles, 'Professional'
       # Roles.GLOBAL_GROUP
   console.log 'Created basic set of users with roles!'
-
-
-# seeds/RedistributionCollection.coffee
-
-# To help with load order, make sure there is DailyBikeData available
-@PopulateDailyBikeData = () ->
-  console.log 'Checking DailyBikeData Collection for PopulateDailyBikeData'
-  if DailyBikeData.find({Day: today}).count() isnt 0
-    # If collection is empty
-    if RedistributionCollection.find().count() is 0
-      # Find all bikes
-      BikeData = DailyBikeData.find({Day: today}).fetch()
-      # Then strip out PII for redistribution access
-      _.each BikeData, (BikeDatum) ->
-        RedistributionCollection.insert
-          Bike: BikeDatum.Bike
-          Day: BikeDatum.Day
-          Tag: BikeDatum.Tag
-          # Make sure to strip out rider name
-          Positions:
-            Timestamp: BikeDatum.Positions[1].Timestamp
-            Lat: BikeDatum.Positions[1].Lat
-            Lng: BikeDatum.Positions[1].Lng
-      console.log 'Created RedistributionCollection data schema'
-
-PopulateDailyBikeData()
