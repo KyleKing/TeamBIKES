@@ -26,7 +26,7 @@ kadira:blaze-layout # for page Rendering
 arillo:flow-router-helpers # for pathFor
 zimme:active-route # for isActiveRoute
 # HTTPS
-spiderable
+# spiderable
 force-ssl
 
 #### Visual Things ####
@@ -184,3 +184,4 @@ random
 ejson
 spacebars
 check
+ecmascript

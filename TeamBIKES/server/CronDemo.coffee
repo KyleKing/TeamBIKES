@@ -84,7 +84,7 @@ Meteor.startup ->
 
   # CreateDailyBikeData on a delay
   [today, now] = CurrentDay()
-  if FutureTasks.find({Type: 'CreateDailyBikeData'}).count() is 0 and DailyBikeData.find({Day: today}).count() is 0
+  if !isUndefined(FutureTasks.find({Type: 'CreateDailyBikeData'}).count()) and FutureTasks.find({Type: 'CreateDailyBikeData'}).count() is 0 and DailyBikeData.find({Day: today}).count() is 0
     DelayCreateDailyBikeData()
 
   SyncedCron.add
