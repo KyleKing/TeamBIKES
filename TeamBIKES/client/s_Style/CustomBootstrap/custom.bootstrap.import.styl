@@ -3,6 +3,12 @@
 // You may include this file into your stylus files to benefit from
 // mixins and variables that bootstrap provides.
 
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900,700')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,800')
+// Only for testing
+// @import url('https://fonts.googleapis.com/css?family=Indie+Flower')
+
 @import "custom.bootstrap.mixins.import.styl"
 
 
@@ -50,9 +56,13 @@ $link-hover-decoration ?= underline
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
+$font-family-sans-serif ?= 'Lato', sans-serif
+// $font-family-sans-serif ?= 'Indie Flower', cursive
+// $font-family-sans-serif ?= "Helvetica Neue", Helvetica, Arial, sans-serif
+$font-family-serif ?=      'Open Sans', sans-serif
+// $font-family-serif ?=      'Indie Flower', cursive
+// $font-family-serif ?=      Georgia, "Times New Roman", Times, serif
 
-$font-family-sans-serif ?= "Helvetica Neue", Helvetica, Arial, sans-serif
-$font-family-serif ?=      Georgia, "Times New Roman", Times, serif
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace ?=  Menlo, Monaco, Consolas, "Courier New", monospace
 $font-family-base ?=       $font-family-sans-serif
