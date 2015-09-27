@@ -1,0 +1,41 @@
+footer
+  background-color $navbar-inverse-bg
+  margin-top 25px
+  padding 25px 0
+  text-align center
+  span
+    &.copyright
+      color $navbar-default-bg
+      text-transform uppercase
+      line-height footer-height
+  ul
+    &.quicklinks
+      margin-bottom 0
+      text-transform uppercase
+      line-height footer-height
+
+ul.list-inline.social-buttons
+  margin-bottom 0
+  li
+    a
+      display block
+      border-radius 100%
+      font-size 20px
+      color $navbar-default-bg
+      width footer-height
+      height footer-height
+      line-height footer-height
+      outline 0
+      background-color $brand-primary
+      transition all .3s
+
+ul.social-buttons li a:hover,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:active
+  background-color $gray-lighter
+
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn:active:focus
+  outline 0
