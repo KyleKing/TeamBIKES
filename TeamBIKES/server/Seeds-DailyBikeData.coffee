@@ -2,7 +2,8 @@
 [today, now] = CurrentDay()
 
 # To help with load order, make sure there is DailyBikeData available
-PopulateDailyBikeData = () ->
+# Called in cron demo
+@PopulateDailyBikeData = () ->
   if DailyBikeData.find({Day: today}).count() isnt 0
     console.log 'Starting PopulateDailyBikeData to create Redistribution Collection'
     # If collection is empty
