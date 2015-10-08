@@ -1,7 +1,7 @@
 // Name serial port - there should be a smarter way to do this, but this seems easiest
 // var currentPort = "/dev/ttyACM0"; // A PC serial port
-// var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
-var currentPort = "/dev/cu.usbmodem" + "1421"; // direct right port
+var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
+// var currentPort = "/dev/cu.usbmodem" + "1421"; // direct right port
 // var currentPort = "/dev/cu.usbmodem" + "14211"; // indirect right port: closest to aux power
 
 var DDPClient = require("ddp");
@@ -47,14 +47,18 @@ ddpclient.connect(function(error) {
   var serialport = require("serialport");
   var SerialPort = serialport.SerialPort; // localize object constructor
   var serialPort = new SerialPort(currentPort, {
-    baudrate: 115200,
+    // baudrate: 115200,
+    baudrate: 9600,
     // look for return and newline at the end of each data packet:
     // parser: serialport.parsers.readline("\r\n")
     // look for ; character to signify end of line
     parser: serialport.parsers.readline(";")
   });
 
-  function showPortOpen() { console.log('port open. Data rate: ' + serialPort.options.baudRate); }
+  function showPortOpen() {
+    console.log('port open. Data rate: ' + serialPort.options.baudRate);
+  }
+
   function saveLatestData(data) {
 
     var array = data.split(';'); // CSV Data Parse:
@@ -82,6 +86,7 @@ ddpclient.connect(function(error) {
       // });
       // // console.log(encrypted.toString());
       // console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
+
       console.log('called RFIDStreamData function, result: ' + result);
       if (result != undefined) {
         serialPort.write(result);
