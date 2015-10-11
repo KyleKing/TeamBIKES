@@ -7,9 +7,13 @@
     "url": "git://github.com/kyleking/TeamBIKES.git"
   },
   "dependencies": {
+    "binascii": "0.0.1",
     "ddp": "^0.11.0",
     "moment": "^2.10.6",
     "serialport": "^1.7.4",
-    "xbee": "0.0.4"
+    "svd-xbee": "^0.3.6",
+    "util": "^0.10.3",
+    "xbee": "0.0.4",
+    "xbee-api": "^0.3.12"
   }
 }

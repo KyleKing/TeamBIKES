@@ -61,7 +61,7 @@ Meteor.methods 'mySubmitFunc': (currentUserId) ->
 #   encrypted.toString()
 
 Meteor.methods 'RFIDStreamData': (dataSet) ->
-  incoming = dataSet.RFIDCode
+  incoming = dataSet.USER_ID
   console.log incoming.trim()
   # Remove excess whitespace
   code = incoming.trim()
