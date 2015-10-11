@@ -1,7 +1,7 @@
 // Name serial port - there should be a smarter way to do this, but this seems easiest
 // Using terminal, identify with:
 // ls /dev/cu.*
-// ls /dev/cu.usbserial-* # for zigbee
+// ls /dev/tty.usbserial-* # for zigbee
 // ls /dev/cu.usbmodem* # for arduino
 
 var currentPort = "/dev/tty.usbserial-AH016D5G"; // Direct left Zigbee
@@ -10,7 +10,14 @@ var DDPClient = require("ddp");
 var moment = require('moment');
 moment().format();
 
-var xbee = require("xbee");
+var util = require('util');
+var SerialPort = require('serialport').SerialPort;
+
+var xbee_api = require('xbee-api');
+var C = xbee_api.constants;
+var xbeeAPI = new xbee_api.XBeeAPI({
+  api_mode: 2
+});
 
 // Connect to Meteor
 var ddpclient = new DDPClient({
@@ -34,37 +41,64 @@ ddpclient.connect(function(error) {
   console.log('connected to Meteor!');
 
   // Configure serial port
-  var serialport = require("serialport");
-  var SerialPort = serialport.SerialPort; // localize object constructor
   var serialPort = new SerialPort(currentPort, {
     // baudrate: 115200,
     baudrate: 9600,
-    // look for return and newline at the end of each data packet:
-    // parser: serialport.parsers.readline("\r\n")
-    // look for ; character to signify end of line
-    // parser: serialport.parsers.readline(";")
-    parser: xbee.packetParser()
+    parser: xbeeAPI.rawParser()
   });
 
-  function showPortOpen() {
+  // SerialPort events - trigger specific functions upon specific events
+  serialPort.on('open', function() {
     console.log('port open. Data rate: ' + serialPort.options.baudRate);
-  }
+  });
 
-  function saveLatestData(data) {
-    console.log('xbee data received:', data.data);
-  }
+  // All frames parsed by the XBee will be emitted here
+  xbeeAPI.on("frame_object", function(frame) {
+    data = frame.data.toString();
+    console.log("Serial: " + data);
+    // console.log("OBJ> " + util.inspect(frame));
 
-  // Error Checking
-  function showPortClose() {
+    var array = data.split(','); // CSV Data Parse:
+    array.push( (new Date()).getTime() );
+    var dataSet = {
+      USER_ID: array[0],
+      LATITUDE: array[1],
+      LONGITUDE: array[2],
+      LONGITUDE: array[3],
+      TIMESTAMP: array[4]
+    };
+
+    // Call Meteor actions with "dataSet"
+    ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
+      console.log('Sent to Meteor: ' + array);
+
+      // // P-J's Suggestion
+      // var CryptoJS = require("crypto-js");
+      // var info = { message: "This is my message !", key: "Dino" };
+
+      // var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
+      //     mode: CryptoJS.mode.CBC,
+      //     padding: CryptoJS.pad.Pkcs7
+      // });
+      // var decrypted = CryptoJS.AES.decrypt(result, info.key, {
+      //     mode: CryptoJS.mode.CBC,
+      //     padding: CryptoJS.pad.Pkcs7
+      // });
+      // // console.log(encrypted.toString());
+      // console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
+
+      console.log('Result: ' + result);
+      if (result != undefined) {
+        serialPort.write(result);
+      }
+      console.log(' ');
+    });
+  });
+
+  serialPort.on('close', function() {
     console.log('port closed.');
-  }
-  function showError(error) {
+  });
+  serialPort.on('error', function(error) {
     console.log('Serial port error: ' + error);
-  }
-
-  // Node events - trigger specific functions upon specific events
-  serialPort.on('open', showPortOpen);
-  serialPort.on('data', saveLatestData);
-  serialPort.on('close', showPortClose);
-  serialPort.on('error', showError);
+  });
 });

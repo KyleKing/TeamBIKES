@@ -30,49 +30,6 @@ Meteor.methods 'mySubmitFunc': (currentUserId) ->
     ]
   'ok'
 
-Meteor.methods 'DeleteOldRFID': ->
-  # Useful function from lib/CurrentDay.coffee for current date and time
-  [today, now] = CurrentDay()
-  RFIDdata.remove( { TIMESTAMP: { $lt:  now} } )
-  'ok'
-Meteor.methods 'CreateRFID': ->
-  # Useful function from lib/CurrentDay.coffee for current date and time
-  [today, now] = CurrentDay()
-  i = 0
-  while i < 1
-    RFIDdata.insert
-      USER_ID: i
-      LATITUDE: 38.991057
-      LONGITUDE: -76.938113
-      LOCKSTATEE: 1
-      Module_ID: Fake.word()
-      confirmation: 0
-      TIMESTAMP: now
-    i++
-  console.log 'Added RFID Data'
-  'ok'
-
-Meteor.methods 'DeleteRacks': ->
-  RackNames.remove( { "attributes.OBJECTID": { $lt:  100000} } )
-  'ok'
-
-Meteor.methods 'DeleteBikes': ->
-  # Useful function from lib/CurrentDay.coffee for current date and time
-  [today, now] = CurrentDay()
-  tomorrow = today+1
-  console.log 'Tomorrow is ' + tomorrow + ' compared to today ' + today
-  DailyBikeData.remove( { Day: { $lt:  tomorrow} } )
-  'ok'
-
-Meteor.methods 'CreateBike': ->
-  Meteor.call 'CreateDailyBikeData', 1, 1
-  # CreateDailyBikeData(1, 1)
-  'ok'
-
-Meteor.methods 'RepopulateDailyBikeData': ->
-  Meteor.call 'CreateDailyBikeData', 50, 1
-  'ok'
-
 ###*******************************************###
 
 ###   TODO: Check for accounts without an RFID field and call this function          ###
@@ -104,42 +61,21 @@ Meteor.methods 'RepopulateDailyBikeData': ->
 #   encrypted.toString()
 
 Meteor.methods 'RFIDStreamData': (dataSet) ->
-  console.log '--------------------'
-  # console.log '--------------------'
-  # Check user RFID code against database record set in seeds-admin
-  RFIDCODE = dataSet.USER_ID
-  hits = Meteor.users.find({'profile.RFID': RFIDCODE}).count()
-  dataSet.confirmation = hits
-  # console.log hits
-
-  # console.log '--'
-  # console.log '>> Here are the users RFID dataset:'
-  users = Meteor.users.find().fetch()
-  # _.each users, (user) ->
-    # console.log user.profile.RFID
-  # console.log '--'
-  console.log '>> Inserting RFID dataset:'
-  console.log dataSet
-  RFIDdata.insert dataSet
-
-  # Determine appropriate response
-  if hits is 1
-    data = 'y'
-  else if hits >= 1
-    data = 'nope'
-  else if hits is 0
-    data = 'n'
+  incoming = dataSet.USER_ID
+  console.log incoming.trim()
+  # Remove excess whitespace
+  code = incoming.trim()
+  if RFIDdata.find(RFIDCode: code).count() == 1
+    # Correct RFID Code Found
+    record = RFIDdata.find(RFIDCode: code)
+    'OPENSESAME*'
+  else if RFIDdata.find(RFIDCode: code).count() == 0
+    # No RFID Code Found
+    'NO*'
   else
-    data = ' not cool '
-
-  Lookup = XbeeData.findOne({ 'ID': Number(dataSet.Module_ID) })
-  # console.log 'Just to check that Lookup is receiving data'
-  # console.log data
-  # console.log Lookup.Address
-  {
-    data: data,
-    Address: Lookup.Address
-  }
+    # Too many RFID codes found
+    console.log 'Too many matching RFID codes....what the heck!?!?!'
+    'MongoDB Error'
 
 
 Meteor.methods 'loop': (dataSet, schema) ->
