@@ -4,31 +4,10 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-# Changed meteor-standard packages list: https://github.com/meteor/meteor/pull/4851
-meteor-base             # Packages every Meteor app needs to have
-mobile-experience       # Packages for a great mobile UX
-mongo                   # The database Meteor supports right now
-blaze-html-templates    # Compile .html files into Meteor Blaze views
-session                 # Client-side reactive dictionary for your app
-jquery                  # Helpful client-side library
-tracker                 # Meteor's client-side reactive programming library
+# autopublish
+# insecure
 
-standard-minifiers      # JS/CSS minifiers run for production mode
-es5-shim                # ECMAScript 5 compatibility for older browsers.
-ecmascript              # Enable ECMAScript2015+ syntax in app code
-
-# autopublish             # Publish all data to the clients (for prototyping)
-# insecure                # Allow all DB writes from clients (for prototyping)
-
-# Other? Part of meteor base?
-logging
-reload
-random
-ejson
-spacebars
-check
-
-meteortoys:allthings@2.2.0 # Pres ctrl-m to activate
+# meteortoys:allthings@1.2.3 # Pres ctrl-m to activate
 
 #### Libraries and Preprocessors ####
 stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
@@ -62,7 +41,6 @@ aldeed:collection2 # attach a schema
 maazalik:highcharts
 maazalik:highcharts-gauge
 ### Maps ###
-bevanhunt:leaflet
 appshore:leaflet-awesome-markers
 herrhelms:meteor-leaflet-locatecontrol
 # fuatsengul:leaflet-easybutton
@@ -190,10 +168,21 @@ meteorhacks:aggregate
 # New Packages
 mrt:bootstrap3-typeahead
 proj4:proj4
-
-# gwendall:ui-hooks
-gwendall:template-animations
-natestrauser:animate-css
-
-
-email
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+ecmascript
+bevanhunt:leaflet
+meteortoys:allthings
+meteortoys:notifications
