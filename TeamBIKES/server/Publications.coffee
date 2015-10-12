@@ -90,9 +90,10 @@ Meteor.publish 'RedistributionCollectionPub', (group) ->
 # # Bike data used in mechanic layout
 # Meteor.publish 'bikesData', ->
 #   Bikes.find()
-# # RFID Confirmation and Storage Test Data
-# Meteor.publish 'RFIDdataPublication', ->
-#   RFIDdata.find()
+
+# RFID Confirmation and Storage Test Data
+Meteor.publish 'RFIDdataPublication', ->
+  RFIDdata.find()
 
 # ###**********************###
 
