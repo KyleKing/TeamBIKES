@@ -8,23 +8,16 @@ var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
 
 var DDPClient = require("ddp");
 var login = require('ddp-login');
-
 var moment = require('moment');
 moment().format();
 
-
-// Connect to Meteor
+// Config
 var ddpclient = new DDPClient({
 	// Remote
   // Source: https://github.com/oortcloud/node-ddp-client/issues/21
   host: "redbarbikes.com",
   port: 80,
-  auto_reconnect: true,
-  // auto_reconnect_timer: 500, // this was causing issues
-  // use_ssl: true, //connect to SSL server
-  // use_ssl_strict: false, //Set to false if you have root ca trouble.
-  /* optional: */
-  // maintain_collections: true //Set to false to maintain your own collections.
+  auto_reconnect: true
 
   // // Local
   // host: "localhost",
@@ -38,31 +31,32 @@ var ddpclient = new DDPClient({
   // maintain_collections: true //Set to false to maintain your own collections.
 });
 
+// Connect to Meteor
 ddpclient.connect(function(error) {
   // Error Checking
   if (error) throw error;
-  login(ddpclient,
-    {  // Options below are the defaults
-       env: 'METEOR_TOKEN',  // Name of an environment variable to check for a
-                             // token. If a token is found and is good,
-                             // authentication will require no user interaction.
-       method: 'email',    // Login method: account, email, username or token
-       account: 'admin@example.com',        // Prompt for account info by default
-       pass: 'password',           // Prompt for password by default
-       retry: 2,             // Number of login attempts to make
-       plaintext: false      // Do not fallback to plaintext password compatibility
-                             // for older non-bcrypt accounts
-    },
-    function (error, userInfo) {
-      if (error) {
-        // Something went wrong...
-        console.log('error');
-      } else {
-        // We are now logged in, with userInfo.token as our session auth token.
-        token = userInfo.token;
-      }
-    }
-  );
+  // login(ddpclient,
+  //   {  // Options below are the defaults
+  //      env: 'METEOR_TOKEN',  // Name of an environment variable to check for a
+  //                            // token. If a token is found and is good,
+  //                            // authentication will require no user interaction.
+  //      method: 'email',    // Login method: account, email, username or token
+  //      account: 'admin@example.com',        // Prompt for account info by default
+  //      pass: 'password',           // Prompt for password by default
+  //      retry: 2,             // Number of login attempts to make
+  //      plaintext: false      // Do not fallback to plaintext password compatibility
+  //                            // for older non-bcrypt accounts
+  //   },
+  //   function (error, userInfo) {
+  //     if (error) {
+  //       // Something went wrong...
+  //       console.log('error');
+  //     } else {
+  //       // We are now logged in, with userInfo.token as our session auth token.
+  //       token = userInfo.token;
+  //     }
+  //   }
+  // );
   console.log('connected to Meteor!');
 
   // Configure serial port note: three different version of (Ss)eriel(Pp)ort
