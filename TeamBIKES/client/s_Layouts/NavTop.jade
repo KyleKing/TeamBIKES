@@ -34,6 +34,10 @@ template(name='NavTop')
                   a.Aloo(href="{{ pathFor 'AdminCompilation' }}")
                     i.fa.fa-table
                       |  Home
+                li(class="{{ isActiveRoute regex='RFIDlayout' }}")
+                  a.Aloo(href="{{ pathFor 'RFIDlayout' }}")
+                    i.fa.fa-gear
+                      |  RFIDlayout
                 li(class="{{ isActiveRoute regex='Dev' }}")
                   a.Aloo(href="{{ pathFor 'Dev' }}")
                     i.fa.fa-gear
