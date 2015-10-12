@@ -4,20 +4,25 @@
 // ls /dev/tty.usbserial-* # for zigbee
 // ls /dev/cu.usbmodem* # for arduino
 
-var currentPort = "/dev/tty.usbserial-AH016D5G"; // Direct left Zigbee
+var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
 
 var DDPClient = require("ddp");
 var moment = require('moment');
 moment().format();
 
-var util = require('util');
-var SerialPort = require('serialport').SerialPort;
+// var CryptoJS = (require('cryptojs')).Crypto;
 
-var xbee_api = require('xbee-api');
-var C = xbee_api.constants;
-var xbeeAPI = new xbee_api.XBeeAPI({
-  api_mode: 2
-});
+// Guide: https://blog.nraboy.com/2014/10/implement-aes-strength-encryption-javascript/
+// var forge = require('node-forge');
+
+// // Remote connections:
+// var ddpclient = new DDPClient({
+//   host: "teambikes.me",
+//   port: 80,
+//   auto_reconnect: true,
+//   auto_reconnect_timer: 500
+// });
+// // Source: https://github.com/oortcloud/node-ddp-client/issues/21
 
 // Connect to Meteor
 var ddpclient = new DDPClient({
@@ -40,11 +45,13 @@ ddpclient.connect(function(error) {
   }
   console.log('connected to Meteor!');
 
-  // Configure serial port
+  // Configure serial port note: three different version of (Ss)eriel(Pp)ort
+  var serialport = require("serialport");
+  var SerialPort = serialport.SerialPort; // localize object constructor
   var serialPort = new SerialPort(currentPort, {
     // baudrate: 115200,
     baudrate: 9600,
-    parser: xbeeAPI.rawParser()
+    parser: serialport.parsers.readline("\n")
   });
 
   // SerialPort events - trigger specific functions upon specific events
@@ -52,13 +59,12 @@ ddpclient.connect(function(error) {
     console.log('port open. Data rate: ' + serialPort.options.baudRate);
   });
 
-  // All frames parsed by the XBee will be emitted here
-  xbeeAPI.on("frame_object", function(frame) {
-    data = frame.data.toString();
-    console.log("Serial: " + data);
-    // console.log("OBJ> " + util.inspect(frame));
 
-    var array = data.split(','); // CSV Data Parse:
+  serialPort.on("data", function(data) {
+    // data = frame.data.toString();
+    console.log("Serial: " + data);
+
+    var array = data.trim().split(','); // CSV Data Parse and remove excess whitespace
     array.push( (new Date()).getTime() );
     var dataSet = {
       USER_ID: array[0],
