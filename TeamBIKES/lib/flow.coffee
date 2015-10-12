@@ -1,16 +1,14 @@
 # Block all pages
 FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ["about", 'agency', "map"] }
 
+FlowRouter.route '/',
+  name: 'about',
+  action: ->
+    BlazeLayout.render 'UniversalLayout_Basic', full: 'agency'
 FlowRouter.route '/progress',
   name: 'progress',
   action: ->
     BlazeLayout.render 'UniversalLayout', body: 'progress'
-
-FlowRouter.route '/',
-  name: 'about',
-  action: ->
-    BlazeLayout.render 'UniversalLayout', full: 'agency'
-
 
 
 ###   Public ###
@@ -74,7 +72,7 @@ FlowRouter.route '/AdminCompilation/ManageBike/:IDofSelectedRow',
 
 FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Insert/',
   name: 'AdminCompilation/ManageMechanicNotes_Insert',
-  action: () ->
+  action: ->
     BlazeLayout.render 'UniversalLayout_Left', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title_Left: 'ManageMechanicNotes_Insert_Title'
@@ -100,12 +98,12 @@ FlowRouter.route '/AdminCompilation/ManageUsers_Form/:IDofSelectedRow',
     }
 
 # Quick Dev Route
-FlowRouter.route '/dev/kyle',
-  name: 'Dev',
-  action: () ->
-    BlazeLayout.render 'UniversalLayout_Basic', {
-      body: 'LoginFormCD'
-    }
+# FlowRouter.route '/dev/kyle',
+#   name: 'Dev',
+#   action: ->
+#     BlazeLayout.render 'UniversalLayout_Basic', {
+#       body: 'RFIDlayout'
+#     }
 
 # Scroll to the top of every page
 ScrollToTop = ->
