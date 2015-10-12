@@ -1,12 +1,15 @@
 // Name serial port - there should be a smarter way to do this, but this seems easiest
 // var currentPort = "/dev/ttyACM0"; // A PC serial port
 // var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
-var currentPort = "/dev/cu.usbmodem" + "1421"; // direct right port
+var currentPort = "/dev/tty.usbserial-AH016D5G"; // Direct left Zigbee
+// var currentPort = "/dev/cu.usbmodem" + "1421"; // direct right port
 // var currentPort = "/dev/cu.usbmodem" + "14211"; // indirect right port: closest to aux power
 
 var DDPClient = require("ddp");
 var moment = require('moment');
 moment().format();
+
+var xbee = require("xbee");
 
 // var CryptoJS = (require('cryptojs')).Crypto;
 
@@ -47,47 +50,55 @@ ddpclient.connect(function(error) {
   var serialport = require("serialport");
   var SerialPort = serialport.SerialPort; // localize object constructor
   var serialPort = new SerialPort(currentPort, {
-    baudrate: 115200,
+    // baudrate: 115200,
+    baudrate: 9600,
     // look for return and newline at the end of each data packet:
     // parser: serialport.parsers.readline("\r\n")
     // look for ; character to signify end of line
-    parser: serialport.parsers.readline(";")
+    // parser: serialport.parsers.readline(";")
+    parser: xbee.packetParser()
   });
 
-  function showPortOpen() { console.log('port open. Data rate: ' + serialPort.options.baudRate); }
+  function showPortOpen() {
+    console.log('port open. Data rate: ' + serialPort.options.baudRate);
+  }
+
   function saveLatestData(data) {
 
-    var array = data.split(';'); // CSV Data Parse:
-    array[1] = (new Date()).getTime();
-    var dataSet = {
-      RFIDCode: array[0],
-      time: array[1]
-    };
+    console.log('xbee data received:', data.data);
 
-    // Call Meteor actions with "data"
-    ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
-      console.log('data sent: ' + array);
+    // var array = data.split(';'); // CSV Data Parse:
+    // array[1] = (new Date()).getTime();
+    // var dataSet = {
+    //   RFIDCode: array[0],
+    //   time: array[1]
+    // };
 
-      // // P-J's Suggestion
-      // var CryptoJS = require("crypto-js");
-      // var info = { message: "This is my message !", key: "Dino" };
+    // // Call Meteor actions with "data"
+    // ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
+    //   console.log('data sent: ' + array);
 
-      // var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
-      //     mode: CryptoJS.mode.CBC,
-      //     padding: CryptoJS.pad.Pkcs7
-      // });
-      // var decrypted = CryptoJS.AES.decrypt(result, info.key, {
-      //     mode: CryptoJS.mode.CBC,
-      //     padding: CryptoJS.pad.Pkcs7
-      // });
-      // // console.log(encrypted.toString());
-      // console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
-      console.log('called RFIDStreamData function, result: ' + result);
-      if (result != undefined) {
-        serialPort.write(result);
-      }
-      console.log(' ');
-    });
+    //   // // P-J's Suggestion
+    //   // var CryptoJS = require("crypto-js");
+    //   // var info = { message: "This is my message !", key: "Dino" };
+
+    //   // var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
+    //   //     mode: CryptoJS.mode.CBC,
+    //   //     padding: CryptoJS.pad.Pkcs7
+    //   // });
+    //   // var decrypted = CryptoJS.AES.decrypt(result, info.key, {
+    //   //     mode: CryptoJS.mode.CBC,
+    //   //     padding: CryptoJS.pad.Pkcs7
+    //   // });
+    //   // // console.log(encrypted.toString());
+    //   // console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
+
+    //   console.log('called RFIDStreamData function, result: ' + result);
+    //   if (result != undefined) {
+    //     serialPort.write(result);
+    //   }
+    //   console.log(' ');
+    // });
   }
 
   // Error Checking
