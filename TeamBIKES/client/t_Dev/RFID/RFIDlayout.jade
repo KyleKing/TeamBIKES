@@ -1,11 +1,8 @@
 template(name='RFIDlayout')
   .template-home
-    h1 Real Time RFID Info
-    h4 Collected from end device, sent over Xbee, and piped up to this database by a raspberry pi running a minimal Node.JS application
-    button.flat.big#DeleteOldRFID Delete Old RFID Data
-    button.flat.big#CreateRFID Make New RFID Data
-  //- table.table.table-hover.table-condensed
-  table.table.table-condensed
+    .page-header
+      h1 RFID Demo
+  table.table.table-hover.table-condensed
     thead
       //- Labels Row
       tr
@@ -13,40 +10,12 @@ template(name='RFIDlayout')
         th LATITUDE
         th LONGITUDE
         th LOCKSTATEE
-        th Module_ID
-        th Kyle's Decision
         th TIMESTAMP
-        th Delete
-        th Color
-
-    tbody.wrapper
+    tbody
       each RFIDlayout
-        tr(class="#{TIMESTAMP}").animate.item
+        tr
           td #{USER_ID}
           td #{LATITUDE}
           td #{LONGITUDE}
           td #{LOCKSTATEE}
-          td #{Module_ID}
-          td #{confirmation}
           td #{TIMESTAMP}
-          td
-            button.flat#DeleteRFID(value=_id) Del
-          td
-            button.flat#ChangeHighlight(value="#{TIMESTAMP}") ◉
-
-  .template-home
-    .page-header
-      h1 Xbee Data Reference Table
-  table.table.table-hover.table-condensed
-    thead
-      //- Labels Row
-      tr
-        th Name
-        th ID
-        th Address
-    tbody
-      each XbeeLayout
-        tr.RFIDrow
-          td #{Name}
-          td #{ID}
-          td #{Address}

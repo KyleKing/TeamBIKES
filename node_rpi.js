@@ -64,7 +64,7 @@ ddpclient.connect(function(error) {
       USER_ID: array[0],
       LATITUDE: array[1],
       LONGITUDE: array[2],
-      LONGITUDE: array[3],
+      LOCKSTATEE: array[3],
       TIMESTAMP: array[4]
     };
 

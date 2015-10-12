@@ -1,7 +1,5 @@
 Meteor.publish 'RackNamesGet', (Optional) ->
   RackNames.find({Optional: Optional})
-Meteor.publish 'RackPanel', ->
-  RackNames.find()
 
 Meteor.publish 'OuterLimitGet', ->
   OuterLimit.find()
@@ -19,10 +17,6 @@ Meteor.publish 'DailyBikeDataPub', ->
   #   @stop()
   #   return
   DailyBikeData.find()
-
-Meteor.publish 'DevPanel', ->
-  [today, now] = CurrentDay()
-  DailyBikeData.find {Day: today}, fields: Positions: 0
 
 Meteor.publish 'AvailableBikeLocationsPub', ->
   [today, now] = CurrentDay()
@@ -100,9 +94,6 @@ Meteor.publish 'RedistributionCollectionPub', (group) ->
 # RFID Confirmation and Storage Test Data
 Meteor.publish 'RFIDdataPublication', ->
   RFIDdata.find()
-Meteor.publish 'XbeeDataPublication', ->
-  XbeeData.find()
-
 
 # ###**********************###
 
