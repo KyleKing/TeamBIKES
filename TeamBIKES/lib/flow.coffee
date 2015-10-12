@@ -104,7 +104,7 @@ FlowRouter.route '/dev/kyle',
   name: 'Dev',
   action: () ->
     BlazeLayout.render 'UniversalLayout_Basic', {
-      body: 'LoginFormCD'
+      body: 'RFIDlayout'
     }
 
 # Scroll to the top of every page
