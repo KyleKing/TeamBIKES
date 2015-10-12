@@ -61,8 +61,7 @@ Meteor.methods 'mySubmitFunc': (currentUserId) ->
 #   encrypted.toString()
 
 Meteor.methods 'RFIDStreamData': (dataSet) ->
-	RFIDdata.insert
-		incoming: dataSet
+	RFIDdata.insert dataSet
 	console.log dataSet
 	'Recorded'
 
