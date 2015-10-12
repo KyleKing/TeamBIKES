@@ -7,49 +7,62 @@
 var currentPort = "/dev/cu.usbmodem" + "1411"; // direct left port
 
 var DDPClient = require("ddp");
+var login = require('ddp-login');
+
 var moment = require('moment');
 moment().format();
 
-// var CryptoJS = (require('cryptojs')).Crypto;
-
-// Guide: https://blog.nraboy.com/2014/10/implement-aes-strength-encryption-javascript/
-// var forge = require('node-forge');
-
-// // Remote connections:
-// var ddpclient = new DDPClient({
-//   host: "teambikes.me",
-//   port: 80,
-//   auto_reconnect: true,
-//   auto_reconnect_timer: 500
-// });
-// // Source: https://github.com/oortcloud/node-ddp-client/issues/21
 
 // Connect to Meteor
 var ddpclient = new DDPClient({
-	// // Remote
- //  host: "https://redbarbikes.com",
- //  port: 80,
- //  auto_reconnect: true,
- //  auto_reconnect_timer: 500
-
-  // Local
-  host: "localhost",
-  port: 3000,
-  /* optional: */
+	// Remote
+  // Source: https://github.com/oortcloud/node-ddp-client/issues/21
+  host: "redbarbikes.com",
+  port: 80,
   auto_reconnect: true,
-  auto_reconnect_timer: 500,
-  use_ejson: true,  // default is false
-  use_ssl: false, //connect to SSL server,
-  use_ssl_strict: true, //Set to false if you have root ca trouble.
-  maintain_collections: true //Set to false to maintain your own collections.
+  // auto_reconnect_timer: 500, // this was causing issues
+  // use_ssl: true, //connect to SSL server
+  // use_ssl_strict: false, //Set to false if you have root ca trouble.
+  /* optional: */
+  // maintain_collections: true //Set to false to maintain your own collections.
+
+  // // Local
+  // host: "localhost",
+  // port: 3000,
+  // /* optional: */
+  // auto_reconnect: true,
+  // auto_reconnect_timer: 500,
+  // use_ejson: true,  // default is false
+  // use_ssl: false, //connect to SSL server,
+  // use_ssl_strict: true, //Set to false if you have root ca trouble.
+  // maintain_collections: true //Set to false to maintain your own collections.
 });
 
 ddpclient.connect(function(error) {
   // Error Checking
-  if (error) {
-    console.log('DDP connection error!');
-    return;
-  }
+  if (error) throw error;
+  login(ddpclient,
+    {  // Options below are the defaults
+       env: 'METEOR_TOKEN',  // Name of an environment variable to check for a
+                             // token. If a token is found and is good,
+                             // authentication will require no user interaction.
+       method: 'email',    // Login method: account, email, username or token
+       account: 'admin@example.com',        // Prompt for account info by default
+       pass: 'password',           // Prompt for password by default
+       retry: 2,             // Number of login attempts to make
+       plaintext: false      // Do not fallback to plaintext password compatibility
+                             // for older non-bcrypt accounts
+    },
+    function (error, userInfo) {
+      if (error) {
+        // Something went wrong...
+        console.log('error');
+      } else {
+        // We are now logged in, with userInfo.token as our session auth token.
+        token = userInfo.token;
+      }
+    }
+  );
   console.log('connected to Meteor!');
 
   // Configure serial port note: three different version of (Ss)eriel(Pp)ort
