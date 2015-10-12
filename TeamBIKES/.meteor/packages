@@ -7,7 +7,8 @@
 # autopublish
 # insecure
 
-# meteortoys:allthings@1.2.3 # Pres ctrl-m to activate
+# meteortoys:allthings # Pres ctrl-m to activate
+# meteortoys:notifications
 
 #### Libraries and Preprocessors ####
 stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
@@ -41,6 +42,7 @@ aldeed:collection2 # attach a schema
 maazalik:highcharts
 maazalik:highcharts-gauge
 ### Maps ###
+bevanhunt:leaflet
 appshore:leaflet-awesome-markers
 herrhelms:meteor-leaflet-locatecontrol
 # fuatsengul:leaflet-easybutton
@@ -183,6 +185,3 @@ ejson
 spacebars
 check
 ecmascript
-bevanhunt:leaflet
-meteortoys:allthings
-meteortoys:notifications
