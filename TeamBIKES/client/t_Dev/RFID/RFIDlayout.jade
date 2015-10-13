@@ -2,6 +2,8 @@ template(name='RFIDlayout')
   .template-home
     .page-header
       h1 RFID Demo
+      h4 Data displayed below came from an Arduino through Xbee then maybe even a raspberry p.
+      button#DeleteOldRFID Delete Old RFID Data
   table.table.table-hover.table-condensed
     thead
       //- Labels Row
@@ -11,6 +13,7 @@ template(name='RFIDlayout')
         th LONGITUDE
         th LOCKSTATEE
         th TIMESTAMP
+        th Delete
     tbody
       each RFIDlayout
         tr
@@ -19,3 +22,5 @@ template(name='RFIDlayout')
           td #{LONGITUDE}
           td #{LOCKSTATEE}
           td #{TIMESTAMP}
+          td
+            button#DeleteRFID(value=_id) Delete Me

@@ -30,6 +30,12 @@ Meteor.methods 'mySubmitFunc': (currentUserId) ->
 		]
 	'ok'
 
+Meteor.methods 'DeleteOldRFID': ->
+  # Useful function from lib/CurrentDay.coffee for current date and time
+  [today, now] = CurrentDay()
+  RFIDdata.remove( { TIMESTAMP: { $lt:  now} } )
+  'ok'
+
 ###*******************************************###
 
 ###   TODO: Check for accounts without an RFID field and call this function          ###
