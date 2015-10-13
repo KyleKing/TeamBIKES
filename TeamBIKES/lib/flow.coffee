@@ -1,5 +1,5 @@
 # Block all pages
-FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ["about", 'agency', "map"] }
+FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ["about", 'agency', "map", "RFIDlayout"] }
 
 FlowRouter.route '/progress',
   name: 'progress',
