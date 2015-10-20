@@ -79,15 +79,27 @@ ddpclient.connect(function(error) {
     console.log('port open. Data rate: ' + serialPort.options.baudRate);
 
     var frame_obj = {
-      type: 0x17, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
+      type: 0x10, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
       id: 0x01, // optional, nextFrameId() is called per default
       // destination64: "0013A20040B7B31F", // End
       destination64: "0013A20040C5F8BA", // R
       destination16: "fffe", // optional, "fffe" is default
-      remoteCommandOptions: 0x02, // optional, 0x02 is default
-      command: "d1", // MUST BE LOWERCASE
-      commandParameter: [ 0x05 ] // Can either be string or byte array.
+      broadcastRadius: 0x00, // optional, 0x00 is default
+      options: 0x00, // optional, 0x00 is default
+      data: "y" // Can either be string or byte array.
     };
+
+    // var frame_obj = {
+    //   type: 0x17, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
+    //   id: 0x01, // optional, nextFrameId() is called per default
+    //   // destination64: "0013A20040B7B31F", // End
+    //   destination64: "0013A20040C5F8BA", // R
+    //   destination16: "fffe", // optional, "fffe" is default
+    //   remoteCommandOptions: 0x02, // optional, 0x02 is default
+    //   command: "d1", // MUST BE LOWERCASE
+    //   commandParameter: [ 0x05 ] // Can either be string or byte array.
+    // };
+
     // { // AT Request to be sent to
     //   type: C.FRAME_TYPE.AT_COMMAND,
     //   command: "NI",
