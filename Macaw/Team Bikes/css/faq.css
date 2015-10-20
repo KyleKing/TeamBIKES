@@ -1,0 +1,93 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 400 1em/1.38 Helvetica;
+  color: rgb(0, 0, 0);
+}
+
+.contentheader {
+  float: left;
+  width: 39.1731770833%;
+  margin-left: 30.39974%;
+  font-size: 1.563em;
+  font-weight: 400;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.image {
+  display: block;
+  position: relative;
+  float: left;
+  clear: both;
+  height: auto;
+  margin-left: 10%;
+  overflow: hidden;
+}
+
+.text {
+  position: relative;
+  float: left;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  color: rgb(0, 0, 0);
+}
+
+.text-1 p,
+.text-3 p {
+  margin-bottom: 1em;
+}
+
+.contentheader-1 {
+  margin-top: 27px;
+}
+
+.contentheader-2 {
+  clear: both;
+  margin-top: 43px;
+}
+
+.contentheader-3 {
+  clear: both;
+  margin-top: 41px;
+}
+
+.image-1 {
+  z-index: 0;
+  width: 307px;
+  margin-top: 20px;
+}
+
+.image-2 {
+  z-index: 1;
+  width: 470px;
+  margin-top: 40px;
+}
+
+.image-3 {
+  z-index: 6;
+  width: 306px;
+  margin-top: 41px;
+}
+
+.text-1 {
+  z-index: 3;
+  width: 46%;
+  min-height: 220px;
+  margin: 20px 0 0 1.57422%;
+}
+
+.text-2 {
+  z-index: 5;
+  width: 32.3333333333%;
+  min-height: 400px;
+  margin: 41px 0 0 1.66667%;
+}
+
+.text-3 {
+  z-index: 8;
+  width: 46%;
+  min-height: 220px;
+  margin: 41px 0 0 1.69922%;
+}
