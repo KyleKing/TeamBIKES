@@ -225,8 +225,8 @@ body {
 
 .pricing .image {
   clear: both;
-  width: 99.871807514%;
-  margin-top: 8px;
+  width: 99%;
+  margin: 8px 0 0 0.48565%;
 }
 
 .quote {
