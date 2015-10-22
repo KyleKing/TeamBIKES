@@ -80,31 +80,31 @@ if Meteor.users.find({}).count() is 0
     {
       FullName: 'Normal'
       Email: 'normal@example.com'
-      RFID: 'Kyle'
+      RFID: 'THIS IS NOT THE KYLE YOU ARE LOOKING FOR'
       Roles: []
     }
     {
       FullName: 'Mechanic'
       Email: 'mechanic@example.com'
-      RFID: 'Kyle'
+      RFID: 'NotKyle'
       Roles: ['Mechanic', 'Employee']
     }
     {
       FullName: 'Redistribution'
       Email: 'redistribution@example.com'
-      RFID: 'Kyle'
+      RFID: 'SomeString?'
       Roles: ['Redistribution', 'Employee']
     }
     {
       FullName: 'Admin'
       Email: 'admin@example.com'
-      RFID: 'Kyle'
+      RFID: 'Maybe with s p a c e s?'
       Roles: ['Admin']
     }
     # {
     #   FullName: 'Root'
     #   Email: 'root@example.com'
-    #   RFID: 'Kyle'
+    #   RFID: 'THISISKyle'
     #   Roles: ['Root']
     # }
   ]
