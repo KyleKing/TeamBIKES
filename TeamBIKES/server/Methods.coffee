@@ -70,16 +70,16 @@ Meteor.methods 'RFIDStreamData': (dataSet) ->
   RFIDdata.insert dataSet
   console.log '>> Inserted RFID dataset:'
   console.log dataSet
-  # if dataset.USER_ID is 'Kyle'
-  #   response = 'True'
-  # else
-  #   response = 'Nada'
-  # response
-  if dataset.USER_ID is 'Kyle'
-    'True'
+  # Check user RFID code against database record set in seeds-admin
+  RFIDCODE = dataSet.USER_ID
+  hits = Meteor.users.find({'Profile.RFID': RFIDCODE}).count()
+  if hits is 1
+    'OPENSESAME*'
     return
+  else if hits >= 1
+    'Houston, we have a problem. Call 1-800-354-9763 for help.'
   else
-    'Nada'
+    'PERMISSION TO TERMINATE GRANTED*'
     return
 
   # incoming = dataSet.USER_ID

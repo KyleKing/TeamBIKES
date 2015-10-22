@@ -114,17 +114,17 @@ ddpclient.connect(function(error) {
   xbeeAPI.on("frame_object", function(frame) {
     if (frame.data === undefined) {
       if (frame.deliveryStatus === 0) {
-        console.log('Data was delivered!');
+        console.log('>> Data was delivered!');
       } else {
-        console.log('no data in frame received');
-        console.log('Data was not received');
-        console.log(frame);
+        console.log('>> No data in frame received');
+        console.log('   Data was not received');
+        console.log('   ' + frame);
       }
       console.log(' ');
     } else {
 
       data = frame.data.toString();
-      console.log("Serial: " + data);
+      console.log(">> Serial: " + data);
       // console.log("OBJ> " + util.inspect(frame));
 
       var array = data.split(','); // CSV Data Parse:
@@ -139,7 +139,7 @@ ddpclient.connect(function(error) {
 
       // Call Meteor actions with "dataSet"
       ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
-        console.log('Sent to Meteor: ' + array);
+        console.log('>> Sent to Meteor: ' + array);
 
         // // P-J's Suggestion
         // var CryptoJS = require("crypto-js");
@@ -169,8 +169,8 @@ ddpclient.connect(function(error) {
             data: result // Can either be string or byte array.
           };
           serialPort.write(xbeeAPI.buildFrame(frame_obj));
+          console.log('   Frame sent to specific xbee');
           console.log(xbeeAPI.buildFrame(frame_obj));
-          // serialPort.write(result);
         }
         console.log(' ');
       });
