@@ -21,22 +21,22 @@ var xbeeAPI = new xbee_api.XBeeAPI({
 
 // Config
 var ddpclient = new DDPClient({
-  // Remote
-  // Source: https://github.com/oortcloud/node-ddp-client/issues/21
-  host: "redbarbikes.com",
-  port: 80,
-  auto_reconnect: true
+  // // Remote
+  // // Source: https://github.com/oortcloud/node-ddp-client/issues/21
+  // host: "redbarbikes.com",
+  // port: 80,
+  // auto_reconnect: true
 
-  // // Local
-  // host: "localhost",
-  // port: 3000,
-  // /* optional: */
-  // auto_reconnect: true,
-  // auto_reconnect_timer: 500,
-  // use_ejson: true,  // default is false
-  // use_ssl: false, //connect to SSL server,
-  // use_ssl_strict: true, //Set to false if you have root ca trouble.
-  // maintain_collections: true //Set to false to maintain your own collections.
+  // Local
+  host: "localhost",
+  port: 3000,
+  /* optional: */
+  auto_reconnect: true,
+  auto_reconnect_timer: 500,
+  use_ejson: true,  // default is false
+  use_ssl: false, //connect to SSL server,
+  use_ssl_strict: true, //Set to false if you have root ca trouble.
+  maintain_collections: true //Set to false to maintain your own collections.
 });
 // Connect to Meteor
 ddpclient.connect(function(error) {
@@ -78,16 +78,16 @@ ddpclient.connect(function(error) {
   serialPort.on('open', function() {
     console.log('port open. Data rate: ' + serialPort.options.baudRate);
 
-    var frame_obj = {
-      type: 0x10, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
-      id: 0x01, // optional, nextFrameId() is called per default
-      // destination64: "0013A20040B7B31F", // End
-      destination64: "0013A20040C5F8BA", // R
-      destination16: "fffe", // optional, "fffe" is default
-      broadcastRadius: 0x00, // optional, 0x00 is default
-      options: 0x00, // optional, 0x00 is default
-      data: "y" // Can either be string or byte array.
-    };
+    // var frame_obj = {
+    //   type: 0x10, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
+    //   id: 0x01, // optional, nextFrameId() is called per default
+    //   // destination64: "0013A20040B7B31F", // End
+    //   destination64: "0013A20040C5F8BA", // R
+    //   destination16: "fffe", // optional, "fffe" is default
+    //   broadcastRadius: 0x00, // optional, 0x00 is default
+    //   options: 0x00, // optional, 0x00 is default
+    //   data: "y" // Can either be string or byte array.
+    // };
 
     // var frame_obj = {
     //   type: 0x17, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
@@ -106,52 +106,76 @@ ddpclient.connect(function(error) {
     //   commandParameter: [],
     // };
 
-    serialPort.write(xbeeAPI.buildFrame(frame_obj));
-    console.log(xbeeAPI.buildFrame(frame_obj));
+    // serialPort.write(xbeeAPI.buildFrame(frame_obj));
+    // console.log(xbeeAPI.buildFrame(frame_obj));
   });
 
-  // // All frames parsed by the XBee will be emitted here
-  // xbeeAPI.on("frame_object", function(frame) {
-  //   data = frame.data.toString();
-  //   console.log("Serial: " + data);
-  //   // console.log("OBJ> " + util.inspect(frame));
+  // All frames parsed by the XBee will be emitted here
+  xbeeAPI.on("frame_object", function(frame) {
+    if (frame.data === undefined) {
+      if (frame.deliveryStatus === 0) {
+        console.log('Data was delivered!');
+      } else {
+        console.log('no data in frame received');
+        console.log('Data was not received');
+        console.log(frame);
+      }
+      console.log(' ');
+    } else {
 
-  //   var array = data.split(','); // CSV Data Parse:
-  //   array.push( (new Date()).getTime() );
-  //   var dataSet = {
-  //     USER_ID: array[0],
-  //     LATITUDE: array[1],
-  //     LONGITUDE: array[2],
-  //     LOCKSTATEE: array[3],
-  //     TIMESTAMP: array[4]
-  //   };
+      data = frame.data.toString();
+      console.log("Serial: " + data);
+      // console.log("OBJ> " + util.inspect(frame));
 
-  //   // Call Meteor actions with "dataSet"
-  //   ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
-  //     console.log('Sent to Meteor: ' + array);
+      var array = data.split(','); // CSV Data Parse:
+      array.push( (new Date()).getTime() );
+      var dataSet = {
+        USER_ID: array[0],
+        LATITUDE: array[1],
+        LONGITUDE: array[2],
+        LOCKSTATEE: array[3],
+        TIMESTAMP: array[4]
+      };
 
-  //     // // P-J's Suggestion
-  //     // var CryptoJS = require("crypto-js");
-  //     // var info = { message: "This is my message !", key: "Dino" };
+      // Call Meteor actions with "dataSet"
+      ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
+        console.log('Sent to Meteor: ' + array);
 
-  //     // var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
-  //     //     mode: CryptoJS.mode.CBC,
-  //     //     padding: CryptoJS.pad.Pkcs7
-  //     // });
-  //     // var decrypted = CryptoJS.AES.decrypt(result, info.key, {
-  //     //     mode: CryptoJS.mode.CBC,
-  //     //     padding: CryptoJS.pad.Pkcs7
-  //     // });
-  //     // // console.log(encrypted.toString());
-  //     // console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
+        // // P-J's Suggestion
+        // var CryptoJS = require("crypto-js");
+        // var info = { message: "This is my message !", key: "Dino" };
 
-  //     console.log('Result: ' + result);
-  //     if (result != undefined) {
-  //       serialPort.write(result);
-  //     }
-  //     console.log(' ');
-  //   });
-  // });
+        // var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
+        //     mode: CryptoJS.mode.CBC,
+        //     padding: CryptoJS.pad.Pkcs7
+        // });
+        // var decrypted = CryptoJS.AES.decrypt(result, info.key, {
+        //     mode: CryptoJS.mode.CBC,
+        //     padding: CryptoJS.pad.Pkcs7
+        // });
+        // // console.log(encrypted.toString());
+        // console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
+
+        console.log('Result: ' + result);
+        if (result != undefined) {
+          var frame_obj = {
+            type: 0x10, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
+            id: 0x01, // optional, nextFrameId() is called per default
+            // destination64: "0013A20040B7B31F", // End
+            destination64: "0013A20040C5F8BA", // R
+            destination16: "fffe", // optional, "fffe" is default
+            broadcastRadius: 0x00, // optional, 0x00 is default
+            options: 0x00, // optional, 0x00 is default
+            data: result // Can either be string or byte array.
+          };
+          serialPort.write(xbeeAPI.buildFrame(frame_obj));
+          console.log(xbeeAPI.buildFrame(frame_obj));
+          // serialPort.write(result);
+        }
+        console.log(' ');
+      });
+    }
+  });
 
   serialPort.on('close', function() {
     console.log('port closed.');
