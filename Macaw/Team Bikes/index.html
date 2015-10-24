@@ -6,10 +6,24 @@
   <title>home</title>
   <link rel="stylesheet" href="css/standardize.css">
   <link rel="stylesheet" href="css/index-grid.css">
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- source: https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d#.731cv2odc or alternate: https://github.com/mrmlnc/material-shadows -->
+<style type="text/css">
+.card {
+  transition: all 250ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-5px);
+}
+.static-card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+</style>
 </head>
 <body class="body page-index clearfix">
-  <div class="nav-content">
+  <div class="nav-content nav-content-1">
     <p class="text text-1">Price</p>
     <p class="text text-2">FAQ</p>
     <p class="text text-3">How?</p>
@@ -31,7 +45,7 @@
   <div class="hero-content clearfix">
     <h1 class="hero hero-1">Welcome to the bikeshare of the future</h1>
     <p class="hero hero-2">Quickly rent any bike on campus and return to any bike rack</p>
-    <button class="_button">Join the Waitlist</button>
+    <a href="indexalt.html" class="button">Join the Waitlist</a>
   </div>
   <div class="how clearfix">
     <h2 class="contentheader">How do I use the RedBars bikeshare?<br></h2>
@@ -79,7 +93,7 @@
   </div>
   <div class="pricing clearfix">
     <h2 class="contentheader">Possible Cost Structure<br></h2>
-    <img class="image" src="images/Colored-Pricing-Table-Flat-Design-PSD-627x300.jpg" data-rimage data-src="images/Colored-Pricing-Table-Flat-Design-PSD-627x300.jpg" data-srcat2x="images/Colored-Pricing-Table-Flat-Design-PSD-627x300@2x.jpg">
+    <img class="image" src="images/Colored-Pricing-Table-Flat-Design-PSD-634x634.jpg" data-rimage data-src="images/Colored-Pricing-Table-Flat-Design-PSD-634x634.jpg" data-srcat2x="images/Colored-Pricing-Table-Flat-Design-PSD-634x634@2x.jpg">
   </div>
   <div class="newuser-focusedexplanation clearfix">
     <div class="element element-4"></div>
@@ -96,7 +110,7 @@
     <p class="text"><a>Visit our FAQ page -&gt;</a></p>
   </div>
   <footer class="_container-3 clearfix">
-    <p class="text text-22">Footer!</p>
+    <p class="text text-25">Footer!</p>
   </footer>
 
   <script src="js/jquery-min.js"></script>
