@@ -1,0 +1,1760 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 400 1em/1.38 Helvetica;
+  color: rgb(0, 0, 0);
+}
+
+.active {
+  width: 31.75499146%;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-bottom: 4px solid rgb(172, 39, 39);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.active:hover {
+  border-bottom: 4 solid rgb(252, 252, 252);
+}
+
+.agree-to-terms {
+  display: block;
+  float: left;
+  margin: 1px 0 0 6px;
+  font-size: 0.75em;
+  line-height: 1.38;
+}
+
+.bad-idea .break-out,
+.inspiration .break-out {
+  width: 99.9999999999%;
+}
+
+.break-out {
+  float: left;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+.bad-idea,
+.break-out-text {
+  float: left;
+}
+
+.card .card-content {
+  float: left;
+  clear: both;
+  width: 83.6968807463%;
+  margin-left: 8.14845%;
+  text-align: center;
+}
+
+.card .cta {
+  margin: 0 auto;
+  padding-bottom: 5px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.card-content {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  color: rgb(0, 0, 0);
+}
+
+.card-header {
+  width: 100%;
+  margin-top: 9px;
+  padding-bottom: 5px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.casual-rider,
+.technology {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+.casual-rider .bad-idea {
+  width: 58.9722948119%;
+  margin: 82px 0 0 2.41012%;
+}
+
+.casual-rider .price {
+  width: 30.6455813172%;
+  margin: 21px 0 0 3.95875%;
+  background-color: rgb(238, 193, 16);
+}
+
+.checkbox {
+  display: block;
+  float: left;
+  margin-top: 2px;
+}
+
+.cta {
+  width: 100%;
+}
+
+.cta .card {
+  width: 78.85078125%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: rgb(252, 252, 252);
+}
+
+.ctalink {
+  display: block;
+  float: left;
+  clear: both;
+  width: 19.0010964912%;
+  margin-left: 40.33203%;
+  padding: 12px;
+  border-radius: 25px;
+  background-color: rgb(172, 39, 39);
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(252, 252, 252);
+}
+
+.daily-rider .bad-idea {
+  width: 58.9722948119%;
+  margin: 60px 0 0 2.41012%;
+}
+
+.casual-rider .break-out-text,
+.daily-rider .break-out-text {
+  width: 65.376344086%;
+}
+
+.daily-rider .price {
+  width: 30.6455813172%;
+  margin: 43px 0 0 3.95665%;
+  background-color: rgb(37, 206, 108);
+}
+
+.description {
+  float: left;
+  clear: both;
+  width: 99.9237804878%;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  color: rgb(0, 0, 0);
+}
+
+.fa {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 4050px;
+}
+
+.fa-refresh {
+  background-color: #015196;
+}
+
+.fa-bicycle,
+.fa-university {
+  background-color: rgb(1, 81, 150);
+}
+
+.footer-content {
+  position: relative;
+  float: left;
+  clear: both;
+  z-index: 66;
+  width: 100%;
+  margin-top: 40px;
+  padding: 10px;
+  background-color: rgb(120, 120, 120);
+}
+
+.footer-content .center-group {
+  width: 96.6101694915%;
+  margin: 0 auto;
+}
+
+.image {
+  display: block;
+  float: left;
+  height: auto;
+  overflow: hidden;
+}
+
+.inspiration {
+  float: left;
+  width: 100%;
+}
+
+.inspiration .break-out-text {
+  width: 69.2551505546%;
+  margin: 91px 0 0 2.40888%;
+}
+
+.inspiration .image {
+  width: 28.2884310618%;
+}
+
+.map-green {
+  float: left;
+  width: 38.5537592681%;
+  height: 256px;
+  border: 4px solid rgb(37, 206, 108);
+  background: url('../images/Map%20Green.png') rgb(222, 222, 222);
+  background-size: cover;
+  background-position: center center;
+}
+
+.map-red {
+  float: left;
+  width: 38.5752266459%;
+  height: 257px;
+  border: 4px solid rgb(172, 39, 39);
+  background: url('../images/Map%20Red.png') rgb(222, 222, 222);
+  background-size: cover;
+  background-position: center center;
+}
+
+.map-yellow {
+  float: left;
+  width: 38.5537592681%;
+  height: 256px;
+  border: 4px solid #eec110;
+  background: url('../images/Map%20Yellow.png') rgb(222, 222, 222);
+  background-size: cover;
+  background-position: center center;
+}
+
+.nav-brand {
+  display: block;
+  float: left;
+  width: 22.9659598214%;
+  margin-top: 10px;
+  font-size: 1.875em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+.nav-content {
+  float: left;
+  width: 94.9999999999%;
+  margin-left: 2.5%;
+}
+
+.nav-element {
+  display: block;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+.nav-element:hover {
+  background-color: rgb(172, 39, 39);
+  color: rgb(252, 252, 252);
+}
+
+.nav-elements {
+  position: relative;
+  float: left;
+  width: 57.4999999999%;
+  margin-left: 19.53331%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 73;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgb(252, 252, 252);
+}
+
+.next-page {
+  display: block;
+  float: left;
+  width: 32.0010964912%;
+  margin: 49px 0 0 1.99812%;
+  padding: 20px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-transform: uppercase;
+  color: rgb(252, 252, 252);
+}
+
+.email,
+.password {
+  display: block;
+  float: left;
+  clear: both;
+  width: 39.3889704269%;
+  height: 40px;
+  margin: 10px 0 0 30.30467%;
+  padding: 10px;
+  border: 2px solid rgb(102, 102, 102);
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  font-size: 0.938em;
+  font-weight: 400;
+  line-height: 1.38;
+  color: rgb(102, 102, 102);
+}
+
+.price {
+  display: block;
+  float: left;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.875em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(252, 252, 252);
+}
+
+.pricing {
+  position: relative;
+  float: left;
+  clear: both;
+  z-index: 61;
+  width: 78.85078125%;
+  margin: 30px 0 0 10.57422%;
+}
+
+.primary {
+  position: relative;
+  float: left;
+  z-index: 3;
+  width: 100%;
+  margin-top: 101px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  background: rgb(237, 232, 229);
+  background: -webkit-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
+  background:    -moz-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
+  background:      -o-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
+  background:     -ms-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
+  background:         linear-gradient(123deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
+  background-repeat: no-repeat;
+}
+
+.primary .cta {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.secondary {
+  position: relative;
+  float: left;
+  clear: both;
+  z-index: 16;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgb(1, 81, 150);
+}
+
+.section-header {
+  float: left;
+  width: 79.5181399342%;
+  min-height: 42px;
+  margin-left: 10.24114%;
+  padding: 20px;
+  font-size: 1.563em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+.site-links {
+  float: left;
+  width: 31.9997258771%;
+  padding: 20px;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  color: rgb(252, 252, 252);
+}
+
+.site-links p {
+  margin-bottom: 1em;
+}
+
+.static-card {
+  padding: 10px;
+  background-color: rgb(252, 252, 252);
+}
+
+.static-card .card-content {
+  width: 100%;
+}
+
+.technology .break-out {
+  width: 99.9983217252%;
+}
+
+.technology .break-out-text {
+  width: 69.2551505546%;
+  margin-top: 105px;
+}
+
+.technology .image {
+  width: 28.3045265451%;
+  margin-left: 2.40888%;
+}
+
+.terms {
+  display: block;
+  float: left;
+  clear: both;
+  width: 39.4082021694%;
+  margin: 4px 0 0 30.34872%;
+  padding: 10px;
+}
+
+.tertiary {
+  float: left;
+  width: 78.85078125%;
+  margin-left: 10.57422%;
+}
+
+.daily-rider,
+.the-commuter {
+  float: left;
+  clear: both;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.the-commuter .bad-idea {
+  width: 59.0357058816%;
+  margin: 71px 0 0 2.3903%;
+}
+
+.the-commuter .break-out-text {
+  width: 65.3063964587%;
+}
+
+.the-commuter .price {
+  width: 30.611534185%;
+  margin: 32px 0 0 4.08249%;
+  background-color: rgb(201, 118, 118);
+}
+
+._button {
+  display: block;
+  float: left;
+  clear: both;
+  width: 18.4624727972%;
+  height: 33px;
+  margin: 10px 0 0 40.76866%;
+  border-radius: 310px;
+  background-color: rgb(172, 39, 39);
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(242, 247, 247);
+}
+
+.card-content-1 {
+  margin: 0 auto;
+}
+
+.card-content-2,
+.card-content-3 {
+  float: left;
+  clear: both;
+}
+
+.card-header-1 {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.card-header-2,
+.card-header-3 {
+  float: left;
+  clear: both;
+}
+
+.center-group-1 {
+  position: relative;
+  float: left;
+  clear: both;
+  z-index: 28;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.cta-1 {
+  margin: 0 auto;
+  font-size: 2.563em;
+}
+
+.cta-2 {
+  float: left;
+  clear: both;
+  font-size: 1.25em;
+}
+
+.cta-3 {
+  position: relative;
+  float: left;
+  clear: both;
+  z-index: 38;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgb(172, 39, 39);
+}
+
+.nav-element-2 {
+  width: 31.5733553212%;
+  margin-left: 2.13101%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.nav-element-2:hover {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.nav-element-3 {
+  width: 32.1102538429%;
+  margin-left: 2.26688%;
+  padding-right: 1px;
+  padding-left: 1px;
+}
+
+.nav-element-3:hover {
+  border-bottom-width: 0;
+  border-bottom-style: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.site-links-2 {
+  margin-left: 1.99812%;
+}
+
+.static-card-1 {
+  float: left;
+  width: 30.4%;
+  margin-left: 2.5%;
+}
+
+.static-card-2 {
+  float: left;
+  width: 30.4018229166%;
+  margin-left: 1.89844%;
+}
+
+.static-card-3 {
+  float: right;
+  width: 30.4075520833%;
+  margin-right: 2.5%;
+}
+
+.agree-to-terms a {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-color: transparent;
+  border-style: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  text-decoration: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  color: rgb(1, 81, 150);
+  opacity: 1;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: normal;
+}
+
+.site-links a {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-color: transparent;
+  border-style: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  text-decoration: underline;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  color: inherit;
+  opacity: 1;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: normal;
+}
+
+.site-links strong {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-color: transparent;
+  border-style: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  color: inherit;
+  opacity: 1;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: normal;
+}
+
+@media(max-width: 1100px) {
+  .bad-idea .price {
+    clear: both;
+    margin-top: 20px;
+  }
+
+  .card .card-content {
+    margin-left: 8.14494%;
+  }
+
+  .card .email {
+    float: none;
+    clear: none;
+    width: 69.2400306748%;
+    margin-top: 32px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .card .password,
+  .card .terms {
+    float: none;
+    clear: none;
+    width: 69.2400306748%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .casual-rider .bad-idea {
+    margin-top: 27px;
+    margin-left: 2.40858%;
+  }
+
+  .casual-rider .map-yellow {
+    width: 38.5227019395%;
+    height: 223px;
+  }
+
+  .center-group .next-page {
+    width: 32.0115011381%;
+    margin-top: 41px;
+    margin-left: 1.96478%;
+  }
+
+  .center-group .site-links {
+    position: relative;
+  }
+
+  .center-group .tertiary {
+    margin-left: 10.57102%;
+  }
+
+  .daily-rider .bad-idea {
+    margin-top: 24px;
+    margin-left: 2.40858%;
+  }
+
+  .casual-rider .break-out-text,
+  .daily-rider .break-out-text {
+    width: 100.1166946693%;
+    margin-left: -0.11608%;
+  }
+
+  .daily-rider .map-green {
+    width: 38.5227019395%;
+    height: 284px;
+  }
+
+  .casual-rider .price,
+  .daily-rider .price {
+    width: 48.0122193371%;
+    margin-left: 0.00611%;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
+  .inspiration .break-out-text {
+    width: 67.7931904161%;
+    margin-top: 28px;
+    margin-left: 3.44803%;
+  }
+
+  .inspiration .image {
+    width: 25%;
+    height: auto;
+  }
+
+  .nav-content .nav-elements {
+    margin-left: 19.532%;
+  }
+
+  .nav-elements .nav-element {
+    font-size: 0.938em;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.57102%;
+  }
+
+  .pricing .section-header {
+    width: 100.0017614161%;
+    margin-left: 10.2396%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+    margin-top: 95px;
+  }
+
+  .primary .ctalink {
+    margin-left: 40.33097%;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .static-card .card-content {
+    text-align: center;
+  }
+
+  .technology .break-out-text {
+    margin-top: 26px;
+  }
+
+  .technology .image {
+    width: 25%;
+    height: auto;
+    margin-left: 2.29328049%;
+  }
+
+  .the-commuter .bad-idea {
+    margin-top: 47px;
+    margin-left: 2.38876%;
+  }
+
+  .the-commuter .break-out-text {
+    width: 100.0067134574%;
+    margin-left: -0.0061000001%;
+  }
+
+  .the-commuter .price {
+    width: 47.960939884%;
+    margin-left: 0;
+  }
+
+  .card ._button {
+    float: none;
+    clear: none;
+    width: 33.5720858895%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+    width: 31.9719659757%;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
+    width: 32.0576254941%;
+    margin-left: 1.99623%;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.12971%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.26493%;
+  }
+
+  .secondary .static-card-1 {
+    width: 78.8513392857%;
+    margin-left: 10.57244%;
+  }
+
+  .secondary .static-card-2 {
+    clear: both;
+    width: 78.8513392857%;
+    margin-top: 20px;
+    margin-left: 10.57244%;
+  }
+
+  .secondary .static-card-3 {
+    clear: both;
+    width: 78.8571428571%;
+    margin-top: 20px;
+    margin-right: 10.53409%;
+  }
+}
+
+@media(max-width: 800px) {
+  body {
+    font-size: 1em;
+  }
+
+  .bad-idea .break-out-text {
+    margin-left: 0;
+  }
+
+  .card .card-content {
+    margin-left: 8.14766%;
+  }
+
+  .center-group .next-page {
+    clear: both;
+    width: 100.060132291%;
+    margin-top: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .center-group .site-links {
+    position: relative;
+    text-align: center;
+  }
+
+  .center-group .tertiary,
+  .secondary .static-card-1,
+  .secondary .static-card-2 {
+    margin-left: 10.57422%;
+  }
+
+  .casual-rider .bad-idea,
+  .daily-rider .bad-idea {
+    margin-top: 0;
+    margin-left: 2.36804%;
+  }
+
+  .casual-rider .map-yellow,
+  .daily-rider .map-green {
+    margin-left: 0.06193%;
+  }
+
+  .casual-rider .price,
+  .daily-rider .price {
+    margin-left: 0;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
+  .inspiration .break-out-text {
+    clear: both;
+    margin-top: -121px;
+    margin-left: 30.72255%;
+  }
+
+  .inspiration .image {
+    height: auto;
+  }
+
+  .nav-content .nav-brand {
+    font-size: 1.563em;
+  }
+
+  .nav-content .nav-elements {
+    margin-left: 19.53331%;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.57422%;
+  }
+
+  .pricing .section-header {
+    margin-left: 10.23755%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+  }
+
+  .primary .ctalink {
+    margin-left: 40.33203%;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .technology .break-out-text {
+    margin-top: 0;
+  }
+
+  .technology .image {
+    height: auto;
+    margin-top: 7px;
+    margin-left: 2.43492%;
+  }
+
+  .tertiary .technology {
+    padding-top: 35px;
+  }
+
+  .the-commuter .bad-idea {
+    margin-top: 0;
+    margin-left: 2.38538%;
+  }
+
+  .the-commuter .break-out-text {
+    float: right;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+    width: 48.9924730959%;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
+    width: 48.9684201795%;
+    margin-left: 2.03828%;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.13101%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.26688%;
+    font-size: 0.75em;
+  }
+
+  .secondary .static-card-3 {
+    margin-right: 10.46875%;
+  }
+}
+
+@media(max-width: 700px) {
+  .card .card-content {
+    margin-left: 8.14804%;
+  }
+
+  .card .email {
+    margin-top: 54px;
+  }
+
+  .center-group .next-page {
+    width: 101.7261091436%;
+    margin-left: -0.0547%;
+  }
+
+  .center-group .site-links {
+    position: relative;
+  }
+
+  .center-group .tertiary,
+  .secondary .static-card-1,
+  .secondary .static-card-2 {
+    margin-left: 10.57143%;
+  }
+
+  .casual-rider .bad-idea,
+  .daily-rider .bad-idea {
+    margin-left: 2.37226%;
+  }
+
+  .casual-rider .break-out-text,
+  .daily-rider .break-out-text {
+    margin-left: -0.11521%;
+  }
+
+  .casual-rider .map-yellow,
+  .daily-rider .map-green {
+    margin-left: 0.06228%;
+  }
+
+  .casual-rider .price,
+  .daily-rider .price {
+    width: 65.3986846526%;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
+  .inspiration .break-out-text {
+    width: 100.008492569%;
+    margin-top: 0;
+    margin-left: -0.00849%;
+  }
+
+  .inspiration .image {
+    float: none;
+    width: 80%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .nav-content .nav-elements {
+    margin-left: 19.53008%;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.57143%;
+  }
+
+  .pricing .section-header {
+    margin-left: 10.23921%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+  }
+
+  .primary .ctalink {
+    margin-left: 40.33036%;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .technology .break-out-text {
+    width: 100.008492569%;
+    margin-left: -0.00849%;
+  }
+
+  .technology .image {
+    float: none;
+    width: 80%;
+    height: auto;
+    margin-top: 162px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .the-commuter .bad-idea {
+    margin-left: 2.37792%;
+  }
+
+  .the-commuter .price {
+    width: 65.3361465426%;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
+    width: 49.0153172866%;
+    margin-left: 1.99315%;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.12488%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.2597299999%;
+  }
+
+  .secondary .static-card-3 {
+    margin-right: 10.57143%;
+  }
+}
+
+@media(max-width: 600px) {
+  body {
+    font-size: 1em;
+  }
+
+  .bad-idea .price {
+    float: none;
+    clear: none;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .card .card-content {
+    margin-left: 8.14539%;
+  }
+
+  .casual-rider .break-out-text {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .casual-rider .price {
+    margin-top: 113px;
+  }
+
+  .center-group .next-page {
+    margin-left: 0;
+  }
+
+  .center-group .site-links {
+    position: relative;
+  }
+
+  .center-group .tertiary {
+    margin-left: 10.57292%;
+  }
+
+  .daily-rider .break-out-text {
+    margin-left: -0.11559%;
+  }
+
+  .casual-rider .map-yellow,
+  .daily-rider .map-green {
+    width: 100%;
+    height: 150px;
+    margin-left: 0;
+  }
+
+  .daily-rider .price {
+    margin-top: 157px;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
+  .inspiration .break-out-text {
+    width: 100.0039632736%;
+    margin-top: 10px;
+    margin-left: -0.0033%;
+  }
+
+  .inspiration .image {
+    height: auto;
+  }
+
+  .nav-content .nav-elements {
+    margin-left: 19.53125%;
+  }
+
+  .nav-elements .active {
+    font-size: 0.75em;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.57292%;
+  }
+
+  .pricing .section-header {
+    margin-left: 10.23846%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+    margin-top: 91px;
+  }
+
+  .primary .ctalink {
+    margin-left: 40.33073%;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .technology .break-out-text {
+    width: 100.0039632736%;
+    margin-left: -0.0033%;
+  }
+
+  .technology .image {
+    height: auto;
+    margin-top: 159px;
+  }
+
+  .casual-rider .bad-idea,
+  .daily-rider .bad-idea,
+  .the-commuter .bad-idea {
+    clear: both;
+    width: 100.0039632736%;
+    margin-top: 10px;
+    margin-left: -0.0033%;
+  }
+
+  .the-commuter .map-red {
+    width: 100%;
+    height: 150px;
+    margin-left: -0.0924800001%;
+  }
+
+  .the-commuter .price {
+    margin-top: 135px;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
+    width: 46.4013831181%;
+    margin-left: 1.90179%;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.13101%;
+    font-size: 0.75em;
+  }
+
+  .secondary .static-card-1,
+  .secondary .static-card-2 {
+    margin-left: 10.56771%;
+  }
+
+  .secondary .static-card-3 {
+    margin-right: 10.56771%;
+  }
+}
+
+@media(max-width: 500px) {
+  .card .card-content {
+    width: 87.0759202453%;
+    margin-left: 8.13187%;
+  }
+
+  .casual-rider .price {
+    margin-top: 130px;
+  }
+
+  .center-group .next-page {
+    width: 100.0606509872%;
+    margin-left: -0.06065%;
+  }
+
+  .center-group .site-links {
+    position: relative;
+    width: 100.0606509872%;
+    margin-left: -0.06065%;
+  }
+
+  .center-group .tertiary {
+    margin-left: 10.57188%;
+  }
+
+  .cta .card {
+    width: 95%;
+  }
+
+  .daily-rider .break-out-text {
+    margin-left: -0.11493%;
+  }
+
+  .daily-rider .price {
+    margin-top: 180px;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
+  .inspiration .image {
+    height: auto;
+  }
+
+  .nav-content .nav-brand {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .nav-content .nav-elements {
+    clear: both;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.57188%;
+  }
+
+  .pricing .section-header {
+    margin-left: 0;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+    margin-top: 123px;
+  }
+
+  .primary .ctalink {
+    width: 46.5527777777%;
+    margin-left: 26.725%;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .technology .image {
+    height: auto;
+    margin-top: 181px;
+  }
+
+  .casual-rider .bad-idea,
+  .daily-rider .bad-idea,
+  .inspiration .break-out-text,
+  .technology .break-out-text,
+  .the-commuter .bad-idea {
+    margin-left: -0.00396%;
+  }
+
+  .the-commuter .map-red {
+    margin-left: -0.08719%;
+  }
+
+  .the-commuter .price {
+    margin-top: 140px;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+  }
+
+  .center-group .site-links-2 {
+    clear: both;
+    z-index: 63;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.1282899999%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.26316%;
+  }
+
+  .secondary .static-card-1,
+  .secondary .static-card-2 {
+    margin-left: 10.56875%;
+  }
+
+  .secondary .static-card-3 {
+    margin-right: 10.56875%;
+  }
+}
+
+@media(max-width: 400px) {
+  body {
+    font-size: 1em;
+  }
+
+  .bad-idea .price {
+    width: 70%;
+  }
+
+  .card .card-content {
+    margin-left: 6.44097%;
+  }
+
+  .card .email,
+  .card .password {
+    width: 89.2665094339%;
+  }
+
+  .card .terms {
+    width: 93.5695754716%;
+  }
+
+  .casual-rider .price {
+    margin-top: 140px;
+  }
+
+  .center-group .next-page {
+    margin-left: -0.84699%;
+  }
+
+  .center-group .site-links {
+    position: relative;
+    width: 99.8151571164%;
+    margin-left: 0;
+  }
+
+  .center-group .tertiary {
+    margin-left: 10.56641%;
+  }
+
+  .daily-rider .break-out-text {
+    margin-left: -0.11514%;
+  }
+
+  .daily-rider .price {
+    margin-top: 200px;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
+  .inspiration .image {
+    width: 100%;
+    height: auto;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.56641%;
+  }
+
+  .pricing .section-header {
+    width: 120.483519387%;
+    margin-left: -10.23037%;
+    font-size: 1.25em;
+  }
+
+  .pricing .casual-rider,
+  .pricing .daily-rider,
+  .pricing .the-commuter {
+    width: 120.483519387%;
+    margin-left: -10.23037%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+    margin-top: 122px;
+  }
+
+  .primary .ctalink {
+    margin-left: 26.72266%;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .technology .image {
+    width: 100%;
+    height: auto;
+    margin-top: 203px;
+  }
+
+  .casual-rider .bad-idea,
+  .daily-rider .bad-idea,
+  .inspiration .break-out-text,
+  .technology .break-out-text,
+  .the-commuter .bad-idea {
+    margin-left: 0;
+  }
+
+  .the-commuter .map-red {
+    margin-left: -0.08635%;
+  }
+
+  .card ._button {
+    width: 52.6992924528%;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.12582%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.2574%;
+  }
+
+  .secondary .static-card-1,
+  .secondary .static-card-2 {
+    width: 94.9999999999%;
+    margin-left: 2.5%;
+  }
+
+  .secondary .static-card-3 {
+    width: 95%;
+    margin-right: 2.32813%;
+  }
+}
+
+@media(max-width: 280px) {
+  .card .card-content {
+    margin-left: 6.44055%;
+  }
+
+  .card .email {
+    margin-top: 76px;
+  }
+
+  .center-group .next-page {
+    margin-left: -0.85226%;
+  }
+
+  .center-group .site-links {
+    position: relative;
+  }
+
+  .center-group .tertiary {
+    margin-left: 10.5692%;
+  }
+
+  .daily-rider .break-out-text {
+    margin-left: -0.11161%;
+  }
+
+  .daily-rider .price {
+    margin-top: 240px;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
+  .inspiration .image {
+    height: auto;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.5692%;
+  }
+
+  .pricing .casual-rider,
+  .pricing .daily-rider,
+  .pricing .section-header,
+  .pricing .the-commuter {
+    margin-left: -10.23355%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+    margin-top: 124px;
+  }
+
+  .primary .ctalink {
+    margin-left: 26.7243299999%;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .technology .image {
+    height: auto;
+    margin-top: 291px;
+  }
+
+  .the-commuter .map-red {
+    margin-left: -0.08224%;
+  }
+
+  .casual-rider .price,
+  .the-commuter .price {
+    margin-top: 180px;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.12641%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.25564%;
+    font-size: 0.688em;
+  }
+
+  .secondary .static-card-3 {
+    margin-right: 2.33259%;
+  }
+}

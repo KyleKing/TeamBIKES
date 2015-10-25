@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>about</title>
+  <link rel="stylesheet" href="css/standardize.css">
+  <link rel="stylesheet" href="css/about-grid.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- source: https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d#.731cv2odc or alternate: https://github.com/mrmlnc/material-shadows -->
+<style type="text/css">
+.card {
+  transition: all 250ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-5px);
+}
+.static-card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+</style>
+</head>
+<body class="body page-about clearfix">
+  <nav class="navbar card clearfix">
+    <div class="nav-content clearfix">
+      <a href="{{ pathFor 'about' }}" class="nav-brand">REDBAR</a>
+      <div class="nav-elements clearfix">
+        <a href="{{ pathFor 'about' }}" class="nav-element active">About</a>
+        <a href="{{ pathFor 'map' }}" class="nav-element nav-element-2">Map</a>
+        <a class="nav-element nav-element-3" href="#">Get Started</a>
+      </div>
+    </div>
+  </nav>
+  <div class="primary clearfix">
+    <h1 class="cta cta-1">Bikes on Demand</h1>
+    <h2 class="cta cta-2">The future of Bikesharing for the modern student</h2>
+    <a class="ctalink card" href="#">Get Started</a>
+  </div>
+  <div class="secondary clearfix">
+    <div class="static-card static-card-1 clearfix">
+      <div class="fa fa-bicycle"></div>
+      <h2 class="card-header card-header-1">Convenience</h2>
+      <p class="card-content card-content-1">Our professional staff of bike mechanics makes regular repairs and tunes every bike for the perfect ride. You never have to worry about a flat tire ever again.</p>
+    </div>
+    <div class="static-card static-card-2 clearfix">
+      <div class="fa fa-university"></div>
+      <h2 class="card-header card-header-2">Accesible Anywhere</h2>
+      <p class="card-content card-content-2">Find the nearest RedBar bike from any device you use. From a laptop to your iPhone, visit the map page and tap any avilable bike icon to make a five minute reservation.</p>
+    </div>
+    <div class="static-card static-card-3 clearfix">
+      <div class="fa fa-refresh"></div>
+      <h2 class="card-header card-header-3">Simple&nbsp;Return</h2>
+      <p class="card-content card-content-3">Unlike other bike shares, we understand that students need flexiblity, so RedBar is built to let you return your rental to any rack and our technology will handle the rest.</p>
+    </div>
+  </div>
+  <div class="center-group center-group-1 clearfix">
+    <div class="tertiary clearfix">
+      <div onClick="window.location='https://chrome.google.com/webstore/detail/umd-social-scheduler/lfmeffacphnlmfphjjbkmcecacolhabp';" class="inspiration clearfix">
+        <img class="image" src="images/wF2fIYQ-356x273.jpg" data-rimage data-src="images/wF2fIYQ-356x273.jpg" data-srcat2x="images/wF2fIYQ-356x273@2x.jpg">
+        <div onClick="window.location='https://www.reddit.com/r/UMD/comments/2s6awu/what_should_i_do_about_these_classes_and_walking/';" class="break-out-text clearfix">
+          <h3 class="break-out">The Inspiration</h3>
+          <p class="description">This project started out of our own need. We wanted an easy way to get around campus without all the hassle and expense of owning a bike. The red bar that used to appear between classes on the UMD schedule gave rise to our name, RedBar Bikes.</p>
+        </div>
+      </div>
+      <div class="technology clearfix">
+        <div class="break-out-text clearfix">
+          <h3 class="break-out">The Technology</h3>
+          <p class="description">Our lock is state of the art. We have built our lock around the best user experience, security, and materials available. The lock features a smart, RFID, touchpanel that allows you to seamlessly unlock the bike with a tap of your ID. Inside is a low power wireless XBEE module that communicates with our website to help locate each bike.</p>
+        </div>
+        <img class="image" src="images/20826_967241463326902_8192274473226178468_n-357x299.jpg" data-rimage data-src="images/20826_967241463326902_8192274473226178468_n-357x299.jpg" data-srcat2x="images/20826_967241463326902_8192274473226178468_n-357x299@2x.jpg">
+      </div>
+    </div>
+  </div>
+  <div class="cta cta-3 clearfix">
+    <div class="card clearfix">
+      <h2 class="cta">Sign Up Now</h2>
+      <p class="card-content">Register for your chance to be part of the first RedBar bike riders</p>
+      <input class="email" placeholder="UMD Email" type="text">
+      <input class="password" placeholder="Password" type="text">
+      <label class="terms clearfix">
+        <input class="checkbox" type="checkbox">
+        <span class="agree-to-terms">I agree to the <a href="&quot;{{ pathFor 'terms' }}&quot;">terms</a></span>
+      </label>
+      <button class="_button">Submit</button>
+    </div>
+  </div>
+  <div class="pricing clearfix">
+    <h3 class="section-header">Learn about our proposed pricing plan</h3>
+    <div class="casual-rider clearfix">
+      <div class="map-yellow"></div>
+      <div class="bad-idea clearfix">
+        <div class="break-out-text clearfix">
+          <h3 class="break-out">The casual rider</h3>
+          <p class="description">Only want to ride a few times a week? This is the basic tier that you are enrolled in automatically. You don't pay any subscription fee and only need to pay per ride at our low cost of ___ $/ __ unit.</p>
+        </div>
+        <button class="price card">$__/ride</button>
+      </div>
+    </div>
+    <div class="daily-rider clearfix">
+      <div class="map-green"></div>
+      <div class="bad-idea clearfix">
+        <div class="break-out-text clearfix">
+          <h3 class="break-out">The Daily Rider</h3>
+          <p class="description">Can you handle this convenience? This plan gives you five free rides per day to go anywhere that you'd like for the low cost of $15 / month. If you want to ride more, simply pay a reduced price for each additional ride on your busiest days of ___ $/ __ unit. The only question is what will you do with all the time you save?</p>
+        </div>
+        <button class="price card">$15/month</button>
+      </div>
+    </div>
+    <div class="the-commuter clearfix">
+      <div class="map-red"></div>
+      <div class="bad-idea clearfix">
+        <div class="break-out-text clearfix">
+          <h3 class="break-out">The Bike-aholic</h3>
+          <p class="description">Ready to replace your car and have an extra hour of free time a day? This plan gives you as many free rides as you can take. Ride weherever and whenever you would like for the low cost of &nbsp;$25&nbsp;/ month.</p>
+        </div>
+        <button class="price card">$25/month</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer-content clearfix">
+    <div class="center-group clearfix">
+      <div class="site-links site-links-1">
+        <p><strong>Read our FAQ</strong></p>
+        <p><a>Common Questions</a></p>
+        <p><a>The Technology</a></p>
+        <p><a>Our Bikes</a></p>
+</div>
+      <div class="site-links site-links-2">
+        <p><strong class="rt-element" style="font-style: normal; font-family: inherit; font-weight: 700; text-decoration: inherit; text-transform: uppercase; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal; text-shadow: none;">OUr COmpany</strong></p>
+        <p><a class="rt-element" style="font-style: inherit; font-family: inherit; font-weight: inherit; text-decoration: underline; text-transform: inherit; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal;">Contact Us</a></p>
+        <p><a class="rt-element" style="font-style: inherit; font-family: inherit; font-weight: inherit; text-decoration: underline; text-transform: inherit; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal;">Careers</a></p>
+        <p><a class="rt-element is-selected" style="font-style: inherit; font-family: inherit; font-weight: inherit; text-decoration: underline; text-transform: inherit; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal;">Social LInks</a></p>
+</div>
+      <a class="next-page" href="#">Continue reading the FAQ&nbsp;→</a>
+    </div>
+  </footer>
+
+  <script src="js/jquery-min.js"></script>
+  <script src="js/rimages.js"></script>
+</body>
+</html>
