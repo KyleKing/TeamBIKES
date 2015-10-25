@@ -10,6 +10,10 @@ FlowRouter.route '/',
   name: 'about',
   action: ->
     BlazeLayout.render 'UniversalLayout', full: 'agency'
+FlowRouter.route '/macaw',
+  name: 'aboutmacaw',
+  action: ->
+    BlazeLayout.render 'aboutmacaw'
 
 
 
