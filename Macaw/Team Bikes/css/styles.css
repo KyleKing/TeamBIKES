@@ -4,235 +4,6 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.bad-idea button {
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 1.875em;
-  font-weight: 700;
-  color: rgb(252, 252, 252);
-}
-
-.bad-idea h3,
-.inspiration h3 {
-  width: 99.9999999999%;
-}
-
-.break-out-text h3 {
-  font-size: 1.25em;
-}
-
-.card button {
-  clear: both;
-  width: 18.4624727972%;
-  height: 33px;
-  margin: 10px 0 0 40.76866%;
-  border-radius: 310px;
-  background-color: rgb(172, 39, 39);
-  font-size: 1em;
-  font-weight: 400;
-  color: rgb(242, 247, 247);
-}
-
-.card h2 {
-  margin: 0 auto;
-  padding-bottom: 5px;
-}
-
-.card input {
-  margin-top: 10px;
-}
-
-.casual-rider button {
-  width: 30.6455813172%;
-  margin: 21px 0 0 3.95875%;
-  background-color: rgb(238, 193, 16);
-}
-
-.daily-rider button {
-  width: 30.6455813172%;
-  margin: 43px 0 0 3.95665%;
-  background-color: rgb(37, 206, 108);
-}
-
-.inspiration img {
-  width: 28.2884310618%;
-}
-
-.nav-elements a {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 1.25em;
-}
-
-.nav-elements a:hover {
-  background-color: rgb(172, 39, 39);
-}
-
-.primary a {
-  clear: both;
-  width: 19.0010964912%;
-  margin-left: 40.33203%;
-  padding: 12px;
-  border-radius: 25px;
-  background-color: rgb(172, 39, 39);
-  font-size: 1em;
-  font-weight: 400;
-  text-align: center;
-  color: rgb(252, 252, 252);
-}
-
-.primary h2 {
-  float: left;
-  clear: both;
-  padding-top: 11px;
-  padding-bottom: 11px;
-}
-
-.static-card h2 {
-  margin-top: 9px;
-  padding-bottom: 5px;
-}
-
-.static-card-1 h2 {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.static-card-2 h2,
-.static-card-3 h2 {
-  float: left;
-  clear: both;
-}
-
-.technology h3 {
-  width: 99.9983217252%;
-}
-
-.technology img {
-  width: 28.3045265451%;
-  margin-left: 2.40888%;
-}
-
-.the-commuter button {
-  width: 30.611534185%;
-  margin: 32px 0 0 4.08249%;
-  background-color: rgb(201, 118, 118);
-}
-
-a {
-  display: block;
-  float: left;
-  line-height: 1.38;
-}
-
-button {
-  display: block;
-  float: left;
-  line-height: 1.38;
-  text-align: center;
-}
-
-footer {
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 66;
-  width: 100%;
-  margin-top: 40px;
-  padding: 10px;
-  background-color: rgb(120, 120, 120);
-}
-
-footer a {
-  width: 32.0010964912%;
-  margin: 49px 0 0 1.99812%;
-  padding: 20px;
-  font-size: 1.25em;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: rgb(252, 252, 252);
-}
-
-h1 {
-  width: 100%;
-  margin: 0 auto;
-  padding-top: 11px;
-  padding-bottom: 11px;
-  font-size: 2.563em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-h2 {
-  width: 100%;
-  font-size: 1.25em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-h3 {
-  float: left;
-  font-weight: 700;
-  line-height: 1.38;
-  text-transform: uppercase;
-  color: rgb(0, 0, 0);
-}
-
-img {
-  display: block;
-  float: left;
-  height: auto;
-  overflow: hidden;
-}
-
-input {
-  display: block;
-  float: left;
-}
-
-label {
-  display: block;
-  float: left;
-  clear: both;
-  width: 39.4082021694%;
-  margin: 4px 0 0 30.34872%;
-  padding: 10px;
-}
-
-label input {
-  margin-top: 2px;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 73;
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: rgb(252, 252, 252);
-}
-
-nav a {
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  color: rgb(0, 0, 0);
-}
-
-span {
-  display: block;
-  float: left;
-  margin: 1px 0 0 6px;
-  font-size: 0.75em;
-  line-height: 1.38;
-}
-
 .active {
   width: 31.75499146%;
   padding-right: 10px;
@@ -249,6 +20,28 @@ span {
   border-bottom: 4 solid rgb(252, 252, 252);
 }
 
+.agree-to-terms {
+  display: block;
+  float: left;
+  margin: 1px 0 0 6px;
+  font-size: 0.75em;
+  line-height: 1.38;
+}
+
+.bad-idea .break-out,
+.inspiration .break-out {
+  width: 99.9999999999%;
+}
+
+.break-out {
+  float: left;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
 .bad-idea,
 .break-out-text {
   float: left;
@@ -262,10 +55,31 @@ span {
   text-align: center;
 }
 
+.card .cta {
+  margin: 0 auto;
+  padding-bottom: 5px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
 .card-content {
   font-size: 1em;
   font-weight: 400;
   line-height: 1.38;
+  color: rgb(0, 0, 0);
+}
+
+.card-header {
+  width: 100%;
+  margin-top: 9px;
+  padding-bottom: 5px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
   color: rgb(0, 0, 0);
 }
 
@@ -281,11 +95,43 @@ span {
   margin: 82px 0 0 2.41012%;
 }
 
+.casual-rider .price {
+  width: 30.6455813172%;
+  margin: 21px 0 0 3.95875%;
+  background-color: rgb(238, 193, 16);
+}
+
+.checkbox {
+  display: block;
+  float: left;
+  margin-top: 2px;
+}
+
+.cta {
+  width: 100%;
+}
+
 .cta .card {
   width: 78.85078125%;
   margin: 0 auto;
   padding: 10px;
   background-color: rgb(252, 252, 252);
+}
+
+.ctalink {
+  display: block;
+  float: left;
+  clear: both;
+  width: 19.0010964912%;
+  margin-left: 40.33203%;
+  padding: 12px;
+  border-radius: 25px;
+  background-color: rgb(172, 39, 39);
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(252, 252, 252);
 }
 
 .daily-rider .bad-idea {
@@ -296,6 +142,12 @@ span {
 .casual-rider .break-out-text,
 .daily-rider .break-out-text {
   width: 65.376344086%;
+}
+
+.daily-rider .price {
+  width: 30.6455813172%;
+  margin: 43px 0 0 3.95665%;
+  background-color: rgb(37, 206, 108);
 }
 
 .description {
@@ -324,9 +176,27 @@ span {
   background-color: rgb(1, 81, 150);
 }
 
+.footer-content {
+  position: relative;
+  float: left;
+  clear: both;
+  z-index: 66;
+  width: 100%;
+  margin-top: 40px;
+  padding: 10px;
+  background-color: rgb(120, 120, 120);
+}
+
 .footer-content .center-group {
   width: 96.6101694915%;
   margin: 0 auto;
+}
+
+.image {
+  display: block;
+  float: left;
+  height: auto;
+  overflow: hidden;
 }
 
 .inspiration {
@@ -337,6 +207,10 @@ span {
 .inspiration .break-out-text {
   width: 69.2551505546%;
   margin: 91px 0 0 2.40888%;
+}
+
+.inspiration .image {
+  width: 28.2884310618%;
 }
 
 .map-green {
@@ -370,15 +244,40 @@ span {
 }
 
 .nav-brand {
+  display: block;
+  float: left;
   width: 22.9659598214%;
   margin-top: 10px;
   font-size: 1.875em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
 }
 
 .nav-content {
   float: left;
   width: 94.9999999999%;
   margin-left: 2.5%;
+}
+
+.nav-element {
+  display: block;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+.nav-element:hover {
+  background-color: rgb(172, 39, 39);
+  color: rgb(252, 252, 252);
 }
 
 .nav-elements {
@@ -390,12 +289,38 @@ span {
   padding-bottom: 5px;
 }
 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 73;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgb(252, 252, 252);
+}
+
+.next-page {
+  display: block;
+  float: left;
+  width: 32.0010964912%;
+  margin: 49px 0 0 1.99812%;
+  padding: 20px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-transform: uppercase;
+  color: rgb(252, 252, 252);
+}
+
 .email,
 .password {
+  display: block;
+  float: left;
   clear: both;
   width: 39.3889704269%;
   height: 40px;
-  margin-left: 30.30467%;
+  margin: 10px 0 0 30.30467%;
   padding: 10px;
   border: 2px solid rgb(102, 102, 102);
   border-radius: 4px;
@@ -404,6 +329,18 @@ span {
   font-weight: 400;
   line-height: 1.38;
   color: rgb(102, 102, 102);
+}
+
+.price {
+  display: block;
+  float: left;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.875em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(252, 252, 252);
 }
 
 .pricing {
@@ -432,6 +369,15 @@ span {
   background-repeat: no-repeat;
 }
 
+.primary .cta {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
 .secondary {
   position: relative;
   float: left;
@@ -444,12 +390,17 @@ span {
 }
 
 .section-header {
+  float: left;
   width: 79.5181399342%;
   min-height: 42px;
   margin-left: 10.24114%;
   padding: 20px;
   font-size: 1.563em;
+  font-weight: 700;
+  line-height: 1.38;
   text-align: center;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
 }
 
 .site-links {
@@ -475,9 +426,27 @@ span {
   width: 100%;
 }
 
+.technology .break-out {
+  width: 99.9983217252%;
+}
+
 .technology .break-out-text {
   width: 69.2551505546%;
   margin-top: 105px;
+}
+
+.technology .image {
+  width: 28.3045265451%;
+  margin-left: 2.40888%;
+}
+
+.terms {
+  display: block;
+  float: left;
+  clear: both;
+  width: 39.4082021694%;
+  margin: 4px 0 0 30.34872%;
+  padding: 10px;
 }
 
 .tertiary {
@@ -503,12 +472,45 @@ span {
   width: 65.3063964587%;
 }
 
+.the-commuter .price {
+  width: 30.611534185%;
+  margin: 32px 0 0 4.08249%;
+  background-color: rgb(201, 118, 118);
+}
+
+._button {
+  display: block;
+  float: left;
+  clear: both;
+  width: 18.4624727972%;
+  height: 33px;
+  margin: 10px 0 0 40.76866%;
+  border-radius: 310px;
+  background-color: rgb(172, 39, 39);
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(242, 247, 247);
+}
+
 .card-content-1 {
   margin: 0 auto;
 }
 
 .card-content-2,
 .card-content-3 {
+  float: left;
+  clear: both;
+}
+
+.card-header-1 {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.card-header-2,
+.card-header-3 {
   float: left;
   clear: both;
 }
@@ -523,12 +525,22 @@ span {
   padding-bottom: 40px;
 }
 
+.cta-1 {
+  margin: 0 auto;
+  font-size: 2.563em;
+}
+
+.cta-2 {
+  float: left;
+  clear: both;
+  font-size: 1.25em;
+}
+
 .cta-3 {
   position: relative;
   float: left;
   clear: both;
   z-index: 38;
-  width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: rgb(172, 39, 39);
@@ -670,65 +682,9 @@ span {
 }
 
 @media(max-width: 1100px) {
-  .bad-idea button {
+  .bad-idea .price {
     clear: both;
     margin-top: 20px;
-  }
-
-  .card button {
-    float: none;
-    clear: none;
-    width: 33.5720858895%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .casual-rider button,
-  .daily-rider button {
-    width: 48.0122193371%;
-    margin-left: 0.00611%;
-  }
-
-  .nav-elements a {
-    font-size: 0.938em;
-  }
-
-  .primary a {
-    margin-left: 40.33097%;
-  }
-
-  .technology img {
-    margin-left: 2.29328049%;
-  }
-
-  .the-commuter button {
-    width: 47.960939884%;
-    margin-left: 0;
-  }
-
-  div img {
-    width: 25%;
-    height: auto;
-  }
-
-  .card .password,
-  div label {
-    float: none;
-    clear: none;
-    width: 69.2400306748%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  footer {
-    position: relative;
-    z-index: 66;
-  }
-
-  footer a {
-    width: 32.0115011381%;
-    margin-top: 41px;
-    margin-left: 1.96478%;
   }
 
   .card .card-content {
@@ -744,6 +700,15 @@ span {
     margin-left: auto;
   }
 
+  .card .password,
+  .card .terms {
+    float: none;
+    clear: none;
+    width: 69.2400306748%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   .casual-rider .bad-idea {
     margin-top: 27px;
     margin-left: 2.40858%;
@@ -752,6 +717,12 @@ span {
   .casual-rider .map-yellow {
     width: 38.5227019395%;
     height: 223px;
+  }
+
+  .center-group .next-page {
+    width: 32.0115011381%;
+    margin-top: 41px;
+    margin-left: 1.96478%;
   }
 
   .center-group .site-links {
@@ -778,14 +749,34 @@ span {
     height: 284px;
   }
 
+  .casual-rider .price,
+  .daily-rider .price {
+    width: 48.0122193371%;
+    margin-left: 0.00611%;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
   .inspiration .break-out-text {
     width: 67.7931904161%;
     margin-top: 28px;
     margin-left: 3.44803%;
   }
 
+  .inspiration .image {
+    width: 25%;
+    height: auto;
+  }
+
   .nav-content .nav-elements {
     margin-left: 19.532%;
+  }
+
+  .nav-elements .nav-element {
+    font-size: 0.938em;
   }
 
   .pricing {
@@ -805,6 +796,10 @@ span {
     margin-top: 95px;
   }
 
+  .primary .ctalink {
+    margin-left: 40.33097%;
+  }
+
   .secondary {
     position: relative;
     z-index: 16;
@@ -818,6 +813,12 @@ span {
     margin-top: 26px;
   }
 
+  .technology .image {
+    width: 25%;
+    height: auto;
+    margin-left: 2.29328049%;
+  }
+
   .the-commuter .bad-idea {
     margin-top: 47px;
     margin-left: 2.38876%;
@@ -826,6 +827,19 @@ span {
   .the-commuter .break-out-text {
     width: 100.0067134574%;
     margin-left: -0.0061000001%;
+  }
+
+  .the-commuter .price {
+    width: 47.960939884%;
+    margin-left: 0;
+  }
+
+  .card ._button {
+    float: none;
+    clear: none;
+    width: 33.5720858895%;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .center-group .site-links-1 {
@@ -882,36 +896,6 @@ span {
     font-size: 1em;
   }
 
-  .casual-rider button,
-  .daily-rider button {
-    margin-left: 0;
-  }
-
-  .primary a {
-    margin-left: 40.33203%;
-  }
-
-  .technology img {
-    margin-top: 7px;
-    margin-left: 2.43492%;
-  }
-
-  div img {
-    height: auto;
-  }
-
-  footer {
-    position: relative;
-    z-index: 66;
-  }
-
-  footer a {
-    clear: both;
-    width: 100.060132291%;
-    margin-top: 0;
-    margin-left: 0;
-  }
-
   .bad-idea .break-out-text {
     margin-left: 0;
   }
@@ -920,8 +904,17 @@ span {
     margin-left: 8.14766%;
   }
 
+  .center-group .next-page {
+    clear: both;
+    width: 100.060132291%;
+    margin-top: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+
   .center-group .site-links {
     position: relative;
+    text-align: center;
   }
 
   .center-group .tertiary,
@@ -941,10 +934,24 @@ span {
     margin-left: 0.06193%;
   }
 
+  .casual-rider .price,
+  .daily-rider .price {
+    margin-left: 0;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
   .inspiration .break-out-text {
     clear: both;
     margin-top: -121px;
     margin-left: 30.72255%;
+  }
+
+  .inspiration .image {
+    height: auto;
   }
 
   .nav-content .nav-brand {
@@ -970,6 +977,10 @@ span {
     z-index: 3;
   }
 
+  .primary .ctalink {
+    margin-left: 40.33203%;
+  }
+
   .secondary {
     position: relative;
     z-index: 16;
@@ -977,6 +988,12 @@ span {
 
   .technology .break-out-text {
     margin-top: 0;
+  }
+
+  .technology .image {
+    height: auto;
+    margin-top: 7px;
+    margin-left: 2.43492%;
   }
 
   .tertiary .technology {
@@ -1028,38 +1045,17 @@ span {
 }
 
 @media(max-width: 700px) {
-  .primary a {
-    margin-left: 40.33036%;
-  }
-
-  .technology img {
-    margin-top: 162px;
-  }
-
-  div img {
-    float: none;
-    width: 80%;
-    height: auto;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  footer {
-    position: relative;
-    z-index: 66;
-  }
-
-  footer a {
-    width: 101.7261091436%;
-    margin-left: -0.0547%;
-  }
-
   .card .card-content {
     margin-left: 8.14804%;
   }
 
   .card .email {
     margin-top: 54px;
+  }
+
+  .center-group .next-page {
+    width: 101.7261091436%;
+    margin-left: -0.0547%;
   }
 
   .center-group .site-links {
@@ -1087,10 +1083,28 @@ span {
     margin-left: 0.06228%;
   }
 
+  .casual-rider .price,
+  .daily-rider .price {
+    width: 65.3986846526%;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
   .inspiration .break-out-text {
     width: 100.008492569%;
     margin-top: 0;
     margin-left: -0.00849%;
+  }
+
+  .inspiration .image {
+    float: none;
+    width: 80%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .nav-content .nav-elements {
@@ -1112,6 +1126,10 @@ span {
     z-index: 3;
   }
 
+  .primary .ctalink {
+    margin-left: 40.33036%;
+  }
+
   .secondary {
     position: relative;
     z-index: 16;
@@ -1122,8 +1140,21 @@ span {
     margin-left: -0.00849%;
   }
 
+  .technology .image {
+    float: none;
+    width: 80%;
+    height: auto;
+    margin-top: 162px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   .the-commuter .bad-idea {
     margin-left: 2.37792%;
+  }
+
+  .the-commuter .price {
+    width: 65.3361465426%;
   }
 
   .center-group .site-links-1 {
@@ -1164,44 +1195,11 @@ span {
     font-size: 1em;
   }
 
-  .bad-idea button {
+  .bad-idea .price {
     float: none;
     clear: none;
     margin-right: auto;
     margin-left: auto;
-  }
-
-  .casual-rider button {
-    margin-top: 113px;
-  }
-
-  .daily-rider button {
-    margin-top: 157px;
-  }
-
-  .primary a {
-    margin-left: 40.33073%;
-  }
-
-  .technology img {
-    margin-top: 159px;
-  }
-
-  .the-commuter button {
-    margin-top: 135px;
-  }
-
-  div img {
-    height: auto;
-  }
-
-  footer {
-    position: relative;
-    z-index: 66;
-  }
-
-  footer a {
-    margin-left: 0;
   }
 
   .card .card-content {
@@ -1210,6 +1208,14 @@ span {
 
   .casual-rider .break-out-text {
     width: 100%;
+    margin-left: 0;
+  }
+
+  .casual-rider .price {
+    margin-top: 113px;
+  }
+
+  .center-group .next-page {
     margin-left: 0;
   }
 
@@ -1232,10 +1238,23 @@ span {
     margin-left: 0;
   }
 
+  .daily-rider .price {
+    margin-top: 157px;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
   .inspiration .break-out-text {
     width: 100.0039632736%;
     margin-top: 10px;
     margin-left: -0.0033%;
+  }
+
+  .inspiration .image {
+    height: auto;
   }
 
   .nav-content .nav-elements {
@@ -1262,6 +1281,10 @@ span {
     margin-top: 91px;
   }
 
+  .primary .ctalink {
+    margin-left: 40.33073%;
+  }
+
   .secondary {
     position: relative;
     z-index: 16;
@@ -1270,6 +1293,11 @@ span {
   .technology .break-out-text {
     width: 100.0039632736%;
     margin-left: -0.0033%;
+  }
+
+  .technology .image {
+    height: auto;
+    margin-top: 159px;
   }
 
   .casual-rider .bad-idea,
@@ -1285,6 +1313,10 @@ span {
     width: 100%;
     height: 150px;
     margin-left: -0.0924800001%;
+  }
+
+  .the-commuter .price {
+    margin-top: 135px;
   }
 
   .center-group .site-links-1 {
@@ -1323,52 +1355,24 @@ span {
 }
 
 @media(max-width: 500px) {
-  .casual-rider button {
-    margin-top: 130px;
-  }
-
-  .daily-rider button {
-    margin-top: 180px;
-  }
-
-  .primary a {
-    width: 46.5527777777%;
-    margin-left: 26.725%;
-  }
-
-  .technology img {
-    margin-top: 181px;
-  }
-
-  .the-commuter button {
-    margin-top: 140px;
-  }
-
-  div img {
-    height: auto;
-  }
-
-  footer {
-    position: relative;
-    z-index: 66;
-  }
-
-  footer a {
-    width: 100.0606509872%;
-    margin-left: -0.06065%;
-    text-align: center;
-  }
-
   .card .card-content {
     width: 87.0759202453%;
     margin-left: 8.13187%;
+  }
+
+  .casual-rider .price {
+    margin-top: 130px;
+  }
+
+  .center-group .next-page {
+    width: 100.0606509872%;
+    margin-left: -0.06065%;
   }
 
   .center-group .site-links {
     position: relative;
     width: 100.0606509872%;
     margin-left: -0.06065%;
-    text-align: center;
   }
 
   .center-group .tertiary {
@@ -1381,6 +1385,19 @@ span {
 
   .daily-rider .break-out-text {
     margin-left: -0.11493%;
+  }
+
+  .daily-rider .price {
+    margin-top: 180px;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
+  .inspiration .image {
+    height: auto;
   }
 
   .nav-content .nav-brand {
@@ -1410,9 +1427,19 @@ span {
     margin-top: 123px;
   }
 
+  .primary .ctalink {
+    width: 46.5527777777%;
+    margin-left: 26.725%;
+  }
+
   .secondary {
     position: relative;
     z-index: 16;
+  }
+
+  .technology .image {
+    height: auto;
+    margin-top: 181px;
   }
 
   .casual-rider .bad-idea,
@@ -1425,6 +1452,10 @@ span {
 
   .the-commuter .map-red {
     margin-left: -0.08719%;
+  }
+
+  .the-commuter .price {
+    margin-top: 140px;
   }
 
   .center-group .site-links-1 {
@@ -1469,46 +1500,8 @@ span {
     font-size: 1em;
   }
 
-  .bad-idea button {
+  .bad-idea .price {
     width: 70%;
-  }
-
-  .card button {
-    width: 52.6992924528%;
-  }
-
-  .casual-rider button {
-    margin-top: 140px;
-  }
-
-  .daily-rider button {
-    margin-top: 200px;
-  }
-
-  .primary a {
-    margin-left: 26.72266%;
-  }
-
-  .technology img {
-    margin-top: 203px;
-  }
-
-  div img {
-    width: 100%;
-    height: auto;
-  }
-
-  div label {
-    width: 93.5695754716%;
-  }
-
-  footer {
-    position: relative;
-    z-index: 66;
-  }
-
-  footer a {
-    margin-left: -0.84699%;
   }
 
   .card .card-content {
@@ -1518,6 +1511,18 @@ span {
   .card .email,
   .card .password {
     width: 89.2665094339%;
+  }
+
+  .card .terms {
+    width: 93.5695754716%;
+  }
+
+  .casual-rider .price {
+    margin-top: 140px;
+  }
+
+  .center-group .next-page {
+    margin-left: -0.84699%;
   }
 
   .center-group .site-links {
@@ -1532,6 +1537,20 @@ span {
 
   .daily-rider .break-out-text {
     margin-left: -0.11514%;
+  }
+
+  .daily-rider .price {
+    margin-top: 200px;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
+  .inspiration .image {
+    width: 100%;
+    height: auto;
   }
 
   .pricing {
@@ -1559,9 +1578,19 @@ span {
     margin-top: 122px;
   }
 
+  .primary .ctalink {
+    margin-left: 26.72266%;
+  }
+
   .secondary {
     position: relative;
     z-index: 16;
+  }
+
+  .technology .image {
+    width: 100%;
+    height: auto;
+    margin-top: 203px;
   }
 
   .casual-rider .bad-idea,
@@ -1574,6 +1603,10 @@ span {
 
   .the-commuter .map-red {
     margin-left: -0.08635%;
+  }
+
+  .card ._button {
+    width: 52.6992924528%;
   }
 
   .center-group .site-links-1 {
@@ -1615,42 +1648,16 @@ span {
 }
 
 @media(max-width: 280px) {
-  .daily-rider button {
-    margin-top: 240px;
-  }
-
-  .primary a {
-    margin-left: 26.7243299999%;
-  }
-
-  .technology img {
-    margin-top: 291px;
-  }
-
-  .casual-rider button,
-  .the-commuter button {
-    margin-top: 180px;
-  }
-
-  div img {
-    height: auto;
-  }
-
-  footer {
-    position: relative;
-    z-index: 66;
-  }
-
-  footer a {
-    margin-left: -0.85226%;
-  }
-
   .card .card-content {
     margin-left: 6.44055%;
   }
 
   .card .email {
     margin-top: 76px;
+  }
+
+  .center-group .next-page {
+    margin-left: -0.85226%;
   }
 
   .center-group .site-links {
@@ -1663,6 +1670,19 @@ span {
 
   .daily-rider .break-out-text {
     margin-left: -0.11161%;
+  }
+
+  .daily-rider .price {
+    margin-top: 240px;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 66;
+  }
+
+  .inspiration .image {
+    height: auto;
   }
 
   .pricing {
@@ -1684,13 +1704,27 @@ span {
     margin-top: 124px;
   }
 
+  .primary .ctalink {
+    margin-left: 26.7243299999%;
+  }
+
   .secondary {
     position: relative;
     z-index: 16;
   }
 
+  .technology .image {
+    height: auto;
+    margin-top: 291px;
+  }
+
   .the-commuter .map-red {
     margin-left: -0.08224%;
+  }
+
+  .casual-rider .price,
+  .the-commuter .price {
+    margin-top: 180px;
   }
 
   .center-group .site-links-1 {
