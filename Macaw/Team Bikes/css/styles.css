@@ -1,4 +1,5 @@
 body {
+  background-color: rgb(255, 255, 255);
   font: 400 1em/1.38 Helvetica;
   color: rgb(0, 0, 0);
 }
@@ -6,7 +7,6 @@ body {
 .page-about {
   min-width: none;
   min-height: nonepx;
-  background-color: rgb(252, 252, 252);
   -webkit-transform: none;
   -moz-transform: none;
   -o-transform: none;
@@ -24,12 +24,8 @@ body {
   filter: none;
 }
 
-.page-faq,
-.page-index {
-  background-color: rgb(255, 255, 255);
-}
-
 .newuser-focusedexplanation p,
+.site-links p,
 .text-20 p,
 .text-24 p {
   margin-bottom: 1em;
@@ -98,6 +94,24 @@ body {
   color: rgb(248, 247, 247);
 }
 
+.card .card-content {
+  float: left;
+  clear: both;
+  width: 83.6968807463%;
+  margin-left: 8.15156%;
+  text-align: center;
+}
+
+.card .cta {
+  margin: 0 auto;
+  padding-bottom: 5px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
 .card-content {
   font-size: 1em;
   font-weight: 400;
@@ -135,18 +149,26 @@ body {
   filter: none;
 }
 
+.casual-rider {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+.casual-rider .break-out-text {
+  width: 38.5544198028%;
+  margin: 71px 0 0 2.40765%;
+}
+
+.casual-rider .price {
+  margin-top: 88px;
+  background-color: rgb(238, 193, 16);
+}
+
 .checkbox {
   display: block;
   float: left;
   margin-top: 2px;
-}
-
-.concealed,
-.technology {
-  float: left;
-  clear: both;
-  width: 111.4109097599%;
-  padding-top: 15px;
 }
 
 .container {
@@ -182,18 +204,12 @@ body {
   width: 100%;
 }
 
-.cta .card-content {
-  float: left;
-  clear: both;
-  width: 83.6968807463%;
-  margin-left: 8.15156%;
-  text-align: center;
-}
-
-.cta .static-card {
+.cta .card {
   float: left;
   width: 78.85078125%;
   margin-left: 10.57422%;
+  padding: 10px;
+  background-color: rgb(252, 252, 252);
 }
 
 .ctalink {
@@ -203,7 +219,7 @@ body {
   width: 19.0010964912%;
   min-width: none;
   min-height: nonepx;
-  margin-left: 40.33443%;
+  margin-left: 40.33203%;
   padding: 12px;
   border-radius: 25px;
   background-color: rgb(172, 39, 39);
@@ -229,6 +245,16 @@ body {
   filter: none;
 }
 
+.daily-rider .break-out-text {
+  width: 38.5544198028%;
+  margin: 38px 0 0 2.40765%;
+}
+
+.daily-rider .price {
+  margin-top: 103px;
+  background-color: rgb(37, 206, 108);
+}
+
 .description {
   float: left;
   clear: both;
@@ -242,23 +268,6 @@ body {
 .element {
   float: left;
   background-color: rgb(222, 222, 222);
-}
-
-.email {
-  display: block;
-  float: left;
-  clear: both;
-  width: 39.3889704269%;
-  height: 40px;
-  margin: 10px 0 0 30.30518%;
-  padding: 10px;
-  border: 2px solid rgb(102, 102, 102);
-  border-radius: 4px;
-  background-color: rgb(255, 255, 255);
-  font-size: 0.938em;
-  font-weight: 400;
-  line-height: 1.38;
-  color: rgb(102, 102, 102);
 }
 
 .fa {
@@ -277,6 +286,15 @@ body {
   float: left;
   margin-left: 35.50039%;
   background-color: #015196;
+}
+
+.footer-content {
+  float: left;
+  clear: both;
+  width: 100%;
+  margin-top: 40px;
+  padding: 10px;
+  background-color: rgb(120, 120, 120);
 }
 
 .hero {
@@ -352,20 +370,14 @@ body {
 
 .inspiration {
   float: left;
+  width: 100.0006605347%;
 }
 
-.concealed .break-out,
-.inspiration .break-out {
-  width: 99.9999999999%;
-}
-
-.concealed .break-out-text,
 .inspiration .break-out-text {
   width: 59.0359496012%;
   margin: 83px 0 0 2.40765%;
 }
 
-.concealed .image,
 .inspiration .image {
   width: 364px;
 }
@@ -406,6 +418,36 @@ body {
   line-height: 1.38;
   text-align: center;
   color: rgb(0, 0, 0);
+}
+
+.map-green {
+  float: left;
+  width: 38.5537592681%;
+  height: 256px;
+  border: 4px solid rgb(37, 206, 108);
+  background: url('../images/Map%20Green.png') rgb(222, 222, 222);
+  background-size: cover;
+  background-position: center center;
+}
+
+.map-red {
+  float: left;
+  width: 38.5752266459%;
+  height: 257px;
+  border: 4px solid rgb(172, 39, 39);
+  background: url('../images/Map%20Red.png') rgb(222, 222, 222);
+  background-size: cover;
+  background-position: center center;
+}
+
+.map-yellow {
+  float: left;
+  width: 38.5537592681%;
+  height: 256px;
+  border: 4px solid #eec110;
+  background: url('../images/Map%20Yellow.png') rgb(222, 222, 222);
+  background-size: cover;
+  background-position: center center;
 }
 
 .nav-bar {
@@ -571,6 +613,20 @@ body {
   color: rgb(0, 0, 0);
 }
 
+.next-page {
+  display: block;
+  float: left;
+  width: 30.9163135593%;
+  margin: 49px 0 0 1.9329978813%;
+  padding: 20px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-transform: uppercase;
+  color: rgb(252, 252, 252);
+}
+
+.email,
 .password {
   display: block;
   float: left;
@@ -581,11 +637,25 @@ body {
   padding: 10px;
   border: 2px solid rgb(102, 102, 102);
   border-radius: 4px;
-  background-color: rgb(252, 252, 252);
+  background-color: rgb(255, 255, 255);
   font-size: 0.938em;
   font-weight: 400;
   line-height: 1.38;
   color: rgb(102, 102, 102);
+}
+
+.price {
+  display: block;
+  float: left;
+  width: 18.0722294697%;
+  margin-left: 2.40765%;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.875em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(252, 252, 252);
 }
 
 .pricing {
@@ -599,8 +669,10 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.pricing .inspiration {
-  width: 100.0006605347%;
+.pricing .image {
+  clear: both;
+  width: 100%;
+  margin: 8px 0 0 0.48319%;
 }
 
 .primary {
@@ -612,7 +684,13 @@ body {
   padding-top: 40px;
   padding-bottom: 60px;
   border-style: none;
-  background-color: rgb(242, 247, 247);
+  background: rgb(237, 232, 229);
+  background: -webkit-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
+  background:    -moz-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
+  background:      -o-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
+  background:     -ms-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
+  background:         linear-gradient(123deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
+  background-repeat: no-repeat;
   -webkit-transform: none;
   -moz-transform: none;
   -o-transform: none;
@@ -717,7 +795,50 @@ body {
   filter: none;
 }
 
-.secondary .card-content {
+.section-header {
+  float: left;
+  width: 59.0369404032%;
+  min-height: 42px;
+  margin-left: 20.48153%;
+  font-size: 1.563em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+.site-links {
+  float: left;
+  padding: 20px;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+}
+
+.static-card {
+  min-width: none;
+  min-height: nonepx;
+  padding: 10px;
+  background-color: rgb(252, 252, 252);
+  -webkit-transform: none;
+  -moz-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  transform: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+  -webkit-filter: none;
+  -moz-filter: none;
+  -o-filter: none;
+  -ms-filter: none;
+  filter: none;
+}
+
+.static-card .card-content {
   width: 100%;
   min-width: none;
   min-height: nonepx;
@@ -739,39 +860,11 @@ body {
   filter: none;
 }
 
-.secondary .static-card {
-  min-width: none;
-  min-height: nonepx;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
-}
-
-.static-card {
-  padding: 10px;
-  background-color: rgb(252, 252, 252);
-}
-
-.static-card .cta {
-  margin: 0 auto;
-  padding-bottom: 5px;
-  font-size: 1.25em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
+.technology {
+  float: left;
+  clear: both;
+  width: 100.0006605347%;
+  padding-top: 15px;
 }
 
 .technology .break-out {
@@ -800,16 +893,37 @@ body {
 .tertiary {
   float: left;
   clear: both;
-  width: 70.77578125%;
+  width: 78.85078125%;
   margin: 40px 0 0 10.57422%;
-}
-
-.tertiary .inspiration {
-  width: 111.4109097599%;
 }
 
 .text {
   font-weight: 400;
+}
+
+.daily-rider,
+.the-commuter {
+  float: left;
+  clear: both;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.casual-rider .break-out,
+.daily-rider .break-out,
+.inspiration .break-out,
+.the-commuter .break-out {
+  width: 99.9999999999%;
+}
+
+.the-commuter .break-out-text {
+  width: 38.5540895354%;
+  margin: 60px 0 0 2.37132%;
+}
+
+.the-commuter .price {
+  margin-top: 88px;
+  background-color: rgb(201, 118, 118);
 }
 
 .what {
@@ -864,6 +978,16 @@ body {
   resize: none;
 }
 
+.card ._button {
+  clear: both;
+  width: 18.4624727972%;
+  height: 33px;
+  margin: 10px 0 0 40.76961%;
+  border-radius: 310px;
+  background-color: rgb(172, 39, 39);
+  color: rgb(242, 247, 247);
+}
+
 .reserve ._button {
   position: relative;
   z-index: 18;
@@ -874,16 +998,6 @@ body {
   border: 1px solid rgb(119, 119, 119);
   background-color: rgb(242, 242, 242);
   color: rgb(0, 0, 0);
-}
-
-.static-card ._button {
-  clear: both;
-  width: 18.4624727972%;
-  height: 33px;
-  margin: 10px 0 0 40.7696070988%;
-  border-radius: 310px;
-  background-color: rgb(172, 39, 39);
-  color: rgb(242, 247, 247);
 }
 
 .card-content-1 {
@@ -1029,43 +1143,43 @@ body {
   margin: -109px 0 0 31.6153%;
 }
 
-.image-11 {
+.image-12 {
   clear: both;
   z-index: 49;
   width: 138px;
   margin: -101px 0 0 4.87944%;
 }
 
-.image-12 {
+.image-13 {
   z-index: 46;
   width: 145px;
   margin: -101px 0 0 28.25247%;
 }
 
-.image-13 {
+.image-14 {
   clear: both;
   z-index: 48;
   width: 145px;
   margin: -104px 0 0 4.87944%;
 }
 
-.image-14 {
+.image-15 {
   z-index: 47;
   width: 138px;
   margin: -104px 0 0 27.0949%;
 }
 
-.image-16 {
+.image-17 {
   width: 23.1977446637%;
   margin-top: 40px;
 }
 
-.image-17 {
+.image-18 {
   width: 37.5352396294%;
   margin-left: 8.81567%;
 }
 
-.image-18 {
+.image-19 {
   width: 19.1703584373%;
   margin: 59px 0 0 11.26097%;
 }
@@ -1078,12 +1192,6 @@ body {
 }
 
 .image-21 {
-  clear: both;
-  width: 100%;
-  margin: 8px 0 0 0.48319%;
-}
-
-.image-22 {
   position: relative;
   clear: both;
   z-index: 0;
@@ -1091,7 +1199,7 @@ body {
   margin: 20px 0 0 10%;
 }
 
-.image-23 {
+.image-22 {
   position: relative;
   clear: both;
   z-index: 1;
@@ -1099,7 +1207,7 @@ body {
   margin: 40px 0 0 10%;
 }
 
-.image-25 {
+.image-23 {
   position: relative;
   clear: both;
   z-index: 6;
@@ -1205,15 +1313,15 @@ body {
 }
 
 .pricing-1 {
+  width: 78.85078125%;
+  margin: 30px 0 0 10.57422%;
+}
+
+.pricing-2 {
   position: relative;
   z-index: 12;
   width: 52.8177083333%;
   margin: 82px 0 0 23.59896%;
-}
-
-.pricing-2 {
-  width: 78.85078125%;
-  margin: 40px 0 0 10.57422%;
 }
 
 .quote-1 {
@@ -1222,6 +1330,18 @@ body {
   width: 100%;
   height: 205px;
   margin-top: 50px;
+}
+
+.site-links-1 {
+  width: 30.9152542372%;
+  margin-left: 1.6949152542%;
+  color: rgb(237, 232, 229);
+}
+
+.site-links-2 {
+  width: 30.9157838983%;
+  margin-left: 1.9324682203%;
+  color: rgb(252, 252, 252);
 }
 
 .static-card-1 {
@@ -1430,6 +1550,7 @@ body {
   border-bottom-width: 0;
   border-left-width: 0;
   border-color: transparent;
+  border-style: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -1448,6 +1569,67 @@ body {
   word-break: normal;
   word-wrap: normal;
   white-space: normal;
+}
+
+.site-links a {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-color: transparent;
+  border-style: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  text-decoration: underline;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  color: inherit;
+  opacity: 1;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: normal;
+}
+
+.site-links strong {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-color: transparent;
+  border-style: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  color: inherit;
+  opacity: 1;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: normal;
+}
+
+.site-links-1 strong {
+  font-style: inherit;
+}
+
+.site-links-2 strong {
+  font-style: normal;
 }
 
 .text a {
@@ -1486,29 +1668,87 @@ body {
     width: 29.1309523809%;
   }
 
-  .concealed .break-out-text {
-    position: relative;
-    clear: both;
-    z-index: 36;
-    width: 82.1278364632%;
-    height: 313px;
-    margin-top: -583px;
-    margin-left: 17.81955%;
-  }
-
-  .concealed .image {
-    position: relative;
-    z-index: 37;
-    height: auto;
-  }
-
-  .cta .card-content {
+  .card .card-content {
     margin-left: 8.1491399999%;
   }
 
-  .cta .static-card {
+  .card .cta {
+    float: left;
+    margin-top: 109px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .card .email,
+  .card .password {
+    margin-left: 30.30361%;
+  }
+
+  .card .terms {
+    width: 6.256351626%;
+    margin-left: 30.34807%;
+  }
+
+  .casual-rider .break-out-text {
+    position: relative;
+    z-index: 49;
+    width: 82.1278364632%;
+    height: 313px;
+    margin-top: 15px;
+    margin-left: 17.8345999999%;
+  }
+
+  .casual-rider .map-yellow {
+    width: 13.3276241742%;
+    margin-top: -422px;
+    margin-left: 4.63421%;
+  }
+
+  .casual-rider .price {
+    position: relative;
+    clear: both;
+    z-index: 46;
+    width: 26.7775874724%;
+    margin-top: -239px;
+    margin-left: 2.39785%;
+  }
+
+  .cta .card {
     width: 94.9999999999%;
     margin-left: 2.5%;
+  }
+
+  .daily-rider .break-out-text {
+    width: 82.1278364632%;
+    height: 313px;
+    margin-top: -1801px;
+    margin-left: 17.8345999999%;
+  }
+
+  .daily-rider .map-green {
+    width: 13.3276241742%;
+    margin-top: -167px;
+    margin-left: -15.23367%;
+  }
+
+  .daily-rider .price {
+    width: 26.7775874724%;
+    margin-top: 89px;
+    margin-left: 59.53022%;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 68;
+    width: 96.4939204344%;
+    height: 583px;
+    margin-top: -247px;
+    margin-left: 43.53237%;
+  }
+
+  .footer-content .next-page,
+  .footer-content .site-links-2 {
+    width: 24.7874616852%;
   }
 
   .inspiration .break-out {
@@ -1518,6 +1758,7 @@ body {
   .inspiration .break-out-text {
     position: relative;
     clear: both;
+    z-index: 26;
     width: 82.1278364632%;
     height: 313px;
     margin-top: -583px;
@@ -1531,6 +1772,7 @@ body {
 
   .inspiration .image {
     position: relative;
+    z-index: 27;
     height: auto;
     margin-top: 304px;
   }
@@ -1555,27 +1797,46 @@ body {
     padding-bottom: 11px;
   }
 
-  .pricing .break-out-text {
-    z-index: 52;
-  }
-
-  .pricing .inspiration {
-    width: 96.4949962235%;
+  .pricing .casual-rider {
+    position: relative;
+    clear: none;
+    z-index: 51;
+    width: 96.4939204344%;
     height: 583px;
     margin-top: 105px;
   }
 
+  .pricing .daily-rider {
+    position: relative;
+    z-index: 57;
+    width: 96.4939204344%;
+    height: 583px;
+    margin-top: -579px;
+    margin-left: 19.17365%;
+  }
+
+  .pricing .section-header {
+    width: 19.6930704757%;
+    margin-top: -327px;
+    margin-left: 14.71609%;
+  }
+
+  .pricing .the-commuter {
+    position: relative;
+    z-index: 63;
+    width: 40.8239877228%;
+    height: 583px;
+    margin-top: -426px;
+    margin-left: 19.17365%;
+  }
+
   .primary {
-    float: none;
-    clear: none;
-    margin-top: 122px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-top: 10px;
   }
 
   .primary .ctalink {
     width: 66.0004699248%;
-    margin-left: 16.99953%;
+    margin-left: 16.99777%;
   }
 
   .secondary {
@@ -1584,15 +1845,8 @@ body {
     margin-top: 20px;
   }
 
-  .secondary .card-content {
+  .static-card .card-content {
     text-align: center;
-  }
-
-  .static-card .cta {
-    float: left;
-    margin-top: 109px;
-    margin-right: 0;
-    margin-left: 0;
   }
 
   .static-card .fa-globe {
@@ -1606,16 +1860,6 @@ body {
     float: none;
     margin-right: auto;
     margin-left: auto;
-  }
-
-  .static-card .email,
-  .static-card .password {
-    margin-left: 30.30361%;
-  }
-
-  .static-card .terms {
-    width: 6.256351626%;
-    margin-left: 30.34807%;
   }
 
   .technology .break-out-text {
@@ -1643,20 +1887,11 @@ body {
 
   .tertiary {
     position: relative;
-    z-index: 39;
+    z-index: 34;
     width: 236.3560267857%;
     height: 907px;
     margin-top: -378px;
     margin-left: 2.5%;
-  }
-
-  .tertiary .concealed {
-    position: relative;
-    z-index: 38;
-    width: 40.8239877228%;
-    height: 583px;
-    margin-top: -404px;
-    margin-left: -1.05773%;
   }
 
   .tertiary .inspiration {
@@ -1676,22 +1911,40 @@ body {
     margin-left: 3.47303%;
   }
 
+  .the-commuter .break-out-text {
+    width: 82.1278364632%;
+    height: 313px;
+    margin-top: 67px;
+    margin-left: 17.8022%;
+  }
+
+  .the-commuter .map-red {
+    width: 31.5211104684%;
+    margin-top: 352px;
+    margin-left: -36.00347%;
+  }
+
+  .the-commuter .price {
+    clear: both;
+    width: 14.7657605552%;
+    margin-top: -180px;
+    margin-left: -2.53326%;
+  }
+
+  .card ._button {
+    clear: none;
+    margin-top: 115px;
+    margin-left: 2.28659%;
+  }
+
   .cta-3 {
     position: relative;
-    z-index: 49;
+    z-index: 44;
     margin-top: -259px;
   }
 
-  .inspiration .break-out-text-1 {
-    z-index: 26;
-  }
-
-  .inspiration .image-15 {
-    z-index: 27;
-  }
-
-  .inspiration .image-24 {
-    z-index: 53;
+  .footer-content .site-links-1 {
+    width: 23.9199583598%;
   }
 
   .nav-elements .nav-element-2 {
@@ -1702,12 +1955,12 @@ body {
     margin-left: 2.25564%;
   }
 
-  .pricing-2 {
+  .pricing-1 {
     position: relative;
-    z-index: 55;
+    z-index: 64;
     width: 236.3560267857%;
     height: 907px;
-    margin-top: -172px;
+    margin-top: -173px;
     margin-left: 0;
   }
 
