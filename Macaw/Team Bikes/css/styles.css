@@ -4,31 +4,233 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.page-about {
-  min-width: none;
-  min-height: nonepx;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
+.bad-idea button {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.875em;
+  font-weight: 700;
+  color: rgb(252, 252, 252);
 }
 
-.newuser-focusedexplanation p,
-.site-links p,
-.text-20 p,
-.text-24 p {
-  margin-bottom: 1em;
+.bad-idea h3,
+.inspiration h3 {
+  width: 99.9999999999%;
+}
+
+.break-out-text h3 {
+  font-size: 1.25em;
+}
+
+.card button {
+  clear: both;
+  width: 18.4624727972%;
+  height: 33px;
+  margin: 10px 0 0 40.76866%;
+  border-radius: 310px;
+  background-color: rgb(172, 39, 39);
+  font-size: 1em;
+  font-weight: 400;
+  color: rgb(242, 247, 247);
+}
+
+.card h2 {
+  margin: 0 auto;
+  padding-bottom: 5px;
+}
+
+.card input {
+  margin-top: 10px;
+}
+
+.casual-rider button {
+  width: 30.6455813172%;
+  margin: 21px 0 0 3.95875%;
+  background-color: rgb(238, 193, 16);
+}
+
+.daily-rider button {
+  width: 30.6455813172%;
+  margin: 43px 0 0 3.95665%;
+  background-color: rgb(37, 206, 108);
+}
+
+.inspiration img {
+  width: 28.2884310618%;
+}
+
+.nav-elements a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.25em;
+}
+
+.nav-elements a:hover {
+  background-color: rgb(172, 39, 39);
+}
+
+.primary a {
+  clear: both;
+  width: 19.0010964912%;
+  margin-left: 40.33203%;
+  padding: 12px;
+  border-radius: 25px;
+  background-color: rgb(172, 39, 39);
+  font-size: 1em;
+  font-weight: 400;
+  text-align: center;
+  color: rgb(252, 252, 252);
+}
+
+.primary h2 {
+  float: left;
+  clear: both;
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+.static-card h2 {
+  margin-top: 9px;
+  padding-bottom: 5px;
+}
+
+.static-card-1 h2 {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.static-card-2 h2,
+.static-card-3 h2 {
+  float: left;
+  clear: both;
+}
+
+.technology h3 {
+  width: 99.9983217252%;
+}
+
+.technology img {
+  width: 28.3045265451%;
+  margin-left: 2.40888%;
+}
+
+.the-commuter button {
+  width: 30.611534185%;
+  margin: 32px 0 0 4.08249%;
+  background-color: rgb(201, 118, 118);
+}
+
+a {
+  display: block;
+  float: left;
+  line-height: 1.38;
+}
+
+button {
+  display: block;
+  float: left;
+  line-height: 1.38;
+  text-align: center;
+}
+
+footer {
+  position: relative;
+  float: left;
+  clear: both;
+  z-index: 66;
+  width: 100%;
+  margin-top: 40px;
+  padding: 10px;
+  background-color: rgb(120, 120, 120);
+}
+
+footer a {
+  width: 32.0010964912%;
+  margin: 49px 0 0 1.99812%;
+  padding: 20px;
+  font-size: 1.25em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgb(252, 252, 252);
+}
+
+h1 {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  font-size: 2.563em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+h2 {
+  width: 100%;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+h3 {
+  float: left;
+  font-weight: 700;
+  line-height: 1.38;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+img {
+  display: block;
+  float: left;
+  height: auto;
+  overflow: hidden;
+}
+
+input {
+  display: block;
+  float: left;
+}
+
+label {
+  display: block;
+  float: left;
+  clear: both;
+  width: 39.4082021694%;
+  margin: 4px 0 0 30.34872%;
+  padding: 10px;
+}
+
+label input {
+  margin-top: 2px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 73;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgb(252, 252, 252);
+}
+
+nav a {
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+
+span {
+  display: block;
+  float: left;
+  margin: 1px 0 0 6px;
+  font-size: 0.75em;
+  line-height: 1.38;
 }
 
 .active {
@@ -47,69 +249,17 @@ body {
   border-bottom: 4 solid rgb(252, 252, 252);
 }
 
-.agree-to-terms {
-  display: block;
-  float: left;
-  margin: 1px 0 0 6px;
-  font-size: 0.75em;
-  line-height: 1.38;
-}
-
-.apart {
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 32;
-  width: 52.609375%;
-  height: 460px;
-  margin-left: 23.58073%;
-}
-
-.break-out {
-  float: left;
-  font-size: 1.25em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-transform: uppercase;
-  color: rgb(0, 0, 0);
-}
-
+.bad-idea,
 .break-out-text {
   float: left;
-}
-
-.button {
-  display: block;
-  float: left;
-  clear: both;
-  width: 38.6627604166%;
-  height: 74px;
-  margin: 18px 0 0 30.72917%;
-  border-radius: 42px;
-  background-color: rgba(194, 56, 56, 0.87);
-  font-size: 1.25em;
-  font-weight: 400;
-  line-height: 1.1;
-  text-align: center;
-  color: rgb(248, 247, 247);
 }
 
 .card .card-content {
   float: left;
   clear: both;
   width: 83.6968807463%;
-  margin-left: 8.1497%;
+  margin-left: 8.14845%;
   text-align: center;
-}
-
-.card .cta {
-  margin: 0 auto;
-  padding-bottom: 5px;
-  font-size: 1.25em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
 }
 
 .card-content {
@@ -119,36 +269,6 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.card-header {
-  width: 100%;
-  min-width: none;
-  min-height: nonepx;
-  margin-top: 9px;
-  padding-bottom: 5px;
-  background-color: rgba(0, 0, 0, 0);
-  font-style: normal;
-  font-size: 1.25em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
-}
-
 .casual-rider,
 .technology {
   float: left;
@@ -156,53 +276,9 @@ body {
   width: 100%;
 }
 
-.casual-rider .break-out-text {
-  width: 38.5544198028%;
-  margin: 71px 0 0 2.4076399999%;
-}
-
-.casual-rider .price {
-  margin-top: 88px;
-  background-color: rgb(238, 193, 16);
-}
-
-.checkbox {
-  display: block;
-  float: left;
-  margin-top: 2px;
-}
-
-.container {
-  float: left;
-  clear: both;
-}
-
-.container .container {
-  width: 99.959742351%;
-  height: 233px;
-  margin-left: -0.00252%;
-}
-
-.container .text {
-  float: left;
-  width: 61.0305958132%;
-  margin-left: 19.6704%;
-  font-size: 1.563em;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-.contentheader {
-  float: left;
-  font-size: 1.563em;
-  font-weight: 400;
-  line-height: 1.38;
-  text-align: center;
-}
-
-.cta {
-  width: 100%;
+.casual-rider .bad-idea {
+  width: 58.9722948119%;
+  margin: 82px 0 0 2.41012%;
 }
 
 .cta .card {
@@ -212,47 +288,14 @@ body {
   background-color: rgb(252, 252, 252);
 }
 
-.ctalink {
-  display: block;
-  float: left;
-  clear: both;
-  width: 19.0010964912%;
-  min-width: none;
-  min-height: nonepx;
-  margin-left: 40.33203%;
-  padding: 12px;
-  border-radius: 25px;
-  background-color: rgb(172, 39, 39);
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(252, 252, 252);
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
+.daily-rider .bad-idea {
+  width: 58.9722948119%;
+  margin: 60px 0 0 2.41012%;
 }
 
+.casual-rider .break-out-text,
 .daily-rider .break-out-text {
-  width: 38.5544198028%;
-  margin: 38px 0 0 2.4076399999%;
-}
-
-.daily-rider .price {
-  margin-top: 103px;
-  background-color: rgb(37, 206, 108);
+  width: 65.376344086%;
 }
 
 .description {
@@ -265,114 +308,25 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.element {
-  float: left;
-  background-color: rgb(222, 222, 222);
-}
-
 .fa {
   width: 100px;
   height: 100px;
+  margin: 0 auto;
   border-radius: 4050px;
 }
 
-.fa-globe,
-.fa-wrench {
-  margin: 0 auto;
-  background-color: rgb(1, 81, 150);
-}
-
 .fa-refresh {
-  float: left;
-  margin-left: 35.49586%;
   background-color: #015196;
 }
 
-.footer-content {
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 63;
-  width: 100%;
-  margin-top: 40px;
-  padding: 10px;
-  background-color: rgb(120, 120, 120);
+.fa-bicycle,
+.fa-university {
+  background-color: rgb(1, 81, 150);
 }
 
 .footer-content .center-group {
   width: 96.6101694915%;
   margin: 0 auto;
-}
-
-.hero {
-  float: left;
-  text-align: center;
-  color: rgb(255, 251, 251);
-}
-
-.hero-content {
-  position: relative;
-  float: left;
-  z-index: 71;
-  width: 100%;
-  height: 185px;
-  margin-top: -705px;
-}
-
-.hero-image {
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 67;
-  width: 100%;
-  height: 600px;
-  margin-top: -913px;
-  background: url('../images/header-bg-filtered.png') rgb(222, 222, 222);
-  background-size: cover;
-  background-position: left top;
-}
-
-.how {
-  position: relative;
-  float: left;
-  z-index: 50;
-  width: 66.3658854166%;
-  height: 486px;
-  margin: 67px 0 0 16.83073%;
-}
-
-.how .contentheader {
-  width: 58.9946675031%;
-  margin-left: 20.45165%;
-  color: rgb(0, 0, 0);
-}
-
-.how .element {
-  position: relative;
-  clear: both;
-  width: 48.6825595984%;
-  height: 119px;
-}
-
-.how .image,
-.what .image {
-  position: relative;
-}
-
-.how .text {
-  position: relative;
-  float: left;
-  width: 48.6825595984%;
-  font-size: 1em;
-  line-height: 1.38;
-  color: rgb(0, 0, 0);
-}
-
-.image {
-  display: block;
-  float: left;
-  height: auto;
-  overflow: hidden;
 }
 
 .inspiration {
@@ -382,49 +336,7 @@ body {
 
 .inspiration .break-out-text {
   width: 69.2551505546%;
-  margin: 91px 0 0 2.40937%;
-}
-
-.inspiration .image {
-  width: 28.2884310618%;
-}
-
-.linktofaq {
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 5;
-  width: 52.8216145833%;
-  height: 237px;
-  margin: 750px 0 0 23.66667%;
-}
-
-.linktofaq .contentheader {
-  width: 99.9088130914%;
-  margin-left: 0.02219%;
-  color: rgb(0, 0, 0);
-}
-
-.linktofaq .element {
-  position: relative;
-  clear: both;
-  z-index: 2;
-  width: 99.9778194006%;
-  height: 174px;
-  margin-top: 29px;
-}
-
-.linktofaq .text {
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 4;
-  width: 57.758280757%;
-  margin: -98px 0 0 21.13294%;
-  font-size: 1em;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
+  margin: 91px 0 0 2.40888%;
 }
 
 .map-green {
@@ -457,193 +369,33 @@ body {
   background-position: center center;
 }
 
-.nav-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 60;
-  width: 100%;
-  height: 65px;
-  background-color: rgb(7, 7, 7);
-}
-
 .nav-brand {
-  display: block;
-  float: left;
   width: 22.9659598214%;
-  min-width: none;
-  min-height: nonepx;
   margin-top: 10px;
-  background-color: rgba(0, 0, 0, 0);
-  font-style: normal;
   font-size: 1.875em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-align: center;
-  text-transform: uppercase;
-  color: rgb(0, 0, 0);
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
 }
 
-.nav-content .text {
-  position: absolute;
-  top: 0;
-  font-size: 1.375em;
-  line-height: 1.38;
-  color: rgb(183, 63, 64);
-}
-
-.nav-element {
-  display: block;
+.nav-content {
   float: left;
-  min-width: none;
-  min-height: nonepx;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-top-style: none;
-  border-right-style: none;
-  border-left-style: none;
-  background-color: rgba(0, 0, 0, 0);
-  font-style: normal;
-  font-size: 1.25em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-align: center;
-  text-transform: uppercase;
-  color: rgb(0, 0, 0);
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
-}
-
-.nav-element:hover {
-  background-color: rgb(172, 39, 39);
-  color: rgb(252, 252, 252);
+  width: 94.9999999999%;
+  margin-left: 2.5%;
 }
 
 .nav-elements {
   position: relative;
   float: left;
   width: 57.4999999999%;
-  min-width: none;
-  min-height: nonepx;
   margin-left: 19.53331%;
   padding-top: 5px;
   padding-bottom: 5px;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 70;
-  width: 100%;
-  min-width: none;
-  min-height: nonepx;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom-style: none;
-  background-color: rgb(252, 252, 252);
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
-}
-
-.navbar .nav-content {
-  float: left;
-  width: 94.9999999999%;
-  margin-left: 2.5%;
-}
-
-.newuser-focusedexplanation {
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 9;
-  width: 59.6158854166%;
-  height: 253px;
-  margin: 44px 0 0 22%;
-}
-
-.newuser-focusedexplanation .text {
-  float: left;
-  width: 48.9328736033%;
-  min-height: 246px;
-  margin: 7px 0 0 3.90958%;
-  font-size: 1em;
-  line-height: 1.38;
-  color: rgb(0, 0, 0);
-}
-
-.next-page {
-  display: block;
-  float: left;
-  width: 32.0010964912%;
-  margin: 49px 0 0 1.99812%;
-  padding: 20px;
-  font-size: 1.25em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-transform: uppercase;
-  color: rgb(252, 252, 252);
 }
 
 .email,
 .password {
-  display: block;
-  float: left;
   clear: both;
   width: 39.3889704269%;
   height: 40px;
-  margin: 10px 0 0 30.30467%;
+  margin-left: 30.30467%;
   padding: 10px;
   border: 2px solid rgb(102, 102, 102);
   border-radius: 4px;
@@ -654,36 +406,13 @@ body {
   color: rgb(102, 102, 102);
 }
 
-.price {
-  display: block;
-  float: left;
-  width: 18.0722294697%;
-  margin-left: 2.4076399999%;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 1.875em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(252, 252, 252);
-}
-
 .pricing {
   position: relative;
   float: left;
   clear: both;
-}
-
-.pricing .contentheader {
-  width: 99.9383872239%;
-  margin-left: 0.02712%;
-  color: rgb(0, 0, 0);
-}
-
-.pricing .image {
-  clear: both;
-  width: 100%;
-  margin: 8px 0 0 0.48319%;
+  z-index: 61;
+  width: 78.85078125%;
+  margin: 30px 0 0 10.57422%;
 }
 
 .primary {
@@ -691,12 +420,9 @@ body {
   float: left;
   z-index: 3;
   width: 100%;
-  min-width: none;
-  min-height: nonepx;
   margin-top: 101px;
   padding-top: 40px;
   padding-bottom: 60px;
-  border-style: none;
   background: rgb(237, 232, 229);
   background: -webkit-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
   background:    -moz-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
@@ -704,82 +430,6 @@ body {
   background:     -ms-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
   background:         linear-gradient(123deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
   background-repeat: no-repeat;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
-}
-
-.primary .cta {
-  padding-top: 11px;
-  padding-bottom: 11px;
-  font-weight: 700;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-.quote {
-  position: relative;
-  float: left;
-  background-color: rgb(178, 58, 58);
-}
-
-.quote .text {
-  float: left;
-  width: 66.3346354166%;
-  margin: 49px 0 0 16.83073%;
-  font-style: italic;
-  font-size: 1.875em;
-  line-height: 1.2;
-  text-align: center;
-  color: rgb(255, 251, 251);
-}
-
-.reserve {
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 19;
-  width: 52.8007812499%;
-  height: 205px;
-  margin: 75px 0 0 23.58073%;
-}
-
-.reserve .contentheader {
-  position: relative;
-  clear: both;
-  z-index: 14;
-  width: 99.9383872239%;
-  margin: -240px 0 0 -0.12577%;
-  color: rgb(252, 252, 252);
-}
-
-.reserve .quote {
-  z-index: 13;
-  width: 189.3911370866%;
-  height: 275px;
-  margin: -35px 0 0 -44.82257%;
-}
-
-.reserve .text {
-  position: relative;
-  float: left;
-  width: 74.162066246%;
-  min-height: 37px;
-  margin-left: 12.74198%;
-  line-height: 1.38;
 }
 
 .secondary {
@@ -788,40 +438,18 @@ body {
   clear: both;
   z-index: 16;
   width: 100%;
-  min-width: none;
-  min-height: nonepx;
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: rgb(1, 81, 150);
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
 }
 
 .section-header {
-  float: left;
   width: 79.5181399342%;
   min-height: 42px;
   margin-left: 10.24114%;
   padding: 20px;
   font-size: 1.563em;
-  font-weight: 700;
-  line-height: 1.38;
   text-align: center;
-  text-transform: uppercase;
-  color: rgb(0, 0, 0);
 }
 
 .site-links {
@@ -834,52 +462,17 @@ body {
   color: rgb(252, 252, 252);
 }
 
+.site-links p {
+  margin-bottom: 1em;
+}
+
 .static-card {
-  min-width: none;
-  min-height: nonepx;
   padding: 10px;
   background-color: rgb(252, 252, 252);
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
 }
 
 .static-card .card-content {
   width: 100%;
-  min-width: none;
-  min-height: nonepx;
-  background-color: rgba(0, 0, 0, 0);
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
-}
-
-.technology .break-out {
-  width: 99.9983217252%;
 }
 
 .technology .break-out-text {
@@ -887,28 +480,10 @@ body {
   margin-top: 105px;
 }
 
-.technology .image {
-  width: 28.3045265451%;
-  margin-left: 2.40888%;
-}
-
-.terms {
-  display: block;
-  float: left;
-  clear: both;
-  width: 39.4082021694%;
-  margin: 4px 0 0 30.34872%;
-  padding: 10px;
-}
-
 .tertiary {
   float: left;
   width: 78.85078125%;
   margin-left: 10.57422%;
-}
-
-.text {
-  font-weight: 400;
 }
 
 .daily-rider,
@@ -919,95 +494,13 @@ body {
   padding-top: 20px;
 }
 
-.casual-rider .break-out,
-.daily-rider .break-out,
-.inspiration .break-out,
-.the-commuter .break-out {
-  width: 99.9999999999%;
+.the-commuter .bad-idea {
+  width: 59.0357058816%;
+  margin: 71px 0 0 2.3903%;
 }
 
 .the-commuter .break-out-text {
-  width: 38.5540895354%;
-  margin: 60px 0 0 2.36925%;
-}
-
-.the-commuter .price {
-  margin-top: 88px;
-  background-color: rgb(201, 118, 118);
-}
-
-.what {
-  position: relative;
-  float: left;
-  z-index: 59;
-  width: 83.2330729166%;
-  height: 833px;
-  margin-top: 80px;
-}
-
-.what .contentheader {
-  width: 47.0658158158%;
-  margin: 619px 0 0 36.53615%;
-  color: rgb(0, 0, 0);
-}
-
-.what .text {
-  float: left;
-  clear: both;
-  width: 79.6796796796%;
-  margin: 17px 0 0 20.21651%;
-  font-size: 1em;
-  line-height: 1.38;
-  color: rgb(0, 0, 0);
-}
-
-._button {
-  display: block;
-  float: left;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.38;
-  text-align: center;
-}
-
-._textarea {
-  display: block;
-  position: relative;
-  float: left;
-  z-index: 17;
-  width: 74.1313407807%;
-  height: 37px;
-  margin: -128px 0 0 12.77404%;
-  padding: 5px;
-  border: 1px solid rgb(119, 119, 119);
-  background-color: rgb(242, 242, 242);
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.38;
-  color: rgb(0, 0, 0);
-  resize: none;
-}
-
-.card ._button {
-  clear: both;
-  width: 18.4624727972%;
-  height: 33px;
-  margin: 10px 0 0 40.76866%;
-  border-radius: 310px;
-  background-color: rgb(172, 39, 39);
-  color: rgb(242, 247, 247);
-}
-
-.reserve ._button {
-  position: relative;
-  z-index: 18;
-  width: 12.7760252365%;
-  height: 37px;
-  margin: -128px 0 0 74.12641%;
-  padding: 5px;
-  border: 1px solid rgb(119, 119, 119);
-  background-color: rgb(242, 242, 242);
-  color: rgb(0, 0, 0);
+  width: 65.3063964587%;
 }
 
 .card-content-1 {
@@ -1016,17 +509,6 @@ body {
 
 .card-content-2,
 .card-content-3 {
-  float: left;
-  clear: both;
-}
-
-.card-header-1 {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.card-header-2,
-.card-header-3 {
   float: left;
   clear: both;
 }
@@ -1041,252 +523,15 @@ body {
   padding-bottom: 40px;
 }
 
-.container-1 {
-  position: relative;
-  z-index: 25;
-  width: 98.2199367088%;
-  height: 267px;
-  margin-top: -293px;
-}
-
-.contentheader-5 {
-  width: 39.1731770833%;
-  margin: 27px 0 0 30.39974%;
-  color: rgb(0, 0, 0);
-}
-
-.contentheader-6 {
-  clear: both;
-  width: 39.1731770833%;
-  margin: 43px 0 0 30.39974%;
-  color: rgb(0, 0, 0);
-}
-
-.contentheader-8 {
-  clear: both;
-  width: 39.1731770833%;
-  margin: 41px 0 0 30.39974%;
-  color: rgb(0, 0, 0);
-}
-
-.cta-1 {
-  min-width: none;
-  min-height: nonepx;
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0);
-  font-style: normal;
-  font-size: 2.563em;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
-  -webkit-filter: none;
-  -moz-filter: none;
-  -o-filter: none;
-  -ms-filter: none;
-  filter: none;
-}
-
-.cta-2 {
-  float: left;
-  clear: both;
-  font-size: 1.25em;
-}
-
 .cta-3 {
   position: relative;
   float: left;
   clear: both;
   z-index: 38;
+  width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: rgb(172, 39, 39);
-}
-
-.element-1 {
-  z-index: 36;
-  margin-top: 22px;
-}
-
-.element-2 {
-  z-index: 43;
-  margin: 38px 0 0 -0.0490500001%;
-}
-
-.element-3 {
-  z-index: 45;
-  margin: 35px 0 0 -0.0490500001%;
-}
-
-.element-4 {
-  width: 31.5402409217%;
-  height: 253px;
-}
-
-.element-5 {
-  width: 12.8491620111%;
-  height: 246px;
-  margin: 7px 0 0 2.67555%;
-}
-
-.hero-1 {
-  width: 99.98046875%;
-  margin-left: -0.00521%;
-  font-size: 2.813em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.hero-2 {
-  clear: both;
-  width: 72.4361979166%;
-  margin: 17px 0 0 16.79688%;
-  font-size: 1.25em;
-  line-height: 1.1;
-}
-
-.image-1 {
-  clear: both;
-  z-index: 57;
-  width: 82px;
-  margin: 25px 0 0 36.52363%;
-}
-
-.image-10 {
-  z-index: 40;
-  width: 101px;
-  margin: -109px 0 0 31.6153%;
-}
-
-.image-12 {
-  clear: both;
-  z-index: 49;
-  width: 138px;
-  margin: -101px 0 0 4.87944%;
-}
-
-.image-13 {
-  z-index: 46;
-  width: 145px;
-  margin: -101px 0 0 28.25247%;
-}
-
-.image-14 {
-  clear: both;
-  z-index: 48;
-  width: 145px;
-  margin: -104px 0 0 4.87944%;
-}
-
-.image-15 {
-  z-index: 47;
-  width: 138px;
-  margin: -104px 0 0 27.0949%;
-}
-
-.image-17 {
-  width: 23.1977446637%;
-  margin-top: 40px;
-}
-
-.image-18 {
-  width: 37.5352396294%;
-  margin-left: 8.81567%;
-}
-
-.image-19 {
-  width: 19.1703584373%;
-  margin: 59px 0 0 11.26097%;
-}
-
-.image-2 {
-  clear: both;
-  z-index: 54;
-  width: 102px;
-  margin: -90px 0 0 42.77021%;
-}
-
-.image-21 {
-  position: relative;
-  clear: both;
-  z-index: 0;
-  width: 307px;
-  margin: 20px 0 0 10%;
-}
-
-.image-22 {
-  position: relative;
-  clear: both;
-  z-index: 1;
-  width: 470px;
-  margin: 40px 0 0 10%;
-}
-
-.image-23 {
-  position: relative;
-  clear: both;
-  z-index: 6;
-  width: 306px;
-  margin: 41px 0 0 10%;
-}
-
-.image-3 {
-  clear: both;
-  z-index: 58;
-  width: 62px;
-  margin: -84px 0 0 52.8636%;
-}
-
-.image-4 {
-  z-index: 55;
-  width: 80px;
-  margin: -94px 0 0 61.03281%;
-}
-
-.image-5 {
-  z-index: 53;
-  width: 102px;
-  margin: -102px 0 0 67.28095%;
-}
-
-.image-6 {
-  z-index: 56;
-  width: 72px;
-  margin: -84px 0 0 77.37278%;
-}
-
-.image-7 {
-  clear: both;
-  z-index: 38;
-  width: 101px;
-  margin: -110px 0 0 2.25235%;
-}
-
-.image-8 {
-  z-index: 39;
-  width: 101px;
-  margin: -110px 0 0 16.93186%;
-}
-
-.image-9 {
-  z-index: 41;
-  width: 20px;
-  margin: -62px 0 0 23.07481%;
-}
-
-.nav-content-1 {
-  position: fixed;
-  top: 19px;
-  left: 10%;
-  z-index: 66;
-  width: 78.9661458333%;
-  height: 30px;
 }
 
 .nav-element-2 {
@@ -1294,12 +539,6 @@ body {
   margin-left: 2.13101%;
   padding-right: 10px;
   padding-left: 10px;
-  border-bottom-style: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
 }
 
 .nav-element-2:hover {
@@ -1315,12 +554,6 @@ body {
   margin-left: 2.26688%;
   padding-right: 1px;
   padding-left: 1px;
-  border-bottom-style: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  -ms-transition: none;
-  transition: none;
 }
 
 .nav-element-3:hover {
@@ -1331,26 +564,6 @@ body {
   -o-transition: all 0.3s;
   -ms-transition: all 0.3s;
   transition: all 0.3s;
-}
-
-.pricing-1 {
-  z-index: 58;
-  width: 78.85078125%;
-  margin: 30px 0 0 10.57422%;
-}
-
-.pricing-2 {
-  z-index: 12;
-  width: 52.8177083333%;
-  margin: 82px 0 0 23.59896%;
-}
-
-.quote-1 {
-  clear: both;
-  z-index: 34;
-  width: 100%;
-  height: 205px;
-  margin-top: 50px;
 }
 
 .site-links-2 {
@@ -1373,188 +586,6 @@ body {
   float: right;
   width: 30.4075520833%;
   margin-right: 2.5%;
-}
-
-.text-1 {
-  left: 94.682885021%;
-  z-index: 65;
-}
-
-.text-11 {
-  position: relative;
-  float: left;
-  z-index: 26;
-  width: 22.6166930379%;
-  margin: 249px 0 0 -0.00248%;
-  font-size: 1em;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-.text-13 {
-  position: relative;
-  float: left;
-  z-index: 27;
-  width: 22.6166930379%;
-  margin: -44px 0 0 38.56054%;
-  font-size: 1em;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-.text-14 {
-  position: relative;
-  float: left;
-  z-index: 28;
-  width: 22.6166930379%;
-  margin: -44px 0 0 77.26463%;
-  font-size: 1em;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-.text-15 {
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 29;
-  width: 22.6166930379%;
-  margin: 13px 0 0 -0.00248%;
-  font-size: 1em;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-.text-16 {
-  position: relative;
-  float: left;
-  z-index: 30;
-  width: 22.6166930379%;
-  margin: 13px 0 0 15.95882%;
-  font-size: 1em;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-.text-17 {
-  position: relative;
-  float: left;
-  z-index: 31;
-  width: 22.6166930379%;
-  margin: 13px 0 0 16.07762%;
-  font-size: 1em;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-.text-18 {
-  z-index: 15;
-  margin-top: -180px;
-  font-size: 1em;
-  color: rgb(252, 252, 252);
-}
-
-.text-19 {
-  z-index: 16;
-  margin-top: -74px;
-  font-size: 0.75em;
-  color: rgb(174, 174, 174);
-}
-
-.text-2 {
-  left: 86.075949367%;
-  z-index: 64;
-}
-
-.text-20 {
-  position: relative;
-  float: left;
-  z-index: 3;
-  width: 46%;
-  min-height: 220px;
-  margin: 20px 0 0 1.57422%;
-  font-size: 1em;
-  line-height: 1.38;
-  color: rgb(0, 0, 0);
-}
-
-.text-22 {
-  position: relative;
-  float: left;
-  z-index: 5;
-  width: 32.3333333333%;
-  min-height: 400px;
-  margin: 41px 0 0 1.66667%;
-  font-size: 1em;
-  line-height: 1.38;
-  color: rgb(0, 0, 0);
-}
-
-.text-24 {
-  position: relative;
-  float: left;
-  z-index: 8;
-  width: 46%;
-  min-height: 220px;
-  margin: 41px 0 0 1.69922%;
-  font-size: 1em;
-  line-height: 1.38;
-  color: rgb(0, 0, 0);
-}
-
-.text-25 {
-  float: left;
-  margin: 35px 0 0 23.66667%;
-  font-size: 3.75em;
-  line-height: 1.38;
-  color: rgb(249, 244, 244);
-}
-
-.text-3 {
-  left: 77.4673655063%;
-  z-index: 63;
-}
-
-.text-4 {
-  left: 68.8604298523%;
-  z-index: 62;
-}
-
-.text-5 {
-  left: 0;
-  z-index: 61;
-}
-
-.text-7 {
-  z-index: 37;
-  margin: -92px 0 0 51.18994%;
-}
-
-.text-8 {
-  z-index: 42;
-  margin: -92px 0 0 51.18798%;
-}
-
-.text-9 {
-  z-index: 44;
-  margin: -81px 0 0 51.18798%;
-}
-
-._container-3 {
-  position: relative;
-  float: left;
-  clear: both;
-  z-index: 1;
-  width: 100%;
-  height: 251px;
-  margin-top: 33px;
-  background-color: rgb(7, 7, 7);
 }
 
 .agree-to-terms a {
@@ -1624,6 +655,7 @@ body {
   border-bottom-left-radius: 0;
   background-color: transparent;
   font-family: inherit;
+  font-style: inherit;
   font-size: inherit;
   font-weight: 700;
   text-transform: uppercase;
@@ -1637,175 +669,718 @@ body {
   white-space: normal;
 }
 
-.site-links-1 strong {
-  font-style: inherit;
-}
-
-.site-links-2 strong {
-  font-style: normal;
-}
-
-.text a {
-  border-top-width: 0;
-  border-right-width: 0;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-color: transparent;
-  border-style: none;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  background-color: transparent;
-  font-family: inherit;
-  font-style: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  text-transform: inherit;
-  text-decoration: inherit;
-  letter-spacing: inherit;
-  word-spacing: inherit;
-  color: inherit;
-  opacity: 1;
-  word-break: normal;
-  word-wrap: normal;
-  white-space: normal;
-}
-
-@media(max-width: 280px) {
-  .break-out-text .break-out {
-    width: 24.8244047619%;
+@media(max-width: 1100px) {
+  .bad-idea button {
+    clear: both;
+    margin-top: 20px;
   }
 
-  .break-out-text .description {
-    width: 29.1309523809%;
+  .card button {
+    float: none;
+    clear: none;
+    width: 33.5720858895%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .casual-rider button,
+  .daily-rider button {
+    width: 48.0122193371%;
+    margin-left: 0.00611%;
+  }
+
+  .nav-elements a {
+    font-size: 0.938em;
+  }
+
+  .primary a {
+    margin-left: 40.33097%;
+  }
+
+  .technology img {
+    margin-left: 2.29328049%;
+  }
+
+  .the-commuter button {
+    width: 47.960939884%;
+    margin-left: 0;
+  }
+
+  div img {
+    width: 25%;
+    height: auto;
+  }
+
+  .card .password,
+  div label {
+    float: none;
+    clear: none;
+    width: 69.2400306748%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  footer {
+    position: relative;
+    z-index: 66;
+  }
+
+  footer a {
+    width: 32.0115011381%;
+    margin-top: 41px;
+    margin-left: 1.96478%;
   }
 
   .card .card-content {
-    margin-left: 8.1491399999%;
+    margin-left: 8.14494%;
   }
 
-  .card .cta {
-    float: left;
-    margin-top: 109px;
-    margin-right: 0;
-    margin-left: 0;
+  .card .email {
+    float: none;
+    clear: none;
+    width: 69.2400306748%;
+    margin-top: 32px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
-  .card .email,
-  .card .password {
-    margin-left: 30.30361%;
-  }
-
-  .card .terms {
-    width: 6.256351626%;
-    margin-left: 30.34807%;
-  }
-
-  .casual-rider .break-out-text {
-    position: relative;
-    z-index: 43;
-    width: 82.1278364632%;
-    height: 313px;
-    margin-top: 15px;
-    margin-left: 17.8345999999%;
+  .casual-rider .bad-idea {
+    margin-top: 27px;
+    margin-left: 2.40858%;
   }
 
   .casual-rider .map-yellow {
-    width: 13.3276241742%;
-    margin-top: -422px;
-    margin-left: 4.63421%;
+    width: 38.5227019395%;
+    height: 223px;
   }
 
-  .casual-rider .price {
+  .center-group .site-links {
     position: relative;
-    clear: both;
-    z-index: 40;
-    width: 26.7775874724%;
-    margin-top: -239px;
-    margin-left: 2.39785%;
-  }
-
-  .center-group {
-    width: 236.3560267857%;
-    height: 907px;
-    margin-left: 2.5%;
-  }
-
-  .center-group .next-page,
-  .center-group .site-links-2 {
-    width: 31.9587628865%;
-    margin-left: 2.47921%;
   }
 
   .center-group .tertiary {
-    width: 99.9693164652%;
-    height: 907px;
-    margin-left: 0;
+    margin-left: 10.57102%;
   }
 
-  .cta .card,
-  .secondary .static-card-1 {
-    width: 94.9999999999%;
+  .daily-rider .bad-idea {
+    margin-top: 24px;
+    margin-left: 2.40858%;
   }
 
+  .casual-rider .break-out-text,
   .daily-rider .break-out-text {
-    width: 82.1278364632%;
-    height: 313px;
-    margin-top: -1801px;
-    margin-left: 17.8345999999%;
+    width: 100.1166946693%;
+    margin-left: -0.11608%;
   }
 
   .daily-rider .map-green {
-    width: 13.3276241742%;
-    margin-top: -167px;
-    margin-left: -15.23367%;
+    width: 38.5227019395%;
+    height: 284px;
   }
 
-  .daily-rider .price {
-    width: 26.7775874724%;
-    margin-top: 89px;
-    margin-left: 59.53022%;
+  .inspiration .break-out-text {
+    width: 67.7931904161%;
+    margin-top: 28px;
+    margin-left: 3.44803%;
   }
 
-  .footer-content {
+  .nav-content .nav-elements {
+    margin-left: 19.532%;
+  }
+
+  .pricing {
     position: relative;
+    z-index: 61;
+    margin-left: 10.57102%;
+  }
+
+  .pricing .section-header {
+    width: 100.0017614161%;
+    margin-left: 10.2396%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+    margin-top: 95px;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .static-card .card-content {
+    text-align: center;
+  }
+
+  .technology .break-out-text {
+    margin-top: 26px;
+  }
+
+  .the-commuter .bad-idea {
+    margin-top: 47px;
+    margin-left: 2.38876%;
+  }
+
+  .the-commuter .break-out-text {
+    width: 100.0067134574%;
+    margin-left: -0.0061000001%;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+    width: 31.9719659757%;
+  }
+
+  .center-group .site-links-2 {
     z-index: 63;
-    width: 96.4939204344%;
-    height: 583px;
-    margin-top: -247px;
-    margin-left: 43.53237%;
+    width: 32.0576254941%;
+    margin-left: 1.99623%;
   }
 
-  .footer-content .center-group {
-    float: left;
-    width: 77.3405783523%;
-    height: 286px;
-    margin-right: 0;
-    margin-left: 1.99863%;
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
   }
 
-  .inspiration .break-out {
-    margin-left: 74.94785%;
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.12971%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.26493%;
+  }
+
+  .secondary .static-card-1 {
+    width: 78.8513392857%;
+    margin-left: 10.57244%;
+  }
+
+  .secondary .static-card-2 {
+    clear: both;
+    width: 78.8513392857%;
+    margin-top: 20px;
+    margin-left: 10.57244%;
+  }
+
+  .secondary .static-card-3 {
+    clear: both;
+    width: 78.8571428571%;
+    margin-top: 20px;
+    margin-right: 10.53409%;
+  }
+}
+
+@media(max-width: 800px) {
+  body {
+    font-size: 1em;
+  }
+
+  .casual-rider button,
+  .daily-rider button {
+    margin-left: 0;
+  }
+
+  .primary a {
+    margin-left: 40.33203%;
+  }
+
+  .technology img {
+    margin-top: 7px;
+    margin-left: 2.43492%;
+  }
+
+  div img {
+    height: auto;
+  }
+
+  footer {
+    position: relative;
+    z-index: 66;
+  }
+
+  footer a {
+    clear: both;
+    width: 100.060132291%;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .bad-idea .break-out-text {
+    margin-left: 0;
+  }
+
+  .card .card-content {
+    margin-left: 8.14766%;
+  }
+
+  .center-group .site-links {
+    position: relative;
+  }
+
+  .center-group .tertiary,
+  .secondary .static-card-1,
+  .secondary .static-card-2 {
+    margin-left: 10.57422%;
+  }
+
+  .casual-rider .bad-idea,
+  .daily-rider .bad-idea {
+    margin-top: 0;
+    margin-left: 2.36804%;
+  }
+
+  .casual-rider .map-yellow,
+  .daily-rider .map-green {
+    margin-left: 0.06193%;
   }
 
   .inspiration .break-out-text {
     clear: both;
-    width: 82.0471439749%;
-    height: 313px;
-    margin-top: -583px;
-    margin-left: 17.8159199999%;
+    margin-top: -121px;
+    margin-left: 30.72255%;
   }
 
-  .inspiration .description {
-    margin-top: -27px;
-    margin-left: -0.17584%;
+  .nav-content .nav-brand {
+    font-size: 1.563em;
   }
 
-  .inspiration .image {
-    width: 29.2962636932%;
+  .nav-content .nav-elements {
+    margin-left: 19.53331%;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.57422%;
+  }
+
+  .pricing .section-header {
+    margin-left: 10.23755%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .technology .break-out-text {
+    margin-top: 0;
+  }
+
+  .tertiary .technology {
+    padding-top: 35px;
+  }
+
+  .the-commuter .bad-idea {
+    margin-top: 0;
+    margin-left: 2.38538%;
+  }
+
+  .the-commuter .break-out-text {
+    float: right;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+    width: 48.9924730959%;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
+    width: 48.9684201795%;
+    margin-left: 2.03828%;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.13101%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.26688%;
+    font-size: 0.75em;
+  }
+
+  .secondary .static-card-3 {
+    margin-right: 10.46875%;
+  }
+}
+
+@media(max-width: 700px) {
+  .primary a {
+    margin-left: 40.33036%;
+  }
+
+  .technology img {
+    margin-top: 162px;
+  }
+
+  div img {
+    float: none;
+    width: 80%;
     height: auto;
-    margin-top: 440px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  footer {
+    position: relative;
+    z-index: 66;
+  }
+
+  footer a {
+    width: 101.7261091436%;
+    margin-left: -0.0547%;
+  }
+
+  .card .card-content {
+    margin-left: 8.14804%;
+  }
+
+  .card .email {
+    margin-top: 54px;
+  }
+
+  .center-group .site-links {
+    position: relative;
+  }
+
+  .center-group .tertiary,
+  .secondary .static-card-1,
+  .secondary .static-card-2 {
+    margin-left: 10.57143%;
+  }
+
+  .casual-rider .bad-idea,
+  .daily-rider .bad-idea {
+    margin-left: 2.37226%;
+  }
+
+  .casual-rider .break-out-text,
+  .daily-rider .break-out-text {
+    margin-left: -0.11521%;
+  }
+
+  .casual-rider .map-yellow,
+  .daily-rider .map-green {
+    margin-left: 0.06228%;
+  }
+
+  .inspiration .break-out-text {
+    width: 100.008492569%;
+    margin-top: 0;
+    margin-left: -0.00849%;
+  }
+
+  .nav-content .nav-elements {
+    margin-left: 19.53008%;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.57143%;
+  }
+
+  .pricing .section-header {
+    margin-left: 10.23921%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .technology .break-out-text {
+    width: 100.008492569%;
+    margin-left: -0.00849%;
+  }
+
+  .the-commuter .bad-idea {
+    margin-left: 2.37792%;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
+    width: 49.0153172866%;
+    margin-left: 1.99315%;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.12488%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.2597299999%;
+  }
+
+  .secondary .static-card-3 {
+    margin-right: 10.57143%;
+  }
+}
+
+@media(max-width: 600px) {
+  body {
+    font-size: 1em;
+  }
+
+  .bad-idea button {
+    float: none;
+    clear: none;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .casual-rider button {
+    margin-top: 113px;
+  }
+
+  .daily-rider button {
+    margin-top: 157px;
+  }
+
+  .primary a {
+    margin-left: 40.33073%;
+  }
+
+  .technology img {
+    margin-top: 159px;
+  }
+
+  .the-commuter button {
+    margin-top: 135px;
+  }
+
+  div img {
+    height: auto;
+  }
+
+  footer {
+    position: relative;
+    z-index: 66;
+  }
+
+  footer a {
+    margin-left: 0;
+  }
+
+  .card .card-content {
+    margin-left: 8.14539%;
+  }
+
+  .casual-rider .break-out-text {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .center-group .site-links {
+    position: relative;
+  }
+
+  .center-group .tertiary {
+    margin-left: 10.57292%;
+  }
+
+  .daily-rider .break-out-text {
+    margin-left: -0.11559%;
+  }
+
+  .casual-rider .map-yellow,
+  .daily-rider .map-green {
+    width: 100%;
+    height: 150px;
+    margin-left: 0;
+  }
+
+  .inspiration .break-out-text {
+    width: 100.0039632736%;
+    margin-top: 10px;
+    margin-left: -0.0033%;
+  }
+
+  .nav-content .nav-elements {
+    margin-left: 19.53125%;
+  }
+
+  .nav-elements .active {
+    font-size: 0.75em;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.57292%;
+  }
+
+  .pricing .section-header {
+    margin-left: 10.23846%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+    margin-top: 91px;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .technology .break-out-text {
+    width: 100.0039632736%;
+    margin-left: -0.0033%;
+  }
+
+  .casual-rider .bad-idea,
+  .daily-rider .bad-idea,
+  .the-commuter .bad-idea {
+    clear: both;
+    width: 100.0039632736%;
+    margin-top: 10px;
+    margin-left: -0.0033%;
+  }
+
+  .the-commuter .map-red {
+    width: 100%;
+    height: 150px;
+    margin-left: -0.0924800001%;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
+    width: 46.4013831181%;
+    margin-left: 1.90179%;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.13101%;
+    font-size: 0.75em;
+  }
+
+  .secondary .static-card-1,
+  .secondary .static-card-2 {
+    margin-left: 10.56771%;
+  }
+
+  .secondary .static-card-3 {
+    margin-right: 10.56771%;
+  }
+}
+
+@media(max-width: 500px) {
+  .casual-rider button {
+    margin-top: 130px;
+  }
+
+  .daily-rider button {
+    margin-top: 180px;
+  }
+
+  .primary a {
+    width: 46.5527777777%;
+    margin-left: 26.725%;
+  }
+
+  .technology img {
+    margin-top: 181px;
+  }
+
+  .the-commuter button {
+    margin-top: 140px;
+  }
+
+  div img {
+    height: auto;
+  }
+
+  footer {
+    position: relative;
+    z-index: 66;
+  }
+
+  footer a {
+    width: 100.0606509872%;
+    margin-left: -0.06065%;
+    text-align: center;
+  }
+
+  .card .card-content {
+    width: 87.0759202453%;
+    margin-left: 8.13187%;
+  }
+
+  .center-group .site-links {
+    position: relative;
+    width: 100.0606509872%;
+    margin-left: -0.06065%;
+    text-align: center;
+  }
+
+  .center-group .tertiary {
+    margin-left: 10.57188%;
+  }
+
+  .cta .card {
+    width: 95%;
+  }
+
+  .daily-rider .break-out-text {
+    margin-left: -0.11493%;
   }
 
   .nav-content .nav-brand {
@@ -1815,48 +1390,167 @@ body {
 
   .nav-content .nav-elements {
     clear: both;
-    width: 99.9999999999%;
+    width: 100%;
     margin-left: 0;
   }
 
-  .nav-elements .nav-element {
-    font-size: 0.688em;
-  }
-
-  .navbar {
-    padding-top: 11px;
-    padding-bottom: 11px;
-  }
-
-  .pricing .casual-rider {
+  .pricing {
     position: relative;
-    z-index: 45;
-    width: 96.4939204344%;
-    height: 583px;
-    margin-top: 105px;
-  }
-
-  .pricing .daily-rider {
-    position: relative;
-    z-index: 51;
-    width: 96.4939204344%;
-    height: 583px;
-    margin-top: -579px;
-    margin-left: 19.17365%;
+    z-index: 61;
+    margin-left: 10.57188%;
   }
 
   .pricing .section-header {
-    width: 19.6930704757%;
-    margin-left: 10.23728%;
+    margin-left: 0;
   }
 
-  .pricing .the-commuter {
+  .primary {
     position: relative;
-    z-index: 57;
-    width: 40.8239877228%;
-    height: 583px;
-    margin-top: -426px;
-    margin-left: 19.17365%;
+    z-index: 3;
+    margin-top: 123px;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .casual-rider .bad-idea,
+  .daily-rider .bad-idea,
+  .inspiration .break-out-text,
+  .technology .break-out-text,
+  .the-commuter .bad-idea {
+    margin-left: -0.00396%;
+  }
+
+  .the-commuter .map-red {
+    margin-left: -0.08719%;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+  }
+
+  .center-group .site-links-2 {
+    clear: both;
+    z-index: 63;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.1282899999%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.26316%;
+  }
+
+  .secondary .static-card-1,
+  .secondary .static-card-2 {
+    margin-left: 10.56875%;
+  }
+
+  .secondary .static-card-3 {
+    margin-right: 10.56875%;
+  }
+}
+
+@media(max-width: 400px) {
+  body {
+    font-size: 1em;
+  }
+
+  .bad-idea button {
+    width: 70%;
+  }
+
+  .card button {
+    width: 52.6992924528%;
+  }
+
+  .casual-rider button {
+    margin-top: 140px;
+  }
+
+  .daily-rider button {
+    margin-top: 200px;
+  }
+
+  .primary a {
+    margin-left: 26.72266%;
+  }
+
+  .technology img {
+    margin-top: 203px;
+  }
+
+  div img {
+    width: 100%;
+    height: auto;
+  }
+
+  div label {
+    width: 93.5695754716%;
+  }
+
+  footer {
+    position: relative;
+    z-index: 66;
+  }
+
+  footer a {
+    margin-left: -0.84699%;
+  }
+
+  .card .card-content {
+    margin-left: 6.44097%;
+  }
+
+  .card .email,
+  .card .password {
+    width: 89.2665094339%;
+  }
+
+  .center-group .site-links {
+    position: relative;
+    width: 99.8151571164%;
+    margin-left: 0;
+  }
+
+  .center-group .tertiary {
+    margin-left: 10.56641%;
+  }
+
+  .daily-rider .break-out-text {
+    margin-left: -0.11514%;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.56641%;
+  }
+
+  .pricing .section-header {
+    width: 120.483519387%;
+    margin-left: -10.23037%;
+    font-size: 1.25em;
+  }
+
+  .pricing .casual-rider,
+  .pricing .daily-rider,
+  .pricing .the-commuter {
+    width: 120.483519387%;
+    margin-left: -10.23037%;
   }
 
   .primary {
@@ -1865,164 +1559,168 @@ body {
     margin-top: 122px;
   }
 
-  .primary .ctalink {
-    width: 66.0004699248%;
-    margin-left: 16.99777%;
-  }
-
   .secondary {
     position: relative;
     z-index: 16;
-    margin-top: 20px;
   }
 
-  .static-card .card-content {
-    text-align: center;
-  }
-
-  .static-card .fa-globe {
-    float: left;
-    margin-right: 0;
-    margin-left: 29.4906%;
-  }
-
-  .navbar .nav-content,
-  .static-card .fa-refresh {
-    float: none;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .technology .break-out-text {
-    width: 79.1965634441%;
-    height: 313px;
-    margin-top: 0;
-    margin-left: 20.66227%;
-  }
-
-  .technology .image {
-    clear: both;
-    width: 28.294939577%;
-    height: auto;
-    margin-left: 5.78364%;
-  }
-
-  .terms .agree-to-terms {
-    clear: both;
-    margin-top: 0;
-  }
-
-  .terms .checkbox {
-    margin-top: 3px;
-  }
-
-  .tertiary .inspiration {
-    position: relative;
-    z-index: 21;
-    width: 96.4526947239%;
-    height: 583px;
-    margin-top: -31px;
-  }
-
-  .tertiary .technology {
-    position: relative;
-    z-index: 26;
-    width: 99.9220631996%;
-    height: 962px;
-    margin-top: -1064px;
-    margin-left: -0.05904%;
-  }
-
-  .the-commuter .break-out-text {
-    width: 82.1278364632%;
-    height: 313px;
-    margin-top: 67px;
-    margin-left: 17.8022%;
+  .casual-rider .bad-idea,
+  .daily-rider .bad-idea,
+  .inspiration .break-out-text,
+  .technology .break-out-text,
+  .the-commuter .bad-idea {
+    margin-left: 0;
   }
 
   .the-commuter .map-red {
-    width: 31.5211104684%;
-    margin-top: 352px;
-    margin-left: -36.00347%;
-  }
-
-  .the-commuter .price {
-    clear: both;
-    width: 14.7657605552%;
-    margin-top: -180px;
-    margin-left: -2.53326%;
-  }
-
-  .card ._button {
-    clear: none;
-    margin-top: 115px;
-    margin-left: 2.28659%;
+    margin-left: -0.08635%;
   }
 
   .center-group .site-links-1 {
-    width: 30.8392396907%;
-    margin-left: -0.38763%;
+    z-index: 62;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
   }
 
   .center-group-1 {
     position: relative;
     z-index: 28;
-    margin-top: -378px;
   }
 
   .cta-3 {
     position: relative;
     z-index: 38;
-    margin-top: -259px;
   }
 
   .nav-elements .nav-element-2 {
-    margin-left: 2.13816%;
+    margin-left: 2.12582%;
   }
 
   .nav-elements .nav-element-3 {
-    margin-left: 2.25564%;
+    margin-left: 2.2574%;
   }
 
-  .pricing-1 {
-    position: relative;
-    z-index: 58;
-    width: 236.3560267857%;
-    height: 907px;
-    margin-top: -173px;
-    margin-left: 0;
-  }
-
+  .secondary .static-card-1,
   .secondary .static-card-2 {
-    clear: both;
     width: 94.9999999999%;
-    margin-top: 15px;
     margin-left: 2.5%;
   }
 
   .secondary .static-card-3 {
-    clear: both;
-    width: 94.8437499999%;
-    margin-top: 15px;
+    width: 95%;
+    margin-right: 2.32813%;
+  }
+}
+
+@media(max-width: 280px) {
+  .daily-rider button {
+    margin-top: 240px;
   }
 
-  .static-card .card-content-3 {
-    float: none;
-    clear: none;
-    margin-top: -195px;
-    margin-right: auto;
-    margin-left: auto;
+  .primary a {
+    margin-left: 26.7243299999%;
   }
 
-  .static-card .card-header-2 {
-    padding-bottom: 0;
+  .technology img {
+    margin-top: 291px;
   }
 
-  .static-card .card-header-3 {
-    float: none;
-    clear: none;
-    margin-top: 163px;
-    margin-right: auto;
-    margin-left: auto;
+  .casual-rider button,
+  .the-commuter button {
+    margin-top: 180px;
+  }
+
+  div img {
+    height: auto;
+  }
+
+  footer {
+    position: relative;
+    z-index: 66;
+  }
+
+  footer a {
+    margin-left: -0.85226%;
+  }
+
+  .card .card-content {
+    margin-left: 6.44055%;
+  }
+
+  .card .email {
+    margin-top: 76px;
+  }
+
+  .center-group .site-links {
+    position: relative;
+  }
+
+  .center-group .tertiary {
+    margin-left: 10.5692%;
+  }
+
+  .daily-rider .break-out-text {
+    margin-left: -0.11161%;
+  }
+
+  .pricing {
+    position: relative;
+    z-index: 61;
+    margin-left: 10.5692%;
+  }
+
+  .pricing .casual-rider,
+  .pricing .daily-rider,
+  .pricing .section-header,
+  .pricing .the-commuter {
+    margin-left: -10.23355%;
+  }
+
+  .primary {
+    position: relative;
+    z-index: 3;
+    margin-top: 124px;
+  }
+
+  .secondary {
+    position: relative;
+    z-index: 16;
+  }
+
+  .the-commuter .map-red {
+    margin-left: -0.08224%;
+  }
+
+  .center-group .site-links-1 {
+    z-index: 62;
+  }
+
+  .center-group .site-links-2 {
+    z-index: 63;
+  }
+
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+  }
+
+  .nav-elements .nav-element-2 {
+    margin-left: 2.12641%;
+  }
+
+  .nav-elements .nav-element-3 {
+    margin-left: 2.25564%;
+    font-size: 0.688em;
+  }
+
+  .secondary .static-card-3 {
+    margin-right: 2.33259%;
   }
 }
