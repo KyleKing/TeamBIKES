@@ -205,9 +205,8 @@ body {
 }
 
 .cta .card {
-  float: left;
   width: 78.85078125%;
-  margin-left: 10.57422%;
+  margin: 0 auto;
   padding: 10px;
   background-color: rgb(252, 252, 252);
 }
@@ -289,12 +288,19 @@ body {
 }
 
 .footer-content {
+  position: relative;
   float: left;
   clear: both;
+  z-index: 63;
   width: 100%;
   margin-top: 40px;
   padding: 10px;
   background-color: rgb(120, 120, 120);
+}
+
+.footer-content .center-group {
+  width: 96.6101694915%;
+  margin: 0 auto;
 }
 
 .hero {
@@ -562,7 +568,10 @@ body {
 }
 
 .navbar {
-  float: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 70;
   width: 100%;
   min-width: none;
   min-height: nonepx;
@@ -616,8 +625,8 @@ body {
 .next-page {
   display: block;
   float: left;
-  width: 30.9163135593%;
-  margin: 49px 0 0 1.9329978813%;
+  width: 32.0010964912%;
+  margin: 49px 0 0 1.99973%;
   padding: 20px;
   font-size: 1.25em;
   font-weight: 700;
@@ -659,6 +668,7 @@ body {
 }
 
 .pricing {
+  position: relative;
   float: left;
   clear: both;
 }
@@ -676,11 +686,13 @@ body {
 }
 
 .primary {
+  position: relative;
   float: left;
-  clear: both;
+  z-index: 3;
   width: 100%;
   min-width: none;
   min-height: nonepx;
+  margin-top: 101px;
   padding-top: 40px;
   padding-bottom: 60px;
   border-style: none;
@@ -770,8 +782,10 @@ body {
 }
 
 .secondary {
+  position: relative;
   float: left;
   clear: both;
+  z-index: 16;
   width: 100%;
   min-width: none;
   min-height: nonepx;
@@ -797,9 +811,10 @@ body {
 
 .section-header {
   float: left;
-  width: 59.0369404032%;
+  width: 79.5181399342%;
   min-height: 42px;
-  margin-left: 20.48153%;
+  margin-left: 10.23994%;
+  padding: 20px;
   font-size: 1.563em;
   font-weight: 700;
   line-height: 1.38;
@@ -810,10 +825,12 @@ body {
 
 .site-links {
   float: left;
+  width: 31.9997258771%;
   padding: 20px;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.38;
+  color: rgb(252, 252, 252);
 }
 
 .static-card {
@@ -892,9 +909,8 @@ body {
 
 .tertiary {
   float: left;
-  clear: both;
   width: 78.85078125%;
-  margin: 40px 0 0 10.57422%;
+  margin-left: 10.575%;
 }
 
 .text {
@@ -1021,6 +1037,16 @@ body {
   clear: both;
 }
 
+.center-group-1 {
+  position: relative;
+  float: left;
+  clear: both;
+  z-index: 28;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .container-1 {
   position: relative;
   z-index: 25;
@@ -1080,9 +1106,10 @@ body {
 }
 
 .cta-3 {
+  position: relative;
   float: left;
   clear: both;
-  margin-top: 40px;
+  z-index: 38;
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: rgb(172, 39, 39);
@@ -1313,12 +1340,12 @@ body {
 }
 
 .pricing-1 {
+  z-index: 58;
   width: 78.85078125%;
   margin: 30px 0 0 10.57422%;
 }
 
 .pricing-2 {
-  position: relative;
   z-index: 12;
   width: 52.8177083333%;
   margin: 82px 0 0 23.59896%;
@@ -1332,16 +1359,8 @@ body {
   margin-top: 50px;
 }
 
-.site-links-1 {
-  width: 30.9152542372%;
-  margin-left: 1.6949152542%;
-  color: rgb(237, 232, 229);
-}
-
 .site-links-2 {
-  width: 30.9157838983%;
-  margin-left: 1.9324682203%;
-  color: rgb(252, 252, 252);
+  margin-left: 1.99973%;
 }
 
 .static-card-1 {
@@ -1691,7 +1710,7 @@ body {
 
   .casual-rider .break-out-text {
     position: relative;
-    z-index: 49;
+    z-index: 43;
     width: 82.1278364632%;
     height: 313px;
     margin-top: 15px;
@@ -1707,15 +1726,33 @@ body {
   .casual-rider .price {
     position: relative;
     clear: both;
-    z-index: 46;
+    z-index: 40;
     width: 26.7775874724%;
     margin-top: -239px;
     margin-left: 2.39785%;
   }
 
-  .cta .card {
-    width: 94.9999999999%;
+  .center-group {
+    width: 236.3560267857%;
+    height: 907px;
     margin-left: 2.5%;
+  }
+
+  .center-group .next-page,
+  .center-group .site-links-2 {
+    width: 31.9587628865%;
+    margin-left: 2.48728%;
+  }
+
+  .center-group .tertiary {
+    width: 99.9693164652%;
+    height: 907px;
+    margin-left: 0;
+  }
+
+  .cta .card,
+  .secondary .static-card-1 {
+    width: 94.9999999999%;
   }
 
   .daily-rider .break-out-text {
@@ -1739,16 +1776,19 @@ body {
 
   .footer-content {
     position: relative;
-    z-index: 68;
+    z-index: 63;
     width: 96.4939204344%;
     height: 583px;
     margin-top: -247px;
     margin-left: 43.53237%;
   }
 
-  .footer-content .next-page,
-  .footer-content .site-links-2 {
-    width: 24.7874616852%;
+  .footer-content .center-group {
+    float: left;
+    width: 77.3405783523%;
+    height: 286px;
+    margin-right: 0;
+    margin-left: 1.99863%;
   }
 
   .inspiration .break-out {
@@ -1758,7 +1798,7 @@ body {
   .inspiration .break-out-text {
     position: relative;
     clear: both;
-    z-index: 26;
+    z-index: 19;
     width: 82.1278364632%;
     height: 313px;
     margin-top: -583px;
@@ -1772,7 +1812,7 @@ body {
 
   .inspiration .image {
     position: relative;
-    z-index: 27;
+    z-index: 20;
     height: auto;
     margin-top: 304px;
   }
@@ -1799,8 +1839,7 @@ body {
 
   .pricing .casual-rider {
     position: relative;
-    clear: none;
-    z-index: 51;
+    z-index: 45;
     width: 96.4939204344%;
     height: 583px;
     margin-top: 105px;
@@ -1808,7 +1847,7 @@ body {
 
   .pricing .daily-rider {
     position: relative;
-    z-index: 57;
+    z-index: 51;
     width: 96.4939204344%;
     height: 583px;
     margin-top: -579px;
@@ -1817,13 +1856,12 @@ body {
 
   .pricing .section-header {
     width: 19.6930704757%;
-    margin-top: -327px;
-    margin-left: 14.71609%;
+    margin-left: 10.23964%;
   }
 
   .pricing .the-commuter {
     position: relative;
-    z-index: 63;
+    z-index: 57;
     width: 40.8239877228%;
     height: 583px;
     margin-top: -426px;
@@ -1831,7 +1869,9 @@ body {
   }
 
   .primary {
-    margin-top: 10px;
+    position: relative;
+    z-index: 3;
+    margin-top: 122px;
   }
 
   .primary .ctalink {
@@ -1841,7 +1881,7 @@ body {
 
   .secondary {
     position: relative;
-    z-index: 23;
+    z-index: 16;
     margin-top: 20px;
   }
 
@@ -1872,8 +1912,7 @@ body {
   .technology .image {
     clear: both;
     height: auto;
-    margin-top: 3px;
-    margin-left: 1.99413%;
+    margin-left: 2.40763%;
   }
 
   .terms .agree-to-terms {
@@ -1885,18 +1924,9 @@ body {
     margin-top: 3px;
   }
 
-  .tertiary {
-    position: relative;
-    z-index: 34;
-    width: 236.3560267857%;
-    height: 907px;
-    margin-top: -378px;
-    margin-left: 2.5%;
-  }
-
   .tertiary .inspiration {
     position: relative;
-    z-index: 28;
+    z-index: 21;
     width: 96.4949962235%;
     height: 583px;
     margin-top: 105px;
@@ -1904,7 +1934,7 @@ body {
 
   .tertiary .technology {
     position: relative;
-    z-index: 33;
+    z-index: 26;
     width: 96.4949962235%;
     height: 583px;
     margin-top: -1086px;
@@ -1937,14 +1967,21 @@ body {
     margin-left: 2.28659%;
   }
 
-  .cta-3 {
-    position: relative;
-    z-index: 44;
-    margin-top: -259px;
+  .center-group .site-links-1 {
+    width: 30.8392396907%;
+    margin-left: -0.38763%;
   }
 
-  .footer-content .site-links-1 {
-    width: 23.9199583598%;
+  .center-group-1 {
+    position: relative;
+    z-index: 28;
+    margin-top: -378px;
+  }
+
+  .cta-3 {
+    position: relative;
+    z-index: 38;
+    margin-top: -259px;
   }
 
   .nav-elements .nav-element-2 {
@@ -1957,15 +1994,11 @@ body {
 
   .pricing-1 {
     position: relative;
-    z-index: 64;
+    z-index: 58;
     width: 236.3560267857%;
     height: 907px;
     margin-top: -173px;
     margin-left: 0;
-  }
-
-  .secondary .static-card-1 {
-    width: 94.9999999999%;
   }
 
   .secondary .static-card-2 {
