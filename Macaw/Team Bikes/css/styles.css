@@ -97,7 +97,7 @@ body {
 
 .casual-rider .price {
   width: 30.6455813172%;
-  margin: 21px 0 0 3.95875%;
+  margin: 21px 0 0 3.95665%;
   background-color: rgb(238, 193, 16);
 }
 
@@ -146,7 +146,7 @@ body {
 
 .daily-rider .price {
   width: 30.6455813172%;
-  margin: 43px 0 0 3.95665%;
+  margin: 43px 0 0 3.95455%;
   background-color: rgb(37, 206, 108);
 }
 
@@ -730,7 +730,7 @@ body {
   }
 
   .center-group .tertiary {
-    margin-left: 10.57102%;
+    margin-left: 10.5696%;
   }
 
   .daily-rider .bad-idea {
@@ -782,7 +782,7 @@ body {
   .pricing {
     position: relative;
     z-index: 61;
-    margin-left: 10.57102%;
+    margin-left: 10.5696%;
   }
 
   .pricing .section-header {
@@ -816,7 +816,7 @@ body {
   .technology .image {
     width: 25%;
     height: auto;
-    margin-left: 2.29328049%;
+    margin-left: 2.29328%;
   }
 
   .the-commuter .bad-idea {
@@ -873,31 +873,27 @@ body {
 
   .secondary .static-card-1 {
     width: 78.8513392857%;
-    margin-left: 10.57244%;
+    margin-left: 10.57102%;
   }
 
   .secondary .static-card-2 {
     clear: both;
     width: 78.8513392857%;
     margin-top: 20px;
-    margin-left: 10.57244%;
+    margin-left: 10.57102%;
   }
 
   .secondary .static-card-3 {
     clear: both;
     width: 78.8571428571%;
     margin-top: 20px;
-    margin-right: 10.53409%;
+    margin-right: 10.53267%;
   }
 }
 
 @media(max-width: 800px) {
   body {
     font-size: 1em;
-  }
-
-  .bad-idea .break-out-text {
-    margin-left: 0;
   }
 
   .card .card-content {
@@ -908,7 +904,7 @@ body {
     clear: both;
     width: 100.060132291%;
     margin-top: 0;
-    margin-left: 0;
+    margin-left: -0.06013%;
     text-align: center;
   }
 
@@ -929,6 +925,11 @@ body {
     margin-left: 2.36804%;
   }
 
+  .casual-rider .break-out-text,
+  .daily-rider .break-out-text {
+    margin-left: -0.11341%;
+  }
+
   .casual-rider .map-yellow,
   .daily-rider .map-green {
     margin-left: 0.06193%;
@@ -945,9 +946,8 @@ body {
   }
 
   .inspiration .break-out-text {
-    clear: both;
-    margin-top: -121px;
-    margin-left: 30.72255%;
+    margin-top: 0;
+    margin-left: 5.72441%;
   }
 
   .inspiration .image {
@@ -1007,6 +1007,7 @@ body {
 
   .the-commuter .break-out-text {
     float: right;
+    margin-left: 0;
   }
 
   .center-group .site-links-1 {
@@ -1055,7 +1056,7 @@ body {
 
   .center-group .next-page {
     width: 101.7261091436%;
-    margin-left: -0.0547%;
+    margin-left: -0.05233%;
   }
 
   .center-group .site-links {
@@ -1094,8 +1095,8 @@ body {
   }
 
   .inspiration .break-out-text {
+    clear: both;
     width: 100.008492569%;
-    margin-top: 0;
     margin-left: -0.00849%;
   }
 
@@ -1451,7 +1452,7 @@ body {
   }
 
   .the-commuter .map-red {
-    margin-left: -0.08719%;
+    margin-left: -0.08323%;
   }
 
   .the-commuter .price {
@@ -1505,7 +1506,7 @@ body {
   }
 
   .card .card-content {
-    margin-left: 6.44097%;
+    margin-left: 6.43663%;
   }
 
   .card .email,
@@ -1602,7 +1603,7 @@ body {
   }
 
   .the-commuter .map-red {
-    margin-left: -0.08635%;
+    margin-left: -0.08224%;
   }
 
   .card ._button {
@@ -1628,11 +1629,11 @@ body {
   }
 
   .nav-elements .nav-element-2 {
-    margin-left: 2.12582%;
+    margin-left: 2.12171%;
   }
 
   .nav-elements .nav-element-3 {
-    margin-left: 2.2574%;
+    margin-left: 2.2532899999%;
   }
 
   .secondary .static-card-1,
@@ -1716,10 +1717,6 @@ body {
   .technology .image {
     height: auto;
     margin-top: 291px;
-  }
-
-  .the-commuter .map-red {
-    margin-left: -0.08224%;
   }
 
   .casual-rider .price,
