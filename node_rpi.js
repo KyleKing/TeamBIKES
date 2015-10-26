@@ -19,6 +19,8 @@ var xbeeAPI = new xbee_api.XBeeAPI({
   api_mode: 2
 });
 
+var lastID = '';
+
 // Config
 var ddpclient = new DDPClient({
   // // Remote
@@ -82,12 +84,12 @@ ddpclient.connect(function(error) {
       type: 0x10, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
       id: 0x01, // optional, nextFrameId() is called per default
       // destination64: "0013A20040B7B31F", // End
-      // destination64: "0013A20040C5F8BA", // R-Duck
-      destination64: "0013A20040B90B95", // R-Whip
+      destination64: "0013A20040C5F8BA", // R-Duck
+      // destination64: "0013A20040B90B95", // R-Whip
       destination16: "fffe", // optional, "fffe" is default
       broadcastRadius: 0x00, // optional, 0x00 is default
       options: 0x00, // optional, 0x00 is default
-      data: "y" // Can either be string or byte array.
+      data: "init" // Can either be string or byte array.
     };
 
     // var frame_obj = {
@@ -113,6 +115,7 @@ ddpclient.connect(function(error) {
 
   // All frames parsed by the XBee will be emitted here
   xbeeAPI.on("frame_object", function(frame) {
+    console.log('--------------------');
     if (frame.data === undefined) {
       if (frame.deliveryStatus === 0) {
         console.log('>> Data was delivered!');
@@ -123,7 +126,7 @@ ddpclient.connect(function(error) {
         console.log('   ' + frame);
       }
       console.log(' ');
-    } else {
+    } else if (frame.data != lastID) {
 
       data = frame.data.toString();
       console.log(">> Serial: " + data);
@@ -139,6 +142,8 @@ ddpclient.connect(function(error) {
         LOCKSTATEE: array[3],
         TIMESTAMP: time
       };
+
+      lastID = array[0];
 
       // Call Meteor actions with "dataSet"
       ddpclient.call('RFIDStreamData', [dataSet], function(err, result) {
@@ -166,6 +171,7 @@ ddpclient.connect(function(error) {
             id: 0x01, // optional, nextFrameId() is called per default
             // destination64: "0013A20040B7B31F", // End
             destination64: "0013A20040C5F8BA", // R-Duck
+            // destination64: "0013A20040B90B95", // R-Whip
             destination16: "fffe", // optional, "fffe" is default
             broadcastRadius: 0x00, // optional, 0x00 is default
             options: 0x00, // optional, 0x00 is default
@@ -177,6 +183,8 @@ ddpclient.connect(function(error) {
         }
         console.log(' ');
       });
+    } else {
+      console.log('Ignoring an incoming frame');
     }
   });
 

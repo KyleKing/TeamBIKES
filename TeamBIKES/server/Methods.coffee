@@ -67,20 +67,34 @@ Meteor.methods 'DeleteOldRFID': ->
 #   encrypted.toString()
 
 Meteor.methods 'RFIDStreamData': (dataSet) ->
-  RFIDdata.insert dataSet
-  console.log '>> Inserted RFID dataset:'
-  console.log dataSet
+  console.log '--------------------'
+  console.log '--------------------'
   # Check user RFID code against database record set in seeds-admin
   RFIDCODE = dataSet.USER_ID
-  console.log RFIDCODE
   hits = Meteor.users.find({'profile.RFID': RFIDCODE}).count()
+  dataSet.confirmation = hits
   console.log hits
+
+  console.log '--'
+  console.log '>> Here are the users RFID dataset:'
+  users = Meteor.users.find().fetch()
+  _.each users, (user) ->
+    console.log user.profile.RFID
+    # _.each user.profile, (print) ->
+  console.log '--'
+  console.log '>> Inserting RFID dataset:'
+  console.log dataSet
+  RFIDdata.insert dataSet
+
+  # Determine appropriate response
   if hits is 1
     'y'
   else if hits >= 1
     'nope'
-  else
+  else if hits is 0
     'n'
+  else
+    ' not cool '
 
   # incoming = dataSet.USER_ID
   # console.log incoming.trim()

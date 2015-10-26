@@ -12,6 +12,7 @@ template(name='RFIDlayout')
         th LATITUDE
         th LONGITUDE
         th LOCKSTATEE
+        th Kyle's Decision
         th TIMESTAMP
         th Delete
     tbody
@@ -21,6 +22,7 @@ template(name='RFIDlayout')
           td #{LATITUDE}
           td #{LONGITUDE}
           td #{LOCKSTATEE}
+          td #{confirmation}
           td #{TIMESTAMP}
           td
             button#DeleteRFID(value=_id) Delete Me
