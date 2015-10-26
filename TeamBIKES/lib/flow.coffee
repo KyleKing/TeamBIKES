@@ -13,7 +13,7 @@ FlowRouter.route '/',
 FlowRouter.route '/macaw',
   name: 'aboutmacaw',
   action: ->
-    BlazeLayout.render 'aboutmacaw'
+    BlazeLayout.render 'MacawLayout', full: 'aboutmacaw'
 
 
 

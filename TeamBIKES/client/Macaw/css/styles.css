@@ -160,22 +160,6 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.fa {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  border-radius: 4050px;
-}
-
-.fa-refresh {
-  background-color: #015196;
-}
-
-.fa-bicycle,
-.fa-university {
-  background-color: rgb(1, 81, 150);
-}
-
 .footer-content {
   position: relative;
   float: left;

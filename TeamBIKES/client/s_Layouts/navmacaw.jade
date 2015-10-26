@@ -1,0 +1,8 @@
+template(name='NavMacaw')
+  nav.navbar.card.clearfix
+    .nav-content.clearfix
+      a(href="{{ pathFor 'about' }}").nav-brand REDBAR
+      .nav-elements.clearfix
+        a(href="{{ pathFor 'about' }}").nav-element.active About
+        a(href="{{ pathFor 'map' }}").nav-element.nav-element-2 Map
+        a(href='#').nav-element.nav-element-3 Get Started

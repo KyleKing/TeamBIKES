@@ -1,0 +1,12 @@
+template(name='MacawLayout')
+	+sAlert
+	+momentum(plugin='flow-router')
+		+NavMacaw
+	//- +contentWrapper
+	main.cd-main-content.navSpacing
+		.container
+			+momentum(plugin='flow-router')
+				+Template.dynamic template=body
+	main.cd-main-content
+		+momentum(plugin='flow-router')
+			+Template.dynamic template=full
