@@ -92,13 +92,13 @@ if Meteor.users.find({}).count() is 0
     {
       FullName: 'Redistribution'
       Email: 'redistribution@example.com'
-      RFID: 'SomeString?'
+      RFID: 'c5194f30'
       Roles: ['Redistribution', 'Employee']
     }
     {
       FullName: 'Admin'
       Email: 'admin@example.com'
-      RFID: 'Maybe with s p a c e s?'
+      RFID: 'NOT 653c4730'
       Roles: ['Admin']
     }
     # {

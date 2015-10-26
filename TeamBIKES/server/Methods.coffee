@@ -72,15 +72,15 @@ Meteor.methods 'RFIDStreamData': (dataSet) ->
   console.log dataSet
   # Check user RFID code against database record set in seeds-admin
   RFIDCODE = dataSet.USER_ID
-  hits = Meteor.users.find({'Profile.RFID': RFIDCODE}).count()
+  console.log RFIDCODE
+  hits = Meteor.users.find({'profile.RFID': RFIDCODE}).count()
+  console.log hits
   if hits is 1
-    'OPENSESAME*'
-    return
+    'y'
   else if hits >= 1
-    'Houston, we have a problem. Call 1-800-354-9763 for help.'
+    'nope'
   else
-    'PERMISSION TO TERMINATE GRANTED*'
-    return
+    'n'
 
   # incoming = dataSet.USER_ID
   # console.log incoming.trim()

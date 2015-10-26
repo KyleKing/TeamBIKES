@@ -78,16 +78,17 @@ ddpclient.connect(function(error) {
   serialPort.on('open', function() {
     console.log('port open. Data rate: ' + serialPort.options.baudRate);
 
-    // var frame_obj = {
-    //   type: 0x10, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
-    //   id: 0x01, // optional, nextFrameId() is called per default
-    //   // destination64: "0013A20040B7B31F", // End
-    //   destination64: "0013A20040C5F8BA", // R
-    //   destination16: "fffe", // optional, "fffe" is default
-    //   broadcastRadius: 0x00, // optional, 0x00 is default
-    //   options: 0x00, // optional, 0x00 is default
-    //   data: "y" // Can either be string or byte array.
-    // };
+    var frame_obj = {
+      type: 0x10, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
+      id: 0x01, // optional, nextFrameId() is called per default
+      // destination64: "0013A20040B7B31F", // End
+      // destination64: "0013A20040C5F8BA", // R-Duck
+      destination64: "0013A20040B90B95", // R-Whip
+      destination16: "fffe", // optional, "fffe" is default
+      broadcastRadius: 0x00, // optional, 0x00 is default
+      options: 0x00, // optional, 0x00 is default
+      data: "y" // Can either be string or byte array.
+    };
 
     // var frame_obj = {
     //   type: 0x17, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
@@ -106,8 +107,8 @@ ddpclient.connect(function(error) {
     //   commandParameter: [],
     // };
 
-    // serialPort.write(xbeeAPI.buildFrame(frame_obj));
-    // console.log(xbeeAPI.buildFrame(frame_obj));
+    serialPort.write(xbeeAPI.buildFrame(frame_obj));
+    console.log(xbeeAPI.buildFrame(frame_obj));
   });
 
   // All frames parsed by the XBee will be emitted here
@@ -115,6 +116,7 @@ ddpclient.connect(function(error) {
     if (frame.data === undefined) {
       if (frame.deliveryStatus === 0) {
         console.log('>> Data was delivered!');
+        console.log(frame);
       } else {
         console.log('>> No data in frame received');
         console.log('   Data was not received');
@@ -128,13 +130,14 @@ ddpclient.connect(function(error) {
       // console.log("OBJ> " + util.inspect(frame));
 
       var array = data.split(','); // CSV Data Parse:
-      array.push( (new Date()).getTime() );
+      // array.push( (new Date()).getTime() );
+      var time = (new Date()).getTime()
       var dataSet = {
         USER_ID: array[0],
         LATITUDE: array[1],
         LONGITUDE: array[2],
         LOCKSTATEE: array[3],
-        TIMESTAMP: array[4]
+        TIMESTAMP: time
       };
 
       // Call Meteor actions with "dataSet"
@@ -162,7 +165,7 @@ ddpclient.connect(function(error) {
             type: 0x10, // xbee_api.constants.FRAME_TYPE.REMOTE_AT_COMMAND_REQUEST
             id: 0x01, // optional, nextFrameId() is called per default
             // destination64: "0013A20040B7B31F", // End
-            destination64: "0013A20040C5F8BA", // R
+            destination64: "0013A20040C5F8BA", // R-Duck
             destination16: "fffe", // optional, "fffe" is default
             broadcastRadius: 0x00, // optional, 0x00 is default
             options: 0x00, // optional, 0x00 is default
