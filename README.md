@@ -29,9 +29,9 @@ Team BIKES
 </p>
 
 
-<span align="center">
+<p align="center">
 	<a href="http://redbarbikes.com/admincompilation">Then try clicking on any of the table rows:</a>
-</span>
+</p>
 <p align="center">
   <img width="300" height=auto src="/README/5-macaw-interactive.png">
 </p>
