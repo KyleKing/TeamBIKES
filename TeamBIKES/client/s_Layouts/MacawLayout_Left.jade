@@ -1,4 +1,4 @@
-template(name='MacawLayout')
+template(name='MacawLayout_Left')
 	+sAlert
 	+momentum(plugin='flow-router')
 		+NavMacaw
@@ -12,20 +12,20 @@ template(name='MacawLayout')
 			+Template.dynamic template=full
 
 	//- Cody house panels -> left was moved to its own template
-	//- .cd-panel.from-left
-	//- 	header.cd-panel-header
-	//- 		+Template.dynamic template=Slide_In_Panel_Title_Left
-	//- 		a.cd-panel-close(href='#0') Close
-
-	//- 	.cd-panel-container
-	//- 		.cd-panel-content
-	//- 			+Template.dynamic template=Slide_In_Panel_Content_Left
-
-	.cd-panel.from-right
+	.cd-panel.from-left
 		header.cd-panel-header
-			+Template.dynamic template=Slide_In_Panel_Title
+			+Template.dynamic template=Slide_In_Panel_Title_Left
 			a.cd-panel-close(href='#0') Close
 
 		.cd-panel-container
 			.cd-panel-content
-				+Template.dynamic template=Slide_In_Panel_Content
+				+Template.dynamic template=Slide_In_Panel_Content_Left
+
+	//- .cd-panel.from-right
+	//- 	header.cd-panel-header
+	//- 		+Template.dynamic template=Slide_In_Panel_Title
+	//- 		a.cd-panel-close(href='#0') Close
+
+	//- 	.cd-panel-container
+	//- 		.cd-panel-content
+	//- 			+Template.dynamic template=Slide_In_Panel_Content

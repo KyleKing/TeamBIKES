@@ -79,7 +79,7 @@ FlowRouter.route '/AdminCompilation/ManageBike/:IDofSelectedRow',
 FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Insert/',
   name: 'AdminCompilation/ManageMechanicNotes_Insert',
   action: () ->
-    BlazeLayout.render 'UniversalLayout_Left', {
+    BlazeLayout.render 'MacawLayout_Left', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title_Left: 'ManageMechanicNotes_Insert_Title'
       Slide_In_Panel_Content_Left: 'ManageMechanicNotes_Insert'
