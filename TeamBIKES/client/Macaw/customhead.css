@@ -1,0 +1,15 @@
+// source: https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d#.731cv2odc or alternate: https://github.com/mrmlnc/material-shadows
+.card {
+  transition: all 500ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-2px);
+}
+
+// my variations:
+.static-card {
+  transition: all 250ms;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+}

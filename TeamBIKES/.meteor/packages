@@ -4,10 +4,28 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+# Changed meteor-standard packages list: https://github.com/meteor/meteor/pull/4851
+meteor-base
+standard-minifiers
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+ecmascript
+# meteor-platform
 # autopublish
 # insecure
 
 # meteortoys:allthings@1.2.3 # Pres ctrl-m to activate
+meteortoys:allthings # Pres ctrl-m to activate
 
 #### Libraries and Preprocessors ####
 stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
@@ -169,18 +187,3 @@ meteorhacks:aggregate
 # New Packages
 mrt:bootstrap3-typeahead
 proj4:proj4
-standard-minifiers
-meteor-base
-mobile-experience
-mongo
-blaze-html-templates
-session
-jquery
-tracker
-logging
-reload
-random
-ejson
-spacebars
-check
-ecmascript

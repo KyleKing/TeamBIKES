@@ -1,61 +1,67 @@
 # Block all pages
-FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ["about", 'agency', "map"] }
+FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ["about", 'agency', "map", "RFIDlayout"] }
 
-FlowRouter.route '/',
-  name: 'about',
-  action: ->
-    BlazeLayout.render 'UniversalLayout_Basic', full: 'agency'
 FlowRouter.route '/progress',
   name: 'progress',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'progress'
+    BlazeLayout.render 'MacawLayout', body: 'progress'
+
+# FlowRouter.route '/',
+#   name: 'about',
+#   action: ->
+#     BlazeLayout.render 'UniversalLayout', full: 'agency'
+FlowRouter.route '/',
+  name: 'about',
+  action: ->
+    BlazeLayout.render 'MacawLayout', full: 'aboutmacaw'
+
 
 
 ###   Public ###
-FlowRouter.route '/about_Ideas',
-  name: 'about_Ideas',
+FlowRouter.route '/about_ideas',
+  name: 'ideas',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'about'
+    BlazeLayout.render 'MacawLayout', body: 'about'
 
 ### User ###
 FlowRouter.route '/Profile',
   name: 'Profile',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'Profile'
+    BlazeLayout.render 'MacawLayout', body: 'Profile'
 FlowRouter.route '/map',
   name: 'map',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'map'
+    BlazeLayout.render 'MacawLayout', body: 'map'
 FlowRouter.route '/MechMap',
   name: 'MechMap',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'MechMap'
+    BlazeLayout.render 'MacawLayout', body: 'MechMap'
 
 
 ### Administrator ###
 FlowRouter.route '/charts',
   name: 'chartsAdmin',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'chartsAdmin'
+    BlazeLayout.render 'MacawLayout', body: 'chartsAdmin'
 FlowRouter.route '/RFIDlayout',
   name: 'RFIDlayout',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'RFIDlayout'
+    BlazeLayout.render 'MacawLayout', body: 'RFIDlayout'
 FlowRouter.route '/mechanicView',
   name: 'mechanicView',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'mechanicView'
+    BlazeLayout.render 'MacawLayout', body: 'mechanicView'
 FlowRouter.route '/timeseries',
   name: 'timeseries',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'timeseries'
+    BlazeLayout.render 'MacawLayout', body: 'timeseries'
 
 
 # DEV - TabularTables
 FlowRouter.route '/AdminCompilation',
   name: 'AdminCompilation',
   action: ->
-    BlazeLayout.render 'UniversalLayout', {
+    BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title: 'Slide_In_Panel_Placeholder_Title'
       Slide_In_Panel_Content: 'Slide_In_Panel_Placeholder'
@@ -64,7 +70,7 @@ FlowRouter.route '/AdminCompilation',
 FlowRouter.route '/AdminCompilation/ManageBike/:IDofSelectedRow',
   name: 'AdminCompilation/ManageBike',
   action: (params, queryParams) ->
-    BlazeLayout.render 'UniversalLayout', {
+    BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title: 'ManageBike_Title'
       Slide_In_Panel_Content: 'ManageBike'
@@ -72,8 +78,8 @@ FlowRouter.route '/AdminCompilation/ManageBike/:IDofSelectedRow',
 
 FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Insert/',
   name: 'AdminCompilation/ManageMechanicNotes_Insert',
-  action: ->
-    BlazeLayout.render 'UniversalLayout_Left', {
+  action: () ->
+    BlazeLayout.render 'MacawLayout_Left', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title_Left: 'ManageMechanicNotes_Insert_Title'
       Slide_In_Panel_Content_Left: 'ManageMechanicNotes_Insert'
@@ -82,7 +88,7 @@ FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Insert/',
 FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Form/:IDofSelectedRow',
   name: 'AdminCompilation/ManageMechanicNotes_Form',
   action: (params, queryParams) ->
-    BlazeLayout.render 'UniversalLayout', {
+    BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
       Slide_In_Panel_Content: 'ManageMechanicNotes_Form'
@@ -91,19 +97,19 @@ FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Form/:IDofSelectedRow',
 FlowRouter.route '/AdminCompilation/ManageUsers_Form/:IDofSelectedRow',
   name: 'AdminCompilation/ManageUsers_Form',
   action: (params, queryParams) ->
-    BlazeLayout.render 'UniversalLayout', {
+    BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title: 'ManageUsers_Form_Title'
       Slide_In_Panel_Content: 'ManageUsers_Form'
     }
 
 # Quick Dev Route
-# FlowRouter.route '/dev/kyle',
-#   name: 'Dev',
-#   action: ->
-#     BlazeLayout.render 'UniversalLayout_Basic', {
-#       body: 'RFIDlayout'
-#     }
+FlowRouter.route '/dev/kyle',
+  name: 'Dev',
+  action: () ->
+    BlazeLayout.render 'UniversalLayout_Basic', {
+      body: 'LoginFormCD'
+    }
 
 # Scroll to the top of every page
 ScrollToTop = ->

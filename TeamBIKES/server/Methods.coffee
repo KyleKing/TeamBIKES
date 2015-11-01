@@ -1,34 +1,40 @@
 Meteor.methods 'UserReserveBike': (currentUserId, Bike) ->
-	# Check if other reserved bikes and remove reservations
-	count = RemoveReservation(currentUserId)
+  # Check if other reserved bikes and remove reservations
+  count = RemoveReservation(currentUserId)
 
-	# Find and reserve requested bike
-	[today, now] = CurrentDay()
-	record = DailyBikeData.findOne({Bike: Bike, Day: today})
-	if record
-		DailyBikeData.update record, {$set: {Tag: currentUserId} }
-		console.log 'Reserved bike #' + Bike
-	# Create cron task to delete reservation at set time interval
-	StartReservationCountdown(currentUserId, Bike)
-	count
+  # Find and reserve requested bike
+  [today, now] = CurrentDay()
+  record = DailyBikeData.findOne({Bike: Bike, Day: today})
+  if record
+    DailyBikeData.update record, {$set: {Tag: currentUserId} }
+    console.log 'Reserved bike #' + Bike
+  # Create cron task to delete reservation at set time interval
+  StartReservationCountdown(currentUserId, Bike)
+  count
 
 Meteor.methods 'mySubmitFunc': (currentUserId) ->
-	# Prepare fields to udpate MongoDB
-	fields = {}
-	fields.RFID = Fake.word()
-	record = Meteor.users.findOne(_id: currentUserId)
-	if record.RFID != undefined
-		console.log [
-			'RFID code already set for '
-			record._id
-		]
-	else
-		Meteor.users.update record, $set: fields
-		console.log [
-			'Set RFID code for '
-			record._id
-		]
-	'ok'
+  # Prepare fields to udpate MongoDB
+  fields = {}
+  fields.RFID = Fake.word()
+  record = Meteor.users.findOne(_id: currentUserId)
+  if record.RFID != undefined
+    console.log [
+      'RFID code already set for '
+      record._id
+    ]
+  else
+    Meteor.users.update record, $set: fields
+    console.log [
+      'Set RFID code for '
+      record._id
+    ]
+  'ok'
+
+Meteor.methods 'DeleteOldRFID': ->
+  # Useful function from lib/CurrentDay.coffee for current date and time
+  [today, now] = CurrentDay()
+  RFIDdata.remove( { TIMESTAMP: { $lt:  now} } )
+  'ok'
 
 ###*******************************************###
 
@@ -61,72 +67,79 @@ Meteor.methods 'mySubmitFunc': (currentUserId) ->
 #   encrypted.toString()
 
 Meteor.methods 'RFIDStreamData': (dataSet) ->
-	RFIDdata.insert dataSet
-	console.log dataSet
-	'Recorded'
+  console.log '--------------------'
+  # console.log '--------------------'
+  # Check user RFID code against database record set in seeds-admin
+  RFIDCODE = dataSet.USER_ID
+  hits = Meteor.users.find({'profile.RFID': RFIDCODE}).count()
+  dataSet.confirmation = hits
+  # console.log hits
 
-	# incoming = dataSet.USER_ID
-	# console.log incoming.trim()
-	# # Remove excess whitespace
-	# code = incoming.trim()
+  # console.log '--'
+  # console.log '>> Here are the users RFID dataset:'
+  users = Meteor.users.find().fetch()
+  # _.each users, (user) ->
+    # console.log user.profile.RFID
+  # console.log '--'
+  console.log '>> Inserting RFID dataset:'
+  console.log dataSet
+  RFIDdata.insert dataSet
 
-	# # if RFIDdata.find(RFIDCode: code).count() == 1
-	# #   # Correct RFID Code Found
-	# #   record = RFIDdata.find(RFIDCode: code)
-	# #   'OPENSESAME*'
-	# else if RFIDdata.find(RFIDCode: code).count() == 0
-	#   # No RFID Code Found
-	#   'NO*'
-	# else
-	#   # Too many RFID codes found
-	#   console.log 'Too many matching RFID codes....what the heck!?!?!'
-	#   'MongoDB Error'
+  # Determine appropriate response
+  if hits is 1
+    'y'
+  else if hits >= 1
+    'nope'
+  else if hits is 0
+    'n'
+  else
+    ' not cool '
 
 
 Meteor.methods 'loop': (dataSet, schema) ->
-	# Print out schema of received data]
-	# for (var key in dataSet) {
-	#   if (dataSet.hasOwnProperty(key)) {
-	#     console.log(key + " -> " + dataSet[key]);
-	#   }
-	# }
-	# Prepare fields to udpate MongoDB
-	fields = {}
-	root = [ 'Time.' + dataSet.timeHH + '.' + dataSet.timemm ]
-	fields[root + '.user'] = dataSet.User
-	fields[root + '.lat'] = dataSet.Lat
-	fields[root + '.lng'] = dataSet.Long
-	# Update MongoDB data based on bike number
-	record = TimeSeries.findOne(
-		Bike: dataSet.BikeNumber
-		YYYY: dataSet.timeYYYY
-		MM: dataSet.timeMM
-		DD: dataSet.timeDD)
-	TimeSeries.update record, $set: fields
-	'ok'
+  # Print out schema of received data]
+  # for (var key in dataSet) {
+  #   if (dataSet.hasOwnProperty(key)) {
+  #     console.log(key + " -> " + dataSet[key]);
+  #   }
+  # }
+  # Prepare fields to udpate MongoDB
+  fields = {}
+  root = [ 'Time.' + dataSet.timeHH + '.' + dataSet.timemm ]
+  fields[root + '.user'] = dataSet.User
+  fields[root + '.lat'] = dataSet.Lat
+  fields[root + '.lng'] = dataSet.Long
+  # Update MongoDB data based on bike number
+  record = TimeSeries.findOne(
+    Bike: dataSet.BikeNumber
+    YYYY: dataSet.timeYYYY
+    MM: dataSet.timeMM
+    DD: dataSet.timeDD)
+  TimeSeries.update record, $set: fields
+  'ok'
 Meteor.methods 'current': (dataSet, schema) ->
-	# Print out schema of received data]
-	for key of dataSet
-		if dataSet.hasOwnProperty(key)
-			console.log key + ' -> ' + dataSet[key]
-	# Prepare fields to udpate MongoDB
-	fields = {}
-	fields.lat = dataSet.lat
-	fields.lng = dataSet.lng
-	# Update MongoDB data based on bike number
-	record = Current.findOne(Bike: dataSet.BikeNumber)
-	Current.update record, $set: fields
-	'ok'
+  # Print out schema of received data]
+  for key of dataSet
+    if dataSet.hasOwnProperty(key)
+      console.log key + ' -> ' + dataSet[key]
+  # Prepare fields to udpate MongoDB
+  fields = {}
+  fields.lat = dataSet.lat
+  fields.lng = dataSet.lng
+  # Update MongoDB data based on bike number
+  record = Current.findOne(Bike: dataSet.BikeNumber)
+  Current.update record, $set: fields
+  'ok'
 Meteor.methods 'chart': (dataSet) ->
-	# Prepare fields to udpate MongoDB
-	fields = {}
-	fields['data.' + dataSet.BikeNumber] = dataSet.Potentiometer
-	fields.x = dataSet.x
-	console.log dataSet.Potentiometer
-	# Update MongoDB data based on bike number
-	record = AdminAreaChart.findOne()
-	AdminAreaChart.update record, $set: fields
-	'ok'
+  # Prepare fields to udpate MongoDB
+  fields = {}
+  fields['data.' + dataSet.BikeNumber] = dataSet.Potentiometer
+  fields.x = dataSet.x
+  console.log dataSet.Potentiometer
+  # Update MongoDB data based on bike number
+  record = AdminAreaChart.findOne()
+  AdminAreaChart.update record, $set: fields
+  'ok'
 
 
 

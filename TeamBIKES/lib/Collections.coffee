@@ -111,8 +111,8 @@ Meteor.users.attachSchema new SimpleSchema(
     type: String
     regEx: SimpleSchema.RegEx.Email
   'emails.$.verified': type: Boolean
-  'profile.name':
-    type: String
+  'profile.name': type: String
+  'profile.RFID': type: String
   # # Always use Roles.addUsersToRoles(userId, ["admin"], Roles.GLOBAL_GROUP);
   # roles:
   #   type: Object

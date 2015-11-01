@@ -29,7 +29,7 @@ Template.map.rendered = ->
       MapMarkers[bike._id] = L.marker(latlng,
         title: bike.Bike
         opacity: 0.75
-        icon: BikeIcon).on("dblclick", (e) ->
+        icon: BikeIcon).on("click", (e) ->
           # Important Vars
           [today, now] = CurrentDay()
           SelectedBike = e.target.options.title

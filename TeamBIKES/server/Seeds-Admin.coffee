@@ -80,26 +80,31 @@ if Meteor.users.find({}).count() is 0
     {
       FullName: 'Normal'
       Email: 'normal@example.com'
+      RFID: 'THIS IS NOT THE KYLE YOU ARE LOOKING FOR'
       Roles: []
     }
     {
       FullName: 'Mechanic'
       Email: 'mechanic@example.com'
+      RFID: 'NotKyle'
       Roles: ['Mechanic', 'Employee']
     }
     {
       FullName: 'Redistribution'
       Email: 'redistribution@example.com'
+      RFID: 'c5194f30'
       Roles: ['Redistribution', 'Employee']
     }
     {
       FullName: 'Admin'
       Email: 'admin@example.com'
+      RFID: 'NOT 653c4730'
       Roles: ['Admin']
     }
     # {
     #   FullName: 'Root'
     #   Email: 'root@example.com'
+    #   RFID: 'THISISKyle'
     #   Roles: ['Root']
     # }
   ]
@@ -110,7 +115,9 @@ if Meteor.users.find({}).count() is 0
     id = Accounts.createUser(
       email: user.Email
       password: 'password'
-      profile: name: user.FullName)
+      profile:
+        RFID: user.RFID
+        name: user.FullName)
     if user.Roles.length > 0
       # Need _id of existing user record so this call must come
       # after `Accounts.createUser` or `Accounts.onCreate`

@@ -2,12 +2,8 @@
   // Server authentication info
   "servers": [
     {
-      // "host": "104.131.85.254",
-      // "host": "104.236.208.178",
-      // "host": "104.131.51.53",
-      "host": "45.55.60.214",
+      "host": "159.203.12.114",
       "username": "root",
-      // "password": "password"
       // or pem file (ssh based authentication)
       "pem": "~/.ssh/id_rsa"
     }
@@ -30,7 +26,6 @@
   "enableUploadProgressBar": true,
 
   // Application name (No spaces)
-  // "appName": "RedBarBikes",
   "appName": "TeamBikes",
 
   // Location of app (local directory)
