@@ -61,7 +61,7 @@ FlowRouter.route '/timeseries',
 FlowRouter.route '/AdminCompilation',
   name: 'AdminCompilation',
   action: ->
-    BlazeLayout.render 'UniversalLayout', {
+    BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title: 'Slide_In_Panel_Placeholder_Title'
       Slide_In_Panel_Content: 'Slide_In_Panel_Placeholder'
@@ -70,7 +70,7 @@ FlowRouter.route '/AdminCompilation',
 FlowRouter.route '/AdminCompilation/ManageBike/:IDofSelectedRow',
   name: 'AdminCompilation/ManageBike',
   action: (params, queryParams) ->
-    BlazeLayout.render 'UniversalLayout', {
+    BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title: 'ManageBike_Title'
       Slide_In_Panel_Content: 'ManageBike'
@@ -88,7 +88,7 @@ FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Insert/',
 FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Form/:IDofSelectedRow',
   name: 'AdminCompilation/ManageMechanicNotes_Form',
   action: (params, queryParams) ->
-    BlazeLayout.render 'UniversalLayout', {
+    BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
       Slide_In_Panel_Content: 'ManageMechanicNotes_Form'
@@ -97,7 +97,7 @@ FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Form/:IDofSelectedRow',
 FlowRouter.route '/AdminCompilation/ManageUsers_Form/:IDofSelectedRow',
   name: 'AdminCompilation/ManageUsers_Form',
   action: (params, queryParams) ->
-    BlazeLayout.render 'UniversalLayout', {
+    BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
       Slide_In_Panel_Title: 'ManageUsers_Form_Title'
       Slide_In_Panel_Content: 'ManageUsers_Form'
