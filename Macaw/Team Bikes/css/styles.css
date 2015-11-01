@@ -4,6 +4,10 @@ body {
   color: rgb(0, 0, 0);
 }
 
+.page-about {
+  color: rgb(0, 0, 0);
+}
+
 .active {
   width: 31.75499146%;
   padding-right: 10px;
@@ -28,11 +32,6 @@ body {
   line-height: 1.38;
 }
 
-.bad-idea .break-out,
-.inspiration .break-out {
-  width: 99.9999999999%;
-}
-
 .break-out {
   float: left;
   font-size: 1.25em;
@@ -42,8 +41,8 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.bad-idea,
-.break-out-text {
+.break-out-text,
+.map-content {
   float: left;
 }
 
@@ -74,7 +73,6 @@ body {
 
 .card-header {
   width: 100%;
-  margin-top: 9px;
   padding-bottom: 5px;
   font-size: 1.25em;
   font-weight: 700;
@@ -90,14 +88,14 @@ body {
   width: 100%;
 }
 
-.casual-rider .bad-idea {
+.casual-rider .map-content {
   width: 58.9722948119%;
   margin: 82px 0 0 2.41012%;
 }
 
 .casual-rider .price {
   width: 30.6455813172%;
-  margin: 21px 0 0 3.95665%;
+  margin: 21px 0 0 3.94195%;
   background-color: rgb(238, 193, 16);
 }
 
@@ -134,19 +132,19 @@ body {
   color: rgb(252, 252, 252);
 }
 
-.daily-rider .bad-idea {
-  width: 58.9722948119%;
-  margin: 60px 0 0 2.41012%;
-}
-
 .casual-rider .break-out-text,
 .daily-rider .break-out-text {
   width: 65.376344086%;
 }
 
+.daily-rider .map-content {
+  width: 58.9722948119%;
+  margin: 60px 0 0 2.41012%;
+}
+
 .daily-rider .price {
   width: 30.6455813172%;
-  margin: 43px 0 0 3.95455%;
+  margin: 43px 0 0 3.93985%;
   background-color: rgb(37, 206, 108);
 }
 
@@ -160,27 +158,39 @@ body {
   color: rgb(0, 0, 0);
 }
 
+.divfabackground {
+  float: left;
+  width: 21.4412543133%;
+  height: 100px;
+  margin-left: 39.45191%;
+}
+
 .fa {
   width: 100px;
   height: 100px;
-  margin: 0 auto;
   border-radius: 4050px;
 }
 
 .fa-refresh {
+  margin: 0 auto;
   background-color: #015196;
 }
 
-.fa-bicycle,
 .fa-university {
+  margin: 0 auto;
   background-color: rgb(1, 81, 150);
+}
+
+.fabackground {
+  float: left;
+  background-color: rgb(172, 39, 39);
 }
 
 .footer-content {
   position: relative;
   float: left;
   clear: both;
-  z-index: 66;
+  z-index: 67;
   width: 100%;
   margin-top: 40px;
   padding: 10px;
@@ -188,7 +198,7 @@ body {
 }
 
 .footer-content .center-group {
-  width: 96.6101694915%;
+  width: 79.848892405%;
   margin: 0 auto;
 }
 
@@ -206,11 +216,16 @@ body {
 
 .inspiration .break-out-text {
   width: 69.2551505546%;
-  margin: 91px 0 0 2.40888%;
+  margin: 15px 0 0 2.43489%;
 }
 
 .inspiration .image {
   width: 28.2884310618%;
+}
+
+.inspiration .break-out,
+.map-content .break-out {
+  width: 99.9999999999%;
 }
 
 .map-green {
@@ -293,7 +308,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 73;
+  z-index: 74;
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -347,7 +362,7 @@ body {
   position: relative;
   float: left;
   clear: both;
-  z-index: 61;
+  z-index: 62;
   width: 78.85078125%;
   margin: 30px 0 0 10.57422%;
 }
@@ -360,13 +375,7 @@ body {
   margin-top: 101px;
   padding-top: 40px;
   padding-bottom: 60px;
-  background: rgb(237, 232, 229);
-  background: -webkit-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
-  background:    -moz-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
-  background:      -o-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
-  background:     -ms-linear-gradient(327deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
-  background:         linear-gradient(123deg, rgb(237, 232, 229) 0%, rgb(237, 232, 229) 0%, rgb(172, 39, 39) 100%) rgb(237, 232, 229);
-  background-repeat: no-repeat;
+  background-color: rgb(120, 120, 120);
 }
 
 .primary .cta {
@@ -375,18 +384,18 @@ body {
   font-weight: 700;
   line-height: 1.38;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: rgb(252, 252, 252);
 }
 
 .secondary {
   position: relative;
   float: left;
   clear: both;
-  z-index: 16;
+  z-index: 17;
   width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: rgb(1, 81, 150);
+  background-color: rgb(172, 39, 39);
 }
 
 .section-header {
@@ -432,12 +441,12 @@ body {
 
 .technology .break-out-text {
   width: 69.2551505546%;
-  margin-top: 105px;
+  margin-top: 15px;
 }
 
 .technology .image {
   width: 28.3045265451%;
-  margin-left: 2.40888%;
+  margin-left: 2.38535%;
 }
 
 .terms {
@@ -463,13 +472,13 @@ body {
   padding-top: 20px;
 }
 
-.the-commuter .bad-idea {
-  width: 59.0357058816%;
-  margin: 71px 0 0 2.3903%;
-}
-
 .the-commuter .break-out-text {
   width: 65.3063964587%;
+}
+
+.the-commuter .map-content {
+  width: 59.0357058816%;
+  margin: 71px 0 0 2.3903%;
 }
 
 .the-commuter .price {
@@ -505,21 +514,21 @@ body {
 }
 
 .card-header-1 {
-  margin-right: auto;
-  margin-left: auto;
+  margin: 109px auto 0;
 }
 
 .card-header-2,
 .card-header-3 {
   float: left;
   clear: both;
+  margin-top: 9px;
 }
 
 .center-group-1 {
   position: relative;
   float: left;
   clear: both;
-  z-index: 28;
+  z-index: 29;
   width: 100%;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -540,7 +549,7 @@ body {
   position: relative;
   float: left;
   clear: both;
-  z-index: 38;
+  z-index: 39;
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: rgb(172, 39, 39);
@@ -591,7 +600,7 @@ body {
 .static-card-2 {
   float: left;
   width: 30.4018229166%;
-  margin-left: 1.89844%;
+  margin-left: 1.92188%;
 }
 
 .static-card-3 {
@@ -682,11 +691,6 @@ body {
 }
 
 @media(max-width: 1100px) {
-  .bad-idea .price {
-    clear: both;
-    margin-top: 20px;
-  }
-
   .card .card-content {
     margin-left: 8.14494%;
   }
@@ -709,7 +713,7 @@ body {
     margin-left: auto;
   }
 
-  .casual-rider .bad-idea {
+  .casual-rider .map-content {
     margin-top: 27px;
     margin-left: 2.40858%;
   }
@@ -730,18 +734,18 @@ body {
   }
 
   .center-group .tertiary {
-    margin-left: 10.5696%;
-  }
-
-  .daily-rider .bad-idea {
-    margin-top: 24px;
-    margin-left: 2.40858%;
+    margin-left: 10.56392%;
   }
 
   .casual-rider .break-out-text,
   .daily-rider .break-out-text {
     width: 100.1166946693%;
     margin-left: -0.11608%;
+  }
+
+  .daily-rider .map-content {
+    margin-top: 24px;
+    margin-left: 2.40858%;
   }
 
   .daily-rider .map-green {
@@ -755,9 +759,17 @@ body {
     margin-left: 0.00611%;
   }
 
+  .divfabackground .fabackground {
+    margin-left: 21.22646%;
+  }
+
   .footer-content {
     position: relative;
-    z-index: 66;
+    z-index: 67;
+  }
+
+  .footer-content .center-group {
+    width: 96.685474537%;
   }
 
   .inspiration .break-out-text {
@@ -771,6 +783,11 @@ body {
     height: auto;
   }
 
+  .map-content .price {
+    clear: both;
+    margin-top: 20px;
+  }
+
   .nav-content .nav-elements {
     margin-left: 19.532%;
   }
@@ -781,8 +798,8 @@ body {
 
   .pricing {
     position: relative;
-    z-index: 61;
-    margin-left: 10.5696%;
+    z-index: 62;
+    margin-left: 10.56392%;
   }
 
   .pricing .section-header {
@@ -802,11 +819,16 @@ body {
 
   .secondary {
     position: relative;
-    z-index: 16;
+    z-index: 17;
   }
 
   .static-card .card-content {
     text-align: center;
+  }
+
+  .static-card .divfabackground {
+    width: 21.4397669229%;
+    margin-left: 39.5327399999%;
   }
 
   .technology .break-out-text {
@@ -816,17 +838,17 @@ body {
   .technology .image {
     width: 25%;
     height: auto;
-    margin-left: 2.29328%;
-  }
-
-  .the-commuter .bad-idea {
-    margin-top: 47px;
-    margin-left: 2.38876%;
+    margin-left: 2.29148%;
   }
 
   .the-commuter .break-out-text {
     width: 100.0067134574%;
     margin-left: -0.0061000001%;
+  }
+
+  .the-commuter .map-content {
+    margin-top: 47px;
+    margin-left: 2.38876%;
   }
 
   .the-commuter .price {
@@ -843,24 +865,24 @@ body {
   }
 
   .center-group .site-links-1 {
-    z-index: 62;
+    z-index: 63;
     width: 31.9719659757%;
   }
 
   .center-group .site-links-2 {
-    z-index: 63;
+    z-index: 64;
     width: 32.0576254941%;
     margin-left: 1.99623%;
   }
 
   .center-group-1 {
     position: relative;
-    z-index: 28;
+    z-index: 29;
   }
 
   .cta-3 {
     position: relative;
-    z-index: 38;
+    z-index: 39;
   }
 
   .nav-elements .nav-element-2 {
@@ -873,14 +895,14 @@ body {
 
   .secondary .static-card-1 {
     width: 78.8513392857%;
-    margin-left: 10.57102%;
+    margin-left: 10.56392%;
   }
 
   .secondary .static-card-2 {
     clear: both;
     width: 78.8513392857%;
     margin-top: 20px;
-    margin-left: 10.57102%;
+    margin-left: 10.56392%;
   }
 
   .secondary .static-card-3 {
@@ -919,15 +941,15 @@ body {
     margin-left: 10.57422%;
   }
 
-  .casual-rider .bad-idea,
-  .daily-rider .bad-idea {
-    margin-top: 0;
-    margin-left: 2.36804%;
-  }
-
   .casual-rider .break-out-text,
   .daily-rider .break-out-text {
     margin-left: -0.11341%;
+  }
+
+  .casual-rider .map-content,
+  .daily-rider .map-content {
+    margin-top: 0;
+    margin-left: 2.36804%;
   }
 
   .casual-rider .map-yellow,
@@ -940,9 +962,19 @@ body {
     margin-left: 0;
   }
 
+  .divfabackground .fabackground {
+    margin-left: 10.95335%;
+  }
+
   .footer-content {
     position: relative;
-    z-index: 66;
+    z-index: 67;
+  }
+
+  .footer-content .center-group {
+    float: left;
+    margin-right: 0;
+    margin-left: 1.69271%;
   }
 
   .inspiration .break-out-text {
@@ -964,7 +996,7 @@ body {
 
   .pricing {
     position: relative;
-    z-index: 61;
+    z-index: 62;
     margin-left: 10.57422%;
   }
 
@@ -983,7 +1015,12 @@ body {
 
   .secondary {
     position: relative;
-    z-index: 16;
+    z-index: 17;
+  }
+
+  .static-card .divfabackground {
+    width: 21.439717582%;
+    margin-left: 39.45154%;
   }
 
   .technology .break-out-text {
@@ -1000,35 +1037,35 @@ body {
     padding-top: 35px;
   }
 
-  .the-commuter .bad-idea {
-    margin-top: 0;
-    margin-left: 2.38538%;
-  }
-
   .the-commuter .break-out-text {
     float: right;
     margin-left: 0;
   }
 
+  .the-commuter .map-content {
+    margin-top: 0;
+    margin-left: 2.38538%;
+  }
+
   .center-group .site-links-1 {
-    z-index: 62;
+    z-index: 63;
     width: 48.9924730959%;
   }
 
   .center-group .site-links-2 {
-    z-index: 63;
+    z-index: 64;
     width: 48.9684201795%;
     margin-left: 2.03828%;
   }
 
   .center-group-1 {
     position: relative;
-    z-index: 28;
+    z-index: 29;
   }
 
   .cta-3 {
     position: relative;
-    z-index: 38;
+    z-index: 39;
   }
 
   .nav-elements .nav-element-2 {
@@ -1069,14 +1106,14 @@ body {
     margin-left: 10.57143%;
   }
 
-  .casual-rider .bad-idea,
-  .daily-rider .bad-idea {
-    margin-left: 2.37226%;
-  }
-
   .casual-rider .break-out-text,
   .daily-rider .break-out-text {
     margin-left: -0.11521%;
+  }
+
+  .casual-rider .map-content,
+  .daily-rider .map-content {
+    margin-left: 2.37226%;
   }
 
   .casual-rider .map-yellow,
@@ -1089,9 +1126,17 @@ body {
     width: 65.3986846526%;
   }
 
+  .divfabackground .fabackground {
+    margin-left: 5.16509%;
+  }
+
   .footer-content {
     position: relative;
-    z-index: 66;
+    z-index: 67;
+  }
+
+  .footer-content .center-group {
+    margin-left: 1.69118%;
   }
 
   .inspiration .break-out-text {
@@ -1114,7 +1159,7 @@ body {
 
   .pricing {
     position: relative;
-    z-index: 61;
+    z-index: 62;
     margin-left: 10.57143%;
   }
 
@@ -1133,7 +1178,12 @@ body {
 
   .secondary {
     position: relative;
-    z-index: 16;
+    z-index: 17;
+  }
+
+  .static-card .divfabackground {
+    width: 21.4392715523%;
+    margin-left: 39.47716%;
   }
 
   .technology .break-out-text {
@@ -1150,7 +1200,7 @@ body {
     margin-left: auto;
   }
 
-  .the-commuter .bad-idea {
+  .the-commuter .map-content {
     margin-left: 2.37792%;
   }
 
@@ -1159,23 +1209,23 @@ body {
   }
 
   .center-group .site-links-1 {
-    z-index: 62;
+    z-index: 63;
   }
 
   .center-group .site-links-2 {
-    z-index: 63;
+    z-index: 64;
     width: 49.0153172866%;
     margin-left: 1.99315%;
   }
 
   .center-group-1 {
     position: relative;
-    z-index: 28;
+    z-index: 29;
   }
 
   .cta-3 {
     position: relative;
-    z-index: 38;
+    z-index: 39;
   }
 
   .nav-elements .nav-element-2 {
@@ -1194,13 +1244,6 @@ body {
 @media(max-width: 600px) {
   body {
     font-size: 1em;
-  }
-
-  .bad-idea .price {
-    float: none;
-    clear: none;
-    margin-right: auto;
-    margin-left: auto;
   }
 
   .card .card-content {
@@ -1243,9 +1286,17 @@ body {
     margin-top: 157px;
   }
 
+  .divfabackground .fabackground {
+    margin-left: -0.4375%;
+  }
+
   .footer-content {
     position: relative;
-    z-index: 66;
+    z-index: 67;
+  }
+
+  .footer-content .center-group {
+    margin-left: 1.68912%;
   }
 
   .inspiration .break-out-text {
@@ -1258,6 +1309,13 @@ body {
     height: auto;
   }
 
+  .map-content .price {
+    float: none;
+    clear: none;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   .nav-content .nav-elements {
     margin-left: 19.53125%;
   }
@@ -1268,7 +1326,7 @@ body {
 
   .pricing {
     position: relative;
-    z-index: 61;
+    z-index: 62;
     margin-left: 10.57292%;
   }
 
@@ -1288,7 +1346,12 @@ body {
 
   .secondary {
     position: relative;
-    z-index: 16;
+    z-index: 17;
+  }
+
+  .static-card .divfabackground {
+    width: 22.0704876198%;
+    margin-left: 39.05787%;
   }
 
   .technology .break-out-text {
@@ -1301,9 +1364,9 @@ body {
     margin-top: 159px;
   }
 
-  .casual-rider .bad-idea,
-  .daily-rider .bad-idea,
-  .the-commuter .bad-idea {
+  .casual-rider .map-content,
+  .daily-rider .map-content,
+  .the-commuter .map-content {
     clear: both;
     width: 100.0039632736%;
     margin-top: 10px;
@@ -1321,23 +1384,23 @@ body {
   }
 
   .center-group .site-links-1 {
-    z-index: 62;
+    z-index: 63;
   }
 
   .center-group .site-links-2 {
-    z-index: 63;
+    z-index: 64;
     width: 46.4013831181%;
     margin-left: 1.90179%;
   }
 
   .center-group-1 {
     position: relative;
-    z-index: 28;
+    z-index: 29;
   }
 
   .cta-3 {
     position: relative;
-    z-index: 38;
+    z-index: 39;
   }
 
   .nav-elements .nav-element-2 {
@@ -1392,9 +1455,17 @@ body {
     margin-top: 180px;
   }
 
+  .divfabackground .fabackground {
+    margin-left: -0.84375%;
+  }
+
   .footer-content {
     position: relative;
-    z-index: 66;
+    z-index: 67;
+  }
+
+  .footer-content .center-group {
+    margin-left: 1.69271%;
   }
 
   .inspiration .image {
@@ -1414,7 +1485,7 @@ body {
 
   .pricing {
     position: relative;
-    z-index: 61;
+    z-index: 62;
     margin-left: 10.57188%;
   }
 
@@ -1435,7 +1506,12 @@ body {
 
   .secondary {
     position: relative;
-    z-index: 16;
+    z-index: 17;
+  }
+
+  .static-card .divfabackground {
+    width: 26.7201068804%;
+    margin-left: 36.86957%;
   }
 
   .technology .image {
@@ -1443,11 +1519,11 @@ body {
     margin-top: 181px;
   }
 
-  .casual-rider .bad-idea,
-  .daily-rider .bad-idea,
+  .casual-rider .map-content,
+  .daily-rider .map-content,
   .inspiration .break-out-text,
   .technology .break-out-text,
-  .the-commuter .bad-idea {
+  .the-commuter .map-content {
     margin-left: -0.00396%;
   }
 
@@ -1460,22 +1536,22 @@ body {
   }
 
   .center-group .site-links-1 {
-    z-index: 62;
+    z-index: 63;
   }
 
   .center-group .site-links-2 {
     clear: both;
-    z-index: 63;
+    z-index: 64;
   }
 
   .center-group-1 {
     position: relative;
-    z-index: 28;
+    z-index: 29;
   }
 
   .cta-3 {
     position: relative;
-    z-index: 38;
+    z-index: 39;
   }
 
   .nav-elements .nav-element-2 {
@@ -1501,12 +1577,8 @@ body {
     font-size: 1em;
   }
 
-  .bad-idea .price {
-    width: 70%;
-  }
-
   .card .card-content {
-    margin-left: 6.43663%;
+    margin-left: 6.41059%;
   }
 
   .card .email,
@@ -1546,7 +1618,11 @@ body {
 
   .footer-content {
     position: relative;
-    z-index: 66;
+    z-index: 67;
+  }
+
+  .footer-content .center-group {
+    margin-left: 1.69408%;
   }
 
   .inspiration .image {
@@ -1554,9 +1630,13 @@ body {
     height: auto;
   }
 
+  .map-content .price {
+    width: 70%;
+  }
+
   .pricing {
     position: relative;
-    z-index: 61;
+    z-index: 62;
     margin-left: 10.56641%;
   }
 
@@ -1585,7 +1665,12 @@ body {
 
   .secondary {
     position: relative;
-    z-index: 16;
+    z-index: 17;
+  }
+
+  .static-card .divfabackground {
+    width: 27.7777777777%;
+    margin-left: 36.1111099999%;
   }
 
   .technology .image {
@@ -1594,16 +1679,17 @@ body {
     margin-top: 203px;
   }
 
-  .casual-rider .bad-idea,
-  .daily-rider .bad-idea,
+  .casual-rider .map-content,
+  .daily-rider .map-content,
+  .divfabackground .fabackground,
   .inspiration .break-out-text,
   .technology .break-out-text,
-  .the-commuter .bad-idea {
+  .the-commuter .map-content {
     margin-left: 0;
   }
 
   .the-commuter .map-red {
-    margin-left: -0.08224%;
+    margin-left: -0.07813%;
   }
 
   .card ._button {
@@ -1611,25 +1697,25 @@ body {
   }
 
   .center-group .site-links-1 {
-    z-index: 62;
+    z-index: 63;
   }
 
   .center-group .site-links-2 {
-    z-index: 63;
+    z-index: 64;
   }
 
   .center-group-1 {
     position: relative;
-    z-index: 28;
+    z-index: 29;
   }
 
   .cta-3 {
     position: relative;
-    z-index: 38;
+    z-index: 39;
   }
 
   .nav-elements .nav-element-2 {
-    margin-left: 2.12171%;
+    margin-left: 2.1176%;
   }
 
   .nav-elements .nav-element-3 {
@@ -1679,7 +1765,11 @@ body {
 
   .footer-content {
     position: relative;
-    z-index: 66;
+    z-index: 67;
+  }
+
+  .footer-content .center-group {
+    margin-left: 1.67067%;
   }
 
   .inspiration .image {
@@ -1688,7 +1778,7 @@ body {
 
   .pricing {
     position: relative;
-    z-index: 61;
+    z-index: 62;
     margin-left: 10.5692%;
   }
 
@@ -1711,12 +1801,21 @@ body {
 
   .secondary {
     position: relative;
-    z-index: 16;
+    z-index: 17;
+  }
+
+  .static-card .divfabackground {
+    width: 40.650406504%;
+    margin-left: 29.6748%;
   }
 
   .technology .image {
     height: auto;
     margin-top: 291px;
+  }
+
+  .the-commuter .map-red {
+    margin-left: -0.08224%;
   }
 
   .casual-rider .price,
@@ -1725,21 +1824,21 @@ body {
   }
 
   .center-group .site-links-1 {
-    z-index: 62;
+    z-index: 63;
   }
 
   .center-group .site-links-2 {
-    z-index: 63;
+    z-index: 64;
   }
 
   .center-group-1 {
     position: relative;
-    z-index: 28;
+    z-index: 29;
   }
 
   .cta-3 {
     position: relative;
-    z-index: 38;
+    z-index: 39;
   }
 
   .nav-elements .nav-element-2 {

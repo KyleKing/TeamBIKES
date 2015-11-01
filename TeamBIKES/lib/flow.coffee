@@ -4,13 +4,13 @@ FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ["about"
 FlowRouter.route '/progress',
   name: 'progress',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'progress'
+    BlazeLayout.render 'MacawLayout', body: 'progress'
 
+# FlowRouter.route '/',
+#   name: 'about',
+#   action: ->
+#     BlazeLayout.render 'UniversalLayout', full: 'agency'
 FlowRouter.route '/',
-  name: 'about',
-  action: ->
-    BlazeLayout.render 'UniversalLayout', full: 'agency'
-FlowRouter.route '/macaw',
   name: 'aboutmacaw',
   action: ->
     BlazeLayout.render 'MacawLayout', full: 'aboutmacaw'
@@ -21,21 +21,21 @@ FlowRouter.route '/macaw',
 FlowRouter.route '/about_Ideas',
   name: 'about_Ideas',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'about'
+    BlazeLayout.render 'MacawLayout', body: 'about'
 
 ### User ###
 FlowRouter.route '/Profile',
   name: 'Profile',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'Profile'
+    BlazeLayout.render 'MacawLayout', body: 'Profile'
 FlowRouter.route '/map',
   name: 'map',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'map'
+    BlazeLayout.render 'MacawLayout', body: 'map'
 FlowRouter.route '/MechMap',
   name: 'MechMap',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'MechMap'
+    BlazeLayout.render 'MacawLayout', body: 'MechMap'
 
 
 ### Administrator ###

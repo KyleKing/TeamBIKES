@@ -1,32 +1,32 @@
-// // ITCSS Core Styles File
-// // Learn more here:
-// // http://www.creativebloq.com/web-design/manage-large-scale-web-projects-new-css-architecture-itcss-41514731?page=1
-// // Essentially order CSS by increasing specificity
-// // Source for ITCSS descriptions: http://technotif.com/manage-large-css-projects-with-itcss/
+// ITCSS Core Styles File
+// Learn more here:
+// http://www.creativebloq.com/web-design/manage-large-scale-web-projects-new-css-architecture-itcss-41514731?page=1
+// Essentially order CSS by increasing specificity
+// Source for ITCSS descriptions: http://technotif.com/manage-large-css-projects-with-itcss/
 
-// // Settings
-// // Any global settings for your project, such as base font size, color palettes, config, etc.
-// @import "CustomBootstrap/custom.bootstrap.import.styl"
-// @import 'Imports/CustomSettings.import.styl'
+// Settings
+// Any global settings for your project, such as base font size, color palettes, config, etc.
+@import "CustomBootstrap/custom.bootstrap.import.styl"
+@import 'Imports/CustomSettings.import.styl'
 
-// // Tools
-// // Namely mixins and functions. Any mixin or function that does not need accessing globally should belong in the partial to which it relates. The Tools layer comes after the Settings layer because a mixin may require one of the global settings as a default parameter.
+// Tools
+// Namely mixins and functions. Any mixin or function that does not need accessing globally should belong in the partial to which it relates. The Tools layer comes after the Settings layer because a mixin may require one of the global settings as a default parameter.
 
-// // enable cross-browser mixins such as linear-gradient and border-radius
-// // From Stylus Meteor package
-// @import "nib"
-// // padding(top, right, bottom, left)
-// //   padding-top: top
-// //   padding-right: right
-// //   padding-bottom: bottom
-// //   padding-left: left
+// enable cross-browser mixins such as linear-gradient and border-radius
+// From Stylus Meteor package
+@import "nib"
+// padding(top, right, bottom, left)
+//   padding-top: top
+//   padding-right: right
+//   padding-bottom: bottom
+//   padding-left: left
 
-// // Generic
-// // The Generic layer is the first one that actually produces any CSS. It houses very high-level, far reaching styles. This layer is seldom modified, and is usually the same across any projects you work on. It contains things like Normalize. css, global box-sizing rules, CSS resets and so on. The Generic layer affects a lot of the DOM, hence it being nice and wide in the Triangle model, and occurring very early on.
+// Generic
+// The Generic layer is the first one that actually produces any CSS. It houses very high-level, far reaching styles. This layer is seldom modified, and is usually the same across any projects you work on. It contains things like Normalize. css, global box-sizing rules, CSS resets and so on. The Generic layer affects a lot of the DOM, hence it being nice and wide in the Triangle model, and occurring very early on.
 
 // @import 'Imports/nav.import.styl'
 // @import 'Imports/footer.import.styl'
-
+//
 // // For the about page
 // // Only affects first section
 // section
@@ -36,13 +36,13 @@
 // 	padding-bottom 50px
 // 	padding-top 50px
 
-// // Elements
-// // These are bare, un-classed HTML elements. What does an h1 look like without a class on it? What does an a look like without a class on it? The Elements layer binds onto bare HTML element (or ‘type') selectors only. It is slightly more explicit than the previous layer in that we are now saying ‘make every h1 this big'
+// Elements
+// These are bare, un-classed HTML elements. What does an h1 look like without a class on it? What does an a look like without a class on it? The Elements layer binds onto bare HTML element (or ‘type') selectors only. It is slightly more explicit than the previous layer in that we are now saying ‘make every h1 this big'
 
-// @import 'Imports/map.import.styl'
-// // Cody House Code:
+@import 'Imports/map.import.styl'
+// Cody House Code:
 // @import 'Imports/Login-Form.import.styl'
-// @import 'Imports/Slide_In_Panel.import.styl'
+@import 'Imports/Slide_In_Panel.import.styl'
 
 // #explanation
 // 	.row
@@ -60,14 +60,14 @@
 // 	background-color: transparent
 // 	transition: background-color 1s
 
-// // Objects
-// // Users of OOCSS will be familiar with the concept of objects. This is the first layer in which we find class-based selectors. These are concerned with styling non-cosmetic design patterns, or 'objects.' Objects can range from something as simple as a .wrapper element, to layout systems, through to things like the OOCSS poster child – the Media Object. This layer affects less of the DOM than the last layer, has a higher specificity, and is slightly more explicit in that we are now targeting sections of the DOM with classes.
+// Objects
+// Users of OOCSS will be familiar with the concept of objects. This is the first layer in which we find class-based selectors. These are concerned with styling non-cosmetic design patterns, or 'objects.' Objects can range from something as simple as a .wrapper element, to layout systems, through to things like the OOCSS poster child – the Media Object. This layer affects less of the DOM than the last layer, has a higher specificity, and is slightly more explicit in that we are now targeting sections of the DOM with classes.
 
 
-// // Components
-// // The Components layer is where we begin to style recognizable pieces of UI. We're still binding onto classes here, so our specificity hasn't yet increased. However, this layer is more explicit than the last one in that we are now styling explicit, designed pieces of the DOM. We shouldn't find any selectors with a lower specificity than one class in this layer. This is where the majority of your work will happen after initial project set-up. Adding new components and features usually makes up the vast majority of development.
+// Components
+// The Components layer is where we begin to style recognizable pieces of UI. We're still binding onto classes here, so our specificity hasn't yet increased. However, this layer is more explicit than the last one in that we are now styling explicit, designed pieces of the DOM. We shouldn't find any selectors with a lower specificity than one class in this layer. This is where the majority of your work will happen after initial project set-up. Adding new components and features usually makes up the vast majority of development.
 
 
-// // Trumps
-// // Those special case that need the !important
+// Trumps
+// Those special case that need the !important
 // @import 'Imports/BootstrapTrumps.import.styl'
