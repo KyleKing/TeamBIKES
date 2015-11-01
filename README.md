@@ -28,6 +28,13 @@ Team BIKES
   </a>
 </p>
 
+### Try clicking on any of the table rows:
+<p align="center">
+  <a href="http://redbarbikes.com/admincompilation">
+    <img width="300" height=auto src="/README/5-macaw-interactive.png">
+  </a>
+</p>
+
 
 # The Old Website
 ## The Original About Page based on the agency theme:
