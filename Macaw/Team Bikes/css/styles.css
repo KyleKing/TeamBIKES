@@ -41,24 +41,6 @@ body {
   float: left;
 }
 
-.card .card-content {
-  float: left;
-  clear: both;
-  width: 83.6968807463%;
-  margin-left: 8.14845%;
-  text-align: center;
-}
-
-.card .cta {
-  margin: 0 auto;
-  padding-bottom: 5px;
-  font-size: 1.25em;
-  font-weight: 700;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
 .card-content {
   font-size: 1em;
   font-weight: 400;
@@ -85,7 +67,7 @@ body {
 
 .casual-rider .price {
   width: 30.6455813172%;
-  margin: 21px 0 0 3.93775%;
+  margin: 21px 0 0 3.93565%;
   background-color: rgb(238, 193, 16);
 }
 
@@ -99,11 +81,18 @@ body {
   width: 100%;
 }
 
-.cta .card {
+.cta .card-content {
+  float: left;
+  clear: both;
+  width: 83.6968807463%;
+  margin-left: 8.14845%;
+  text-align: center;
+}
+
+.cta .static-card {
   width: 78.85078125%;
   margin: 0 auto;
   padding: 10px;
-  background-color: rgb(252, 252, 252);
 }
 
 .ctalink {
@@ -135,7 +124,7 @@ body {
 
 .daily-rider .price {
   width: 30.6455813172%;
-  margin: 43px 0 0 3.93565%;
+  margin: 43px 0 0 3.93355%;
   background-color: rgb(37, 206, 108);
 }
 
@@ -298,7 +287,6 @@ body {
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: rgb(252, 252, 252);
 }
 
 .next-page {
@@ -358,10 +346,14 @@ body {
   float: left;
   z-index: 3;
   width: 100%;
-  margin-top: 101px;
+  height: 450px;
+  margin-top: 100px;
   padding-top: 40px;
   padding-bottom: 60px;
-  background-color: rgb(120, 120, 120);
+  background: url('../images/header-bg-filtered(2).png') rgba(120, 120, 120, 0.01);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
 }
 
 .primary .cta {
@@ -382,6 +374,14 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: rgb(172, 39, 39);
+}
+
+.secondary .card-content {
+  width: 100%;
+}
+
+.secondary .static-card {
+  padding: 10px;
 }
 
 .section-header {
@@ -412,12 +412,33 @@ body {
 }
 
 .static-card {
-  padding: 10px;
   background-color: rgb(252, 252, 252);
 }
 
-.static-card .card-content {
-  width: 100%;
+.static-card .card {
+  display: block;
+  float: left;
+  clear: both;
+  width: 18.4624727972%;
+  height: 33px;
+  margin: 10px 0 0 40.76866%;
+  border-radius: 310px;
+  background-color: rgb(172, 39, 39);
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(242, 247, 247);
+}
+
+.static-card .cta {
+  margin: 0 auto;
+  padding-bottom: 5px;
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 1.38;
+  text-align: center;
+  color: rgb(0, 0, 0);
 }
 
 .technology .break-out {
@@ -472,22 +493,6 @@ body {
   background-color: rgb(201, 118, 118);
 }
 
-._button {
-  display: block;
-  float: left;
-  clear: both;
-  width: 18.4624727972%;
-  height: 33px;
-  margin: 10px 0 0 40.76866%;
-  border-radius: 310px;
-  background-color: rgb(172, 39, 39);
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.38;
-  text-align: center;
-  color: rgb(242, 247, 247);
-}
-
 .card-content-1 {
   margin: 0 auto;
 }
@@ -520,7 +525,7 @@ body {
 }
 
 .cta-1 {
-  margin: 0 auto;
+  margin: 90px auto 0;
   font-size: 2.563em;
 }
 
@@ -586,19 +591,19 @@ body {
   margin-left: 1.9977%;
 }
 
-.static-card-1 {
+.static-card-2 {
   float: left;
   width: 30.4%;
   margin-left: 2.5%;
 }
 
-.static-card-2 {
+.static-card-3 {
   float: left;
   width: 30.4018229166%;
   margin-left: 1.92188%;
 }
 
-.static-card-3 {
+.static-card-4 {
   float: right;
   width: 30.4075520833%;
   margin-right: 2.5%;
@@ -686,42 +691,16 @@ body {
 }
 
 @media(max-width: 1300px) {
-  .card .card-content {
-    margin-left: 8.14494%;
-  }
-
-  .card .email {
-    float: none;
-    clear: none;
-    width: 69.2400306748%;
-    margin-top: 32px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .card .password,
-  .card .terms {
-    float: none;
-    clear: none;
-    width: 69.2400306748%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .casual-rider .map-content {
-    margin-top: 0;
-    margin-left: 2.40858%;
-  }
-
   .casual-rider .map-yellow {
     width: 38.5227019395%;
     height: 223px;
   }
 
   .center-group .next-page {
+    clear: both;
     width: 100.060132291%;
     margin-top: 0;
-    margin-left: 0;
+    margin-left: -0.05934%;
     text-align: center;
   }
 
@@ -731,18 +710,23 @@ body {
   }
 
   .center-group .tertiary {
-    margin-left: 10.56392%;
+    margin-left: 10.5637%;
+  }
+
+  .cta .card-content {
+    margin-left: 8.14483%;
   }
 
   .casual-rider .break-out-text,
   .daily-rider .break-out-text {
     width: 100.1166946693%;
-    margin-left: -0.11608%;
+    margin-left: -0.11632%;
   }
 
+  .casual-rider .map-content,
   .daily-rider .map-content {
     margin-top: 0;
-    margin-left: 2.40858%;
+    margin-left: 2.40843%;
   }
 
   .daily-rider .map-green {
@@ -753,11 +737,11 @@ body {
   .casual-rider .price,
   .daily-rider .price {
     width: 48.0122193371%;
-    margin-left: 0.00611%;
+    margin-left: 0.00517%;
   }
 
   .divfabackground .fabackground {
-    margin-left: 21.22646%;
+    margin-left: 21.21212%;
   }
 
   .footer-content {
@@ -772,7 +756,7 @@ body {
   .inspiration .break-out-text {
     width: 67.7931904161%;
     margin-top: 28px;
-    margin-left: 3.44803%;
+    margin-left: 3.44801%;
   }
 
   .inspiration .image {
@@ -786,7 +770,7 @@ body {
   }
 
   .nav-content .nav-elements {
-    margin-left: 19.532%;
+    margin-left: 19.53188%;
   }
 
   .nav-elements .nav-element {
@@ -796,7 +780,7 @@ body {
   .pricing {
     position: relative;
     z-index: 62;
-    margin-left: 10.56392%;
+    margin-left: 10.5625%;
   }
 
   .pricing .section-header {
@@ -810,7 +794,7 @@ body {
   }
 
   .primary .ctalink {
-    margin-left: 40.33097%;
+    margin-left: 40.33053%;
   }
 
   .secondary {
@@ -818,13 +802,39 @@ body {
     z-index: 17;
   }
 
-  .static-card .card-content {
+  .secondary .card-content {
     text-align: center;
+  }
+
+  .static-card .card {
+    float: none;
+    clear: none;
+    width: 33.5720858895%;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .static-card .divfabackground {
     width: 21.4397669229%;
-    margin-left: 39.5327399999%;
+    margin-left: 39.53023%;
+  }
+
+  .static-card .email {
+    float: none;
+    clear: none;
+    width: 69.2400306748%;
+    margin-top: 32px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .static-card .password,
+  .static-card .terms {
+    float: none;
+    clear: none;
+    width: 69.2400306748%;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .technology .break-out-text {
@@ -834,17 +844,17 @@ body {
   .technology .image {
     width: 25%;
     height: auto;
-    margin-left: 2.29148%;
+    margin-left: 2.2910499999%;
   }
 
   .the-commuter .break-out-text {
     width: 100.0067134574%;
-    margin-left: -0.0061000001%;
+    margin-left: -0.00516%;
   }
 
   .the-commuter .map-content {
     margin-top: 0;
-    margin-left: 2.38876%;
+    margin-left: 2.38861%;
   }
 
   .the-commuter .price {
@@ -852,24 +862,16 @@ body {
     margin-left: 0;
   }
 
-  .card ._button {
-    float: none;
-    clear: none;
-    width: 33.5720858895%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
   .center-group .site-links-1 {
     z-index: 63;
     width: 40.5321043259%;
-    margin-left: 8.4690777955%;
+    margin-left: 8.46801%;
   }
 
   .center-group .site-links-2 {
     z-index: 64;
     width: 40.536593395%;
-    margin-left: 1.99614%;
+    margin-left: 1.99611%;
   }
 
   .center-group-1 {
@@ -883,29 +885,28 @@ body {
   }
 
   .nav-elements .nav-element-2 {
-    margin-left: 2.12971%;
+    margin-left: 2.12771%;
   }
 
   .nav-elements .nav-element-3 {
-    margin-left: 2.26493%;
+    margin-left: 2.26413%;
   }
 
-  .secondary .static-card-2 {
+  .primary .cta-1 {
+    margin-top: 80px;
+  }
+
+  .secondary .static-card-3 {
     margin-left: 1.89904%;
   }
 }
 
-@media(max-width: 800px) {
+@media(max-width: 900px) {
   body {
     font-size: 1em;
   }
 
-  .card .card-content {
-    margin-left: 8.14766%;
-  }
-
   .center-group .next-page {
-    clear: both;
     margin-left: -0.06008%;
   }
 
@@ -915,6 +916,10 @@ body {
 
   .center-group .tertiary {
     margin-left: 10.57422%;
+  }
+
+  .cta .card-content {
+    margin-left: 8.14766%;
   }
 
   .casual-rider .break-out-text,
@@ -972,7 +977,6 @@ body {
   .pricing {
     position: relative;
     z-index: 62;
-    margin-left: 10.57422%;
   }
 
   .primary {
@@ -1030,7 +1034,7 @@ body {
   .center-group .site-links-2 {
     z-index: 64;
     width: 48.9684201795%;
-    margin-left: 2.0346%;
+    margin-left: 2.03253%;
   }
 
   .center-group-1 {
@@ -1052,17 +1056,21 @@ body {
     font-size: 0.75em;
   }
 
-  .secondary .static-card-1 {
-    width: 78.85078125%;
+  .primary .cta-1 {
+    margin-top: 60px;
   }
 
   .secondary .static-card-2 {
+    width: 78.85078125%;
+  }
+
+  .secondary .static-card-3 {
     clear: both;
     width: 78.85%;
     margin-top: 20px;
   }
 
-  .secondary .static-card-3 {
+  .secondary .static-card-4 {
     float: left;
     clear: both;
     width: 78.85%;
@@ -1072,14 +1080,6 @@ body {
 }
 
 @media(max-width: 700px) {
-  .card .card-content {
-    margin-left: 8.14804%;
-  }
-
-  .card .email {
-    margin-top: 54px;
-  }
-
   .center-group .next-page {
     width: 101.7261091436%;
     margin-left: -0.0522900001%;
@@ -1092,6 +1092,10 @@ body {
   .center-group .tertiary,
   .secondary .static-card {
     margin-left: 10.57143%;
+  }
+
+  .cta .card-content {
+    margin-left: 8.14804%;
   }
 
   .casual-rider .break-out-text,
@@ -1170,6 +1174,10 @@ body {
     margin-left: 39.47716%;
   }
 
+  .static-card .email {
+    margin-top: 54px;
+  }
+
   .technology .break-out-text {
     width: 100.008492569%;
     margin-left: -0.00849%;
@@ -1226,10 +1234,6 @@ body {
     font-size: 1em;
   }
 
-  .card .card-content {
-    margin-left: 8.14539%;
-  }
-
   .casual-rider .break-out-text {
     width: 100%;
     margin-left: 0;
@@ -1248,8 +1252,12 @@ body {
   }
 
   .center-group .tertiary,
-  .secondary .static-card-3 {
+  .secondary .static-card-4 {
     margin-left: 10.57292%;
+  }
+
+  .cta .card-content {
+    margin-left: 8.14539%;
   }
 
   .daily-rider .break-out-text {
@@ -1385,18 +1393,13 @@ body {
     font-size: 0.75em;
   }
 
-  .secondary .static-card-1,
-  .secondary .static-card-2 {
+  .secondary .static-card-2,
+  .secondary .static-card-3 {
     margin-left: 10.56771%;
   }
 }
 
 @media(max-width: 500px) {
-  .card .card-content {
-    width: 87.0759202453%;
-    margin-left: 8.13187%;
-  }
-
   .casual-rider .price {
     margin-top: 130px;
   }
@@ -1416,7 +1419,12 @@ body {
     margin-left: 10.57188%;
   }
 
-  .cta .card {
+  .cta .card-content {
+    width: 87.0759202453%;
+    margin-left: 8.13187%;
+  }
+
+  .cta .static-card {
     width: 95%;
   }
 
@@ -1541,19 +1549,6 @@ body {
     font-size: 1em;
   }
 
-  .card .card-content {
-    margin-left: 6.41059%;
-  }
-
-  .card .email,
-  .card .password {
-    width: 89.2665094339%;
-  }
-
-  .card .terms {
-    width: 93.5695754716%;
-  }
-
   .casual-rider .price {
     margin-top: 140px;
   }
@@ -1570,6 +1565,10 @@ body {
 
   .center-group .tertiary {
     margin-left: 10.56641%;
+  }
+
+  .cta .card-content {
+    margin-left: 6.41059%;
   }
 
   .daily-rider .break-out-text {
@@ -1634,9 +1633,22 @@ body {
     z-index: 17;
   }
 
+  .static-card .card {
+    width: 52.6992924528%;
+  }
+
   .static-card .divfabackground {
     width: 27.7777777777%;
     margin-left: 36.1111099999%;
+  }
+
+  .static-card .email,
+  .static-card .password {
+    width: 89.2665094339%;
+  }
+
+  .static-card .terms {
+    width: 93.5695754716%;
   }
 
   .technology .image {
@@ -1656,10 +1668,6 @@ body {
 
   .the-commuter .map-red {
     margin-left: -0.07813%;
-  }
-
-  .card ._button {
-    width: 52.6992924528%;
   }
 
   .center-group .site-links-1 {
@@ -1688,27 +1696,19 @@ body {
     margin-left: 2.2532899999%;
   }
 
-  .secondary .static-card-1,
-  .secondary .static-card-2 {
+  .secondary .static-card-2,
+  .secondary .static-card-3 {
     width: 94.9999999999%;
     margin-left: 2.5%;
   }
 
-  .secondary .static-card-3 {
+  .secondary .static-card-4 {
     width: 95%;
     margin-left: 2.67188%;
   }
 }
 
 @media(max-width: 280px) {
-  .card .card-content {
-    margin-left: 6.44055%;
-  }
-
-  .card .email {
-    margin-top: 76px;
-  }
-
   .center-group .next-page {
     margin-left: -0.8515700001%;
   }
@@ -1719,6 +1719,10 @@ body {
 
   .center-group .tertiary {
     margin-left: 10.5692%;
+  }
+
+  .cta .card-content {
+    margin-left: 6.44055%;
   }
 
   .daily-rider .break-out-text {
@@ -1735,7 +1739,7 @@ body {
   }
 
   .footer-content .center-group {
-    margin-left: 1.65865%;
+    margin-left: 1.65264%;
   }
 
   .inspiration .image {
@@ -1748,12 +1752,9 @@ body {
     margin-left: 10.5692%;
   }
 
-  .pricing .section-header {
-    margin-left: -10.2335456476%;
-  }
-
   .pricing .casual-rider,
   .pricing .daily-rider,
+  .pricing .section-header,
   .pricing .the-commuter {
     margin-left: -10.23355%;
   }
@@ -1776,6 +1777,10 @@ body {
   .static-card .divfabackground {
     width: 40.650406504%;
     margin-left: 29.6748%;
+  }
+
+  .static-card .email {
+    margin-top: 76px;
   }
 
   .technology .image {
@@ -1819,7 +1824,7 @@ body {
     font-size: 0.688em;
   }
 
-  .secondary .static-card-3 {
+  .secondary .static-card-4 {
     margin-left: 2.65625%;
   }
 }
