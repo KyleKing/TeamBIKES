@@ -1,6 +1,14 @@
 Meteor.subscribe 'RFIDdataPublication'
 Template.RFIDlayout.helpers RFIDlayout: ->
+  # $( '.1445951109624').addClass( "highlight" )
+  # $( ".highlight" ).removeClass( "highlight" )
   RFIDdata.find().fetch()
+
+# [today, now] = CurrentDay()
+# $( ".highlight" ).removeClass( "highlight" );
+# y = document.getElementsByClassName('highlight')
+# # y[y.length].css('background-color: red')
+# y[0].css('background-color: green')
 
 Template.RFIDlayout.events
   'click #DeleteRFID': ->

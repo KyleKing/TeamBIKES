@@ -68,20 +68,19 @@ Meteor.methods 'DeleteOldRFID': ->
 
 Meteor.methods 'RFIDStreamData': (dataSet) ->
   console.log '--------------------'
-  console.log '--------------------'
+  # console.log '--------------------'
   # Check user RFID code against database record set in seeds-admin
   RFIDCODE = dataSet.USER_ID
   hits = Meteor.users.find({'profile.RFID': RFIDCODE}).count()
   dataSet.confirmation = hits
-  console.log hits
+  # console.log hits
 
-  console.log '--'
-  console.log '>> Here are the users RFID dataset:'
+  # console.log '--'
+  # console.log '>> Here are the users RFID dataset:'
   users = Meteor.users.find().fetch()
-  _.each users, (user) ->
-    console.log user.profile.RFID
-    # _.each user.profile, (print) ->
-  console.log '--'
+  # _.each users, (user) ->
+    # console.log user.profile.RFID
+  # console.log '--'
   console.log '>> Inserting RFID dataset:'
   console.log dataSet
   RFIDdata.insert dataSet
@@ -95,23 +94,6 @@ Meteor.methods 'RFIDStreamData': (dataSet) ->
     'n'
   else
     ' not cool '
-
-  # incoming = dataSet.USER_ID
-  # console.log incoming.trim()
-  # # Remove excess whitespace
-  # code = incoming.trim()
-
-  # # if RFIDdata.find(RFIDCode: code).count() == 1
-  # #   # Correct RFID Code Found
-  # #   record = RFIDdata.find(RFIDCode: code)
-  # #   'OPENSESAME*'
-  # else if RFIDdata.find(RFIDCode: code).count() == 0
-  #   # No RFID Code Found
-  #   'NO*'
-  # else
-  #   # Too many RFID codes found
-  #   console.log 'Too many matching RFID codes....what the heck!?!?!'
-  #   'MongoDB Error'
 
 
 Meteor.methods 'loop': (dataSet, schema) ->

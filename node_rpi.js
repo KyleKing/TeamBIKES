@@ -115,6 +115,7 @@ ddpclient.connect(function(error) {
 
   // All frames parsed by the XBee will be emitted here
   xbeeAPI.on("frame_object", function(frame) {
+    frame = frame.trim();
     console.log('--------------------');
     if (frame.data === undefined) {
       if (frame.deliveryStatus === 0) {
@@ -140,6 +141,7 @@ ddpclient.connect(function(error) {
         LATITUDE: array[1],
         LONGITUDE: array[2],
         LOCKSTATEE: array[3],
+        Module_ID: array[4],
         TIMESTAMP: time
       };
 
