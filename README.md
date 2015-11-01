@@ -54,4 +54,4 @@ Team BIKES
 
 
 # Thanks for reading this far!
-> Don't forget to visit the website at [redbarbikes.com](https://redbarbikes.com) and if you have any comments, please visit [the issues section(https://github.com/KyleKing/TeamBIKES/issues) and make a feature request!
+> Don't forget to visit the website at [redbarbikes.com](https://redbarbikes.com) and if you have any comments, please visit [the issues section](https://github.com/KyleKing/TeamBIKES/issues) and make a feature request!
