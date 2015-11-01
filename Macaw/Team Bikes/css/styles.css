@@ -4,10 +4,6 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.page-about {
-  color: rgb(0, 0, 0);
-}
-
 .active {
   width: 31.75499146%;
   padding-right: 10px;
@@ -41,8 +37,7 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.break-out-text,
-.map-content {
+.break-out-text {
   float: left;
 }
 
@@ -88,14 +83,9 @@ body {
   width: 100%;
 }
 
-.casual-rider .map-content {
-  width: 58.9722948119%;
-  margin: 82px 0 0 2.41012%;
-}
-
 .casual-rider .price {
   width: 30.6455813172%;
-  margin: 21px 0 0 3.94195%;
+  margin: 21px 0 0 3.93775%;
   background-color: rgb(238, 193, 16);
 }
 
@@ -137,14 +127,15 @@ body {
   width: 65.376344086%;
 }
 
+.casual-rider .map-content,
 .daily-rider .map-content {
   width: 58.9722948119%;
-  margin: 60px 0 0 2.41012%;
+  margin-left: 2.41012%;
 }
 
 .daily-rider .price {
   width: 30.6455813172%;
-  margin: 43px 0 0 3.93985%;
+  margin: 43px 0 0 3.93565%;
   background-color: rgb(37, 206, 108);
 }
 
@@ -165,25 +156,15 @@ body {
   margin-left: 39.45191%;
 }
 
-.fa {
-  width: 100px;
-  height: 100px;
-  border-radius: 4050px;
-}
-
-.fa-refresh {
-  margin: 0 auto;
-  background-color: #015196;
-}
-
-.fa-university {
-  margin: 0 auto;
-  background-color: rgb(1, 81, 150);
+.divfabackground .fabackground {
+  float: left;
+  background-color: rgb(172, 39, 39);
 }
 
 .fabackground {
-  float: left;
-  background-color: rgb(172, 39, 39);
+  width: 100px;
+  height: 100px;
+  border-radius: 4050px;
 }
 
 .footer-content {
@@ -221,6 +202,11 @@ body {
 
 .inspiration .image {
   width: 28.2884310618%;
+}
+
+.map-content {
+  float: left;
+  margin-top: 20px;
 }
 
 .inspiration .break-out,
@@ -319,7 +305,7 @@ body {
   display: block;
   float: left;
   width: 32.0010964912%;
-  margin: 49px 0 0 1.99812%;
+  margin: 49px 0 0 1.9977%;
   padding: 20px;
   font-size: 1.25em;
   font-weight: 700;
@@ -399,10 +385,9 @@ body {
 }
 
 .section-header {
-  float: left;
   width: 79.5181399342%;
   min-height: 42px;
-  margin-left: 10.24114%;
+  margin: 0 auto;
   padding: 20px;
   font-size: 1.563em;
   font-weight: 700;
@@ -478,7 +463,7 @@ body {
 
 .the-commuter .map-content {
   width: 59.0357058816%;
-  margin: 71px 0 0 2.3903%;
+  margin-left: 2.3903%;
 }
 
 .the-commuter .price {
@@ -555,6 +540,16 @@ body {
   background-color: rgb(172, 39, 39);
 }
 
+.fabackground-2 {
+  margin: 0 auto;
+  background-color: rgb(1, 81, 150);
+}
+
+.fabackground-3 {
+  margin: 0 auto;
+  background-color: #015196;
+}
+
 .nav-element-2 {
   width: 31.5733553212%;
   margin-left: 2.13101%;
@@ -588,7 +583,7 @@ body {
 }
 
 .site-links-2 {
-  margin-left: 1.99812%;
+  margin-left: 1.9977%;
 }
 
 .static-card-1 {
@@ -690,7 +685,7 @@ body {
   white-space: normal;
 }
 
-@media(max-width: 1100px) {
+@media(max-width: 1300px) {
   .card .card-content {
     margin-left: 8.14494%;
   }
@@ -714,7 +709,7 @@ body {
   }
 
   .casual-rider .map-content {
-    margin-top: 27px;
+    margin-top: 0;
     margin-left: 2.40858%;
   }
 
@@ -724,13 +719,15 @@ body {
   }
 
   .center-group .next-page {
-    width: 32.0115011381%;
-    margin-top: 41px;
-    margin-left: 1.96478%;
+    width: 100.060132291%;
+    margin-top: 0;
+    margin-left: 0;
+    text-align: center;
   }
 
   .center-group .site-links {
     position: relative;
+    text-align: center;
   }
 
   .center-group .tertiary {
@@ -744,7 +741,7 @@ body {
   }
 
   .daily-rider .map-content {
-    margin-top: 24px;
+    margin-top: 0;
     margin-left: 2.40858%;
   }
 
@@ -804,7 +801,6 @@ body {
 
   .pricing .section-header {
     width: 100.0017614161%;
-    margin-left: 10.2396%;
   }
 
   .primary {
@@ -847,7 +843,7 @@ body {
   }
 
   .the-commuter .map-content {
-    margin-top: 47px;
+    margin-top: 0;
     margin-left: 2.38876%;
   }
 
@@ -866,13 +862,14 @@ body {
 
   .center-group .site-links-1 {
     z-index: 63;
-    width: 31.9719659757%;
+    width: 40.5321043259%;
+    margin-left: 8.4690777955%;
   }
 
   .center-group .site-links-2 {
     z-index: 64;
-    width: 32.0576254941%;
-    margin-left: 1.99623%;
+    width: 40.536593395%;
+    margin-left: 1.99614%;
   }
 
   .center-group-1 {
@@ -893,23 +890,8 @@ body {
     margin-left: 2.26493%;
   }
 
-  .secondary .static-card-1 {
-    width: 78.8513392857%;
-    margin-left: 10.56392%;
-  }
-
   .secondary .static-card-2 {
-    clear: both;
-    width: 78.8513392857%;
-    margin-top: 20px;
-    margin-left: 10.56392%;
-  }
-
-  .secondary .static-card-3 {
-    clear: both;
-    width: 78.8571428571%;
-    margin-top: 20px;
-    margin-right: 10.53267%;
+    margin-left: 1.89904%;
   }
 }
 
@@ -924,20 +906,14 @@ body {
 
   .center-group .next-page {
     clear: both;
-    width: 100.060132291%;
-    margin-top: 0;
-    margin-left: -0.06013%;
-    text-align: center;
+    margin-left: -0.06008%;
   }
 
   .center-group .site-links {
     position: relative;
-    text-align: center;
   }
 
-  .center-group .tertiary,
-  .secondary .static-card-1,
-  .secondary .static-card-2 {
+  .center-group .tertiary {
     margin-left: 10.57422%;
   }
 
@@ -948,7 +924,6 @@ body {
 
   .casual-rider .map-content,
   .daily-rider .map-content {
-    margin-top: 0;
     margin-left: 2.36804%;
   }
 
@@ -1000,10 +975,6 @@ body {
     margin-left: 10.57422%;
   }
 
-  .pricing .section-header {
-    margin-left: 10.23755%;
-  }
-
   .primary {
     position: relative;
     z-index: 3;
@@ -1016,6 +987,10 @@ body {
   .secondary {
     position: relative;
     z-index: 17;
+  }
+
+  .secondary .static-card {
+    margin-left: 10.57422%;
   }
 
   .static-card .divfabackground {
@@ -1043,19 +1018,19 @@ body {
   }
 
   .the-commuter .map-content {
-    margin-top: 0;
     margin-left: 2.38538%;
   }
 
   .center-group .site-links-1 {
     z-index: 63;
     width: 48.9924730959%;
+    margin-left: 0;
   }
 
   .center-group .site-links-2 {
     z-index: 64;
     width: 48.9684201795%;
-    margin-left: 2.03828%;
+    margin-left: 2.0346%;
   }
 
   .center-group-1 {
@@ -1077,8 +1052,22 @@ body {
     font-size: 0.75em;
   }
 
+  .secondary .static-card-1 {
+    width: 78.85078125%;
+  }
+
+  .secondary .static-card-2 {
+    clear: both;
+    width: 78.85%;
+    margin-top: 20px;
+  }
+
   .secondary .static-card-3 {
-    margin-right: 10.46875%;
+    float: left;
+    clear: both;
+    width: 78.85%;
+    margin-top: 20px;
+    margin-right: 0;
   }
 }
 
@@ -1093,7 +1082,7 @@ body {
 
   .center-group .next-page {
     width: 101.7261091436%;
-    margin-left: -0.05233%;
+    margin-left: -0.0522900001%;
   }
 
   .center-group .site-links {
@@ -1101,8 +1090,7 @@ body {
   }
 
   .center-group .tertiary,
-  .secondary .static-card-1,
-  .secondary .static-card-2 {
+  .secondary .static-card {
     margin-left: 10.57143%;
   }
 
@@ -1127,7 +1115,7 @@ body {
   }
 
   .divfabackground .fabackground {
-    margin-left: 5.16509%;
+    margin-left: 5.13769%;
   }
 
   .footer-content {
@@ -1161,10 +1149,6 @@ body {
     position: relative;
     z-index: 62;
     margin-left: 10.57143%;
-  }
-
-  .pricing .section-header {
-    margin-left: 10.23921%;
   }
 
   .primary {
@@ -1215,7 +1199,7 @@ body {
   .center-group .site-links-2 {
     z-index: 64;
     width: 49.0153172866%;
-    margin-left: 1.99315%;
+    margin-left: 1.99159%;
   }
 
   .center-group-1 {
@@ -1234,10 +1218,6 @@ body {
 
   .nav-elements .nav-element-3 {
     margin-left: 2.2597299999%;
-  }
-
-  .secondary .static-card-3 {
-    margin-right: 10.57143%;
   }
 }
 
@@ -1267,7 +1247,8 @@ body {
     position: relative;
   }
 
-  .center-group .tertiary {
+  .center-group .tertiary,
+  .secondary .static-card-3 {
     margin-left: 10.57292%;
   }
 
@@ -1330,10 +1311,6 @@ body {
     margin-left: 10.57292%;
   }
 
-  .pricing .section-header {
-    margin-left: 10.23846%;
-  }
-
   .primary {
     position: relative;
     z-index: 3;
@@ -1390,7 +1367,7 @@ body {
   .center-group .site-links-2 {
     z-index: 64;
     width: 46.4013831181%;
-    margin-left: 1.90179%;
+    margin-left: 1.89752%;
   }
 
   .center-group-1 {
@@ -1412,10 +1389,6 @@ body {
   .secondary .static-card-2 {
     margin-left: 10.56771%;
   }
-
-  .secondary .static-card-3 {
-    margin-right: 10.56771%;
-  }
 }
 
 @media(max-width: 500px) {
@@ -1430,13 +1403,13 @@ body {
 
   .center-group .next-page {
     width: 100.0606509872%;
-    margin-left: -0.06065%;
+    margin-left: -0.0606%;
   }
 
   .center-group .site-links {
     position: relative;
     width: 100.0606509872%;
-    margin-left: -0.06065%;
+    margin-left: -0.0606%;
   }
 
   .center-group .tertiary {
@@ -1489,10 +1462,6 @@ body {
     margin-left: 10.57188%;
   }
 
-  .pricing .section-header {
-    margin-left: 0;
-  }
-
   .primary {
     position: relative;
     z-index: 3;
@@ -1507,6 +1476,10 @@ body {
   .secondary {
     position: relative;
     z-index: 17;
+  }
+
+  .secondary .static-card {
+    margin-left: 10.56875%;
   }
 
   .static-card .divfabackground {
@@ -1561,15 +1534,6 @@ body {
   .nav-elements .nav-element-3 {
     margin-left: 2.26316%;
   }
-
-  .secondary .static-card-1,
-  .secondary .static-card-2 {
-    margin-left: 10.56875%;
-  }
-
-  .secondary .static-card-3 {
-    margin-right: 10.56875%;
-  }
 }
 
 @media(max-width: 400px) {
@@ -1595,7 +1559,7 @@ body {
   }
 
   .center-group .next-page {
-    margin-left: -0.84699%;
+    margin-left: -0.84209%;
   }
 
   .center-group .site-links {
@@ -1641,7 +1605,9 @@ body {
   }
 
   .pricing .section-header {
+    float: left;
     width: 120.483519387%;
+    margin-right: 0;
     margin-left: -10.23037%;
     font-size: 1.25em;
   }
@@ -1730,7 +1696,7 @@ body {
 
   .secondary .static-card-3 {
     width: 95%;
-    margin-right: 2.32813%;
+    margin-left: 2.67188%;
   }
 }
 
@@ -1744,7 +1710,7 @@ body {
   }
 
   .center-group .next-page {
-    margin-left: -0.85226%;
+    margin-left: -0.8515700001%;
   }
 
   .center-group .site-links {
@@ -1769,7 +1735,7 @@ body {
   }
 
   .footer-content .center-group {
-    margin-left: 1.67067%;
+    margin-left: 1.65865%;
   }
 
   .inspiration .image {
@@ -1782,9 +1748,12 @@ body {
     margin-left: 10.5692%;
   }
 
+  .pricing .section-header {
+    margin-left: -10.2335456476%;
+  }
+
   .pricing .casual-rider,
   .pricing .daily-rider,
-  .pricing .section-header,
   .pricing .the-commuter {
     margin-left: -10.23355%;
   }
@@ -1851,6 +1820,6 @@ body {
   }
 
   .secondary .static-card-3 {
-    margin-right: 2.33259%;
+    margin-left: 2.65625%;
   }
 }
