@@ -1,29 +1,29 @@
 {
 	"modules" : {
-		"variables": false,
-		"mixins": false,
+		"variables": true,
+		"mixins": true,
 
 		"normalize": false,
 		"print": false,
 		"glyphicons": false,
 
 		"scaffolding": false,
-		"utilities": false,
+		"utilities": true,
 		"type": false,
 		"code": false,
 		"grid": false,
 		"tables": true,
-		"forms": false,
-		"buttons": false,
+		"forms": true,
+		"buttons": true,
 
 		"component-animations": false,
-		"dropdowns": false,
+		"dropdowns": true,
 		"button-groups": false,
 		"input-groups": false,
 		"navs": false,
 		"navbar": false,
-		"breadcrumbs": false,
-		"pagination": false,
+		"breadcrumbs": true,
+		"pagination": true,
 		"pager": false,
 		"labels": false,
 		"badges": false,
@@ -39,10 +39,10 @@
 		"close": false,
 
 		"modals": false,
-		"tooltip": false,
-		"popovers": false,
+		"tooltip": true,
+		"popovers": true,
 		"carousel": false,
 
-		"responsive-utilities": false
+		"responsive-utilities": true
 	}
 }

@@ -11,15 +11,15 @@ FlowRouter.route '/progress',
 #   action: ->
 #     BlazeLayout.render 'UniversalLayout', full: 'agency'
 FlowRouter.route '/',
-  name: 'aboutmacaw',
+  name: 'about',
   action: ->
     BlazeLayout.render 'MacawLayout', full: 'aboutmacaw'
 
 
 
 ###   Public ###
-FlowRouter.route '/about_Ideas',
-  name: 'about_Ideas',
+FlowRouter.route '/about_ideas',
+  name: 'ideas',
   action: ->
     BlazeLayout.render 'MacawLayout', body: 'about'
 
@@ -42,19 +42,19 @@ FlowRouter.route '/MechMap',
 FlowRouter.route '/charts',
   name: 'chartsAdmin',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'chartsAdmin'
+    BlazeLayout.render 'MacawLayout', body: 'chartsAdmin'
 FlowRouter.route '/RFIDlayout',
   name: 'RFIDlayout',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'RFIDlayout'
+    BlazeLayout.render 'MacawLayout', body: 'RFIDlayout'
 FlowRouter.route '/mechanicView',
   name: 'mechanicView',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'mechanicView'
+    BlazeLayout.render 'MacawLayout', body: 'mechanicView'
 FlowRouter.route '/timeseries',
   name: 'timeseries',
   action: ->
-    BlazeLayout.render 'UniversalLayout', body: 'timeseries'
+    BlazeLayout.render 'MacawLayout', body: 'timeseries'
 
 
 # DEV - TabularTables
