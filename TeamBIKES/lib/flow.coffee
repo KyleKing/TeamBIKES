@@ -119,15 +119,16 @@ ScrollToTop = ->
   $('html,body').animate { scrollTop: 0 }, 'slow'
 
 FlowRouter.triggers.enter ScrollToTop, except: [
-  'AdminCompilation'
-  'AdminCompilation/ManageBike'
-  'AdminCompilation/ManageMechanicNotes_Insert'
-  'AdminCompilation/ManageMechanicNotes_Form'
-  'AdminCompilation/ManageUsers_Form'
 #   'AdminCompilation/ManageBike'
 #   'AdminCompilation/ManageMechanicNotes_Form'
 #   'AdminCompilation/ManageUsers_Form'
 #   'AdminCompilation/ManageUsers_Insert'
+  'AdminCompilation'
+  'AdminCompilation/ManageBike'
+  'AdminCompilation/ManageMechanicNotes_Form'
+  'AdminCompilation/ManageUsers_Form'
 ]
+
+# 'AdminCompilation/ManageMechanicNotes_Insert' -> doesn't work on left...but may be due to a different layout
 
 # In development
