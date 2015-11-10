@@ -24,8 +24,7 @@ ecmascript
 # autopublish
 # insecure
 
-# meteortoys:allthings@1.2.3 # Pres ctrl-m to activate
-meteortoys:allthings # Pres ctrl-m to activate
+meteortoys:allthings@2.2.0 # Pres ctrl-m to activate
 
 #### Libraries and Preprocessors ####
 stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
