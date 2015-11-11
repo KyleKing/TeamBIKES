@@ -400,6 +400,99 @@ th
 
 
 
+// @import "bootstrap/bootstrap/print.styl"
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+
+// ==========================================================================
+// Print styles.
+// Inlined to avoid the additional HTTP request: h5bp.com/r
+// ==========================================================================
+
+@media print
+  *,
+  *:before,
+  *:after
+    background transparent !important
+    color #000 !important // Black prints faster h5bp.com/s
+    box-shadow none !important
+    text-shadow none !important
+
+  a,
+  a:visited
+    text-decoration underline
+
+  a[href]:after
+    content " (" attr(href) ")"
+
+  abbr[title]:after
+    content " (" attr(title) ")"
+
+  // Don't show links that are fragment identifiers,
+  // or use the `javascript:` pseudo protocol
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after
+    content ""
+
+  pre,
+  blockquote
+    border 1px solid #999
+    page-break-inside avoid
+
+  thead
+    display table-header-group // h5bp.com/t
+
+  tr,
+  img
+    page-break-inside avoid
+
+  img
+    max-width 100% !important
+
+  p,
+  h2,
+  h3
+    orphans 3
+    widows 3
+
+  h2,
+  h3
+    page-break-after avoid
+
+  // Bootstrap specific changes start
+  //
+  // Chrome (OSX) fix for https://github.com/twbs/bootstrap/issues/11245
+  // Once fixed, we can just straight up remove this.
+  select
+    background #fff !important
+
+  // Bootstrap components
+  .navbar
+    display none
+
+  .btn,
+  .dropup > .btn
+    > .caret
+      border-top-color #000 !important
+
+  .label
+    border 1px solid #000
+
+  .table
+    border-collapse collapse !important
+
+    td,
+    th
+      background-color #fff !important
+
+  .table-bordered
+    th,
+    td
+      border 1px solid #ddd !important
+
+  // Bootstrap specific changes end
+
+
+
 // @import "bootstrap/bootstrap/glyphicons.styl"
 //
 // Glyphicons for Bootstrap
@@ -1231,72 +1324,6 @@ th
 
 
 
-// @import "bootstrap/bootstrap/code.styl"
-//
-// Code (inline and block)
-// --------------------------------------------------
-
-
-// Inline and block code styles
-code,
-kbd,
-pre,
-samp
-  font-family $font-family-monospace
-
-// Inline code
-code
-  padding 2px 4px
-  font-size 90%
-  color $code-color
-  background-color $code-bg
-  border-radius $border-radius-base
-
-// User input typically entered via keyboard
-kbd
-  padding 2px 4px
-  font-size 90%
-  color $kbd-color
-  background-color $kbd-bg
-  border-radius $border-radius-small
-  box-shadow inset 0 -1px 0 rgba(0, 0, 0, .25)
-
-  kbd
-    padding 0
-    font-size 100%
-    font-weight bold
-    box-shadow none
-
-// Blocks of code
-pre
-  display block
-  padding (($line-height-computed - 1) / 2)
-  margin 0 0 ($line-height-computed / 2)
-  font-size ($font-size-base - 1) // 14px to 13px
-  line-height $line-height-base
-  word-break break-all
-  word-wrap break-word
-  color $pre-color
-  background-color $pre-bg
-  border 1px solid $pre-border-color
-  border-radius $border-radius-base
-
-  // Account for some code outputs that place code tags in pre tags
-  code
-    padding 0
-    font-size inherit
-    color inherit
-    white-space pre-wrap
-    background-color transparent
-    border-radius 0
-
-// Enable scrollable blocks of code
-.pre-scrollable
-  max-height $pre-scrollable-max-height
-  overflow-y scroll
-
-
-
 // @import "bootstrap/bootstrap/grid.styl"
 //
 // Grid system
@@ -2092,155 +2119,6 @@ input[type="checkbox"]
 
 
 
-// @import "bootstrap/bootstrap/buttons.styl"
-//
-// Buttons
-// --------------------------------------------------
-
-
-// Base styles
-// --------------------------------------------------
-
-.btn
-  display inline-block
-  margin-bottom 0 // For input.btn
-  font-weight $btn-font-weight
-  text-align center
-  vertical-align middle
-  touch-action manipulation
-  cursor pointer
-  background-image none // Reset unusual Firefox-on-Android default style see https://github.com/necolas/normalize.css/issues/214
-  border 1px solid transparent
-  white-space nowrap
-  button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base)
-  user-select none
-
-  &,
-  &:active,
-  &.active
-    &:focus,
-    &.focus
-      tab-focus()
-
-  &:hover,
-  &:focus,
-  &.focus
-    color $btn-default-color
-    text-decoration none
-
-  &:active,
-  &.active
-    outline 0
-    background-image none
-    box-shadow inset 0 3px 5px rgba(0, 0, 0, .125)
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] &
-    cursor $cursor-disabled
-    pointer-events none // Future-proof disabling of clicks
-    opacity-ie(.65)
-    box-shadow none
-
-
-// Alternate buttons
-// --------------------------------------------------
-
-.btn-default
-  button-variant($btn-default-color, $btn-default-bg, $btn-default-border)
-
-.btn-primary
-  button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border)
-
-// Success appears as green
-.btn-success
-  button-variant($btn-success-color, $btn-success-bg, $btn-success-border)
-
-// Info appears as blue-green
-.btn-info
-  button-variant($btn-info-color, $btn-info-bg, $btn-info-border)
-
-// Warning appears as orange
-.btn-warning
-  button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border)
-
-// Danger and error appear as red
-.btn-danger
-  button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border)
-
-
-// Link buttons
-// -------------------------
-
-// Make a button look and behave like a link
-.btn-link
-  color $link-color
-  font-weight normal
-  border-radius 0
-
-  &,
-  &:active,
-  &.active,
-  &[disabled],
-  fieldset[disabled] &
-    background-color transparent
-    box-shadow none
-
-  &,
-  &:hover,
-  &:focus,
-  &:active
-    border-color transparent
-
-  &:hover,
-  &:focus
-    color $link-hover-color
-    text-decoration $link-hover-decoration
-    background-color transparent
-
-  &[disabled],
-  fieldset[disabled] &
-    &:hover,
-    &:focus
-      color $btn-link-disabled-color
-      text-decoration none
-
-
-// Button Sizes
-// --------------------------------------------------
-
-.btn-lg
-  // line-height ensure even-numbered height of button next to large input
-  button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large)
-
-.btn-sm
-  // line-height ensure proper height of button next to small input
-  button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small)
-
-.btn-xs
-  button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small)
-
-
-// Block button
-// --------------------------------------------------
-
-.btn-block
-  display block
-  width 100%
-
-// Vertically space out multiple block buttons
-.btn-block + .btn-block
-  margin-top 5px
-
-// Specificity overrides
-input[type="submit"],
-input[type="reset"],
-input[type="button"]
-  &.btn-block
-    width 100%
-
-
-
 // @import "bootstrap/bootstrap/component-animations.styl"
 //
 // Component animations
@@ -2474,232 +2352,6 @@ input[type="button"]
 
 
 
-// @import "bootstrap/bootstrap/button-groups.styl"
-//
-// Button groups
-// --------------------------------------------------
-
-// Make the div behave like a button
-.btn-group,
-.btn-group-vertical
-  position relative
-  display inline-block
-  vertical-align middle // match .btn alignment given font-size hack above
-
-  > .btn
-    position relative
-    float left
-
-    // Bring the "active" button to the front
-    &:hover,
-    &:focus,
-    &:active,
-    &.active
-      z-index 2
-
-// Prevent double borders when buttons are next to each other
-.btn-group
-  .btn + .btn,
-  .btn + .btn-group,
-  .btn-group + .btn,
-  .btn-group + .btn-group
-    margin-left -1px
-
-// Optional Group multiple button groups together for a toolbar
-.btn-toolbar
-  margin-left -5px // Offset the first child's margin
-  @extend .clearfix
-
-  .btn-group,
-  .input-group
-    float left
-
-  > .btn,
-  > .btn-group,
-  > .input-group
-    margin-left 5px
-
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle)
-  border-radius 0
-
-// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
-.btn-group > .btn:first-child
-  margin-left 0
-
-  &:not(:last-child):not(.dropdown-toggle)
-    border-right-radius(0)
-
-// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
-.btn-group > .btn:last-child:not(:first-child),
-.btn-group > .dropdown-toggle:not(:first-child)
-  border-left-radius(0)
-
-// Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
-.btn-group > .btn-group
-  float left
-
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn
-  border-radius 0
-
-.btn-group > .btn-group:first-child:not(:last-child)
-  > .btn:last-child,
-  > .dropdown-toggle
-    border-right-radius(0)
-
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child
-  border-left-radius(0)
-
-// On active and open, don't show outline
-.btn-group .dropdown-toggle:active,
-.btn-group.open .dropdown-toggle
-  outline 0
-
-
-// Sizing
-//
-// Remix the default button sizing classes into new ones for easier manipulation.
-
-.btn-group-xs > .btn
-  @extend .btn-xs
-
-.btn-group-sm > .btn
-  @extend .btn-sm
-
-.btn-group-lg > .btn
-  @extend .btn-lg
-
-
-// Split button dropdowns
-// ----------------------
-
-// Give the line between buttons some depth
-.btn-group > .btn + .dropdown-toggle
-  padding-left 8px
-  padding-right 8px
-
-.btn-group > .btn-lg + .dropdown-toggle
-  padding-left 12px
-  padding-right 12px
-
-// The clickable button for toggling the menu
-// Remove the gradient and set the same inset shadow as the :active state
-.btn-group.open .dropdown-toggle
-  box-shadow inset 0 3px 5px rgba(0, 0, 0, .125)
-
-  // Show no shadow for `.btn-link` since it has no other button styles.
-  &.btn-link
-    box-shadow none
-
-
-// Reposition the caret
-.btn .caret
-  margin-left 0
-
-// Carets in other button sizes
-.btn-lg .caret
-  border-width $caret-width-large $caret-width-large 0
-  border-bottom-width 0
-
-// Upside down carets for .dropup
-.dropup .btn-lg .caret
-  border-width 0 $caret-width-large $caret-width-large
-
-
-// Vertical button groups
-// ----------------------
-
-.btn-group-vertical
-  > .btn,
-  > .btn-group,
-  > .btn-group > .btn
-    display block
-    float none
-    width 100%
-    max-width 100%
-
-  // Clear floats so dropdown menus can be properly placed
-  > .btn-group
-    @extend .clearfix
-    > .btn
-      float none
-
-  > .btn + .btn,
-  > .btn + .btn-group,
-  > .btn-group + .btn,
-  > .btn-group + .btn-group
-    margin-top -1px
-    margin-left 0
-
-.btn-group-vertical > .btn
-  &:not(:first-child):not(:last-child)
-    border-radius 0
-
-  &:first-child:not(:last-child)
-    border-top-right-radius $border-radius-base
-    border-bottom-radius(0)
-
-  &:last-child:not(:first-child)
-    border-bottom-left-radius $border-radius-base
-    border-top-radius(0)
-
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn
-  border-radius 0
-
-.btn-group-vertical > .btn-group:first-child:not(:last-child)
-  > .btn:last-child,
-  > .dropdown-toggle
-    border-bottom-radius(0)
-
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child
-  border-top-radius(0)
-
-
-
-// Justified button groups
-// ----------------------
-
-.btn-group-justified
-  display table
-  width 100%
-  table-layout fixed
-  border-collapse separate
-
-  > .btn,
-  > .btn-group
-    float none
-    display table-cell
-    width 1%
-
-  > .btn-group .btn
-    width 100%
-
-  > .btn-group .dropdown-menu
-    left auto
-
-
-// Checkbox and radio options
-//
-// In order to support the browser's form validation feedback, powered by the
-// `required` attribute, we have to "hide" the inputs via `clip`. We cannot use
-// `display: none;` or `visibility: hidden;` as that also hides the popover.
-// Simply visually hiding the inputs via `opacity` would leave them clickable in
-// certain cases which is prevented by using `clip` and `pointer-events`.
-// This way, we ensure a DOM element is visible to position the popover from.
-//
-// See https://github.com/twbs/bootstrap/pull/12794 and
-// https://github.com/twbs/bootstrap/pull/14559 for more information.
-
-[data-toggle="buttons"]
-  > .btn
-  > .btn-group > .btn
-    input[type="radio"],
-    input[type="checkbox"]
-      position absolute
-      clip rect(0, 0, 0, 0)
-      pointer-events none
-
-
-
 // @import "bootstrap/bootstrap/pagination.styl"
 //
 // Pagination (multiple pages)
@@ -2776,470 +2428,6 @@ input[type="button"]
 // Small
 .pagination-sm
   pagination-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $border-radius-small)
-
-
-
-// @import "bootstrap/bootstrap/badges.styl"
-//
-// Badges
-// --------------------------------------------------
-
-
-// Base class
-.badge
-  display inline-block
-  min-width 10px
-  padding 3px 7px
-  font-size $font-size-small
-  font-weight $badge-font-weight
-  color $badge-color
-  line-height $badge-line-height
-  vertical-align baseline
-  white-space nowrap
-  text-align center
-  background-color $badge-bg
-  border-radius $badge-border-radius
-
-  // Empty badges collapse automatically (not available in IE8)
-  &:empty
-    display none
-
-  // Quick fix for badges in buttons
-  .btn &
-    position relative
-    top -1px
-
-  .btn-xs &,
-  .btn-group-xs > .btn &
-    top 0
-    padding 1px 5px
-
-  // Hover state, but only for links
-  a&
-    &:hover,
-    &:focus
-      color $badge-link-hover-color
-      text-decoration none
-      cursor pointer
-
-  // Account for badges in navs
-  .list-group-item.active > &,
-  .nav-pills > .active > a > &
-    color $badge-active-color
-    background-color $badge-active-bg
-
-  .list-group-item > &
-    float right
-
-  .list-group-item > & + &
-    margin-right 5px
-
-  .nav-pills > li > a > &
-    margin-left 3px
-
-
-
-// @import "bootstrap/bootstrap/alerts.styl"
-//
-// Alerts
-// --------------------------------------------------
-
-
-// Base styles
-// -------------------------
-
-.alert
-  padding $alert-padding
-  margin-bottom $line-height-computed
-  border 1px solid transparent
-  border-radius $alert-border-radius
-
-  // Headings for larger alerts
-  h4
-    margin-top 0
-    // Specified for the h4 to prevent conflicts of changing $headings-color
-    color inherit
-
-  // Provide class for links that match alerts
-  .alert-link
-    font-weight $alert-link-font-weight
-
-  // Improve alignment and spacing of inner content
-  > p,
-  > ul
-    margin-bottom 0
-
-  > p + p
-    margin-top 5px
-
-// Dismissible alerts
-//
-// Expand the right padding and account for the close button's positioning.
-
-.alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
-.alert-dismissible
-  padding-right ($alert-padding + 20)
-
-  // Adjust close link position
-  .close
-    position relative
-    top -2px
-    right -21px
-    color inherit
-
-// Alternate styles
-//
-// Generate contextual modifier classes for colorizing the alert.
-
-.alert-success
-  alert-variant($alert-success-bg, $alert-success-border, $alert-success-text)
-
-.alert-info
-  alert-variant($alert-info-bg, $alert-info-border, $alert-info-text)
-
-.alert-warning
-  alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text)
-
-.alert-danger
-  alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text)
-
-
-
-// @import "bootstrap/bootstrap/progress-bars.styl"
-//
-// Progress bars
-// --------------------------------------------------
-
-
-// Bar animations
-// -------------------------
-
-// WebKit
-// @-webkit-keyframes progress-bar-stripes
-//   from
-//     background-position 40px 0
-//   to
-//     background-position 0 0
-
-// Spec and IE10+
-@keyframes progress-bar-stripes
-  from
-    background-position 40px 0
-  to
-    background-position 0 0
-
-
-// Bar itself
-// -------------------------
-
-// Outer container
-.progress
-  overflow hidden
-  height $line-height-computed
-  margin-bottom $line-height-computed
-  background-color $progress-bg
-  border-radius $progress-border-radius
-  box-shadow inset 0 1px 2px rgba(0, 0, 0, .1)
-
-// Bar of progress
-.progress-bar
-  float left
-  width 0%
-  height 100%
-  font-size $font-size-small
-  line-height $line-height-computed
-  color $progress-bar-color
-  text-align center
-  background-color $progress-bar-bg
-  box-shadow inset 0 -1px 0 rgba(0, 0, 0, .15)
-  transition width .6s ease
-
-// Striped bars
-//
-// `.progress-striped .progress-bar` is deprecated as of v3.2.0 in favor of the
-// `.progress-bar-striped` class, which you just add to an existing
-// `.progress-bar`.
-.progress-striped .progress-bar,
-.progress-bar-striped
-  gradient-striped()
-  background-size 40px 40px
-
-// Call animation for the active one
-//
-// `.progress.active .progress-bar` is deprecated as of v3.2.0 in favor of the
-// `.progress-bar.active` approach.
-.progress.active .progress-bar,
-.progress-bar.active
-  animation progress-bar-stripes 2s linear infinite
-
-
-// Variations
-// -------------------------
-
-.progress-bar-success
-  progress-bar-variant($progress-bar-success-bg)
-
-.progress-bar-info
-  progress-bar-variant($progress-bar-info-bg)
-
-.progress-bar-warning
-  progress-bar-variant($progress-bar-warning-bg)
-
-.progress-bar-danger
-  progress-bar-variant($progress-bar-danger-bg)
-
-
-
-// @import "bootstrap/bootstrap/tooltip.styl"
-//
-// Tooltips
-// --------------------------------------------------
-
-
-// Base class
-.tooltip
-  position absolute
-  z-index $zindex-tooltip
-  display block
-  // Reset font and text properties given new insertion method
-  font-family $font-family-base
-  font-size $font-size-small
-  font-weight normal
-  line-height 1.4
-  opacity-ie(0)
-
-  &.in
-    opacity-ie($tooltip-opacity)
-
-  &.top
-    margin-top -3px
-    padding $tooltip-arrow-width 0
-
-  &.right
-    margin-left 3px
-    padding 0 $tooltip-arrow-width
-
-  &.bottom
-    margin-top 3px
-    padding $tooltip-arrow-width 0
-
-  &.left
-    margin-left -3px
-    padding 0 $tooltip-arrow-width
-
-// Wrapper for the tooltip content
-.tooltip-inner
-  max-width $tooltip-max-width
-  padding 3px 8px
-  color $tooltip-color
-  text-align center
-  text-decoration none
-  background-color $tooltip-bg
-  border-radius $border-radius-base
-
-// Arrows
-.tooltip-arrow
-  position absolute
-  width 0
-  height 0
-  border-color transparent
-  border-style solid
-
-// Note: Deprecated .top-left, .top-right, .bottom-left, and .bottom-right as of v3.3.1
-.tooltip
-  &.top .tooltip-arrow
-    bottom 0
-    left 50%
-    margin-left (-($tooltip-arrow-width))
-    border-width $tooltip-arrow-width $tooltip-arrow-width 0
-    border-top-color $tooltip-arrow-color
-
-  &.top-left .tooltip-arrow
-    bottom 0
-    right $tooltip-arrow-width
-    margin-bottom (-($tooltip-arrow-width))
-    border-width $tooltip-arrow-width $tooltip-arrow-width 0
-    border-top-color $tooltip-arrow-color
-
-  &.top-right .tooltip-arrow
-    bottom 0
-    left $tooltip-arrow-width
-    margin-bottom (-($tooltip-arrow-width))
-    border-width $tooltip-arrow-width $tooltip-arrow-width 0
-    border-top-color $tooltip-arrow-color
-
-  &.right .tooltip-arrow
-    top 50%
-    left 0
-    margin-top (-($tooltip-arrow-width))
-    border-width $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0
-    border-right-color $tooltip-arrow-color
-
-  &.left .tooltip-arrow
-    top 50%
-    right 0
-    margin-top (-($tooltip-arrow-width))
-    border-width $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width
-    border-left-color $tooltip-arrow-color
-
-  &.bottom .tooltip-arrow
-    top 0
-    left 50%
-    margin-left (-($tooltip-arrow-width))
-    border-width 0 $tooltip-arrow-width $tooltip-arrow-width
-    border-bottom-color $tooltip-arrow-color
-
-  &.bottom-left .tooltip-arrow
-    top 0
-    right $tooltip-arrow-width
-    margin-top (-($tooltip-arrow-width))
-    border-width 0 $tooltip-arrow-width $tooltip-arrow-width
-    border-bottom-color $tooltip-arrow-color
-
-  &.bottom-right .tooltip-arrow
-    top 0
-    left $tooltip-arrow-width
-    margin-top (-($tooltip-arrow-width))
-    border-width 0 $tooltip-arrow-width $tooltip-arrow-width
-    border-bottom-color $tooltip-arrow-color
-
-
-
-// @import "bootstrap/bootstrap/popovers.styl"
-//
-// Popovers
-// --------------------------------------------------
-
-
-.popover
-  position absolute
-  top 0
-  left 0
-  z-index $zindex-popover
-  display none
-  max-width $popover-max-width
-  padding 1px
-  // Reset font and text properties given new insertion method
-  font-family $font-family-base
-  font-size $font-size-base
-  font-weight normal
-  line-height $line-height-base
-  text-align left
-  background-color $popover-bg
-  background-clip padding-box
-  border 1px solid $popover-fallback-border-color
-  border 1px solid $popover-border-color
-  border-radius $border-radius-large
-  box-shadow 0 5px 10px rgba(0, 0, 0, .2)
-
-  // Overrides for proper insertion
-  white-space normal
-
-  // Offset the popover to account for the popover arrow
-  &.top
-    margin-top (-($popover-arrow-width))
-
-  &.right
-    margin-left $popover-arrow-width
-
-  &.bottom
-    margin-top $popover-arrow-width
-
-  &.left
-    margin-left (-($popover-arrow-width))
-
-.popover-title
-  margin 0 // reset heading margin
-  padding 8px 14px
-  font-size $font-size-base
-  background-color $popover-title-bg
-  border-bottom 1px solid darken($popover-title-bg, 5%)
-  border-radius ($border-radius-large - 1) ($border-radius-large - 1) 0 0
-
-.popover-content
-  padding 9px 14px
-
-// Arrows
-//
-// .arrow is outer, .arrow:after is inner
-
-.popover > .arrow
-  &,
-  &:after
-    position absolute
-    display block
-    width 0
-    height 0
-    border-color transparent
-    border-style solid
-
-.popover > .arrow
-  border-width $popover-arrow-outer-width
-
-.popover > .arrow:after
-  border-width $popover-arrow-width
-  content ""
-
-.popover
-  &.top > .arrow
-    left 50%
-    margin-left (-($popover-arrow-outer-width))
-    border-bottom-width 0
-    border-top-color $popover-arrow-outer-fallback-color // IE8 fallback
-    border-top-color $popover-arrow-outer-color
-    bottom (-($popover-arrow-outer-width))
-
-    &:after
-      content " "
-      bottom 1px
-      margin-left (-($popover-arrow-width))
-      border-bottom-width 0
-      border-top-color $popover-arrow-color
-
-  &.right > .arrow
-    top 50%
-    left (-($popover-arrow-outer-width))
-    margin-top (-($popover-arrow-outer-width))
-    border-left-width 0
-    border-right-color $popover-arrow-outer-fallback-color // IE8 fallback
-    border-right-color $popover-arrow-outer-color
-
-    &:after
-      content " "
-      left 1px
-      bottom (-($popover-arrow-width))
-      border-left-width 0
-      border-right-color $popover-arrow-color
-
-  &.bottom > .arrow
-    left 50%
-    margin-left (-($popover-arrow-outer-width))
-    border-top-width 0
-    border-bottom-color $popover-arrow-outer-fallback-color // IE8 fallback
-    border-bottom-color $popover-arrow-outer-color
-    top (-($popover-arrow-outer-width))
-
-    &:after
-      content " "
-      top 1px
-      margin-left (-($popover-arrow-width))
-      border-top-width 0
-      border-bottom-color $popover-arrow-color
-
-  &.left > .arrow
-    top 50%
-    right (-($popover-arrow-outer-width))
-    margin-top (-($popover-arrow-outer-width))
-    border-right-width 0
-    border-left-color $popover-arrow-outer-fallback-color // IE8 fallback
-    border-left-color $popover-arrow-outer-color
-
-    &:after
-      content " "
-      right 1px
-      border-right-width 0
-      border-left-color $popover-arrow-color
-      bottom (-($popover-arrow-width))
 
 
 

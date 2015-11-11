@@ -94,6 +94,9 @@ Meteor.publish 'RedistributionCollectionPub', (group) ->
 # RFID Confirmation and Storage Test Data
 Meteor.publish 'RFIDdataPublication', ->
   RFIDdata.find()
+Meteor.publish 'XbeeDataPublication', ->
+  XbeeData.find()
+
 
 # ###**********************###
 

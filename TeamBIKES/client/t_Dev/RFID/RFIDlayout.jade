@@ -1,9 +1,25 @@
 template(name='RFIDlayout')
   .template-home
     .page-header
-      h1 RFID Demo
-      h4 Data displayed below came from an Arduino through Xbee then maybe even a raspberry pi.
-      button#DeleteOldRFID Delete Old RFID Data
+      h1 Xbee Data Reference Table
+  table.table.table-hover.table-condensed
+    thead
+      //- Labels Row
+      tr
+        th Name
+        th ID
+        th Address
+    tbody
+      each XbeeLayout
+        tr
+          td #{Name}
+          td #{ID}
+          td #{Address}
+
+  .template-home
+    h1 Real Time RFID Info
+    h4 Collected from end device, sent over Xbee, and piped up to this database by a raspberry pi running a minimal Node.JS application
+    button#DeleteOldRFID Delete Old RFID Data
   table.table.table-hover.table-condensed
     thead
       //- Labels Row

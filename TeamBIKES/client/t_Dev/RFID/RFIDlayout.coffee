@@ -1,8 +1,16 @@
 Meteor.subscribe 'RFIDdataPublication'
-Template.RFIDlayout.helpers RFIDlayout: ->
-  # $( '.1445951109624').addClass( "highlight" )
-  # $( ".highlight" ).removeClass( "highlight" )
-  RFIDdata.find().fetch()
+Meteor.subscribe 'XbeeDataPublication'
+
+Template.RFIDlayout.helpers
+  RFIDlayout: ->
+    # $( '.1445951109624').addClass( "highlight" )
+    # $( ".highlight" ).removeClass( "highlight" )
+    RFIDdata.find().fetch()
+  XbeeLayout: ->
+    # Reference table for development
+    XbeeData.find().fetch()
+
+
 
 # [today, now] = CurrentDay()
 # $( ".highlight" ).removeClass( "highlight" );
