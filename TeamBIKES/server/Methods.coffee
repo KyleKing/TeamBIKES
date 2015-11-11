@@ -87,13 +87,22 @@ Meteor.methods 'RFIDStreamData': (dataSet) ->
 
   # Determine appropriate response
   if hits is 1
-    'y'
+    data = 'y'
   else if hits >= 1
-    'nope'
+    data = 'nope'
   else if hits is 0
-    'n'
+    data = 'n'
   else
-    ' not cool '
+    data = ' not cool '
+
+  Lookup = XbeeData.findOne({ 'ID': Number(dataSet.Module_ID) })
+  console.log 'Just to check that Lookup is receiving data'
+  console.log data
+  console.log Lookup.Address
+  {
+    data: data,
+    Address: Lookup.Address
+  }
 
 
 Meteor.methods 'loop': (dataSet, schema) ->
