@@ -96,9 +96,9 @@ Meteor.methods 'RFIDStreamData': (dataSet) ->
     data = ' not cool '
 
   Lookup = XbeeData.findOne({ 'ID': Number(dataSet.Module_ID) })
-  console.log 'Just to check that Lookup is receiving data'
-  console.log data
-  console.log Lookup.Address
+  # console.log 'Just to check that Lookup is receiving data'
+  # console.log data
+  # console.log Lookup.Address
   {
     data: data,
     Address: Lookup.Address

@@ -19,6 +19,7 @@ C = xbee_api.constants
 xbeeAPI = new (xbee_api.XBeeAPI)(api_mode: 2)
 
 lastID = ''
+lastModule_ID = ''
 
 # Config
 ddpclient = new DDPClient(
@@ -73,12 +74,10 @@ ddpclient.connect (error) ->
 
   # All frames parsed by the XBee will be emitted here
   xbeeAPI.on 'frame_object', (frame) ->
-    console.log '---------------------'
     console.log '----------*----------'
     console.log 'Received Frame:'
     console.log frame
     console.log '----------*----------'
-    console.log '---------------------'
     if frame.data is undefined
       if frame.deliveryStatus == 0
         console.log '>> Data was delivered!'
@@ -88,7 +87,7 @@ ddpclient.connect (error) ->
         console.log '   Data was not received'
         console.log '   ' + frame
       console.log ' '
-    else if frame.data isnt lastID
+    else
       data = frame.data.toString()
       console.log '>> Serial: ' + data
       # console.log("OBJ> " + util.inspect(frame));
@@ -103,40 +102,44 @@ ddpclient.connect (error) ->
         LOCKSTATEE: array[3]
         Module_ID: array[4]
         TIMESTAMP: time
-      lastID = array[0]
-      # Call Meteor actions with "dataSet"
-      ddpclient.call 'RFIDStreamData', [ dataSet ], (err, result) ->
-        console.log '>> Sent to Meteor: ' + array
-        # // P-J's Suggestion
-        # var CryptoJS = require("crypto-js");
-        # var info = { message: "This is my message !", key: "Dino" };
-        # var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
-        #     mode: CryptoJS.mode.CBC,
-        #     padding: CryptoJS.pad.Pkcs7
-        # });
-        # var decrypted = CryptoJS.AES.decrypt(result, info.key, {
-        #     mode: CryptoJS.mode.CBC,
-        #     padding: CryptoJS.pad.Pkcs7
-        # });
-        # // console.log(encrypted.toString());
-        # console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
-        if result isnt undefined
-          console.log 'Result: '
-          console.log result.Address
-          frame_obj =
-            type: 0x10
-            id: 0x01
-            destination64: result.Address
-            destination16: 'fffe'
-            broadcastRadius: 0x00
-            options: 0x00
-            data: result.data
-          serialPort.write xbeeAPI.buildFrame(frame_obj)
-          console.log 'Frame sent to specific xbee'
-          console.log xbeeAPI.buildFrame(frame_obj)
-        console.log '!!!!!!!!!!!!!!!!!!!!!!'
-    else
-      console.log 'Ignoring an incoming frame'
+      if true is true and false is false
+      # if dataSet.USER_ID isnt lastID
+        lastID = dataSet.USER_ID
+        # Call Meteor actions with "dataSet"
+        ddpclient.call 'RFIDStreamData', [ dataSet ], (err, result) ->
+          console.log '>> Sent to Meteor: ' + array
+          # // P-J's Suggestion
+          # var CryptoJS = require("crypto-js");
+          # var info = { message: "This is my message !", key: "Dino" };
+          # var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
+          #     mode: CryptoJS.mode.CBC,
+          #     padding: CryptoJS.pad.Pkcs7
+          # });
+          # var decrypted = CryptoJS.AES.decrypt(result, info.key, {
+          #     mode: CryptoJS.mode.CBC,
+          #     padding: CryptoJS.pad.Pkcs7
+          # });
+          # // console.log(encrypted.toString());
+          # console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
+          if result isnt undefined
+            if result.Address is undefined
+              console.log "Warning: BROADCASTING TO ALL XBEE's, I hope you know what you are doing."
+            frame_obj =
+              type: 0x10
+              id: 0x01
+              destination64: result.Address
+              destination16: 'fffe'
+              broadcastRadius: 0x00
+              options: 0x00
+              data: result.data
+            serialPort.write xbeeAPI.buildFrame(frame_obj)
+            console.log 'Frame sent to specific xbee: ' + result.Address
+            console.log xbeeAPI.buildFrame(frame_obj)
+          console.log '----------!----------'
+          console.log ''
+      else
+        console.log 'Received a duplicate frame'
+        # console.log 'Ignoring an incoming frame'
 
   serialPort.on 'close', ->
     console.log 'port closed.'
