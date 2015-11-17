@@ -2,12 +2,12 @@ if RFIDdata.find().count() is 0
   # Useful function from lib/CurrentDay.coffee for current date and time
   [today, now] = CurrentDay()
   i = 0
-  while i < 15
+  while i < 5
     RFIDdata.insert
-      USER_ID: 124
+      USER_ID: i
       LATITUDE: 38.991057
       LONGITUDE: -76.938113
-      LOCKSTATEE: i
+      LOCKSTATEE: 1
       TIMESTAMP: now
     i++
   console.log 'Added RFID Data'

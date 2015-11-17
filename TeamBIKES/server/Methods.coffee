@@ -36,6 +36,21 @@ Meteor.methods 'DeleteOldRFID': ->
   RFIDdata.remove( { TIMESTAMP: { $lt:  now} } )
   'ok'
 
+Meteor.methods 'CreateRFID': ->
+  # Useful function from lib/CurrentDay.coffee for current date and time
+  [today, now] = CurrentDay()
+  i = 0
+  while i < 1
+    RFIDdata.insert
+      USER_ID: i
+      LATITUDE: 38.991057
+      LONGITUDE: -76.938113
+      LOCKSTATEE: 1
+      TIMESTAMP: now
+    i++
+  console.log 'Added RFID Data'
+  'ok'
+
 ###*******************************************###
 
 ###   TODO: Check for accounts without an RFID field and call this function          ###
