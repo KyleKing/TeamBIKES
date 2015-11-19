@@ -4,7 +4,7 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.active {
+.nav-content .active {
   width: 31.75499146%;
   padding-right: 10px;
   padding-left: 10px;

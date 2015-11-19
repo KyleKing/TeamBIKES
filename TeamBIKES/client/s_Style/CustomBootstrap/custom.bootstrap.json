@@ -14,7 +14,7 @@
 		"grid": true,
 		"tables": true,
 		"forms": true,
-		"buttons": false,
+		"buttons": true,
 
 		"component-animations": true,
 		"dropdowns": true,
