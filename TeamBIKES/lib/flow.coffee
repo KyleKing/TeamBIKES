@@ -58,8 +58,8 @@ FlowRouter.route '/timeseries',
 
 
 # DEV - TabularTables
-FlowRouter.route '/AdminCompilation',
-  name: 'AdminCompilation',
+FlowRouter.route '/Dashboard',
+  name: 'Dashboard',
   action: ->
     BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
@@ -67,8 +67,8 @@ FlowRouter.route '/AdminCompilation',
       Slide_In_Panel_Content: 'Slide_In_Panel_Placeholder'
     }
 
-FlowRouter.route '/AdminCompilation/ManageBike/:IDofSelectedRow',
-  name: 'AdminCompilation/ManageBike',
+FlowRouter.route '/Dashboard/ManageBike/:IDofSelectedRow',
+  name: 'Dashboard/ManageBike',
   action: (params, queryParams) ->
     BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
@@ -76,8 +76,8 @@ FlowRouter.route '/AdminCompilation/ManageBike/:IDofSelectedRow',
       Slide_In_Panel_Content: 'ManageBike'
     }
 
-FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Insert/',
-  name: 'AdminCompilation/ManageMechanicNotes_Insert',
+FlowRouter.route '/Dashboard/ManageMechanicNotes_Insert/',
+  name: 'Dashboard/ManageMechanicNotes_Insert',
   action: () ->
     BlazeLayout.render 'MacawLayout_Left', {
       body: 'AdminCompilation'
@@ -85,8 +85,8 @@ FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Insert/',
       Slide_In_Panel_Content_Left: 'ManageMechanicNotes_Insert'
     }
 
-FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Form/:IDofSelectedRow',
-  name: 'AdminCompilation/ManageMechanicNotes_Form',
+FlowRouter.route '/Dashboard/ManageMechanicNotes_Form/:IDofSelectedRow',
+  name: 'Dashboard/ManageMechanicNotes_Form',
   action: (params, queryParams) ->
     BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
@@ -94,8 +94,8 @@ FlowRouter.route '/AdminCompilation/ManageMechanicNotes_Form/:IDofSelectedRow',
       Slide_In_Panel_Content: 'ManageMechanicNotes_Form'
     }
 
-FlowRouter.route '/AdminCompilation/ManageUsers_Form/:IDofSelectedRow',
-  name: 'AdminCompilation/ManageUsers_Form',
+FlowRouter.route '/Dashboard/ManageUsers_Form/:IDofSelectedRow',
+  name: 'Dashboard/ManageUsers_Form',
   action: (params, queryParams) ->
     BlazeLayout.render 'MacawLayout', {
       body: 'AdminCompilation'
@@ -119,16 +119,16 @@ ScrollToTop = ->
   $('html,body').animate { scrollTop: 0 }, 'slow'
 
 FlowRouter.triggers.enter ScrollToTop, except: [
-#   'AdminCompilation/ManageBike'
-#   'AdminCompilation/ManageMechanicNotes_Form'
-#   'AdminCompilation/ManageUsers_Form'
-#   'AdminCompilation/ManageUsers_Insert'
-  'AdminCompilation'
-  'AdminCompilation/ManageBike'
-  'AdminCompilation/ManageMechanicNotes_Form'
-  'AdminCompilation/ManageUsers_Form'
+#   'Dashboard/ManageBike'
+#   'Dashboard/ManageMechanicNotes_Form'
+#   'Dashboard/ManageUsers_Form'
+#   'Dashboard/ManageUsers_Insert'
+  'Dashboard'
+  'Dashboard/ManageBike'
+  'Dashboard/ManageMechanicNotes_Form'
+  'Dashboard/ManageUsers_Form'
 ]
 
-# 'AdminCompilation/ManageMechanicNotes_Insert' -> doesn't work on left...but may be due to a different layout
+# 'Dashboard/ManageMechanicNotes_Insert' -> doesn't work on left...but may be due to a different layout
 
 # In development

@@ -4,7 +4,7 @@ Template.ManageBikes.events 'click tbody > tr': (event) ->
   rowData = dataTable.row(event.currentTarget).data()
   Session.set "IDofSelectedRowBikes", rowData._id
   # FlowRouter.go('/ManageBike/' + rowData._id)
-  FlowRouter.go('/AdminCompilation/ManageBike/' + rowData._id)
+  FlowRouter.go('/Dashboard/ManageBike/' + rowData._id)
   $('.cd-panel').addClass 'is-visible'
   $('body').addClass 'noscroll'
 

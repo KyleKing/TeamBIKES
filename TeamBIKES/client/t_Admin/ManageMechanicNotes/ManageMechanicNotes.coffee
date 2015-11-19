@@ -3,12 +3,12 @@ Template.ManageMechanicNotes.events
     # Store the id of the row clicked by the user
     dataTable = $(event.target).closest('table').DataTable()
     rowData = dataTable.row(event.currentTarget).data()
-    FlowRouter.go('/AdminCompilation/ManageMechanicNotes_Form/' + rowData._id)
+    FlowRouter.go('/Dashboard/ManageMechanicNotes_Form/' + rowData._id)
     $('.cd-panel').addClass 'is-visible'
     $('body').addClass 'noscroll'
 
   'click .ManageMechanicNotes_Insert': () ->
-    FlowRouter.go('/AdminCompilation/ManageMechanicNotes_Insert/')
+    FlowRouter.go('/Dashboard/ManageMechanicNotes_Insert/')
     $('.cd-panel').addClass 'is-visible'
     $('body').addClass 'noscroll'
 
