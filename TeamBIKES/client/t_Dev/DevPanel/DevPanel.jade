@@ -19,7 +19,7 @@ template(name='DevPanel')
 
     tbody.wrapper
       each DevPanel
-        tr(class="#{TIMESTAMP}").animate.item
+        tr(class="#{Day}").animate.item
           td #{Bike}
           td #{Day}
           td #{Tag}
@@ -28,4 +28,4 @@ template(name='DevPanel')
           td
             button.flat#DeleteBike(value=_id) Del
           td
-            button.flat#ChangeHighlight(value="#{TIMESTAMP}") ◉
+            button.flat#ChangeHighlight(value="#{Day}") ◉

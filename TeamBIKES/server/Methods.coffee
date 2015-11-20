@@ -45,6 +45,8 @@ Meteor.methods 'CreateRFID': ->
       LATITUDE: 38.991057
       LONGITUDE: -76.938113
       LOCKSTATEE: 1
+      Module_ID: Fake.word()
+      confirmation: 0
       TIMESTAMP: now
     i++
   console.log 'Added RFID Data'

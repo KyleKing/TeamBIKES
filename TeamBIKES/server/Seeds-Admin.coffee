@@ -37,28 +37,28 @@ if Meteor.users.find({'profile.name': "Mechanic"}).count() isnt 0
         MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
         Timestamp: now - (10000000 * Math.random())
         Bike: 1
-        Notes: 'Only a string'
+        Notes: Fake.sentence()
         Tag: "ToBeRedistributed"
       }
       {
         MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
         Timestamp: now - (10000000 * Math.random())
         Bike: 1
-        Notes: "string of something information"
+        Notes: Fake.word()
         Tag: "ToBeRedistributed"
       }
       {
         MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
         Timestamp: now - (10000000 * Math.random())
         Bike: 3
-        Notes: "I am Groot"
+        Notes: Fake.sentence()
         Tag: "ToBeRedistributed"
       }
       {
         MechanicID: Meteor.users.findOne({'profile.name': "Mechanic"})._id
         Timestamp: now - (10000000 * Math.random())
         Bike: 1
-        Notes: 'Only a string'
+        Notes: Fake.sentence()
         Tag: "ToBeRedistributed"
       }
     ]
@@ -101,12 +101,12 @@ if Meteor.users.find({}).count() is 0
       RFID: 'NOT 653c4730'
       Roles: ['Admin']
     }
-    # {
-    #   FullName: 'Root'
-    #   Email: 'root@example.com'
-    #   RFID: 'THISISKyle'
-    #   Roles: ['Root']
-    # }
+    {
+      FullName: 'Root'
+      Email: 'root@example.com'
+      RFID: 'THISISKyle'
+      Roles: ['Root']
+    }
   ]
 
   # Populate Accounts db

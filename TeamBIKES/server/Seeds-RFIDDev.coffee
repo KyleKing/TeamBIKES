@@ -7,8 +7,10 @@ if RFIDdata.find().count() is 0
       USER_ID: i
       LATITUDE: 38.991057
       LONGITUDE: -76.938113
-      LOCKSTATEE: 1
-      TIMESTAMP: now
+      LOCKSTATEE: 0
+      Module_ID: Fake.word()
+      confirmation: 1
+      TIMESTAMP: randomNow = now - (10000000 * Math.random())
     i++
   console.log 'Added RFID Data'
 

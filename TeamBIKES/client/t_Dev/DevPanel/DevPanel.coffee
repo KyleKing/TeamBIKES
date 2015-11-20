@@ -18,7 +18,7 @@ Template.DevPanel.events
     if event.currentTarget.value
       TargetClass = '.' + event.currentTarget.value
       console.log TargetClass + ' will be ChangeHighlight-ed'
-      $(TargetClass).removeClass 'highlight-row'
+      $(TargetClass).toggleClass 'highlight-row'
     else
       console.log event
       console.log event.currentTarget

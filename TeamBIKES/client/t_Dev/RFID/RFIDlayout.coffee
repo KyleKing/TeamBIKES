@@ -21,7 +21,7 @@ Template.RFIDlayout.events
   'click #ChangeHighlight': (event) ->
     TargetClass = '.' + event.currentTarget.value
     console.log TargetClass + ' will be ChangeHighlight-ed'
-    $(TargetClass).removeClass 'highlight-row'
+    $(TargetClass).toggleClass 'highlight-row'
   'click #CreateRFID': ->
     console.log 'Creating a RFID data'
     # Not allowed to call mongo remove query from client, so call method

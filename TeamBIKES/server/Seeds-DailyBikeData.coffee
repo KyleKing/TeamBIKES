@@ -172,8 +172,13 @@
           # console.log('name = ' + blank.User);
           Position.push blank
           countTime++
+        TotalBikes = DailyBikeData.find().count()
+        if TotalBikes is 0
+          BikeCount = i
+        else
+          BikeCount = TotalBikes + 1
         DailyBikeData.insert
-          Bike: i
+          Bike: BikeCount
           Day: today - j
           # simplified version
           Tag: RandTag
