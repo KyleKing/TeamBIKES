@@ -6,10 +6,14 @@ FlowRouter.route '/progress',
   action: ->
     BlazeLayout.render 'MacawLayout', body: 'progress'
 
+
 # FlowRouter.route '/',
 #   name: 'about',
 #   action: ->
 #     BlazeLayout.render 'UniversalLayout', full: 'agency'
+FlowRouter.notFound = action: ->
+  BlazeLayout.render 'MacawLayout', full: 'aboutmacaw'
+
 FlowRouter.route '/',
   name: 'about',
   action: ->
@@ -47,6 +51,11 @@ FlowRouter.route '/RFIDlayout',
   name: 'RFIDlayout',
   action: ->
     BlazeLayout.render 'MacawLayout', body: 'RFIDlayout'
+FlowRouter.route '/DevPanel',
+  name: 'DevPanel',
+  action: ->
+    BlazeLayout.render 'MacawLayout', body: 'DevPanel'
+
 FlowRouter.route '/mechanicView',
   name: 'mechanicView',
   action: ->

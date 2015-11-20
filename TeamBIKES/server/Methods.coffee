@@ -35,7 +35,6 @@ Meteor.methods 'DeleteOldRFID': ->
   [today, now] = CurrentDay()
   RFIDdata.remove( { TIMESTAMP: { $lt:  now} } )
   'ok'
-
 Meteor.methods 'CreateRFID': ->
   # Useful function from lib/CurrentDay.coffee for current date and time
   [today, now] = CurrentDay()
@@ -49,6 +48,23 @@ Meteor.methods 'CreateRFID': ->
       TIMESTAMP: now
     i++
   console.log 'Added RFID Data'
+  'ok'
+
+
+Meteor.methods 'DeleteBikes': ->
+  # Useful function from lib/CurrentDay.coffee for current date and time
+  [today, now] = CurrentDay()
+  tomorrow = today+1
+  console.log 'Tomorrow is ' + tomorrow + ' compared to today ' + today
+  DailyBikeData.remove( { Day: { $lt:  tomorrow} } )
+  'ok'
+
+Meteor.methods 'CreateBike': ->
+  CreateDailyBikeData(1, 1)
+  'ok'
+
+Meteor.methods 'RepopulateDailyBikeData': ->
+  CreateDailyBikeData(50, 1)
   'ok'
 
 ###*******************************************###

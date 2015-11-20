@@ -8,13 +8,6 @@ Template.RFIDlayout.helpers
     # Reference table for development
     XbeeData.find().fetch()
 
-
-# [today, now] = CurrentDay()
-# $( ".highlight" ).removeClass( "highlight" );
-# y = document.getElementsByClassName('highlight')
-# # y[y.length].css('background-color: red')
-# y[0].css('background-color: green')
-
 Template.RFIDlayout.events
   'click #DeleteRFID': ->
     console.log @_id + ' will be deleted'
@@ -55,10 +48,12 @@ Template.RFIDlayout.animations '.item':
   animateInitialStep: 200
   animateInitialDelay: 0
   container: '.wrapper'
-  # in: 'highlight-row'
-  # out: 'highlight-row'
   in: 'animated fast fadeInUp'
-  out: 'animated fast rollOut'
+  # move: 'animated fast fadeOut'
+  # https://github.com/gwendall/meteor-blaze-animations/blob/master/lib.js#L142
+  # Cool thing to build!
+  out: 'animated fast fadeOutRight'
+  # Create logs database..
   # inCallback: ->
   #   title = $(this).find('.title').text()
   #   Logs.insert text: 'Inserted ' + title + ' to the DOM'
@@ -66,33 +61,3 @@ Template.RFIDlayout.animations '.item':
   # outCallback: ->
   #   title = $(this).find('.title').text()
   #   Logs.insert text: 'Removed ' + title + ' from the DOM'
-
-# Template.RFIDlayout.uihooks '.item':
-#   container: '.container'
-#   insert: (node, next, tpl) ->
-#     console.log 'Inserting an item.'
-#     $(node).insertBefore next
-#     return
-#   move: (node, next, tpl) ->
-#     console.log 'Moving an item.'
-#     return
-#   remove: (node, tpl) ->
-#     console.log 'Removing an item.'
-#     $(node).remove()
-#     return
-
-# # Need to make reactive
-# Template.RFIDlayout.uihooks '.RFIDrow':
-#   container: '.wrapper'
-#   insert: (node, next, tpl) ->
-#     # $(node).removeClass 'highlight-row'
-#     # $(node).insertBefore next
-#     console.log $(node)
-#     console.log next
-#     console.log tpl
-#     console.log 'Inserting an item.'
-#   move: (node, next, tpl) ->
-#     console.log 'Moving an item.'
-#   remove: (node, tpl) ->
-#     console.log 'Removing an item.'
-#     $(node).remove()

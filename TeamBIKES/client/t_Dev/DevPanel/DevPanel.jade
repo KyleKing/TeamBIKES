@@ -1,0 +1,31 @@
+template(name='DevPanel')
+  .template-home
+    h1 Every Bike
+    h4 The DailyBikeData Collection. Use it wisely
+    button.flat#DeleteBikes Delete Bikes
+    button.flat#RepopulateDailyBikeData Repopulate Daily BikeData
+    button.flat#CreateBike CreateBike
+  //- table.table.table-hover.table-condensed
+  table.table.table-condensed
+    thead
+      //- Labels Row
+      tr
+        th Bike
+        th Day
+        th Tag
+        th Lat
+        th Lng
+        th Color
+
+    tbody.wrapper
+      each DevPanel
+        tr(class="#{TIMESTAMP}").animate.item
+          td #{Bike}
+          td #{Day}
+          td #{Tag}
+          each Coordinates
+            td #{this}
+          td
+            button.flat#DeleteBike(value=_id) Del
+          td
+            button.flat#ChangeHighlight(value="#{TIMESTAMP}") ◉

@@ -18,6 +18,10 @@ Meteor.publish 'DailyBikeDataPub', ->
   #   return
   DailyBikeData.find()
 
+Meteor.publish 'DevPanel', ->
+  [today, now] = CurrentDay()
+  DailyBikeData.find {Day: today}, fields: Positions: 0
+
 Meteor.publish 'AvailableBikeLocationsPub', ->
   [today, now] = CurrentDay()
   DailyBikeData.find {Tag: 'Available', Day: today}, fields: Positions: 0
