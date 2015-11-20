@@ -120,7 +120,7 @@
           Session.set 'OptionalBikeRacksMarkers', true
           # Toggle Bike Racks to update subscription
           Session.set 'OptionalBikeRacks', 7
-          console.log 'set OptionalBikeRacksMarkers true'
+          console.log 'set OptionalBikeRacksMarkers to 7'
           control.state 'hide-markers'
         title: 'Show Bike Rack Markers'
       }
@@ -130,7 +130,7 @@
         onClick: (control) ->
           Session.set 'OptionalBikeRacksMarkers', false
           # Toggle Bike Racks to update subscription
-          Session.set 'OptionalBikeRacks', 7
+          Session.set 'OptionalBikeRacks', 0
           console.log 'set OptionalBikeRacksMarkers false'
           control.state 'show-markers'
         title: 'Hide Bike Rack Markers'
@@ -151,46 +151,63 @@
 
   # Plot Bike Racks
   # Allow for user to toggle bike racks on and off
-  if isUndefined Session.get 'OptionalBikeRacks'
-    Session.set 'OptionalBikeRacks', false
-  # Session.set 'OptionalBikeRacks', false
-  Tracker.autorun ->
-    if Session.equals 'OptionalBikeRacks', 7
-      # Wait to unsubscribe
-      if RackNames.find().count() is 0
-        Session.set 'OptionalBikeRacks', true
-    # Toggle Bike Racks to update subscription
-    Meteor.subscribe 'RackNamesGet', Session.get 'OptionalBikeRacks'
+  # if isUndefined Session.get 'OptionalBikeRacks'
+    Session.set 'OptionalBikeRacks', 0
+
+  # Tracker.autorun ->
+  #   if Session.equals 'OptionalBikeRacks', 7
+  #     console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+  #     Meteor.subscribe 'RackNamesGet', Session.get 'OptionalBikeRacks'
+  #     # # Wait to unsubscribe
+  #     # if RackNames.find().count() is 0
+  #     #   Session.set 'OptionalBikeRacks', true
+  #     # # Toggle Bike Racks to update subscription
+  #   if Session.equals 'OptionalBikeRacks', false
+  #     console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+  #     Meteor.subscribe 'RackNamesGet', 7
+  Meteor.subscribe 'RackNamesGet', 7
+  console.log "Session.get 'OptionalBikeRacks' is " + Session.get 'OptionalBikeRacks'
+
+
   # Subscribe to rest of data
   Meteor.subscribe 'OuterLimitGet'
   # Init Vars
   RackPositionMarkers = []
   RackOutlinePolygons = []
   # Watch bike racks for change in availability (not built yet)
-  RackNames.find().observe
-    added: (EachRackData) ->
-      BikeIcon = IconLogic('BikeRack')
-      RackPositionMarkers[EachRackData._id] = L.marker(EachRackData.Coordinates, {
-        icon: BikeIcon
-        })
-      if Session.get 'OptionalBikeRacksMarkers'
-        RackPositionMarkers[EachRackData._id].addTo window[MapInitSettings.MapName]
-      RackOutlinePolygons[EachRackData._id] = L.polygon(EachRackData.Details, {
-        fill: true
-        color: 'purple'
-        smoothFactor: 0
-        weight: 2
-      }).addTo window[MapInitSettings.MapName]
-      # _.each EachRackData.Details, (coord) ->
-      #   L.marker(coord, {icon: BikeIcon}).addTo window[MapInitSettings.MapName]
-    removed: (EachRackData) ->
-      # Remove the marker from the map
-      console.log RackPositionMarkers[EachRackData._id]._leaflet_id + ' removed on REMOVED event'
-      window[MapInitSettings.MapName].removeLayer RackPositionMarkers[EachRackData._id]
-      window[MapInitSettings.MapName].removeLayer RackOutlinePolygons[EachRackData._id]
-      # Remove the reference to this marker instance
-      delete RackPositionMarkers[EachRackData._id]
-      delete RackOutlinePolygons[EachRackData._id]
+  Tracker.autorun ->
+    RackNames.find().observe
+      added: (EachRackData) ->
+        BikeIcon = IconLogic('BikeRack')
+        RackPositionMarkers[EachRackData._id] = L.marker(EachRackData.Coordinates, {
+          icon: BikeIcon
+          })
+        # if Session.get 'OptionalBikeRacksMarkers'
+        if Session.equals 'OptionalBikeRacks', 7
+          console.log Session.get 'OptionalBikeRacks'
+          RackPositionMarkers[EachRackData._id].addTo window[MapInitSettings.MapName]
+
+        # Force re-run
+        if Session.equals 'OptionalBikeRacks', 0
+          console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+        # if Session.equals 'OptionalBikeRacks', 7
+        #   console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+        RackOutlinePolygons[EachRackData._id] = L.polygon(EachRackData.Details, {
+          fill: true
+          color: 'purple'
+          smoothFactor: 0
+          weight: 2
+        }).addTo window[MapInitSettings.MapName]
+        # _.each EachRackData.Details, (coord) ->
+        #   L.marker(coord, {icon: BikeIcon}).addTo window[MapInitSettings.MapName]
+      removed: (EachRackData) ->
+        # Remove the marker from the map
+        console.log RackPositionMarkers[EachRackData._id]._leaflet_id + ' removed on REMOVED event'
+        window[MapInitSettings.MapName].removeLayer RackPositionMarkers[EachRackData._id]
+        window[MapInitSettings.MapName].removeLayer RackOutlinePolygons[EachRackData._id]
+        # Remove the reference to this marker instance
+        delete RackPositionMarkers[EachRackData._id]
+        delete RackOutlinePolygons[EachRackData._id]
 
     # Active area of bike map
     if MapInitSettings.DrawOutline
@@ -209,38 +226,38 @@
           window[MapInitSettings.MapName].removeLayer CampusOutlinePolygons[OldOuterline._id]
           # Remove the reference to this marker instance
           delete CampusOutlinePolygons[OldOuterline._id]
-      # Manually drawn from: http://www.latlong.net/
-      # polygon = L.polygon([
-      #   [ 39.000276, -76.943264 ]
-      #   [ 38.998642, -76.946397 ]
-      #   [ 38.992438, -76.951632 ]
-      #   [ 38.986300, -76.956096 ]
-      #   [ 38.985433, -76.955495 ]
-      #   [ 38.984733, -76.952019 ]
-      #   [ 38.983765, -76.952190 ]
-      #   [ 38.983532, -76.948543 ]
-      #   [ 38.981330, -76.946354 ]
-      #   [ 38.977527, -76.937985 ]
-      #   [ 38.983065, -76.937771 ]
-      #   [ 38.983131, -76.934423 ]
-      #   [ 38.983832, -76.933479 ]
-      #   [ 38.984833, -76.934423 ]
-      #   [ 38.984799, -76.937299 ]
-      #   [ 38.992671, -76.933093 ]
-      #   [ 38.993105, -76.935153 ]
-      #   [ 38.996074, -76.935325 ]
-      #   [ 38.996174, -76.937728 ]
-      #   [ 39.000243, -76.942277 ]
-      #   [ 39.001777, -76.940989 ]
-      #   [ 39.003244, -76.940818 ]
-      #   [ 39.003711, -76.942706 ]
-      #   [ 39.001210, -76.943436 ]
-      # ], {
-      #   fill: false
-      #   color: 'blue'
-      #   smoothFactor: 7
-      #   weight: 10
-      # }).addTo(window[MapInitSettings.MapName])
+        # Manually drawn from: http://www.latlong.net/
+        # polygon = L.polygon([
+        #   [ 39.000276, -76.943264 ]
+        #   [ 38.998642, -76.946397 ]
+        #   [ 38.992438, -76.951632 ]
+        #   [ 38.986300, -76.956096 ]
+        #   [ 38.985433, -76.955495 ]
+        #   [ 38.984733, -76.952019 ]
+        #   [ 38.983765, -76.952190 ]
+        #   [ 38.983532, -76.948543 ]
+        #   [ 38.981330, -76.946354 ]
+        #   [ 38.977527, -76.937985 ]
+        #   [ 38.983065, -76.937771 ]
+        #   [ 38.983131, -76.934423 ]
+        #   [ 38.983832, -76.933479 ]
+        #   [ 38.984833, -76.934423 ]
+        #   [ 38.984799, -76.937299 ]
+        #   [ 38.992671, -76.933093 ]
+        #   [ 38.993105, -76.935153 ]
+        #   [ 38.996074, -76.935325 ]
+        #   [ 38.996174, -76.937728 ]
+        #   [ 39.000243, -76.942277 ]
+        #   [ 39.001777, -76.940989 ]
+        #   [ 39.003244, -76.940818 ]
+        #   [ 39.003711, -76.942706 ]
+        #   [ 39.001210, -76.943436 ]
+        # ], {
+        #   fill: false
+        #   color: 'blue'
+        #   smoothFactor: 7
+        #   weight: 10
+        # }).addTo(window[MapInitSettings.MapName])
 
   # Bike icons
   # Color choices: 'red', 'darkred', 'orange', 'green'
