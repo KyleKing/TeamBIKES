@@ -16,4 +16,4 @@ Meteor.methods sendEmail: (to, from, subject, text) ->
     text: text
 
 # In your client code: asynchronously send an email
-Meteor.call 'sendEmail', 'kmking72@gmail.com', 'kmking72@gmail.com', 'Hello from Meteor!', 'This is a test of Email.send.'
+# Meteor.call 'sendEmail', 'kmking72@gmail.com', 'kmking72@gmail.com', 'Hello from Meteor!', 'This is a test of Email.send.'

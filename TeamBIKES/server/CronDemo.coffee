@@ -72,10 +72,10 @@ Meteor.startup ->
     name: 'Update DB'
     schedule: (parser) ->
       # parser is a later.parse object
-      parser.text 'at 00:01'
+      parser.text 'at 00:10'
     job: ->
       # Check to add a new day's worth of bike data
-      CreateDailyBikeData()
+      CreateDailyBikeData(100, 1)
       # Alert Kyle
       [today, now] = CurrentDay()
       info = 'PopulateDailyBikeData is in progress. Currently ' + DailyBikeData.find({Day: today}).count() + ' were found.'

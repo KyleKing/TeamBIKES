@@ -5,9 +5,9 @@
 # Called in cron demo
 @PopulateDailyBikeData = () ->
   if DailyBikeData.find({Day: today}).count() is 0
-    console.log 'Starting PopulateDailyBikeData to create Redistribution Collection'
     # If collection is empty
     if RedistributionCollection.find().count() is 0
+      console.log 'Starting PopulateDailyBikeData to create Redistribution Collection'
       # Find all bikes
       BikeData = DailyBikeData.find({Day: today}).fetch()
       # Then strip out PII for redistribution access
@@ -144,7 +144,7 @@
   console.log 'Started creating DailyBikeData data schema'
   j = 0
   while j < NumDays
-    if DailyBikeData.find({Day: (today-j) }).count() is 0
+    if DailyBikeData.find({Day: (today - j) }).count() is 0
       i = 1
       while i <= NumBikes
         # create template for each DailyBikeData data stored
