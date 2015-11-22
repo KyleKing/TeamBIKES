@@ -75,6 +75,7 @@ Meteor.startup ->
       parser.text 'at 00:10'
     job: ->
       # Check to add a new day's worth of bike data
+      Meteor.call 'CreateDailyBikeData', 50, 1
       CreateDailyBikeData(100, 1)
       # Alert Kyle
       [today, now] = CurrentDay()

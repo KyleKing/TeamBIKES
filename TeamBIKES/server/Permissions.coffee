@@ -1,3 +1,19 @@
+RFIDdata.allow
+  insert: ->
+    true
+  remove: ->
+    true
+  update: ->
+    true
+
+RackNames.allow
+  insert: ->
+    true
+  remove: ->
+    true
+  update: ->
+    true
+
 DailyBikeData.allow
   insert: (userId, doc) ->
     true

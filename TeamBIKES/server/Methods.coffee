@@ -62,11 +62,12 @@ Meteor.methods 'DeleteBikes': ->
   'ok'
 
 Meteor.methods 'CreateBike': ->
-  CreateDailyBikeData(1, 1)
+  Meteor.call 'CreateDailyBikeData', 1, 1
+  # CreateDailyBikeData(1, 1)
   'ok'
 
 Meteor.methods 'RepopulateDailyBikeData': ->
-  CreateDailyBikeData(50, 1)
+  Meteor.call 'CreateDailyBikeData', 50, 1
   'ok'
 
 ###*******************************************###
