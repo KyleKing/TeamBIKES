@@ -1,5 +1,7 @@
 Meteor.publish 'RackNamesGet', (Optional) ->
   RackNames.find({Optional: Optional})
+Meteor.publish 'RackPanel', ->
+  RackNames.find()
 
 Meteor.publish 'OuterLimitGet', ->
   OuterLimit.find()

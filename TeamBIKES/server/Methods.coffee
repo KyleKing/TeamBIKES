@@ -52,6 +52,9 @@ Meteor.methods 'CreateRFID': ->
   console.log 'Added RFID Data'
   'ok'
 
+Meteor.methods 'DeleteRacks': ->
+  RackNames.remove( { "attributes.OBJECTID": { $lt:  100000} } )
+  'ok'
 
 Meteor.methods 'DeleteBikes': ->
   # Useful function from lib/CurrentDay.coffee for current date and time

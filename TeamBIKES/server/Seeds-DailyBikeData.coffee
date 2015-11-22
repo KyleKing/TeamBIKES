@@ -260,7 +260,7 @@ if RackNames.find().count() is 0
       Coordinates: [RackData.geometry.y, RackData.geometry.x]
       Details: BikeRackShapeData
       Optional: 7
-      Availablility: RackData.attributes.Rack_Capac
+      Availability: RackData.attributes.Rack_Capac
     InsertedID = RackNames.insert doc
     RackDocs.push doc
 

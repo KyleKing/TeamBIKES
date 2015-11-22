@@ -55,6 +55,10 @@ FlowRouter.route '/DevPanel',
   name: 'DevPanel',
   action: ->
     BlazeLayout.render 'MacawLayout', body: 'DevPanel'
+FlowRouter.route '/RackPanel',
+  name: 'RackPanel',
+  action: ->
+    BlazeLayout.render 'MacawLayout', body: 'RackPanel'
 
 FlowRouter.route '/mechanicView',
   name: 'mechanicView',
