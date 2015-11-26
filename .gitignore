@@ -1,3 +1,8 @@
 node_modules
 TeamBIKES/ssl.pem
 TeamBIKES/mup.json
+TeamBIKES/settings.json
+TeamBIKES/private.key
+TeamBIKES/mup backup.json
+TeamBIKES/bundle.crt
+TeamBIKES/server/kadira.coffee

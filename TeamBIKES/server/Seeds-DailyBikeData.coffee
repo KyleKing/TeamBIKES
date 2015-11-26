@@ -29,6 +29,8 @@
 #   Meteor._sleepForMs 1000 * 60 * 60
 #   return
 
+
+# Meteor.call('CreateDailyBikeData', 65, 1)
 Meteor.methods
   CreateDailyBikeData: (NumBikes, NumDays) ->
     # @CreateDailyBikeData = (NumBikes, NumDays) ->

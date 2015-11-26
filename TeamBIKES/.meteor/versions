@@ -9,8 +9,8 @@ aldeed:tabular@1.4.2
 anti:fake@0.4.1
 anti:i18n@0.4.3
 appshore:leaflet-awesome-markers@1.0.3
-arillo:flow-router-helpers@0.4.5
-aslagle:reactive-table@0.8.16
+arillo:flow-router-helpers@0.4.6
+aslagle:reactive-table@0.8.20
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
@@ -45,7 +45,7 @@ email@1.0.8
 es5-shim@4.1.14
 fastclick@1.0.7
 force-ssl@1.0.6
-fortawesome:fontawesome@4.4.0
+fortawesome:fontawesome@4.4.0_1
 geojson-utils@1.0.4
 gwendall:body-events@0.1.6
 gwendall:jquery-animation-callback@0.1.2
@@ -62,7 +62,7 @@ juliancwirko:s-alert@2.4.2
 juliancwirko:s-alert-stackslide@1.1.4
 kadira:blaze-layout@2.2.0
 kadira:debug@2.2.4
-kadira:flow-router@2.8.0
+kadira:flow-router@2.9.0
 kidovate:bootstrap-slider@0.0.5
 kyleking:customizable-bootstrap-stylus@3.5.0_1
 kyleking:customizable-bootstrap-stylus-data@4.0.4
@@ -112,8 +112,8 @@ mrt:bootstrap3-typeahead@3.0.3
 mrt:ionicons@2.0.0
 mrt:jquery-easing@1.3.0
 mrt:underscore-string-latest@2.3.3
-msavin:jetsetter@1.5.1
-msavin:mongol@1.6.0
+msavin:jetsetter@1.5.2
+msavin:mongol@1.6.1
 natestrauser:animate-css@3.4.0
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1
@@ -136,7 +136,7 @@ routepolicy@1.0.6
 service-configuration@1.0.5
 session@1.1.1
 sha@1.0.4
-softwarerero:accounts-t9n@1.1.4
+softwarerero:accounts-t9n@1.1.6
 spacebars@1.0.7
 spacebars-compiler@1.0.7
 spiderable@1.0.9
