@@ -1,0 +1,101 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-base             # Packages every Meteor app needs to have
+mobile-experience       # Packages for a great mobile UX
+mongo                   # The database Meteor supports right now
+blaze-html-templates    # Compile .html files into Meteor Blaze views
+session                 # Client-side reactive dictionary for your app
+jquery                  # Helpful client-side library
+tracker                 # Meteor's client-side reactive programming library
+
+standard-minifiers      # JS/CSS minifiers run for production mode
+es5-shim                # ECMAScript 5 compatibility for older browsers.
+ecmascript              # Enable ECMAScript2015+ syntax in app code
+
+autopublish             # Publish all data to the clients (for prototyping)
+insecure                # Allow all DB writes from clients (for prototyping)
+
+meteortoys:allthings@2.2.0 # Pres ctrl-m to activate
+
+#### Libraries and Preprocessors ####
+stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
+coffeescript
+mquandalle:jade
+kyleking:customizable-bootstrap-stylus
+fortawesome:fontawesome
+
+### Routing ###
+kadira:flow-router
+# philippspo:momentum-flow-router # page-transitions
+kadira:blaze-layout # for page Rendering
+arillo:flow-router-helpers # for pathFor
+zimme:active-route # for isActiveRoute
+# HTTPS
+spiderable
+force-ssl
+
+#### Visual Things ####
+### Tables and Forms ###
+# aldeed:tabular # data tables
+# reactive-var # used to reactively update reactive-table
+# aslagle:reactive-table # Alt table - suggested on Github
+# aldeed:autoform # form input for above data tables
+# kidovate:bootstrap-slider # input slider
+# aldeed:collection2 # attach a schema
+
+### Maps ###
+# bevanhunt:leaflet
+# appshore:leaflet-awesome-markers
+# herrhelms:meteor-leaflet-locatecontrol
+# fuatsengul:leaflet-easybutton
+### User Alerts ###
+# juliancwirko:s-alert # Banner alerts
+# juliancwirko:s-alert-stackslide # animation style
+### Fun Things ###
+# timmyg:wow # animation library
+# chrisbutler:typed.js # specific for animating text if typed
+# mrt:jquery-easing # an animation (easing) plugin by GSGD
+
+# #### Tools ####
+# momentjs:moment # Date and Time
+# aldeed:moment-timezone
+# mrt:underscore-string-latest # Lots of functions
+
+# ### Performance Monitoring ###
+# meteorhacks:kadira # server
+# kadira:debug # local/client
+# percolate:synced-cron # TIming for bike rentals and email verification
+# email
+
+#### Collection Management ####
+# dburles:collection-helpers
+# matb33:collection-hooks
+# reywood:publish-composite
+
+#### Authentication ####
+# accounts-password
+# # accounts:password
+# alanning:roles
+# # useraccounts:unstyled
+# useraccounts:bootstrap
+# useraccounts:flow-routing
+
+
+#### Seed Data ####
+# dburles:factory
+# anti:fake
+
+#### Mobile Functions ####
+# mdg:camera
+
+# Misc:
+# matdutour:outdated-browser # warn outdated users
+# meteorhacks:aggregate
+
+
+# gwendall:template-animations
+# natestrauser:animate-css
