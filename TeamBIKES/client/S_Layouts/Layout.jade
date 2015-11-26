@@ -1,0 +1,12 @@
+template(name='Layout')
+	//- +sAlert
+	+momentum(plugin='flow-router')
+		+NavTop
+
+	main.nb-spacing(class="{{ isActiveRoute regex='about' }}")
+		.container
+			+momentum(plugin='flow-router')
+				+Template.dynamic template=Body
+	main.cd-main-content
+		+momentum(plugin='flow-router')
+			+Template.dynamic template=Full

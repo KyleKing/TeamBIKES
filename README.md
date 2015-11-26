@@ -5,7 +5,7 @@ Team BIKES
 # Getting Involved
 > Download the repository with the button to the right, ```cd TeamBIKES```, and run ```meteor``` (if you have [meteor](https://www.meteor.com/) installed)
 
-- Visit our growing documentation at [kyleking.github.io/teambikes](http://kyleking.github.io/teambikes)
+<!-- - Visit our growing documentation at [kyleking.github.io/teambikes](http://kyleking.github.io/teambikes) -->
 - To follow ongoing development, see our [Trello board](https://trello.com/b/iNYyD0BJ/team-bikes)
 - Open an issue [here](https://github.com/KyleKing/TeamBIKES/issues)!
 

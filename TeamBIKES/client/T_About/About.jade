@@ -1,0 +1,109 @@
+template(name='About')
+  body
+    .primary
+      h1(align="center") Bikes on Demand
+      h3(align="center")
+      h4(align="center") (Currently undergoing a major UI overhaul. Stay tuned for updates)
+      button(href='#').nb-start.TB_center Get Started
+    .secondary
+      .static-card.static-card-2.clearfix
+        .divfabackground.clearfix
+          i.fa.fa-5x.fa-bicycle
+          i.fa.fa-circle.text-primary.fa-bicycle.fa-inverse
+        h2.card-header.card-header-1 RFID Demo
+        p.card-content.card-content-1
+          a(href="{{ pathFor 'RFIDlayout' }}") RFID Demo Link
+        //
+          <h2 class="card-header card-header-1">Convenience</h2>
+          <p class="card-content card-content-1">Our professional staff of bike mechanics makes regular repairs and tunes every bike for the perfect ride. You never have to worry about a flat tire ever again.</p>
+      .static-card.static-card-3.clearfix
+        .fabackground.fabackground-2
+          i.fa.fa-5x.fa-university.fa-inverse
+        //
+          <h2 class="card-header card-header-2">Accessible Anywhere</h2>
+          <p class="card-content card-content-2">Find the nearest RedBar bike from any device you use. From a laptop to your iPhone, visit the map page and tap any available bike icon to make a five minute reservation.</p>
+        h2.card-header.card-header-2 Admin Screen Demo
+        p.card-content.card-content-2
+          a(href="{{ pathFor 'Dashboard' }}") Admin Demo Link
+      .static-card.static-card-4.clearfix
+        .fabackground.fabackground-3
+          i.fa.fa-5x.fa-refresh.fa-inverse
+        h2.card-header.card-header-3 Mechanic Demo
+        p.card-content.card-content-3
+          a(href="{{ pathFor 'MechMap' }}") Mechanic Demo Link
+        //
+          <h2 class="card-header card-header-3">Simple&nbsp;Return</h2>
+          <p class="card-content card-content-3">Unlike other bike shares, we understand that students need flexibility, so RedBar is built to let you return your rental to any rack and our technology will handle the rest.</p>
+    .center-group.center-group-1.clearfix
+      .tertiary.clearfix
+        .inspiration.clearfix(onclick="window.location='https://chrome.google.com/webstore/detail/umd-social-scheduler/lfmeffacphnlmfphjjbkmcecacolhabp';")
+          img.image(src='images/wF2fIYQ-356x273.jpg' data-rimage='' data-src='images/wF2fIYQ-356x273.jpg' data-srcat2x='images/wF2fIYQ-356x273@2x.jpg')
+          .break-out-text.clearfix(onclick="window.location='https://www.reddit.com/r/UMD/comments/2s6awu/what_should_i_do_about_these_classes_and_walking/';")
+            h3.break-out The Inspiration
+            p.description
+              | This project started out of our own need. We wanted an easy way to get around campus without all the hassle and expense of owning a bike. The red bar that used to appear between classes on the UMD schedule gave rise to our name, RedBar Bikes.
+        .technology.clearfix
+          .break-out-text.clearfix
+            h3.break-out The Technology
+            p.description
+              | Our lock is state of the art. We have built our lock around the best user experience, security, and materials available. The lock features a smart, RFID, touch panel that allows you to seamlessly unlock the bike with a tap of your ID. Inside is a low power wireless XBEE module that communicates with our website to help locate each bike.
+          img.image(src='images/20826_967241463326902_8192274473226178468_n-357x297.jpg' data-rimage='' data-src='images/20826_967241463326902_8192274473226178468_n-357x297.jpg' data-srcat2x='images/20826_967241463326902_8192274473226178468_n-357x297@2x.jpg')
+    .cta.cta-3.clearfix
+      .static-card.clearfix
+        h2.cta Sign Up Now
+        p.card-content Register for your chance to be part of the first RedBar bike riders
+        input.email(placeholder='UMD Email' type='text')
+        input.password(placeholder='Password' type='text')
+        label.terms.clearfix
+          input.checkbox(type='checkbox')
+          span.agree-to-terms
+            | I agree to the
+            a(href='"{{ pathFor \'terms\' }}"') terms
+        button.card Submit
+    .pricing.clearfix
+      h3.section-header our proposed pricing plan
+      .casual-rider.clearfix
+        .map-yellow
+        .map-content.clearfix
+          .break-out-text.clearfix
+            h3.break-out The casual rider
+            p.description
+              | Only want to ride a few times a week? This is the basic tier that you are enrolled in automatically. You don&apos;t pay any subscription fee and only need to pay per ride at our low cost of ___ $/ __ unit.
+          button.price.card $__/ride
+      .daily-rider.clearfix
+        .map-green
+        .map-content.clearfix
+          .break-out-text.clearfix
+            h3.break-out The Daily Rider
+            p.description
+              | Can you handle this convenience? This plan gives you five free rides per day to go anywhere that you&apos;d like for the low cost of $15 / month. If you want to ride more, simply pay a reduced price for each additional ride on your busiest days of ___ $/ __ unit. The only question is what will you do with all the time you save?
+          button.price.card $15/month
+      .the-commuter.clearfix
+        .map-red
+        .map-content.clearfix
+          .break-out-text.clearfix
+            h3.break-out The Bike-aholic
+            p.description
+              | Ready to replace your car and have an extra hour of free time a day? This plan gives you as many free rides as you can take. Ride wherever and whenever you would like for the low cost of &nbsp;$25&nbsp;/ month.
+          button.price.card $25/month
+    footer.footer-content.clearfix
+      .center-group.clearfix
+        .site-links.site-links-1
+          p
+            strong Read our FAQ
+          p
+            a Common Questions
+          p
+            a The Technology
+          p
+            a Our Bikes
+        .site-links.site-links-2
+          p
+            strong.rt-element(style='font-style: normal; font-family: inherit; font-weight: 700; text-decoration: inherit; text-transform: uppercase; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal; text-shadow: none;') our company
+          p
+            a.rt-element(style='font-style: inherit; font-family: inherit; font-weight: inherit; text-decoration: underline; text-transform: inherit; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal;') Contact Us
+          p
+            a.rt-element(style='font-style: inherit; font-family: inherit; font-weight: inherit; text-decoration: underline; text-transform: inherit; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal;') Careers
+          p
+            a.rt-element(style='font-style: inherit; font-family: inherit; font-weight: inherit; text-decoration: underline; text-transform: inherit; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal;') Social LInks
+        a.next-page(href='#') Continue reading the FAQ&nbsp;&rarr;

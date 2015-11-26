@@ -1,0 +1,293 @@
+// colors
+$main-text = #505260
+// main text
+// $navbar-default-bg = white
+// body background color
+$color-1 = #343642
+// blue-dark
+// $brand-primary = #2f889a
+// blue-light
+// $gray-lighter = #d2d8d8
+// grey
+// $brand-warning = #d76666
+// error messages
+// fonts
+// $primary-font = "PT Sans", sans-serif
+// z-index
+$header-zindex = 2
+$modal-zindex = 3
+// header
+$header-height-S = 50px
+$header-height-M = 80px
+
+
+calculateRem($size)
+  unit($size/16, 'rem')
+// anti-aliasing mode font rendering
+font-smoothing()
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+
+// center vertically and/or horizontally an absolute positioned element
+center($xy = xy)
+  if $xy == xy
+    left: 50%
+    top: 50%
+    bottom: auto
+    right: auto
+    transform(translateX(-50%) translateY(-50%))
+  else if $xy == x
+    left: 50%
+    right: auto
+    transform(translateX(-50%))
+  else if $xy == y
+    top: 50%
+    bottom: auto
+    transform(translateY(-50%))
+// border radius
+border-radius($radius = 0.25em)
+  border-radius: $radius
+
+
+
+// breakpoints
+$S = 600px
+$M = 768px
+$L = 1170px
+
+// media queries
+MQ($canvas)
+  if $canvas == S
+    @media only screen and (min-width: $S)
+      {block}
+  else if $canvas == M
+    @media only screen and (min-width: $M)
+      {block}
+  else if $canvas == L
+    @media only screen and (min-width: $L)
+      {block}
+// super light grid - it works with the .cd-container class
+column($percentage, $float-direction = left)
+  width: (100% * $percentage)
+  float: $float-direction
+
+
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+// Clever trick from: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+html
+  box-sizing: border-box
+*, *:before, *:after
+  box-sizing: inherit
+
+/* --------------------------------
+
+sigin/signup popup
+
+-------------------------------- */
+.cd-user-modal
+  position: fixed
+  top MobileNavHeight
+  +above(750px)
+    top: NavHeight
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba($color-1, 0.9)
+  z-index: $modal-zindex
+  overflow-y: auto
+  cursor: pointer
+  visibility: hidden
+  opacity: 0
+  transition(opacity .3s 0, visibility 0 .3s)
+  &.is-visible
+    visibility: visible
+    opacity: 1
+    transition(opacity .3s 0, visibility 0 0)
+    .cd-user-modal-container
+      transform(translateY(0))
+.cd-user-modal-container
+  position: relative
+  width: 90%
+  max-width: 600px
+  background: $navbar-default-bg
+  margin: 3em auto 4em
+  cursor: auto
+  // @include border-radius
+  transform(translateY(-30px))
+  transition-property (transform)
+  transition-duration(.3s)
+  ul.cd-switcher
+    padding 0px
+    li
+      list-style none
+      display inline-block
+      column(.5)
+      text-align center
+      &:first-child a
+        border-radius: .25em 0 0 0
+      &:last-child a
+        border-radius: 0 .25em 0 0
+      a
+        display block
+        width 100%
+        height 50px
+        line-height 50px
+        background $gray-lighter
+        color darken($gray-lighter, 30%)
+        &.selected
+          background: $navbar-default-bg
+          color: $main-text
+  +MQ(S)
+    margin: 4em auto;
+    .cd-switcher a
+      height: 70px
+      line-height: 70px
+
+.cd-form
+  padding: 1.4em
+  .fieldset
+    position: relative
+    margin: 1.4em 0
+    &:first-child
+      margin-top: 0
+    &:last-child
+      margin-bottom: 0
+  label
+    &.image-replace
+      /* replace text with an icon */
+      display: inline-block
+      position: absolute
+      left: 15px
+      center(y)
+      height: 20px
+      width: 20px
+      overflow: hidden
+      text-indent: 100%
+      white-space: nowrap
+      color: transparent
+      text-shadow: none
+      background-repeat: no-repeat
+      background-position: 50% 0
+    &.cd-username
+      background-image: url("../img/cd-icon-username.svg")
+    &.cd-email
+      background-image: url("../img/cd-icon-email.svg")
+    &.cd-password
+      background-image: url("../img/cd-icon-password.svg")
+  input
+    margin: 0
+    padding: 0
+    border-radius()
+    &.full-width
+      width: 100%
+    &.has-padding
+      padding: 12px 20px 12px 50px
+    &.has-border
+      border: 1px solid $gray-lighter
+      // appearance(none)
+      &:focus
+        border-color: $color-1
+        box-shadow: 0 0 5px rgba($color-1, 0.1)
+        outline: none
+    &.has-error
+      border: 1px solid $brand-warning
+    &[type=password]
+      /* space left for the HIDE button */
+      padding-right: 65px
+    &[type=submit]
+      padding: 16px 0
+      cursor: pointer
+      background: $brand-primary
+      color: $navbar-default-bg
+      font-weight: bold
+      border: none
+      // appearance(none)
+      .no-touch &:hover, .no-touch &:focus
+        background: lighten($brand-primary, 5%)
+        outline: none
+  .hide-password
+    display: inline-block
+    position: absolute
+    right: 0
+    top: 0
+    padding: 6px 15px
+    border-left: 1px solid $gray-lighter
+    center(y) // see partials > _mixins.scss
+    color: $color-1
+  .cd-error-message
+    display: inline-block
+    position: absolute
+    left: -5px
+    bottom: -35px
+    background: rgba($brand-warning, 0.9)
+    padding: .8em
+    z-index: 2
+    color: $navbar-default-bg
+    border-radius()
+    /* prevent click and touch events */
+    pointer-events: none
+    visibility: hidden
+    opacity: 0
+    transition(opacity .2s 0, visibility 0 .2s)
+    &::after
+      /* triangle */
+      content: ''
+      position: absolute
+      left: 22px
+      bottom: 100%
+      // @include triangle(16px, rgba($brand-warning, .9), up);
+    &.is-visible
+      opacity: 1
+      visibility: visible
+      transition(opacity .2s 0, visibility 0 0)
+  +MQ(S)
+    padding 2em
+    .fieldset
+      margin 2em 0
+      &:first-child
+        margin-top 0
+      &:last-child
+        margin-bottom 0
+    input.has-padding
+      padding 16px 20px 16px 50px
+    input[type=submit]
+      padding 16px 0
+
+.cd-form-message
+  padding: 1.4em 1.4em 0
+  line-height: 1.4
+  text-align: center
+  +MQ(S)
+    padding: 2em 2em 0
+.cd-form-bottom-message
+  position: absolute
+  width: 100%
+  left: 0
+  bottom: -30px
+  text-align: center
+  a
+    color: $navbar-default-bg
+    text-decoration: underline
+.cd-close-form
+  /* form X button on top right */
+  display: block
+  position: absolute
+  width: 40px
+  height: 40px
+  right: 0
+  top: -40px
+  background: url("../img/cd-icon-close.svg") no-repeat center center
+  text-indent: 100%
+  white-space: nowrap
+  overflow: hidden
+  +MQ(L)
+    display: none
+#cd-login, #cd-signup, #cd-reset-password
+  display: none
+#cd-login.is-selected, #cd-signup.is-selected, #cd-reset-password.is-selected
+  display: block

@@ -1,0 +1,90 @@
+//- template(name='woops')
+//-   nav.navbar.navbar-default.navbar-fixed-top.navbar-inverse.navbar-shrink.shrunk(role='navigation')
+//-     .container
+//-         .navbar-header
+//-           button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#main-nav')
+//-             span.sr-only Toggle navigation
+//-             span.icon-bar
+//-             //- span.icon-bar
+//-             span.icon-bar
+//-           a.Aloo.navbar-brand(href="{{pathFor 'about'}}") Red Bars
+//-         #main-nav.collapse.navbar-collapse
+//-           ul.nav.navbar-nav.navbar-right
+//-             unless isInRole 'Employee'
+//-               li(class="{{ isActiveRoute regex='about' }}")
+//-                 a.Aloo(href="{{ pathFor 'about' }}")
+//-                   i.fa.fa-home
+//-                     |  About
+//-               li(class="{{ isActiveRoute regex='map' }}")
+//-                 a.Aloo(href="{{ pathFor 'map' }}")
+//-                   i.fa.fa-map-marker
+//-                     |  Map
+//-               li(class="{{ isActiveRoute regex='RFIDlayout' }}")
+//-                 a.Aloo(href="{{ pathFor 'RFIDlayout' }}")
+//-                   i.fa.fa-gear
+//-                     |  RFIDlayout
+//-             if currentUser
+//-               if isInRole 'Mechanic'
+//-                 li(class="{{ isActiveRoute regex='MechMap' }}")
+//-                   a.Aloo(href="{{ pathFor 'MechMap' }}")
+//-                     i.fa.fa-map-marker
+//-                       |  Mechanic Map
+//-               if  isInRole 'Admin'
+//-                 li(class="{{ isActiveRoute regex='MechMap' }}")
+//-                   a.Aloo(href="{{ pathFor 'MechMap' }}")
+//-                     i.fa.fa-map-marker
+//-                       |  Mechanic Map
+//-                 li(class="{{ isActiveRoute regex='Dashboard`' }}")
+//-                   a.Aloo(href="{{ pathFor 'Dashboard`' }}")
+//-                     i.fa.fa-table
+//-                       |  Home
+//-                 li(class="{{ isActiveRoute regex='Dev' }}")
+//-                   a.Aloo(href="{{ pathFor 'Dev' }}")
+//-                     i.fa.fa-gear
+//-                       |  Dev
+//-                 //- li(class="{{ isActiveRoute regex='chartsAdmin' }}")
+//-                 //-   a.Aloo(href="{{ pathFor 'chartsAdmin' }}")
+//-                 //-     i.fa.fa-gear
+//-                 //-       |  Charts
+//-               //- li.dropdown
+//-               //-   a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
+//-               //-     i.fa.fa-ellipsis-h
+//-               //-       |  Dev
+//-               //-     i.fa.fa-caret-down
+//-               //-   ul.dropdown-menu(role='menu')
+//-                   //- li(class="{{ isActiveRoute regex='about_Ideas' }}")
+//-                   //-   a.Aloo(href="{{ pathFor 'about_Ideas' }}")
+//-                   //-     i.fa.fa-home
+//-                   //-       |  about_Ideas
+//-                   //- li(class="{{ isActiveRoute regex='progress' }}")
+//-                   //-   a.Aloo(href="{{ pathFor 'progress' }}")
+//-                   //-     i.fa.fa-home
+//-                   //-       |  Progress
+//-                   //- li(class="{{ isActiveRoute regex='mechanicView' }}")
+//-                   //-   a.Aloo(href="{{ pathFor 'mechanicView' }}")
+//-                   //-     i.fa.fa-table
+//-                   //-       |  mechanicView
+//-                   //- li(class="{{ isActiveRoute regex='RFIDlayout' }}")
+//-                   //-   a.Aloo(href="{{ pathFor 'RFIDlayout' }}")
+//-                   //-     i.fa.fa-table
+//-                   //-       |  RFIDlayout
+//-                   //- li(class="{{ isActiveRoute regex='timeseries' }}")
+//-                   //-   a.Aloo(href="{{ pathFor 'timeseries' }}")
+//-                   //-     i.fa.fa-table
+//-                   //-       |  Potentiometer -- timeseries
+//-               li.dropdown
+//-                 a.Aloo.dropdown-toggle(href='#' data-toggle='dropdown')
+//-                   //- i.fa.fa-lock
+//-                   i.fa.fa-user
+//-                     |  {{ currentUser.profile.name }}
+//-                   i.fa.fa-caret-down
+//-                 ul.dropdown-menu(role='menu')
+//-                   li(class="{{ isActiveRoute regex='Profile' }}")
+//-                     a.Aloo(href="{{ pathFor 'Profile' }}")
+//-                       i.fa.fa-user
+//-                         |  Profile
+//-                   li
+//-                     +atNavButton
+//-             else
+//-               li
+//-                 +atNavButton

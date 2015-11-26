@@ -1,0 +1,64 @@
+// Variables
+nb_TopSpacing = 20px
+nb_Background = white
+nb_Highlight = red
+nb_CalcHeight = 58px
+nb_LeftSpace = 60px
+nb_ElementSpacing = 20px
+
+
+// Simple fixed flat bar with logo and navbar icons
+nav
+	position fixed
+	top 0
+	left 0
+	background-color nb_Background
+	height nb_CalcHeight
+	width 100%
+
+// Logo
+.nb-brand
+	position fixed
+	top nb_TopSpacing
+	left nb_LeftSpace
+	text-decoration none
+	color nb_Highlight
+
+// Links
+nav .nav-elements
+	position fixed
+	top 0
+	right 0
+	ul
+		margin 0
+		list-style-type none
+		padding-right nb_LeftSpace - nb_ElementSpacing
+		& li
+			display inline
+			& a
+				nb_ActiveBorderRoom = 10px
+				padd(0, nb_ActiveBorderRoom, nb_ActiveBorderRoom, 5px)
+				marg(nb_TopSpacing, nb_ElementSpacing - nb_ActiveBorderRoom, nb_ElementSpacing - nb_ActiveBorderRoom, 0)
+				text-decoration none
+				color nb_Highlight
+
+// isActiveRoute Highlight
+nav li a.active
+	bord(0, 0, 0, 5px)
+	border-color nb_Highlight
+	border-style solid
+
+// CTA Button
+button.nb-start
+	background-color nb_Highlight
+	color nb_Background
+	margin-top 10px
+	padding nb_TopSpacing - @margin-top
+	border-radius 5px
+	border 0
+
+// Spacing for page content
+.nb-spacing
+	padding-top nb_CalcHeight
+// +above(750px)
+//   padding-top: NavHeight
