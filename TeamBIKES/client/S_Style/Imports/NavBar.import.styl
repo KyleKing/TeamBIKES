@@ -52,8 +52,11 @@ nav li a.active
 
 // CTA Button
 button.nb-start
-	background-color nb_Highlight
 	color nb_Background
+	background-color nb_Highlight
+	&.inverse
+		color nb_Highlight
+		background-color nb_Background
 	margin-top 10px
 	padding nb_TopSpacing - @margin-top
 	border-radius 5px
