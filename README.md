@@ -12,7 +12,14 @@ Team BIKES
 # Some Screenshots
 > To visit the website, go to [redbarbikes.com](https://redbarbikes.com)
 
-### An About Page:
+### The Current About Page:
+<p align="center">
+  <a href="http://redbarbikes.com">
+    <img width="300" height=auto src="/README/1-custom.png">
+  </a>
+</p>
+
+### The Previous About Page:
 <p align="center">
   <a href="http://redbarbikes.com">
     <img width="300" height=auto src="/README/1-macaw.png">
@@ -38,7 +45,7 @@ Team BIKES
 
 
 # The Old Website
-### The Original About Page based on the agency theme:
+### The Original About Page based on the Start Bootstrap agency theme:
 <p align="center">
   <a href="http://redbarbikes.com">
     <img width="300" height=auto src="/README/Website.png">

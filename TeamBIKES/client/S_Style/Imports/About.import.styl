@@ -58,10 +58,16 @@ ab_height = 300px
 
 .ab_tertiary
 	padd(30px, 0px, 0px, 30px)
-	& .descriptor
-		// sortofcenter = 0.5*(ab_height - 95px)
-		sortofcenter = 0.5*(ab_height - 125px)
-		marg(sortofcenter, 30px, 30px, 0px)
+	& .descriptor-parent
+		// Table method for vertical centering
+		height ab_height
+		display table
+		& .descriptor
+			// sortofcenter = 0.5*(ab_height - 95px)
+			// sortofcenter = 0.5*(ab_height - 125px)
+			marg(auto, 30px, 30px, 0px)
+			display table-cell
+			vertical-align middle
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Call to action
@@ -109,3 +115,21 @@ ab_height = 300px
 			border-radius 50%
 			background-color white
 			color nb_Highlight
+
+footer.ab_footer
+	padd(25px, 0px, 0px, 25px)
+	background-color lighten(#BDC3C7, 50%)
+	text-align center
+	& ul
+		padd(0px, 0px, 0px, 0px)
+		& li
+			padd(5px, 0px, 0px, 5px)
+			& a
+				color #2B3E51
+	& .next-parent
+		height 88px
+		display table
+		& .next
+			color #2B3E51
+			display table-cell
+			vertical-align middle

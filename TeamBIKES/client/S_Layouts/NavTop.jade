@@ -2,7 +2,7 @@ template(name='NavTop')
 	nav
 		a(href="{{ pathFor 'About' }}").nb-brand REDBAR
 		.nav-elements(align="right")
-			ul
+			ul.unstyled
 				li
 					a(href="{{ pathFor 'About' }}" class="{{ isActiveRoute regex='About' }}") About
 				li

@@ -30,21 +30,21 @@ template(name='About')
     .row
       .col-sm-4.col-xs-12.fadeInLeft
         .Inspiration-img
-      .col-sm-8.col-xs-12.fadeInRight
+      .col-sm-8.col-xs-12.descriptor-parent.fadeInRight
         .descriptor
           h3 1. Reserve a Bike
           p Visit RedBarBikes.com/map and see every available bike. Once you find the closest bike, tap once to reserve for 5 minutes and ensure a bike when you arrive at the rack.
     .row
       .col-sm-4.col-xs-12.fadeInLeft
         .Inspiration-img
-      .col-sm-8.col-xs-12.fadeInRight
+      .col-sm-8.col-xs-12.descriptor-parent.fadeInRight
         .descriptor
           h3 2. Unlock
           p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
     .row
       .col-sm-4.col-xs-12.fadeInLeft
         .Inspiration-img
-      .col-sm-8.col-xs-12.fadeInRight
+      .col-sm-8.col-xs-12.descriptor-parent.fadeInRight
         .descriptor
           h3 3. Return
           p Once done riding, return the bike to any rack on campus. Simply release the lock from the riding position and lock the bike to any available bike hoop. If you need help finding a nearby rack, visit RedBarBikes.com/map and look for the purple boxes.
@@ -96,30 +96,26 @@ template(name='About')
           button.nb-start.inverse $15/month
       .col-sm-4.col-xs-12
         .static-card.smaller
-          i.fa.fa-map.fa-2x
+          //- i.fa.fa-map.fa-2x
           i.fa.fa-bolt.fa-2x
           h2 The Bike-aholic
           p Ready to replace your car and have an extra hour of free time a day? This plan gives you as many free rides as you can take. Ride wherever and whenever you would like for the low cost of &nbsp;$25&nbsp;/ month.
           button.nb-start.inverse $25/month
-    //- .row
-      footer.footer-content.clearfix
-        .center-group.clearfix
-          .site-links.site-links-1
-            p
-              strong Read our FAQ
-            p
-              a Common Questions
-            p
-              a The Technology
-            p
-              a Our Bikes
-          .site-links.site-links-2
-            p
-              strong.rt-element(style='font-style: normal; font-family: inherit; font-weight: 700; text-decoration: inherit; text-transform: uppercase; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal; text-shadow: none;') our company
-            p
-              a.rt-element(style='font-style: inherit; font-family: inherit; font-weight: inherit; text-decoration: underline; text-transform: inherit; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal;') Contact Us
-            p
-              a.rt-element(style='font-style: inherit; font-family: inherit; font-weight: inherit; text-decoration: underline; text-transform: inherit; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal;') Careers
-            p
-              a.rt-element(style='font-style: inherit; font-family: inherit; font-weight: inherit; text-decoration: underline; text-transform: inherit; color: inherit; background-image: none; background-color: transparent; box-shadow: none; opacity: 1; border: none; word-wrap: normal; white-space: normal; word-break: normal;') Social LInks
-          a.next-page(href='#') Continue reading the FAQ&nbsp;&rarr;
+
+  footer.ab_footer
+    .container
+      .row
+        .col-sm-4.col-xs-12
+          ul.unstyled
+            li
+              a(href="{{ pathFor 'FAQ' }}") FAQ
+            li
+              a(href="{{ pathFor 'Technology' }}") Our Technology
+        .col-sm-4.col-xs-12
+          ul.unstyled
+            li
+              a(href="{{ pathFor 'Company' }}") About Us
+            li
+              a(href="{{ pathFor 'Contact' }}") Contact Us
+        .col-sm-4.col-xs-12.next-parent
+          a(href="{{ pathFor 'FAQ' }}").next Continue reading the FAQ
