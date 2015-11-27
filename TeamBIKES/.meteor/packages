@@ -56,7 +56,7 @@ force-ssl
 # juliancwirko:s-alert # Banner alerts
 # juliancwirko:s-alert-stackslide # animation style
 ### Fun Things ###
-# timmyg:wow # animation library
+timmyg:wow # animation library
 # chrisbutler:typed.js # specific for animating text if typed
 # mrt:jquery-easing # an animation (easing) plugin by GSGD
 

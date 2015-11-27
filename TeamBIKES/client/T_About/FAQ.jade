@@ -1,0 +1,61 @@
+template(name='FAQ')
+  .container
+    .ab_primary
+      h1 RedBar FAQ
+      h3 Commonly Asked Questions
+
+  .container.ab_tertiary
+    .row
+      .col-sm-4.col-xs-12.wow.fadeInLeft
+        .Inspiration-img
+      .col-sm-8.col-xs-12.descriptor-parent.wow.fadeInRight
+        .descriptor
+          h3 The Inspiration
+          p This project started out of our own need. We wanted an easy way to get around campus without all the hassle and expense of owning a bike. The red bar that used to appear between classes on the UMD schedule gave rise to our name, RedBar Bikes.
+    .row
+      .col-sm-4.col-xs-12.wow.fadeInLeft
+        .Lock-img
+      .col-sm-8.col-xs-12.descriptor-parent.wow.fadeInRight
+        .descriptor
+          h3 The Technology
+          p Our lock is state of the art. We have built our lock around the best user experience, security, and materials available. The lock features a smart, RFID, touch panel that allows you to seamlessly unlock the bike with a tap of your ID. Inside is a low power wireless XBEE module that communicates with our website to help locate each bike.
+  .container
+    .row.ab_pricing
+      h1 Replace with better descriptions of pricing breakdown & switch about template to bulleted lists:
+    .row.ab_pricing
+      .col-sm-4.col-xs-12
+        .static-card.smaller
+          i.fa.fa-hourglass-2.fa-2x
+          h2 Casual rider
+          p Only want to ride a few times a week? This is the basic tier that you are enrolled in automatically. You don&apos;t pay any subscription fee and only need to pay per ride at our low cost of ___ $/ __ unit.
+          button.nb-start.inverse $__/ride
+      .col-sm-4.col-xs-12
+        .static-card.focal
+          i.fa.fa-hand-paper-o.fa-2x
+          h2 The Daily Rider
+          p Can you handle this convenience? This plan gives you five free rides per day to go anywhere that you&apos;d like for the low cost of $15 / month. If you want to ride more, simply pay a reduced price for each additional ride on your busiest days of ___ $/ __ unit. The only question is what will you do with all the time you save?
+          button.nb-start.inverse $15/month
+      .col-sm-4.col-xs-12
+        .static-card.smaller
+          //- i.fa.fa-map.fa-2x
+          i.fa.fa-bolt.fa-2x
+          h2 The Bike-aholic
+          p Ready to replace your car and have an extra hour of free time a day? This plan gives you as many free rides as you can take. Ride wherever and whenever you would like for the low cost of &nbsp;$25&nbsp;/ month.
+          button.nb-start.inverse $25/month
+  footer.ab_footer
+    .container
+      .row
+        .col-sm-4.col-xs-12
+          ul.unstyled
+            li
+              a(href="{{ pathFor 'FAQ' }}") FAQ
+            li
+              a(href="{{ pathFor 'Technology' }}") Our Technology
+        .col-sm-4.col-xs-12
+          ul.unstyled
+            li
+              a(href="{{ pathFor 'Company' }}") About Us
+            li
+              a(href="{{ pathFor 'Contact' }}") Contact Us
+        .col-sm-4.col-xs-12.next-parent
+          a(href="{{ pathFor 'Technology' }}").next Explore Our Technology →

@@ -1,0 +1,52 @@
+template(name='Technology')
+  .ab_background
+  .container
+    .ab_primary
+      h1.wow.fadeInDown(data-wow-delay="0.5s") RedBar Technology
+      h3.wow.fadeInDown(data-wow-delay="0.5s") We have the smartest bikes in the world
+
+  .ab_secondary
+    .container
+      .row
+        .col-sm-4.col-xs-12
+          .static-card
+            i.fa.fa-wifi.fa-inverse.fa-2x
+            h2.card-header Wireless Communication
+            p.card-content We employ only the best and brightest in wireless communication experts: Luke Boegner
+        .col-sm-4.col-xs-12
+          .static-card
+            i.fa.fa-lock.fa-inverse.fa-2x
+            h2.card-header Secure Access
+            p.card-content NFC-based user identification
+        .col-sm-4.col-xs-12
+          .static-card
+            i.fa.fa-bar-chart.fa-inverse.fa-2x
+            h2.card-header Smart Metrics
+            p.card-content Our administrator dashboard is beautiful
+
+  .container.ab_tertiary
+    .row
+      .col-sm-4.col-xs-12.wow.fadeInLeft
+        .Lock-img
+      .col-sm-8.col-xs-12.descriptor-parent.wow.fadeInRight
+        .descriptor
+          h3 The Technology
+          p Our lock is state of the art. We have built our lock around the best user experience, security, and materials available. The lock features a smart, RFID, touch panel that allows you to seamlessly unlock the bike with a tap of your ID. Inside is a low power wireless XBEE module that communicates with our website to help locate each bike.
+
+  footer.ab_footer
+    .container
+      .row
+        .col-sm-4.col-xs-12
+          ul.unstyled
+            li
+              a(href="{{ pathFor 'FAQ' }}") FAQ
+            li
+              a(href="{{ pathFor 'Technology' }}") Our Technology
+        .col-sm-4.col-xs-12
+          ul.unstyled
+            li
+              a(href="{{ pathFor 'Company' }}") About Us
+            li
+              a(href="{{ pathFor 'Company' }}#contact") Contact Us
+        .col-sm-4.col-xs-12.next-parent
+          a(href="{{ pathFor 'Company' }}").next Explore Our Company →
