@@ -5,7 +5,7 @@ FlowRouter.route '/',
   name: 'About',
   action: ->
     BlazeLayout.render 'Layout', {
-      Body: 'About'
+      Full: 'About'
     }
 
 FlowRouter.route '/map',

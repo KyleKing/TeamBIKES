@@ -1,6 +1,7 @@
 // Variables
 nb_TopSpacing = 20px
 nb_Background = white
+nb_Text = black
 nb_Highlight = red
 nb_CalcHeight = 58px
 nb_LeftSpace = 60px
@@ -9,6 +10,7 @@ nb_ElementSpacing = 20px
 
 // Simple fixed flat bar with logo and navbar icons
 nav
+	z-index 20
 	position fixed
 	top 0
 	left 0
@@ -22,7 +24,7 @@ nav
 	top nb_TopSpacing
 	left nb_LeftSpace
 	text-decoration none
-	color nb_Highlight
+	color nb_Text
 
 // Links
 nav .nav-elements
@@ -40,12 +42,12 @@ nav .nav-elements
 				padd(0, nb_ActiveBorderRoom, nb_ActiveBorderRoom, 5px)
 				marg(nb_TopSpacing, nb_ElementSpacing - nb_ActiveBorderRoom, nb_ElementSpacing - nb_ActiveBorderRoom, 0)
 				text-decoration none
-				color nb_Highlight
+				color nb_Text
 
 // isActiveRoute Highlight
 nav li a.active
 	bord(0, 0, 0, 5px)
-	border-color nb_Highlight
+	border-color nb_Text
 	border-style solid
 
 // CTA Button
