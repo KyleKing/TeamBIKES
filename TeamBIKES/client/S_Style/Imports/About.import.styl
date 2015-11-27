@@ -1,23 +1,36 @@
+// Quick function
+Fill-Image(height, url, style)
+	background-image url(url)
+	height height
+	width 100%
+	background-size style
+	background-repeat no-repeat
+	background-position center
+
+
+// Fixed cover photo
 .ab_background
 	position absolute
 	top nb_CalcHeight
 	left 0px
 	z-index -1
-	background-image url("about/AbstractBikers.png")
-	height 300px
-	width 100%
-	background-size cover
-	background-position center
+	Fill-Image(300px, "about/AbstractBikers.png", cover)
 
+// Welcome Text
 .ab_primary
 	padd(75px, auto, auto, 75px)
+	// Center Everything
 	text-align center
+	// marg(0, auto, auto, 0)
+	// display block
 
+// Bulleted Value Proposition
 .ab_secondary
 	padd(25px, auto, auto, 25px)
 	background-color lighten(#BDC3C7, 50%)
 
-.static-card
+// Trio of Card elements
+.ab_secondary .static-card
 	text-align center
 	background-color white
 	height 280px
@@ -30,4 +43,28 @@
 		line-height 75px
 		vertical-align middle
 		border-radius 50%
-		background-color red
+		background-color nb_Highlight
+
+// Images and Description
+ab_height = 300px
+.Inspiration-img
+	Fill-Image(ab_height, "about/TheInspiration.jpg", contain)
+.Lock-img
+	Fill-Image(ab_height, "about/TheLock.jpg", contain)
+
+.tertiary .descriptor
+	// sortofcenter = 0.5*(ab_height - 95px)
+	sortofcenter = 0.5*(ab_height - 125px)
+	marg(sortofcenter, 30px, 30px, 0px)
+
+
+.ab_cta
+	padd(25px, auto, auto, 25px)
+	background-color lighten(#BDC3C7, 50%)
+
+// Single card element
+.ab_cta .static-card
+	text-align center
+	background-color white
+	padd(10px, 15px, 15px, 10px)
+	marg(0, 5px, 5px, 0px)
