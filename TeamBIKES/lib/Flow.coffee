@@ -13,6 +13,7 @@ Templates = [
   'Technology'
   'Company'
   'Map'
+  'D3'
 ]
 _.each Templates, (Template) ->
   route = '/' + Template

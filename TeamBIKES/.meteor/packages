@@ -39,6 +39,7 @@ spiderable
 force-ssl
 
 #### Visual Things ####
+d3js:d3
 ### Tables and Forms ###
 # aldeed:tabular # data tables
 # reactive-var # used to reactively update reactive-table
@@ -99,3 +100,4 @@ timmyg:wow # animation library
 
 # gwendall:template-animations
 # natestrauser:animate-css
+
