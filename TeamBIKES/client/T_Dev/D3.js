@@ -35,8 +35,8 @@ Template.D3.onRendered(function () {
         .style("fill", function(d) { return color(d.group); })
         .call(force.drag);
 
-    node.append("title")
-        .text(function(d) { return d.name; });
+    // node.append("title")
+    //     .text(function(d) { return d.name; });
 
     force.on("tick", function() {
       link.attr("x1", function(d) { return d.source.x; })

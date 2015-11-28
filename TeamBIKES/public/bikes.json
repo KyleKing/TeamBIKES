@@ -1,0 +1,29 @@
+{
+    "nodes": [
+        {"x": 469, "y": 410, "group": 0},
+        {"x": 493, "y": 364, "group": 0},
+        {"x": 442, "y": 365, "group": 0},
+        {"x": 467, "y": 314, "group": 0},
+        {"x": 469, "y": 410, "group": 1},
+        {"x": 493, "y": 364, "group": 1},
+        {"x": 442, "y": 365, "group": 1},
+        {"x": 467, "y": 314, "group": 1},
+        {"x": 469, "y": 410, "group": 1},
+        {"x": 493, "y": 364, "group": 2},
+        {"x": 442, "y": 365, "group": 2},
+        {"x": 467, "y": 314, "group": 2}
+    ],
+    "links": [
+        {"source":  0, "target":  1},
+        {"source":  1, "target":  2},
+        {"source":  2, "target":  0},
+        {"source":  1, "target":  3},
+        {"source":  3, "target":  2},
+        {"source":  4, "target":  5},
+        {"source":  5, "target":  6},
+        {"source":  6, "target":  4},
+        {"source":  5, "target":  7},
+        {"source":  7, "target":  6}
+    ]
+}
+
