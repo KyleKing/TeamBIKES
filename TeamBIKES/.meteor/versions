@@ -1,5 +1,5 @@
 accounts-base@1.2.2
-arillo:flow-router-helpers@0.4.6
+arillo:flow-router-helpers@0.4.7
 autopublish@1.0.4
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
@@ -15,7 +15,7 @@ caching-html-compiler@1.0.2
 callback-hook@1.0.4
 check@1.1.0
 coffeescript@1.0.11
-cosmos:browserify@0.5.1
+cosmos:browserify@0.9.2
 d3js:d3@3.5.8
 dburles:mongo-collection-instances@0.3.4
 ddp@1.2.2
@@ -32,7 +32,7 @@ email@1.0.8
 es5-shim@4.1.14
 fastclick@1.0.7
 force-ssl@1.0.6
-fortawesome:fontawesome@4.4.0_1
+fortawesome:fontawesome@4.5.0
 geojson-utils@1.0.4
 gwendall:body-events@0.1.6
 hot-code-push@1.0.0
@@ -42,10 +42,10 @@ http@1.1.1
 id-map@1.0.4
 insecure@1.0.4
 jquery@1.11.4
-kadira:blaze-layout@2.2.0
-kadira:flow-router@2.9.0
-kyleking:customizable-bootstrap-stylus@3.5.0_1
-kyleking:customizable-bootstrap-stylus-data@4.0.4
+kadira:blaze-layout@2.3.0
+kadira:flow-router@2.10.0
+kyleking:customizable-bootstrap-stylus@3.6.3
+kyleking:customizable-bootstrap-stylus-data@4.0.6
 lai:collection-extensions@0.1.4
 launch-screen@1.0.4
 livedata@1.0.15
@@ -53,15 +53,15 @@ localstorage@1.0.5
 logging@1.0.8
 meteor@1.1.10
 meteor-base@1.0.1
-meteortoys:allthings@2.2.0
+meteortoys:allthings@2.3.1
 meteortoys:authenticate@2.1.0
 meteortoys:autopub@2.1.0
 meteortoys:blueprint@2.1.0
 meteortoys:email@2.1.0
 meteortoys:hotreload@2.1.0
 meteortoys:listen@2.1.0
-meteortoys:method@2.2.1
-meteortoys:pub@2.1.0
+meteortoys:method@3.0.2
+meteortoys:pub@3.0.2
 meteortoys:result@2.1.0
 meteortoys:shell@2.1.0
 meteortoys:status@2.1.0
@@ -77,7 +77,7 @@ mongo-id@1.0.1
 mquandalle:jade@0.4.5
 mquandalle:jade-compiler@0.4.5
 msavin:jetsetter@1.5.2
-msavin:mongol@1.6.1
+msavin:mongol@1.6.2
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4

@@ -1,3 +1,6 @@
+# Need to build drag functionality
+# https://github.com/mbostock/d3/wiki/Drag-Behavior
+
 # FakeBikes(10, 4)
 @FakeBikes = (number, NumFoci) ->
   # %%%%%%%%%%%%%%%%%%%%%%%%%%

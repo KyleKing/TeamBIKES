@@ -19,7 +19,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
 
-meteortoys:allthings@2.2.0 # Pres ctrl-m to activate
+meteortoys:allthings@2.3.1 # Pres ctrl-m to activate
 
 #### Libraries and Preprocessors ####
 stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
@@ -101,3 +101,6 @@ timmyg:wow # animation library
 # gwendall:template-animations
 # natestrauser:animate-css
 
+
+# Dev - MongoDB Control
+# Use DrMongo : port 27016 (meteor) / 27017 (mongo)
