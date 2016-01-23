@@ -2,3 +2,5 @@ TeamBIKES/settings.json
 TeamBIKES/server/kadira.coffee
 TeamBIKES/mup.json
 TeamBIKES/mup-ssl/*
+MeteorApp/mup-ssl/private.key
+MeteorApp/mup-ssl
