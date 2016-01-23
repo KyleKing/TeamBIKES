@@ -1,12 +1,3 @@
-// Quick function
-Fill-Image(height, url, style)
-	background-image url(url)
-	height height
-	width 100%
-	background-size style
-	background-repeat no-repeat
-	background-position center
-
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Fixed cover photo
 .ab_background
@@ -39,8 +30,11 @@ Fill-Image(height, url, style)
 
 .CTA_quote_container
 	display block
-	marg(0px, auto, auto, 0px)
-	width 800px
+	marg(0px, 50px, 50px, 0px)
+	max-width 100%
+	+above(800px)
+		marg(0px, auto, auto, 0px)
+		max-width 800px
 
 p.CTA_quote
 	text-align center
@@ -50,60 +44,67 @@ p.CTA_quote
 .bold
 	font-weight bold
 
-// // %%%%%%%%%%%%%%%%%%%%%%%%%%
-// // Bulleted Value Proposition
-// .ab_secondary
-// 	z-index 2
-// 	padd(25px, auto, auto, 25px)
-// 	background-color lighten(#BDC3C7, 50%)
+// %%%%%%%%%%%%%%%%%%%%%%%%%%
+// Walk through
+.ab_map_demo
+	Fill-Image(300px, "about/EditedBikeMap.png", cover)
 
-// // Trio of Card elements
-// .ab_secondary .static-card
-// 	z-index 2
-// 	text-align center
-// 	background-color white
-// 	height 240px
-// 	+above(750px)
-// 		height 280px
-// 	padd(10px, 15px, 15px, 10px)
-// 	marg(5px, 5px, 5px, 5px)
-// 	& i
-// 		// Add a circle background to icon
-// 		width 75px
-// 		height 75px
-// 		line-height 75px
-// 		vertical-align middle
-// 		border-radius 50%
-// 		background-color nb_Highlight
 
-// // %%%%%%%%%%%%%%%%%%%%%%%%%%
-// // Images and Description
-// ab_height = 300px
-// .Inspiration-img
-// 	Fill-Image(ab_height, "about/TheInspiration.jpg", contain)
-// .Lock-img
-// 	Fill-Image(ab_height, "about/TheLock.jpg", contain)
 
-// .ab_tertiary
-// 	// background-image url("about/map.png")
-// 	// background-size cover
-// 	// background-repeat no-repeat
-// 	// background-position center
-// 	padd(30px, 0px, 0px, 30px)
-// 	& .descriptor-parent
-// 		// Table method for vertical centering
-// 		height ab_height
-// 		display table
-// 		& .descriptor
-// 			// sortofcenter = 0.5*(ab_height - 95px)
-// 			// sortofcenter = 0.5*(ab_height - 125px)
-// 			marg(auto, 30px, 30px, 0px)
-// 			display table-cell
-// 			vertical-align middle
-// 			& .content
-// 				border-radius 5px
-// 				background-color white
-// 				padd(10px, 10px, 10px, 10px)
+// %%%%%%%%%%%%%%%%%%%%%%%%%%
+// Bulleted Value Proposition
+.ab_secondary
+	z-index 2
+	padd(25px, auto, auto, 25px)
+	background-color lighten(#BDC3C7, 50%)
+
+// Trio of Card elements
+.ab_secondary .static-card
+	z-index 2
+	text-align center
+	background-color white
+	height 240px
+	+above(750px)
+		height 280px
+	padd(10px, 15px, 15px, 10px)
+	marg(5px, 5px, 5px, 5px)
+	& i
+		// Add a circle background to icon
+		width 75px
+		height 75px
+		line-height 75px
+		vertical-align middle
+		border-radius 50%
+		background-color nb_Highlight
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%
+// Images and Description
+ab_height = 300px
+.Inspiration-img
+	Fill-Image(ab_height, "about/TheInspiration.jpg", cover)
+	// border-left 1px solid black
+.Lock-img
+	Fill-Image(ab_height, "about/TheLock.jpg", cover)
+
+.ab_tertiary
+	padd(30px, 0px, 0px, 30px)
+	& .descriptor-parent
+		// Table method for vertical centering
+		height auto
+		+above(750px)
+			height ab_height
+		display table
+		& .descriptor
+			// marg(0px, 30px, 30px, 0px)
+			display table-cell
+			vertical-align middle
+			& .content
+				marg(0px, 30px, 30px, 0px)
+				+below(750px)
+					marg(0px, 50px, 50px, 0px)
+				border-radius 5px
+				background-color white
+				padd(0px, 10px, 10px, 15px)
 
 // // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // // Call to action
@@ -139,12 +140,15 @@ p.CTA_quote
 		border 1px solid #BDC3C7
 		&:hover
 			border 2px solid nb_Highlight
+		& .ab_pricing_bullets
+			max-width 300px
+			marg(0px, auto, auto, 0px)
 		& ul
 			text-align left
 			& li
 				margin-left 0px
 		&.focal
-			padd(50px, 15px, 15px, 20px)
+			padd(70px, 15px, 15px, 20px)
 			marg(5px, 5px, 5px, 5px)
 			height 450px
 		&.smaller

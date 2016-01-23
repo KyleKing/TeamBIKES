@@ -11,8 +11,10 @@ template(name='About')
 		.container
 			.row
 				.CTA_quote_container
-					p.CTA_quote As a group of UMD student, we built the best way to get around campus. We took the accessibility and convenience of biking and took out all of the unpleasant parts, such as fixing flat tires, maintenance, and not having your bike when you want it.
-					p.CTA_quote.bold We make biking convenient, budget-friendly, and fun. Be one of the first RedBar bike riders!
+					p.CTA_quote As a group of UMD student, we built the best way to get around campus. We took the accessibility and convenience of biking and removed the unpleasant parts, such as fixing flat tires, maintenance, and not having your bike when you want it.
+					p.CTA_quote.bold We make biking easy, affordable, and fun. Be one of the first RedBar bike riders!
+
+	.ab_map_demo
 
 	//- .test.slant
 
@@ -35,32 +37,36 @@ template(name='About')
 	//-           h2.card-header Simple Return
 	//-           p.card-content Unlike other bike shares, we understand that students need flexibility, so RedBar is built to let you return your rental to any rack and our technology will handle the rest.
 
-	//- .ab_tertiary
-	//-   .container
-	//-     .row
-	//-       .col-sm-4.col-xs-12
-	//-         .Inspiration-img
-	//-       .col-sm-8.col-xs-12.descriptor-parent
-	//-         .descriptor
-	//-           .content
-	//-             h3 1. Reserve a Bike
-	//-             p Visit RedBarBikes.com/map and see every available bike. Once you find the closest bike, tap once to reserve for 5 minutes and ensure a bike when you arrive at the rack.
-	//-     .row
-	//-       .col-sm-4.col-xs-12
-	//-         .Inspiration-img
-	//-       .col-sm-8.col-xs-12.descriptor-parent
-	//-         .descriptor
-	//-           .content
-	//-             h3 2. Unlock
-	//-             p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
-	//-     .row
-	//-       .col-sm-4.col-xs-12
-	//-         .Inspiration-img
-	//-       .col-sm-8.col-xs-12.descriptor-parent
-	//-         .descriptor
-	//-           .content
-	//-             h3 3. Return
-	//-             p Once done riding, return the bike to any rack on campus. Simply release the lock from the riding position and lock the bike to any available bike hoop. If you need help finding a nearby rack, visit RedBarBikes.com/map and look for the purple boxes.
+
+	.ab_quote
+		.container
+			.row
+				.CTA_quote_container
+					h3 Reserve
+					p The image above is a screenshot of
+						a(href='https://RedBarBikes.com/map')
+							|  RedBarBikes.com/map
+						|  where you can see every available bike. Tap any icon to reserve that bike for 5 minutes and ensure that a bike will be available when you arrive at the rack.
+	.ab_tertiary
+		.row
+			.col-sm-6.col-xs-12
+				.Inspiration-img
+			.col-sm-6.col-xs-12.descriptor-parent
+				.descriptor
+					.content
+						h3 Unlock
+						p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
+		.row
+			.col-sm-6.col-xs-12.descriptor-parent
+				.descriptor
+					.content
+						h3 Return
+						p Complete your rental by returning to any on-campus rack. Release the lock from the riding position and loop the lock through the hoop. If you need help finding a nearby rack, visit
+							a(href='https://RedBarBikes.com/map')
+								|  RedBarBikes.com/map
+							|  and look for the purple squares.
+			.col-sm-6.col-xs-12
+				.Lock-img
 
 	//- .ab_cta
 	//-   .container
@@ -79,57 +85,66 @@ template(name='About')
 	//-       .row
 	//-         button.nb-start Submit
 
+	.ab_quote
+		.container
+			.row
+				.CTA_quote_container
+					p.CTA_quote.bold Sound Awesome?
+
 	.container
 		.row.ab_pricing
 			.col-sm-4.col-xs-12
 				.static-card.smaller
 					i.fa.fa-hourglass-2.fa-2x
 					h2 Casual rider
-					p Only want to ride a few times a week?
-					ul
-						li
-							span Pay $_ per ride
-						li
-							span No Commitment
+					p See what makes RedBars so convenient!
+					.ab_pricing_bullets
+						ul
+							li
+								span Pay $_ per ride
+							li
+								span No Commitment
 					button.nb-start $_ per ride
 			.col-sm-4.col-xs-12
 				.static-card.focal
 					i.fa.fa-hand-paper-o.fa-2x
 					h2 The Daily Rider
-					p Can you handle this convenience? The only question is what will you do with all the time you save?
-					ul
-						li
-							span Five free rides per day
-						li
-							span Reduced cost for additional rides
+					p Ready to get hooked?
+					.ab_pricing_bullets
+						ul
+							li
+								span Five free rides per day
+							li
+								span Reduced cost for additional rides
 					button.nb-start $15 per month
 			.col-sm-4.col-xs-12
 				.static-card.smaller
 					//- i.fa.fa-map.fa-2x
 					i.fa.fa-bolt.fa-2x
 					h2 The Bike-aholic
-					p Ready to replace your car and have an extra hour of free time a day?
-					ul
-						li
-							span UNLIMITED rides per day
-						li
-							span Access to Request a Bike program
+					p No distance is too short for a quick ride!
+					.ab_pricing_bullets
+						ul
+							li
+								span UNLIMITED rides per day
+							li
+								span Access to Request a Bike program
 					button.nb-start $25 per month
 
-	//- footer.ab_footer
-	//-   .container
-	//-     .row
-	//-       .col-sm-4.col-xs-12
-	//-         ul.unstyled
-	//-           li
-	//-             a(href="{{ pathFor 'FAQ' }}") FAQ
-	//-           li
-	//-             a(href="{{ pathFor 'Technology' }}") Our Technology
-	//-       .col-sm-4.col-xs-12
-	//-         ul.unstyled
-	//-           li
-	//-             a(href="{{ pathFor 'Company' }}") About Us
-	//-           li
-	//-             a(href="{{ pathFor 'Company' }}#contact") Contact Us
-	//-       .col-sm-4.col-xs-12.next-parent
-	//-         a(href="{{ pathFor 'FAQ' }}").next Explore the FAQ →
+	footer.ab_footer
+		.container
+			.row
+				.col-sm-4.col-xs-12
+					ul.unstyled
+						li
+							a(href="{{ pathFor 'FAQ' }}") FAQ
+						li
+							a(href="{{ pathFor 'Technology' }}") Our Technology
+				.col-sm-4.col-xs-12
+					ul.unstyled
+						li
+							a(href="{{ pathFor 'Company' }}") About Us
+						li
+							a(href="{{ pathFor 'Company' }}#contact") Contact Us
+				.col-sm-4.col-xs-12.next-parent
+					a(href="{{ pathFor 'FAQ' }}").next Explore the FAQ →
