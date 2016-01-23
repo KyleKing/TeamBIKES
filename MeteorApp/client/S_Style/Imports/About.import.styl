@@ -11,90 +11,115 @@ Fill-Image(height, url, style)
 // Fixed cover photo
 .ab_background
 	position absolute
-	top nb_CalcHeight
+	// top nb_CalcHeight
+	top 0px
 	left 0px
 	z-index -1
-	Fill-Image(400px, "about/AbstractBikers.png", cover)
+	Fill-Image(650px, "about/BikeRack.jpg", cover)
+
+.block-text
+	width 50%
 
 // Welcome Text
 .ab_primary
 	z-index 2
-	padd(75px, auto, auto, 75px)
+	color white
+	padd(180px, auto, auto, 180px)
 	// Center Everything
 	text-align center
 	// marg(0, auto, auto, 0)
 	// display block
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
-// Bulleted Value Proposition
-.ab_secondary
+// Quick Summary and Value Proposition
+.ab_quote
 	z-index 2
+	background-color #FFFFFF
 	padd(25px, auto, auto, 25px)
-	background-color lighten(#BDC3C7, 50%)
 
-// Trio of Card elements
-.ab_secondary .static-card
-	z-index 2
+.CTA_quote_container
+	display block
+	marg(0px, auto, auto, 0px)
+	width 800px
+
+p.CTA_quote
 	text-align center
-	background-color white
-	height 240px
-	+above(750px)
-		height 280px
-	padd(10px, 15px, 15px, 10px)
-	marg(5px, 5px, 5px, 5px)
-	& i
-		// Add a circle background to icon
-		width 75px
-		height 75px
-		line-height 75px
-		vertical-align middle
-		border-radius 50%
-		background-color nb_Highlight
+	color #444444
+	font-size 22px
 
-// %%%%%%%%%%%%%%%%%%%%%%%%%%
-// Images and Description
-ab_height = 300px
-.Inspiration-img
-	Fill-Image(ab_height, "about/TheInspiration.jpg", contain)
-.Lock-img
-	Fill-Image(ab_height, "about/TheLock.jpg", contain)
+.bold
+	font-weight bold
 
-.ab_tertiary
-	// background-image url("about/map.png")
-	// background-size cover
-	// background-repeat no-repeat
-	// background-position center
-	padd(30px, 0px, 0px, 30px)
-	& .descriptor-parent
-		// Table method for vertical centering
-		height ab_height
-		display table
-		& .descriptor
-			// sortofcenter = 0.5*(ab_height - 95px)
-			// sortofcenter = 0.5*(ab_height - 125px)
-			marg(auto, 30px, 30px, 0px)
-			display table-cell
-			vertical-align middle
-			& .content
-				border-radius 5px
-				background-color white
-				padd(10px, 10px, 10px, 10px)
+// // %%%%%%%%%%%%%%%%%%%%%%%%%%
+// // Bulleted Value Proposition
+// .ab_secondary
+// 	z-index 2
+// 	padd(25px, auto, auto, 25px)
+// 	background-color lighten(#BDC3C7, 50%)
 
-// %%%%%%%%%%%%%%%%%%%%%%%%%%
-// Call to action
-.ab_cta
-	padd(25px, auto, auto, 25px)
-	background-color lighten(#BDC3C7, 50%)
+// // Trio of Card elements
+// .ab_secondary .static-card
+// 	z-index 2
+// 	text-align center
+// 	background-color white
+// 	height 240px
+// 	+above(750px)
+// 		height 280px
+// 	padd(10px, 15px, 15px, 10px)
+// 	marg(5px, 5px, 5px, 5px)
+// 	& i
+// 		// Add a circle background to icon
+// 		width 75px
+// 		height 75px
+// 		line-height 75px
+// 		vertical-align middle
+// 		border-radius 50%
+// 		background-color nb_Highlight
 
-// Single card element
-.ab_cta .static-card
-	text-align center
-	background-color white
-	padd(30px, 15px, 15px, 30px)
-	marg(0, 5px, 5px, 0px)
-	& input
-		padding 10px
-		margin 5px
+// // %%%%%%%%%%%%%%%%%%%%%%%%%%
+// // Images and Description
+// ab_height = 300px
+// .Inspiration-img
+// 	Fill-Image(ab_height, "about/TheInspiration.jpg", contain)
+// .Lock-img
+// 	Fill-Image(ab_height, "about/TheLock.jpg", contain)
+
+// .ab_tertiary
+// 	// background-image url("about/map.png")
+// 	// background-size cover
+// 	// background-repeat no-repeat
+// 	// background-position center
+// 	padd(30px, 0px, 0px, 30px)
+// 	& .descriptor-parent
+// 		// Table method for vertical centering
+// 		height ab_height
+// 		display table
+// 		& .descriptor
+// 			// sortofcenter = 0.5*(ab_height - 95px)
+// 			// sortofcenter = 0.5*(ab_height - 125px)
+// 			marg(auto, 30px, 30px, 0px)
+// 			display table-cell
+// 			vertical-align middle
+// 			& .content
+// 				border-radius 5px
+// 				background-color white
+// 				padd(10px, 10px, 10px, 10px)
+
+// // %%%%%%%%%%%%%%%%%%%%%%%%%%
+// // Call to action
+// .ab_cta
+// 	padd(25px, auto, auto, 25px)
+// 	background-color lighten(#BDC3C7, 50%)
+
+// // Single card element
+// .ab_cta .static-card
+// 	text-align center
+// 	background-color white
+// 	padd(30px, 15px, 15px, 30px)
+// 	marg(0, 5px, 5px, 0px)
+// 	& input
+// 		padding 10px
+// 		margin 5px
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Trio of Card elements
@@ -103,18 +128,27 @@ ab_height = 300px
 	// marg(0px, 0px, 0px, 0px)
 	margin-top 30px
 	margin-bottom 30px
+	& button.nb-start
+		font-size 20px
 	& .static-card
 		text-align center
-		color white
-		background-color nb_Highlight
 		height 400px
 		+above(750px)
 			height 480px
-		padd(20px, 15px, 15px, 20px)
+		border-radius 10%
+		border 1px solid #BDC3C7
+		&:hover
+			border 2px solid nb_Highlight
+		& ul
+			text-align left
+			& li
+				margin-left 0px
 		&.focal
+			padd(50px, 15px, 15px, 20px)
 			marg(5px, 5px, 5px, 5px)
 			height 450px
 		&.smaller
+			padd(20px, 15px, 15px, 20px)
 			marg(60px, 5px, 5px, 60px)
 			height 480px - 2*60px
 		& i
@@ -124,8 +158,8 @@ ab_height = 300px
 			line-height 75px
 			vertical-align middle
 			border-radius 50%
-			background-color white
-			color nb_Highlight
+			background-color nb_Highlight
+			color white
 
 footer.ab_footer
 	padd(25px, 0px, 0px, 25px)
@@ -145,19 +179,21 @@ footer.ab_footer
 			display table-cell
 			vertical-align middle
 
+// %%%%%%%%%%%%%%%%%%%%%%%%%%
+// Attempting the slanted triangle edge between CSS sections
 
-.test
-	padd(25px, auto, auto, 25px)
-	// padding-top 10px
-	// height 0px
-	background-color lighten(#BDC3C7, 50%)
+// .test
+// 	padd(25px, auto, auto, 25px)
+// 	// padding-top 10px
+// 	// height 0px
+// 	background-color lighten(#BDC3C7, 50%)
 
-.slant
-	top 43px
-	left 0
-	width 100%
-	z-index 1
-	transform skew(0deg, -5deg)
-	outline 1px solid transparent
-	box-sizing content-box
-	margin 0 auto
+// .slant
+// 	top 43px
+// 	left 0
+// 	width 100%
+// 	z-index 1
+// 	transform skew(0deg, -5deg)
+// 	outline 1px solid transparent
+// 	box-sizing content-box
+// 	margin 0 auto

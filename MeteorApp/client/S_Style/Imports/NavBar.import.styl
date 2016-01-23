@@ -18,7 +18,7 @@ nav
 	position fixed
 	top 0
 	left 0
-	background-color nb_Background
+	// background-color nb_Background
 	height nb_CalcHeight
 	width 100%
 
@@ -30,6 +30,7 @@ nav
 	text-decoration none
 	color nb_Text
 	font-size 30px
+	display none
 
 // Links
 nav .nav-elements
@@ -47,12 +48,14 @@ nav .nav-elements
 				padd(0, nb_ActiveBorderRoom, nb_ActiveBorderRoom, 5px)
 				marg(nb_TopSpacing, nb_ElementSpacing - nb_ActiveBorderRoom, nb_ElementSpacing - nb_ActiveBorderRoom, 0)
 				text-decoration none
-				color nb_Text
+				// color nb_Text
+				color white
 
 // isActiveRoute Highlight
 nav li a.active
 	bord(0, 0, 0, 5px)
-	border-color nb_Text
+	// border-color nb_Text
+	border-color white
 	border-style solid
 
 // CTA Button
