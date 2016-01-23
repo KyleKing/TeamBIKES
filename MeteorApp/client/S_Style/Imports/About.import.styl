@@ -2,7 +2,6 @@
 // Fixed cover photo
 .ab_background
 	position absolute
-	// top nb_CalcHeight
 	top 0px
 	left 0px
 	z-index -1
@@ -16,10 +15,7 @@
 	z-index 2
 	color white
 	padd(180px, auto, auto, 180px)
-	// Center Everything
 	text-align center
-	// marg(0, auto, auto, 0)
-	// display block
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Quick Summary and Value Proposition
@@ -53,10 +49,11 @@ p.CTA_quote
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Bulleted Value Proposition
+soft_background = lighten(#88919A, 10%)
 .ab_secondary
 	z-index 2
 	padd(25px, auto, auto, 25px)
-	background-color lighten(#BDC3C7, 50%)
+	background-color soft_background
 
 // Trio of Card elements
 .ab_secondary .static-card
@@ -95,7 +92,6 @@ ab_height = 300px
 			height ab_height
 		display table
 		& .descriptor
-			// marg(0px, 30px, 30px, 0px)
 			display table-cell
 			vertical-align middle
 			& .content
@@ -106,21 +102,21 @@ ab_height = 300px
 				background-color white
 				padd(0px, 10px, 10px, 15px)
 
-// // %%%%%%%%%%%%%%%%%%%%%%%%%%
-// // Call to action
-// .ab_cta
-// 	padd(25px, auto, auto, 25px)
-// 	background-color lighten(#BDC3C7, 50%)
+// %%%%%%%%%%%%%%%%%%%%%%%%%%
+// Call to action
+.ab_cta
+	padd(25px, auto, auto, 25px)
+	background-color soft_background
 
-// // Single card element
-// .ab_cta .static-card
-// 	text-align center
-// 	background-color white
-// 	padd(30px, 15px, 15px, 30px)
-// 	marg(0, 5px, 5px, 0px)
-// 	& input
-// 		padding 10px
-// 		margin 5px
+// Single card element
+.ab_cta .static-card
+	text-align center
+	background-color white
+	padd(30px, 15px, 15px, 30px)
+	marg(0, 5px, 5px, 0px)
+	& input
+		padding 10px
+		margin 5px
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Trio of Card elements
@@ -167,37 +163,7 @@ ab_height = 300px
 
 footer.ab_footer
 	padd(25px, 0px, 0px, 25px)
-	background-color lighten(#BDC3C7, 50%)
+	background-color soft_background
 	text-align center
-	& ul
-		padd(0px, 0px, 0px, 0px)
-		& li
-			padd(5px, 0px, 0px, 5px)
-			& a
-				color #2B3E51
-	& .next-parent
-		height 88px
-		display table
-		& .next
-			color #2B3E51
-			display table-cell
-			vertical-align middle
-
-// %%%%%%%%%%%%%%%%%%%%%%%%%%
-// Attempting the slanted triangle edge between CSS sections
-
-// .test
-// 	padd(25px, auto, auto, 25px)
-// 	// padding-top 10px
-// 	// height 0px
-// 	background-color lighten(#BDC3C7, 50%)
-
-// .slant
-// 	top 43px
-// 	left 0
-// 	width 100%
-// 	z-index 1
-// 	transform skew(0deg, -5deg)
-// 	outline 1px solid transparent
-// 	box-sizing content-box
-// 	margin 0 auto
+	& a
+		color white

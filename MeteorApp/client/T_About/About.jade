@@ -16,35 +16,13 @@ template(name='About')
 
 	.ab_map_demo
 
-	//- .test.slant
-
-	//- .ab_secondary
-	//-   .container
-	//-     .row
-	//-       .col-sm-4.col-xs-12
-	//-         .static-card
-	//-           i.fa.fa-bicycle.fa-inverse.fa-2x
-	//-           h2.card-header Convenience
-	//-           p.card-content Our professional staff of bike mechanics makes regular repairs and tunes every bike for the perfect ride. You never have to worry about a flat tire ever again.
-	//-       .col-sm-4.col-xs-12
-	//-         .static-card
-	//-           i.fa.fa-university.fa-inverse.fa-2x
-	//-           h2.card-header Easy Access
-	//-           p.card-content Find the nearest RedBar bike from any device you use. From a laptop to your iPhone, visit the map page and tap any available bike icon to make a five minute reservation.
-	//-       .col-sm-4.col-xs-12
-	//-         .static-card
-	//-           i.fa.fa-refresh.fa-inverse.fa-2x
-	//-           h2.card-header Simple Return
-	//-           p.card-content Unlike other bike shares, we understand that students need flexibility, so RedBar is built to let you return your rental to any rack and our technology will handle the rest.
-
-
 	.ab_quote
 		.container
 			.row
 				.CTA_quote_container
 					h3 Reserve
 					p The image above is a screenshot of
-						a(href='https://RedBarBikes.com/map')
+						a(href="{{ pathFor 'map' }}")
 							|  RedBarBikes.com/map
 						|  where you can see every available bike. Tap any icon to reserve that bike for 5 minutes and ensure that a bike will be available when you arrive at the rack.
 	.ab_tertiary
@@ -62,89 +40,72 @@ template(name='About')
 					.content
 						h3 Return
 						p Complete your rental by returning to any on-campus rack. Release the lock from the riding position and loop the lock through the hoop. If you need help finding a nearby rack, visit
-							a(href='https://RedBarBikes.com/map')
+							a(href="{{ pathFor 'map' }}")
 								|  RedBarBikes.com/map
 							|  and look for the purple squares.
 			.col-sm-6.col-xs-12
 				.Lock-img
 
-	//- .ab_cta
-	//-   .container
-	//-     .static-card.col-xs-12
-	//-       h2 Sign Up Now
-	//-       p.card-content Register for your chance to be part of the first RedBar bike riders
-	//-       .row
-	//-         input.email(placeholder='UMD Email' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
-	//-       .row
-	//-         input.password(placeholder='Password' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
-	//-       .row
-	//-         label
-	//-           input(type='checkbox' name='checkbox' value='value')
-	//-           | I agree to the
-	//-           a(href='"{{ pathFor \'terms\' }}"') terms
-	//-       .row
-	//-         button.nb-start Submit
-
-	.ab_quote
+	.ab_cta
 		.container
-			.row
-				.CTA_quote_container
-					p.CTA_quote.bold Sound Awesome?
+			.static-card.col-xs-12
+				h2 Sign Up Now for the Casual Rider Plan
+				p.card-content Register for your chance to be part of the first RedBar bike riders
+				.row
+					input.email(placeholder='UMD Email' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
+				.row
+					input.password(placeholder='Password' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
+				.row
+					label
+						input(type='checkbox' name='checkbox' value='value')
+						| I agree to the
+						a(href='"{{ pathFor \'terms\' }}"') terms
+				.row
+					button.nb-start Submit
 
-	.container
-		.row.ab_pricing
-			.col-sm-4.col-xs-12
-				.static-card.smaller
-					i.fa.fa-hourglass-2.fa-2x
-					h2 Casual rider
-					p See what makes RedBars so convenient!
-					.ab_pricing_bullets
-						ul
-							li
-								span Pay $_ per ride
-							li
-								span No Commitment
-					button.nb-start $_ per ride
-			.col-sm-4.col-xs-12
-				.static-card.focal
-					i.fa.fa-hand-paper-o.fa-2x
-					h2 The Daily Rider
-					p Ready to get hooked?
-					.ab_pricing_bullets
-						ul
-							li
-								span Five free rides per day
-							li
-								span Reduced cost for additional rides
-					button.nb-start $15 per month
-			.col-sm-4.col-xs-12
-				.static-card.smaller
-					//- i.fa.fa-map.fa-2x
-					i.fa.fa-bolt.fa-2x
-					h2 The Bike-aholic
-					p No distance is too short for a quick ride!
-					.ab_pricing_bullets
-						ul
-							li
-								span UNLIMITED rides per day
-							li
-								span Access to Request a Bike program
-					button.nb-start $25 per month
+	.pricing_container
+		.container
+			.row.ab_pricing
+				.col-sm-4.col-xs-12
+					.static-card.smaller
+						i.fa.fa-hourglass-2.fa-2x
+						h2 Casual rider
+						p See what makes RedBars so convenient!
+						.ab_pricing_bullets
+							ul
+								li
+									span Pay $2 per 15 minutes of riding
+								li
+									span No Commitment
+						button.nb-start $2 per 15 min
+				.col-sm-4.col-xs-12
+					.static-card.focal
+						i.fa.fa-hand-paper-o.fa-2x
+						h2 The Daily Rider
+						p Ready to get hooked?
+						.ab_pricing_bullets
+							ul
+								li
+									span Five free rides per day
+								li
+									span Reduced cost for additional rides
+						button.nb-start $15 per month
+				.col-sm-4.col-xs-12
+					.static-card.smaller
+						//- i.fa.fa-map.fa-2x
+						i.fa.fa-bolt.fa-2x
+						h2 The Bike-aholic
+						p No distance is too short for a quick ride!
+						.ab_pricing_bullets
+							ul
+								li
+									span UNLIMITED rides per day
+								li
+									span Access to Request a Bike program
+						button.nb-start $25 per month
 
 	footer.ab_footer
 		.container
 			.row
-				.col-sm-4.col-xs-12
-					ul.unstyled
-						li
-							a(href="{{ pathFor 'FAQ' }}") FAQ
-						li
-							a(href="{{ pathFor 'Technology' }}") Our Technology
-				.col-sm-4.col-xs-12
-					ul.unstyled
-						li
-							a(href="{{ pathFor 'Company' }}") About Us
-						li
-							a(href="{{ pathFor 'Company' }}#contact") Contact Us
-				.col-sm-4.col-xs-12.next-parent
-					a(href="{{ pathFor 'FAQ' }}").next Explore the FAQ →
+				h3
+					a(href="{{ pathFor 'FAQ' }}").next Want to learn more? Explore our FAQ →

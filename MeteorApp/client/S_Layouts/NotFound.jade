@@ -1,10 +1,6 @@
 template(name='NotFound')
-  p ...regular header stuff
-  if isInRole 'admin'
-    h1 admin_nav
-  if isInRole 'admin, mechanic'
-    h1 mechanic stuff
   .template-not-found
     .container.text-center
       h1 Not Found
-      p That page doesn&apos;t exist!
+      p This page doesn&apos;t exist!
+      a(href="{{ pathFor 'About' }}") Want to go back to the homepage?
