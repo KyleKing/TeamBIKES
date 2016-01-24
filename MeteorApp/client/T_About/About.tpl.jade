@@ -13,51 +13,78 @@
 				p.CTA_quote.bold We make biking easy, affordable, and fun. Be one of the first RedBar bike riders!
 
 .ab_map_demo
-.container
-	.row
-		.CTA_quote_container
-			h3 Reserve
-			p The image above is a screenshot of
-				a(href="{{ pathFor 'map' }}")
-					|  RedBarBikes.com/map
-				|  where you can see every available bike. Tap any icon to reserve that bike for 5 minutes and ensure that a bike will be available when you arrive at the rack.
-.ab_tertiary
-	.row
-		.col-sm-6.col-xs-12
+//- .container
+//- 	.row
+//- 		.CTA_quote_container
+//- 			h3 Reserve
+//- 			p The image above is a screenshot of
+//- 				a(href="{{ pathFor 'map' }}")
+//- 					|  RedBarBikes.com/map
+//- 				|  where you can see every available bike. Tap any icon to reserve that bike for 5 minutes and ensure that a bike will be available when you arrive at the rack.
+//- .ab_tertiary
+//- 	.row
+//- 		.descriptor-parent
+//- 			.Inspiration-img
+//- 		.descriptor-parent
+//- 			.descriptor
+//- 				.content
+//- 					h3 Unlock
+//- 					p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
+//- 	.row
+//- 		.descriptor-parent
+//- 			.descriptor
+//- 				.content
+//- 					h3 Return
+//- 					p Complete your rental by returning to any on-campus rack. Release the lock from the riding position and loop the lock through the hoop. If you need help finding a nearby rack, visit
+//- 						a(href="{{ pathFor 'map' }}")
+//- 							|  RedBarBikes.com/map
+//- 						|  and look for the purple squares.
+//- 		.descriptor-parent
+//- 			.Lock-img
+
+
+.row
+	.explanation-container
+		.full-explanation
+			.text-content
+				h3 Reserve
+				p The image above is a screenshot of
+					a(href="{{ pathFor 'map' }}")
+						|  RedBarBikes.com/map
+					|  where you can see every available bike. Tap any icon to reserve that bike for 5 minutes and ensure that a bike will be available when you arrive at the rack.
+		.half-explanation
 			.Inspiration-img
-		.col-sm-6.col-xs-12.descriptor-parent
-			.descriptor
-				.content
-					h3 Unlock
-					p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
-	.row
-		.col-sm-6.col-xs-12.descriptor-parent
-			.descriptor
-				.content
-					h3 Return
-					p Complete your rental by returning to any on-campus rack. Release the lock from the riding position and loop the lock through the hoop. If you need help finding a nearby rack, visit
-						a(href="{{ pathFor 'map' }}")
-							|  RedBarBikes.com/map
-						|  and look for the purple squares.
-		.col-sm-6.col-xs-12
+		.half-explanation
+			.text-content
+				h3 Unlock
+				p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
+		.half-explanation
+			.text-content
+				h3 Return
+				p Complete your rental by returning to any on-campus rack. Release the lock from the riding position and loop the lock through the hoop. If you need help finding a nearby rack, visit
+					a(href="{{ pathFor 'map' }}")
+						|  RedBarBikes.com/map
+					|  and look for the purple squares.
+		.half-explanation
 			.Lock-img
 
-.ab_cta
-	.container
-		.static-card.col-xs-12
-			h2 Sign Up Now for the Casual Rider Plan
-			p.card-content Register for your chance to be part of the first RedBar bike riders
-			.row
-				input.email(placeholder='UMD Email' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
-			.row
-				input.password(placeholder='Password' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
-			.row
-				label
-					input(type='checkbox' name='checkbox' value='value')
-					| I agree to the
-					a(href='"{{ pathFor \'terms\' }}"') terms
-			.row
-				button.nb-start Submit
+
+//- .ab_cta
+//- 	.container
+//- 		.static-card.col-xs-12
+//- 			h2 Sign Up Now for the Casual Rider Plan
+//- 			p.card-content Register for your chance to be part of the first RedBar bike riders
+//- 			.row
+//- 				input.email(placeholder='UMD Email' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
+//- 			.row
+//- 				input.password(placeholder='Password' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
+//- 			.row
+//- 				label
+//- 					input(type='checkbox' name='checkbox' value='value')
+//- 					| I agree to the
+//- 					a(href='"{{ pathFor \'terms\' }}"') terms
+//- 			.row
+//- 				button.nb-start Submit
 
 .pricing_container
 	.container
