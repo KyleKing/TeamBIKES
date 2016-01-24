@@ -122,5 +122,8 @@
     "spacing_after_comma": {
         "name": "spacing_after_comma",
         "level": "error"
+    },
+    "camel_case_vars": {
+      "module": "coffeelint-camel-case-vars"
     }
 }

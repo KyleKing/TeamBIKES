@@ -4,7 +4,7 @@ FlowRouter.notFound = action: ->
 FlowRouter.route '/',
     name: 'About',
     action: ->
-      BlazeLayout.render 'Layout', {
+      BlazeLayout.render 'layout', {
         Full: 'About'
       }
 
@@ -18,7 +18,7 @@ _.each Templates, (Template) ->
   FlowRouter.route route,
       name: Template,
       action: ->
-        BlazeLayout.render 'Layout', {
+        BlazeLayout.render 'layout', {
           Full: Template
         }
 

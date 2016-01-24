@@ -1,197 +1,173 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Fixed cover photo
-.ab_background
+.ab-background
+	img-fill( 650px, 'about/BikeRack.jpg', cover )
+	left 0
 	position absolute
-	top 0px
-	left 0px
+	top 0
 	z-index -1
-	Fill-Image(650px, "about/BikeRack.jpg", cover)
 
 .block-text
 	width 50%
 
 // Welcome Text
-.ab_primary
-	z-index 2
+.ab-primary
+	// for n in 1..6
+	// 	h{n}
+	// 		-webkit-text-stroke thin black
 	color white
-	padd(180px, auto, auto, 180px)
+	padd( 180px, auto, auto, 180px )
 	text-align center
+	z-index 2
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Quick Summary and Value Proposition
-.ab_quote
+.ab-quote
+	background-color white
+	padd( 120px, auto, auto, 120px )
 	z-index 2
-	background-color #FFFFFF
-	padd(120px, auto, auto, 120px)
 
-.CTA_quote_container
-	display block
-	marg(0px, 50px, 50px, 0px)
-	max-width 100%
-	+above(800px)
-		marg(0px, auto, auto, 0px)
+.cta-quote-container
+	+above( 800px )
+		marg( 0, auto, auto, 0 )
 		max-width 800px
+	display block
+	marg( 0, 50px, 50px, 0 )
+	max-width 100%
 
-p.CTA_quote
-	text-align center
-	color #444444
+p.cta-quote
+	color $nav_text
 	font-size 22px
+	text-align center
 
 .bold
 	font-weight bold
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Walk through
-.ab_map_demo
-	Fill-Image(300px, "about/EditedBikeMap.png", cover)
+.ab-map-demo
+	img-fill( 300px, 'about/EditedBikeMap.png', cover )
 
 
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Bulleted Value Proposition
-soft_background = lighten(#88919A, 10%)
-.ab_secondary
+.ab-secondary
+	background-color $soft-bg-color
+	padd( 25px, auto, auto, 25px )
 	z-index 2
-	padd(25px, auto, auto, 25px)
-	background-color soft_background
 
 // Trio of Card elements
-.ab_secondary .static-card
-	z-index 2
-	text-align center
+.ab-secondary .static-card
+	+above( 750px )
+		height 280px
 	background-color white
 	height 240px
-	+above(750px)
-		height 280px
-	padd(10px, 15px, 15px, 10px)
-	marg(5px, 5px, 5px, 5px)
+	marg( 5px, 5px, 5px, 5px )
+	padd( 10px, 15px, 15px, 10px )
+	text-align center
+	z-index 2
 	& i
-		// Add a circle background to icon
-		width 75px
+		background-color $brand-highlight
+		border-radius 50%
 		height 75px
 		line-height 75px
 		vertical-align middle
-		border-radius 50%
-		background-color nb_Highlight
+		width 75px
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Images and Description
-ab_height = 300px
 .Inspiration-img
-	Fill-Image(ab_height, "about/TheInspiration.jpg", cover)
+	img-fill( $ab-height, 'about/TheInspiration.jpg', cover )
 	// border-left 1px solid black
 .Lock-img
-	Fill-Image(ab_height, "about/TheLock.jpg", cover)
-
-.ab_tertiary
-	padd(30px, 0px, 0px, 30px)
-	& .descriptor-parent
-		width 50%
-		// Table method for vertical centering
-		height auto
-		+above(750px)
-			height ab_height
-		// display inline-block
-		display table
-		& .descriptor
-			display table-cell
-			vertical-align middle
-			background linear-gradient(top, RGBA(39, 52, 73, 1), RGBA(52, 87, 115, 1))
-			& .content
-				marg(0px, 30px, 30px, 0px)
-				+below(750px)
-					marg(0px, 50px, 50px, 0px)
-				border-radius 5px
-				color white
-				padd(0px, 10px, 10px, 15px)
+	img-fill( $ab-height, 'about/TheLock.jpg', cover )
 
 .explanation-container
 	display inline-flex
 	flex-flow row wrap
 	& .full-explanation
-		padd(20px, auto, auto, 80px)
-		background linear-gradient(top, RGBA(68, 68, 68, 0.8), RGBA(136, 145, 154, 0.6))
+		background-color gray
+		bord( 1px, 0, 0, 1px, solid, black )
 		flex 1 0 100%
+		padd( 20px, auto, auto, 80px )
 	& .half-explanation
-		// background-color green
-		background linear-gradient(top, RGBA(68, 68, 68, 0.8), RGBA(136, 145, 154, 0.6))
-		flex 0 1 50%
-		// Now make child div full height:
-		position relative
-		display flex
 		align-items center
+		background-color gray
+		bord( 0, 0, 0, 1px, solid, black )
+		display flex
+		flex 0 1 50%
+		position relative
 	& .text-content
+		color white
 		flex 1
+		padd( 20px, 20px, 20px, 20px )
 		text-align center
-		padd(20px, 20px, 20px, 20px)
 		& a
 			color white
-		color white
 
 
 
 // // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // // Call to action
-// .ab_cta
-// 	padd(25px, auto, auto, 25px)
-// 	background-color soft_background
+// .ab-cta
+// 	padd( 25px, auto, auto, 25px )
+// 	background-color $soft-bg-color
 
 // // Single card element
-// .ab_cta .static-card
+// .ab-cta .static-card
 // 	text-align center
 // 	background-color white
-// 	padd(30px, 15px, 15px, 30px)
-// 	marg(0, 5px, 5px, 0px)
+// 	padd( 30px, 15px, 15px, 30px )
+// 	marg( 0, 5px, 5px, 0 )
 // 	& input
 // 		padding 10px
 // 		margin 5px
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Trio of Card elements
-.ab_pricing
-	// Negative margin inserted from Bootstrap:
-	// marg(0px, 0px, 0px, 0px)
-	margin-top 30px
+.ab-pricing
 	margin-bottom 30px
+	margin-top 30px
 	& button.nb-start
 		font-size 20px
 	& .static-card
-		text-align center
-		height 400px
-		+above(750px)
+		+above( 750px )
 			height 480px
 		border-radius 10%
 		border 1px solid #BDC3C7
+		height 400px
+		text-align center
 		&:hover
-			border 2px solid nb_Highlight
-		& .ab_pricing_bullets
+			border 2px solid $brand-highlight
+		& .ab-pricing-bullets
+			marg( 0, auto, auto, 0 )
 			max-width 300px
-			marg(0px, auto, auto, 0px)
 		& ul
 			text-align left
 			& li
-				margin-left 0px
+				margin-left 0
 		&.focal
-			padd(70px, 15px, 15px, 20px)
-			marg(5px, 5px, 5px, 5px)
 			height 450px
+			marg( 5px, 5px, 5px, 5px )
+			padd( 70px, 15px, 15px, 20px )
 		&.smaller
-			padd(20px, 15px, 15px, 20px)
-			marg(60px, 5px, 5px, 60px)
 			height 480px - 2*60px
+			marg( 60px, 5px, 5px, 60px )
+			padd( 20px, 15px, 15px, 20px )
+		// Add a circle background to icon
 		& i
-			// Add a circle background to icon
-			width 75px
+			background-color $brand-highlight
+			border-radius 50%
+			color white
 			height 75px
 			line-height 75px
 			vertical-align middle
-			border-radius 50%
-			background-color nb_Highlight
-			color white
+			width 75px
 
-footer.ab_footer
-	padd(25px, 0px, 0px, 25px)
-	background-color soft_background
+footer.ab-footer
+	background-color $soft-bg-color
+	padd( 25px, 0, 0, 25px )
 	text-align center
 	& a
 		color white

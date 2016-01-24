@@ -1,33 +1,28 @@
 // FourSidedShortcuts
-padd(top, left, right, bottom)
-	padding-top top
+padd( top, left, right, bottom )
+	padding-bottom bottom
 	padding-left left
 	padding-right right
-	padding-bottom bottom
+	padding-top top
 
-marg(top, left, right, bottom)
-	margin-top top
+marg( top, left, right, bottom )
+	margin-bottom bottom
 	margin-left left
 	margin-right right
-	margin-bottom bottom
+	margin-top top
 
-bord(top, left, right, bottom)
-	border-top top
-	border-left left
-	border-right right
+bord( top, left, right, bottom, style, color )
 	border-bottom bottom
-bord_dev(top, left, right, bottom, style, color)
-	border-top top
-	border-left left
-	border-right right
-	border-bottom bottom
-	border-style style
 	border-color color
+	border-left left
+	border-right right
+	border-style style
+	border-top top
 
-Fill-Image(height, url, style)
+img-fill( height, url, style )
 	background-image url(url)
+	background-position center
+	background-repeat no-repeat
+	background-size style
 	height height
 	width 100%
-	background-size style
-	background-repeat no-repeat
-	background-position center

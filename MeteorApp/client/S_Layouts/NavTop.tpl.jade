@@ -1,12 +1,8 @@
-nav.midnight_header
-	a(href="{{ pathFor 'About' }}").nb-brand REDBAR
+nav.midnight-header
+	a(href="{{ pathFor 'About' }}").nav-brand REDBAR
 	.nav-elements
 		ul.unstyled
-			//- Make iterations for wherever possible...
-			//- each route in ["one", "two", "three"]
-			//- 	li
-			//- 		a(href="{{pathFor '" + route + "'}}" class="{{isActiveRoute regex='"+route+"'}}") route
 			li: a(href="{{ pathFor 'About' }}" class="{{ isActiveRoute regex='About' }}") About
 			li: a(href="{{ pathFor 'FAQ' }}" class="{{ isActiveRoute regex='FAQ' }}") FAQ
 			li: a(href="{{ pathFor 'Map' }}" class="{{ isActiveRoute regex='Map' }}") Map
-			li: button.nb-start Get Started
+			li: button.cta-start Get Started

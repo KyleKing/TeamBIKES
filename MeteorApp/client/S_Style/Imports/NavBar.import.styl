@@ -1,88 +1,61 @@
-// Variables
-nb_TopSpacing = 20px
-nb_Background = white
-nb_Text = #2B3E51
-nb_Highlight = RGBA(191, 59, 56, 1)
-nb_CalcHeight = 75px
-nb_LeftSpace = 60px
-nb_ElementSpacing = 20px
-
 ul.unstyled
 	list-style-type none
 
-// CTA Button
-button.nb-start
-	color nb_Background
-	background-color nb_Highlight
-	&.inverse
-		color nb_Highlight
-		background-color nb_Background
-	margin-top 10px
-	padding nb_TopSpacing - @margin-top
-	border-radius 5px
-	border 0
-
-
-+below(550px)
-	nav.midnight_header
++below( 550px )
+	nav.midnight-header
 		display none
-
-+above(550px)
++above( 550px )
 	// Simple fixed flat bar with logo and navbar icons
-	nav.midnight_header
-		z-index 20
+	nav.midnight-header
+		bord( 0, 0, 0, 1px, solid, RGBA( 255, 255, 255, 0 ) )
 		position fixed
 		text-transform uppercase
 		width 100%
+		z-index 20
 		// Logo
-		& .nb-brand
+		& .nav-brand
+			font-size 25px
+			padd( 20px, 20px, auto, 20px )
 			position relative
 			text-decoration none
-			font-size 25px
-			padd(20px, 20px, auto, 20px)
 		& .nav-elements
-			float: right
 			display inline-block
-			ul
-				marg(5px, auto, auto, 5px)
-				list-style-type none
-				padding-right nb_LeftSpace - nb_ElementSpacing
-				& li
-					display inline
-					& a
-						nb_ActiveBorderRoom = 13.5px
-						padd(0, nb_ActiveBorderRoom, nb_ActiveBorderRoom, 5px)
-						marg(nb_TopSpacing, nb_ElementSpacing - nb_ActiveBorderRoom, nb_ElementSpacing - nb_ActiveBorderRoom, 0)
-						text-decoration none
+			float right
+		& ul
+			list-style-type none
+			marg( 5px, auto, auto, 5px )
+			padding-right $nav-left-space - $nav-element-space
+			& li
+				display inline
+				& a
+					marg( $nav-top-space, $nav-element-space - $nav-active-space, $nav-element-space - $nav-active-space, 0 )
+					padd( 0, $nav-active-space, $nav-active-space, 5px )
+					text-decoration none
 
 	// isActiveRoute Highlight
 	nav li a.active
-		bord(0, 0, 0, 5px)
-		border-style solid
+		bord( 0, 0, 0, 3px, solid, white )
 
 	// Spacing for page content
-	.nb-spacing
-		padding-top nb_CalcHeight
-	// +above(750px)
-	//   padding-top: NavHeight
+	.nav-top-spacing
+		padding-top $nav-height-calc
 
 
 	// Midnight.js Alterations
-	MidNight(BorderC, DisplayV, MainColor)
-		background-color BorderC
-		& .nb-brand
-			display DisplayV
-			color MainColor
+	mix-nav-midnight( color-bg, display-type, color-main )
+		background-color color-bg
+		& .nav-brand
+			color color-main
+			display display-type
 		& a
-			color MainColor
+			color color-main
 		& li a.active
-			border-color MainColor
+			border-color color-main
 
 	.midnightHeader.none
-		MidNight(none, none, white)
+		mix-nav-midnight( none, none, white )
 	.midnightHeader.blur
-		MidNight(RGBA(255, 255, 255, 0.1), none, white)
+		mix-nav-midnight( RGBA(255, 255, 255, 0.1), none, white )
 	.midnightHeader.default
-		MidNight(nb_Background, inline-block, nb_Text)
-		// background-color green !important
-		bord_dev(0, 0, 0, 1px, solid, nb_Text)
+		bord( 0, 0, 0, 1px, solid, $nav-text-color )
+		mix-nav-midnight( $nav-bg-color, inline-block, $nav-text-color )

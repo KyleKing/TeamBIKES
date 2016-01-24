@@ -1,3 +1,3 @@
-Template.Layout.rendered = ->
+Template.layout.rendered = ->
   new WOW().init()
-  $('nav.midnight_header').midnight()
+  $('nav.midnight-header').midnight()
