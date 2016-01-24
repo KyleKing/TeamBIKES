@@ -1,0 +1,107 @@
+.ab_background
+.ab_primary(data-midnight="blur")
+	.block-text
+		h1.wow.fadeInDown(data-wow-delay="0.5s") RedBar Bikeshare
+		h3.wow.fadeInDown(data-wow-delay="0.5s") Bikes on demand for the busy student
+		button(href='#' data-wow-delay="0.5s").nb-start.wow.fadeInDown Get Started
+
+.ab_quote
+	.container
+		.row
+			.CTA_quote_container
+				p.CTA_quote As a group of UMD student, we built the best way to get around campus. We took the accessibility and convenience of biking and removed the unpleasant parts, such as fixing flat tires, maintenance, and not having your bike when you want it.
+				p.CTA_quote.bold We make biking easy, affordable, and fun. Be one of the first RedBar bike riders!
+
+.ab_map_demo
+.container
+	.row
+		.CTA_quote_container
+			h3 Reserve
+			p The image above is a screenshot of
+				a(href="{{ pathFor 'map' }}")
+					|  RedBarBikes.com/map
+				|  where you can see every available bike. Tap any icon to reserve that bike for 5 minutes and ensure that a bike will be available when you arrive at the rack.
+.ab_tertiary
+	.row
+		.col-sm-6.col-xs-12
+			.Inspiration-img
+		.col-sm-6.col-xs-12.descriptor-parent
+			.descriptor
+				.content
+					h3 Unlock
+					p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
+	.row
+		.col-sm-6.col-xs-12.descriptor-parent
+			.descriptor
+				.content
+					h3 Return
+					p Complete your rental by returning to any on-campus rack. Release the lock from the riding position and loop the lock through the hoop. If you need help finding a nearby rack, visit
+						a(href="{{ pathFor 'map' }}")
+							|  RedBarBikes.com/map
+						|  and look for the purple squares.
+		.col-sm-6.col-xs-12
+			.Lock-img
+
+.ab_cta
+	.container
+		.static-card.col-xs-12
+			h2 Sign Up Now for the Casual Rider Plan
+			p.card-content Register for your chance to be part of the first RedBar bike riders
+			.row
+				input.email(placeholder='UMD Email' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
+			.row
+				input.password(placeholder='Password' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
+			.row
+				label
+					input(type='checkbox' name='checkbox' value='value')
+					| I agree to the
+					a(href='"{{ pathFor \'terms\' }}"') terms
+			.row
+				button.nb-start Submit
+
+.pricing_container
+	.container
+		.row.ab_pricing
+			.col-sm-4.col-xs-12
+				.static-card.smaller
+					i.fa.fa-hourglass-2.fa-2x
+					h2 Casual rider
+					p See what makes RedBars so convenient!
+					.ab_pricing_bullets
+						ul
+							li
+								span Pay $2 per 15 minutes of riding
+							li
+								span No Commitment
+					button.nb-start $2 per 15 min
+			.col-sm-4.col-xs-12
+				.static-card.focal
+					i.fa.fa-hand-paper-o.fa-2x
+					h2 The Daily Rider
+					p Ready to get hooked?
+					.ab_pricing_bullets
+						ul
+							li
+								span Five free rides per day
+							li
+								span Reduced cost for additional rides
+					button.nb-start $15 per month
+			.col-sm-4.col-xs-12
+				.static-card.smaller
+					//- i.fa.fa-map.fa-2x
+					i.fa.fa-bolt.fa-2x
+					h2 The Bike-aholic
+					p No distance is too short for a quick ride!
+					.ab_pricing_bullets
+						ul
+							li
+								span UNLIMITED rides per day
+							li
+								span Access to Request a Bike program
+					button.nb-start $25 per month
+
+footer.ab_footer
+	.container
+		.row
+			h3
+				a(href="{{ pathFor 'FAQ' }}").next Want to learn more? Explore our FAQ →

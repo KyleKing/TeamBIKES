@@ -1,0 +1,10 @@
+//- Create mobile nav style menu
+nav.mobile
+	.mobile-nav-element
+		a(href="{{ pathFor 'About' }}" class="{{ isActiveRoute regex='About' }}") About
+	.mobile-nav-element
+		a(href="{{ pathFor 'FAQ' }}" class="{{ isActiveRoute regex='FAQ' }}") FAQ
+	.mobile-nav-element
+		a(href="{{ pathFor 'Map' }}" class="{{ isActiveRoute regex='Map' }}") Map
+	.mobile-nav-element
+		button.nb-start Get Started
