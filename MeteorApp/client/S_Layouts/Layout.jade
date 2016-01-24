@@ -3,7 +3,7 @@ template(name='Layout')
 	+momentum(plugin='flow-router')
 		+NavTop
 
-	main.nb-spacing(class="{{ isActiveRoute regex='about' }}")
+	main.nb-spacing(class="{{ isActiveRoute regex='about' }}" data-midnight="none")
 		.container
 			+momentum(plugin='flow-router')
 				+Template.dynamic template=Body

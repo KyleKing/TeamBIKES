@@ -1,7 +1,7 @@
 template(name='About')
 	.ab_background
 	//- svg
-	.ab_primary
+	.ab_primary(data-midnight="none")
 		.block-text
 			h1.wow.fadeInDown(data-wow-delay="0.5s") RedBar Bikeshare
 			h3.wow.fadeInDown(data-wow-delay="0.5s") Bikes on demand for the busy student
@@ -16,15 +16,14 @@ template(name='About')
 
 	.ab_map_demo
 
-	.ab_quote
-		.container
-			.row
-				.CTA_quote_container
-					h3 Reserve
-					p The image above is a screenshot of
-						a(href="{{ pathFor 'map' }}")
-							|  RedBarBikes.com/map
-						|  where you can see every available bike. Tap any icon to reserve that bike for 5 minutes and ensure that a bike will be available when you arrive at the rack.
+	.container
+		.row
+			.CTA_quote_container
+				h3 Reserve
+				p The image above is a screenshot of
+					a(href="{{ pathFor 'map' }}")
+						|  RedBarBikes.com/map
+					|  where you can see every available bike. Tap any icon to reserve that bike for 5 minutes and ensure that a bike will be available when you arrive at the rack.
 	.ab_tertiary
 		.row
 			.col-sm-6.col-xs-12

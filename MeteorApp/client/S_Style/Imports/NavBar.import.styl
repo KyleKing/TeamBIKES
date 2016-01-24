@@ -13,28 +13,24 @@ ul.unstyled
 	// 	text-decoration none
 
 // Simple fixed flat bar with logo and navbar icons
-nav
+nav.midnight_header
 	z-index 20
-	position absolute
-	top 0
-	left 0
-	// background-color nb_Background
-	height nb_CalcHeight
+	position fixed
+	text-transform uppercase
+	height nb_CalcHeight !important
 	width 100%
 
 // Logo
 .nb-brand
-	position absolute
+	position fixed
 	top nb_TopSpacing
 	left nb_LeftSpace
 	text-decoration none
-	color nb_Text
-	font-size 30px
-	display none
+	font-size 28px
 
 // Links
 nav .nav-elements
-	position absolute
+	position fixed
 	top 0
 	right 0
 	ul
@@ -48,14 +44,10 @@ nav .nav-elements
 				padd(0, nb_ActiveBorderRoom, nb_ActiveBorderRoom, 5px)
 				marg(nb_TopSpacing, nb_ElementSpacing - nb_ActiveBorderRoom, nb_ElementSpacing - nb_ActiveBorderRoom, 0)
 				text-decoration none
-				// color nb_Text
-				color white
 
 // isActiveRoute Highlight
 nav li a.active
 	bord(0, 0, 0, 5px)
-	// border-color nb_Text
-	border-color white
 	border-style solid
 
 // CTA Button
@@ -75,3 +67,41 @@ button.nb-start
 	padding-top nb_CalcHeight
 // +above(750px)
 //   padding-top: NavHeight
+
+
+// Midnight.js Alterations
+.midnightHeader.default
+	background-color nb_Background
+	& .nb-brand
+		display block
+		color nb_Text
+	& a
+		color nb_Text
+	& li a.active
+		border-color nb_Text
+
+.midnightHeader.none
+	background-color none
+	& .nb-brand
+		display none
+		color white
+	& a
+		color white
+	& li a.active
+		border-color white
+
+
+// nav.midnight_header
+//   position: fixed;
+//   z-index: 1;
+//   text-align: left;
+//   text-transform: uppercase;
+//   & a
+//   	font-size 80px
+//   	color white
+
+// .midnightHeader.none
+//   background-color black
+
+// .midnightHeader.default
+// 	background-color green

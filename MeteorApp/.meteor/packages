@@ -21,13 +21,6 @@ insecure                # Allow all DB writes from clients (for prototyping)
 
 meteortoys:allthings@2.3.1 # Pres ctrl-m to activate
 
-#### Libraries and Preprocessors ####
-stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
-coffeescript
-mquandalle:jade
-kyleking:customizable-bootstrap-stylus
-fortawesome:fontawesome
-
 ### Routing ###
 kadira:flow-router
 philippspo:momentum-flow-router # page-transitions
@@ -38,45 +31,6 @@ zimme:active-route # for isActiveRoute
 spiderable
 force-ssl
 
-#### Visual Things ####
-d3js:d3
-### Tables and Forms ###
-# aldeed:tabular # data tables
-# reactive-var # used to reactively update reactive-table
-# aslagle:reactive-table # Alt table - suggested on Github
-# aldeed:autoform # form input for above data tables
-# kidovate:bootstrap-slider # input slider
-# aldeed:collection2 # attach a schema
-
-### Maps ###
-# bevanhunt:leaflet
-# appshore:leaflet-awesome-markers
-# herrhelms:meteor-leaflet-locatecontrol
-# fuatsengul:leaflet-easybutton
-### User Alerts ###
-# juliancwirko:s-alert # Banner alerts
-# juliancwirko:s-alert-stackslide # animation style
-### Fun Things ###
-timmyg:wow # animation library
-# chrisbutler:typed.js # specific for animating text if typed
-# mrt:jquery-easing # an animation (easing) plugin by GSGD
-
-# #### Tools ####
-# momentjs:moment # Date and Time
-# aldeed:moment-timezone
-# mrt:underscore-string-latest # Lots of functions
-
-# ### Performance Monitoring ###
-# meteorhacks:kadira # server
-# kadira:debug # local/client
-# percolate:synced-cron # TIming for bike rentals and email verification
-# email
-
-#### Collection Management ####
-# dburles:collection-helpers
-# matb33:collection-hooks
-# reywood:publish-composite
-
 #### Authentication ####
 # accounts-password
 # # accounts:password
@@ -85,22 +39,67 @@ timmyg:wow # animation library
 # useraccounts:bootstrap
 # useraccounts:flow-routing
 
+#### Libraries and Preprocessors ####
+mquandalle:jade
+coffeescript
+mrt:underscore-string-latest # Lots of functions
+stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
+kyleking:customizable-bootstrap-stylus
+fortawesome:fontawesome
+
+#### Visual Things ####
+kyleking:midnightjs
+timmyg:wow # animation library
+### User Alerts ###
+# juliancwirko:s-alert # Banner alerts
+# juliancwirko:s-alert-stackslide # animation style
+
+### Maps ###
+# bevanhunt:leaflet
+# appshore:leaflet-awesome-markers
+# herrhelms:meteor-leaflet-locatecontrol
+# fuatsengul:leaflet-easybutton
+
+#### Tools ####
+# momentjs:moment # Date and Time
+# aldeed:moment-timezone
+
+### Tables and Forms ###
+# d3js:d3
+# aldeed:tabular # data tables
+# reactive-var # used to reactively update reactive-table
+# aslagle:reactive-table # Alt table - suggested on Github
+# aldeed:autoform # form input for above data tables
+# kidovate:bootstrap-slider # input slider
+# aldeed:collection2 # attach a schema
 
 #### Seed Data ####
 # dburles:factory
 # anti:fake
 
-#### Mobile Functions ####
-# mdg:camera
+#### Collection Management ####
+# dburles:collection-helpers
+# matb33:collection-hooks
+# reywood:publish-composite
 
-# Misc:
+# ### Performance Monitoring ###
+# meteorhacks:kadira # server
+# kadira:debug # local/client
+# percolate:synced-cron # TIming for bike rentals and email verification
+# email
+
+
+
+# Misc/Unused
 # matdutour:outdated-browser # warn outdated users
 # meteorhacks:aggregate
-
-
+### Fun Things ###
+# chrisbutler:typed.js # specific for animating text if typed
+# mrt:jquery-easing # an animation (easing) plugin by GSGD
 # gwendall:template-animations
 # natestrauser:animate-css
-
+#### Mobile Functions ####
+# mdg:camera
 
 # Dev - MongoDB Control
 # Use DrMongo : port 27016 (meteor) / 27017 (mongo)

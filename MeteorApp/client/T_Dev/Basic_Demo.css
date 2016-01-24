@@ -1,0 +1,35 @@
+nav.fixed {
+  position: fixed;
+  z-index: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+p {
+  margin: 0;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  text-align: center;
+  font-weight: bold;
+}
+p.default {
+  background-color: #fff;
+}
+p.white {
+  background-color: #000;
+  color: #fff;
+}
+p.blue {
+  background-color: #008000;
+}
+.midnightHeader.default {
+  background: #000;
+  color: #fff;
+}
+.midnightHeader.white {
+  background: #fff;
+  color: #000;
+}
+.midnightHeader.blue {
+  background: #00f;
+  color: #008000;
+}

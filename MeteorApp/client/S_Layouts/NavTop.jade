@@ -1,10 +1,12 @@
 template(name='NavTop')
-	nav
+	nav.midnight_header
 		a(href="{{ pathFor 'About' }}").nb-brand REDBAR
 		.nav-elements(align="right")
 			ul.unstyled
 				li
 					a(href="{{ pathFor 'About' }}" class="{{ isActiveRoute regex='About' }}") About
+				li
+					a(href="{{ pathFor 'FAQ' }}" class="{{ isActiveRoute regex='FAQ' }}") FAQ
 				li
 					a(href="{{ pathFor 'Map' }}" class="{{ isActiveRoute regex='Map' }}") Map
 				li

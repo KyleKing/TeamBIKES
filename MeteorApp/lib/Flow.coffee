@@ -1,6 +1,13 @@
 FlowRouter.notFound = action: ->
   BlazeLayout.render 'NotFound'
 
+
+FlowRouter.route '/content',
+    name: 'content',
+    action: ->
+      BlazeLayout.render 'content'
+
+
 FlowRouter.route '/',
     name: 'About',
     action: ->
