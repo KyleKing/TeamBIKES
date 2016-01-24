@@ -1,9 +1,9 @@
 // Variables
 nb_TopSpacing = 20px
 nb_Background = white
-nb_Text = black
-nb_Highlight = red
-nb_CalcHeight = 58px + 7px
+nb_Text = #2B3E51
+nb_Highlight = RGBA(191, 59, 56, 1)
+nb_CalcHeight = 75px
 nb_LeftSpace = 60px
 nb_ElementSpacing = 20px
 
@@ -17,33 +17,29 @@ nav.midnight_header
 	z-index 20
 	position fixed
 	text-transform uppercase
-	height nb_CalcHeight !important
+	// height nb_CalcHeight - set by Midnight.js
 	width 100%
-
-// Logo
-.nb-brand
-	position fixed
-	top nb_TopSpacing
-	left nb_LeftSpace
-	text-decoration none
-	font-size 28px
-
-// Links
-nav .nav-elements
-	position fixed
-	top 0
-	right 0
-	ul
-		margin 0
-		list-style-type none
-		padding-right nb_LeftSpace - nb_ElementSpacing
-		& li
-			display inline
-			& a
-				nb_ActiveBorderRoom = 13.5px
-				padd(0, nb_ActiveBorderRoom, nb_ActiveBorderRoom, 5px)
-				marg(nb_TopSpacing, nb_ElementSpacing - nb_ActiveBorderRoom, nb_ElementSpacing - nb_ActiveBorderRoom, 0)
-				text-decoration none
+	// Logo
+	& .nb-brand
+		position relative
+		text-decoration none
+		font-size 25px
+		padd(20px, 20px, auto, 20px)
+	& .nav-elements
+		float: right
+		display inline-block
+		// right 0 // - causes height to be zero of element
+		ul
+			marg(5px, auto, auto, 5px)
+			list-style-type none
+			padding-right nb_LeftSpace - nb_ElementSpacing
+			& li
+				display inline
+				& a
+					nb_ActiveBorderRoom = 13.5px
+					padd(0, nb_ActiveBorderRoom, nb_ActiveBorderRoom, 5px)
+					marg(nb_TopSpacing, nb_ElementSpacing - nb_ActiveBorderRoom, nb_ElementSpacing - nb_ActiveBorderRoom, 0)
+					text-decoration none
 
 // isActiveRoute Highlight
 nav li a.active
@@ -70,38 +66,19 @@ button.nb-start
 
 
 // Midnight.js Alterations
-.midnightHeader.default
-	background-color nb_Background
+MidNight(BorderC, DisplayV, MainColor)
+	background-color BorderC
 	& .nb-brand
-		display block
-		color nb_Text
+		display DisplayV
+		color MainColor
 	& a
-		color nb_Text
+		color MainColor
 	& li a.active
-		border-color nb_Text
+		border-color MainColor
 
 .midnightHeader.none
-	background-color none
-	& .nb-brand
-		display none
-		color white
-	& a
-		color white
-	& li a.active
-		border-color white
-
-
-// nav.midnight_header
-//   position: fixed;
-//   z-index: 1;
-//   text-align: left;
-//   text-transform: uppercase;
-//   & a
-//   	font-size 80px
-//   	color white
-
-// .midnightHeader.none
-//   background-color black
-
-// .midnightHeader.default
-// 	background-color green
+	MidNight(none, none, white)
+.midnightHeader.blur
+	MidNight(RGBA(255, 255, 255, 0.1), none, white)
+.midnightHeader.default
+	MidNight(nb_Background, inline-block, nb_Text)
