@@ -1,10 +1,10 @@
 //- Create mobile nav style menu
 nav.mobile
-	.mobile-nav-element
-		a(href="{{ pathFor 'About' }}" class="{{ isActiveRoute regex='About' }}") About
-	.mobile-nav-element
-		a(href="{{ pathFor 'FAQ' }}" class="{{ isActiveRoute regex='FAQ' }}") FAQ
-	.mobile-nav-element
-		a(href="{{ pathFor 'Map' }}" class="{{ isActiveRoute regex='Map' }}") Map
-	.mobile-nav-element
-		button.nb-start Get Started
+	a(href="{{ pathFor 'About' }}" class="{{ isActiveRoute regex='About' }}")
+		i.fa.fa-home.fa-2x
+	a(href="{{ pathFor 'FAQ' }}" class="{{ isActiveRoute regex='FAQ' }}")
+		i.fa.fa-question.fa-2x
+	a(href="{{ pathFor 'Map' }}" class="{{ isActiveRoute regex='Map' }}")
+		i.fa.fa-map.fa-2x
+	a(href="{{ pathFor 'Map' }}" class="{{ isActiveRoute regex='Map' }}")
+		i.fa.fa-user.fa-2x

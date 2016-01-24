@@ -1,21 +1,23 @@
-// Variables
-nb_TopSpacing = 20px
-nb_Background = white
-nb_Text = #2B3E51
-nb_Highlight = RGBA(191, 59, 56, 1)
-nb_CalcHeight = 75px
-nb_LeftSpace = 60px
-nb_ElementSpacing = 20px
++above(550px)
+	nav.mobile
+		display none
 
-// Simple fixed flat bar with logo and navbar icons
-nav.mobile
-	z-index 20
-	position fixed
-	bottom 0
-	left 0
-	width 100%
-	background-color nb_Highlight
-	& .mobile-nav-element
-		width 23%
-		border 3px solid black
++below(550px)
+	nav.mobile
+		z-index 20
+		position fixed
+		bottom 0
+		width 100%
+		background-color gray
 
+		display inline-flex
+		// flex-direction row
+		// flex-wrap nowrap
+		flex-flow row nowrap
+		align-items baseline
+		& a
+			padd(20px, auto, auto, 20px)
+			flex-grow 1
+			text-align center
+			&:nth-of-type(n+2)
+				bord_dev(0, 2px, 0, 0, solid, white)
