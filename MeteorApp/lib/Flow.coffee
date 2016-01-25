@@ -1,3 +1,6 @@
+# Block all pages
+FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['About'] }
+
 FlowRouter.notFound = action: ->
   BlazeLayout.render 'NotFound'
 

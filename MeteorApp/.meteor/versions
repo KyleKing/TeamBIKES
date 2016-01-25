@@ -1,6 +1,7 @@
 accounts-base@1.2.2
+accounts-password@1.1.4
+alanning:roles@1.2.14
 arillo:flow-router-helpers@0.4.7
-autopublish@1.0.4
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
@@ -39,7 +40,6 @@ html-tools@1.0.5
 htmljs@1.0.5
 http@1.1.1
 id-map@1.0.4
-insecure@1.0.4
 jquery@1.11.4
 kadira:blaze-layout@2.3.0
 kadira:flow-router@2.10.0
@@ -79,6 +79,7 @@ mquandalle:jade-compiler@0.4.5
 mrt:underscore-string-latest@2.3.3
 msavin:jetsetter@1.5.2
 msavin:mongol@1.6.2
+npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4
@@ -95,9 +96,12 @@ retry@1.0.4
 routepolicy@1.0.6
 service-configuration@1.0.5
 session@1.1.1
+sha@1.0.4
+softwarerero:accounts-t9n@1.1.7
 spacebars@1.0.7
 spacebars-compiler@1.0.7
 spiderable@1.0.9
+srp@1.0.4
 standard-minifiers@1.0.2
 stolinski:stylus-multi@1.4.3
 templating@1.1.5
@@ -107,6 +111,9 @@ tracker@1.0.9
 ui@1.0.8
 underscore@1.0.4
 url@1.0.5
+useraccounts:bootstrap@1.13.1
+useraccounts:core@1.13.1
+useraccounts:flow-routing@1.13.1
 webapp@1.2.3
 webapp-hashing@1.0.5
 zimme:active-route@2.3.2

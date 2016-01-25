@@ -16,8 +16,8 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-autopublish             # Publish all data to the clients (for prototyping)
-insecure                # Allow all DB writes from clients (for prototyping)
+# autopublish             # Publish all data to the clients (for prototyping)
+# insecure                # Allow all DB writes from clients (for prototyping)
 
 meteortoys:allthings@2.3.1 # Pres ctrl-m to activate
 
@@ -32,12 +32,12 @@ spiderable
 force-ssl
 
 #### Authentication ####
-# accounts-password
-# # accounts:password
-# alanning:roles
-# # useraccounts:unstyled
-# useraccounts:bootstrap
-# useraccounts:flow-routing
+accounts-password
+# accounts:password
+alanning:roles
+# useraccounts:unstyled
+useraccounts:bootstrap
+useraccounts:flow-routing
 
 #### Libraries and Preprocessors ####
 mquandalle:jade
