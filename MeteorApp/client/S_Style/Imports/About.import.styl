@@ -1,8 +1,7 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Fixed cover photo
 .ab-background
-	img-fill( 650px, 'about/BikeRack.jpg', cover )
-	left 0
+	img-fill( 650px, 'about/BikeRack.png', cover )
 	position absolute
 	top 0
 	z-index -1
@@ -12,9 +11,6 @@
 
 // Welcome Text
 .ab-primary
-	// for n in 1..6
-	// 	h{n}
-	// 		-webkit-text-stroke thin black
 	color white
 	padd( 180px, auto, auto, 180px )
 	text-align center
@@ -23,7 +19,7 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Quick Summary and Value Proposition
 .ab-quote
-	background-color white
+	background-color $soft-bg-color
 	padd( 120px, auto, auto, 120px )
 	z-index 2
 
@@ -34,11 +30,10 @@
 	display block
 	marg( 0, 50px, 50px, 0 )
 	max-width 100%
-
-p.cta-quote
-	color $nav_text
-	font-size 22px
-	text-align center
+	& p.cta-quote
+		color $nav-bg-color
+		font-size 22px
+		text-align center
 
 .bold
 	font-weight bold
@@ -47,8 +42,6 @@ p.cta-quote
 // Walk through
 .ab-map-demo
 	img-fill( 300px, 'about/EditedBikeMap.png', cover )
-
-
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Bulleted Value Proposition
@@ -77,27 +70,50 @@ p.cta-quote
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Images and Description
-.Inspiration-img
+.inspiration-img
 	img-fill( $ab-height, 'about/TheInspiration.jpg', cover )
-	// border-left 1px solid black
-.Lock-img
+.lock-img
 	img-fill( $ab-height, 'about/TheLock.jpg', cover )
+.unlock-img
+	img-fill( $std-element-height, 'about/unlock.jpg', cover)
+.return-img
+	img-fill( $std-element-height, 'about/lock.jpg', cover)
+
+.intro-expl-invert
+	// background-color RGBA( 43, 52, 61, 1 )
+	background-color white
+	margin 0
+	padding 40px
+	text-align center
+	width 100%
 
 .explanation-container
+	background-color $hard-bg-color
 	display inline-flex
 	flex-flow row wrap
 	& .full-explanation
-		background-color gray
-		bord( 1px, 0, 0, 1px, solid, black )
-		flex 1 0 100%
-		padd( 20px, auto, auto, 80px )
-	& .half-explanation
+		+ below( 750px )
+			flex 2 0 100%
 		align-items center
-		background-color gray
-		bord( 0, 0, 0, 1px, solid, black )
 		display flex
-		flex 0 1 50%
+		flex 1 0 60%
 		position relative
+	& .big-half-explanation
+		+ below( 750px )
+			flex 2 0 100%
+		align-items center
+		display flex
+		flex 1 0 60%
+		position relative
+	& .small-half-explanation
+		+ below( 750px )
+			flex 2 0 100%
+		align-items center
+		display flex
+		flex 1 0 40%
+		position relative
+		// bord( 0, 0, 3px, 0, solid, #517DF4)
+		// box-shadow 0 3px 5px 0 #ccc
 	& .text-content
 		color white
 		flex 1
@@ -166,7 +182,7 @@ p.cta-quote
 			width 75px
 
 footer.ab-footer
-	background-color $soft-bg-color
+	background-color RGBA( 39, 40, 51, 1 )
 	padd( 25px, 0, 0, 25px )
 	text-align center
 	& a

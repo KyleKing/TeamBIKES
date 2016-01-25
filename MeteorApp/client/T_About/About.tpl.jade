@@ -1,7 +1,7 @@
 .ab-background
 .ab-primary(data-midnight="blur")
 	.block-text
-		h1.wow.fadeInDown(data-wow-delay="0.5s") RedBar Bikeshare
+		h1.wow.fadeInDown(data-wow-delay="0.5s") RedBar Bikes
 		h3.wow.fadeInDown(data-wow-delay="0.5s") Bikes on demand for the busy student
 		button(href='#' data-wow-delay="0.5s").cta-start.wow.fadeInDown Get Started
 
@@ -11,38 +11,42 @@
 	.container
 		.row
 			.cta-quote-container
-				p.cta-quote RedBar is the best way to get around campus. Built by a small group of UMD students, we took the accessibility and convenience of biking and removed the hassle, such as fixing flat tires, and maintenance
-				p.cta-quote.bold We make biking easy, affordable, and fun. Be one of the first RedBar bike riders!
-
-
-h1.textcenter Learn how to get started
+				p.cta-quote RedBar is the best way to get around campus. Built by a small group of UMD students, RedBar bikes takes the accessibility and convenience of biking and removes the hassles of bike maintenance.
+				p.cta-quote.bold RedBar makes biking easy, affordable, and fun. Join now and be one of the first RedBar riders!
 
 .explanation-container
-	.half-explanation
+	.full-explanation
 		.text-content
-			h3 Reserve
-			p The image above is a screenshot of
-				a(href="{{ pathFor 'map' }}")
-					|  RedBarBikes.com/map
-				|  where you can see every available bike. Tap any icon to reserve that bike for 5 minutes and ensure that a bike will be available when you arrive at the rack.
-	.half-explanation
-		.ab-map-demo
-	.half-explanation
-		.Inspiration-img
-	.half-explanation
-		.text-content
-			h3 Unlock
+			h3 Get Started and Unlock Your Bike
 			p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
-	.half-explanation
+	.full-explanation
+		.unlock-img
+	.full-explanation
 		.text-content
-			h3 Return
+			h3 Return Your Bike
 			p Complete your rental by returning to any on-campus rack. Release the lock from the riding position and loop the lock through the hoop. If you need help finding a nearby rack, visit
 				a(href="{{ pathFor 'map' }}")
 					|  RedBarBikes.com/map
 				|  and look for the purple squares.
-	.half-explanation
-		.Lock-img
+	.full-explanation
+		.return-img
 
+.intro-expl-invert
+	h1 But that isn't all....
+
+.explanation-container
+	.full-explanation
+		.text-content
+			h3 Reserve
+			p Visit the
+				a(href="{{ pathFor 'map' }}")
+					|  map
+				|  and click on any icon to reserve a RedBar bike for 5 minutes! This way, when you arrive at the rack, you are guaranteed a bike, but you are free to choose any bike you see on your way over.
+	.full-explanation
+		.ab-map-demo
+
+.intro-expl-invert
+	h1 To Reserve a Spot in RedBars, Choose an Option Below:
 
 //- .ab-cta
 //- 	.container
