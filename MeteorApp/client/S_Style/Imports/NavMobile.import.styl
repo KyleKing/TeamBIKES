@@ -1,12 +1,12 @@
-+above( 550px )
++above( 750px )
 	nav.mobile
 		display none
 
-+below( 550px )
++below( 750px )
 	nav.mobile
 		align-items baseline
-		background-color black
-		bord( 2px, 0, 0, 0, solid, white )
+		background-color $secondary-bg-color
+		bord( 2px, 0, 0, 0, solid, $off-white )
 		bottom 0
 		display inline-flex
 		flex-flow row nowrap
@@ -17,14 +17,18 @@
 			flex-grow 1
 			padd( 20px, auto, auto, 20px )
 			text-align center
-			&:nth-of-type( n+2 )
-				bord( 0, 2px, 0, 0, solid, white )
-			& i
-				color white
+			// &:nth-of-type( n+2 )
+			// 	bord( 0, 2px, 0, 0, solid, white )
+
+	nav.mobile a
+		&.active i
+			color white
+		& i
+			color darken($off-white, 15%)
 
 	// Spacing for page content
-	.nav-bottom-spacing
-		padding-bottom $nav-height-calc
-
+	footer
+		margin-bottom $nav-height-calc
+		background-color RGBA( 39, 40, 51, 1 )
 
 // TODO Need to add an overscroll because this menu hides the FAQ link

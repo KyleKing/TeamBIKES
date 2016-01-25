@@ -5,8 +5,6 @@
 		h3.wow.fadeInDown(data-wow-delay="0.5s") Bikes on demand for the busy student
 		button(href='#' data-wow-delay="0.5s").cta-start.wow.fadeInDown Get Started
 
-//- .explanation-container
-
 .ab-quote
 	.container
 		.row
@@ -27,43 +25,24 @@
 			p Complete your rental by returning to any on-campus rack. Release the lock from the riding position and loop the lock through the hoop. If you need help finding a nearby rack, visit
 				a(href="{{ pathFor 'map' }}")
 					|  RedBarBikes.com/map
-				|  and look for the purple squares.
+				|  and click on any icon to reserve a RedBar bike for 5 minutes! This way, when you arrive at the rack, you are guaranteed a bike, but you are free to choose any bike you see on your way over.
 	.full-explanation
 		.return-img
-
-.intro-expl-invert
-	h1 But that isn't all....
-
-.explanation-container
+	.full-explanation
+		.intro-expl-invert
+			h1 But that isn't all....
 	.full-explanation
 		.text-content
-			h3 Reserve
+			h3 Make a Reservation
 			p Visit the
 				a(href="{{ pathFor 'map' }}")
 					|  map
-				|  and click on any icon to reserve a RedBar bike for 5 minutes! This way, when you arrive at the rack, you are guaranteed a bike, but you are free to choose any bike you see on your way over.
+				|  and look for the purple squares.
 	.full-explanation
 		.ab-map-demo
 
-.intro-expl-invert
+.row.intro-expl-invert
 	h1 To Reserve a Spot in RedBars, Choose an Option Below:
-
-//- .ab-cta
-//- 	.container
-//- 		.static-card.col-xs-12
-//- 			h2 Sign Up Now for the Casual Rider Plan
-//- 			p.card-content Register for your chance to be part of the first RedBar bike riders
-//- 			.row
-//- 				input.email(placeholder='UMD Email' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
-//- 			.row
-//- 				input.password(placeholder='Password' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
-//- 			.row
-//- 				label
-//- 					input(type='checkbox' name='checkbox' value='value')
-//- 					| I agree to the
-//- 					a(href='"{{ pathFor \'terms\' }}"') terms
-//- 			.row
-//- 				button.cta-start Submit
 
 .pricing-container
 	.container
@@ -94,7 +73,6 @@
 					button.cta-start $15 per month
 			.col-sm-4.col-xs-12
 				.static-card.smaller
-					//- i.fa.fa-map.fa-2x
 					i.fa.fa-bolt.fa-2x
 					h2 The Bike-aholic
 					p No distance is too short for a quick ride!

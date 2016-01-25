@@ -5,11 +5,9 @@
 	position absolute
 	top 0
 	z-index -1
-
+// Welcome Text
 .block-text
 	width 50%
-
-// Welcome Text
 .ab-primary
 	color white
 	padd( 180px, auto, auto, 180px )
@@ -19,7 +17,7 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Quick Summary and Value Proposition
 .ab-quote
-	background-color $soft-bg-color
+	background-color $primary-bg-color
 	padd( 120px, auto, auto, 120px )
 	z-index 2
 
@@ -34,41 +32,12 @@
 		color $nav-bg-color
 		font-size 22px
 		text-align center
-
 .bold
 	font-weight bold
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Walk through
-.ab-map-demo
-	img-fill( 300px, 'about/EditedBikeMap.png', cover )
 
-// %%%%%%%%%%%%%%%%%%%%%%%%%%
-// Bulleted Value Proposition
-.ab-secondary
-	background-color $soft-bg-color
-	padd( 25px, auto, auto, 25px )
-	z-index 2
-
-// Trio of Card elements
-.ab-secondary .static-card
-	+above( 750px )
-		height 280px
-	background-color white
-	height 240px
-	marg( 5px, 5px, 5px, 5px )
-	padd( 10px, 15px, 15px, 10px )
-	text-align center
-	z-index 2
-	& i
-		background-color $brand-highlight
-		border-radius 50%
-		height 75px
-		line-height 75px
-		vertical-align middle
-		width 75px
-
-// %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Images and Description
 .inspiration-img
 	img-fill( $ab-height, 'about/TheInspiration.jpg', cover )
@@ -78,9 +47,10 @@
 	img-fill( $std-element-height, 'about/unlock.jpg', cover)
 .return-img
 	img-fill( $std-element-height, 'about/lock.jpg', cover)
+.ab-map-demo
+	img-fill( 300px, 'about/EditedBikeMap.png', cover )
 
 .intro-expl-invert
-	// background-color RGBA( 43, 52, 61, 1 )
 	background-color white
 	margin 0
 	padding 40px
@@ -88,57 +58,23 @@
 	width 100%
 
 .explanation-container
-	background-color $hard-bg-color
+	background-color $secondary-bg-color
 	display inline-flex
 	flex-flow row wrap
 	& .full-explanation
-		+ below( 750px )
-			flex 2 0 100%
 		align-items center
 		display flex
-		flex 1 0 60%
+		flex 1 0 100%
 		position relative
-	& .big-half-explanation
-		+ below( 750px )
-			flex 2 0 100%
-		align-items center
-		display flex
-		flex 1 0 60%
-		position relative
-	& .small-half-explanation
-		+ below( 750px )
-			flex 2 0 100%
-		align-items center
-		display flex
-		flex 1 0 40%
-		position relative
-		// bord( 0, 0, 3px, 0, solid, #517DF4)
-		// box-shadow 0 3px 5px 0 #ccc
 	& .text-content
 		color white
 		flex 1
+		marg( 0, auto, auto, 0 )
+		max-width 800px
 		padd( 20px, 20px, 20px, 20px )
 		text-align center
 		& a
 			color white
-
-
-
-// // %%%%%%%%%%%%%%%%%%%%%%%%%%
-// // Call to action
-// .ab-cta
-// 	padd( 25px, auto, auto, 25px )
-// 	background-color $soft-bg-color
-
-// // Single card element
-// .ab-cta .static-card
-// 	text-align center
-// 	background-color white
-// 	padd( 30px, 15px, 15px, 30px )
-// 	marg( 0, 5px, 5px, 0 )
-// 	& input
-// 		padding 10px
-// 		margin 5px
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Trio of Card elements

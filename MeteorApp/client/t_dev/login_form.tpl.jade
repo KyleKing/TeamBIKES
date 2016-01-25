@@ -1,0 +1,16 @@
+.ab-cta
+	.container
+		.static-card.col-xs-12
+			h2 Sign Up Now for the Casual Rider Plan
+			p.card-content Register for your chance to be part of the first RedBar bike riders
+			.row
+				input.email(placeholder='UMD Email' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
+			.row
+				input.password(placeholder='Password' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
+			.row
+				label
+					input(type='checkbox' name='checkbox' value='value')
+					| I agree to the
+					a(href='"{{ pathFor \'terms\' }}"') terms
+			.row
+				button.cta-start Submit
