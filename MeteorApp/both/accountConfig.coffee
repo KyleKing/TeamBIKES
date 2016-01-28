@@ -67,18 +67,20 @@ AccountsTemplates.configure
     resetPwd: 'Reset Password'
     signIn: 'Login to reserve a bike or check on you account'
     signUp: 'Join an Exclusive Community of RedBar Bikers'
-# Name Field
-AccountsTemplates.addField
-  _id: 'name'
-  type: 'text'
-  placeholder: signUp: 'First Last'
-  required: true
 # UID
 AccountsTemplates.addField
   _id: 'UID'
-  type: 'text'
-  placeholder: signUp: 'UID'
-  required: true
-  minLength: 1
-  re: /(?=.*\d).{1,}/
   errStr: '1 digits'
+  maxLength: 9
+  minLength: 9
+  placeholder: signUp: 'UID'
+  re: /(?=.*\d).{1,}/
+  required: true
+  type: 'text'
+# Name Field
+AccountsTemplates.addField
+  _id: 'name'
+  placeholder: signUp: 'First Last'
+  re: /\W{1,3}/
+  required: true
+  type: 'text'
