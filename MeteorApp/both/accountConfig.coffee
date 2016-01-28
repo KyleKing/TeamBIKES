@@ -62,11 +62,11 @@ AccountsTemplates.configure
   onSubmitHook: mySubmitFunc
   texts: title:
     changePwd: 'Change Password'
-    enrollAccount: 'Enroll Title text'
+    enrollAccount: 'FIXME: Enroll Title text'
     forgotPwd: 'Recover Your Password'
     resetPwd: 'Reset Password'
-    signIn: 'Sign In'
-    signUp: 'Sign Up'
+    signIn: 'Login to reserve a bike or check on you account'
+    signUp: 'Join an Exclusive Community of RedBar Bikers'
 # Name Field
 AccountsTemplates.addField
   _id: 'name'

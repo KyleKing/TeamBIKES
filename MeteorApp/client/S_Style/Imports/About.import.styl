@@ -1,14 +1,20 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Fixed cover photo
 .ab-background
+	+below( 750px )
+		img-fill( 550px, 'about/BikeRack.png', cover )
 	img-fill( 650px, 'about/BikeRack.png', cover )
 	position absolute
 	top 0
 	z-index -1
 // Welcome Text
 .block-text
+	+below( 750px )
+		width 100%
 	width 50%
 .ab-primary
+	+below( 750px )
+		padd( 130px, auto, auto, 130px )
 	color white
 	padd( 180px, auto, auto, 180px )
 	text-align center
@@ -87,6 +93,9 @@
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Trio of Card elements
+.pricing-container
+	background-color white
+
 .ab-pricing
 	margin-bottom 30px
 	margin-top 30px
