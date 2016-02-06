@@ -1,4 +1,4 @@
-# Block all pages
+# Block all pages, unless logged in
 FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['About'] }
 
 FlowRouter.notFound = action: ->
@@ -25,8 +25,6 @@ _.each Templates, (Template) ->
           Full: Template
         }
 
-# %%%%%%%%%%%%%%%%%%%%%%%%%%
 ScrollToTop = ->
-  # Gotta love a mature programming language: http://stackoverflow.com/questions/9316415/the-same-old-issue-scrolltop0-not-working-in-chrome-safari
   $(window).scrollTop 0
 FlowRouter.triggers.enter ScrollToTop
