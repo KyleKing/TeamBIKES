@@ -1,6 +1,6 @@
 # Legacy support for trigger button for panel
 
-Template.LayoutPanel.events
+Template.layoutPanel.events
   #open the lateral panel
   'click .cd-btn': (event) ->
     event.preventDefault()

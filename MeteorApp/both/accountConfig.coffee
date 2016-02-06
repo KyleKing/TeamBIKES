@@ -9,7 +9,7 @@ myPostLogout = ->
 
 AccountsTemplates.configure
     defaultLayout: 'layout'
-    defaultTemplate: 'login_form'
+    defaultTemplate: 'loginForm'
     defaultLayoutRegions: {}
     defaultContentRegion: 'Full'
 
