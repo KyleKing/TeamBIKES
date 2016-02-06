@@ -91,49 +91,77 @@
 			max-width 800px
 			flex 1 0 100%
 
-// %%%%%%%%%%%%%%%%%%%%%%%%%%
-// Trio of Card elements
-.pricing-container
-	background-color white
+// // %%%%%%%%%%%%%%%%%%%%%%%%%%
+// // Trio of Card elements
+// .pricing-container
+// 	background-color white
+
+// .ab-pricing
+// 	margin-bottom 30px
+// 	margin-top 30px
+// 	& button.nb-start
+// 		font-size 20px
+// 	& .static-card
+// 		+above( 750px )
+// 			height 480px
+// 		border-radius 10%
+// 		border 1px solid #BDC3C7
+// 		height 400px
+// 		text-align center
+// 		&:hover
+// 			border 2px solid $brand-highlight
+// 		& .ab-pricing-bullets
+// 			marg( 0, auto, auto, 0 )
+// 			max-width 300px
+// 		& ul
+// 			text-align left
+// 			& li
+// 				margin-left 0
+// 		&.focal
+// 			height 450px
+// 			marg( 5px, 5px, 5px, 5px )
+// 			padd( 70px, 15px, 15px, 20px )
+// 		&.smaller
+// 			height 480px - 2*60px
+// 			marg( 60px, 5px, 5px, 60px )
+// 			padd( 20px, 15px, 15px, 20px )
+// 		// Add a circle background to icon
+// 		& i
+// 			background-color $brand-highlight
+// 			border-radius 50%
+// 			color white
+// 			height 75px
+// 			line-height 75px
+// 			vertical-align middle
+// 			width 75px
 
 .ab-pricing
-	margin-bottom 30px
-	margin-top 30px
-	& button.nb-start
-		font-size 20px
+	background-color white
+	display inline-flex
+	flex-flow row nowrap
 	& .static-card
-		+above( 750px )
-			height 480px
-		border-radius 10%
-		border 1px solid #BDC3C7
-		height 400px
+		align-items center
+		display flex
+		// flex 1 0 100%
+		position relative
+	& .text-content
+		marg( 0, auto, auto, 0 )
+		padd( 45px, 45px, 45px, 45px )
+		align-items center
+		color white
+		display flex
+		flex 1
+		flex-flow column wrap
+		position relative
 		text-align center
-		&:hover
-			border 2px solid $brand-highlight
-		& .ab-pricing-bullets
-			marg( 0, auto, auto, 0 )
-			max-width 300px
-		& ul
-			text-align left
-			& li
-				margin-left 0
-		&.focal
-			height 450px
-			marg( 5px, 5px, 5px, 5px )
-			padd( 70px, 15px, 15px, 20px )
-		&.smaller
-			height 480px - 2*60px
-			marg( 60px, 5px, 5px, 60px )
-			padd( 20px, 15px, 15px, 20px )
-		// Add a circle background to icon
-		& i
-			background-color $brand-highlight
-			border-radius 50%
+		& a
 			color white
-			height 75px
-			line-height 75px
-			vertical-align middle
-			width 75px
+		& h3
+			bord( 0, 0, 0, 4px, solid, lighten($primary-bg-color, 45%) )
+			flex 2 0 100%
+		& p
+			max-width 800px
+			flex 1 0 100%
 
 footer.ab-footer
 	background-color RGBA( 39, 40, 51, 1 )

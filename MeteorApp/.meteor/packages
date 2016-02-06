@@ -103,3 +103,8 @@ timmyg:wow # animation library
 
 # Dev - MongoDB Control
 # Use DrMongo : port 27016 (meteor) / 27017 (mongo)
+
+# For testing
+sanjo:jasmine
+velocity:html-reporter
+velocity:console-reporter
