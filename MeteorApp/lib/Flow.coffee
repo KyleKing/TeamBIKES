@@ -1,27 +1,23 @@
 # Block all pages, unless logged in
-FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['About'] }
+FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['about'] }
 
 FlowRouter.notFound = action: ->
   BlazeLayout.render 'NotFound'
 
-FlowRouter.route '/',
-    name: 'About',
-    action: ->
-      BlazeLayout.render 'layout', {
-        Full: 'About'
-      }
-
-Templates = [
-  'FAQ'
-  'Map'
+@FlowTemplates = [
+  'about'
+  'faq'
+  'map'
+  'profile'
 ]
-_.each Templates, (Template) ->
-  route = '/' + Template
+
+_.each FlowTemplates, (tmpl) ->
+  route = '/' + if tmpl is 'about' then '' else tmpl
   FlowRouter.route route,
-      name: Template,
+      name: tmpl
       action: ->
         BlazeLayout.render 'layout', {
-          Full: Template
+          Full: tmpl
         }
 
 # Scroll to the top of every page

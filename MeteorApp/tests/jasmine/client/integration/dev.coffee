@@ -1,8 +1,4 @@
-describe 'Dev WIP', ->
-  it 'should have a value', ->
-    expect(window.dev).toEqual ''
-
-
+# Edited Sample Code:
 # describe 'Player', ->
 #   player = undefined
 #   song = undefined
