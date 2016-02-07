@@ -33,9 +33,7 @@ force-ssl
 
 #### Authentication ####
 accounts-password
-# accounts:password
 alanning:roles
-# useraccounts:unstyled
 useraccounts:bootstrap
 useraccounts:flow-routing
 
@@ -67,11 +65,8 @@ aldeed:moment-timezone
 ### Tables and Forms ###
 # d3js:d3
 # aldeed:tabular # data tables
-# reactive-var # used to reactively update reactive-table
-# aslagle:reactive-table # Alt table - suggested on Github
-# aldeed:autoform # form input for above data tables
+reactive-var # used to reactively update reactive-table
 # kidovate:bootstrap-slider # input slider
-# aldeed:collection2 # attach a schema
 
 #### Seed Data ####
 # dburles:factory
@@ -87,27 +82,15 @@ jagi:astronomy-validators
 # ### Performance Monitoring ###
 # meteorhacks:kadira # server
 # kadira:debug # local/client
-# percolate:synced-cron # TIming for bike rentals and email verification
+percolate:synced-cron # Timing for bike rentals and email verification
 email
 
-
-
-# Misc/Unused
-# matdutour:outdated-browser # warn outdated users
-# meteorhacks:aggregate
 ### Fun Things ###
-# chrisbutler:typed.js # specific for animating text if typed
-# mrt:jquery-easing # an animation (easing) plugin by GSGD
-# gwendall:template-animations
 # natestrauser:animate-css
 #### Mobile Functions ####
 # mdg:camera
 
-# Dev - MongoDB Control
-# Use DrMongo : port 27016 (meteor) / 27017 (mongo)
-
-# For testing
+### Preventing Regression ###
 sanjo:jasmine
 velocity:html-reporter
 velocity:console-reporter
-

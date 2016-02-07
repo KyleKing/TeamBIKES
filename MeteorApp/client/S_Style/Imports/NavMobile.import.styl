@@ -1,8 +1,8 @@
-+above( 750px )
++above( $desktop )
 	nav.mobile
 		display none
 
-+below( 750px )
++below( $desktop )
 	nav.mobile
 		align-items baseline
 		background-color $secondary-bg-color
@@ -24,11 +24,11 @@
 		&.active i
 			color white
 		& i
-			color darken($off-white, 15%)
+			color darken( $off-white, 15% )
 
 	// Spacing for page content
 	footer
-		margin-bottom $nav-height-calc
 		background-color RGBA( 39, 40, 51, 1 )
+		margin-bottom $nav-height-calc
 
 // TODO Need to add an overscroll because this menu hides the FAQ link

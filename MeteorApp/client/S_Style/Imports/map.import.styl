@@ -1,5 +1,5 @@
 // .map-container
-// 	+above( 750px )
+// 	+above( $desktop )
 // 		top NavHeight
 // 	bottom 40px
 // 	height auto
@@ -9,8 +9,8 @@
 // 	top MobileNavHeight
 
 .map-container-full
-	// +above( 750px )
-	// 	top NavHeight
+	+above( $desktop )
+		top $nav-height-calc
 	bottom 0
 	left 0
 	position fixed

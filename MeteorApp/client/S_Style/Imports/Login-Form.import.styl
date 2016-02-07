@@ -1,16 +1,14 @@
 // Login Form from Package:
 .at-form
-  +above( 750px )
-    max-width 60%
-  +below( 750px )
-    marg( 100px, 10px, 10px, inherit)
-  background-color white
-
+	+above( $desktop )
+		max-width 60%
+	+below( $desktop )
+		marg( 100px, 10px, 10px, inherit)
+	background-color white
 
 body
-  +above( 750px )
-    background-color #324960
-
+	+above( $desktop )
+		background-color $text-color
 
 // // colors
 // $main-text = #505260
@@ -106,7 +104,7 @@ body
 // .cd-user-modal
 //   position: fixed
 //   top MobileNavHeight
-//   +above(750px)
+//   +above( $desktop )
 //     top: NavHeight
 //   left: 0
 //   width: 100%

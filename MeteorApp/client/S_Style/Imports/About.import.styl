@@ -1,7 +1,7 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Fixed cover photo
 .ab-background
-	+below( 750px )
+	+below( $desktop )
 		img-fill( 550px, 'about/BikeRack.png', cover )
 	img-fill( 650px, 'about/BikeRack.png', cover )
 	position absolute
@@ -9,11 +9,11 @@
 	z-index -1
 // Welcome Text
 .block-text
-	+below( 750px )
+	+below( $desktop )
 		width 100%
 	width 50%
 .ab-primary
-	+below( 750px )
+	+below( $desktop )
 		padd( 130px, auto, auto, 130px )
 	color white
 	padd( 180px, auto, auto, 180px )
@@ -28,7 +28,7 @@
 	z-index 2
 
 .cta-quote-container
-	+above( 800px )
+	+above( $desktop )
 		marg( 0, auto, auto, 0 )
 		max-width 800px
 	display block
@@ -102,7 +102,7 @@
 // 	& button.nb-start
 // 		font-size 20px
 // 	& .static-card
-// 		+above( 750px )
+// 		+above( $desktop )
 // 			height 480px
 // 		border-radius 10%
 // 		border 1px solid #BDC3C7
