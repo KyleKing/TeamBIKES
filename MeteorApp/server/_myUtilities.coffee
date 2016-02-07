@@ -18,7 +18,7 @@
     AllRandNames[ Math.round( (AllRandNames.length - 1) * Math.random() ) ]
 
 
-  randTag: () ->
+  randTag: ->
     if Math.round(0.75 * Math.random()) is 0
       if Math.round(1.1 * Math.random()) is 0
         RandTag = 'rndtag'
