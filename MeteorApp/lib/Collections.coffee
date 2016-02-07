@@ -1,13 +1,52 @@
 @DailyBikeData = new Mongo.Collection('dailyBikeData')
 
-# @DailyBikeDatum = Astro.Class({
-#   name: 'DailyBikeDatum'
-#   collection: DailyBikeData
-#   fields: {
-#     title: 'string'
-#     publishedAt: 'date'
-#   }
-# })
+# Nested Class
+nestedPositions = Astro.Class(
+  name: 'nestedPositions'
+  fields:
+    Tag: 'string'
+    Rider: 'string'
+    Timestamp: 'number'
+    Coordinates: 'array'
+)
+
+@DailyBikeDatum = Astro.Class(
+  name: 'DailyBikeDatum'
+  collection: DailyBikeData
+  fields:
+    Bike:
+      type: 'number'
+    Day:
+      type: 'number'
+    Tag:
+      type: 'string'
+    Coordinates:
+      type: 'array'
+      nested: 'number'
+    Positions:
+      type: 'array'
+      nested: 'nestedPositions'
+      default: ->
+        []
+)
+
+# # POC:
+# dbd = new DailyBikeDatum
+# dbd.set(
+#   Bike: 1
+#   Day: 2
+#   Tag: 'myUtilities.randTag'
+#   Coordinates: [1, 2]
+# )
+
+# dbd.push('Positions',
+#   Tag: 'RandTag'
+#   Rider: 'rndtag'
+#   Timestamp: 12
+#   Coordinates: [1,3]
+# )
+
+# console.log dbd
 
 # @RackNames = new Mongo.Collection 'racknames'
 # @OuterLimit = new Mongo.Collection 'outerlimit'

@@ -24,44 +24,38 @@ Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
     if DailyBikeData.find({Day: (today - j) }).count() is 0
       i = 1
       while i <= NumBikes
+        dbd = new DailyBikeDatum()
         # create template for each DailyBikeData data stored
         Position = []
         randomNow = NaN
         blank = {}
         countTime = 0
-        while countTime < 30
-          # For 60 minutes in an hour
-          randomNow = now - (10000000 * Math.random())
-          if Math.round(0.75 * Math.random()) is 0
-            if Math.round(1.1 * Math.random()) is 0
-              RandTag = 'rndtag'
-            else
-              RandTag = 'Available'
-          else
-            RandTag = 'RepairInProgress'
-          blank =
-            Tag: RandTag
-            Rider: if RandTag is 'rndtag' then myUtilities.randName() else ''
-            Timestamp: randomNow
-            Coordinates: myUtilities.randGPS(1)
-          # console.log('name = '+blank.User)
-          Position.push blank
-          countTime++
+
         TotalBikes = DailyBikeData.find().count()
         if TotalBikes is 0
           BikeCount = i
         else
           BikeCount = TotalBikes + 1
-        # DailyBikeData.insert
-        #   Bike: BikeCount
-        #   Day: today - j
-        #   # simplified version
-        #   Tag: RandTag
-        #   Coordinates: myUtilities.randGPS(1)
-        #   Positions: Position
+        dbd.set(
+          Bike: BikeCount
+          Day: today - j
+          Tag: myUtilities.randTag()
+          Coordinates: myUtilities.randGPS(1)
+        )
+        while countTime < 30
+          # For 60 minutes in an hour
+          randomNow = now - (10000000 * Math.random())
+          RandTag = myUtilities.randTag()
+          dbd.push('Positions',
+            Tag: RandTag
+            Rider: if RandTag is 'rndtag' then myUtilities.randName() else ''
+            Timestamp: randomNow
+            Coordinates: myUtilities.randGPS(1)
+          )
+          countTime++
+        dbd.save()
         i++
-      console.log 'Created DailyBikeData for ' +
-        j + ' days behind today'
+      console.log 'Created DailyBikeData for ' + j + ' days behind today'
     j++
   console.log 'Done generating random DailyBikeData data'
 
@@ -75,4 +69,4 @@ Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
 
 # Create DailyBikeData
 if DailyBikeData.find({Day: today}).count() is 0
-  Meteor.call('CreateDailyBikeData', 50, 2)
+  Meteor.call('CreateDailyBikeData', 10, 4)

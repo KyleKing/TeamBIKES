@@ -17,6 +17,20 @@
     ]
     AllRandNames[ Math.round( (AllRandNames.length - 1) * Math.random() ) ]
 
+
+  randTag: () ->
+    if Math.round(0.75 * Math.random()) is 0
+      if Math.round(1.1 * Math.random()) is 0
+        RandTag = 'rndtag'
+      else
+        RandTag = 'Available'
+    else
+      RandTag = 'RepairInProgress'
+    # Other options: ToBeRedistributed, RepairToBeStarted,
+    #       RepairInProgress, WaitingOnParts, Available
+    RandTag
+
+
   randGPS: (max) ->
     # Calculate random GPS coordinates within campus limits
 
