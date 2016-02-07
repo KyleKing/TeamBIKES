@@ -78,6 +78,8 @@ timmyg:wow # animation library
 # anti:fake
 
 #### Collection Management ####
+jagi:astronomy
+jagi:astronomy-validators
 # dburles:collection-helpers
 # matb33:collection-hooks
 # reywood:publish-composite
@@ -86,7 +88,7 @@ timmyg:wow # animation library
 # meteorhacks:kadira # server
 # kadira:debug # local/client
 # percolate:synced-cron # TIming for bike rentals and email verification
-# email
+email
 
 
 
@@ -108,3 +110,4 @@ timmyg:wow # animation library
 sanjo:jasmine
 velocity:html-reporter
 velocity:console-reporter
+

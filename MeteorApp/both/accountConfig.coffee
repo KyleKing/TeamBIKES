@@ -4,7 +4,7 @@
 # https://atmospherejs.com/useraccounts/flow-routing
 
 myPostLogout = ->
-  #example redirect after logout
+  # example redirect after logout
   FlowRouter.go '/'
 
 AccountsTemplates.configure
@@ -67,6 +67,14 @@ AccountsTemplates.configure
     resetPwd: 'Reset Password'
     signIn: 'Login to reserve a bike or check on you account'
     signUp: 'Join an Exclusive Community of RedBar Bikers'
+
+# Name Field
+AccountsTemplates.addField
+  _id: 'name'
+  placeholder: signUp: 'First Last'
+  re: /\W{1,3}/
+  required: true
+  type: 'text'
 # UID
 AccountsTemplates.addField
   _id: 'UID'
@@ -75,12 +83,5 @@ AccountsTemplates.addField
   minLength: 9
   placeholder: signUp: 'UID'
   re: /(?=.*\d).{1,}/
-  required: true
-  type: 'text'
-# Name Field
-AccountsTemplates.addField
-  _id: 'name'
-  placeholder: signUp: 'First Last'
-  re: /\W{1,3}/
   required: true
   type: 'text'

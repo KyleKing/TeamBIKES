@@ -1,3 +1,14 @@
+@DailyBikeData = new Mongo.Collection('dailyBikeData')
+
+# @DailyBikeDatum = Astro.Class({
+#   name: 'DailyBikeDatum'
+#   collection: DailyBikeData
+#   fields: {
+#     title: 'string'
+#     publishedAt: 'date'
+#   }
+# })
+
 # @RackNames = new Mongo.Collection 'racknames'
 # @OuterLimit = new Mongo.Collection 'outerlimit'
 
