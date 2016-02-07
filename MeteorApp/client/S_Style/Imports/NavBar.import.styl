@@ -42,16 +42,16 @@ ul.unstyled
 
 	// Midnight.js Alterations
 	mix-nav-midnight( color-bg, display-type, color-main, color-bottom )
-		opacity 0.9
 		background-color color-bg
 		// bord( 0, 0, 0, 11px, solid, color-bottom )
+		opacity 0.9
 		& .nav-brand
 			color color-main
 			display display-type
 		& a
 			color color-main
 		& li a.active
-			bord( 0, 0, 0, 3px, solid, none )
+			bord( 0, 0, 0, 3px, solid, color-main )
 
 	.midnightHeader.none
 		mix-nav-midnight( none, none, white, green )
