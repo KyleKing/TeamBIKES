@@ -9,20 +9,38 @@ nestedPositions = Astro.Class(
     Timestamp: 'number'
     Coordinates: 'array'
 )
-
 @DailyBikeDatum = Astro.Class(
   name: 'DailyBikeDatum'
   collection: DailyBikeData
   fields:
     Bike:
       type: 'number'
+      validator: Validators.and [
+        Validators.number()
+        Validators.gt(0)
+        Validators.lte(100)
+      ]
     Day:
       type: 'number'
+      validator: Validators.and [
+        Validators.number()
+        Validators.gt(0)
+        Validators.lte(365)
+      ]
     Tag:
       type: 'string'
+      validator:  Validators.and [
+        Validators.string()
+        Validators.choice([
+          'ToBeRedistributed', 'RepairToBeStarted'
+          'RepairInProgress', 'WaitingOnParts', 'Available'
+        ])
+      ]
     Coordinates:
       type: 'array'
       nested: 'number'
+      default: ->
+        []
     Positions:
       type: 'array'
       nested: 'nestedPositions'
@@ -30,58 +48,8 @@ nestedPositions = Astro.Class(
         []
 )
 
-# # POC:
-# dbd = new DailyBikeDatum
-# dbd.set(
-#   Bike: 1
-#   Day: 2
-#   Tag: 'myUtilities.randTag'
-#   Coordinates: [1, 2]
-# )
-
-# dbd.push('Positions',
-#   Tag: 'RandTag'
-#   Rider: 'rndtag'
-#   Timestamp: 12
-#   Coordinates: [1,3]
-# )
-
-# console.log dbd
-
 # @RackNames = new Mongo.Collection 'racknames'
 # @OuterLimit = new Mongo.Collection 'outerlimit'
-
-# # All bike positional information
-# @DailyBikeData = new Mongo.Collection 'dailyBikeData'
-# DailyBikeData.attachSchema new SimpleSchema(
-#   Bike:
-#     type: Number
-#     label: 'Bike Number'
-#     min: 0
-#   Day:
-#     type: Number
-#     label: 'Day'
-#     min: 0
-#     max: 367
-#   Tag:
-#     type: String
-#     label: 'Tag'
-#   Coordinates:
-#     type: [Number]
-#     decimal: true
-#   Positions:
-#     type: [ Object ]
-#   'Positions.$.Tag':
-#     type: String
-#   'Positions.$.Rider':
-#     type: String
-#     optional: true
-#   'Positions.$.Timestamp':
-#     type: Number
-#     decimal: true
-#   'Positions.$.Coordinates':
-#     type: [Number]
-#     decimal: true)
 
 # # Specific bike information: repairs, serial number, etc.
 # @MechanicNotes = new Mongo.Collection 'mechanicNotes'
@@ -99,7 +67,6 @@ nestedPositions = Astro.Class(
 #     type: String
 #   Tag:
 #     type: String)
-
 
 
 # ## WIP
@@ -208,5 +175,5 @@ nestedPositions = Astro.Class(
 # # Meteor.users.attachSchema Schema.User
 
 
-# # Cron scheduling
-# @FutureTasks = new (Meteor.Collection)('future_tasks')
+# Cron scheduling
+@FutureTasks = new Meteor.Collection('future_tasks')
