@@ -55,14 +55,14 @@ timmyg:wow # animation library
 # juliancwirko:s-alert-stackslide # animation style
 
 ### Maps ###
-# bevanhunt:leaflet
-# appshore:leaflet-awesome-markers
-# herrhelms:meteor-leaflet-locatecontrol
-# fuatsengul:leaflet-easybutton
+bevanhunt:leaflet
+appshore:leaflet-awesome-markers
+herrhelms:meteor-leaflet-locatecontrol
+fuatsengul:leaflet-easybutton
 
 #### Tools ####
-# momentjs:moment # Date and Time
-# aldeed:moment-timezone
+momentjs:moment # Date and Time
+aldeed:moment-timezone
 
 ### Tables and Forms ###
 # d3js:d3
