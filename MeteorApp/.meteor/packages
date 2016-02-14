@@ -49,8 +49,8 @@ fortawesome:fontawesome
 kyleking:midnightjs
 timmyg:wow # animation library
 ### User Alerts ###
-# juliancwirko:s-alert # Banner alerts
-# juliancwirko:s-alert-stackslide # animation style
+juliancwirko:s-alert # Banner alerts
+juliancwirko:s-alert-stackslide # animation style
 
 ### Maps ###
 bevanhunt:leaflet
@@ -80,8 +80,8 @@ jagi:astronomy-validators
 # reywood:publish-composite
 
 # ### Performance Monitoring ###
-# meteorhacks:kadira # server
-# kadira:debug # local/client
+meteorhacks:kadira # server
+kadira:debug # local/client
 percolate:synced-cron # Timing for bike rentals and email verification
 email
 

@@ -1,7 +1,6 @@
 # Useful utilities used mostly in creating seed data
 # Set in global, window scope
-@myUtilities = {}
-@myUtilities =
+@myUtilities = {
   randName: ->
     # Return a random name
     AllRandNames = [
@@ -53,3 +52,4 @@
     _.times max, ->
       randLng.push _.random(bottomLng * sigfig, topLng * sigfig) / sigfig
     [Number(randLat), Number(randLng)]
+}
