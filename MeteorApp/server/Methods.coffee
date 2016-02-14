@@ -1,16 +1,19 @@
-# Meteor.methods 'UserReserveBike': (currentUserId, Bike) ->
-#   # Check if other reserved bikes and remove reservations
-#   count = RemoveReservation(currentUserId)
+Meteor.methods 'UserReserveBike': (currentUserId, Bike) ->
+  # Check if other reserved bikes and remove reservations
+  count = Meteor.call('RemoveReservation', currentUserId)
 
-#   # Find and reserve requested bike
-#   [today, now] = CurrentDay()
-#   record = DailyBikeData.findOne({Bike: Bike, Day: today})
-#   if record
-#     DailyBikeData.update record, {$set: {Tag: currentUserId} }
-#     console.log 'Reserved bike #' + Bike
-#   # Create cron task to delete reservation at set time interval
-#   StartReservationCountdown(currentUserId, Bike)
-#   count
+  # Find and reserve requested bike
+  [today, now] = CurrentDay()
+  record = DailyBikeData.findOne({Bike: Bike, Day: today})
+  if record
+    record.set({Tag: currentUserId})
+    record.save()
+    console.log 'Reserved bike #' + Bike
+  else
+    errMessage = 'No Bike Record Found in Method: UserReserveBike'
+    throw errMessage
+  # Create cron task to delete reservation at set time interval
+  Meteor.call('StartReservationCountdown', currentUserId, Bike)
 
 # Meteor.methods 'mySubmitFunc': (currentUserId) ->
 #   # Prepare fields to udpate MongoDB
@@ -54,23 +57,6 @@
 
 # Meteor.methods 'DeleteRacks': ->
 #   RackNames.remove( { "attributes.OBJECTID": { $lt:  100000} } )
-#   'ok'
-
-# Meteor.methods 'DeleteBikes': ->
-#   # Useful function from lib/CurrentDay.coffee for current date and time
-#   [today, now] = CurrentDay()
-#   tomorrow = today+1
-#   console.log 'Tomorrow is ' + tomorrow + ' compared to today ' + today
-#   DailyBikeData.remove( { Day: { $lt:  tomorrow} } )
-#   'ok'
-
-# Meteor.methods 'CreateBike': ->
-#   Meteor.call 'CreateDailyBikeData', 1, 1
-#   # CreateDailyBikeData(1, 1)
-#   'ok'
-
-# Meteor.methods 'RepopulateDailyBikeData': ->
-#   Meteor.call 'CreateDailyBikeData', 50, 1
 #   'ok'
 
 # ###*******************************************###

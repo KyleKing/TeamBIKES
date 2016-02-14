@@ -24,12 +24,12 @@
 #   [today, now] = CurrentDay()
 #   DailyBikeData.find {Day: today}, fields: Positions: 0
 
-# Meteor.publish 'AvailableBikeLocationsPub', ->
-#   [today, now] = CurrentDay()
-#   DailyBikeData.find {Tag: 'Available', Day: today}, fields: Positions: 0
-# Meteor.publish 'ReservedBike', ->
-#   [today, now] = CurrentDay()
-#   DailyBikeData.find {Tag: @userId, Day: today}, fields: Positions: 0
+Meteor.publish 'AvailableBikeLocationsPub', ->
+  [today, now] = CurrentDay()
+  DailyBikeData.find {Tag: 'Available', Day: today}, fields: Positions: 0
+Meteor.publish 'ReservedBike', ->
+  [today, now] = CurrentDay()
+  DailyBikeData.find {Tag: @userId, Day: today}, fields: Positions: 0
 
 # Meteor.publish "ManageBikes", ->
 #   DailyBikeData.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})

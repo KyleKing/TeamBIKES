@@ -1,7 +1,13 @@
-# Useful function from lib/CurrentDay.coffee for current date and time
-[today, now] = CurrentDay()
+Meteor.methods 'DestroyDailyBikeData': ->
+  [today, now] = CurrentDay()
+  DailyBikeData.remove({ Day: { $lt:  today + 2} })
+
+Meteor.methods 'RepopulateDailyBikeData': ->
+  Meteor.call 'CreateDailyBikeData', 50, 1
 
 Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
+  [today, now] = CurrentDay()
+
   # DailyBikeData {
   #   Bike: <number>,
   #   Day: <number out of 365>,
@@ -68,5 +74,6 @@ Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
   'ok'
 
 # Create DailyBikeData
+[today, now] = CurrentDay()
 if DailyBikeData.find({Day: today}).count() is 0
   Meteor.call('CreateDailyBikeData', 10, 4)

@@ -10,20 +10,20 @@
     BikeIcon = window.Reserved
   BikeIcon
 
-@MapInit = (MapInitSettings) ->
+@MapInit = (mapInitSettings) ->
   # Just to call for the bike variables and not an entire init
-  if MapInitSettings.MapName != false
+  if mapInitSettings.MapName != false
     # Create the Leaflet Map
     L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images'
-    window[MapInitSettings.MapName] = new (L.Map)( MapInitSettings.MapName, {
-      center: MapInitSettings.Center
-      fullscreenControl: MapInitSettings.FullScreenButton
+    window[mapInitSettings.MapName] = new (L.Map)( mapInitSettings.MapName, {
+      center: mapInitSettings.Center
+      fullscreenControl: mapInitSettings.FullScreenButton
       fullscreenControlOptions: {
         position: 'topleft'
       }
     })
-    L.tileLayer.provider('OpenStreetMap.Mapnik').addTo window[MapInitSettings.MapName]
-    window[MapInitSettings.MapName].spin false
+    L.tileLayer.provider('OpenStreetMap.Mapnik').addTo window[mapInitSettings.MapName]
+    window[mapInitSettings.MapName].spin false
 
     # Give user control over location
     window.LocateControl = L.control.locate(
@@ -32,31 +32,31 @@
       setView: true
       keepCurrentZoomLevel: false
       remainActive: false
-      markerClass: L.circleMarker).addTo window[MapInitSettings.MapName]
+      markerClass: L.circleMarker).addTo window[mapInitSettings.MapName]
 
     # # Quickly load map (Doesn't seem to work reliably)
-    # window[MapInitSettings.MapName].setView MapInitSettings.Center, 16
+    # window[mapInitSettings.MapName].setView mapInitSettings.Center, 16
 
     # Automatically track user or center on UMD at arbitrary location
-    if MapInitSettings.LocateUser
+    if mapInitSettings.LocateUser
       # Start automatically
       window.LocateControl.start()
-      window[MapInitSettings.MapName].on 'locationfound', (self) ->
-        if MapInitSettings.PopupGuide
+      window[mapInitSettings.MapName].on 'locationfound', (self) ->
+        if mapInitSettings.PopupGuide
           console.log self
           # Create popup with user guide
           popup = L.popup()
           popup.setLatLng [self.latitude, self.longitude]
-          popup.setContent MapInitSettings.PopupGuide
-          popup.openOn window[MapInitSettings.MapName]
+          popup.setContent mapInitSettings.PopupGuide
+          popup.openOn window[mapInitSettings.MapName]
         Session.set "UserLocation": {lat: self.latitude, lng: self.longitude}
-      window[MapInitSettings.MapName].on 'dragstart', window.LocateControl._stopFollowing, window.LocateControl
+      window[mapInitSettings.MapName].on 'dragstart', window.LocateControl._stopFollowing, window.LocateControl
     else
       # Quickly load map
-      window[MapInitSettings.MapName].setView MapInitSettings.Center, 16
+      window[mapInitSettings.MapName].setView mapInitSettings.Center, 16
 
     # Add toggle button if requested
-    if MapInitSettings.ShowClosestBikes
+    if mapInitSettings.ShowClosestBikes
       # Create toggle button to show lines to nearest bikes
       window.ShowClosestBikesToggle = L.easyButton(states: [
         {
@@ -80,12 +80,12 @@
           title: 'Undo'
         }
       ])
-      window.ShowClosestBikesToggle.addTo window[MapInitSettings.MapName]
+      window.ShowClosestBikesToggle.addTo window[mapInitSettings.MapName]
       if Session.get 'ShowClosestBikes'
         window.ShowClosestBikesToggle.state 'removing-markers'
 
-  # Create toggle button for displaying bike rack locations
-  # Below button does the toggling anyway
+  # # Create toggle button for displaying bike rack locations
+  # # Below button does the toggling anyway
   # ShowBikeRacksToggle = L.easyButton(states: [
   #   {
   #     stateName: 'show'
@@ -106,10 +106,10 @@
   #     title: 'Hide Bike Rack Locations'
   #   }
   # ])
-  # ShowBikeRacksToggle.addTo window[MapInitSettings.MapName]
+  # ShowBikeRacksToggle.addTo window[mapInitSettings.MapName]
 
   # Create toggle button for markers - more of a dev feature
-  if MapInitSettings.ShowBikeRacksMarkerToggle
+  if mapInitSettings.ShowBikeRacksMarkerToggle
     # Create toggle button for displaying bike rack locations
     window.ShowBikeRacksMarkerToggle = L.easyButton(states: [
       {
@@ -136,23 +136,23 @@
         title: 'Hide Bike Rack Markers'
       }
     ])
-    window.ShowBikeRacksMarkerToggle.addTo window[MapInitSettings.MapName]
+    window.ShowBikeRacksMarkerToggle.addTo window[mapInitSettings.MapName]
     if Session.get 'OptionalBikeRacksMarkers'
       window.ShowBikeRacksMarkerToggle.state('hide-markers')
 
   # Determine to show markers or not as standard
-  if isUndefined MapInitSettings.ShowBikeRacksMarkerToggle
+  if isUndefined mapInitSettings.ShowBikeRacksMarkerToggle
     Session.set 'OptionalBikeRacksMarkers', true
   # Set to the inverse (i.e. for user ('Bike Map') who wants to see bike racks vs. admin who only wants outlines)
-  else if MapInitSettings.MapName is 'BikeMap'
-    Session.set 'OptionalBikeRacksMarkers', MapInitSettings.ShowBikeRacksMarkerToggle
+  else if mapInitSettings.MapName is 'BikeMap'
+    Session.set 'OptionalBikeRacksMarkers', mapInitSettings.ShowBikeRacksMarkerToggle
   else
-    Session.set 'OptionalBikeRacksMarkers', !MapInitSettings.ShowBikeRacksMarkerToggle
+    Session.set 'OptionalBikeRacksMarkers', !mapInitSettings.ShowBikeRacksMarkerToggle
 
   # Plot Bike Racks
   # Allow for user to toggle bike racks on and off
-  # if isUndefined Session.get 'OptionalBikeRacks'
-    Session.set 'OptionalBikeRacks', 0
+  if isUndefined Session.get 'OptionalBikeRacks'
+    Session.set('OptionalBikeRacks', 0)
 
   # Tracker.autorun ->
   #   if Session.equals 'OptionalBikeRacks', 7
@@ -166,66 +166,67 @@
   #     console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
   #     Meteor.subscribe 'RackNamesGet', 7
   Meteor.subscribe 'RackNamesGet', 7
-  console.log "Session.get 'OptionalBikeRacks' is " + Session.get 'OptionalBikeRacks'
+  console.log "Session.get 'OptionalBikeRacks' is " + Session.get('OptionalBikeRacks')
 
 
   # Subscribe to rest of data
   Meteor.subscribe 'OuterLimitGet'
   # Init Vars
-  RackPositionMarkers = []
-  RackOutlinePolygons = []
+  rackPositionMarkers = []
+  rackOutlinePolygons = []
   # Watch bike racks for change in availability (not built yet)
   Tracker.autorun ->
     RackNames.find().observe
-      added: (EachRackData) ->
+      added: (eachRackData) ->
         BikeIcon = IconLogic('BikeRack')
-        RackPositionMarkers[EachRackData._id] = L.marker(EachRackData.Coordinates, {
+        rackPositionMarkers[eachRackData._id] = L.marker(eachRackData.Coordinates, {
           icon: BikeIcon
           })
         # if Session.get 'OptionalBikeRacksMarkers'
         if Session.equals 'OptionalBikeRacks', 7
           console.log Session.get 'OptionalBikeRacks'
-          RackPositionMarkers[EachRackData._id].addTo window[MapInitSettings.MapName]
+          rackPositionMarkers[eachRackData._id].addTo window[mapInitSettings.MapName]
 
         # Force re-run
         if Session.equals 'OptionalBikeRacks', 0
           console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
         # if Session.equals 'OptionalBikeRacks', 7
         #   console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
-        RackOutlinePolygons[EachRackData._id] = L.polygon(EachRackData.Details, {
+        rackOutlinePolygons[eachRackData._id] = L.polygon(eachRackData.Details, {
           fill: true
           color: 'purple'
           smoothFactor: 0
           weight: 2
-        }).addTo window[MapInitSettings.MapName]
-        # _.each EachRackData.Details, (coord) ->
-        #   L.marker(coord, {icon: BikeIcon}).addTo window[MapInitSettings.MapName]
-      removed: (EachRackData) ->
+        }).addTo window[mapInitSettings.MapName]
+        # _.each eachRackData.Details, (coord) ->
+        #   L.marker(coord, {icon: BikeIcon}).addTo window[mapInitSettings.MapName]
+      removed: (eachRackData) ->
         # Remove the marker from the map
-        console.log RackPositionMarkers[EachRackData._id]._leaflet_id + ' removed on REMOVED event'
-        window[MapInitSettings.MapName].removeLayer RackPositionMarkers[EachRackData._id]
-        window[MapInitSettings.MapName].removeLayer RackOutlinePolygons[EachRackData._id]
+        console.log rackPositionMarkers[eachRackData._id]._leaflet_id + ' removed on REMOVED event'
+        window[mapInitSettings.MapName].removeLayer rackPositionMarkers[eachRackData._id]
+        window[mapInitSettings.MapName].removeLayer rackOutlinePolygons[eachRackData._id]
         # Remove the reference to this marker instance
-        delete RackPositionMarkers[EachRackData._id]
-        delete RackOutlinePolygons[EachRackData._id]
+        delete rackPositionMarkers[eachRackData._id]
+        delete rackOutlinePolygons[eachRackData._id]
 
     # Active area of bike map
-    if MapInitSettings.DrawOutline
-      CampusOutlinePolygons = []
+    if mapInitSettings.DrawOutline
+      campusOutlinePolygons = []
       window.MapObserveOuterLineHandle = OuterLimit.find().observe
         added: (outerline) ->
-          CampusOutlinePolygons[outerline._id] = L.polygon(outerline.Details, {
+          campusOutlinePolygons[outerline._id] = L.polygon(outerline.Details, {
             fill: false
             color: 'purple'
             smoothFactor: 5
             weight: 7
-          }).addTo(window[MapInitSettings.MapName])
-        removed: (OldOuterline) ->
+          }).addTo(window[mapInitSettings.MapName])
+        removed: (oldOuterline) ->
           # Remove the marker from the map
-          console.log CampusOutlinePolygons[OldOuterline._id]._leaflet_id + ' removed on REMOVED event'
-          window[MapInitSettings.MapName].removeLayer CampusOutlinePolygons[OldOuterline._id]
+          console.log campusOutlinePolygons[oldOuterline._id]._leaflet_id +
+            ' removed on REMOVED event'
+          window[mapInitSettings.MapName].removeLayer campusOutlinePolygons[oldOuterline._id]
           # Remove the reference to this marker instance
-          delete CampusOutlinePolygons[OldOuterline._id]
+          delete campusOutlinePolygons[oldOuterline._id]
         # Manually drawn from: http://www.latlong.net/
         # polygon = L.polygon([
         #   [ 39.000276, -76.943264 ]
@@ -257,7 +258,7 @@
         #   color: 'blue'
         #   smoothFactor: 7
         #   weight: 10
-        # }).addTo(window[MapInitSettings.MapName])
+        # }).addTo(window[mapInitSettings.MapName])
 
   # Bike icons
   # Color choices: 'red', 'darkred', 'orange', 'green'
@@ -302,9 +303,9 @@
 
 @MapInitDestroyedFunction = ->
   window.MapObserveOuterLineHandle.stop()
-  # Then clear  window[MapInitSettings.MapName] variable before loading a new map
-  # console.log 'Deleting ' + window[MapInitSettings.MapName]
-  # delete window[MapInitSettings.MapName]
+  # Then clear  window[mapInitSettings.MapName] variable before loading a new map
+  # console.log 'Deleting ' + window[mapInitSettings.MapName]
+  # delete window[mapInitSettings.MapName]
   console.log 'Stopping LocateControl'
   # delete LocateControl
   window.LocateControl.stop()

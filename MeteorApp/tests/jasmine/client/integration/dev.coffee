@@ -1,3 +1,13 @@
+# describe 'the todo page : page contents', ->
+#   it 'should include a page title of \'Todo List\'', ->
+#     expect($('title').text()).toEqual 'Todo List'
+#     return
+#   it 'should include a page heading of \'Todo List\'', ->
+#     expect($('h1').text()).toEqual 'Todo List'
+#     return
+#   it 'should include an unordered list for displaying the tasks', ->
+#     expect($('ul').length).toEqual 1
+
 # Edited Sample Code:
 # describe 'Player', ->
 #   player = undefined
