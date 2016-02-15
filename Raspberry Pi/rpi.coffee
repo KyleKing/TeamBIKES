@@ -4,6 +4,11 @@ util = Meteor.npmRequire('util')
 moment = Meteor.npmRequire('moment')
 moment().format()
 
+clc = Meteor.npmRequire('cli-color')
+info = clc.blue
+h1 = info.bold
+warn = clc.yellow
+
 DDPClient = Meteor.npmRequire('ddp')
 xbee_api = Meteor.npmRequire('xbee-api')
 C = xbee_api.constants
@@ -30,7 +35,7 @@ ddpclient.connect (error) ->
   if error
     throw error
   else
-    console.log 'connected to Meteor!'
+    console.log h1('Connected to Meteor!')
   # Login - Note may not work?
   # login(ddpclient,
   #   {  // Options below are the defaults
@@ -58,13 +63,13 @@ ddpclient.connect (error) ->
 
   # Figure out active Serial Port
 
-  # Manual Method
-  # Using terminal, identify with:
-  # ls /dev/cu.*
-  # ls /dev/tty.usbserial-* # for zigbee
-  # ls /dev/cu.usbmodem* # for arduino
-  currentPort = '/dev/tty.usbserial-AH016D5G' # Direct left Zigbee
-  createSerial(currentPort)
+  # # Manual Method
+  # # Using terminal, identify with:
+  # # ls /dev/cu.*
+  # # ls /dev/tty.usbserial-* # for zigbee
+  # # ls /dev/cu.usbmodem* # for arduino
+  # currentPort = '/dev/tty.usbserial-AH016D5G' # Direct left Zigbee
+  # createSerial(currentPort)
 
   # Automatic Method
   serialport.list (err, ports) ->
@@ -76,10 +81,12 @@ ddpclient.connect (error) ->
       # console.log(port.locationId);
       # console.log(port.vendorId);
       # console.log(port.productId);
-      # Check if Chemyx Pump:
-      if port.productId == '0x6001'
-        # i.e. '/dev/cu.usbserial-AM020D9R'
-        Create port.comName
+
+      # Check if desired port:
+      console.log port.comName.match(/\/dev\/cu.usbmodem*/)
+      if port.comName.match(/\/dev\/cu.usbmodem*/)
+        console.log port.comName
+        # createSerial port.comName
 
 
 createSerial = (currentPort) ->
@@ -90,25 +97,24 @@ createSerial = (currentPort) ->
 
   # SerialPort events - trigger specific functions upon specific events
   serialPort.on 'open', ->
-    console.log 'SerialPort is open with rate of ' + serialPort.options.baudRate
+    console.log info('SerialPort is open with rate of ' +
+      serialPort.options.baudRate)
     return
 
   # All frames parsed by the XBee will be emitted here
   xbeeAPI.on 'frame_object', (frame) ->
-    console.log '----------*----------'
     console.log 'Received Frame:'
     console.log frame
-    console.log '----------*----------'
+    console.log h1('----------*----------')
 
     if frame.data is undefined
       if frame.deliveryStatus == 0
-        console.log '>> Data was delivered!'
-        console.log frame
+        console.log info('>> Data was delivered!')
+        console.log info(frame + '\n')
       else
-        console.log '>> No data in frame received'
-        console.log '   Data was not received'
-        console.log '   ' + frame
-      console.log ' '
+        console.log warn('>> No data in frame received')
+        console.log warn('   Data was not received')
+        console.log warn('   ' + frame + '\n')
     else
       data = frame.data.toString()
       console.log '>> Serial: ' + data
@@ -147,8 +153,8 @@ createSerial = (currentPort) ->
 
           if result isnt undefined
             if result.Address is undefined
-              console.log "Warning: BROADCASTING TO ALL XBEE's, " +
-                "I hope you know what you are doing."
+              console.log warn("Warning: BROADCASTING TO ALL XBEE's, " +
+                "I hope you know what you are doing.")
             frame_obj =
               type: 0x10
               id: 0x01
@@ -158,8 +164,8 @@ createSerial = (currentPort) ->
               options: 0x00
               data: result.data
             serialPort.write xbeeAPI.buildFrame(frame_obj)
-            console.log 'Frame sent to specific xbee: ' + result.Address
-            console.log xbeeAPI.buildFrame(frame_obj)
+            console.log h1('Frame sent to specific xbee: ' + result.Address)
+            console.log h1(xbeeAPI.buildFrame(frame_obj))
           console.log '----------!----------'
           console.log ''
       else
@@ -167,7 +173,7 @@ createSerial = (currentPort) ->
         # console.log 'Ignoring an incoming frame'
 
   serialPort.on 'close', ->
-    console.log 'port closed.'
+    console.log warn('port closed.')
 
   serialPort.on 'error', (error) ->
-    console.log 'Serial port error: ' + error
+    console.log warn('Serial port error: ' + error)

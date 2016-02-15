@@ -3,5 +3,6 @@
   "ddp-login": "1.0.9",
   "moment": "2.10.6",
   "serialport": "1.7.4",
-  "xbee-api": "0.3.12"
+  "xbee-api": "0.3.12",
+  "cli-color": "1.1.0"
 }
