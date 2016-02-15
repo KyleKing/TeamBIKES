@@ -33,12 +33,11 @@ void setup() {
 }
 
 void loop() {
-    // Random number from 0 to 10
-    stringOutput += random(11);
-    stringOutput += ",";
     stringOutput += staticGPSData[ random(10) ];
-    stringOutput += ",1,";
-    stringOutput += "ABCDEFGHIJK;";
+    stringOutput += ",";
+    stringOutput += random(2);
+    stringOutput += ",";
+    stringOutput += "ABCDEFGHIJK";
     Serial.println(stringOutput);
 
     // Clear string:
