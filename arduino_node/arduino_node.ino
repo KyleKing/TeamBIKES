@@ -43,5 +43,5 @@ void loop() {
 
     // Clear string:
     stringOutput = "";
-    delay(3000);
+    delay(5000);
 }

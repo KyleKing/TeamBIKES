@@ -69,33 +69,98 @@ ddpclient.connect (error) ->
       console.log port
       console.log port.comName + '\n'
 
-      # # For Zigbee
-      # if port.comName.match(/\/dev\/tty.usbserial-*/)
-      #   createSerial port.comName
+      # For Zigbee
+      if port.comName.match(/\/dev\/tty.usbserial-*/)
+        xbee_createSerial port.comName
 
       # For Arduino:
       if port.comName.match(/\/dev\/cu.usbmodem*/)
-        createSerial port.comName
+        arduino_createSerial port.comName
 
 
-createSerial = (currentPort) ->
+
+arduino_createSerial = (currentPort) ->
   console.log warn('Created New Serial Port Connection to ' + currentPort)
   # Configure serial port
-  serialPort = new SerialPort(currentPort,
+  arduino_serialPort = new SerialPort(currentPort,
     baudrate: 9600
-    parser: xbeeAPI.rawParser())
+    parser: serialport.parsers.readline("\n")
+  )
 
   # SerialPort events - trigger specific functions upon specific events
-  serialPort.on 'open', ->
+  arduino_serialPort.on 'open', ->
     console.log 'SerialPort is open with rate of ' +
-      serialPort.options.baudRate
-    return
+      arduino_serialPort.options.baudRate
+
+  arduino_serialPort.on 'data', (frame) ->
+    console.log h1('----------*----------')
+    console.log '* Received Frame:'
+    console.log frame
+
+    data = frame.toString()
+    console.log '* Converted To: ' + data
+
+    # Parse incoming CVS data into array
+    array = data.split(',')
+    dataSet =
+      USER_ID: array[0]
+      LATITUDE: array[1]
+      LONGITUDE: array[2]
+      LOCKSTATEE: array[3]
+      Module_ID: array[4]
+      TIMESTAMP: (new Date).getTime()
+
+    # Call Meteor actions with "dataSet"
+    ddpclient.call 'RFIDStreamData', [ dataSet ], (err, result) ->
+      console.log '>> Sent to Meteor: ' + array
+
+      # // P-J's Suggestion
+      # var CryptoJS = require("crypto-js");
+      # var info = { message: "This is my message !", key: "Dino" };
+      # var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
+      #     mode: CryptoJS.mode.CBC,
+      #     padding: CryptoJS.pad.Pkcs7
+      # });
+      # var decrypted = CryptoJS.AES.decrypt(result, info.key, {
+      #     mode: CryptoJS.mode.CBC,
+      #     padding: CryptoJS.pad.Pkcs7
+      # });
+      # // console.log(encrypted.toString());
+      # console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
+
+      if result isnt undefined
+        if result.Address is undefined
+          console.log warn("Warning: BROADCASTING TO ALL XBEE's, " +
+            "I hope you know what you are doing.")
+        console.log '>> Writing ' + result.data
+        arduino_serialPort.write result.data
+
+  arduino_serialPort.on 'close', ->
+    console.log warn('port closed.')
+
+  arduino_serialPort.on 'error', (error) ->
+    console.log warn('Serial port error: ' + error)
+
+
+
+xbee_createSerial = (currentPort) ->
+  console.log warn('Created New Serial Port Connection to ' + currentPort)
+  # Configure serial port
+  xbee_serialPort = new SerialPort(currentPort,
+    baudrate: 9600
+    parser: xbeeAPI.rawParser()
+  )
+
+  # SerialPort events - trigger specific functions upon specific events
+  xbee_serialPort.on 'open', ->
+    console.log 'SerialPort is open with rate of ' +
+      xbee_serialPort.options.baudRate
 
   # All frames parsed by the XBee will be emitted here
   xbeeAPI.on 'frame_object', (frame) ->
-    console.log 'Received Frame:'
-    console.log frame
     console.log h1('----------*----------')
+    console.log '* Received Frame:'
+    console.log frame
 
     if frame.data is undefined
       if frame.deliveryStatus == 0
@@ -107,7 +172,7 @@ createSerial = (currentPort) ->
         console.log warn('   ' + frame + '\n')
     else
       data = frame.data.toString()
-      console.log '>> Serial: ' + data
+      console.log '* Converted To: ' + data
       # console.log("OBJ> " + util.inspect(frame));
 
       # Parse incoming CVS data into array
@@ -120,27 +185,13 @@ createSerial = (currentPort) ->
         Module_ID: array[4]
         TIMESTAMP: (new Date).getTime()
 
+      # Not sure if this is necessary:
       # if dataSet.USER_ID isnt lastID
       if true is true and false is false
         lastID = dataSet.USER_ID
         # Call Meteor actions with "dataSet"
         ddpclient.call 'RFIDStreamData', [ dataSet ], (err, result) ->
           console.log '>> Sent to Meteor: ' + array
-
-          # // P-J's Suggestion
-          # var CryptoJS = require("crypto-js");
-          # var info = { message: "This is my message !", key: "Dino" };
-          # var encrypted = CryptoJS.AES.encrypt(info.message, info.key, {
-          #     mode: CryptoJS.mode.CBC,
-          #     padding: CryptoJS.pad.Pkcs7
-          # });
-          # var decrypted = CryptoJS.AES.decrypt(result, info.key, {
-          #     mode: CryptoJS.mode.CBC,
-          #     padding: CryptoJS.pad.Pkcs7
-          # });
-          # // console.log(encrypted.toString());
-          # console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
-
           if result isnt undefined
             if result.Address is undefined
               console.log warn("Warning: BROADCASTING TO ALL XBEE's, " +
@@ -153,7 +204,7 @@ createSerial = (currentPort) ->
               broadcastRadius: 0x00
               options: 0x00
               data: result.data
-            serialPort.write xbeeAPI.buildFrame(frame_obj)
+            xbee_serialPort.write xbeeAPI.buildFrame(frame_obj)
             console.log h1('Frame sent to specific xbee: ' + result.Address)
             console.log h1(xbeeAPI.buildFrame(frame_obj))
           console.log '----------!----------'
@@ -162,8 +213,8 @@ createSerial = (currentPort) ->
         console.log 'Received a duplicate frame'
         # console.log 'Ignoring an incoming frame'
 
-  serialPort.on 'close', ->
+  xbee_serialPort.on 'close', ->
     console.log warn('port closed.')
 
-  serialPort.on 'error', (error) ->
+  xbee_serialPort.on 'error', (error) ->
     console.log warn('Serial port error: ' + error)
