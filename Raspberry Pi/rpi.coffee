@@ -35,7 +35,8 @@ ddpclient.connect (error) ->
   if error
     throw error
   else
-    console.log h1('Connected to Meteor!')
+    console.log info('Connected to Meteor!')
+
   # Login - Note may not work?
   # login(ddpclient,
   #   {  // Options below are the defaults
@@ -60,36 +61,25 @@ ddpclient.connect (error) ->
   #   }
   # );
 
-
-  # Figure out active Serial Port
-
-  # # Manual Method
-  # # Using terminal, identify with:
-  # # ls /dev/cu.*
-  # # ls /dev/tty.usbserial-* # for zigbee
-  # # ls /dev/cu.usbmodem* # for arduino
-  # currentPort = '/dev/tty.usbserial-AH016D5G' # Direct left Zigbee
-  # createSerial(currentPort)
-
-  # Automatic Method
+  # Figure out active Serial Port - Automatic Method
+  # Using terminal, identify with:
+  # ls /dev/cu.*
   serialport.list (err, ports) ->
     ports.forEach (port) ->
       console.log port
-      console.log port.comName
-      # // console.log(port.pnpId);
-      # // console.log(port.manufacturer);
-      # console.log(port.locationId);
-      # console.log(port.vendorId);
-      # console.log(port.productId);
+      console.log port.comName + '\n'
 
-      # Check if desired port:
-      console.log port.comName.match(/\/dev\/cu.usbmodem*/)
+      # # For Zigbee
+      # if port.comName.match(/\/dev\/tty.usbserial-*/)
+      #   createSerial port.comName
+
+      # For Arduino:
       if port.comName.match(/\/dev\/cu.usbmodem*/)
-        console.log port.comName
-        # createSerial port.comName
+        createSerial port.comName
 
 
 createSerial = (currentPort) ->
+  console.log warn('Created New Serial Port Connection to ' + currentPort)
   # Configure serial port
   serialPort = new SerialPort(currentPort,
     baudrate: 9600
@@ -97,8 +87,8 @@ createSerial = (currentPort) ->
 
   # SerialPort events - trigger specific functions upon specific events
   serialPort.on 'open', ->
-    console.log info('SerialPort is open with rate of ' +
-      serialPort.options.baudRate)
+    console.log 'SerialPort is open with rate of ' +
+      serialPort.options.baudRate
     return
 
   # All frames parsed by the XBee will be emitted here
