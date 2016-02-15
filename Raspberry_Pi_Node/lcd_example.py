@@ -77,7 +77,7 @@ def full_message(message):
         if len(message) < lcd_columns:
             # Normal Method
             lcd.message(message)
-            time.sleep(1.0)
+            time.sleep(0.4)
             return False
         elif len(message) <= 2*lcd_columns:
             # Split into two rows
@@ -85,7 +85,7 @@ def full_message(message):
             first_line = message[:lcd_columns]
             second_line = message[lcd_columns:]
             lcd.message(first_line + "\n" + second_line)
-            time.sleep(1.0)
+            time.sleep(0.4)
             return True
         elif len(message) > 2*lcd_columns:
             # Brute force the message
@@ -94,7 +94,7 @@ def full_message(message):
             for i in range(len(message)-lcd_columns):
                 time.sleep(0.5)
                 lcd.move_left()
-            time.sleep(1.0)
+            time.sleep(0.4)
             return True
         else:
             print "Something is wrong with the string length"

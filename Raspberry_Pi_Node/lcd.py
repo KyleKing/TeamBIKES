@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import sys
 import time
 import Adafruit_CharLCD as LCD
 
@@ -24,14 +25,16 @@ lcd = LCD.Adafruit_CharLCD(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd_d7,
                            lcd_columns, lcd_rows, lcd_backlight)
 
 
-def full_message(message):
+def full_message(raw):
+    # Remove trailing white space
+    message = raw.rstrip()
     lcd.clear()
     # prints "some_var is smaller than 10"
     if "\n" not in message:
         if len(message) < lcd_columns:
             # Normal Method
             lcd.message(message)
-            time.sleep(1.0)
+            time.sleep(0.4)
             return False
         elif len(message) <= 2*lcd_columns:
             # Split into two rows
@@ -39,7 +42,7 @@ def full_message(message):
             first_line = message[:lcd_columns]
             second_line = message[lcd_columns:]
             lcd.message(first_line + "\n" + second_line)
-            time.sleep(1.0)
+            time.sleep(0.4)
             return True
         elif len(message) > 2*lcd_columns:
             # Brute force the message
@@ -48,7 +51,7 @@ def full_message(message):
             for i in range(len(message)-lcd_columns):
                 time.sleep(0.5)
                 lcd.move_left()
-            time.sleep(1.0)
+            time.sleep(0.4)
             return True
         else:
             print "Something is wrong with the string length"
@@ -57,5 +60,13 @@ def full_message(message):
         lcd.message(message)
         return True
 
-full_message('Hello\nworld!')
-time.sleep(4.0)
+# Test:
+# full_message('Coordinator Initialized')
+
+while True:
+    line = sys.stdin.readline()
+    message = line.rstrip()
+    full_message(message)
+    print message
+    # Force buffer to close and send all data to Node application
+    sys.stdout.flush()
