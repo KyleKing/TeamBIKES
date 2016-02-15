@@ -1,19 +1,10 @@
-# Name serial port - there should be a smarter way to do this, but this seems easiest
-# Using terminal, identify with:
-# ls /dev/cu.*
-# ls /dev/tty.usbserial-* # for zigbee
-# ls /dev/cu.usbmodem* # for arduino
-currentPort = '/dev/tty.usbserial-AH016D5G' # Direct left Zigbee
-
-DDPClient = Meteor.npmRequire('ddp')
-
+serialport = Meteor.npmRequire('serialport')
+SerialPort = serialport.SerialPort
+util = Meteor.npmRequire('util')
 moment = Meteor.npmRequire('moment')
 moment().format()
 
-util = Meteor.npmRequire('util')
-
-SerialPort = Meteor.npmRequire('serialport').SerialPort
-
+DDPClient = Meteor.npmRequire('ddp')
 xbee_api = Meteor.npmRequire('xbee-api')
 C = xbee_api.constants
 xbeeAPI = new (xbee_api.XBeeAPI)(api_mode: 2)
@@ -21,7 +12,7 @@ xbeeAPI = new (xbee_api.XBeeAPI)(api_mode: 2)
 lastID = ''
 lastModule_ID = ''
 
-# Config
+# Configure Meteor-Connection
 ddpclient = new DDPClient(
   host: 'localhost'
   port: 3000
@@ -30,15 +21,17 @@ ddpclient = new DDPClient(
   use_ejson: true
   use_ssl: false
   use_ssl_strict: true
-  maintain_collections: true)
+  maintain_collections: true
+)
 
 # Connect to Meteor
 ddpclient.connect (error) ->
   # Error Checking
   if error
     throw error
-  console.log 'connected to Meteor!'
-  # // Login - Note may not work?
+  else
+    console.log 'connected to Meteor!'
+  # Login - Note may not work?
   # login(ddpclient,
   #   {  // Options below are the defaults
   #      env: 'METEOR_TOKEN',  // Name of an environment variable to check for a
@@ -62,6 +55,34 @@ ddpclient.connect (error) ->
   #   }
   # );
 
+
+  # Figure out active Serial Port
+
+  # Manual Method
+  # Using terminal, identify with:
+  # ls /dev/cu.*
+  # ls /dev/tty.usbserial-* # for zigbee
+  # ls /dev/cu.usbmodem* # for arduino
+  currentPort = '/dev/tty.usbserial-AH016D5G' # Direct left Zigbee
+  createSerial(currentPort)
+
+  # Automatic Method
+  serialport.list (err, ports) ->
+    ports.forEach (port) ->
+      console.log port
+      console.log port.comName
+      # // console.log(port.pnpId);
+      # // console.log(port.manufacturer);
+      # console.log(port.locationId);
+      # console.log(port.vendorId);
+      # console.log(port.productId);
+      # Check if Chemyx Pump:
+      if port.productId == '0x6001'
+        # i.e. '/dev/cu.usbserial-AM020D9R'
+        Create port.comName
+
+
+createSerial = (currentPort) ->
   # Configure serial port
   serialPort = new SerialPort(currentPort,
     baudrate: 9600
@@ -78,6 +99,7 @@ ddpclient.connect (error) ->
     console.log 'Received Frame:'
     console.log frame
     console.log '----------*----------'
+
     if frame.data is undefined
       if frame.deliveryStatus == 0
         console.log '>> Data was delivered!'
@@ -91,23 +113,24 @@ ddpclient.connect (error) ->
       data = frame.data.toString()
       console.log '>> Serial: ' + data
       # console.log("OBJ> " + util.inspect(frame));
+
+      # Parse incoming CVS data into array
       array = data.split(',')
-      # CSV Data Parse:
-      # array.push( (new Date()).getTime() );
-      time = (new Date).getTime()
       dataSet =
         USER_ID: array[0]
         LATITUDE: array[1]
         LONGITUDE: array[2]
         LOCKSTATEE: array[3]
         Module_ID: array[4]
-        TIMESTAMP: time
-      if true is true and false is false
+        TIMESTAMP: (new Date).getTime()
+
       # if dataSet.USER_ID isnt lastID
+      if true is true and false is false
         lastID = dataSet.USER_ID
         # Call Meteor actions with "dataSet"
         ddpclient.call 'RFIDStreamData', [ dataSet ], (err, result) ->
           console.log '>> Sent to Meteor: ' + array
+
           # // P-J's Suggestion
           # var CryptoJS = require("crypto-js");
           # var info = { message: "This is my message !", key: "Dino" };
@@ -121,9 +144,11 @@ ddpclient.connect (error) ->
           # });
           # // console.log(encrypted.toString());
           # console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
+
           if result isnt undefined
             if result.Address is undefined
-              console.log "Warning: BROADCASTING TO ALL XBEE's, I hope you know what you are doing."
+              console.log "Warning: BROADCASTING TO ALL XBEE's, " +
+                "I hope you know what you are doing."
             frame_obj =
               type: 0x10
               id: 0x01
