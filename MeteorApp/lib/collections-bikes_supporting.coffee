@@ -6,7 +6,6 @@
 # Cron scheduling
 @FutureTasks = new Meteor.Collection 'future_tasks'
 
-
 # @FutureTask = Astro.Class(
 #   name: 'FutureTask'
 #   collection: FutureTasks

@@ -128,7 +128,7 @@ arduino_createSerial = (currentPort) ->
       # // console.log(encrypted.toString());
       # console.log('Decrypted result: '+ decrypted.toString(CryptoJS.enc.Utf8));
 
-      if result isnt undefined
+      if result isnt undefined and result.data isnt undefined
         if result.Address is undefined
           console.log warn("Warning: BROADCASTING TO ALL XBEE's, " +
             "I hope you know what you are doing.")
@@ -192,7 +192,7 @@ xbee_createSerial = (currentPort) ->
         # Call Meteor actions with "dataSet"
         ddpclient.call 'RFIDStreamData', [ dataSet ], (err, result) ->
           console.log '>> Sent to Meteor: ' + array
-          if result isnt undefined
+          if result isnt undefined and result.data isnt undefined
             if result.Address is undefined
               console.log warn("Warning: BROADCASTING TO ALL XBEE's, " +
                 "I hope you know what you are doing.")

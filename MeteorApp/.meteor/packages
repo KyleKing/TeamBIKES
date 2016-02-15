@@ -68,9 +68,9 @@ aldeed:moment-timezone
 reactive-var # used to reactively update reactive-table
 # kidovate:bootstrap-slider # input slider
 
-#### Seed Data ####
-# dburles:factory
-# anti:fake
+### Seed Data ###
+dburles:factory
+anti:fake
 
 #### Collection Management ####
 jagi:astronomy
