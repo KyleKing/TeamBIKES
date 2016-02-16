@@ -63,10 +63,10 @@ momentjs:moment # Date and Time
 aldeed:moment-timezone
 
 ### Tables and Forms ###
-# d3js:d3
-# aldeed:tabular # data tables
+aldeed:tabular # data tables
 reactive-var # used to reactively update reactive-table
 # kidovate:bootstrap-slider # input slider
+# d3js:d3
 
 ### Seed Data ###
 dburles:factory

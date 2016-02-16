@@ -11,6 +11,8 @@
 // var lastID = '',
 //   lastModule_ID = '';
 
+// FIXME: Ignore first line of input because not formatted correctly
+
 var util = require('util');
 var clc = require('cli-color'),
   info = clc.blue,

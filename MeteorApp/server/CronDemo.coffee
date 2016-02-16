@@ -6,15 +6,16 @@ StartReservationCountdown = (ID, Bike) ->
   # now = moment().tz('America/New_York').add(timeout, 'minutes').format('h:mm:ss a z')
   future = moment().add(timeout, 'minutes').format()
   # Create Task object for queue
-  Task = {
+  FT = new FutureTask();
+  FT.set(
     date: new Date(future) # reformat for cron
     timeout: timeout
     ID: ID
     Bike: Bike
-  }
+  )
+  FT.save()
   # Store in database as backup and add task to Cron queue for direct action
-  thisId = FutureTasks.insert Task
-  # thisId = FutureTask.get('_id')
+  thisId = FutureTask.get('_id')
   addTask(thisId, Task)
 
 
