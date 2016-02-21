@@ -1,3 +1,7 @@
+describe 'myUtilities', ->
+  it 'still needs unit tests', ->
+    expect(true).toEqual true
+
 # describe 'the todo page : page contents', ->
 #   it 'should include a page title of \'Todo List\'', ->
 #     expect($('title').text()).toEqual 'Todo List'

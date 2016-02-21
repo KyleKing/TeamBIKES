@@ -6,6 +6,10 @@ StartReservationCountdown = (UserID, Bike) ->
   timeout = 1
   # now = moment().tz('America/New_York').add(timeout, 'minutes').format('h:mm:ss a z')
   future = moment().add(timeout, 'minutes').format()
+  CreateTask(UserID, Bike, timeout, future)
+
+
+CreateTask = (UserID, Bike, timeout, future) ->
   FT = new FutureTask()
   FT.set({
     date: new Date(future) # reformat for cron
@@ -28,6 +32,7 @@ addTask = (ID, Task) ->
       RemoveReservation(Task.ID, Task)
       console.log 'Running Cron Job on what should be: ' + Task.date
 
+
 RemoveReservation = (UserID, Task) ->
   # Make all bikes reserved by this user available
   [today, now] = CurrentDay()
@@ -36,6 +41,7 @@ RemoveReservation = (UserID, Task) ->
   ClearTaskBackups(UserID, Task)
   # Alert test environment of progress
   console.log 'Removed Reservation for: ' + count + ' bike tags'
+
 
 ClearTaskBackups = (UserID, Task) ->
   # Remove both queued task and cron task, this allows the task to be run once
@@ -64,7 +70,6 @@ Meteor.startup ->
     else
       addTask Task._id, Task
 
-
   # Update database every night to make sure
   SyncedCron.add
     name: 'Update DB'
@@ -86,6 +91,7 @@ Meteor.startup ->
 Meteor.methods(
   'StartReservationCountdown': StartReservationCountdown
   # 'addTask': addTask
+  # 'CreateTask': CreateTask
   'RemoveReservation': RemoveReservation
   # 'ClearTaskBackups': ClearTaskBackups
 )

@@ -1,16 +1,16 @@
 Meteor.methods 'UserReserveBike': (currentUserId, Bike) ->
   # Check if other reserved bikes and remove reservations
-  count = Meteor.call('RemoveReservation', currentUserId)
+  Meteor.call('RemoveReservation', currentUserId)
 
   # Find and reserve requested bike
   [today, now] = CurrentDay()
   record = DailyBikeData.findOne({Bike: Bike, Day: today})
-  if record
+  try
     record.set({Tag: currentUserId})
     record.save()
     console.log 'Reserved bike #' + Bike
-  else
-    errMessage = 'No Bike Record Found in Method: UserReserveBike'
+  catch err
+    errMessage = 'No Bike Record Found in Method "UserReserveBike": ' + err
     throw errMessage
   # Create cron task to delete reservation at set time interval
   Meteor.call('StartReservationCountdown', currentUserId, Bike)
