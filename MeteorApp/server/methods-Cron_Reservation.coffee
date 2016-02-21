@@ -1,22 +1,20 @@
-# Cron scheduling experimentation
+# Cron scheduling for reservation system
 # Based on demo from: http://richsilv.github.io/meteor/scheduling-events-in-the-future-with-meteor/
 
-StartReservationCountdown = (ID, Bike) ->
+StartReservationCountdown = (UserID, Bike) ->
+  # Create Task object for queue and create Cron Task
   timeout = 1
   # now = moment().tz('America/New_York').add(timeout, 'minutes').format('h:mm:ss a z')
   future = moment().add(timeout, 'minutes').format()
-  # Create Task object for queue
-  FT = new FutureTask();
-  FT.set(
+  FT = new FutureTask()
+  FT.set({
     date: new Date(future) # reformat for cron
     timeout: timeout
-    ID: ID
+    ID: UserID
     Bike: Bike
-  )
+  })
   FT.save()
-  # Store in database as backup and add task to Cron queue for direct action
-  thisId = FutureTask.get('_id')
-  addTask(thisId, Task)
+  addTask(FT.get('_id'), FT)
 
 
 addTask = (ID, Task) ->
@@ -27,58 +25,52 @@ addTask = (ID, Task) ->
       parser.recur().on(Task.date).fullDate()
     job: ->
       # Remove specified reservation
-      RemoveReservation Task.ID, Task
+      RemoveReservation(Task.ID, Task)
       console.log 'Running Cron Job on what should be: ' + Task.date
-      # Already included in remove reservation:
-      # ClearTaskBackups(Task.ID)
 
-
-RemoveReservation = (ID, Task) ->
-  # Init vars
+RemoveReservation = (UserID, Task) ->
+  # Make all bikes reserved by this user available
   [today, now] = CurrentDay()
-  # Count number of reserved bikes under this user
-  count = DailyBikeData.find({Tag: ID, Day: today}).count()
-  # Make all reserved bikes available
-  DailyBikeData.update { Tag: ID}, {$set: Tag: 'Available' }, multi: true
-  # Remove associated cron/backup task from queue to reduce server function
-  ClearTaskBackups ID, Task
+  count = DailyBikeData.find({ Tag: UserID }).count()
+  DailyBikeData.update { Tag: UserID}, {$set: Tag: 'Available' }, multi: true
+  ClearTaskBackups(UserID, Task)
   # Alert test environment of progress
   console.log 'Removed Reservation for: ' + count + ' bike tags'
 
-
-ClearTaskBackups = (ID, Task) ->
+ClearTaskBackups = (UserID, Task) ->
   # Remove both queued task and cron task, this allows the task to be run once
-  FutureTasks.remove
-    ID: ID
-  SyncedCron.remove 'Destruct Reservation for ' + ID
-  console.log 'Cleared: ' + ID
+  FT = FutureTasks.findOne({ ID: UserID })
+  try
+    FT.remove()
+  catch err
+    console.warn 'No FutureTask Found' + err
+  SyncedCron.remove 'Destruct Reservation for ' + UserID
+  console.log 'Cleared: ' + UserID
 
 
 Meteor.startup ->
+  # Find any tasks stored in database and quickly run triage
   FutureTasks.find().forEach (Task) ->
-    console.log 'Checking Current list of tasks:'
+    console.log '\n~~~ Checking Current list of tasks: ~~~'
     console.log Task
-
-    # day = moment(Task.date, 'h:mm:ss a z')
-    # console.log day
 
     # If in the past, make action right away
     if Task.date <= new Date moment().add(Task.timeout, 'minutes')
       if Task.Type is 'Destruct Reservation'
-        RemoveReservation Task.ID
+        RemoveReservation(Task.ID)
       else
-        ClearTaskBackups Task.ID
+        ClearTaskBackups(Task.ID)
     # Otherwise reschedule that event
     else
       addTask Task._id, Task
 
 
+  # Update database every night to make sure
   SyncedCron.add
     name: 'Update DB'
     schedule: (parser) ->
       # parser is a later.parse object
-      # parser.text 'at 01:00'
-      parser.text 'at 10:20'
+      parser.text 'at 01:00'
     job: ->
       [today, now] = CurrentDay()
       info = 'Running CreateDailyBikeData'
@@ -90,6 +82,7 @@ Meteor.startup ->
   SyncedCron.start()
 
 
+# Make methods accessible throughout application
 Meteor.methods(
   'StartReservationCountdown': StartReservationCountdown
   # 'addTask': addTask

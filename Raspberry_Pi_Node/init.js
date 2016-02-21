@@ -36,8 +36,8 @@ xbeeAPI = new xbee_api.XBeeAPI({
 });
 
 
-// var currentHost = ['localhost', 3000];
-var currentHost = ['redbarbikes.com', 80];
+var currentHost = ['localhost', 3000];
+// var currentHost = ['redbarbikes.com', 80];
 var serialport = require('serialport'),
   SerialPort = serialport.SerialPort,
   DDPClient = require('ddp');
@@ -49,6 +49,7 @@ var ddpclient = new DDPClient({
 
 function parseInput(frame) {
   data = frame.toString();
+  data = data.trim();
   console.log('* Converted To: ' + data);
   array = data.split(',');
   var dataSet = {

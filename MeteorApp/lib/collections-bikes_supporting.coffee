@@ -23,14 +23,8 @@
       ]
     timeout:
       type: 'number'
-      validator: Validators.and [
-      ]
     ID:
-      type: 'number'
-      validator: Validators.and [
-      ]
+      type: 'string'
     Bike:
       type: 'number'
-      validator: Validators.and [
-      ]
 )
