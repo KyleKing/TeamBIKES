@@ -3,7 +3,7 @@
 
 StartReservationCountdown = (UserID, Bike) ->
   # Create Task object for queue and create Cron Task
-  timeout = 1
+  timeout = 5
   # now = moment().tz('America/New_York').add(timeout, 'minutes').format('h:mm:ss a z')
   future = moment().add(timeout, 'minutes').format()
   CreateTask(UserID, Bike, timeout, future)
@@ -91,7 +91,7 @@ Meteor.startup ->
 Meteor.methods(
   'StartReservationCountdown': StartReservationCountdown
   # 'addTask': addTask
-  # 'CreateTask': CreateTask
+  'CreateTask': CreateTask
   'RemoveReservation': RemoveReservation
   # 'ClearTaskBackups': ClearTaskBackups
 )
