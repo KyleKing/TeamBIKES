@@ -1,6 +1,6 @@
 describe 'Reservation', ->
   beforeEach ->
-    Meteor.call('CreateDailyBikeData', 30, 1)
+    Meteor.call('CreateDailyBikeData', 45, 1)
   afterEach ->
     Meteor.call('DestroyDailyBikeData')
 
@@ -44,7 +44,11 @@ describe 'Reservation', ->
     expect( foundTag ).toEqual(fakeUserID)
     Meteor.setTimeout (->
       foundTag = DailyBikeData.findOne({Bike: Bike}).Tag
-      expect( foundTag ).toEqual( 'Available' )
+      try
+        expect( foundTag ).toEqual( 'Available' )
+      catch err
+        console.warn 'Error: foundTag = ' + foundTag
+        throw err
       done()
     ), timeout * 1000
 
