@@ -9,6 +9,7 @@ FlowRouter.notFound = action: ->
   'faq'
   'map'
   'profile'
+  'AdminCompilation'
 ]
 
 _.each FlowTemplates, (tmpl) ->

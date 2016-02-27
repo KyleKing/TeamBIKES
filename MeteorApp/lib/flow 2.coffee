@@ -145,10 +145,10 @@
 # # 'Dashboard/ManageMechanicNotes_Insert' -> doesn't work on left...but may be due to a different layout
 
 # # In development
-#
-#
-#
-#
+
+
+
+
 # # Global Route Configuration
 # Router.configure
 #   loadingTemplate: 'Loading'
@@ -204,4 +204,3 @@
 # Router.route '/ManageBikes', layoutTemplate: 'NavSide'
 # Router.route '/ManageMechanicNotes', layoutTemplate: 'NavSide'
 # Router.route '/ManageUsers', layoutTemplate: 'NavSide'
-#

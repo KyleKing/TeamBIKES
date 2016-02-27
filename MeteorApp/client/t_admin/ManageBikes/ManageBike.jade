@@ -1,0 +1,15 @@
+template(name='ManageBike_Title')
+	h1.cd Track Bike History
+
+template(name='ManageBike')
+	//- Where the map will be generated based on the template helper in map.coffee
+	.row
+		#ManageBikeMap.float-map
+
+	//- +quickForm collection="DailyBikeData" doc=SelectedRow id="updateDailyBikeDataForm" type="update"
+	//- +autoForm collection="DailyBikeData" doc=SelectedRow id="updateDailyBikeDataForm" type="update"
+	//-   fieldset
+	//-     legend Update Selected Bike History
+	//-     +afQuickField name='Bike'
+	//-     +afQuickField name='Positions'
+	//-   button.btn.btn-primary(type='submit') Update
