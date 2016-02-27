@@ -9,9 +9,14 @@ nav.midnight-header
 			li
 				a(href="{{ pathFor 'map' }}" class="{{ isActiveRoute regex='map' }}") map
 			li
-				button.cta-start Get Started
-			li
-				+atNavButton
+				a(href="{{ pathFor 'AdminCompilation' }}" class="{{ isActiveRoute regex='AdminCompilation' }}") AdminCompilation
+			if currentUser
+				li
+					button.cta-start#log-out-btn Sign Out
+			else
+				li
+					a(href='/sign-in')
+						button.cta-start Sign In
 
 //- //- FIXME DELETE
 //- .ab-quote
