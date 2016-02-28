@@ -1,27 +1,13 @@
-Meteor.methods 'mySubmitFunc': (currentUserId) ->
+Meteor.methods 'addRFIDToNewAccount': (currentUserId) ->
   # Prepare fields to udpate MongoDB
   fields = {}
   fields.RFID = Fake.word()
   record = Meteor.users.findOne(_id: currentUserId)
   if record.RFID != undefined
-    console.log [
-      'RFID code already set for '
-      record._id
-    ]
   else
     Meteor.users.update record, $set: fields
-    console.log [
-      'Set RFID code for '
-      record._id
-    ]
-  'ok'
 
-Meteor.methods 'DeleteOldRFID': ->
-  [today, now] = CurrentDay()
-  RFIDdata.remove( { TIMESTAMP: { $lt:  now} } )
-  'ok'
-
-Meteor.methods 'CreateRFID': ->
+Meteor.methods 'Create_RFIDdata': ->
   [today, now] = CurrentDay()
   i = 0
   while i < 1

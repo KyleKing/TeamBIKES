@@ -25,9 +25,7 @@ AccountsTemplates.configureRoute 'signUp'
 
 mySubmitFunc = (error, state) ->
   if (Meteor.userId() isnt undefined & state is 'signUp')
-    # value = Meteor.call('mySubmitFunc', Meteor.userId())
-    console.warn('Set RFID code - NO!!!!!!!')
-  return
+    Meteor.call('addRFIDToNewAccount', Meteor.userId())
 
 # AccountsTemplates.configureRoute 'signIn',
 #   redirect: '/'

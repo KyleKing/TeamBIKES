@@ -16,10 +16,10 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-# autopublish             # Publish all data to the clients (for prototyping)
+autopublish             # Publish all data to the clients (for prototyping)
 # insecure                # Allow all DB writes from clients (for prototyping)
 
-meteortoys:allthings@2.3.1 # Pres ctrl-m to activate
+meteortoys:allthings # press ctrl-m to activate
 
 ### Routing ###
 kadira:flow-router
@@ -37,20 +37,23 @@ alanning:roles
 useraccounts:bootstrap
 useraccounts:flow-routing
 
-#### Libraries and Preprocessors ####
+#### Preprocessors ####
 mquandalle:jade
 coffeescript
-mrt:underscore-string-latest # Lots of functions
 stolinski:stylus-multi # with postCSS support! but somewhat outdated elsewhere
-kyleking:customizable-bootstrap-stylus
-fortawesome:fontawesome
 
 #### Visual Things ####
+kyleking:customizable-bootstrap-stylus
+fortawesome:fontawesome
 timmyg:wow # animation library
 # natestrauser:animate-css
-### User Alerts ###
 juliancwirko:s-alert # Banner alerts
 juliancwirko:s-alert-stackslide # animation style
+
+#### Tools ####
+mrt:underscore-string-latest # Lots of functions
+momentjs:moment # Date and Time
+aldeed:moment-timezone
 
 ### Maps ###
 bevanhunt:leaflet
@@ -58,11 +61,7 @@ appshore:leaflet-awesome-markers
 herrhelms:meteor-leaflet-locatecontrol
 fuatsengul:leaflet-easybutton
 
-#### Tools ####
-momentjs:moment # Date and Time
-aldeed:moment-timezone
-
-### kyleking and Forms ###
+### Data ###
 kyleking:tabular # data tables
 kyleking:tabular-column-search
 # kidovate:bootstrap-slider # input slider
@@ -76,7 +75,7 @@ anti:fake
 jagi:astronomy
 jagi:astronomy-validators
 
-# ### Performance Monitoring ###
+### Performance Monitoring ###
 meteorhacks:kadira # server
 kadira:debug # local/client
 percolate:synced-cron # Timing for bike rentals and email verification
