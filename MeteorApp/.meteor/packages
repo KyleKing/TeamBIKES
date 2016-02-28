@@ -46,8 +46,8 @@ kyleking:customizable-bootstrap-stylus
 fortawesome:fontawesome
 
 #### Visual Things ####
-kyleking:midnightjs
 timmyg:wow # animation library
+# natestrauser:animate-css
 ### User Alerts ###
 juliancwirko:s-alert # Banner alerts
 juliancwirko:s-alert-stackslide # animation style
@@ -65,7 +65,6 @@ aldeed:moment-timezone
 ### kyleking and Forms ###
 kyleking:tabular # data tables
 kyleking:tabular-column-search
-# reactive-var # used to reactively update reactive-table
 # kidovate:bootstrap-slider # input slider
 # d3js:d3
 
@@ -76,8 +75,6 @@ anti:fake
 #### Collection Management ####
 jagi:astronomy
 jagi:astronomy-validators
-# dburles:collection-helpers # conflicts with astronomy
-# matb33:collection-hooks # probably conflicts with astronomy
 
 # ### Performance Monitoring ###
 meteorhacks:kadira # server
@@ -85,8 +82,6 @@ kadira:debug # local/client
 percolate:synced-cron # Timing for bike rentals and email verification
 email
 
-### Fun Things ###
-# natestrauser:animate-css
 #### Mobile Functions ####
 # mdg:camera
 
