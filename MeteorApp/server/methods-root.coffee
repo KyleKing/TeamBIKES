@@ -1,5 +1,5 @@
 Meteor.methods 'Delete_Users': ->
-  Meteor.users.remove({ 'profile.UID': { $lt:  1000000000} })
+  Meteor.users.remove({ 'profile.UID': { $lte:  999999999} })
 
 Meteor.methods 'Delete_DailyBikeData': ->
   [today, now] = CurrentDay()

@@ -1,7 +1,7 @@
 Template.root.onCreated ->
   Meteor.subscribe('ManageUsers')
   Meteor.subscribe('DailyBikeDataPub')
-  # Racknames
+  # RackNames
   # Outline
 
 Template.root.events
@@ -15,41 +15,22 @@ Template.root.events
 
 Template.root.helpers
   listOfCollections: ->
-    return [
-      {
-        name: 'Meteor.users'
-        count: Meteor.users.find().count()
-        action: 'Create_Users'
-        clear: 'Delete_Users'
-      }
-      {
-        name: 'DailyBikeData'
-        count: DailyBikeData.find().count()
-        action: 'CreateDailyBikeData'
-        clear: 'Delete_DailyBikeData'
-      }
-      {
-        name: 'RackNames'
-        count: RackNames.find().count()
-        action: 'Create_RackNames'
-        clear: 'Delete_RackNames'
-      }
-      {
-        name: 'OuterLimit'
-        count: OuterLimit.find().count()
-        action: 'Create_OuterLimit'
-        clear: 'Delete_RackNames'
-      }
-      {
-        name: 'RFIDdata'
-        count: RFIDdata.find().count()
-        action: 'Create_RFIDdata'
-        clear: 'Delete_RFIDdata'
-      }
-      {
-        name: 'MechanicNotes'
-        count: MechanicNotes.find().count()
-        action: 'Create_MechanicNotes'
-        clear: 'Delete_MechanicNotes'
-      }
+    collections = [
+      'Meteor.users'
+      'DailyBikeData'
+      'RackNames'
+      'OuterLimit'
+      'RFIDdata'
+      'MechanicNotes'
+      'XbeeData'
     ]
+    tableValues = []
+    _.each collections, (collection) ->
+      tableValues.push({
+        name: collection
+        count: eval( collection + '.find().count()' )
+        action: 'Create_' + collection
+        clear: 'Delete_' + collection
+      })
+    console.log tableValues
+    return tableValues

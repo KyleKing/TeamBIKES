@@ -2,7 +2,7 @@ describe 'Reservation', ->
   beforeEach ->
     Meteor.call('CreateDailyBikeData', 45, 1)
   afterEach ->
-    Meteor.call('DestroyDailyBikeData')
+    Meteor.call('Delete_DailyBikeData')
 
   it 'Should make a basic reservation', (done) ->
     # Create a single reservation

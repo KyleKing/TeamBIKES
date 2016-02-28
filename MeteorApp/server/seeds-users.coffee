@@ -43,9 +43,11 @@ Meteor.methods 'Create_Users': ->
     # Populate Accounts db
     _.each users, (user) ->
       id = Accounts.createUser(
-        emails:
+        username: user.Email
+        emails: [
           address: user.Email
           verified: false
+        ]
         password: "password"
         profile:
           RFID: user.RFID

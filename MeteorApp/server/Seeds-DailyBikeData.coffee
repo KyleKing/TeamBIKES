@@ -1,9 +1,5 @@
-Meteor.methods 'DestroyDailyBikeData': ->
-  [today, now] = CurrentDay()
-  DailyBikeData.remove({ Day: { $lt:  today + 2} })
-
-Meteor.methods 'RepopulateDailyBikeData': ->
-  Meteor.call 'CreateDailyBikeData', 50, 1
+Meteor.methods 'Create_DailyBikeData': ->
+  Meteor.call('CreateDailyBikeData', 50, 1)
 
 Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
   [today, now] = CurrentDay()
