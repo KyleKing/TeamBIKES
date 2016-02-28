@@ -11,7 +11,7 @@ AccountsTemplates.configure
     defaultLayout: 'layout'
     defaultTemplate: 'loginForm'
     defaultLayoutRegions: {}
-    defaultContentRegion: 'Full'
+    defaultContentRegion: 'full'
 
 AccountsTemplates.configureRoute 'signIn'
 AccountsTemplates.configureRoute 'signUp'
@@ -26,7 +26,7 @@ AccountsTemplates.configureRoute 'signUp'
 mySubmitFunc = (error, state) ->
   if (Meteor.userId() isnt undefined & state is 'signUp')
     # value = Meteor.call('mySubmitFunc', Meteor.userId())
-    console.log('Set RFID code')
+    console.warn('Set RFID code - NO!!!!!!!')
   return
 
 # AccountsTemplates.configureRoute 'signIn',

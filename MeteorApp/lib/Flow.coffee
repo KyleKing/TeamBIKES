@@ -1,6 +1,7 @@
 # Block all pages, unless logged in
 FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['about'] }
 
+
 # Inconsistently works?
 FlowRouter.notFound = action: ->
   BlazeLayout.render 'notFound'
@@ -21,9 +22,8 @@ _.each FlowTemplates, (tmpl) ->
           full: tmpl
         }
 
-scrollExceptions = []
-
 # Admin Dashboard
+scrollExceptions = []
 dashboardTemplates = [
   'Slide_In_Panel_Placeholder'
   'ManageBike'
@@ -71,3 +71,23 @@ ScrollToTop = ->
   $('html,body').animate { scrollTop: 0 }, 'slow'
 
 FlowRouter.triggers.enter ScrollToTop, except: scrollExceptions
+
+# # Sign out and go to home page with route control, from:
+# # http://stackoverflow.com/a/27744765/3219667
+# FlowRouter.route '/sign-out',
+#   ( ->
+#     # Put things you wanna render:
+#     return
+#   ),
+#   name: 'signOut'
+#   onBeforeAction: ->
+#     AccountsTemplates.logout()
+#     return
+#   # onBeforeAction: ->
+#   #   if Meteor.userId()
+#   #     Meteor.logout()
+#   #   @next()
+#   #   return
+#   # onAfterAction: ->
+#   #   Router.go '/'
+#   #   return

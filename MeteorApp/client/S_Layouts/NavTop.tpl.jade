@@ -12,15 +12,9 @@ nav.midnight-header
 				a(href="{{ pathFor 'Dashboard' }}" class="{{ isActiveRoute regex='Dashboard' }}") Dashboard
 			if currentUser
 				li
+					//- a(href='/sign-out')
 					button.cta-start#log-out-btn Sign Out
 			else
 				li
 					a(href='/sign-in')
 						button.cta-start Sign In
-
-//- //- FIXME DELETE
-//- .ab-quote
-//- 	.container
-//- 		.row
-//- 			+atNavButton
-//- //- AccountsTemplates.logout()
