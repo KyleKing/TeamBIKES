@@ -1,4 +1,4 @@
-TabularTables = {}
+@TabularTables = {}
 Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 
 # # Example Tabular Datatable

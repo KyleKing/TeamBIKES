@@ -26,14 +26,14 @@ Template.ManageMechanicNotes_Form.helpers
 # Reactive Var Modulation example
 # Source: https://github.com/aldeed/meteor-tabular/issues/79
 Template.ManageMechanicNotes.created = ->
-  TabularSelectorInit('ManageMechanicNotes')
+  TCS.Created('ManageMechanicNotes')
 
 Template.ManageMechanicNotes.rendered = ->
-  TabularSelectorMain('ManageMechanicNotes')
+  TCS.Rendered('ManageMechanicNotes', 'ManageMechanicNotes')
 
 Template.ManageMechanicNotes.helpers
   currentSelector: ->
-    TabularSelectorHelper('ManageMechanicNotes')
+    TCS.Helper('ManageMechanicNotes')
 
 # # Reactive Var Modulation example
 # # Source: https://github.com/aldeed/meteor-tabular/issues/79

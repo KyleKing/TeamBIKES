@@ -25,11 +25,11 @@ Template.CurrentUser_Form.helpers
 # Reactive Var Modulation example
 # Source: https://github.com/aldeed/meteor-tabular/issues/79
 Template.ManageUsers.created = ->
-  TabularSelectorInit('ManageUsers')
+  TCS.Created('ManageUsers')
 
 Template.ManageUsers.rendered = ->
-  TabularSelectorMain('ManageUsers')
+  TCS.Rendered('ManageUsers', 'ManageUsers')
 
 Template.ManageUsers.helpers
   currentSelector: ->
-    TabularSelectorHelper('ManageUsers')
+    TCS.Helper('ManageUsers')

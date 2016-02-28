@@ -62,9 +62,10 @@ fuatsengul:leaflet-easybutton
 momentjs:moment # Date and Time
 aldeed:moment-timezone
 
-### Tables and Forms ###
-aldeed:tabular # data tables
-reactive-var # used to reactively update reactive-table
+### kyleking and Forms ###
+kyleking:tabular # data tables
+kyleking:tabular-column-search
+# reactive-var # used to reactively update reactive-table
 # kidovate:bootstrap-slider # input slider
 # d3js:d3
 

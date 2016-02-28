@@ -21,11 +21,11 @@ Template.ManageBikes.helpers
 # Reactive Var Modulation example
 # Source: https://github.com/aldeed/meteor-tabular/issues/79
 Template.ManageBikes.created = ->
-  TabularSelectorInit('ManageBikes')
+  TCS.Created('ManageBikes')
 
 Template.ManageBikes.rendered = ->
-  TabularSelectorMain('ManageBikes')
+  TCS.Rendered('ManageBikes', 'ManageBikes')
 
 Template.ManageBikes.helpers
   currentSelector: ->
-    TabularSelectorHelper('ManageBikes')
+    TCS.Helper('ManageBikes')
