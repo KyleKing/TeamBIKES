@@ -18,30 +18,25 @@ TabularTables.ManageBikes = new (Tabular.Table)(
   columns: [
     { data: 'Bike', title: 'Bike' }
     # { data: 'Day', title: 'Day' }
-    { data: 'Tag', title: 'Tag', class: 'Tag', class: 'Tag' }
-    # { data: 'Timestamp()', title: 'Last Timestamp' }
+    { data: 'Tag', title: 'Tag', class: 'Tag' }
+    {
+      data: 'Positions.0.Timestamp'
+      title: 'Timestamp'
+      render: (val, type, doc) ->
+        DateFormats =
+          shortest: 'hh:mm:ss a'
+          short: 'hh:mm:ss a M-D-YY'
+          long: 'dddd DD.MM.YYYY hh:mm:ss a'
+        if moment
+          format = DateFormats['shortest']
+          moment(val).format format
+        else
+          val
+    }
     { data: 'Positions.0.Coordinates.0', title: 'Lat', class: 'Positions.0.Coordinates.0' }
     { data: 'Positions.0.Coordinates.1', title: 'Lng', class: 'Positions.0.Coordinates.1' }
   ]
-  # extraFields: ['Positions.0.Timestamp']
 )
-
-# # FIXME Proving difficult with Astronomy...?
-# DailyBikeData.helpers
-#   Timestamp: ->
-#     DateFormats =
-#       shortest: 'hh:mm:ss a'
-#       short: 'hh:mm:ss a M-D-YY'
-#       long: 'dddd DD.MM.YYYY hh:mm:ss a'
-#     # UI.registerHelper 'formatDate', (@Positions[0].Timestamp, format) ->
-#     if moment
-#       format = 'shortest'
-#       # can use other formats like 'lll' too
-#       format = DateFormats[format] or format
-#       moment(@Positions[0].Timestamp).format format
-#     else
-#       @Positions[0].Timestamp
-
 
 # ManageMechanicNotes
 TabularTables.ManageMechanicNotes = new (Tabular.Table)(

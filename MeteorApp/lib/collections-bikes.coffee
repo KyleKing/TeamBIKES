@@ -46,4 +46,17 @@ nestedPositions = Astro.Class(
       nested: 'nestedPositions'
       default: ->
         []
+    transform: (doc) ->
+      USER = new User(doc)
+      USER.Timestamp = ->
+        DateFormats =
+          shortest: 'hh:mm:ss a'
+          short: 'hh:mm:ss a M-D-YY'
+          long: 'dddd DD.MM.YYYY hh:mm:ss a'
+        if moment
+          format = DateFormats['shortest']
+          moment(@Positions[0].Timestamp).format(format)
+        else
+          @Positions[0].Timestamp
+      return USER
 )
