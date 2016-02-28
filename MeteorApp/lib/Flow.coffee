@@ -33,3 +33,50 @@ FlowRouter.triggers.enter ScrollToTop
 #   'Dashboard/ManageMechanicNotes_Form'
 #   'Dashboard/ManageUsers_Form'
 # ]
+
+
+# DEV - TabularTables
+FlowRouter.route '/Dashboard',
+  name: 'Dashboard',
+  action: ->
+    BlazeLayout.render 'layout', {
+      Full: 'admin'
+      Slide_In_Panel_Title: 'Slide_In_Panel_Placeholder_Title'
+      Slide_In_Panel_Content: 'Slide_In_Panel_Placeholder'
+    }
+
+FlowRouter.route '/Dashboard/ManageBike/:IDofSelectedRow',
+  name: 'Dashboard/ManageBike',
+  action: (params, queryParams) ->
+    BlazeLayout.render 'layout', {
+      Full: 'admin'
+      Slide_In_Panel_Title: 'ManageBike_Title'
+      Slide_In_Panel_Content: 'ManageBike'
+    }
+
+FlowRouter.route '/Dashboard/ManageMechanicNotes_Insert/',
+  name: 'Dashboard/ManageMechanicNotes_Insert',
+  action: () ->
+    BlazeLayout.render 'layout_Left', {
+      Full: 'admin'
+      Slide_In_Panel_Title_Left: 'ManageMechanicNotes_Insert_Title'
+      Slide_In_Panel_Content_Left: 'ManageMechanicNotes_Insert'
+    }
+
+FlowRouter.route '/Dashboard/ManageMechanicNotes_Form/:IDofSelectedRow',
+  name: 'Dashboard/ManageMechanicNotes_Form',
+  action: (params, queryParams) ->
+    BlazeLayout.render 'layout', {
+      Full: 'admin'
+      Slide_In_Panel_Title: 'ManageMechanicNotes_Title'
+      Slide_In_Panel_Content: 'ManageMechanicNotes_Form'
+    }
+
+FlowRouter.route '/Dashboard/ManageUsers_Form/:IDofSelectedRow',
+  name: 'Dashboard/ManageUsers_Form',
+  action: (params, queryParams) ->
+    BlazeLayout.render 'layout', {
+      Full: 'admin'
+      Slide_In_Panel_Title: 'ManageUsers_Form_Title'
+      Slide_In_Panel_Content: 'ManageUsers_Form'
+    }
