@@ -2,14 +2,14 @@
 FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['about'] }
 
 FlowRouter.notFound = action: ->
-  BlazeLayout.render 'NotFound'
+  BlazeLayout.render 'notFound'
 
 @FlowTemplates = [
   'about'
   'faq'
   'map'
   'profile'
-  'AdminCompilation'
+  'admin'
 ]
 
 _.each FlowTemplates, (tmpl) ->

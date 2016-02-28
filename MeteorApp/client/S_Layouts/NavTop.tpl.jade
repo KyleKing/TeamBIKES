@@ -9,7 +9,7 @@ nav.midnight-header
 			li
 				a(href="{{ pathFor 'map' }}" class="{{ isActiveRoute regex='map' }}") map
 			li
-				a(href="{{ pathFor 'AdminCompilation' }}" class="{{ isActiveRoute regex='AdminCompilation' }}") AdminCompilation
+				a(href="{{ pathFor 'admin' }}" class="{{ isActiveRoute regex='admin' }}") admin
 			if currentUser
 				li
 					button.cta-start#log-out-btn Sign Out

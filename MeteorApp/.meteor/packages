@@ -76,9 +76,8 @@ anti:fake
 #### Collection Management ####
 jagi:astronomy
 jagi:astronomy-validators
-# dburles:collection-helpers
-# matb33:collection-hooks
-# reywood:publish-composite
+# dburles:collection-helpers # conflicts with astronomy
+# matb33:collection-hooks # probably conflicts with astronomy
 
 # ### Performance Monitoring ###
 meteorhacks:kadira # server

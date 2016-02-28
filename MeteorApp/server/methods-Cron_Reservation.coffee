@@ -75,7 +75,7 @@ Meteor.startup ->
     name: 'Update DB'
     schedule: (parser) ->
       # parser is a later.parse object
-      parser.text 'at 01:00'
+      parser.text 'at 08:30'
     job: ->
       [today, now] = CurrentDay()
       info = 'Running CreateDailyBikeData'

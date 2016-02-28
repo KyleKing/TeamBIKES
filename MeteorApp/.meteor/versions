@@ -5,7 +5,7 @@ aldeed:moment-timezone@0.4.0
 amplify@1.0.0
 anti:fake@0.4.1
 appshore:leaflet-awesome-markers@1.0.3
-arillo:flow-router-helpers@0.5.0
+arillo:flow-router-helpers@0.5.1
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
@@ -21,7 +21,7 @@ caching-html-compiler@1.0.2
 callback-hook@1.0.4
 check@1.1.0
 coffeescript@1.0.11
-cosmos:browserify@0.9.3
+cosmos:browserify@0.9.4
 dburles:factory@0.4.2
 dburles:mongo-collection-instances@0.3.4
 ddp@1.2.2
@@ -62,7 +62,7 @@ kyleking:customizable-bootstrap-stylus@3.6.3
 kyleking:customizable-bootstrap-stylus-data@4.0.6
 kyleking:midnightjs@0.1.0
 kyleking:tabular@1.5.5
-kyleking:tabular-column-search@0.0.5
+kyleking:tabular-column-search@0.1.0
 lai:collection-extensions@0.1.4
 launch-screen@1.0.4
 less@2.5.1
@@ -71,7 +71,7 @@ localstorage@1.0.5
 logging@1.0.8
 meteor@1.1.10
 meteor-base@1.0.1
-meteorhacks:kadira@2.27.3
+meteorhacks:kadira@2.28.1
 meteorhacks:meteorx@1.4.1
 meteortoys:allthings@2.3.1
 meteortoys:authenticate@2.1.0

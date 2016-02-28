@@ -2,6 +2,7 @@
 .container.admin-page
 	.row
 		h1 Welcome Back Superb Manager!
+		p #{infoTxt}
 		br
 	//- //- .row
 	//- //- 	.col-md-4.col-xs-3
@@ -16,9 +17,9 @@
 	//- //- .row
 	//- //- 	.col-md-12.col-xs-3
 	//- //- 		+columnDemo
-	//- //- .row
-	//- //- 	+ManageBikes
-	//- //- .row
-	//- //- 	+ManageMechanicNotes
+	.row
+		+ManageBikes
+	.row
+		+ManageMechanicNotes
 	.row
 		+ManageUsers

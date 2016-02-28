@@ -5,7 +5,7 @@ if Meteor.users.find({"emails.address": "biker123456789@example.com"}).count() i
       FullName: 'Normal Human'
       Email: "biker123456789@example.com"
       RFID: 'c5194f30'
-      Roles: []
+      Roles: ['User']
       UID: 111111111
     }
     {

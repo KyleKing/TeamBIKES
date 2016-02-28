@@ -1,35 +1,32 @@
 @TabularTables = {}
 Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 
-# # Example Tabular Datatable
-# Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
-# TabularTables.Books = new (Tabular.Table)(
-#   name: 'BookList'
-#   collection: Books
-#   autoWidth: false
-#   columns: [
-#     { data: 'title', title: 'Title' }
-#     { data: 'author', title: 'Author' }
-#     { data: 'info.url', title: 'Web address' }
-#   ])
+allRoles = ['User', 'Mechanic', 'Employee', 'Redistribution', 'Admin', 'Root' ]
+SecureTabular = (userId, fields, allowedRoles) ->
+  if Roles.userIsInRole(userId, allowedRoles)
+    return true
+  else
+    return false
 
-# # ManageBikes
-# TabularTables.ManageBikes = new (Tabular.Table)(
-#   name: 'ManageBikes'
-#   collection: DailyBikeData
-#   pub: "DailyBikeDataPub"
-#   autoWidth: false
-#   columns: [
-#     { data: 'Bike', title: 'Bike' }
-#     # { data: 'Day', title: 'Day' }
-#     { data: 'Tag', title: 'Tag', class: 'Tag', class: 'Tag' }
-#     { data: 'Timestamp()', title: 'Last Timestamp' }
-#     { data: 'Positions.0.Coordinates.0', title: 'Lat', class: 'Positions.0.Coordinates.0' }
-#     { data: 'Positions.0.Coordinates.1', title: 'Lng', class: 'Positions.0.Coordinates.1' }
-#   ]
-#   # extraFields: ['Positions.0.Timestamp']
-# )
+# ManageBikes
+TabularTables.ManageBikes = new (Tabular.Table)(
+  name: 'ManageBikes'
+  collection: DailyBikeData
+  autoWidth: false
+  allowFields: (userId, fields) ->
+    SecureTabular(userId, fields, ['Admin', 'Root'])
+  columns: [
+    { data: 'Bike', title: 'Bike' }
+    # { data: 'Day', title: 'Day' }
+    { data: 'Tag', title: 'Tag', class: 'Tag', class: 'Tag' }
+    # { data: 'Timestamp()', title: 'Last Timestamp' }
+    { data: 'Positions.0.Coordinates.0', title: 'Lat', class: 'Positions.0.Coordinates.0' }
+    { data: 'Positions.0.Coordinates.1', title: 'Lng', class: 'Positions.0.Coordinates.1' }
+  ]
+  # extraFields: ['Positions.0.Timestamp']
+)
 
+# # FIXME Proving difficult with Astronomy...?
 # DailyBikeData.helpers
 #   Timestamp: ->
 #     DateFormats =
@@ -46,25 +43,29 @@ Meteor.isClient and Template.registerHelper('TabularTables', TabularTables)
 #       @Positions[0].Timestamp
 
 
+# ManageMechanicNotes
+TabularTables.ManageMechanicNotes = new (Tabular.Table)(
+  name: 'ManageMechanicNotes'
+  collection: MechanicNotes
+  autoWidth: false
+  allowFields: (userId, fields) ->
+    SecureTabular(userId, fields, ['Admin', 'Root', 'Mechanic'])
+  columns: [
+    { data: 'MechanicID', title: 'MechanicID', class: 'MechanicID' }
+    { data: 'Timestamp', title: 'Timestamp' }
+    { data: 'Bike', title: 'Bike' }
+    { data: 'Notes', title: 'Notes', class: 'Notes' }
+    { data: 'Tag', title: 'Tag', class: 'Tag' }
+  ])
 
-# # ManageMechanicNotes
-# TabularTables.ManageMechanicNotes = new (Tabular.Table)(
-#   name: 'ManageMechanicNotes'
-#   collection: MechanicNotes
-#   autoWidth: false
-#   columns: [
-#     { data: 'MechanicID', title: 'MechanicID', class: 'MechanicID' }
-#     { data: 'Timestamp', title: 'Timestamp' }
-#     { data: 'Bike', title: 'Bike' }
-#     { data: 'Notes', title: 'Notes', class: 'Notes' }
-#     { data: 'Tag', title: 'Tag', class: 'Tag' }
-#   ])
 
 # ManageUsers
 TabularTables.ManageUsers = new (Tabular.Table)(
   name: 'ManageUsers'
   collection: Meteor.users
   autoWidth: false
+  allowFields: (userId, fields) ->
+    SecureTabular(userId, fields, ['Admin', 'Root'])
   columns: [
     { data: 'profile.name', title: 'Name', class: "profile.name" }
     # { data: 'createdAt', title: 'Created At' }

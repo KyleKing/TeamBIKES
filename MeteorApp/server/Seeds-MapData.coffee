@@ -1,3 +1,7 @@
+# # if RackNames.find().count() is 0 or OuterLimit.find().count() is 0
+# #   console.log 'Found zero racknames in db'
+# #   Meteor.call 'QueryRackNames'
+
 # # Useful function from lib/CurrentDay.coffee for current date and time
 # [today, now] = CurrentDay()
 
