@@ -3,7 +3,7 @@ Template.ManageUsers.events 'click tbody > tr': (event) ->
   dataTable = $(event.target).closest('table').DataTable()
   rowData = dataTable.row(event.currentTarget).data()
   # FlowRouter.go('/ManageUsers_Form/' + rowData._id)
-  FlowRouter.go('/AdminCompilation/ManageUsers_Form/' + rowData._id)
+  FlowRouter.go('/Dashboard/ManageUsers_Form/' + rowData._id)
   $('.cd-panel').addClass 'is-visible'
   $('body').addClass 'noscroll'
 

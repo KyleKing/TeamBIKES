@@ -6,12 +6,14 @@ template(name='ManageMechanicNotes')
 
 	//- +quickForm collection="MechanicNotes" doc=SelectedRow id="updateMechanicNotesForm" type="update"
 
-template(name='ManageMechanicNotes_Title')
+template(name='ManageMechanicNotes_Form_Title')
 	h1.cd Change Mechanic Note
 template(name='ManageMechanicNotes_Form')
-	+quickForm collection="MechanicNotes" doc=SelectedRow id="updateMechanicNotesForm" type="update"
+	h1 SHOULD BE A FORM...
+	//- +quickForm collection="MechanicNotes" doc=SelectedRow id="updateMechanicNotesForm" type="update"
 
 template(name='ManageMechanicNotes_Insert_Title')
 	h1.cd Insert New Mechanic Note
 template(name='ManageMechanicNotes_Insert')
-	+quickForm collection="MechanicNotes" id="insertMechanicNotesForm" type="insert"
+	h1 SHOULD BE A FORM...
+	//- +quickForm collection="MechanicNotes" id="insertMechanicNotesForm" type="insert"

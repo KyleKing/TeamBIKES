@@ -40,11 +40,12 @@ template(name='ManageUsers_Form')
 	//- .container.toggled
 	.page-header
 		+CurrentUser_Form
+	h1 SHOULD BE A FORM...
 	//- +quickForm collection="Meteor.users" doc=SelectedRow id="updateMeteorUsersForm" type="update"
-	+autoForm collection="Meteor.users" doc=SelectedRow id="updateMeteorUsersForm" type="update"
-		fieldset
-			legend Update Selected User Info:
-			+afQuickField name='profile.name'
-			+afQuickField name='emails'
-			+afQuickField name='roles'
-		button.btn.btn-primary(type='submit') Update
+	//- +autoForm collection="Meteor.users" doc=SelectedRow id="updateMeteorUsersForm" type="update"
+	//- 	fieldset
+	//- 		legend Update Selected User Info:
+	//- 		+afQuickField name='profile.name'
+	//- 		+afQuickField name='emails'
+	//- 		+afQuickField name='roles'
+	//- 	button.btn.btn-primary(type='submit') Update
