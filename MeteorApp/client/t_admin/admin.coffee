@@ -6,4 +6,8 @@ Template.admin.helpers
   	if Roles.userIsInRole(Meteor.userId(), ['Admin', 'Root'])
   		return "Try clicking on any row to see the interactive functionality"
   	else
-			return "Don't see any data? That is because you aren't logged in as an administrator. Try signing out and back in to see all of the wonderful tables and graphs"
+  		phrase = "Don't see any data? That is because you don't" +
+        ' have permission as a "' +
+  			Meteor.users.findOne(Meteor.userId()).roles[0] +
+  			'." Try signing in under a different account and see how the view changes.'
+			return phrase
