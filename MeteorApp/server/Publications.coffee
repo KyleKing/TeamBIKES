@@ -12,16 +12,16 @@ allRoles = ['User', 'Mechanic', 'Employee', 'Redistribution', 'Admin', 'Root' ]
 
 # All bikes that a common user may see:
 Meteor.publish 'AvailableBikeLocationsPub', (group) ->
-	if Roles.userIsInRole(@userId, allRoles, group)
-  	[today, now] = CurrentDay()
-  	DailyBikeData.find {Tag: 'Available', Day: today}, fields: Positions: 0
+  if Roles.userIsInRole(@userId, allRoles, group)
+    [today, now] = CurrentDay()
+    DailyBikeData.find {Tag: 'Available', Day: today}, fields: Positions: 0
   else
     @stop()
 Meteor.publish 'ReservedBike', (group) ->
-	# Possibly redundant, but nonetheless good:
-	if Roles.userIsInRole(@userId, allRoles, group)
-	  [today, now] = CurrentDay()
-	  DailyBikeData.find {Tag: @userId, Day: today}, fields: Positions: 0
+  # Possibly redundant, but nonetheless good:
+  if Roles.userIsInRole(@userId, allRoles, group)
+    [today, now] = CurrentDay()
+    DailyBikeData.find {Tag: @userId, Day: today}, fields: Positions: 0
   else
     @stop()
 
@@ -36,46 +36,16 @@ Meteor.publish 'DailyBikeDataPub', (group) ->
 
 Meteor.publish 'ManageUsers', (group) ->
   if Roles.userIsInRole(@userId, ['Root', 'Admin'], group)
-  	Meteor.users.find()
+    Meteor.users.find()
   else
     @stop()
 
 
-# Meteor.publish 'DevPanel', (group) ->
-#   [today, now] = CurrentDay()
-#   DailyBikeData.find {Day: today}, fields: Positions: 0
-
 # Meteor.publish "ManageBikes", (group) ->
 #   DailyBikeData.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})
 
-# Meteor.publish 'ManageUsers', (group) ->
-#   Meteor.users.find()
-
-# # server/publications/MechanicNotes.coffee
-
 # Meteor.publish "ManageMechanicNotes", (group) ->
 #   MechanicNotes.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})
-
-
-
-# # server/publications/MeteorUsers.coffee
-
-# # Give authorized users access to sensitive data by group
-# # Includes PII like login names, emails and roles
-# Meteor.publish 'UsersPub', (group) ->
-#   if Roles.userIsInRole(@userId, ['Admin', 'Mechanic', 'Root'], group)
-#     Meteor.users.find()
-#   else
-#     # user not authorized. do not publish secrets
-#     @stop()
-#     return
-
-# # Note list of all available roles: Meteor.roles
-
-
-
-
-# # server/publications/RedistributionCollection.coffee
 
 # # Give authorized users access to sensitive data by group
 # Meteor.publish 'RedistributionCollectionPub', (group) ->
@@ -191,46 +161,3 @@ Meteor.publish 'ManageUsers', (group) ->
 # #   return
 # # Meteor.publish 'SortTime', (group) ->
 # #   SortTime.find()
-
-# # ###***************###
-
-# # ###  User View          ###
-
-# # ###***************###
-
-# # # Login Demo - Famous Dead People Package
-# # Meteor.publish 'users', (group) ->
-# #   Meteor.users.find()
-# # # Map data
-# # Meteor.publish 'currentData', (group) ->
-# #   Current.find()
-
-
-
-# # # server/publish.js
-# # # Give authorized users access to sensitive data by group
-# # Meteor.publish 'secrets', (group) ->
-# #   if Roles.userIsInRole(@userId, [ 'admin' ], group)
-# #     Meteor.secrets.find group: group
-# #   else
-# #     # user not authorized. do not publish secrets
-# #     @stop()
-
-# # Accounts.validateNewUser (user) ->
-# #   loggedInUser = Meteor.user()
-# #   if Roles.userIsInRole(loggedInUser, [
-# #       'admin'
-# #       'manage-users'
-# #     ])
-# #     return true
-# #   throw new (Meteor.Error)(403, 'Not authorized to create new users')
-
-# # # server/userMethods.js
-# # Meteor.methods updateRoles: (targetUserId, roles, group) ->
-# #   loggedInUser = Meteor.user()
-# #   if !loggedInUser or !Roles.userIsInRole(loggedInUser, [
-# #       'manage-users'
-# #       'support-staff'
-# #     ], group)
-# #     throw new (Meteor.Error)(403, 'Access denied')
-# #   Roles.setUserRoles targetUserId, roles, group

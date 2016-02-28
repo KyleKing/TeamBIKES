@@ -1,0 +1,26 @@
+.nav-spacing
+.container
+	.row
+		h1 Welcome back root user.
+		h4 Hopefully this is Kyle. Hopefully?
+		p Feel the power to remove any collections that you see fit!
+		br
+	.row
+		table.table.table-hover.table-condensed
+			thead
+				tr
+					th Name
+					th Count
+					th Action
+					th Clear
+			tbody
+				each listOfCollections
+					tr
+						td {{name}}
+						td {{count}}
+						td
+							button.action(id=action) Update Collection
+						td
+							button.clear(id=clear) Clear Collection
+						//- NOTE: Need the double {{ }}
+						//- otherwise the [0] and formatDate won't work

@@ -10,6 +10,8 @@ nav.midnight-header
 				a(href="{{ pathFor 'map' }}" class="{{ isActiveRoute regex='map' }}") map
 			li
 				a(href="{{ pathFor 'Dashboard' }}" class="{{ isActiveRoute regex='Dashboard' }}") Dashboard
+			li
+				a(href="{{ pathFor 'root' }}" class="{{ isActiveRoute regex='root' }}") root
 			if currentUser
 				li
 					//- a(href='/sign-out')

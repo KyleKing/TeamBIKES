@@ -1,5 +1,5 @@
 # Block all pages, unless logged in
-FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['about'] }
+FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['about', 'root'] }
 
 
 # Inconsistently works?
@@ -12,6 +12,7 @@ FlowRouter.notFound = action: ->
   'faq'
   'map'
   'profile'
+  'root'
 ]
 _.each FlowTemplates, (tmpl) ->
   route = '/' + if tmpl is 'about' then '' else tmpl
@@ -71,23 +72,3 @@ ScrollToTop = ->
   $('html,body').animate { scrollTop: 0 }, 'slow'
 
 FlowRouter.triggers.enter ScrollToTop, except: scrollExceptions
-
-# # Sign out and go to home page with route control, from:
-# # http://stackoverflow.com/a/27744765/3219667
-# FlowRouter.route '/sign-out',
-#   ( ->
-#     # Put things you wanna render:
-#     return
-#   ),
-#   name: 'signOut'
-#   onBeforeAction: ->
-#     AccountsTemplates.logout()
-#     return
-#   # onBeforeAction: ->
-#   #   if Meteor.userId()
-#   #     Meteor.logout()
-#   #   @next()
-#   #   return
-#   # onAfterAction: ->
-#   #   Router.go '/'
-#   #   return

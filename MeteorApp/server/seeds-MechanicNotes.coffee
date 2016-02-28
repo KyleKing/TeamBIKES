@@ -17,8 +17,7 @@
 
 # ## /\ Not THE SAME - CHANGED /\
 
-
-if Meteor.users.find({'roles': "Mechanic"}).count() isnt 0
+Meteor.methods 'Create_MechanicNotes': ->
   # Create staff roles (for more info see roles package)
   if MechanicNotes.find({}).count() is 0
     # local variable to populate collection
@@ -61,3 +60,6 @@ if Meteor.users.find({'roles': "Mechanic"}).count() isnt 0
         Notes: BikeNote.Notes
         Tag: BikeNote.Tag
     console.log 'MechanicNotes Created'
+
+if Meteor.users.find({'roles': "Mechanic"}).count() isnt 0
+  Meteor.call('Create_MechanicNotes')
