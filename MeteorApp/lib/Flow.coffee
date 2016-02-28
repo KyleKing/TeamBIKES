@@ -1,16 +1,17 @@
 # Block all pages, unless logged in
 FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['about'] }
 
+# Inconsistently works?
 FlowRouter.notFound = action: ->
   BlazeLayout.render 'notFound'
 
+# General Templates
 @FlowTemplates = [
   'about'
   'faq'
   'map'
   'profile'
 ]
-
 _.each FlowTemplates, (tmpl) ->
   route = '/' + if tmpl is 'about' then '' else tmpl
   FlowRouter.route route,
@@ -20,17 +21,7 @@ _.each FlowTemplates, (tmpl) ->
           full: tmpl
         }
 
-# Scroll to the top of every page
-ScrollToTop = ->
-  $(window).scrollTop 0
-  # $('html,body').animate { scrollTop: 0 }, 'slow'
-
-FlowRouter.triggers.enter ScrollToTop, except: [
-  'Dashboard'
-  'Dashboard/ManageBike'
-  'Dashboard/ManageMechanicNotes_Form'
-  'Dashboard/ManageUsers_Form'
-]
+scrollExceptions = []
 
 # Admin Dashboard
 dashboardTemplates = [
@@ -40,13 +31,14 @@ dashboardTemplates = [
   'ManageUsers_Form'
 ]
 _.each dashboardTemplates, (tmpl) ->
+  scrollExceptions.push(tmpl)
   if tmpl is 'Slide_In_Panel_Placeholder'
     route = ''
   else
     route = tmpl + '/:IDofSelectedRow'
   # Create Routes
   FlowRouter.route '/Dashboard/' + route,
-    name: 'Dashboard/' + route,
+    name: tmpl,
     action: (params, queryParams) ->
       BlazeLayout.render 'layout', {
         full: 'admin'
@@ -58,13 +50,14 @@ dashboardTemplatesLeft = [
   'ManageMechanicNotes_Insert'
 ]
 _.each dashboardTemplatesLeft, (tmpl) ->
+  scrollExceptions.push(tmpl)
   if tmpl is 'Slide_In_Panel_Placeholder'
     route = ''
   else
     route = tmpl
   # Create Routes
   FlowRouter.route '/Dashboard/' + route,
-    name: 'Dashboard/' + route,
+    name: tmpl,
     action: (params, queryParams) ->
       BlazeLayout.render 'layout_left', {
         full: 'admin'
@@ -72,4 +65,9 @@ _.each dashboardTemplatesLeft, (tmpl) ->
         slideInPanelContent_Left: tmpl
       }
 
+# Scroll to the top of every page
+ScrollToTop = ->
+  # $(window).scrollTop 0
+  $('html,body').animate { scrollTop: 0 }, 'slow'
 
+FlowRouter.triggers.enter ScrollToTop, except: scrollExceptions

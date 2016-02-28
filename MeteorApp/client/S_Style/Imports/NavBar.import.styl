@@ -1,14 +1,29 @@
 ul.unstyled
 	list-style-type none
 
+// Midnight.js Alterations
+mix-nav-midnight( color-bg, display-type, color-main, color-bottom )
+	background-color color-bg
+	bord( 0, 0, 0, 1px, solid, color-bottom )
+	opacity 0.9
+	& .nav-brand
+		color color-main
+		display display-type
+	& a
+		color color-main
+	& li a.active
+		bord( 0, 0, 0, 3px, solid, color-main )
+
 +below( $desktop )
 	nav.midnight-header
 		display none
 +above( $desktop )
 	// Simple fixed flat bar with logo and navbar icons
 	nav.midnight-header
+		// mix-nav-midnight( none, inline-block, $nav-bg-color, green )
 		box-shadow 0 2px 3px 0 none
 		height $nav-height-calc
+		mix-nav-midnight( $nav-bg-color, inline-block, $text-color, $text-color )
 		position fixed
 		text-transform uppercase
 		width 100%
@@ -32,29 +47,6 @@ ul.unstyled
 					padd( 0, $nav-active-space, $nav-active-space, 5px )
 					text-decoration none
 
-	// // isActiveRoute Highlight
-	// nav li a.active
-
 	// Spacing for page content
 	.nav-top-spacing
 		height $nav-height-calc + 10
-
-	// Midnight.js Alterations
-	mix-nav-midnight( color-bg, display-type, color-main, color-bottom )
-		background-color color-bg
-		// bord( 0, 0, 0, 11px, solid, color-bottom )
-		opacity 0.9
-		& .nav-brand
-			color color-main
-			display display-type
-		& a
-			color color-main
-		& li a.active
-			bord( 0, 0, 0, 3px, solid, color-main )
-
-	.midnightHeader.none
-		mix-nav-midnight( none, none, white, green )
-	.midnightHeader.blur
-		mix-nav-midnight( $nav-bg-color, none, $text-color, green )
-	.midnightHeader.default
-		mix-nav-midnight( $nav-bg-color, inline-block, $text-color, green )

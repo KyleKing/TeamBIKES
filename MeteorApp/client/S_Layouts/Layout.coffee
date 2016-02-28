@@ -1,13 +1,8 @@
-Template.layout.rendered = ->
-  new WOW().init()
-  $('nav.midnight-header').midnight()
-
-
-closeSlideInPanel = () ->
+closeSlideInPanel = ->
   $('.cd-panel').removeClass 'is-visible'
   $('body').removeClass 'noscroll'
   event.preventDefault()
-openSlideInPanel = () ->
+openSlideInPanel = ->
   $('.cd-panel').addClass 'is-visible'
   $('body').addClass 'noscroll'
   event.preventDefault()
