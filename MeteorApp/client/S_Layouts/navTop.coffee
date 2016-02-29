@@ -1,3 +1,3 @@
-Template.navTop.events
-  "click button#log-out-btn": (e) ->
-		AccountsTemplates.logout()
+# Template.navTop.events
+#   "click button#log-out-btn": (e) ->
+# 		AccountsTemplates.logout()

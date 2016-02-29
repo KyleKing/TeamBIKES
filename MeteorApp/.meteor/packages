@@ -19,7 +19,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 # autopublish             # Publish all data to the clients (for prototyping)
 # insecure                # Allow all DB writes from clients (for prototyping)
 
-# meteortoys:allthings # press ctrl-m to activate
+meteortoys:allthings # press ctrl-m to activate
 
 ### Routing ###
 kadira:flow-router
@@ -85,7 +85,7 @@ email
 #### Mobile Functions ####
 # mdg:camera
 
-# ### Preventing Regression ###
-# sanjo:jasmine
-# velocity:html-reporter
-# velocity:console-reporter
+### Preventing Regression ###
+sanjo:jasmine
+velocity:html-reporter
+velocity:console-reporter
