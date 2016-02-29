@@ -39,9 +39,9 @@ describe 'Reservation', ->
       Meteor.call('CreateTask', fakeUserID, Bike, timeout, future)
     catch err
       throw err
-
     foundTag = DailyBikeData.findOne({Bike: Bike}).Tag
     expect( foundTag ).toEqual(fakeUserID)
+
     Meteor.setTimeout (->
       foundTag = DailyBikeData.findOne({Bike: Bike}).Tag
       try

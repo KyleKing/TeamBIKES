@@ -20,7 +20,7 @@ Template.root.helpers
       'DailyBikeData'
       'RackNames'
       'OuterLimit'
-      'RFIDdata'
+      'RFIDtags'
       'MechanicNotes'
       'XbeeData'
     ]
