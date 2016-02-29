@@ -17,7 +17,7 @@
 
 @RedistributionCollection = new Mongo.Collection 'redistributionCollection'
 @RandMechanicNames = new Mongo.Collection 'randMechanicNames'
-@RFIDdata = new Mongo.Collection 'RFIDdata'
+@RFIDtags = new Mongo.Collection 'RFIDtags'
 
 # Meteor.users.attachSchema new SimpleSchema(
 #   createdAt:
