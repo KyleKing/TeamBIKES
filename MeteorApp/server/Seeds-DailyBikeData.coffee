@@ -59,17 +59,10 @@ Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
         i++
       console.log 'Created DailyBikeData for ' + j + ' days behind today'
     j++
-  console.log 'Done generating random DailyBikeData data'
+  console.log 'CreateDailyBikeData: Done generating random DailyBikeData data'.yellow
 
   # Inform the Creator (Kyle)
   info = 'CreateDailyBikeData finished. Currently ' +
     DailyBikeData.find({Day: today}).count() +
     ' bikes were found.'
   Meteor.call('sendEmailUpdate', 'Hello from Meteor!', info)
-  # sendEmailUpdate( 'Hello from Meteor!', info )
-  'ok'
-
-# Create DailyBikeData
-[today, now] = CurrentDay()
-if DailyBikeData.find({Day: today}).count() is 0
-  Meteor.call('CreateDailyBikeData', 10, 4)

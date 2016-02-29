@@ -21,3 +21,11 @@ Meteor.methods 'Delete_OuterLimit': ->
 Meteor.methods 'Delete_RFIDdata': ->
   [today, now] = CurrentDay()
   RFIDdata.remove({ TIMESTAMP: { $lte:  now} })
+
+Meteor.methods 'Delete_MechanicNotes': ->
+  [today, now] = CurrentDay()
+  MechanicNotes.remove({ TIMESTAMP: { $lte:  now} })
+
+Meteor.methods 'Delete_XbeeData': ->
+  [today, now] = CurrentDay()
+  XbeeData.remove({ TIMESTAMP: { $lte:  now} })

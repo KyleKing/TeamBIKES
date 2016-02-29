@@ -59,7 +59,5 @@ Meteor.methods 'Create_MechanicNotes': ->
         Bike: BikeNote.Bike
         Notes: BikeNote.Notes
         Tag: BikeNote.Tag
-    console.log 'MechanicNotes Created'
 
-if Meteor.users.find({'roles': "Mechanic"}).count() isnt 0
-  Meteor.call('Create_MechanicNotes')
+    console.log 'Create_MechanicNotes: Created small set of seed data'.yellow

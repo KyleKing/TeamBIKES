@@ -26,11 +26,11 @@ Template.root.helpers
     ]
     tableValues = []
     _.each collections, (collection) ->
+      cln = if collection is 'Meteor.users' then 'Users' else collection
       tableValues.push({
         name: collection
         count: eval( collection + '.find().count()' )
-        action: 'Create_' + collection
-        clear: 'Delete_' + collection
+        action: 'Create_' + cln
+        clear: 'Delete_' + cln
       })
-    console.log tableValues
     return tableValues
