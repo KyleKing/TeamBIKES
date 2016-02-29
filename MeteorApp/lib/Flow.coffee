@@ -7,14 +7,14 @@ FlowRouter.notFound = action: ->
   BlazeLayout.render 'notFound'
 
 # General Templates
-@FlowTemplates = [
+flowTemplates = [
   'about'
   'faq'
   'map'
   'profile'
   'root'
 ]
-_.each FlowTemplates, (tmpl) ->
+_.each flowTemplates, (tmpl) ->
   route = '/' + if tmpl is 'about' then '' else tmpl
   FlowRouter.route route,
       name: tmpl
@@ -39,7 +39,7 @@ _.each dashboardTemplates, (tmpl) ->
     route = tmpl + '/:IDofSelectedRow'
   # Create Routes
   FlowRouter.route '/Dashboard/' + route,
-    name: tmpl,
+    name: '/dash/' + tmpl,
     action: (params, queryParams) ->
       BlazeLayout.render 'layout', {
         full: 'admin'
@@ -72,3 +72,12 @@ ScrollToTop = ->
   $('html,body').animate { scrollTop: 0 }, 'slow'
 
 FlowRouter.triggers.enter ScrollToTop, except: scrollExceptions
+
+@TransitionerTemplateOrder = [
+  'about'
+  'faq'
+  'map'
+  'profile'
+  '/dash/' + 'Slide_In_Panel_Placeholder'
+  'root'
+]

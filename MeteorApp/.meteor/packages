@@ -85,7 +85,7 @@ email
 #### Mobile Functions ####
 # mdg:camera
 
-### Preventing Regression ###
-sanjo:jasmine
-velocity:html-reporter
-velocity:console-reporter
+# ### Preventing Regression ###
+# sanjo:jasmine
+# velocity:html-reporter
+# velocity:console-reporter
