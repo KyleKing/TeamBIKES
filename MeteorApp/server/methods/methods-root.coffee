@@ -3,10 +3,8 @@ Meteor.methods 'Delete_Users': ->
     ID = Meteor.userId()
   else
     ID = 'fakeID'
-  Meteor.users.remove({ $and: [
-    { 'profile.UID': { $lte:  999999999 } },
-    { _id: { $ne:  ID } }
-  ] })
+  Meteor.users.remove( {'_id': { $ne:  ID }} )
+  # console.log 'Count: ' + Meteor.users.find().count()
 
 Meteor.methods 'Delete_DailyBikeData': ->
   [today, now] = CurrentDay()

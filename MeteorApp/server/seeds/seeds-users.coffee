@@ -18,7 +18,7 @@ Meteor.methods 'Create_Users': ->
     {
       FullName: 'Redistribution Dude(ette)'
       Email: "redistribution@wrenchwrench.com"
-      RFID: 'NA'
+      RFID: 'signUp'
       Roles: ['Redistribution', 'Employee']
       UID: 111111112
     }
@@ -26,14 +26,14 @@ Meteor.methods 'Create_Users': ->
     {
       FullName: 'Administrator BossMan'
       Email: "admin@theboss.com"
-      RFID: 'NA'
+      RFID: 'signUp'
       Roles: ['Admin']
       UID: 111111113
     }
     {
       FullName: 'All Powerful Root'
       Email: 'root@example.com'
-      RFID: 'NA'
+      RFID: 'signUp'
       Roles: ['Root']
       UID: 111111114
     }
@@ -43,17 +43,13 @@ Meteor.methods 'Create_Users': ->
   _.each users, (user) ->
     if Meteor.users.find({'profile.name': user.FullName}).count() is 0
       id = Accounts.createUser(
-        username: user.Email
-        emails: [
-          address: user.Email
-          verified: false
-        ]
+        email: user.Email
         password: "password"
         profile:
-          RFID: user.RFID
           name: user.FullName
           UID: user.UID
       )
+      Meteor.call( 'completeAccountRecord', id, user.RFID )
       if user.Roles.length > 0
         Roles.addUsersToRoles id, user.Roles
 

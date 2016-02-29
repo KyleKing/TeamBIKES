@@ -41,6 +41,43 @@ Meteor.publish 'ManageUsers', (group) ->
     @stop()
 
 
+# Root - complete list of publications only available to one user:
+Meteor.publish 'Pub_Users', (group) ->
+  if Roles.userIsInRole(@userId, ['Root'], group)
+    Meteor.users.find()
+  else
+    @stop()
+Meteor.publish 'Pub_DailyBikeData', (group) ->
+  if Roles.userIsInRole(@userId, ['Root'], group)
+    DailyBikeData.find()
+  else
+    @stop()
+Meteor.publish 'Pub_RackNames', (group) ->
+  if Roles.userIsInRole(@userId, ['Root'], group)
+    RackNames.find()
+  else
+    @stop()
+Meteor.publish 'Pub_OuterLimit', (group) ->
+  if Roles.userIsInRole(@userId, ['Root'], group)
+    OuterLimit.find()
+  else
+    @stop()
+Meteor.publish 'Pub_RFIDtags', (group) ->
+  if Roles.userIsInRole(@userId, ['Root'], group)
+    RFIDtags.find()
+  else
+    @stop()
+Meteor.publish 'Pub_MechanicNotes', (group) ->
+  if Roles.userIsInRole(@userId, ['Root'], group)
+    MechanicNotes.find()
+  else
+    @stop()
+Meteor.publish 'Pub_XbeeData', (group) ->
+  if Roles.userIsInRole(@userId, ['Root'], group)
+    XbeeData.find()
+  else
+    @stop()
+
 # Meteor.publish "ManageBikes", (group) ->
 #   DailyBikeData.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})
 

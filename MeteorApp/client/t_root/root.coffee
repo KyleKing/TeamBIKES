@@ -1,8 +1,11 @@
 Template.root.onCreated ->
-  Meteor.subscribe('ManageUsers')
-  Meteor.subscribe('DailyBikeDataPub')
-  # RackNames
-  # Outline
+  Meteor.subscribe('Pub_Users')
+  Meteor.subscribe('Pub_DailyBikeData')
+  Meteor.subscribe('Pub_RackNames')
+  Meteor.subscribe('Pub_OuterLimit')
+  Meteor.subscribe('Pub_RFIDtags')
+  Meteor.subscribe('Pub_MechanicNotes')
+  Meteor.subscribe('Pub_XbeeData')
 
 Template.root.events
   "click button.action": (e) ->

@@ -3,68 +3,65 @@
 # The flow router specific version:
 # https://atmospherejs.com/useraccounts/flow-routing
 
-myPostLogout = ->
-  # example redirect after logout
+myLogoutFunc = ->
   FlowRouter.go '/'
 
-AccountsTemplates.configure
-    defaultLayout: 'layout'
-    defaultTemplate: 'loginForm'
-    defaultLayoutRegions: {}
-    defaultContentRegion: 'full'
-
-AccountsTemplates.configureRoute 'signIn'
-AccountsTemplates.configureRoute 'signUp'
-# AccountsTemplates.configureRoute 'forgotPwd'
-# AccountsTemplates.configureRoute 'changePwd'
-
-
-# Core routes for accounts
-# See UserAccounts Package for configuration options
-# mySubmitFunc - Randomly creates an RFID code
-
 mySubmitFunc = (error, state) ->
+  # Randomly create an RFID code
   if (Meteor.userId() isnt undefined & state is 'signUp')
-    Meteor.call('addRFIDToNewAccount', Meteor.userId())
-
-# AccountsTemplates.configureRoute 'signIn',
-#   redirect: '/'
-# AccountsTemplates.configureRoute 'signUp',
-#   redirect: '/'
-# AccountsTemplates.configureRoute 'forgotPwd'
-# AccountsTemplates.configureRoute 'changePwd'
-# AccountsTemplates.configureRoute 'ensureSignedIn'
+    Meteor.call( 'completeAccountRecord', Meteor.userId(), 'signUp' )
 
 # Accounts Personalization
 AccountsTemplates.configure
-  confirmPassword: false
+  # Behavior
+  confirmPassword: true
   enablePasswordChange: true
   forbidClientAccountCreation: false
   overrideLoginErrors: true
-  sendVerificationEmail: false
+  sendVerificationEmail: true
   lowercaseUsername: false
+  focusFirstInput: true
+
+  # Appearance
   showAddRemoveServices: false
   showForgotPasswordLink: true
   showLabels: true
   showPlaceholders: true
-  continuousValidation: false
+  showResendVerificationEmailLink: true
+
+  # Client-side Validation
+  continuousValidation: true
   negativeFeedback: false
   negativeValidation: true
   positiveValidation: true
   positiveFeedback: true
   showValidating: true
+
+  # Privacy Policy and Terms of Use
   privacyUrl: 'privacy'
   termsUrl: 'terms-of-use'
+
+  # Redirects
   homeRoutePath: '/'
-  redirectTimeout: 3000
+  redirectTimeout: 4000
+
+  # Hooks
+  onLogoutHook: myLogoutFunc
   onSubmitHook: mySubmitFunc
-  texts: title:
-    changePwd: 'Change Password'
-    enrollAccount: 'FIXME: Enroll Title text'
-    forgotPwd: 'Recover Your Password'
-    resetPwd: 'Reset Password'
-    signIn: 'Login to reserve a bike or check on you account'
-    signUp: 'Join an Exclusive Community of RedBar Bikers'
+  # preSignUpHook: myPreSubmitFunc
+  # postSignUpHook: myPostSubmitFunc
+
+  # Texts
+  texts:
+    button: signUp: 'Register Now!'
+    socialSignUp: 'Register'
+    socialIcons: 'meteor-developer': 'fa fa-rocket'
+    title:
+      changePwd: 'Change Password'
+      resetPwd: 'Reset Password'
+      forgotPwd: 'Recover Your Password'
+      signIn: 'Login to reserve a bike or check on you account'
+      signUp: 'Join an Exclusive Community of RedBar Bikers'
 
 # Name Field
 AccountsTemplates.addField
@@ -83,3 +80,15 @@ AccountsTemplates.addField
   re: /(?=.*\d).{1,}/
   required: true
   type: 'text'
+
+AccountsTemplates.configure
+  defaultLayout: 'layout'
+  defaultTemplate: 'loginForm'
+  defaultLayoutRegions: {}
+  defaultContentRegion: 'full'
+
+AccountsTemplates.configureRoute 'signIn'
+AccountsTemplates.configureRoute 'signUp'
+AccountsTemplates.configureRoute 'forgotPwd'
+AccountsTemplates.configureRoute 'resetPwd'
+AccountsTemplates.configureRoute 'changePwd'

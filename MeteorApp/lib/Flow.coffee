@@ -1,5 +1,5 @@
 # Block all pages, unless logged in
-FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['about', 'root'] }
+FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['about'] }
 
 
 # Inconsistently works?

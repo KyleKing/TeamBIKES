@@ -6,7 +6,6 @@ amplify@1.0.0
 anti:fake@0.4.1
 appshore:leaflet-awesome-markers@1.0.3
 arillo:flow-router-helpers@0.5.1
-autopublish@1.0.4
 autoupdate@1.2.4
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
@@ -24,7 +23,6 @@ check@1.1.0
 coffeescript@1.0.11
 cosmos:browserify@0.9.4
 dburles:factory@0.4.2
-dburles:mongo-collection-instances@0.3.4
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.2
@@ -42,7 +40,6 @@ force-ssl@1.0.6
 fortawesome:fontawesome@4.5.0
 fuatsengul:leaflet-easybutton@1.0.5
 geojson-utils@1.0.4
-gwendall:body-events@0.1.6
 herrhelms:meteor-leaflet-locatecontrol@1.0.1
 hot-code-push@1.0.0
 html-tools@1.0.5
@@ -63,7 +60,6 @@ kyleking:customizable-bootstrap-stylus@3.6.3
 kyleking:customizable-bootstrap-stylus-data@4.0.6
 kyleking:tabular@1.5.5
 kyleking:tabular-column-search@0.1.0
-lai:collection-extensions@0.1.4
 launch-screen@1.0.4
 less@2.5.1
 livedata@1.0.15
@@ -73,21 +69,6 @@ meteor@1.1.10
 meteor-base@1.0.1
 meteorhacks:kadira@2.28.1
 meteorhacks:meteorx@1.4.1
-meteortoys:allthings@2.3.1
-meteortoys:authenticate@2.1.0
-meteortoys:autopub@2.1.0
-meteortoys:blueprint@2.1.0
-meteortoys:email@2.1.0
-meteortoys:hotreload@2.1.0
-meteortoys:listen@2.1.0
-meteortoys:method@3.0.2
-meteortoys:pub@3.0.2
-meteortoys:result@2.1.0
-meteortoys:shell@2.1.0
-meteortoys:status@2.1.0
-meteortoys:sub@2.1.0
-meteortoys:throttle@2.1.0
-meteortoys:toykit@2.2.1
 minifiers@1.1.7
 minimongo@1.0.10
 mobile-experience@1.0.1
@@ -99,8 +80,6 @@ mongo-livedata@1.0.9
 mquandalle:jade@0.4.9
 mquandalle:jade-compiler@0.4.5
 mrt:underscore-string-latest@2.3.3
-msavin:jetsetter@1.5.2
-msavin:mongol@1.6.2
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7

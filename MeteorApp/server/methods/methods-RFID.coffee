@@ -1,12 +1,3 @@
-Meteor.methods 'addRFIDToNewAccount': (currentUserId) ->
-  # Prepare fields to udpate MongoDB
-  fields = {}
-  fields.RFID = Fake.word()
-  record = Meteor.users.findOne(_id: currentUserId)
-  if record.RFID != undefined
-  else
-    Meteor.users.update record, $set: fields
-
 Meteor.methods 'Create_RFIDdata': ->
   [today, now] = CurrentDay()
   i = 0
