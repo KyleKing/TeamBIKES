@@ -32,7 +32,7 @@ dashboardTemplates = [
   'ManageUsers_Form'
 ]
 _.each dashboardTemplates, (tmpl) ->
-  scrollExceptions.push(tmpl)
+  scrollExceptions.push('/dash/' + tmpl)
   if tmpl is 'Slide_In_Panel_Placeholder'
     route = ''
   else
@@ -51,14 +51,14 @@ dashboardTemplatesLeft = [
   'ManageMechanicNotes_Insert'
 ]
 _.each dashboardTemplatesLeft, (tmpl) ->
-  scrollExceptions.push(tmpl)
+  scrollExceptions.push('/dash/' + tmpl)
   if tmpl is 'Slide_In_Panel_Placeholder'
     route = ''
   else
     route = tmpl
   # Create Routes
   FlowRouter.route '/Dashboard/' + route,
-    name: tmpl,
+    name: '/dash/' + tmpl,
     action: (params, queryParams) ->
       BlazeLayout.render 'layout_left', {
         full: 'admin'
