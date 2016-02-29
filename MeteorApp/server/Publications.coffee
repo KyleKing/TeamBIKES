@@ -4,22 +4,22 @@ allRoles = ['User', 'Mechanic', 'Employee', 'Redistribution', 'Admin', 'Root' ]
 
 # Meteor.publish 'RackNamesGet', (Optional) ->
 #   RackNames.find({Optional: Optional})
-# Meteor.publish 'RackPanel', (group) ->
+# Meteor.publish 'RackPanel', (opt) ->
 #   RackNames.find()
 
-# Meteor.publish 'OuterLimitGet', (group) ->
+# Meteor.publish 'OuterLimitGet', (opt) ->
 #   OuterLimit.find()
 
 # All bikes that a common user may see:
-Meteor.publish 'AvailableBikeLocationsPub', (group) ->
-  if Roles.userIsInRole(@userId, allRoles, group)
+Meteor.publish 'AvailableBikeLocationsPub', (opt) ->
+  if Roles.userIsInRole(@userId, allRoles)
     [today, now] = CurrentDay()
     DailyBikeData.find {Tag: 'Available', Day: today}, fields: Positions: 0
   else
     @stop()
-Meteor.publish 'ReservedBike', (group) ->
+Meteor.publish 'ReservedBike', (opt) ->
   # Possibly redundant, but nonetheless good:
-  if Roles.userIsInRole(@userId, allRoles, group)
+  if Roles.userIsInRole(@userId, allRoles)
     [today, now] = CurrentDay()
     DailyBikeData.find {Tag: @userId, Day: today}, fields: Positions: 0
   else
@@ -28,65 +28,65 @@ Meteor.publish 'ReservedBike', (group) ->
 # Administrative Publications
 
 # Give authorized users access to sensitive data by group
-Meteor.publish 'DailyBikeDataPub', (group) ->
-  if Roles.userIsInRole(@userId, ['Root', 'Admin', 'Employee'], group)
+Meteor.publish 'DailyBikeDataPub', (opt) ->
+  if Roles.userIsInRole(@userId, ['Root', 'Admin', 'Employee'])
     DailyBikeData.find()
   else
     @stop()
 
-Meteor.publish 'ManageUsers', (group) ->
-  if Roles.userIsInRole(@userId, ['Root', 'Admin'], group)
+Meteor.publish 'ManageUsers', (opt) ->
+  if Roles.userIsInRole(@userId, ['Root', 'Admin'])
     Meteor.users.find()
   else
     @stop()
 
 
 # Root - complete list of publications only available to one user:
-Meteor.publish 'Pub_Users', (group) ->
-  if Roles.userIsInRole(@userId, ['Root'], group)
+Meteor.publish 'Pub_Users', (opt) ->
+  if Roles.userIsInRole(@userId, ['Root'])
     Meteor.users.find()
   else
     @stop()
-Meteor.publish 'Pub_DailyBikeData', (group) ->
-  if Roles.userIsInRole(@userId, ['Root'], group)
+Meteor.publish 'Pub_DailyBikeData', (opt) ->
+  if Roles.userIsInRole(@userId, ['Root'])
     DailyBikeData.find()
   else
     @stop()
-Meteor.publish 'Pub_RackNames', (group) ->
-  if Roles.userIsInRole(@userId, ['Root'], group)
+Meteor.publish 'Pub_RackNames', (opt) ->
+  if Roles.userIsInRole(@userId, ['Root'])
     RackNames.find()
   else
     @stop()
-Meteor.publish 'Pub_OuterLimit', (group) ->
-  if Roles.userIsInRole(@userId, ['Root'], group)
+Meteor.publish 'Pub_OuterLimit', (opt) ->
+  if Roles.userIsInRole(@userId, ['Root'])
     OuterLimit.find()
   else
     @stop()
-Meteor.publish 'Pub_RFIDtags', (group) ->
-  if Roles.userIsInRole(@userId, ['Root'], group)
+Meteor.publish 'Pub_RFIDtags', (opt) ->
+  if Roles.userIsInRole(@userId, ['Root'])
     RFIDtags.find()
   else
     @stop()
-Meteor.publish 'Pub_MechanicNotes', (group) ->
-  if Roles.userIsInRole(@userId, ['Root'], group)
+Meteor.publish 'Pub_MechanicNotes', (opt) ->
+  if Roles.userIsInRole(@userId, ['Root'])
     MechanicNotes.find()
   else
     @stop()
-Meteor.publish 'Pub_XbeeData', (group) ->
-  if Roles.userIsInRole(@userId, ['Root'], group)
+Meteor.publish 'Pub_XbeeData', (opt) ->
+  if Roles.userIsInRole(@userId, ['Root'])
     XbeeData.find()
   else
     @stop()
 
-# Meteor.publish "ManageBikes", (group) ->
+# Meteor.publish "ManageBikes", (opt) ->
 #   DailyBikeData.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})
 
-# Meteor.publish "ManageMechanicNotes", (group) ->
+# Meteor.publish "ManageMechanicNotes", (opt) ->
 #   MechanicNotes.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})
 
 # # Give authorized users access to sensitive data by group
-# Meteor.publish 'RedistributionCollectionPub', (group) ->
-#   if Roles.userIsInRole(@userId, ['Redistribution', 'Admin', 'Root'], group)
+# Meteor.publish 'RedistributionCollectionPub', (opt) ->
+#   if Roles.userIsInRole(@userId, ['Redistribution', 'Admin', 'Root'])
 #     RedistributionCollection.find()
 #   else
 #     # user not authorized. do not publish RedistributionCollection
@@ -101,18 +101,18 @@ Meteor.publish 'Pub_XbeeData', (group) ->
 # # ###***************###
 
 # # # Mechanic Filler Data
-# # Meteor.publish 'RandNamesData', (group) ->
+# # Meteor.publish 'RandNamesData', (opt) ->
 # #   RandNames.find()
-# # Meteor.publish 'RandMechanicNamesData', (group) ->
+# # Meteor.publish 'RandMechanicNamesData', (opt) ->
 # #   RandMechanicNames.find()
 # # # Bike data used in mechanic layout
-# # Meteor.publish 'bikesData', (group) ->
+# # Meteor.publish 'bikesData', (opt) ->
 # #   Bikes.find()
 
 # # RFID Confirmation and Storage Test Data
-# Meteor.publish 'RFIDdataPublication', (group) ->
+# Meteor.publish 'RFIDdataPublication', (opt) ->
 #   RFIDdata.find()
-# Meteor.publish 'XbeeDataPublication', (group) ->
+# Meteor.publish 'XbeeDataPublication', (opt) ->
 #   XbeeData.find()
 
 
@@ -123,12 +123,12 @@ Meteor.publish 'Pub_XbeeData', (group) ->
 # # ###**********************###
 
 # # Used in user profile
-# Meteor.publish 'BarChartData', (group) ->
+# Meteor.publish 'BarChartData', (opt) ->
 #   BarChart.find()
 # # Used on admin page:
-# Meteor.publish 'AdminBarChartData', (group) ->
+# Meteor.publish 'AdminBarChartData', (opt) ->
 #   AdminBarChart.find()
-# Meteor.publish 'AdminAreaChartData', (group) ->
+# Meteor.publish 'AdminAreaChartData', (opt) ->
 #   AdminAreaChart.find()
 
 # # ###**********************###
@@ -138,7 +138,7 @@ Meteor.publish 'Pub_XbeeData', (group) ->
 # # ###**********************###
 
 # # # Admin 2 and Admin 3
-# # Meteor.publish 'TestUsersData', (group) ->
+# # Meteor.publish 'TestUsersData', (opt) ->
 # #   TestUsers.find()
 # # # Admin 3
 # # # Meteor.publish("TestUserDataSorted", function() {
@@ -173,10 +173,10 @@ Meteor.publish 'Pub_XbeeData', (group) ->
 # # #   });
 # # # });
 # # # Subscription call inside charts-admin/chartsAdmin.js
-# # Meteor.publish 'TimeSeriesData', (group) ->
+# # Meteor.publish 'TimeSeriesData', (opt) ->
 # #   TimeSeries.find()
 # # # chartsAdmin.js
-# # Meteor.publish 'informationTestData', (group) ->
+# # Meteor.publish 'informationTestData', (opt) ->
 # #   pipeline = [
 # #     { $match: bike: 4 }
 # #     { $unwind: '$positions' }
@@ -196,5 +196,5 @@ Meteor.publish 'Pub_XbeeData', (group) ->
 # #     userId: @userId
 # #     data: TestResult[0]._id
 # #   return
-# # Meteor.publish 'SortTime', (group) ->
+# # Meteor.publish 'SortTime', (opt) ->
 # #   SortTime.find()

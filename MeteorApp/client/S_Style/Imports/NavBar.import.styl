@@ -48,5 +48,6 @@ mix-nav-midnight( color-bg, display-type, color-main, color-bottom )
 					text-decoration none
 
 	// Spacing for page content
-	.nav-top-spacing
-		height $nav-height-calc + 10
+	+above( $desktop )
+		.nav-spacing
+			height $nav-height-calc + 10
