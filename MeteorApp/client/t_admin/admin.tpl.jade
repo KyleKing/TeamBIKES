@@ -4,9 +4,14 @@
 		h1 Welcome Back Superb Manager!
 		p #{infoTxt}
 		br
-	.row
-		+ManageBikes
-	.row
-		+ManageMechanicNotes
-	.row
-		+ManageUsers
+		if isInRole 'admin,root'
+			.row
+				+ManageBikes
+			.row
+				+ManageMechanicNotes
+			.row
+				+ManageUsers
+		else
+			.row
+				h1 The table is not available to you because you are not logged in as an admin user.
+
