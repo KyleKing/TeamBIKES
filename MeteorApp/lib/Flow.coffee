@@ -1,10 +1,26 @@
 # Block all pages, unless logged in
-FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['about', 'faq'] }
+FlowRouter.triggers.enter [AccountsTemplates.ensureSignedIn], { except: ['about', 'faq', 'privacy', 'terms'] }
 
 
 # Inconsistently works?
 FlowRouter.notFound = action: ->
   BlazeLayout.render 'notFound'
+
+
+# URL's for accounts:
+# Documents generated from: https://termsfeed.com/
+FlowRouter.route '/privacy-policy',
+    name: 'privacy'
+    action: ->
+      BlazeLayout.render 'layout', {
+        full: 'privacy'
+      }
+FlowRouter.route '/terms-of-use',
+    name: 'terms'
+    action: ->
+      BlazeLayout.render 'layout', {
+        full: 'terms'
+      }
 
 # General Templates
 flowTemplates = [

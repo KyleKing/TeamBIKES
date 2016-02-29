@@ -38,8 +38,8 @@ AccountsTemplates.configure
   showValidating: true
 
   # Privacy Policy and Terms of Use
-  privacyUrl: 'privacy'
-  termsUrl: 'terms-of-use'
+  privacyUrl: '/privacy-policy'
+  termsUrl: '/terms-of-use'
 
   # Redirects
   homeRoutePath: '/'
