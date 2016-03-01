@@ -61,6 +61,7 @@ bevanhunt:leaflet
 appshore:leaflet-awesome-markers
 herrhelms:meteor-leaflet-locatecontrol
 fuatsengul:leaflet-easybutton
+proj4:proj4
 
 ### Data ###
 kyleking:tabular # data tables

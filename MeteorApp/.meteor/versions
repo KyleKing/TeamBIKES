@@ -111,6 +111,7 @@ percolate:velocityjs@1.1.0
 philippspo:momentum-flow-router@0.0.7
 practicalmeteor:chai@2.1.0_1
 practicalmeteor:loglevel@1.2.0_2
+proj4:proj4@2.3.4-alpha
 promise@0.5.1
 random@1.0.5
 rate-limit@1.0.0
