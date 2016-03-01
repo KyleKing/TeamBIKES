@@ -54,7 +54,7 @@ juliancwirko:s-alert-stackslide # animation style
 mrt:underscore-string-latest # Lots of functions
 momentjs:moment # Date and Time
 aldeed:moment-timezone
-# nooitaf:colors
+nooitaf:colors
 
 ### Maps ###
 bevanhunt:leaflet

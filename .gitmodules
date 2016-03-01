@@ -1,0 +1,3 @@
+[submodule "MeteorApp/packages/colorsjs"]
+	path = MeteorApp/packages/colorsjs
+	url = https://KyleKing@github.com/nooitaf/meteor-colors.git
