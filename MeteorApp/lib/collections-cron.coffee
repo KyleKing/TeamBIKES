@@ -1,12 +1,5 @@
-@RackNames = new Mongo.Collection 'racknames'
-@OuterLimit = new Mongo.Collection 'outerlimit'
-
-@XbeeData = new Mongo.Collection 'XbeeData'
-
 # Cron scheduling
 @FutureTasks = new Meteor.Collection 'future_tasks'
-
-
 # date: new Date(future) # reformat for cron
 # timeout: timeout
 # ID: ID
@@ -19,7 +12,7 @@
     date:
       type: 'date'
       validator: Validators.and [
-      	Validators.date()
+        Validators.date()
       ]
     timeout:
       type: 'number'

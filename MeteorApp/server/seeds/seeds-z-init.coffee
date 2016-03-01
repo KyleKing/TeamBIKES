@@ -1,3 +1,6 @@
+# MUST be run last (that's why there is the z)
+
+# Seed the entire fake database using these methods:
 [today, now] = CurrentDay()
 if DailyBikeData.find({Day: today}).count() is 0
   Meteor.call('CreateDailyBikeData', 10, 4)
@@ -13,4 +16,4 @@ Meteor.call('Create_XbeeData')
 # Call mechanic notes because dependent on a set list of users:
 Meteor.call('Create_MechanicNotes')
 
-# Meteor.call('TestProject')
+Meteor.call('TestProject')
