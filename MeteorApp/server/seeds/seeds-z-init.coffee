@@ -13,7 +13,15 @@ if RFIDtags.find().count() is 0
 
 Meteor.call('Create_XbeeData')
 
+if RackNames.find().count() is 0
+  Meteor.call('Create_RackNames')
+
 # Call mechanic notes because dependent on a set list of users:
 Meteor.call('Create_MechanicNotes')
 
+# Dependent on DailyBikeData:
+if OuterLimit.find().count() is 0
+  Meteor.call('Create_OuterLimit')
+
+# Filler Chart data (unsorted)
 Meteor.call('TestProject')

@@ -1,19 +1,3 @@
-Meteor.methods 'Create_RFIDdata': ->
-  [today, now] = CurrentDay()
-  i = 0
-  while i < 1
-    RFIDdata.insert
-      USER_ID: i
-      LATITUDE: 38.991057
-      LONGITUDE: -76.938113
-      LOCKSTATEE: 1
-      Module_ID: Fake.word()
-      confirmation: 0
-      TIMESTAMP: now
-    i++
-  console.log 'Added RFID Data'
-  'ok'
-
 # ###*******************************************###
 
 # ###   TODO: Check for accounts without an RFID field and call this function          ###

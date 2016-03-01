@@ -8,20 +8,21 @@ Meteor.methods 'Delete_Users': ->
 
 Meteor.methods 'Delete_DailyBikeData': ->
   [today, now] = CurrentDay()
-  DailyBikeData.remove({ Day: { $lte:  today} })
+  DailyBikeData.remove({ 'Day': { $lte:  today} })
+  # Delete only most recent data:
   # DailyBikeData.remove({ Day: { $gte:  today} })
 
 Meteor.methods 'Delete_RackNames': ->
-  [today, now] = CurrentDay()
-  # DailyBikeData.remove({ Day: { $lt:  today} })
-  console.warn 'No data to delete'
-  'ok'
+  RackNames.remove({ $or: [
+    { 'Availability': { $lt: Math.exp(10, 10) }},
+    { 'Availability': { $eq: null }}
+  ]})
 
 Meteor.methods 'Delete_OuterLimit': ->
-  [today, now] = CurrentDay()
-  # DailyBikeData.remove({ Day: { $lt:  today} })
-  console.warn 'No data to delete'
-  'ok'
+  OuterLimit.remove({ $or: [
+    { 'attributes.OBJECTID': { $lt: Math.exp(10, 10) }},
+    { 'attributes.OBJECTID': { $eq: null }}
+  ]})
 
 Meteor.methods 'Delete_RFIDtags': ->
   [today, now] = CurrentDay()

@@ -7,26 +7,26 @@ describe 'seedData', ->
     done()
 
   it 'Should Create DailyBikeData then Clear it', (done) ->
-    Meteor.call('Create_DailyBikeData', 50, 1)
+    Meteor.call('Create_DailyBikeData')
     expect( DailyBikeData.find().count() ).toEqual(50)
     Meteor.call('Delete_DailyBikeData')
     expect( DailyBikeData.find().count() ).toEqual(0)
     done()
 
-  it 'Should Create RackNames then Clear it (NOT YET)', (done) ->
-    # Meteor.call('Create_RackNames')
-    # expect( RackNames.find().count() ).toEqual(6)
-    # Meteor.call('Delete_RackNames')
-    # expect( RackNames.find().count() ).toEqual(0)
-    expect(true).toEqual(true)
-    done()
+  it 'Should Create RackNames then Clear it', (done) ->
+    Meteor.call('Create_RackNames')
+    Meteor.setTimeout (->
+      expect( RackNames.find().count() ).toEqual(285)
+      Meteor.call('Delete_RackNames')
+      expect( RackNames.find().count() ).toEqual(0)
+      done()
+    ), 500
 
-  it 'Should Create OuterLimit then Clear it (NOT YET)', (done) ->
-    # Meteor.call('Create_OuterLimit')
-    # expect( OuterLimit.find().count() ).toEqual(6)
-    # Meteor.call('Delete_OuterLimit')
-    # expect( OuterLimit.find().count() ).toEqual(0)
-    expect(true).toEqual(true)
+  it 'Should Create OuterLimit then Clear it', (done) ->
+    Meteor.call('Create_OuterLimit')
+    expect( OuterLimit.find().count() ).toEqual(30)
+    Meteor.call('Delete_OuterLimit')
+    expect( OuterLimit.find().count() ).toEqual(0)
     done()
 
   it 'Should Create RFIDtags then Clear it', (done) ->

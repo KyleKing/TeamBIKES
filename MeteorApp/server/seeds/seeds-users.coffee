@@ -49,7 +49,11 @@ Meteor.methods 'Create_Users': ->
           name: user.FullName
           UID: user.UID
       )
-      Meteor.call( 'completeAccountRecord', id, user.RFID )
+      try
+        Meteor.call( 'completeAccountRecord', id, user.RFID )
+      catch error
+        console.log 'Failed to call completeAccountRecord'
+        throw error
       if user.Roles.length > 0
         Roles.addUsersToRoles id, user.Roles
 

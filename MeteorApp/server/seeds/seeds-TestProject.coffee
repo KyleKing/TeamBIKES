@@ -232,4 +232,4 @@ Meteor.methods 'TestProject': ->
       name: 'Potentiometer Data'
       data: [ 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 ]
 
-  console.log 'TestProject: Finished created several small datasets'.yellow
+  console.log 'TestProject: Finished created several small datasets. Yay?'.yellow

@@ -17,8 +17,8 @@ Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
   #   }, ...]
   # }
 
-  # Run asynchronously
-  @unblock()
+  # # Run asynchronously
+  # @unblock()
 
   console.log 'Started creating DailyBikeData data schema'
   j = 0
