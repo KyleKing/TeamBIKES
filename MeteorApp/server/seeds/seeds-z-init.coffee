@@ -24,4 +24,4 @@ if OuterLimit.find().count() is 0
   Meteor.call('Create_OuterLimit')
 
 # Filler Chart data (unsorted)
-Meteor.call('TestProject')
+Meteor.call('Create_TestProject')

@@ -35,3 +35,10 @@ Meteor.methods 'Delete_MechanicNotes': ->
 Meteor.methods 'Delete_XbeeData': ->
   [today, now] = CurrentDay()
   XbeeData.remove({ TIMESTAMP: { $lte:  now} })
+
+Meteor.methods 'Delete_TestProject': ->
+  RandMechanicNames.remove({ 'deleteFilter': { $lte:  2} })
+  BarChart.remove({ 'deleteFilter': { $lte:  2} })
+  AdminBarChart.remove({ 'deleteFilter': { $lte:  2} })
+  AdminAreaChart.remove({ 'deleteFilter': { $lte:  2} })
+  TestProject.remove({ 'deleteFilter': { $lte:  2} })

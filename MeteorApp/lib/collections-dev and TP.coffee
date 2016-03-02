@@ -1,3 +1,10 @@
+@TestProject = new (Meteor.Collection)('testProject')
+
+# Dev
+@RackNames = new Mongo.Collection 'racknames'
+@OuterLimit = new Mongo.Collection 'outerlimit'
+@XbeeData = new Mongo.Collection 'XbeeData'
+
 # Specific bike information: repairs, serial number, etc.
 @MechanicNotes = new Mongo.Collection 'mechanicNotes'
 # MechanicNotes.attachSchema new SimpleSchema(
@@ -77,3 +84,8 @@
 # #     type: [ String ]
 # #     optional: true)
 # # Meteor.users.attachSchema Schema.User
+
+# Used in user profile
+@BarChart = new (Meteor.Collection)('barchart')
+@AdminBarChart = new (Meteor.Collection)('adminbarchart')
+@AdminAreaChart = new (Meteor.Collection)('adminareachart')

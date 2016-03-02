@@ -6,6 +6,12 @@ Template.root.onCreated ->
   Meteor.subscribe('Pub_RFIDtags')
   Meteor.subscribe('Pub_MechanicNotes')
   Meteor.subscribe('Pub_XbeeData')
+  # TestProject:
+  Meteor.subscribe('Pub_RandMechanicNames')
+  Meteor.subscribe('Pub_BarChart')
+  Meteor.subscribe('Pub_AdminBarChart')
+  Meteor.subscribe('Pub_AdminAreaChart')
+  Meteor.subscribe('Pub_TestProject')
 
 Template.root.events
   "click button.action": (e) ->
@@ -26,6 +32,7 @@ Template.root.helpers
       'RFIDtags'
       'MechanicNotes'
       'XbeeData'
+      'TestProject'
     ]
     tableValues = []
     _.each collections, (collection) ->

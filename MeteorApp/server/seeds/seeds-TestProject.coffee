@@ -1,4 +1,4 @@
-Meteor.methods 'TestProject': ->
+Meteor.methods 'Create_TestProject': ->
   totalBikeCount = 200
   # Calculate current day of year without momentjs
   # Copied from: http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
@@ -192,6 +192,7 @@ Meteor.methods 'TestProject': ->
 
   if RandMechanicNames.find().count() == 0
     RandMechanicNames.insert
+      'deleteFilter': 1
       staff: mechanics
 
   if BarChart.find().count() == 0
@@ -200,36 +201,48 @@ Meteor.methods 'TestProject': ->
     _.times 7, ->
       randArray.push _.random(10, 30)
       return
-    BarChart.insert data: randArray
+    BarChart.insert
+      'deleteFilter': 1
+      data: randArray
 
   if AdminBarChart.find().count() == 0
     console.log 'Starting AdminBarChart with math!'
+
     randArray = []
     _.times 12, ->
       randArray.push _.random(40, 200)
-      return
     AdminBarChart.insert
+      'deleteFilter': 1
       name: '< 10 Minute Rides'
       data: randArray
+
     randArray = []
     _.times 12, ->
       randArray.push _.random(40, 200)
-      return
     AdminBarChart.insert
+      'deleteFilter': 1
       name: '10+ Minute Rides'
       data: randArray
+
     randArray = []
     _.times 12, ->
       randArray.push _.random(40, 200)
-      return
     AdminBarChart.insert
+      'deleteFilter': 1
       name: 'Off Campus Rides'
       data: randArray
 
   if AdminAreaChart.find().count() == 0
     console.log 'Starting AdminAreaChart with math!'
     AdminAreaChart.insert
+      'deleteFilter': 1
       name: 'Potentiometer Data'
       data: [ 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 ]
+
+  if TestProject.find().count() == 0
+    console.log 'Starting TestProject with math!'
+    TestProject.insert
+      'deleteFilter': 1
+      name: 'Blank Document'
 
   console.log 'TestProject: Finished created several small datasets. Yay?'.yellow
