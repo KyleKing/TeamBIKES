@@ -1,25 +1,23 @@
-colors.setTheme({
-  silly: 'rainbow',
-  input: 'grey',
-  verbose: 'cyan',
-  prompt: 'grey',
-  info: 'green',
-  data: 'grey',
-  help: 'cyan',
-  warn: 'yellow',
-  debug: 'blue',
-  error: 'red'
-});
+//server
 
+// console.log('bold'.bold                 ) // bold
+// console.log('italic'.italic             ) // italic
+// console.log('underline'.underline       ) // underline
+// console.log('yellow'.yellow             ) // yellow
+console.log('lightYellow'.lightYellow   ) // lightYellow
+// console.log('cyan'.cyan                 ) // cyan
+console.log('lightCyan'.lightCyan       ) // lightCyan
+// console.log('white'.white               ) // white
+console.log('lightWhite'.lightWhite     ) // lightWhite
+// console.log('magenta'.magenta           ) // magenta
+console.log('lightMagenta'.lightMagenta ) // lightMagenta
+// console.log('green'.green               ) // green
+console.log('lightGreen'.lightGreen     ) // lightGreen
+// console.log('red'.red                   ) // red
+console.log('lightRed'.lightRed         ) // lightRed
+// console.log('grey'.grey                 ) // grey
+console.log('lightGrey'.lightGrey       ) // lightGrey
+// console.log('blue'.blue                 ) // blue
+console.log('lightBlue'.lightBlue       ) // lightBlue
 
-if (Meteor.isServer) {
-	//server
-	console.log('red'.red)
-	console.log('green'.green)
-	console.log('blue'.blue)
-	console.log('~~~~~~'.grey)
-	console.log('R'.red + 'G'.green + 'B'.blue)
-	console.log('~~~~~~'.grey)
-	var test = 'ALLTHECOLORS';
-	console.log(test.silly);
-}
+// console.log('i like cake and pies'.bold.underline.red) // outputs red underlined text

@@ -1,6 +1,6 @@
 accounts-base@1.2.2
 accounts-password@1.1.4
-alanning:roles@1.2.14
+alanning:roles@1.2.15
 aldeed:moment-timezone@0.4.0
 amplify@1.0.0
 anti:fake@0.4.1
@@ -70,7 +70,7 @@ localstorage@1.0.5
 logging@1.0.8
 meteor@1.1.10
 meteor-base@1.0.1
-meteorhacks:kadira@2.28.1
+meteorhacks:kadira@2.28.2
 meteorhacks:meteorx@1.4.1
 meteortoys:allthings@2.3.1
 meteortoys:authenticate@2.1.0
@@ -100,7 +100,7 @@ mquandalle:jade-compiler@0.4.5
 mrt:underscore-string-latest@2.3.3
 msavin:jetsetter@1.5.2
 msavin:mongol@1.6.2
-nooitaf:colors@0.0.3
+nooitaf:terminal-colors@0.1.4
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
