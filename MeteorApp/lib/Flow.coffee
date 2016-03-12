@@ -30,6 +30,8 @@ flowTemplates = [
   'profile'
   'root'
 ]
+  # 'userform'
+
 _.each flowTemplates, (tmpl) ->
   route = '/' + if tmpl is 'about' then '' else tmpl
   FlowRouter.route route,

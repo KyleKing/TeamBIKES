@@ -90,3 +90,12 @@ email
 sanjo:jasmine
 velocity:html-reporter
 # velocity:console-reporter # seemed too distracting
+
+
+# JAGI WIP forms:
+jagi:astronomy-timestamp-behavior
+msavin:mongol
+random
+ejson
+check
+reactive-var
