@@ -11,6 +11,10 @@
   BikeIcon
 
 @MapInit = (mapInitSettings) ->
+
+  # Create Map
+  ################################################
+
   # Just to call for the bike variables and not an entire init
   if mapInitSettings.MapName != false
     # Create the Leaflet Map
@@ -54,6 +58,15 @@
     else
       # Quickly load map
       window[mapInitSettings.MapName].setView mapInitSettings.Center, 16
+      # Create popup with user guide
+      popup = L.popup()
+      popup.setLatLng mapInitSettings.Center
+      popup.setContent mapInitSettings.PopupGuide
+      popup.openOn window[mapInitSettings.MapName]
+
+    # TODO - mostly done
+    # Only for the user-map, see the bulk of the code there
+    ################################################
 
     # Add toggle button if requested
     if mapInitSettings.ShowClosestBikes
@@ -82,29 +95,9 @@
       if Session.get 'ShowClosestBikes'
         window.ShowClosestBikesToggle.state 'removing-markers'
 
-  # # Create toggle button for displaying bike rack locations
-  # # Below button does the toggling anyway
-  # ShowBikeRacksToggle = L.easyButton(states: [
-  #   {
-  #     stateName: 'show'
-  #     icon: 'fa-archive'
-  #     onClick: (control) ->
-  #       Session.set 'OptionalBikeRacks', true
-  #       console.log 'set OptionalBikeRacks true'
-  #       control.state 'hide'
-  #     title: 'Show Bike Rack Locations'
-  #   }
-  #   {
-  #     stateName: 'hide'
-  #     icon: 'fa-history'
-  #     onClick: (control) ->
-  #       Session.set 'OptionalBikeRacks', false
-  #       console.log 'set OptionalBikeRacks false'
-  #       control.state 'show'
-  #     title: 'Hide Bike Rack Locations'
-  #   }
-  # ])
-  # ShowBikeRacksToggle.addTo window[mapInitSettings.MapName]
+
+  # Bike Rack Locations - toggle icon or polyline
+  ################################################
 
   # Create toggle button for markers - more of a dev feature
   if mapInitSettings.ShowBikeRacksMarkerToggle
@@ -117,6 +110,7 @@
         onClick: (control) ->
           Session.set 'OptionalBikeRacksMarkers', true
           # Toggle Bike Racks to update subscription
+          # Make sure to initially set to = 0
           Session.set 'OptionalBikeRacks', 7
           console.log 'set OptionalBikeRacksMarkers to 7'
           control.state 'hide-markers'
@@ -138,43 +132,32 @@
     if Session.get 'OptionalBikeRacksMarkers'
       window.ShowBikeRacksMarkerToggle.state('hide-markers')
 
-  # Determine to show markers or not as standard
-  if isUndefined mapInitSettings.ShowBikeRacksMarkerToggle
-    Session.set 'OptionalBikeRacksMarkers', true
-  # Set to the inverse (i.e. for user ('Bike Map') who wants to see bike racks vs. admin who only wants outlines)
-  else if mapInitSettings.MapName is 'BikeMap'
-    Session.set 'OptionalBikeRacksMarkers', mapInitSettings.ShowBikeRacksMarkerToggle
-  else
-    Session.set 'OptionalBikeRacksMarkers', !mapInitSettings.ShowBikeRacksMarkerToggle
-
-  # Plot Bike Racks
   # Allow for user to toggle bike racks on and off
   if isUndefined Session.get 'OptionalBikeRacks'
     Session.set('OptionalBikeRacks', 0)
-
-  # Tracker.autorun ->
-  #   if Session.equals 'OptionalBikeRacks', 7
-  #     console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
-  #     Meteor.subscribe 'RackNamesGet', Session.get 'OptionalBikeRacks'
-  #     # # Wait to unsubscribe
-  #     # if RackNames.find().count() is 0
-  #     #   Session.set 'OptionalBikeRacks', true
-  #     # # Toggle Bike Racks to update subscription
-  #   if Session.equals 'OptionalBikeRacks', false
-  #     console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
-  #     Meteor.subscribe 'RackNamesGet', 7
-  # Meteor.subscribe('RackNamesGet', Session.get('OptionalBikeRacks'))
-  Meteor.subscribe('RackNamesGet', 7)
+  Tracker.autorun ->
+    if Session.equals 'OptionalBikeRacks', 7
+      console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+      Meteor.subscribe 'RackNamesGet', Session.get 'OptionalBikeRacks'
+    if Session.equals 'OptionalBikeRacks', false
+      console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+      Meteor.subscribe 'RackNamesGet', false
   # console.log "Session.get 'OptionalBikeRacks' is " + Session.get('OptionalBikeRacks')
 
+  # More complex if/else below, but this is easier:
+  Session.set 'OptionalBikeRacksMarkers', mapInitSettings.ShowBikeRacksMarkerToggle
+  # # Bike rack markers decision flags
+  # if isUndefined mapInitSettings.ShowBikeRacksMarkerToggle
+  #   Session.set 'OptionalBikeRacksMarkers', true
+  # # Set to the inverse (i.e. for user ('Bike Map') who wants to see bike racks vs. admin who only wants outlines)
+  # else if mapInitSettings.MapName is 'BikeMap'
+  #   Session.set 'OptionalBikeRacksMarkers', mapInitSettings.ShowBikeRacksMarkerToggle
+  # else
+  #   Session.set 'OptionalBikeRacksMarkers', !mapInitSettings.ShowBikeRacksMarkerToggle
 
-  # Subscribe to rest of data
-  Meteor.subscribe 'OuterLimitGet'
-  # Init Vars
   rackPositionMarkers = []
-  rackOutlinePolygons = []
-  # Watch bike racks for change in availability (not built yet)
   Tracker.autorun ->
+    # Watch bike racks for change in availability (not built yet)
     RackNames.find().observe
       added: (eachRackData) ->
         BikeIcon = IconLogic('BikeRack')
@@ -186,9 +169,9 @@
           console.log Session.get 'OptionalBikeRacks'
           rackPositionMarkers[eachRackData._id].addTo window[mapInitSettings.MapName]
 
-        # # Force re-run
-        # if Session.equals 'OptionalBikeRacks', 0
-        #   console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+        # Force re-run
+        if Session.equals 'OptionalBikeRacks', 0
+          console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
         # if Session.equals 'OptionalBikeRacks', 7
         #   console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
         rackOutlinePolygons[eachRackData._id] = L.polygon(eachRackData.Details, {
@@ -208,6 +191,13 @@
         delete rackPositionMarkers[eachRackData._id]
         delete rackOutlinePolygons[eachRackData._id]
 
+
+  # Create polyline of edge of supported range
+  ################################################
+
+  Meteor.subscribe 'OuterLimitGet'
+  rackOutlinePolygons = []
+  Tracker.autorun ->
     # Active area of bike map
     if mapInitSettings.DrawOutline
       campusOutlinePolygons = []
@@ -226,40 +216,9 @@
           window[mapInitSettings.MapName].removeLayer campusOutlinePolygons[oldOuterline._id]
           # Remove the reference to this marker instance
           delete campusOutlinePolygons[oldOuterline._id]
-        # Manually drawn from: http://www.latlong.net/
-        # polygon = L.polygon([
-        #   [ 39.000276, -76.943264 ]
-        #   [ 38.998642, -76.946397 ]
-        #   [ 38.992438, -76.951632 ]
-        #   [ 38.986300, -76.956096 ]
-        #   [ 38.985433, -76.955495 ]
-        #   [ 38.984733, -76.952019 ]
-        #   [ 38.983765, -76.952190 ]
-        #   [ 38.983532, -76.948543 ]
-        #   [ 38.981330, -76.946354 ]
-        #   [ 38.977527, -76.937985 ]
-        #   [ 38.983065, -76.937771 ]
-        #   [ 38.983131, -76.934423 ]
-        #   [ 38.983832, -76.933479 ]
-        #   [ 38.984833, -76.934423 ]
-        #   [ 38.984799, -76.937299 ]
-        #   [ 38.992671, -76.933093 ]
-        #   [ 38.993105, -76.935153 ]
-        #   [ 38.996074, -76.935325 ]
-        #   [ 38.996174, -76.937728 ]
-        #   [ 39.000243, -76.942277 ]
-        #   [ 39.001777, -76.940989 ]
-        #   [ 39.003244, -76.940818 ]
-        #   [ 39.003711, -76.942706 ]
-        #   [ 39.001210, -76.943436 ]
-        # ], {
-        #   fill: false
-        #   color: 'blue'
-        #   smoothFactor: 7
-        #   weight: 10
-        # }).addTo(window[mapInitSettings.MapName])
 
   # Bike icons
+  ################################################
   # Color choices: 'red', 'darkred', 'orange', 'green'
   # 'darkgreen', 'blue', 'purple', 'darkpuple', 'cadetblue'
 

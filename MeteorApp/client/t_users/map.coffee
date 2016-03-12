@@ -7,12 +7,12 @@ Template.map.rendered = ->
   MapInit
     MapName: 'BikeMap'
     LocateUser: false
-    DrawOutline: false
+    DrawOutline: true
     Center: coords
-    ShowClosestBikes: false
+    ShowClosestBikes: true
     FullScreenButton: true
     PopupGuide: 'Click any bike icon to reserve a bike for 5 minutes'
-    ShowBikeRacksMarkerToggle: false
+    ShowBikeRacksMarkerToggle: true
 
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
@@ -83,78 +83,81 @@ Template.map.rendered = ->
       # Remove the reference to this marker instance
       delete MapMarkers[oldBike._id]
 
+# WIP:
+################################################
+
 # Run autorun function on only map template
 Template.map.created = ->
   Session.set 'MapTemplate', true
 
-# Template.map.destroyed = ->
-#   # Call this function to properly remove any functions called in Map Init Function
-#   MapInitDestroyedFunction()
-#   Session.set 'MapTemplate', false
-#   window.MapObserveHandle.stop() # also stop observing DailyBikeData
+Template.map.destroyed = ->
+  # Call this function to properly remove any functions called in Map Init Function
+  MapInitDestroyedFunction()
+  Session.set 'MapTemplate', false
+  window.MapObserveHandle.stop() # also stop observing DailyBikeData
 
-# # DrawClosestBikes = () ->
-# Tracker.autorun ->
-#   # Run on only map template
-#   if Session.equals 'MapTemplate', true
-#     # console.log 'Autorun is auto-running!'
-#     # Remove old polylines
-#     unless isUndefined(window.LineToNearestBike) or isUndefined(window.LineToNearestBike[0])
-#       console.log 'removing old polylines'
-#       Num = 0
-#       while Num < window.LineToNearestBike.length
-#         # console.log window.LineToNearestBike[Num]._leaflet_id + ' removed from window.BikeMap on REMOVED event and...'
-#         window.BikeMap.removeLayer window.LineToNearestBike[Num]
-#         # # Remove the reference to this marker instance
-#         delete window.LineToNearestBike[Num]
-#         Num++
+# DrawClosestBikes = () ->
+Tracker.autorun ->
+  # Run on only map template
+  if Session.equals 'MapTemplate', true
+    # console.log 'Autorun is auto-running!'
+    # Remove old polylines
+    unless isUndefined(window.LineToNearestBike) or isUndefined(window.LineToNearestBike[0])
+      console.log 'removing old polylines'
+      Num = 0
+      while Num < window.LineToNearestBike.length
+        # console.log window.LineToNearestBike[Num]._leaflet_id + ' removed from window.BikeMap on REMOVED event and...'
+        window.BikeMap.removeLayer window.LineToNearestBike[Num]
+        # # Remove the reference to this marker instance
+        delete window.LineToNearestBike[Num]
+        Num++
 
-#     console.log "UserLocation = " + Session.get "UserLocation"
-#     console.log "ShowClosestBikes = " + Session.get "ShowClosestBikes"
-#     # If true, then plot lines to nearest bikes
-#     if Session.get "ShowClosestBikes"
-#       # Consider case of user without a GPS location
-#       if isUndefined Session.get "UserLocation"
-#         sAlert.warning('Your GPS location could not be found, using map center instead')
-#         center = window.BikeMap.getCenter()
-#       else
-#         center = Session.get "UserLocation"
+    console.log "UserLocation = " + Session.get "UserLocation"
+    console.log "ShowClosestBikes = " + Session.get "ShowClosestBikes"
+    # If true, then plot lines to nearest bikes
+    if Session.get "ShowClosestBikes"
+      # Consider case of user without a GPS location
+      if isUndefined Session.get "UserLocation"
+        sAlert.warning('Your GPS location could not be found, using map center instead')
+        center = window.BikeMap.getCenter()
+      else
+        center = Session.get "UserLocation"
 
-#       # Use MongoDB to find nearest bikes
-#       [today, now] = CurrentDay()
-#       closest = DailyBikeData.find(
-#         Day: today
-#         Tag: {$in: ['Available', Meteor.userId()]}
-#         Coordinates:
-#           $near: center
-#         ).fetch()
+      # Use MongoDB to find nearest bikes
+      [today, now] = CurrentDay()
+      closest = DailyBikeData.find(
+        Day: today
+        Tag: {$in: ['Available', Meteor.userId()]}
+        Coordinates:
+          $near: center
+        ).fetch()
 
-#       # Check error case and draw
-#       if closest.length is 0
-#         console.log 'No close bikes found'
-#       else
-#         # Init Vars
-#         console.log closest
-#         window.LineToNearestBike = []
-#         Num = 0
-#         while Num < 4
-#           window.LineToNearestBike[Num] = L.polyline([
-#             center
-#             closest[Num].Coordinates
-#           ], {
-#             color: 'blue'
-#             opacity: 1/(Num+1)
-#           }).addTo(window.BikeMap)
-#           Num++
-#         return
+      # Check error case and draw
+      if closest.length is 0
+        console.log 'No close bikes found'
+      else
+        # Init Vars
+        console.log closest
+        window.LineToNearestBike = []
+        Num = 0
+        while Num < 4
+          window.LineToNearestBike[Num] = L.polyline([
+            center
+            closest[Num].Coordinates
+          ], {
+            color: 'blue'
+            opacity: 1/(Num+1)
+          }).addTo(window.BikeMap)
+          Num++
+        return
 
-# Template.map.events
-#   'click #ClosestBikes': (e) ->
-#     # Toggle reactive data source
-#     if Session.get "ShowClosestBikes"
-#       Session.set "ShowClosestBikes": false
-#     else
-#       Session.set "ShowClosestBikes": true
+Template.map.events
+  'click #ClosestBikes': (e) ->
+    # Toggle reactive data source
+    if Session.get "ShowClosestBikes"
+      Session.set "ShowClosestBikes": false
+    else
+      Session.set "ShowClosestBikes": true
 
 
 # # then change view to only show revered bike and timer. Possibly only show bike rack locations as well??
