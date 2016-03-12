@@ -99,97 +99,118 @@
   # Bike Rack Locations - toggle icon or polyline
   ################################################
 
-  # Create toggle button for markers - more of a dev feature
-  if mapInitSettings.ShowBikeRacksMarkerToggle
-    # Create toggle button for displaying bike rack locations
-    window.ShowBikeRacksMarkerToggle = L.easyButton(states: [
-      {
-        stateName: 'show-markers'
-        # icon: 'fa-map-marker'
-        icon: 'fa-archive'
-        onClick: (control) ->
-          Session.set 'OptionalBikeRacksMarkers', true
-          # Toggle Bike Racks to update subscription
-          # Make sure to initially set to = 0
-          Session.set 'OptionalBikeRacks', 7
-          console.log 'set OptionalBikeRacksMarkers to 7'
-          control.state 'hide-markers'
-        title: 'Show Bike Rack Markers'
-      }
-      {
-        stateName: 'hide-markers'
-        icon: 'fa-history'
-        onClick: (control) ->
-          Session.set 'OptionalBikeRacksMarkers', false
-          # Toggle Bike Racks to update subscription
-          Session.set 'OptionalBikeRacks', 0
-          console.log 'set OptionalBikeRacksMarkers false'
-          control.state 'show-markers'
-        title: 'Hide Bike Rack Markers'
-      }
-    ])
-    window.ShowBikeRacksMarkerToggle.addTo window[mapInitSettings.MapName]
-    if Session.get 'OptionalBikeRacksMarkers'
-      window.ShowBikeRacksMarkerToggle.state('hide-markers')
+  # Removed in favor of a simpler system to display the bike racks as polygons
 
-  # Allow for user to toggle bike racks on and off
-  if isUndefined Session.get 'OptionalBikeRacks'
-    Session.set('OptionalBikeRacks', 0)
-  Tracker.autorun ->
-    if Session.equals 'OptionalBikeRacks', 7
-      console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
-      Meteor.subscribe 'RackNamesGet', Session.get 'OptionalBikeRacks'
-    if Session.equals 'OptionalBikeRacks', false
-      console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
-      Meteor.subscribe 'RackNamesGet', false
-  # console.log "Session.get 'OptionalBikeRacks' is " + Session.get('OptionalBikeRacks')
+  # # Create toggle button for markers - more of a dev feature
+  # if mapInitSettings.ShowBikeRacksMarkerToggle
+  #   # Create toggle button for displaying bike rack locations
+  #   window.ShowBikeRacksMarkerToggle = L.easyButton(states: [
+  #     {
+  #       stateName: 'show-markers'
+  #       # icon: 'fa-map-marker'
+  #       icon: 'fa-archive'
+  #       onClick: (control) ->
+  #         Session.set 'OptionalBikeRacksMarkers', true
+  #         # Toggle Bike Racks to update subscription
+  #         # Make sure to initially set to = 0
+  #         Session.set 'OptionalBikeRacks', 7
+  #         console.log 'set OptionalBikeRacksMarkers to 7'
+  #         control.state 'hide-markers'
+  #       title: 'Show Bike Rack Markers'
+  #     }
+  #     {
+  #       stateName: 'hide-markers'
+  #       icon: 'fa-history'
+  #       onClick: (control) ->
+  #         Session.set 'OptionalBikeRacksMarkers', false
+  #         console.log 'set OptionalBikeRacksMarkers false'
+  #         # Toggle Bike Racks to update subscription
+  #         Session.set 'OptionalBikeRacks', 0
+  #         control.state 'show-markers'
+  #       title: 'Hide Bike Rack Markers'
+  #     }
+  #   ])
+  #   window.ShowBikeRacksMarkerToggle.addTo window[mapInitSettings.MapName]
+  #   if Session.get 'OptionalBikeRacksMarkers'
+  #     window.ShowBikeRacksMarkerToggle.state('hide-markers')
 
-  # More complex if/else below, but this is easier:
-  Session.set 'OptionalBikeRacksMarkers', mapInitSettings.ShowBikeRacksMarkerToggle
-  # # Bike rack markers decision flags
-  # if isUndefined mapInitSettings.ShowBikeRacksMarkerToggle
-  #   Session.set 'OptionalBikeRacksMarkers', true
-  # # Set to the inverse (i.e. for user ('Bike Map') who wants to see bike racks vs. admin who only wants outlines)
-  # else if mapInitSettings.MapName is 'BikeMap'
-  #   Session.set 'OptionalBikeRacksMarkers', mapInitSettings.ShowBikeRacksMarkerToggle
-  # else
-  #   Session.set 'OptionalBikeRacksMarkers', !mapInitSettings.ShowBikeRacksMarkerToggle
+  # # Allow for user to toggle bike racks on and off
+  # # if isUndefined(mapInitSettings.OptionalBikeRacksMarkers) is false
+  # #   Session.set('OptionalBikeRacks', mapInitSettings.OptionalBikeRacksMarkers)
+  # if isUndefined Session.get 'OptionalBikeRacks'
+  #   Session.set('OptionalBikeRacks', 0)
+  #   Meteor.subscribe('RackNamesGet', 7)
 
+  # Tracker.autorun ->
+  #   if Session.equals 'OptionalBikeRacks', 7
+  #     console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+  #     Meteor.subscribe 'RackNamesGet', Session.get 'OptionalBikeRacks'
+  #   if Session.equals 'OptionalBikeRacks', 0
+  #     console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+  #     Meteor.subscribe 'RackNamesGet', false
+  # # console.log "Session.get 'OptionalBikeRacks' is " + Session.get('OptionalBikeRacks')
+
+  # # More complex if/else below, but this is easier:
+  # Session.set 'OptionalBikeRacksMarkers', mapInitSettings.ShowBikeRacksMarkerToggle
+  # # # Bike rack markers decision flags
+  # # if isUndefined mapInitSettings.ShowBikeRacksMarkerToggle
+  # #   Session.set 'OptionalBikeRacksMarkers', true
+  # # # Set to the inverse (i.e. for user ('Bike Map') who wants to see bike racks vs. admin who only wants outlines)
+  # # else if mapInitSettings.MapName is 'BikeMap'
+  # #   Session.set 'OptionalBikeRacksMarkers', mapInitSettings.ShowBikeRacksMarkerToggle
+  # # else
+  # #   Session.set 'OptionalBikeRacksMarkers', !mapInitSettings.ShowBikeRacksMarkerToggle
+
+  # rackPositionMarkers = []
+  # Tracker.autorun ->
+  #   # Watch bike racks for change in availability (not built yet)
+  #   RackNames.find().observe
+  #     added: (eachRackData) ->
+  #       if Session.equals 'OptionalBikeRacks', 7
+  #         BikeIcon = IconLogic('BikeRack')
+  #         rackPositionMarkers[eachRackData._id] = L.marker(eachRackData.Coordinates, {
+  #           icon: BikeIcon
+  #         })
+  #         console.log Session.get 'OptionalBikeRacks'
+  #         rackPositionMarkers[eachRackData._id].addTo window[mapInitSettings.MapName]
+
+  #       # Force re-run
+  #       if Session.equals 'OptionalBikeRacks', 0
+  #         console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+  #       # if Session.equals 'OptionalBikeRacks', 7
+  #       #   console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+  #       rackOutlinePolygons[eachRackData._id] = L.polygon(eachRackData.Details, {
+  #         fill: true
+  #         color: 'purple'
+  #         smoothFactor: 0
+  #         weight: 2
+  #       }).addTo window[mapInitSettings.MapName]
+  #       # _.each eachRackData.Details, (coord) ->
+  #       #   L.marker(coord, {icon: BikeIcon}).addTo window[mapInitSettings.MapName]
+  #     removed: (eachRackData) ->
+  #       # Remove the marker from the map
+  #       console.log rackPositionMarkers[eachRackData._id]._leaflet_id + ' removed on REMOVED event'
+  #       window[mapInitSettings.MapName].removeLayer rackPositionMarkers[eachRackData._id]
+  #       window[mapInitSettings.MapName].removeLayer rackOutlinePolygons[eachRackData._id]
+  #       # Remove the reference to this marker instance
+  #       delete rackPositionMarkers[eachRackData._id]
+  #       delete rackOutlinePolygons[eachRackData._id]
+
+  Meteor.subscribe('RackNamesGet', 7)
   rackPositionMarkers = []
-  Tracker.autorun ->
-    # Watch bike racks for change in availability (not built yet)
-    RackNames.find().observe
-      added: (eachRackData) ->
-        BikeIcon = IconLogic('BikeRack')
-        rackPositionMarkers[eachRackData._id] = L.marker(eachRackData.Coordinates, {
-          icon: BikeIcon
-        })
-        # if Session.get 'OptionalBikeRacksMarkers'
-        if Session.equals 'OptionalBikeRacks', 7
-          console.log Session.get 'OptionalBikeRacks'
-          rackPositionMarkers[eachRackData._id].addTo window[mapInitSettings.MapName]
-
-        # Force re-run
-        if Session.equals 'OptionalBikeRacks', 0
-          console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
-        # if Session.equals 'OptionalBikeRacks', 7
-        #   console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
-        rackOutlinePolygons[eachRackData._id] = L.polygon(eachRackData.Details, {
-          fill: true
-          color: 'purple'
-          smoothFactor: 0
-          weight: 2
-        }).addTo window[mapInitSettings.MapName]
-        # _.each eachRackData.Details, (coord) ->
-        #   L.marker(coord, {icon: BikeIcon}).addTo window[mapInitSettings.MapName]
-      removed: (eachRackData) ->
-        # Remove the marker from the map
-        console.log rackPositionMarkers[eachRackData._id]._leaflet_id + ' removed on REMOVED event'
-        window[mapInitSettings.MapName].removeLayer rackPositionMarkers[eachRackData._id]
-        window[mapInitSettings.MapName].removeLayer rackOutlinePolygons[eachRackData._id]
-        # Remove the reference to this marker instance
-        delete rackPositionMarkers[eachRackData._id]
-        delete rackOutlinePolygons[eachRackData._id]
+  RackNames.find().observe
+    added: (eachRackData) ->
+      rackOutlinePolygons[eachRackData._id] = L.polygon(eachRackData.Details, {
+        fill: true
+        color: 'purple'
+        smoothFactor: 0
+        weight: 2
+      }).addTo window[mapInitSettings.MapName]
+    removed: (eachRackData) ->
+      # Remove the marker from the map
+      console.log rackPositionMarkers[eachRackData._id]._leaflet_id + ' removed on REMOVED event'
+      window[mapInitSettings.MapName].removeLayer rackOutlinePolygons[eachRackData._id]
+      delete rackOutlinePolygons[eachRackData._id]
 
 
   # Create polyline of edge of supported range

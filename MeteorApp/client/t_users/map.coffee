@@ -12,7 +12,7 @@ Template.map.rendered = ->
     ShowClosestBikes: true
     FullScreenButton: true
     PopupGuide: 'Click any bike icon to reserve a bike for 5 minutes'
-    ShowBikeRacksMarkerToggle: true
+    ShowBikeRacksMarkerToggle: false
 
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
   # and leaflet specific: http://asynchrotron.com/blog/2013/12/28/realtime-maps-with-meteor-and-leaflet-part-2/
@@ -158,6 +158,5 @@ Template.map.events
       Session.set "ShowClosestBikes": false
     else
       Session.set "ShowClosestBikes": true
-
 
 # # then change view to only show revered bike and timer. Possibly only show bike rack locations as well??
