@@ -66,7 +66,6 @@
             Session.set "ShowClosestBikes": true
             console.log 'set ShowClosestBikes true'
             control.state 'removing-markers'
-            return
           title: 'Show nearest bikes'
         }
         {
@@ -76,7 +75,6 @@
             Session.set "ShowClosestBikes": false
             console.log 'set ShowClosestBikes false'
             control.state 'adding-markers'
-            return
           title: 'Undo'
         }
       ])
