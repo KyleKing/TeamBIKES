@@ -60,4 +60,4 @@ Meteor.methods 'Create_MechanicNotes': ->
         Notes: BikeNote.Notes
         Tag: BikeNote.Tag
 
-    console.log 'Create_MechanicNotes: Created small set of seed data'.yellow
+    console.log 'Create_MechanicNotes: Created small set of seed data'.lightYellow

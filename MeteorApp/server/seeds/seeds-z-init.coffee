@@ -25,3 +25,5 @@ if OuterLimit.find().count() is 0
 
 # Filler Chart data (unsorted)
 Meteor.call('Create_TestProject')
+
+console.log 'Completed seeds-z-init.coffee tasks in order'.lightYellow

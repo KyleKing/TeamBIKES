@@ -56,4 +56,4 @@ Meteor.methods 'Create_RackNames': ->
         Availability: rackData.attributes.Rack_Capac
       InsertedID = RackNames.insert doc
       RackDocs.push doc
-    console.log 'Create_RackNames: Imported UMD data'.yellow
+    console.log 'Create_RackNames: Imported UMD data'.lightYellow

@@ -19,4 +19,4 @@ Meteor.methods 'Create_XbeeData': ->
         'TIMESTAMP': now
       }
       XbeeData.insert XbeeObject
-    console.log 'Create_XbeeData: Refreshed XbeeData with manual list'.yellow
+    console.log 'Create_XbeeData: Refreshed XbeeData with manual list'.lightYellow

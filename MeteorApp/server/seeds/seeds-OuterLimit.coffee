@@ -18,6 +18,6 @@ Meteor.methods 'Create_OuterLimit': ->
           Details: BikeRackShapeData
           Optional: true
         InsertedID = OuterLimit.insert doc
-      console.log 'Create_OuterLimit: Imported campus boundary from UMD'.yellow
+      console.log 'Create_OuterLimit: Imported campus boundary from UMD'.lightYellow
     catch error
       throw error

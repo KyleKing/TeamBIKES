@@ -57,4 +57,4 @@ Meteor.methods 'Create_Users': ->
       if user.Roles.length > 0
         Roles.addUsersToRoles id, user.Roles
 
-  console.log 'Create_Users: Basic set of users with roles'.yellow
+  console.log 'Create_Users: Basic set of users with roles'.lightYellow

@@ -20,7 +20,7 @@ Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
   # # Run asynchronously
   # @unblock()
 
-  console.log 'Started creating DailyBikeData data schema'
+  console.log 'Started creating DailyBikeData data schema'.lightWhite
   j = 0
   while j < NumDays
     if DailyBikeData.find({Day: (today - j) }).count() is 0
@@ -57,12 +57,13 @@ Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
           countTime++
         dbd.save()
         i++
-      console.log 'Created DailyBikeData for ' + j + ' days behind today'
+      console.log 'Created DailyBikeData for ' + j + ' days behind today'.lightWhite
     j++
-  console.log 'CreateDailyBikeData: Done generating random DailyBikeData data'.yellow
+  console.log 'CreateDailyBikeData: Done generating random DailyBikeData data'.lightYellow
 
-  # Inform the Creator (Kyle)
-  info = 'CreateDailyBikeData finished. Currently ' +
-    DailyBikeData.find({Day: today}).count() +
-    ' bikes were found.'
-  Meteor.call('sendEmailUpdate', 'Hello from Meteor!', info)
+  # No longer necessary as it appears to work
+  # # Inform the Creator (Kyle)
+  # info = 'CreateDailyBikeData finished. Currently ' +
+  #   DailyBikeData.find({Day: today}).count() +
+  #   ' bikes were found.'
+  # Meteor.call('sendEmailUpdate', 'Hello from Meteor!', info)

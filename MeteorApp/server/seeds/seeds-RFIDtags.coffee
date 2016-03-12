@@ -11,4 +11,4 @@ Meteor.methods 'Create_RFIDtags': ->
       confirmation: 1
       TIMESTAMP: randomNow = now - (10000000 * Math.random())
     i++
-  console.log 'Create_RFIDtags: Basic set of RFID IDs'.yellow
+  console.log 'Create_RFIDtags: Basic set of RFID IDs'.lightYellow

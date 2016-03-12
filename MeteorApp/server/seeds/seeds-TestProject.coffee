@@ -245,4 +245,4 @@ Meteor.methods 'Create_TestProject': ->
       'deleteFilter': 1
       name: 'Blank Document'
 
-  console.log 'TestProject: Finished created several small datasets. Yay?'.yellow
+  console.log 'TestProject: Finished created several small datasets. Yay?'.lightYellow

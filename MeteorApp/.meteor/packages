@@ -90,4 +90,4 @@ email
 ### Preventing Regression ###
 sanjo:jasmine
 velocity:html-reporter
-velocity:console-reporter
+# velocity:console-reporter

@@ -57,7 +57,7 @@ ClearTaskBackups = (UserID, Task) ->
 Meteor.startup ->
   # Find any tasks stored in database and quickly run triage
   FutureTasks.find().forEach (Task) ->
-    console.log '\n~~~ Checking Current list of tasks: ~~~'
+    console.log '\n~~~ Checking Current list of tasks: ~~~'.lightMagenta
     console.log Task
 
     # If in the past, make action right away
