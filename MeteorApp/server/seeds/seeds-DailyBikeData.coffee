@@ -57,7 +57,7 @@ Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
           countTime++
         dbd.save()
         i++
-      console.log 'Created DailyBikeData for ' + j + ' days behind today'.lightWhite
+      console.log 'Created DailyBikeData for ' + j + ' days behind today'
     j++
   console.log 'CreateDailyBikeData: Done generating random DailyBikeData data'.lightYellow
 

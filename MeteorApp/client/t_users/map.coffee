@@ -11,7 +11,7 @@ Template.map.rendered = ->
     Center: coords
     ShowClosestBikes: false
     FullScreenButton: false
-    PopupGuide: 'Double click any bike icon to reserve a bike for 5 minutes'
+    PopupGuide: 'Click any bike icon to reserve a bike for 5 minutes'
     ShowBikeRacksMarkerToggle: false
 
   # Inspiration: http://meteorcapture.com/how-to-create-a-reactive-google-map/
