@@ -165,8 +165,9 @@
   #   if Session.equals 'OptionalBikeRacks', false
   #     console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
   #     Meteor.subscribe 'RackNamesGet', 7
-  Meteor.subscribe 'RackNamesGet', 7
-  console.log "Session.get 'OptionalBikeRacks' is " + Session.get('OptionalBikeRacks')
+  # Meteor.subscribe('RackNamesGet', Session.get('OptionalBikeRacks'))
+  Meteor.subscribe('RackNamesGet', 7)
+  # console.log "Session.get 'OptionalBikeRacks' is " + Session.get('OptionalBikeRacks')
 
 
   # Subscribe to rest of data
@@ -181,15 +182,15 @@
         BikeIcon = IconLogic('BikeRack')
         rackPositionMarkers[eachRackData._id] = L.marker(eachRackData.Coordinates, {
           icon: BikeIcon
-          })
+        })
         # if Session.get 'OptionalBikeRacksMarkers'
         if Session.equals 'OptionalBikeRacks', 7
           console.log Session.get 'OptionalBikeRacks'
           rackPositionMarkers[eachRackData._id].addTo window[mapInitSettings.MapName]
 
-        # Force re-run
-        if Session.equals 'OptionalBikeRacks', 0
-          console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
+        # # Force re-run
+        # if Session.equals 'OptionalBikeRacks', 0
+        #   console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
         # if Session.equals 'OptionalBikeRacks', 7
         #   console.log "Session.get 'OptionalBikeRacks' = " + Session.get 'OptionalBikeRacks'
         rackOutlinePolygons[eachRackData._id] = L.polygon(eachRackData.Details, {
