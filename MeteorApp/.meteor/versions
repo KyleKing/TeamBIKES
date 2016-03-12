@@ -48,7 +48,6 @@ htmljs@1.0.5
 http@1.1.1
 id-map@1.0.4
 jagi:astronomy@1.2.10
-jagi:astronomy-timestamp-behavior@1.1.0
 jagi:astronomy-validators@1.1.2
 jagi:reactive-map@2.0.0
 jquery@1.11.4
@@ -143,6 +142,7 @@ tracker@1.0.9
 ui@1.0.8
 underscore@1.0.4
 url@1.0.5
+useful:forms@1.0.4
 useraccounts:bootstrap@1.13.1
 useraccounts:core@1.13.1
 useraccounts:flow-routing@1.13.1
