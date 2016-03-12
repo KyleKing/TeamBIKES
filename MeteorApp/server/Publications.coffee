@@ -1,14 +1,12 @@
 allRoles = ['User', 'Mechanic', 'Employee', 'Redistribution', 'Admin', 'Root' ]
 
 # General Map Data Publications:
-
-# Meteor.publish 'RackNamesGet', (Optional) ->
-#   RackNames.find({Optional: Optional})
-# Meteor.publish 'RackPanel', ->
-#   RackNames.find()
-
-# Meteor.publish 'OuterLimitGet', ->
-#   OuterLimit.find()
+Meteor.publish 'RackNamesGet', (Optional) ->
+  RackNames.find({Optional: Optional})
+Meteor.publish 'RackPanel', ->
+  RackNames.find()
+Meteor.publish 'OuterLimitGet', ->
+  OuterLimit.find()
 
 # All bikes that a common user may see:
 Meteor.publish 'AvailableBikeLocationsPub', ->

@@ -8,7 +8,7 @@ Template.ManageBike.rendered = ->
     DrawOutline: false
     Center: [38.987701, -76.940989]
     ShowClosestBikes: false
-    FullScreenButton: false
+    FullScreenButton: true
     PopupGuide: false
     ShowBikeRacksMarkerToggle: false
 

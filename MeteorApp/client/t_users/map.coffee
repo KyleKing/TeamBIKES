@@ -10,7 +10,7 @@ Template.map.rendered = ->
     DrawOutline: false
     Center: coords
     ShowClosestBikes: false
-    FullScreenButton: false
+    FullScreenButton: true
     PopupGuide: 'Click any bike icon to reserve a bike for 5 minutes'
     ShowBikeRacksMarkerToggle: false
 
