@@ -1,6 +1,5 @@
 # Profile Logic
 ################################################
-
 Template.profile.events
   'click #deactivateRFID': ->
     oldRFID = Meteor.user().profile.RFID
@@ -32,7 +31,6 @@ Template.profile.helpers
 
 # RFID Form Logic
 ################################################
-
 Forms.mixin(Template.RFIDForm)
 
 Template.RFIDForm.rendered = ->
