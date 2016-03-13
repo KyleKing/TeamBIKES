@@ -30,14 +30,16 @@
 #     true
 #   fetch: [ 'owner' ]
 
+MechanicApproval = (userId) ->
+  approvedRoles = ['Root', 'Admin', 'Mechanic']
+  return Roles.userIsInRole(userId, approvedRoles)
+
 MechanicNotes.allow
   insert: (userId, doc) ->
-    # return (userId and doc.owner is userId)
-    false
+    return MechanicApproval(userId)
   update: (userId, doc, fields, modifier) ->
-    # return (userId and doc.owner is userId)
-    true
+    return MechanicApproval(userId)
   remove: (userId, doc) ->
-    # return (userId and doc.owner is userId)
-    true
+    return MechanicApproval(userId)
+
   fetch: [ 'owner' ]

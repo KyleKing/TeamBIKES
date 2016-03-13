@@ -7,6 +7,7 @@ table.table.table-hover.table-condensed
 			th Bike #
 			th Mechanic ID
 			th TimeStamp
+			th Notes
 			th Bike Tag
 	tbody
 		each noteFact
@@ -14,12 +15,16 @@ table.table.table-hover.table-condensed
 				td #{Bike}
 				td #{MechanicID}
 				td {{formatDate Timestamp "short"}}
+				td #{Notes}
 				td #{Tag}
 
 form
 	label(for='note') Mechanic Report Body Text:
 	each noteFact
-		textarea.form-control#mechNoteTextArea(rows='3' name='note')
-			{{Notes}}
+		textarea.form-control#mechNoteTextArea(rows='3' name='note') {{Notes}}
 	br
 	button.btn.btn-default(type='submit') Update Mechanic Note
+
+br
+h1 If necessary:
+button.btn.btn-danger#removeMechNote(type="button") Delete this Report
