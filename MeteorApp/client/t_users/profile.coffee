@@ -7,6 +7,10 @@ Template.USEFULFORM.rendered = ->
       RFIDCode = Meteor.user().profile.RFID
       if RFIDCode is 'signUp'
         RFIDCode = ''
+      re = /^deactivated/i
+      if RFIDCode.match(re)
+        console.log RFIDCode
+        RFIDCode = ''
       form.doc({
         fullName: Meteor.user().profile.name
         RFIDCode: RFIDCode
@@ -42,11 +46,26 @@ Template.USEFULFORM.events
       # we use the shorter version here for brevity
 
   'documentSubmit': (event, tmpl, doc) ->
-    # Note that documentSubmit will also pass the validated document
-    # as a parameter. This instance of the document object is NOT reactive.
-    # Contacts.insert(doc)
-    console.log doc
+    # console.log doc
+    Meteor.users.update(
+      {_id: Meteor.userId()},
+      {$set: { 'profile.RFID': doc.RFIDCode }}
+    )
 
+
+
+Template.profile.events
+  'click #deactivateRFID': ->
+    oldRFID = Meteor.user().profile.RFID
+    re = /^deactivated/i
+    if RFIDCode.match(re)
+      newRFID = 'deactivated-' + oldRFID
+    else
+      newRFID = oldRFID
+    Meteor.users.update(
+      {_id: Meteor.userId()},
+      {$set: { 'profile.RFID': newRFID }}
+    )
 
 Template.profile.helpers
   'userName': ->
