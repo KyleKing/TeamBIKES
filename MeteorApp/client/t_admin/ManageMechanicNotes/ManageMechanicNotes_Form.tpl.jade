@@ -1,0 +1,19 @@
+each noteFact
+	h1 View/Update #{MechanicID}'s Report:
+table.table.table-hover.table-condensed
+	//- Labels Row
+	thead
+		tr
+			th Bike #
+			th Mechanic ID
+			th TimeStamp
+			th Bike Tag
+	tbody
+		each noteFact
+			tr
+				td #{Bike}
+				td #{MechanicID}
+				td {{formatDate Timestamp "short"}}
+				td #{Tag}
+each noteFact
+	textarea.form-control(rows='3' placeholder='{{Notes}}')

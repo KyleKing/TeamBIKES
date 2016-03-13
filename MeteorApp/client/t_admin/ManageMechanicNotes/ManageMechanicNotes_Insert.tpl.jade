@@ -1,0 +1,25 @@
+h1 SHOULD BE A working FORM...
+form
+	.form-group
+		label(for='bikeNumber') Bike Number
+		input#bikeNumber.form-control(type='number' placeholder='3')
+	.form-group
+		label(for='tag') Update Bike Tag
+		select#tag.form-control
+			option(value="" disabled selected hidden) Make a selection...
+			option ToBeRedistributed
+			option RepairToBeStarted
+			option RepairInProgress
+			option WaitingOnParts
+			option Available
+	.form-group
+		label(for='MechNote') Report Body:
+		textarea#MechNote.form-control(rows='3')
+	button.btn.btn-primary(type='submit') Submit
+
+//- "_id": "2MbpZmwxz9j8WbAqE",
+//- "Bike": 1,
+//- "MechanicID": "fAZtodXubhN2GTJow",
+//- "Notes": "Reiri o caesalpencon rianre ac.",
+//- "Tag": "ToBeRedistributed",
+//- "Timestamp": UNIX...
