@@ -1,0 +1,55 @@
+h1 CurrentUser_Form
+each UserFact
+	h1 Contact {{profile.name}}
+	p Click this link to send an email from your preferred mail application,
+	a(href='{{mailToUser}}') {{emails.[0].address}}
+br
+table.table.table-hover.table-condensed
+	//- Labels Row
+	thead
+		tr
+			th Name
+			th createdAt
+			th Email Address
+			th Roles
+	//- Actual Bike Data
+	tbody
+		each UserFact
+			tr
+				td {{profile.name}}
+				td {{formatDate createdAt "shortest"}}
+				td {{emails.[0].address}}
+				td #{roles}
+				//- NOTE: Need the double {{ }}
+				//- otherwise the [0] and formatDate won't work
+
+br
+form
+	//- allRoles = ['User', 'Mechanic', 'Employee', 'Redistribution', 'Admin', 'Root' ]
+
+	input(type='checkbox' name='role' value='User' checked="{{isChecked 'UserVar'}}")
+	| User - Access to only available bike locations
+	br
+
+	input(type='checkbox' name='role' value='Mechanic' checked="{{isChecked 'MechanicVar'}}")
+	| Mechanic - Broader access and reporting
+	br
+
+	input(type='checkbox' name='role' value='Redistribution' checked="{{isChecked 'RedistributionVar'}}")
+	| Redistribution -
+	br
+
+	input(type='checkbox' name='role' value='Employee' checked="{{isChecked 'EmployeeVar'}}")
+	| Employee -
+	br
+
+	input(type='checkbox' name='role' value='Admin' checked="{{isChecked 'AdminVar'}}")
+	| Admin - Nearly complete access, but some limitations for security purposes
+	br
+
+	input(type='checkbox' name='role' value='Kyle' checked="{{isChecked 'KyleVar'}}")
+	| Kyle
+	br
+
+	br
+	button(type='submit') Update Roles

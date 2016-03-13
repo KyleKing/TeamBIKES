@@ -16,12 +16,6 @@ Template.ManageUsers_Form.helpers
   SelectedRow: ->
     Meteor.users.findOne {_id: FlowRouter.getParam ("IDofSelectedRow") }
 
-Template.CurrentUser_Form.helpers
-  UserFact: ->
-    Meteor.users.find {_id: FlowRouter.getParam ("IDofSelectedRow") }
-
-
-
 # Reactive Var Modulation example
 # Source: https://github.com/aldeed/meteor-tabular/issues/79
 Template.ManageUsers.created = ->
