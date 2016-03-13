@@ -26,5 +26,6 @@ Template.ManageMechanicNotes_Form.events
           {$set: { 'Notes': doc.note }}
         )
   'click #removeMechNote': ->
+    # Delete note and close slide in panel
     MechanicNotes.remove(_id: FlowRouter.getParam ("IDofSelectedRow"))
     FlowRouter.go('/Dashboard')
