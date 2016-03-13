@@ -2,12 +2,14 @@
 ################################################
 Template.profile.events
   'click #deactivateRFID': ->
+    console.log 'Deactivating user RFID Code'
     oldRFID = Meteor.user().profile.RFID
     re = /^deactivated/i
-    if RFIDCode.match(re)
-      newRFID = 'deactivated-' + oldRFID
-    else
+    if oldRFID.match(re)
+      # Already deactivated
       newRFID = oldRFID
+    else
+      newRFID = 'deactivated-' + oldRFID
     Meteor.users.update(
       {_id: Meteor.userId()},
       {$set: { 'profile.RFID': newRFID }}
@@ -52,7 +54,8 @@ Template.RFIDForm.rendered = ->
 
 Template.RFIDForm.events
   'documentSubmit': (event, tmpl, doc) ->
-    # console.log doc
+    console.log doc
+    console.log 'Updating user RFID Code'
     Meteor.users.update(
       {_id: Meteor.userId()},
       {$set: { 'profile.RFID': doc.RFIDCode }}

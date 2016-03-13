@@ -29,6 +29,14 @@ mix-nav-midnight( color-bg, display-type, color-main, color-bottom )
 		text-transform uppercase
 		width 100%
 		z-index 20
+		& .badge-notify.HaveRFID
+			display none
+		& .badge-notify.NeedRFID
+			color $brand-bright
+			position relative
+			right 15 px
+			top -5 px
+			width 0
 		// Logo
 		& .nav-brand
 			font-size 25px

@@ -11,6 +11,7 @@ nav.midnight-header
 			if currentUser
 				li
 					a(href="{{ pathFor 'profile' }}" class="{{ isActiveRoute regex='profile' }}") profile
+					.badge-notify.fa.fa-bell(class='{{RFIDeh}}')
 			if isInRole 'Admin,Root,Employee'
 				li
 					a(href="{{ pathFor 'Dashboard' }}" class="{{ isActiveRoute regex='\/dash\/*' }}") Dashboard
