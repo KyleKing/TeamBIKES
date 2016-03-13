@@ -1,7 +1,8 @@
 closeSlideInPanel = ->
   $('.cd-panel').removeClass 'is-visible'
   $('body').removeClass 'noscroll'
-  event.preventDefault()
+  if isUndefined(event)
+    event.preventDefault()
   # Remove tool tip as well
   $('.cd-panel-tooltip').removeClass 'visible'
   $('.tooltip-arrow-right').removeClass 'visible'
@@ -13,8 +14,8 @@ openSlideInPanel = ->
 
 # Make sure panel is open when go to specific link (i.e. someone shares a link)
 Template.layout.rendered = ->
-  console.log 'Template.layout.rendered ->'
-  console.log FlowRouter.getParam ("IDofSelectedRow")
+  # console.log 'Template.layout.rendered ->'
+  # console.log FlowRouter.getParam ("IDofSelectedRow")
   if FlowRouter.getParam ("IDofSelectedRow")
     openSlideInPanel()
 

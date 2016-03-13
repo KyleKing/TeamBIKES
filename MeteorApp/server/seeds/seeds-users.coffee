@@ -55,6 +55,6 @@ Meteor.methods 'Create_Users': ->
         console.log 'Failed to call completeAccountRecord'
         throw error
       if user.Roles.length > 0
-        Roles.addUsersToRoles id, user.Roles
+        Roles.addUsersToRoles(id, user.Roles)
 
   console.log 'Create_Users: Basic set of users with roles'.lightYellow
