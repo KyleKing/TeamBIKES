@@ -31,31 +31,25 @@ br
 			label
 				input(type='checkbox' name='role' value='User' checked="{{isChecked 'UserVar'}}")
 				| User - Access to only available bike locations
-		br
 		.checkbox
 			label
 				input(type='checkbox' name='role' value='Mechanic' checked="{{isChecked 'MechanicVar'}}")
 				| Mechanic - Broader access and reporting
-		br
 		.checkbox
 			label
 				input(type='checkbox' name='role' value='Redistribution' checked="{{isChecked 'RedistributionVar'}}")
 				| Redistribution -
-		br
 		.checkbox
 			label
 				input(type='checkbox' name='role' value='Employee' checked="{{isChecked 'EmployeeVar'}}")
 				| Employee -
-		br
 		.checkbox
 			label
 				input(type='checkbox' name='role' value='Admin' checked="{{isChecked 'AdminVar'}}")
 				| Admin - Nearly complete access, but some limitations for security purposes
-		br
 		.checkbox
 			label
 				input(type='checkbox' name='role' value='Admin' checked="{{isChecked 'AdminVar'}}")
 				| Root - Complete access
-		br
 		br
 		button(type='submit') Update Roles

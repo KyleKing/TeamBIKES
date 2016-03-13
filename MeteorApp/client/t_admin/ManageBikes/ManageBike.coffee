@@ -5,11 +5,11 @@ Template.ManageBike.rendered = ->
   MapInit
     MapName: 'ManageBikeMap'
     LocateUser: false
-    DrawOutline: true
+    DrawOutline: false
     Center: [38.987701, -76.940989]
     ShowClosestBikes: false
     FullScreenButton: true
-    PopupGuide: 'Darker icons are the most recent known coordinates'
+    PopupGuide: false
     ShowBikeRacksMarkerToggle: true
     # OptionalBikeRacksMarkers: 7
 
