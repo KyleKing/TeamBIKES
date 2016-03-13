@@ -2,6 +2,9 @@ closeSlideInPanel = ->
   $('.cd-panel').removeClass 'is-visible'
   $('body').removeClass 'noscroll'
   event.preventDefault()
+  # Remove tool tip as well
+  $('.cd-panel-tooltip').removeClass 'visible'
+  $('.tooltip-arrow-right').removeClass 'visible'
 openSlideInPanel = ->
   $('.cd-panel').addClass 'is-visible'
   $('body').addClass 'noscroll'
@@ -26,6 +29,6 @@ document.onkeydown = (evt) ->
   if evt.keyCode == 27
     console.log 'Escape key was pressed'
     closeSlideInPanel()
-    # Remove tool tip as well
-    $('.cd-panel-tooltip').removeClass 'visible'
-    $('.tooltip-arrow-right').removeClass 'visible'
+
+FlowRouter.triggers.exit ->
+  closeSlideInPanel()
