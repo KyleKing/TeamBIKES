@@ -26,28 +26,28 @@ Meteor.methods 'Create_MechanicNotes': ->
         MechanicID: Meteor.users.findOne({'roles': "Mechanic"})._id
         Timestamp: now - (10000000 * Math.random())
         Bike: 1
-        Notes: Fake.sentence()
+        Notes: Fake.sentence([10 + Math.floor(Math.random() * 20)])
         Tag: "ToBeRedistributed"
       }
       {
         MechanicID: Meteor.users.findOne({'roles': "Mechanic"})._id
         Timestamp: now - (10000000 * Math.random())
         Bike: 1
-        Notes: Fake.word()
+        Notes: Fake.sentence([10 + Math.floor(Math.random() * 20)])
         Tag: "ToBeRedistributed"
       }
       {
         MechanicID: Meteor.users.findOne({'roles': "Mechanic"})._id
         Timestamp: now - (10000000 * Math.random())
         Bike: 3
-        Notes: Fake.sentence()
+        Notes: Fake.sentence([10 + Math.floor(Math.random() * 20)])
         Tag: "ToBeRedistributed"
       }
       {
         MechanicID: Meteor.users.findOne({'roles': "Mechanic"})._id
         Timestamp: now - (10000000 * Math.random())
         Bike: 1
-        Notes: Fake.sentence()
+        Notes: Fake.sentence([10 + Math.floor(Math.random() * 20)])
         Tag: "ToBeRedistributed"
       }
     ]

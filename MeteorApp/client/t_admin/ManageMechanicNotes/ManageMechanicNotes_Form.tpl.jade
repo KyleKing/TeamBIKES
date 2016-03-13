@@ -15,5 +15,11 @@ table.table.table-hover.table-condensed
 				td #{MechanicID}
 				td {{formatDate Timestamp "short"}}
 				td #{Tag}
-each noteFact
-	textarea.form-control(rows='3' placeholder='{{Notes}}')
+
+form
+	label(for='note') Mechanic Report Body Text:
+	each noteFact
+		textarea.form-control#mechNoteTextArea(rows='3' name='note')
+			{{Notes}}
+	br
+	button.btn.btn-default(type='submit') Update Mechanic Note

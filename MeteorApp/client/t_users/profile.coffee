@@ -33,9 +33,9 @@ Template.profile.helpers
 
 # RFID Form Logic
 ################################################
-Forms.mixin(Template.RFIDForm)
+Forms.mixin(Template.profile)
 
-Template.RFIDForm.rendered = ->
+Template.profile.rendered = ->
   @autorun( ->
     form = Forms.instance()
     if Meteor.user()
@@ -52,7 +52,7 @@ Template.RFIDForm.rendered = ->
       })
   )
 
-Template.RFIDForm.events
+Template.profile.events
   'documentSubmit': (event, tmpl, doc) ->
     console.log doc
     console.log 'Updating user RFID Code'

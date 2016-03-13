@@ -30,17 +30,14 @@
 #     true
 #   fetch: [ 'owner' ]
 
-# MechanicNotes.allow
-#   insert: (userId, doc) ->
-#     # A safer alternative would be :
-#     # return (userId && doc.owner === userId);
-#     true
-#   update: (userId, doc, fields, modifier) ->
-#     # A safer alternative would be :
-#     # return doc.owner === userId;
-#     true
-#   remove: (userId, doc) ->
-#     # A safer alternative would be :
-#     # return doc.owner === userId;
-#     true
-#   fetch: [ 'owner' ]
+MechanicNotes.allow
+  insert: (userId, doc) ->
+    # return (userId and doc.owner is userId)
+    false
+  update: (userId, doc, fields, modifier) ->
+    # return (userId and doc.owner is userId)
+    true
+  remove: (userId, doc) ->
+    # return (userId and doc.owner is userId)
+    true
+  fetch: [ 'owner' ]

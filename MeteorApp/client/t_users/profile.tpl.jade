@@ -6,13 +6,17 @@
 				h1 Welcome back#{userName}!
 				p We have your ID card on file and you are all set to rent. If you have any issues, please call support and get a quick solution.
 				p If you ever misplace your RedBars ID, deactivate it here:
-				button#deactivateRFID Deactivate RFID Code
+				button.bt.btn-danger#deactivateRFID(type="button") Deactivate RFID Code
 				p Once you get a new card just enter the number below:
 			else
 				h1 Welcome#{userName}!
 				h3 You need to register your RedBars ID to rent your first bike
 				p Enter the code on the back of your card here:
-			+RFIDForm
+	    form
+	      label(for='RFIDCode') RedBars ID Code
+	      input(type='text' name='RFIDCode' value='{{doc.RFIDCode}}')
+	      button(type='submit') Update Code
+
 		.col-xs-12.col-md-6
 			h2 The past two week bike rides:
 			.chart
