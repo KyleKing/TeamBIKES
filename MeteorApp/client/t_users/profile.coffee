@@ -1,43 +1,11 @@
-options = {
-  # set helpers to false to disable extending your template with
-  # the forms helpers
-  helpers: true
-  # set events to false to disable extending your template with
-  # the forms events (so that no event handlers will be added to
-  # your template)
-  events: true
-  # Set the initial doc for your form
-  # doc: {
-  #   fullName: 'Kyle Keynesian'
-    # telephone: '(###) ###-####'
-  # }
-  # Set the schema for your form
-  schema: {}
-}
-Forms.mixin(Template.USEFULFORM, options)
-
-Template.USEFULFORM.data = ->
-  return {
-    fullName: 'Kyle Keynesian'
-    telephone: '(###) ###-####'
-  }
+Forms.mixin(Template.USEFULFORM)
 
 Template.USEFULFORM.rendered = ->
-  tmpl = @
-  # tmpl.data = {
-  #   fullName: 'Kyle Keynesian'
-  #   telephone: '(###) ###-####'
-  # }
   form = Forms.instance()
-  # for this example we assume that the data context of the template instance contains the document to be edited.
-  console.log 'tmpl.data'
-  console.log tmpl.data
   form.doc({
     fullName: 'Kyle Keynesian'
     telephone: '(###) ###-####'
   })
-  # form.doc(tmpl.data)
-
 
 Template.USEFULFORM.helpers
   'isBob': ->
