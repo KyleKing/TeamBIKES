@@ -1,21 +1,5 @@
+# Create useful:form
 Forms.mixin(Template.CurrentUser_Form)
-
-# # Template.CurrentUser_Form.rendered = ->
-# #   @autorun( ->
-# #     form = Forms.instance()
-# #     if Meteor.user()
-# #       RFIDCode = Meteor.user().profile.RFID
-# #       if RFIDCode is 'signUp'
-# #         RFIDCode = ''
-# #       re = /^deactivated/i
-# #       if RFIDCode.match(re)
-# #         console.log RFIDCode
-# #         RFIDCode = ''
-# #       form.doc({
-# #         fullName: Meteor.user().profile.name
-# #         RFIDCode: RFIDCode
-# #       })
-# #   )
 
 Template.CurrentUser_Form.events
   'documentSubmit': (event, tmpl, doc) ->
@@ -26,14 +10,18 @@ Template.CurrentUser_Form.events
       console.log 'No changed roles, ignoring attempt to submit form.'
     else
       # Determine actions necessary on server
-      changedRoles = {added: [], removed: []}
+      changedRoles = {added: [], removed: [], root: []}
       _.each(roles, (role) ->
-        if doc[role] is true
-          changedRoles.added.push(role)
-        else if doc[role] is false
-          changedRoles.removed.push(role)
+        if role is 'Root'
+          changedRoles.root.push(doc[role])
         else
-          throw new Error('Change in ' + role + ' role is not know')
+          if doc[role] is true
+            changedRoles.added.push(role)
+          else if doc[role] is false
+            changedRoles.removed.push(role)
+          else
+            throw new Error('Change in ' + role + ' role is not know')
+
       )
       Meteor.call('updateRoles', targetUserId, changedRoles)
       console.log changedRoles
