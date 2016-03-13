@@ -9,7 +9,7 @@ Template.ManageBike.rendered = ->
     Center: [38.987701, -76.940989]
     ShowClosestBikes: false
     FullScreenButton: true
-    PopupGuide: false
+    PopupGuide: 'Click a bike to learn more'
     ShowBikeRacksMarkerToggle: true
     # OptionalBikeRacksMarkers: 7
 
@@ -56,7 +56,7 @@ PlotAdminBikes = (RouteID) ->
         BikeIcon = IconLogic(BikeRecord.Tag)
         markers[PositionCount] = L.marker(latlng,
           title: PositionCount
-          opacity: PositionCount/NumDataPoints
+          opacity: PositionCount / NumDataPoints
           icon: BikeIcon).on("click", (e) ->
             # Highlight new bike
             @setIcon window.Selected

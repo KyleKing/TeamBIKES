@@ -1,34 +1,19 @@
 .nav-spacing
-.auto-signin
-	ul
-		li
-			button.cta-start.fill-login#root Root
-		li
-			button.cta-start.fill-login#admn Administrator
-		li
-			button.cta-start.fill-login#mech Mechanic (Employee)
-		li
-			button.cta-start.fill-login#user User
-
+.container
+	.row
+		.auto-signin
+			h1 Click one of these buttons to populate the sign in fields
+			p As this site is under development, there is no security worry and this gives you the opportunity to explore all of the functionality.
+			ul
+				li
+					button.cta-start.fill-login#root Root
+				li
+					button.cta-start.fill-login#admn Administrator
+				li
+					button.cta-start.fill-login#mech Mechanic (Employee)
+				li
+					button.cta-start.fill-login#user User
 .ab-cta
-	//- .container
-	//- 	.static-card.col-xs-12
-	//- 		h2 Sign Up Now for the Casual Rider Plan
-	//- 		p.card-content Register for your chance to be part of the first RedBar bike riders
-	//- 		.row
-	//- 			input.email(placeholder='UMD Email' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
-	//- 		.row
-	//- 			input.password(placeholder='Password' type='text').col-sm-6.col-sm-push-3.col-xs-12.col-xs-push-0
-	//- 		.row
-	//- 			label
-	//- 				input(type='checkbox' name='checkbox' value='value')
-	//- 				| I agree to the
-	//- 				a(href="{{ pathFor 'terms' }}") terms
-	//- 		.row
-	//- 			button.cta-start Submit
 	.container
 		.row
 			+atForm
-
-
-//- at-field-email and at-field-password

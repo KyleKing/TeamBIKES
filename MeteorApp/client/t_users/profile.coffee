@@ -14,6 +14,8 @@ Template.profile.events
       {_id: Meteor.userId()},
       {$set: { 'profile.RFID': newRFID }}
     )
+    # Should be reactive, but isn't
+    FlowRouter.go('/profile')
 
 Template.profile.helpers
   'userName': ->
