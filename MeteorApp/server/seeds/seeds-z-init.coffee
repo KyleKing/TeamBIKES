@@ -3,7 +3,7 @@
 # Seed the entire fake database using these methods:
 [today, now] = CurrentDay()
 if DailyBikeData.find({Day: today}).count() is 0
-  Meteor.call('CreateDailyBikeData', 10, 4)
+  Meteor.call('CreateDailyBikeData', 200, 2)
 
 if Meteor.users.find().count() is 0
   Meteor.call('Create_Users')

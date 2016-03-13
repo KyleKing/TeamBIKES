@@ -1,5 +1,5 @@
 Meteor.methods 'Create_DailyBikeData': ->
-  Meteor.call('CreateDailyBikeData', 50, 1)
+  Meteor.call('CreateDailyBikeData', 200, 1)
 
 Meteor.methods 'CreateDailyBikeData': (NumBikes, NumDays) ->
   [today, now] = CurrentDay()

@@ -68,6 +68,7 @@ useful:forms
 kyleking:tabular # data tables
 kyleking:tabular-column-search
 # kidovate:bootstrap-slider # input slider
+peernohell:c3
 # d3js:d3
 
 ### Seed Data ###
@@ -90,4 +91,4 @@ email
 ### Preventing Regression ###
 sanjo:jasmine
 velocity:html-reporter
-# velocity:console-reporter # seemed too distracting
+velocity:console-reporter # seemed too distracting

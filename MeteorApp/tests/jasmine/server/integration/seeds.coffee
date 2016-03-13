@@ -8,7 +8,7 @@ describe 'seedData', ->
 
   it 'Should Create DailyBikeData then Clear it', (done) ->
     Meteor.call('Create_DailyBikeData')
-    expect( DailyBikeData.find().count() ).toEqual(50)
+    expect( DailyBikeData.find().count() ).toEqual(200)
     Meteor.call('Delete_DailyBikeData')
     expect( DailyBikeData.find().count() ).toEqual(0)
     done()
