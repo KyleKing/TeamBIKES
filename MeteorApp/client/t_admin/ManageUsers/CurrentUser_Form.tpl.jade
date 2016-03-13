@@ -27,22 +27,35 @@ br
 .form-group
 	form
 		//- allRoles = ['User', 'Mechanic', 'Employee', 'Redistribution', 'Admin', 'Root' ]
-		input(type='checkbox' name='role' value='User' checked="{{isChecked 'UserVar'}}")
-		| User - Access to only available bike locations
+		.checkbox
+			label
+				input(type='checkbox' name='role' value='User' checked="{{isChecked 'UserVar'}}")
+				| User - Access to only available bike locations
 		br
-		input(type='checkbox' name='role' value='Mechanic' checked="{{isChecked 'MechanicVar'}}")
-		| Mechanic - Broader access and reporting
+		.checkbox
+			label
+				input(type='checkbox' name='role' value='Mechanic' checked="{{isChecked 'MechanicVar'}}")
+				| Mechanic - Broader access and reporting
 		br
-		input(type='checkbox' name='role' value='Redistribution' checked="{{isChecked 'RedistributionVar'}}")
-		| Redistribution -
+		.checkbox
+			label
+				input(type='checkbox' name='role' value='Redistribution' checked="{{isChecked 'RedistributionVar'}}")
+				| Redistribution -
 		br
-		input(type='checkbox' name='role' value='Employee' checked="{{isChecked 'EmployeeVar'}}")
-		| Employee -
+		.checkbox
+			label
+				input(type='checkbox' name='role' value='Employee' checked="{{isChecked 'EmployeeVar'}}")
+				| Employee -
 		br
-		input(type='checkbox' name='role' value='Admin' checked="{{isChecked 'AdminVar'}}")
-		| Admin - Nearly complete access, but some limitations for security purposes
+		.checkbox
+			label
+				input(type='checkbox' name='role' value='Admin' checked="{{isChecked 'AdminVar'}}")
+				| Admin - Nearly complete access, but some limitations for security purposes
 		br
-		input(type='checkbox' name='role' value='Admin' checked="{{isChecked 'AdminVar'}}")
-		| Root - Complete access
+		.checkbox
+			label
+				input(type='checkbox' name='role' value='Admin' checked="{{isChecked 'AdminVar'}}")
+				| Root - Complete access
+		br
 		br
 		button(type='submit') Update Roles

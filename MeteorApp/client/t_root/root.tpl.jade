@@ -1,12 +1,5 @@
 .nav-spacing
 .container
-	.row
-		h1 Content in development:
-		br
-		br
-		br
-
-.container
 	if isInRole 'Root'
 		.row
 			h1 Welcome back root user.
@@ -34,4 +27,6 @@
 							//- otherwise the [0] and formatDate won't work
 	else
 		.row
-			h1 The table is not available to you because you are not logged in as a root user.
+			h1 Access denied.
+			h3 The root control panel is only available to users with the root role
+			h3 Since this website is in development, try logging in as a root user for access

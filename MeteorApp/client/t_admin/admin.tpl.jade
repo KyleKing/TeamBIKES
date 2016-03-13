@@ -1,16 +1,16 @@
 .nav-spacing
 .container.admin-page
 	.row
-		h1 Welcome Back Superb Manager!
+		if isInRole 'Admin,Root'
+			h1 Welcome Back Superb Manager!
+		else
+			h1 Access denied.
 		p #{infoTxt}
 		br
-		if isInRole 'Admin,Root'
-			.row
-				+ManageBikes
-			.row
-				+ManageMechanicNotes
-			.row
-				+ManageUsers
-		else
-			.row
-				h1 The table is not available to you because you are not logged in as an admin user.
+	if isInRole 'Admin,Root'
+		.row
+			+ManageBikes
+		.row
+			+ManageMechanicNotes
+		.row
+			+ManageUsers
