@@ -136,14 +136,39 @@
 // 			width 75px
 
 .ab-pricing
+	align-items center
 	background-color white
 	display inline-flex
-	flex-flow row nowrap
+	flex-flow row
+	flex-wrap wrap
+	justify-content space-around
+	width 100%
 	& .static-card
+		background-color white
+		border 1px solid $secondary-bg-color
+		border-radius 10%
+		margin-bottom 20px
+		+above( $mobile )
+			& .focal
+				padding-bottom 40px
+				padding-top 40px
+		&:hover
+			border 2px solid $brand-highlight
+	& .inner-card
 		align-items center
 		display flex
-		// flex 1 0 100%
-		position relative
+		flex-flow column
+		margin 20px
+	& .icon-bg
+		background-color $brand-highlight
+		border-radius 50%
+		height 75px
+		text-align center
+		width 75px
+		& span.fa
+			color white
+			margin-top 21.5px
+			// margin-top ( 75px-32px )/ 2px
 	& .text-content
 		align-items center
 		color white
