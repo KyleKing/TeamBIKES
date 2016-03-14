@@ -11,30 +11,37 @@ template(name='ManageBike')
 	.row
 		#ManageBikeMap.float-map
 	.row
-		p Darker icons are the most recent known coordinates. Click on one to see more information here
+		if SelectedBike
+			table.table.table-hover.table-condensed
+				//- Labels Row
+				thead
+					tr
+						th Tag
+						th Rider
+						th Timestamp
+						th Coordinates
+				//- Actual Bike Data
+				tbody
+					with SelectedBike
+						tr
+							td {{Tag}}
+							td {{Rider}}
+							td {{formatDate Timestamp "short"}}
+							td {{Coordinates}}
+							//- NOTE: Need the double {{ }}
+							//- otherwise the [0] and formatDate won't work
+		else
+			p Darker icons are the most recent known coordinates. Click on one to see more information here
 
-		table.table.table-hover.table-condensed
-			//- Labels Row
-			thead
-				tr
-					th Name
-					th createdAt
-					th Email Address
-					th Roles
-			//- Actual Bike Data
-			tbody
-				tr
-					td profile.name
-					td formatDate createdAt "shortest"
-					td emails.[0].address
-					td roles
-					//- NOTE: Need the double {{ }}
-					//- otherwise the [0] and formatDate won't work
-
-	//- +quickForm collection="DailyBikeData" doc=SelectedRow id="updateDailyBikeDataForm" type="update"
-	//- +autoForm collection="DailyBikeData" doc=SelectedRow id="updateDailyBikeDataForm" type="update"
-	//-   fieldset
-	//-     legend Update Selected Bike History
-	//-     +afQuickField name='Bike'
-	//-     +afQuickField name='Positions'
-	//-   button.btn.btn-primary(type='submit') Update
+//- 	"_id": "rmPjEdo2YYhBqZhjn",
+//-   "Bike": 67,
+//-   "Day": 73,
+//-   "Tag": "RepairInProgress",
+//-   "Coordinates": [
+//-     38.98495,
+//-     -76.937011
+//-   ],
+//- Tag
+//- Rider
+//- Timestamp
+//- Coordinates

@@ -1,3 +1,14 @@
+Template.ManageBike.helpers
+  'SelectedBike': ->
+    # Access position in array based on bike icon clicked on
+    bikeNum = Session.get('SelectedBike_Position')
+    if bikeNum is false
+      return false
+    else
+      bike = DailyBikeData.findOne(FlowRouter.getParam("IDofSelectedRow"))
+      console.log bike.Positions[bikeNum]
+      return bike.Positions[bikeNum]
+
 Template.ManageBike.rendered = ->
   Meteor.subscribe("DailyBikeDataPub")
 
