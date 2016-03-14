@@ -23,6 +23,6 @@
 
 .container
 	.row
-		h1 &nbsp;
-		h1 (See your most recent rides)
-		+ManageBikes
+		h1 See your recent rides
+		p Click on any row to see the locations on a map
+		+tabular table=TabularTables.RecentRides selector=selector class="table table-striped table-hover table-bordered table-condensed" selector=currentSelector id="RecentRides"

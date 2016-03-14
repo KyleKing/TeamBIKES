@@ -82,3 +82,34 @@ TabularTables.ManageUsers = new (Tabular.Table)(
     { data: 'roles', title: 'Roles', class: 'roles'  }
     # { tmpl: Meteor.isClient && Template.LinkToSpecificUser, title: 'Link' }
   ])
+
+# For User Profile
+################################################
+# RecentRides
+TabularTables.RecentRides = new (Tabular.Table)(
+  name: 'RecentRides'
+  collection: DailyBikeData
+  autoWidth: false
+  allowFields: (userId, fields) ->
+    SecureTabular(userId, fields, ['User', 'Admin', 'Root'])
+  columns: [
+    { data: 'Bike', title: 'Bike' }
+    { data: 'Tag', title: 'Tag', class: 'Tag' }
+    {
+      data: 'Positions.0.Timestamp'
+      title: 'Timestamp'
+      render: (val, type, doc) ->
+        DateFormats =
+          shortest: 'hh:mm:ss a'
+          short: 'M-D-YY hh:mm a'
+          long: 'dddd DD.MM.YYYY hh:mm a'
+        if moment
+          format = DateFormats['short']
+          moment(val).format format
+        else
+          val
+    }
+    { data: 'Positions.0.Coordinates.0', title: 'Lat', class: 'Positions.0.Coordinates.0' }
+    { data: 'Positions.0.Coordinates.1', title: 'Lng', class: 'Positions.0.Coordinates.1' }
+  ]
+)
