@@ -91,59 +91,28 @@
 			flex 1 0 100%
 			max-width 800px
 
+.ab-expl-unlock
+	margin-top 40px
+.ab-distinction
+	marg( 0, 5%, 5%, 50px )
+	width 100%
+
 // // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // // Trio of Card elements
-// .pricing-container
-// 	background-color white
-
-// .ab-pricing
-// 	margin-bottom 30px
-// 	margin-top 30px
-// 	& button.nb-start
-// 		font-size 20px
-// 	& .static-card
-// 		+above( $desktop )
-// 			height 480px
-// 		border-radius 10%
-// 		border 1px solid #BDC3C7
-// 		height 400px
-// 		text-align center
-// 		&:hover
-// 			border 2px solid $brand-highlight
-// 		& .ab-pricing-bullets
-// 			marg( 0, auto, auto, 0 )
-// 			max-width 300px
-// 		& ul
-// 			text-align left
-// 			& li
-// 				margin-left 0
-// 		&.focal
-// 			height 450px
-// 			marg( 5px, 5px, 5px, 5px )
-// 			padd( 70px, 15px, 15px, 20px )
-// 		&.smaller
-// 			height 480px - 2*60px
-// 			marg( 60px, 5px, 5px, 60px )
-// 			padd( 20px, 15px, 15px, 20px )
-// 		// Add a circle background to icon
-// 		& i
-// 			background-color $brand-highlight
-// 			border-radius 50%
-// 			color white
-// 			height 75px
-// 			line-height 75px
-// 			vertical-align middle
-// 			width 75px
-
 .ab-pricing
 	align-items center
 	background-color white
 	display inline-flex
 	flex-flow row
 	flex-wrap wrap
+	margin-bottom 80px
 	justify-content space-around
 	width 100%
 	& .static-card
+		+above( $mobile )
+			& .focal
+				padding-bottom 40px
+				padding-top 40px
 		background-color white
 		border 1px solid $secondary-bg-color
 		border-radius 10%

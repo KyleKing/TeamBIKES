@@ -16,76 +16,42 @@
 				p.cta-quote.bold RedBar makes biking easy, affordable, and fun. Join now and be one of the first RedBar riders!
 
 .explanation-container
-	.full-explanation
-		.text-content
-			h3 Get Started and Unlock Your Bike
-			p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
-	.full-explanation
-		.unlock-img
-	.full-explanation
-		.text-content
-			h3 Return Your Bike
-			p Complete your rental by returning to any on-campus rack. Release the lock from the riding position and loop the lock through the hoop. If you need help finding a nearby rack,
-				a(href="{{ pathFor 'map' }}")
-					|  visit map
-				|  and look for the purple squares.
-	.full-explanation
-		.return-img
-	.full-explanation
-		.intro-expl-invert
-			h1 But that isn't all....
-	.full-explanation
-		.text-content
-			h3 Make a Reservation
-			p Visit the
-				a(href="{{ pathFor 'map' }}")
-					|  visit map
-				|  and click on any icon to reserve a RedBar bike for 5 minutes! This way, when you arrive at the rack, you are guaranteed a bike, but you are free to choose any bike you see on your way over.
-	.full-explanation
-		.ab-map-demo
+	.ab-distinction.ab-expl-unlock
+		.full-explanation
+			.text-content
+				h3 Get Started and Unlock Your Bike
+				p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
+		.full-explanation
+			.unlock-img
+
+	.ab-distinction.ab-expl-return
+		.full-explanation
+			.text-content
+				h3 Return Your Bike
+				p Complete your rental by returning to any on-campus rack. Release the lock from the riding position and loop the lock through the hoop. If you need help finding a nearby rack,
+					a(href="{{ pathFor 'map' }}")
+						|  visit map
+					|  and look for the purple squares.
+		.full-explanation
+			.return-img
+
+	//- .full-explanation
+	//- 	.intro-expl-invert
+	//- 		h1 But that isn't all....
+
+	.ab-distinction.ab-expl-map
+		.full-explanation
+			.text-content
+				h3 Make a Reservation
+				p Visit the
+					a(href="{{ pathFor 'map' }}")
+						|  visit map
+					|  and click on any icon to reserve a RedBar bike for 5 minutes! This way, when you arrive at the rack, you are guaranteed a bike, but you are free to choose any bike you see on your way over.
+		.full-explanation
+			.ab-map-demo
 
 .row.intro-expl-invert
 	h1 To Reserve a Spot in RedBars, Choose an Option Below:
-
-//- .pricing-container
-//- 	.container
-//- 		.row.ab-pricing
-//- 			.col-sm-4.col-xs-12
-//- 				.static-card.smaller
-//- 					.fa.fa-hourglass-2.fa-2x
-//- 					h2 Casual rider
-//- 					p See what makes RedBars so convenient!
-//- 					.ab-pricing-bullets
-//- 						ul
-//- 							li
-//- 								span Pay $2 per 15 minutes of riding
-//- 							li
-//- 								span No Commitment
-//- 					button.cta-start $2 per 15 min
-//- 			.col-sm-4.col-xs-12
-//- 				.static-card.focal
-//- 					.fa.fa-hand-paper-o.fa-2x
-//- 					h2 The Daily Rider
-//- 					p Ready to get hooked?
-//- 					.ab-pricing-bullets
-//- 						ul
-//- 							li
-//- 								span Five free rides per day
-//- 							li
-//- 								span Reduced cost for additional rides
-//- 					button.cta-start $15 per month
-//- 			.col-sm-4.col-xs-12
-//- 				.static-card.smaller
-//- 					.fa.fa-bolt.fa-2x
-//- 					h2 The Bike-aholic
-//- 					p No distance is too short for a quick ride!
-//- 					.ab-pricing-bullets
-//- 						ul
-//- 							li
-//- 								span UNLIMITED rides per day
-//- 							li
-//- 								span Access to Request a Bike program
-//- 					button.cta-start $25 per month
 
 .ab-pricing
 	.static-card.smaller
