@@ -12,7 +12,7 @@ Meteor.publish 'OuterLimitGet', ->
 Meteor.publish 'AvailableBikeLocationsPub', ->
   if Roles.userIsInRole(@userId, allRoles)
     [today, now] = CurrentDay()
-    DailyBikeData.find {Tag: 'Available', Day: today}, fields: Positions: 0
+    DailyBikeData.find({Tag: 'Available', Day: today}, fields: Positions: 0)
   else
     @stop()
 Meteor.publish 'ReservedBike', ->

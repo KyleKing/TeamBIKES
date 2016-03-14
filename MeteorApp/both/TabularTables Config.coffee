@@ -25,10 +25,10 @@ TabularTables.ManageBikes = new (Tabular.Table)(
       render: (val, type, doc) ->
         DateFormats =
           shortest: 'hh:mm:ss a'
-          short: 'hh:mm:ss a M-D-YY'
-          long: 'dddd DD.MM.YYYY hh:mm:ss a'
+          short: 'M-D-YY hh:mm a'
+          long: 'dddd DD.MM.YYYY hh:mm a'
         if moment
-          format = DateFormats['shortest']
+          format = DateFormats['short']
           moment(val).format format
         else
           val
@@ -47,7 +47,20 @@ TabularTables.ManageMechanicNotes = new (Tabular.Table)(
     SecureTabular(userId, fields, ['Admin', 'Root', 'Mechanic'])
   columns: [
     { data: 'MechanicID', title: 'MechanicID', class: 'MechanicID' }
-    { data: 'Timestamp', title: 'Timestamp' }
+    {
+      data: 'Timestamp'
+      title: 'Timestamp'
+      render: (val, type, doc) ->
+        DateFormats =
+          shortest: 'hh:mm:ss a'
+          short: 'M-D-YY hh:mm a'
+          long: 'dddd DD.MM.YYYY hh:mm a'
+        if moment
+          format = DateFormats['short']
+          moment(val).format format
+        else
+          val
+    }
     { data: 'Bike', title: 'Bike' }
     { data: 'Notes', title: 'Notes', class: 'Notes' }
     { data: 'Tag', title: 'Tag', class: 'Tag' }
