@@ -45,7 +45,7 @@
 				h3 Make a Reservation
 				p Visit the
 					a(href="{{ pathFor 'map' }}")
-						|  visit map
+						|  map
 					|  and click on any icon to reserve a RedBar bike for 5 minutes! This way, when you arrive at the rack, you are guaranteed a bike, but you are free to choose any bike you see on your way over.
 		.full-explanation
 			.ab-map-demo
@@ -53,8 +53,8 @@
 .row.intro-expl-invert
 	h1 To Reserve a Spot in RedBars, Choose an Option Below:
 
-.ab-pricing
-	.static-card.smaller
+#ab-pricing
+	.ab-static-card.smaller
 		.inner-card
 			.icon-bg
 				span.fa.fa-hourglass-2.fa-2x
@@ -67,7 +67,7 @@
 					li
 						span No Commitment
 			button.btn.btn-primary(type='button') $2 per 15 min
-	.static-card.focal
+	.ab-static-card.focal
 		.inner-card.focal
 			.icon-bg
 				span.fa.fa-hand-paper-o.fa-2x
@@ -80,7 +80,7 @@
 					li
 						span Reduced cost for additional rides
 			button.btn.btn-primary(type='button') $15 per month
-	.static-card.smaller
+	.ab-static-card.smaller
 		.inner-card
 			.icon-bg
 				span.fa.fa-bolt.fa-2x

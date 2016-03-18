@@ -77,38 +77,36 @@
 		color white
 		display flex
 		flex 1
-		flex-flow column wrap
+		flex-flow column nowrap
 		marg( 0, auto, auto, 0 )
 		padd( 45px, 45px, 45px, 45px )
 		position relative
 		text-align center
-		& a
-			color white
 		& h3
 			bord( 0, 0, 0, 4px, solid, lighten($primary-bg-color, 45%) )
-			flex 2 0 100%
 		& p
-			flex 1 0 100%
 			max-width 800px
+			& a
+				color white
 
 .ab-expl-unlock
 	margin-top 40px
 .ab-distinction
-	marg( 0, 5%, 5%, 50px )
+	marg( 0, 0, 0, 0 )
+	padd( 0, 5%, 5%, 50px )
 	width 100%
 
 // // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // // Trio of Card elements
-.ab-pricing
+#ab-pricing
 	align-items center
 	background-color white
 	display inline-flex
-	flex-flow row
-	flex-wrap wrap
+	flex-flow row wrap
 	margin-bottom 80px
 	justify-content space-around
 	width 100%
-	& .static-card
+	& .ab-static-card
 		+above( $mobile )
 			& .focal
 				padding-bottom 40px
@@ -117,10 +115,6 @@
 		border 1px solid $secondary-bg-color
 		border-radius 10%
 		margin-bottom 20px
-		+above( $mobile )
-			& .focal
-				padding-bottom 40px
-				padding-top 40px
 		&:hover
 			border 2px solid $brand-highlight
 	& .inner-card
