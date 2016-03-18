@@ -37,7 +37,9 @@ RemoveReservation = (UserID, Task) ->
   # Make all bikes reserved by this user available
   [today, now] = CurrentDay()
   count = DailyBikeData.find({ Tag: UserID }).count()
+  # console.log 'Pre count: ' + count
   DailyBikeData.update { Tag: UserID}, {$set: Tag: 'Available' }, multi: true
+  # console.log 'Post count: ' + DailyBikeData.find({ Tag: UserID }).count()
   ClearTaskBackups(UserID, Task)
   # Alert test environment of progress
   console.log 'Removed Reservation for: ' + count + ' bike tags'
@@ -46,12 +48,15 @@ RemoveReservation = (UserID, Task) ->
 ClearTaskBackups = (UserID, Task) ->
   # Remove both queued task and cron task, this allows the task to be run once
   FT = FutureTasks.findOne({ ID: UserID })
-  try
-    FT.remove()
-  catch err
-    console.warn 'No FutureTask Found' + err
-  SyncedCron.remove 'Destruct Reservation for ' + UserID
-  console.log 'Cleared: ' + UserID
+  if FT
+    try
+      FT.remove()
+    catch err
+      console.warn 'No FutureTask Found' + err
+    SyncedCron.remove 'Destruct Reservation for ' + UserID
+    console.log 'Cleared: ' + UserID
+  # else
+  #   console.log 'No FutureTask Found'
 
 
 Meteor.startup ->
@@ -75,15 +80,18 @@ Meteor.startup ->
     name: 'Update DB'
     schedule: (parser) ->
       # parser is a later.parse object
-      parser.text 'at 08:30'
+      # At UTC, so subtract 5 hours for my time
+      parser.text 'at 06:30'
     job: ->
       [today, now] = CurrentDay()
       info = 'Running CreateDailyBikeData'
       # Check to add a new day's worth of bike data
       Meteor.call 'CreateDailyBikeData', 65, 1
       # Alert Kyle
-      info = 'CreateDailyBikeData is in progress. Currently ' +
-        DailyBikeData.find({Day: today}).count() + ' were found.'
+      previously = DailyBikeData.find({Day: today}).count()
+      info = 'CreateDailyBikeData finished. Currently ' +
+        DailyBikeData.find({Day: today}).count() + ' were found. Previously ' +
+        previously + ' bikes were found.'
   SyncedCron.start()
 
 

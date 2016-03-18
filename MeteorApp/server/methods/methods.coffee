@@ -14,6 +14,7 @@ Meteor.methods 'UserReserveBike': (currentUserId, Bike) ->
     throw errMessage
   # Create cron task to delete reservation at set time interval
   Meteor.call('StartReservationCountdown', currentUserId, Bike)
+  0
 
 # Meteor.methods 'DeleteRacks': ->
 #   RackNames.remove( { "attributes.OBJECTID": { $lt:  100000} } )

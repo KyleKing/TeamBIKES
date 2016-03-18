@@ -198,6 +198,7 @@
 
   Meteor.subscribe('RackNamesGet', 7)
   rackPositionMarkers = []
+  rackOutlinePolygons = []
   RackNames.find().observe
     added: (eachRackData) ->
       rackOutlinePolygons[eachRackData._id] = L.polygon(eachRackData.Details, {
@@ -217,7 +218,6 @@
   ################################################
 
   Meteor.subscribe 'OuterLimitGet'
-  rackOutlinePolygons = []
   Tracker.autorun ->
     # Active area of bike map
     if mapInitSettings.DrawOutline
