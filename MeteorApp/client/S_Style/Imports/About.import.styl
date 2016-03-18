@@ -43,21 +43,25 @@
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Walk through
-
 // Images and Description
-.inspiration-img
-	img-fill( $std-element-height/2, 'about/TheInspiration.jpg', cover, center )
-.lock-img
-	img-fill( $std-element-height, 'about/TheLock.jpg', cover, center )
+
+// RFID
 .unlock-img
-	img-fill( $std-element-height, 'about/unlock.jpg', cover, center )
+	img-fill( $std-element-height, 'RFID.gif', cover, center )
+// Locking
 .return-img
 	img-fill( $std-element-height, 'about/lock.jpg', cover, center )
+// Web - Reservation
 .ab-map-demo
 	+above( $desktop )
 		img-fill( $std-element-height*1.25, 'Reserve.gif', cover, top )
 	+below( $desktop )
 		img-fill( $std-element-height/2, 'Reserve-small.gif', contain, center )
+// FAQ
+.inspiration-img
+	img-fill( $std-element-height/2, 'about/TheInspiration.jpg', cover, center )
+.lock-img
+	img-fill( $std-element-height, 'about/TheLock.jpg', cover, center )
 
 .intro-expl-invert
 	background-color white
