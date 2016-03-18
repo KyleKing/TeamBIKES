@@ -1,9 +1,28 @@
+// Custom login buttons
+#auto-signin.dev
+	align-items center
+	background-color $secondary-bg-color
+	color $nav-bg-color
+	display inline-flex
+	flex-flow column wrap
+	marg( 10px, auto, auto, 10px )
+	padd( 15px, auto, auto, 15px )
+	width 100%
+	& p.dev
+		text-align center
+	& ul.dev
+		align-items center
+		display flex
+		flex-flow row wrap
+		& li.dev
+			marg( auto, 10px, 10px, auto )
+
 // Login Form from Package:
 .at-form
 	+above( $desktop )
 		max-width 60%
 	+below( $desktop )
-		marg( 100px, 10px, 10px, inherit)
+		marg( 25px, 10px, 10px, 90px )
 	background-color white
 
 // body

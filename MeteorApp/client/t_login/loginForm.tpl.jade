@@ -1,18 +1,17 @@
 .nav-spacing
 .container
-	.row
-		.auto-signin
-			h1 Click one of these buttons to populate the sign in fields
-			p As this site is under development, there is no security worry and this gives you the opportunity to explore all of the functionality.
-			ul
-				li
-					button.cta-start.fill-login#root Root
-				li
-					button.cta-start.fill-login#admn Administrator
-				li
-					button.cta-start.fill-login#mech Mechanic (Employee)
-				li
-					button.cta-start.fill-login#user User
+	#auto-signin.dev
+		h3 Click one of these buttons to populate the sign in fields:
+		p.dev As this site is under development, these buttons give you the opportunity to explore all of the functionality!
+		ul.dev
+			li.dev
+				button.btn.btn-primary.fill-login(type='button')#root Root
+			li.dev
+				button.btn.btn-primary.fill-login(type='button')#admn Administrator
+			li.dev
+				button.btn.btn-primary.fill-login(type='button')#mech Mechanic (Employee)
+			li.dev
+				button.btn.btn-primary.fill-login(type='button')#user User
 .ab-cta
 	.container
 		.row
