@@ -1,12 +1,21 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%
 // Fixed cover photo
 .ab-background
-	+below( $desktop )
-		img-fill( 550px, 'about/cover.jpg', cover, center )
-	img-fill( 650px, 'about/cover.jpg', cover, center )
 	position absolute
 	top 0
 	z-index -1
+// Actual image with lower resolution for mobile:
+#the-hero-img
+	+above( $desktop )
+		img-fill( 650px, 'about/cover.jpg', cover, center )
+	+below( $desktop )
+		img-fill( 550px, 'about/cover.jpg', cover, center )
+#the-team-img
+	+above( $desktop )
+		img-fill( 600px, 'Resources/OGImage.png', cover, center )
+	+below( $desktop )
+		img-fill( 500px, 'Resources/OGImage.png', cover, bottom )
+
 // Welcome Text
 .block-text
 	+below( $desktop )
@@ -159,8 +168,11 @@
 			max-width 800px
 
 footer.ab-footer
-	background-color RGBA( 39, 40, 51, 1 )
-	padd( 25px, 0, 0, 25px )
+	background-color $text-color
+	padd( 50px, 0, 0, 50px )
 	text-align center
 	& a
 		color white
+		text-decoration none
+		&:hover
+			text-decoration underline
