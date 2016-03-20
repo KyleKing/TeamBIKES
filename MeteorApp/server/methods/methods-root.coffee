@@ -8,7 +8,8 @@ Meteor.methods 'Delete_Users': ->
 
 Meteor.methods 'Delete_DailyBikeData': ->
   [today, now] = CurrentDay()
-  DailyBikeData.remove({ 'Day': { $lte:  today} })
+  # DailyBikeData.remove({ 'Day': { $lte:  today} })
+  DailyBikeData.remove({ 'Tag': { $ne:  'klb'} })
   # Delete only most recent data:
   # DailyBikeData.remove({ Day: { $gte:  today} })
 

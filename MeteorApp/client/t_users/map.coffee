@@ -146,7 +146,7 @@ Tracker.autorun ->
             closest[Num].Coordinates
           ], {
             color: 'blue'
-            opacity: 1/(Num+1)
+            opacity: 1 / (Num + 1)
           }).addTo(window.BikeMap)
           Num++
         return

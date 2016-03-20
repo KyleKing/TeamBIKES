@@ -53,7 +53,7 @@ juliancwirko:s-alert-stackslide # animation style
 #### Tools ####
 mrt:underscore-string-latest # Lots of functions
 momentjs:moment # Date and Time
-aldeed:moment-timezone
+# aldeed:moment-timezone
 # nooitaf:colors -> wouldn't work, so used below
 nooitaf:terminal-colors
 
