@@ -37,7 +37,7 @@ Template.profile.helpers
 ################################################
 Forms.mixin(Template.profile)
 
-Template.profile.rendered = ->
+Template.profile.onRendered ->
   @autorun( ->
     form = Forms.instance()
     if Meteor.user()
@@ -66,12 +66,12 @@ Template.profile.events
 # Fancy Chart
 ################################################
 
-Template.profile.rendered = ->
+Template.profile.onRendered ->
   Session.set('x', ['x', "Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"])
   Session.set('Last Week', ['Last Week', 2, 6, 10, 2, 11, 15, 8])
   Session.set('This Week', ['This Week', 15, 8, 9, 3, 4, 0])
   chart = c3.generate({
-    bindto: @find('.chart')
+    bindto: @find('.profile-chart')
     data: {
       xs: {
         'Last Week': 'x'

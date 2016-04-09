@@ -22,10 +22,14 @@ Template.map.rendered = ->
     "available": true
 
   [today, now] = CurrentDay()
+  console.log 'Today: ' + today
+  console.log 'now: ' + now
+  console.log 'Count: ' + DailyBikeData.find().count()
   window.MapObserveHandle = DailyBikeData.find({ Day: today, Tag: {$in: ['Available', Meteor.userId()] }}).observe
     added: (bike) ->
       latlng = bike.Coordinates
       BikeIcon = IconLogic(bike.Tag)
+      console.log 'ADDED!'
       MapMarkers[bike._id] = L.marker(latlng,
         title: bike.Bike
         opacity: 0.75
