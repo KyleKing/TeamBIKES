@@ -21,7 +21,7 @@ var clc = require('cli-color'),
 
 var PythonShell = require('python-shell'),
   pyshell = new PythonShell('lcd.py');
-pyshell.send('Coordinator Initialized');
+pyshell.send('Coordinator     Initialized');
 // pyshell.on('message', function (message) {
 //   // console.log('Received from pyshell: ' + message);
 // });
@@ -36,8 +36,8 @@ xbeeAPI = new xbee_api.XBeeAPI({
 });
 
 
-var currentHost = ['localhost', 3000];
-// var currentHost = ['redbarbikes.com', 80];
+// var currentHost = ['localhost', 3000];
+var currentHost = ['redbarbikes.com', 80];
 var serialport = require('serialport'),
   SerialPort = serialport.SerialPort,
   DDPClient = require('ddp');
@@ -60,7 +60,7 @@ function parseInput(frame) {
     Module_ID: array[4],
     TIMESTAMP: (new Date).getTime()
   };
-  pyshell.send(dataSet.USER_ID + ' ' + dataSet.LOCKSTATE+ ' ' +
+  pyshell.send('UID:' + dataSet.USER_ID + ' LS:' + dataSet.LOCKSTATE+ ' M_ID:' +
     dataSet.Module_ID);
   console.log('>> Sending to Meteor:');
   console.log(dataSet);
@@ -94,6 +94,9 @@ ddpclient.connect(function(error) {
         // On the Raspberry Pi the ports appear differently
         if (port.serialNumber.match(/arduino/gi)) {
           arduino_createSerial(port.comName);
+        }
+        if (port.comName.match(/\/dev\/ttyUSB*/)) {
+          xbee_createSerial(port.comName);
         }
       }
     });
@@ -138,6 +141,7 @@ arduino_createSerial = function(currentPort) {
 
 
 xbee_createSerial = function(currentPort) {
+  pyshell.send('Connected to    ' + currentPort);
   console.log(warn('Created New Serial Port Connection to ' +
     currentPort));
   var xbee_serialPort = new SerialPort(currentPort, {
@@ -166,8 +170,9 @@ xbee_createSerial = function(currentPort) {
       dataSet = parseInput(frame);
       // Not sure if this is necessary:
       // if dataSet.USER_ID isnt lastID
-      if (true === true && false === false) {
-        lastID = dataSet.USER_ID;
+      // Check that USER_ID is defined
+      if (dataSet.USER_ID != undefined) {
+        // lastID = dataSet.USER_ID;
         return ddpclient.call('RFIDStreamData', [dataSet], function(err, res) {
           var frame_obj;
           if (res !== void 0 && res.data !== void 0) {
@@ -192,7 +197,8 @@ xbee_createSerial = function(currentPort) {
           return console.log('');
         });
       } else {
-        return console.log('Received a duplicate frame');
+
+        return console.log(warn('Dataset is undefined'));
       }
     }
   });
