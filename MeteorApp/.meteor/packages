@@ -51,7 +51,7 @@ fortawesome:fontawesome
 timmyg:wow # animation library
 # natestrauser:animate-css
 juliancwirko:s-alert # Banner alerts
-juliancwirko:s-alert-stackslide # animation style
+juliancwirko:s-alert-slide # animation style
 
 #### Tools ####
 mrt:underscore-string-latest # Lots of functions
