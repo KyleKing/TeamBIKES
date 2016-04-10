@@ -28,6 +28,8 @@
 
 Meteor.methods 'RFIDStreamData': (dataSet) ->
   console.log '--------------------'
+  ReservationEvents.insert(dataset)
+  console.log 'Added incoming dataset to ReservationEvents collection'
   # Check user RFID code against database record set in seeds-admin
   RFIDCODE = dataSet.USER_ID
   hits = Meteor.users.find({'profile.RFID': RFIDCODE}).count()

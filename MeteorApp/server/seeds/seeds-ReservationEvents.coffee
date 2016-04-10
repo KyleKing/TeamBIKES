@@ -1,6 +1,6 @@
 Meteor.methods 'Create_ReservationEvents': ->
   ReservationEvents.insert({
-    USER_ID: 'Kyle'
+    USER_ID: 'FAKE DATA'
     LATITUDE: 12134.234234
     LONGITUDE: '12134.234234'
     LOCKSTATE: 1
