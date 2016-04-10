@@ -12,6 +12,8 @@ Template.root.onCreated ->
   Meteor.subscribe('Pub_AdminBarChart')
   Meteor.subscribe('Pub_AdminAreaChart')
   Meteor.subscribe('Pub_TestProject')
+  # Extra Table only on root for monitoring Raspberry Pi connection:
+  Meteor.subscribe('Pub_ReservationEvents')
 
 Template.root.events
   "click button.action": (e) ->
@@ -33,6 +35,7 @@ Template.root.helpers
       'MechanicNotes'
       'XbeeData'
       'TestProject'
+      'ReservationEvents'
     ]
     tableValues = []
     _.each collections, (collection) ->
@@ -46,11 +49,12 @@ Template.root.helpers
     return tableValues
 
   requestEvent: ->
-    return [{
-      USER_ID: 'Kyle'
-      LATITUDE: 12134.234234
-      LONGITUDE: '12134.234234'
-      LOCKSTATE: 1
-      Module_ID: 'asf23ry23ihbdhflaksd'
-      TIMESTAMP: (new Date).getTime()
-    }]
+    # return [{
+    #   USER_ID: 'Kyle'
+    #   LATITUDE: 12134.234234
+    #   LONGITUDE: '12134.234234'
+    #   LOCKSTATE: 1
+    #   Module_ID: 'asf23ry23ihbdhflaksd'
+    #   TIMESTAMP: (new Date).getTime()
+    # }]
+    return ReservationEvents.find()

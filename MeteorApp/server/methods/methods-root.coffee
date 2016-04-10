@@ -43,3 +43,6 @@ Meteor.methods 'Delete_TestProject': ->
   AdminBarChart.remove({ 'deleteFilter': { $lte:  2} })
   AdminAreaChart.remove({ 'deleteFilter': { $lte:  2} })
   TestProject.remove({ 'deleteFilter': { $lte:  2} })
+
+Meteor.methods 'Delete_ReservationEvents': ->
+  ReservationEvents.remove({ TIMESTAMP: { $lte:  (new Date).getTime() } })

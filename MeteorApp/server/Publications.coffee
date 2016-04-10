@@ -88,6 +88,11 @@ Meteor.publish 'Pub_AdminAreaChart', ->
 Meteor.publish 'Pub_TestProject', ->
   TestProject.find()
 
+# Dev: New for monitoring Raspberry Pi connection:
+Meteor.publish 'Pub_ReservationEvents', ->
+  ReservationEvents.find()
+
+
 # Meteor.publish "ManageBikes", ->
 #   DailyBikeData.find({Tag: {$ne: "Removed"}}, {fields: {Positions: 0}})
 

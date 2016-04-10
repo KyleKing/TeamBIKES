@@ -1,3 +1,7 @@
+# Dev: New for monitoring Raspberry Pi connection
+@ReservationEvents = new Mongo.Collection 'reservationEvents'
+
+
 @TestProject = new (Meteor.Collection)('testProject')
 
 # Dev
