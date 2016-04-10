@@ -44,3 +44,13 @@ Template.root.helpers
         clear: 'Delete_' + cln
       })
     return tableValues
+
+  requestEvent: ->
+    return [{
+      USER_ID: 'Kyle'
+      LATITUDE: 12134.234234
+      LONGITUDE: '12134.234234'
+      LOCKSTATE: 1
+      Module_ID: 'asf23ry23ihbdhflaksd'
+      TIMESTAMP: (new Date).getTime()
+    }]

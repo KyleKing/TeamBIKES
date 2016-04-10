@@ -25,6 +25,32 @@
 								button.clear(id=clear) Clear Collection
 							//- NOTE: Need the double {{ }}
 							//- otherwise the [0] and formatDate won't work
+		.row
+			br
+			h4 Bike Access Request Table
+			p See all live requests to the reservation system
+		.row
+			table.table.table-hover.table-condensed
+				thead
+					tr
+						th USER_ID
+						th LATITUDE
+						th LONGITUDE
+						th LOCKSTATE
+						th Module_ID
+						th TIMESTAMP
+				tbody
+					each requestEvent
+						tr
+							td {{USER_ID}}
+							td {{LATITUDE}}
+							td {{LONGITUDE}}
+							td {{LOCKSTATE}}
+							td {{Module_ID}}
+							td {{TIMESTAMP}}
+		.row
+			br
+
 	else
 		.row
 			h1 Access denied.
