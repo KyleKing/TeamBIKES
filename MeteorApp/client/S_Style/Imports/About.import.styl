@@ -6,10 +6,16 @@
 	z-index -1
 // Actual image with lower resolution for mobile:
 #the-hero-img
-	+above( $desktop )
-		img-fill( 650px, 'about/cover.jpg', cover, center )
-	+below( $desktop )
-		img-fill( 550px, 'about/cover.jpg', cover, center )
+	height 100%
+	width auto
+	// +above( $desktop )
+	// 	height 650px
+	// +below( $desktop )
+	// 	height 550px
+// 	+above( $desktop )
+// 		img-fill( 650px, 'about/cover.jpg', cover, center )
+// 	+below( $desktop )
+// 		img-fill( 550px, 'about/cover.jpg', cover, center )
 #the-team-img
 	+above( $desktop )
 		img-fill( 600px, 'Resources/OGImage.png', cover, center )
@@ -57,6 +63,17 @@
 // RFID
 .unlock-img
 	img-fill( $std-element-height, 'RFID.gif', cover, center )
+
+// Guide
+.tap-rfid
+	img-fill( $std-element-height, 'about/Guide/4-locked.png', cover, center )
+.riding-position
+	img-fill( $std-element-height, 'about/Guide/2-ridingPosition.png', cover, center )
+.open-lock
+	img-fill( $std-element-height, 'about/Guide/3-open.png', cover, center )
+.locked-lock
+	img-fill( $std-element-height, 'about/Guide/1-tapRFID.png', cover, center )
+
 // Locking
 .return-img
 	img-fill( $std-element-height, 'about/lock.jpg', cover, center )

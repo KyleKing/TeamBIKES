@@ -1,5 +1,12 @@
 .nav-top-spacing
+//- .ab-background#the-hero-img
 .ab-background#the-hero-img
+	section.video
+		video(autoplay='', loop='', preload='auto', poster='about/228/228.png')
+			source(src='about/228/228.webm', type='video/webm')
+			source(src='about/228/228.mp4', type='video/mp4')
+			source(src='about/228/228.ogv', type='video/ogv')
+			img(src='about/228/228.png')
 .ab-primary
 	//- .ab-primary
 	.block-text
@@ -20,9 +27,21 @@
 		.full-explanation
 			.text-content
 				h3 Get Started and Unlock Your Bike
-				p Walk up to any bike on campus and tap your RedBar ID to the panel. If confirmed, the bike lock will release and can be rotated into a riding position. Enjoy your ride!
+				p Walk up to any bike on campus and tap your RedBar ID to the panel.
+		//- .full-explanation
+		//- 	.unlock-img
 		.full-explanation
-			.unlock-img
+			.tap-rfid
+		.full-explanation
+			.text-content
+				p If confirmed, the bike lock will release and you can open the lock to pull it from the bike rack can be rotated into a riding position. Enjoy your ride!
+		.full-explanation
+			.open-lock
+		.full-explanation
+			.text-content
+				p Once off of the rack, rotate the lock into riding position. Enjoy your ride!
+		.full-explanation
+			.riding-position
 
 	.ab-distinction.ab-expl-return
 		.full-explanation
@@ -32,8 +51,10 @@
 					a(href="{{ pathFor 'map' }}")
 						|  visit the map
 					|  and look for the small purple squares.
+		//- .full-explanation
+		//- 	.return-img
 		.full-explanation
-			.return-img
+			.locked-lock
 
 	//- .full-explanation
 	//- 	.intro-expl-invert
