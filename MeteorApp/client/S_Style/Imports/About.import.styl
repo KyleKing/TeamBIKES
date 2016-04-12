@@ -4,14 +4,31 @@
 	position absolute
 	top 0
 	z-index -1
-// Actual image with lower resolution for mobile:
 #the-hero-img
-	height 100%
-	width auto
-	// +above( $desktop )
-	// 	height 650px
-	// +below( $desktop )
-	// 	height 550px
+	+above( $desktop )
+		height 650px
+	+below( $desktop )
+		height 550px
+	overflow hidden
+	width 100%
+	& video
+		+above( $monitor )
+			min-width 100%
+			left 0
+			bottom 0
+		+above( $desktop )
+			min-width 100%
+			left 0
+			top -50px
+		+below( $desktop )
+			min-width 150%
+			right -50%
+			bottom 0px
+		min-height 100%
+		position absolute
+		width auto
+
+// Actual image with lower resolution for mobile:
 // 	+above( $desktop )
 // 		img-fill( 650px, 'about/cover.jpg', cover, center )
 // 	+below( $desktop )
