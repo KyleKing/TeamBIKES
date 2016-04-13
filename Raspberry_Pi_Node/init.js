@@ -1,3 +1,40 @@
+//
+//
+//
+
+// // // Boot on Startup
+
+// // $ cd /etc/init.d/
+// // $ sudo nano CoordinatorBootSequence
+// // Add: cd ~/Documents/TeamBikes/Raspberry_Pi_Node/; node init.js
+// // Close and Save
+// // $ sudo chmod 755 CoordinatorBootSequence
+// // $ sudo update-rc.d CoordinatorBootSequence defaults
+// // Check the script
+// // $ bash /etc/init.d/CoordinatorBootSequence
+
+// // More reliable version:
+// // Instead of: "// Add: cd ~/Documents/TeamBikes/Raspberry_Pi_Node/; node init.js"
+// // Add:
+// #!/bin/sh
+// ### BEGIN INIT INFO
+// # Provides:          CoordinatorBootSequence
+// # Required-Start:    $remote_fs $syslog
+// # Required-Stop:     $remote_fs $syslog
+// # Default-Start:     5
+// # Default-Stop:      6
+// # Short-Description: Will this work?
+// # Description:       This file should be used to construct scripts to be
+// #                    placed in /etc/init.d.
+// ### END INIT INFO
+// cd ~/Documents/TeamBikes/Raspberry_Pi_Node/; node init.js
+
+//
+//
+//
+
+// Actuall JavaScript Code (Both Arduino/XBee controllers):
+
 // Connects to a serial device (Arduino or XBee/ZIgbee) automatically
 // Then reacts to incoming serial data in a csv format with ';' or
 //    XBee frames respectively
@@ -47,8 +84,8 @@ var ddpclient = new DDPClient({
 });
 
 
-function parseInput(frame) {
-  data = frame.toString();
+function parseInput(dataa) {
+  data = dataa.toString();
   data = data.trim();
   console.log('* Converted To: ' + data);
   array = data.split(',');
@@ -70,6 +107,7 @@ function parseInput(frame) {
 
 ddpclient.connect(function(error) {
   if (error) {
+    pyshell.send(error);
     throw error;
   } else {
     console.log(info('Connected to Meteor!'));
@@ -135,9 +173,23 @@ arduino_createSerial = function(currentPort) {
     return console.log(warn('port closed.'));
   });
   return arduino_serialPort.on('error', function(error) {
+    pyshell.send(error);
     return console.log(warn('Serial port error: ' + error));
   });
 };
+
+
+// Hex -> Ascii
+// Source: http://stackoverflow.com/a/3745677/3219667
+function hex2a(hexx) {
+  var hex = hexx.toString('hex'); // ensure conversion
+  var str = '';
+  for (var i = 0; i < hex.length; i += 2) {
+    str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+  }
+  console.log(str);
+  return str;
+}
 
 
 xbee_createSerial = function(currentPort) {
@@ -153,11 +205,27 @@ xbee_createSerial = function(currentPort) {
       xbee_serialPort.options.baudRate);
   });
   xbeeAPI.on('frame_object', function(frame) {
+
+    // Test sending data, although this repeats forever:
+    // var frame_obj = {
+    //   type: 0x10,
+    //   id: 0x01,
+    //   destination64: '0013a20040c5f8ba',
+    //   destination16: 'fffe',
+    //   broadcastRadius: 0x00,
+    //   options: 0x00,
+    //   data: 'TEST'
+    // };
+    // xbee_serialPort.write(xbeeAPI.buildFrame(frame_obj));
+    // console.log(h1('Frame sent to specific xbee: 0013a20040c5f8ba'));
+    // console.log(h1(xbeeAPI.buildFrame(frame_obj)));
+
     var array, data, dataSet;
     console.log(h1('----------*----------'));
-    console.log('* Received Frame:');
-    console.log(frame.data);
-    if (frame.data === undefined) {
+    console.log('* Received Frame (hex2a()):');
+    data = hex2a(frame.data);
+    console.log(data);
+    if (data === undefined) {
       if (frame.deliveryStatus === 0) {
         console.log(info('>> Data was delivered!'));
         return console.log(info(frame + '\n'));
@@ -167,7 +235,7 @@ xbee_createSerial = function(currentPort) {
         return console.log(warn('   ' + frame + '\n'));
       }
     } else {
-      dataSet = parseInput(frame);
+      dataSet = parseInput(data);
       // Not sure if this is necessary:
       // if dataSet.USER_ID isnt lastID
       // Check that USER_ID is defined
@@ -203,9 +271,11 @@ xbee_createSerial = function(currentPort) {
     }
   });
   xbee_serialPort.on('close', function() {
+    pyshell.send('Port closed.');
     return console.log(warn('port closed.'));
   });
   return xbee_serialPort.on('error', function(error) {
+    pyshell.send(error);
     return console.log(warn('Serial port error: ' + error));
   });
 };

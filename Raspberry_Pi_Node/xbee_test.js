@@ -1,30 +1,34 @@
-//
-// Basic Example: https://github.com/jankolkmeier/xbee-api#examples
+// //
+// // Basic Example: https://github.com/jankolkmeier/xbee-api#examples
 
-var util = require('util');
-var SerialPort = require('serialport').SerialPort;
-var xbee_api = require('xbee-api');
+// var util = require('util');
+// var SerialPort = require('serialport').SerialPort;
+// var xbee_api = require('xbee-api');
 
-var C = xbee_api.constants;
+// var C = xbee_api.constants;
 
-var xbeeAPI = new xbee_api.XBeeAPI({
-  api_mode: 1
-  // api_mode: 2 ?
-});
+// var xbeeAPI = new xbee_api.XBeeAPI({
+//   api_mode: 1
+//   // api_mode: 2 ?
+// });
 
-var serialport = new SerialPort("/dev/ttyUSB0", {
-  baudrate: 9600,
-  parser: xbeeAPI.rawParser()
-});
+// var serialport = new SerialPort("/dev/ttyUSB0", {
+//   baudrate: 9600,
+//   parser: xbeeAPI.rawParser()
+// });
 
-serialport.on("open", function() {
-  console.log('port open. Data rate: ' + serialport.options.baudRate);
-});
+// serialport.on("open", function() {
+//   console.log('port open. Data rate: ' + serialport.options.baudRate);
+// });
 
-// All frames parsed by the XBee will be emitted here
-xbeeAPI.on("frame_object", function(frame) {
-    console.log(">>", frame);
-});
+// // All frames parsed by the XBee will be emitted here
+// xbeeAPI.on("frame_object", function(frame) {
+//     console.log(">>", frame);
+//     console.log('hex2a(frame.data)');
+//     console.log(hex2a(frame.data));
+//     console.log('hex2d(frame.data)');
+//     console.log(hex2d(frame.data));
+// });
 
 //
 // Sample Code Used to Open and Close this issue:
@@ -62,7 +66,7 @@ var raw = xbeeAPI.parseFrame(raw_frame);
 var data = raw.commandData;
 
 
-// Hex -> Ascii (and Decimal)
+// Hex -> Ascii
 // Source: http://stackoverflow.com/a/3745677/3219667
 function hex2a(hexx) {
   var hex = hexx.toString('hex'); // ensure conversion
