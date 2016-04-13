@@ -87,7 +87,7 @@ var ddpclient = new DDPClient({
 function parseInput(dataa) {
   data = dataa.toString();
   data = data.trim();
-  console.log('* Converted To: ' + data);
+  // console.log('*  Converted To: ' + data);
   array = data.split(',');
   var dataSet = {
     USER_ID: array[0],
@@ -159,8 +159,8 @@ arduino_createSerial = function(currentPort) {
     console.log('* Received Frame: ' + raw);
     dataSet = parseInput(raw);
     return ddpclient.call('RFIDStreamData', [dataSet], function(err, res) {
-      if (res !== void 0 && res.data !== void 0) {
-        if (res.Address === void 0) {
+      if (res !== undefined && res.data !== undefined) {
+        if (res.Address === undefined) {
           console.log(warn("Warning: BROADCASTING TO ALL XBEE's, " +
             "I hope you know what you are doing."));
         }
@@ -182,13 +182,18 @@ arduino_createSerial = function(currentPort) {
 // Hex -> Ascii
 // Source: http://stackoverflow.com/a/3745677/3219667
 function hex2a(hexx) {
-  var hex = hexx.toString('hex'); // ensure conversion
-  var str = '';
-  for (var i = 0; i < hex.length; i += 2) {
-    str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+  if (hexx === undefined) {
+    // pyshell.send('Empty data field');
+    console.log(warn('Empty data field, no hex term received in hex2a'));
+    return;
+  } else {
+    var hex = hexx.toString('hex'); // ensure conversion
+    var str = '';
+    for (var i = 0; i < hex.length; i += 2) {
+      str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    }
+    return str;
   }
-  console.log(str);
-  return str;
 }
 
 
@@ -222,19 +227,18 @@ xbee_createSerial = function(currentPort) {
 
     var array, data, dataSet;
     console.log(h1('----------*----------'));
-    console.log('* Received Frame (hex2a()):');
     data = hex2a(frame.data);
-    console.log(data);
     if (data === undefined) {
       if (frame.deliveryStatus === 0) {
-        console.log(info('>> Data was delivered!'));
-        return console.log(info(frame + '\n'));
+        console.log(info('>> Received Response: Data was delivered!'));
+        console.log(warn(frame));
       } else {
-        console.log(warn('>> No data in frame received'));
-        console.log(warn('   Data was not received'));
-        return console.log(warn('   ' + frame + '\n'));
+        console.log(warn('>> Received Response: Previous Data'));
+        console.log(warn('   was not received.'));
+        console.log(warn(frame));
       }
     } else {
+      console.log('>> ' + data);
       dataSet = parseInput(data);
       // Not sure if this is necessary:
       // if dataSet.USER_ID isnt lastID
@@ -242,33 +246,40 @@ xbee_createSerial = function(currentPort) {
       if (dataSet.USER_ID != undefined) {
         // lastID = dataSet.USER_ID;
         return ddpclient.call('RFIDStreamData', [dataSet], function(err, res) {
-          var frame_obj;
-          if (res !== void 0 && res.data !== void 0) {
-            if (res.Address === void 0) {
+          if (res !== undefined && res.data !== undefined) {
+            var Address = res.Address;
+            if (Address === undefined) {
+              pyshell.send("Warning: BROADCASTING TO ALL XBEE's");
               console.log(warn("Warning: BROADCASTING TO ALL XBEE's, " +
                 "I hope you know what you are doing."));
             }
-            frame_obj = {
+            var frame_obj = {
               type: 0x10,
               id: 0x01,
-              destination64: res.Address,
+              destination64: Address,
               destination16: 'fffe',
               broadcastRadius: 0x00,
               options: 0x00,
               data: res.data
             };
             xbee_serialPort.write(xbeeAPI.buildFrame(frame_obj));
-            console.log(h1('Frame sent to specific xbee: ' + res.Address));
-            console.log(h1(xbeeAPI.buildFrame(frame_obj)));
+            // Tell the Raspberry Pi the good news!
+            if (res.data === 'y') {
+              pyshell.send('ACCESS APPROVED for: ' + Address.toString());
+            } else if (res.data === 'n') {
+              pyshell.send('ACCESS DENIED for: ' + Address.toString());
+            } else {
+              pyshell.send('Meteor Error: stay locked');
+            }
+            console.log(h1('Frame sent to specific xbee: ' + Address));
           }
-          console.log('----------!----------');
-          return console.log('');
         });
       } else {
-
+        pyshell.send("Warning: Dataset is undefined");
         return console.log(warn('Dataset is undefined'));
       }
     }
+    console.log(warn('----------!---------- \n'));
   });
   xbee_serialPort.on('close', function() {
     pyshell.send('Port closed.');

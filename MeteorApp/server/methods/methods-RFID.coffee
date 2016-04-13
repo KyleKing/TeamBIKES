@@ -38,31 +38,31 @@ Meteor.methods 'RFIDStreamData': (dataSet) ->
   # _.each users, (user) ->
     # console.log user.profile.RFID
 
-  # console.log '>> Inserting RFID dataset:'
-  # console.log dataSet
-  # RFIDdata.insert dataSet
-  ReservationEvents.insert(dataSet)
-  console.log 'Added incoming dataset to ReservationEvents collection'
-
   # Determine appropriate response
   if hits is 1
     data = 'y'
   else
     data = 'n'
 
-  Lookup = XbeeData.findOne({ 'ID': Number(dataSet.Module_ID) })
+  # Lookup = XbeeData.findOne({ 'ID': Number(dataSet.Module_ID) })
+  Lookup = XbeeData.findOne({ 'Name': dataSet.Module_ID })
+
   if Lookup
     console.log 'Just to check that Lookup is receiving data'.lightMagenta
     console.log data
     console.log Lookup.Address
+    dataSet.Address = Lookup.Address
+
+  ReservationEvents.insert(dataSet)
+  console.log 'Added incoming dataset to ReservationEvents collection'
+
+  if Lookup
     return {
       data: data,
       Address: Lookup.Address
     }
-  return {}
-
-
-
+  else
+    return {}
 
 Meteor.call('RFIDStreamData', {
   USER_ID: 'signUp'
