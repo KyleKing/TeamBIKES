@@ -28,23 +28,21 @@
 
 Meteor.methods 'RFIDStreamData': (dataSet) ->
   console.log '--------------------'
-  ReservationEvents.insert(dataset)
-  console.log 'Added incoming dataset to ReservationEvents collection'
   # Check user RFID code against database record set in seeds-admin
   RFIDCODE = dataSet.USER_ID
   hits = Meteor.users.find({'profile.RFID': RFIDCODE}).count()
   dataSet.confirmation = hits
-  # console.log hits
 
-  # console.log '--'
   # console.log '>> Here are the users RFID dataset:'
   users = Meteor.users.find().fetch()
   # _.each users, (user) ->
     # console.log user.profile.RFID
-  # console.log '--'
-  console.log '>> Inserting RFID dataset:'
-  console.log dataSet
-  RFIDdata.insert dataSet
+
+  # console.log '>> Inserting RFID dataset:'
+  # console.log dataSet
+  # RFIDdata.insert dataSet
+  ReservationEvents.insert(dataSet)
+  console.log 'Added incoming dataset to ReservationEvents collection'
 
   # Determine appropriate response
   if hits is 1
@@ -62,3 +60,15 @@ Meteor.methods 'RFIDStreamData': (dataSet) ->
       Address: Lookup.Address
     }
   return {}
+
+
+
+
+Meteor.call('RFIDStreamData', {
+  USER_ID: 'signUp'
+  LATITUDE: 12134.234234
+  LONGITUDE: '12134.234234'
+  LOCKSTATE: 0
+  Module_ID: 'TEST'
+  TIMESTAMP: (new Date).getTime()
+})
