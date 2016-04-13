@@ -184,7 +184,7 @@ arduino_createSerial = function(currentPort) {
 function hex2a(hexx) {
   if (hexx === undefined) {
     // pyshell.send('Empty data field');
-    console.log(warn('Empty data field, no hex term received in hex2a'));
+    // console.log(warn('Empty data field, no hex term received in hex2a'));
     return;
   } else {
     var hex = hexx.toString('hex'); // ensure conversion
@@ -210,32 +210,17 @@ xbee_createSerial = function(currentPort) {
       xbee_serialPort.options.baudRate);
   });
   xbeeAPI.on('frame_object', function(frame) {
-
-    // Test sending data, although this repeats forever:
-    // var frame_obj = {
-    //   type: 0x10,
-    //   id: 0x01,
-    //   destination64: '0013a20040c5f8ba',
-    //   destination16: 'fffe',
-    //   broadcastRadius: 0x00,
-    //   options: 0x00,
-    //   data: 'TEST'
-    // };
-    // xbee_serialPort.write(xbeeAPI.buildFrame(frame_obj));
-    // console.log(h1('Frame sent to specific xbee: 0013a20040c5f8ba'));
-    // console.log(h1(xbeeAPI.buildFrame(frame_obj)));
-
     var array, data, dataSet;
     console.log(h1('----------*----------'));
     data = hex2a(frame.data);
     if (data === undefined) {
       if (frame.deliveryStatus === 0) {
         console.log(info('>> Received Response: Data was delivered!'));
-        console.log(warn(frame));
+        console.log(frame);
       } else {
         console.log(warn('>> Received Response: Previous Data'));
         console.log(warn('   was not received.'));
-        console.log(warn(frame));
+        console.log(frame);
       }
     } else {
       console.log('>> ' + data);
@@ -264,15 +249,17 @@ xbee_createSerial = function(currentPort) {
             };
             xbee_serialPort.write(xbeeAPI.buildFrame(frame_obj));
             // Tell the Raspberry Pi the good news!
+            strAddress = Address.toString();
             if (res.data === 'y') {
-              pyshell.send('ACCESS APPROVED for: ' + Address.toString());
+              pyshell.send('ACCESS APPROVED for: ' + strAddress.substr(-4));
             } else if (res.data === 'n') {
-              pyshell.send('ACCESS DENIED for: ' + Address.toString());
+              pyshell.send('ACCESS DENIED for: ' + strAddress.substr(-4));
             } else {
               pyshell.send('Meteor Error: stay locked');
             }
-            console.log(h1('Frame sent to specific xbee: ' + Address));
+            console.log(info('Frame sent to specific XBee: ' + Address));
           }
+          console.log(info('----------!---------- \n'));
         });
       } else {
         pyshell.send("Warning: Dataset is undefined");

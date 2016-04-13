@@ -45,14 +45,20 @@ def full_message(raw):
             time.sleep(0.4)
             return True
         elif len(message) > 2*lcd_columns:
-            # Brute force the message
-            # FIXME the message seems to be split and breaks scroll
             lcd.message(message)
-            for i in range(len(message)-lcd_columns):
-                time.sleep(0.5)
-                lcd.move_left()
-            time.sleep(0.4)
             return True
+            # # Brute force the message
+            # # FIXME the message seems to be split and breaks scroll
+            # lcd.message(message)
+            # for i in range(len(message)-lcd_columns):
+            #     time.sleep(0.5)
+            #     lcd.move_left()
+            # time.sleep(1.0)
+            # for i in range(len(message)-lcd_columns):
+            #     time.sleep(0.5)
+            #     lcd.move_right()
+            # time.sleep(0.4)
+            # return True
         else:
             print "Something is wrong with the string length"
             return False
