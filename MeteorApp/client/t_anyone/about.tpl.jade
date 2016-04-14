@@ -2,7 +2,9 @@
 //- .ab-background#the-hero-img
 .ab-background#the-hero-img
 	section.video
-		video(autoplay='', loop='', preload='auto', poster='about/228/228.png')
+		//- Attempt to work on Safari/iPhone: http://stackoverflow.com/a/25670764/3219667
+		.video-gif
+		video(autoplay, loop, controls="true", preload='auto', poster='about/228/228.png')
 			source(src='about/228/228.webm', type='video/webm')
 			source(src='about/228/228.mp4', type='video/mp4')
 			source(src='about/228/228.ogv', type='video/ogv')

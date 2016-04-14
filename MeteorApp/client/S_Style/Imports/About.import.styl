@@ -5,30 +5,45 @@
 	top 0
 	z-index -1
 #the-hero-img
-	+above( $monitor )
-		height 800px
 	+above( $desktop )
 		height 650px
+	+above( $monitor )
+		height 800px
 	+below( $desktop )
 		height 550px
 	overflow hidden
 	width 100%
-	& video
-		+above( $monitor )
-			min-width 100%
-			left 0
-			bottom 0
+	& .video-gif
 		+above( $desktop )
-			min-width 100%
+			display none
+		+below( $desktop )
+			background-color red
+			img-fill( 600px, 'about/228/228-thin.mp4.gif', cover, center )
+			// height 650px
+			width 100%
+	& video
+		+below( $desktop )
+			display none
+		+above( $monitor )
+			bottom 0
 			left 0
+			min-width 100%
+		+above( $desktop )
+			left 0
+			min-width 100%
 			top -50px
 		+below( $desktop )
-			min-width 150%
-			right -50%
-			bottom 0px
+			bottom 0
+			min-width 100%
+			right -115%
 		min-height 100%
 		position absolute
 		width auto
+
+// Sources for video advice:
+// http://stackoverflow.com/questions/10797632/simulate-background-sizecover-on-video-or-img
+// http://jsfiddle.net/aloisdg/cYAx3/1/
+
 
 // Actual image with lower resolution for mobile:
 // 	+above( $desktop )
@@ -49,6 +64,8 @@
 .ab-primary
 	+below( $desktop )
 		padd( 130px, auto, auto, 130px )
+	+above( $monitor )
+		padd( 250px, auto, auto, 250px )
 	color white
 	padd( 180px, auto, auto, 180px )
 	text-align center
