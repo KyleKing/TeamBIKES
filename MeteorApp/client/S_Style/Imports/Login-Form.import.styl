@@ -1,5 +1,5 @@
 // Custom login buttons
-#auto-signin.dev
+#auto-signin.bluebox
 	align-items center
 	background-color $secondary-bg-color
 	color $nav-bg-color
@@ -8,15 +8,23 @@
 	marg( 10px, auto, auto, 10px )
 	padd( 15px, auto, auto, 15px )
 	width 100%
-	& p.dev
+	& h3.login-title
+		max-width 650px
+		padd( auto, 10px, 10px, auto )
 		text-align center
-	& ul.dev
+	& p.login-guide
+		max-width 650px
+		padd( auto, 10px, 10px, auto )
+		text-align center
+	& ul.button-list
 		align-items center
 		display flex
 		flex-flow row wrap
 		list-style none
-		& li.dev
-			marg( auto, 10px, 10px, auto )
+		padd( auto, 10px, 10px, auto )
+		justify-content center
+		& li.button-link
+			marg( 10px, 10px, 10px, 10px )
 
 // Login Form from Package:
 .at-form
