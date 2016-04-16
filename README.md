@@ -1,24 +1,37 @@
 # Team B.I.K.E.S. (REDBAR BIKES)
 
-<!--TODO: Uncomment iframe youtube videos-->
-<!--TODO: Check link to how-to-use-this-repository-->
-<!--TODO: Upload video of demosntration-->
+<!--TODO: Upload video of demonstration-->
 <!--TODO: Upload thesis, somewhere?-->
 <!--TODO: Link Previous Versions in Releases Page-->
 <!--TODO: Add better guides to Arduino and Raspberry Pi Guides-->
 <!--TODO: Share RFID's code in Arduino Folder?-->
 
+<!--
+![SAMPLE](README/Technology_Images/NAME)
+
+###### *figure*
+###### &nbsp;
+-->
+
+<!--
+Video problems:
+(Use Youtube thumbnail - Replace with thumbnail with overlaid play button)
+[![RedBarBikesCommercial](http://img.youtube.com/vi/VideoID/0.jpg)](http://www.youtube.com/watch?v=VideoID)
+-->
+
 > A bikeshare for college students by college students [redbarbikes.com](https://redbarbikes.com)
 
 # About
 
-As a 13-person team in the Gemstone Program at the University of Maryland, College Park, we prototyped a smartlock to be used for a stationless bikeshare. We think that bikeshares are exciting systems that promote biking as a sustainabile, convenient, and healthy alterantive and we hope to see them on college campuses across the nation. This technology is one such concept that might help make stationless bikeshares more secure and cost-effective for college campuses.
+As a 13-person team in the Gemstone Program at the University of Maryland, College Park, we prototyped a smartlock to be used for a stationless bikeshare. We think that bikeshares are exciting systems that promote biking as a sustainable, convenient, and healthy alternative and we hope to see them on college campuses across the nation. This technology is one such concept that might help make stationless bikeshares more secure and cost-effective for college campuses.
 
 In typical Gemstone fashion, our name is an acronym for: Bikeshare-Intended Keyless Encrypted Smartlocks
 
 We hope you find this repository helpful and feel free to [open an issue](https://github.com/KyleKing/TeamBIKES/issues) to reach out to me (@kyleking) and/or the rest of the team.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tg4aXH1SqxQ" frameborder="0" allowfullscreen></iframe>
+[![RedBarBikesCommercial](http://img.youtube.com/vi/tg4aXH1SqxQ/0.jpg)](http://www.youtube.com/watch?v=tg4aXH1SqxQ)
+
+<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/tg4aXH1SqxQ" frameborder="0" allowfullscreen></iframe>-->
 
 ###### *RedBar Bikes Commercial*
 ###### &nbsp;
@@ -32,14 +45,18 @@ Our system is based on a custom smartlock that sits below the bike seat and secu
 ###### *The custom smartlock with integrated electronics*
 ###### &nbsp;
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RxYzSXGCttM" frameborder="0" allowfullscreen></iframe>
+[![RedBarBikesCommercial](http://img.youtube.com/vi/RxYzSXGCttM/0.jpg)](http://www.youtube.com/watch?v=RxYzSXGCttM)
+
+<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/RxYzSXGCttM" frameborder="0" allowfullscreen></iframe>-->
 
 ###### *Demonstration of smartlock use*
 ###### &nbsp;
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TYa1iFifSYQ" frameborder="0" allowfullscreen></iframe>
+[![RedBarBikesCommercial](http://img.youtube.com/vi/TYa1iFifSYQ/0.jpg)](http://www.youtube.com/watch?v=TYa1iFifSYQ)
 
-###### *CAD Animation of Locking Animation*
+<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/TYa1iFifSYQ" frameborder="0" allowfullscreen></iframe>-->
+
+###### *CAD Animation of Locking Mechanism*
 ###### &nbsp;
 
 Each lock is equipped with an RFID reader that approves user access using our wireless mesh network and web application. The wireless mesh network is built using XBee modules. The modules serve either as an end device on each bike, a router to send the signal over a greater distance, or attached to a Raspberry Pi as a coordinator to relay the information to the web application. This system allows for a great level of flexibility and rapid two-way communication.
@@ -61,14 +78,16 @@ Each lock is equipped with an RFID reader that approves user access using our wi
 | RFID | Collects user RFID Tag |
 | Arduino and XBee End Device | Sends RFID tag, location, and lock state information to nearest router |
 | XBee router(s) | Passes the received information on to the coordinator |
-| Coordinator | Recieves and parses the incoming message, then calls a remote Meteor method |
+| Coordinator | Receives and parses the incoming message, then calls a remote Meteor method |
 | Web application | Confirms RFID authenticity, adds necessary information to the database, and returns a JSON object of results |
 | Coordinator | Runs callback function on Meteor method completion. Sends a return command to the specific end device based on the received results |
 | Arduino and XBee End Device | Receives message and makes appropriate action (keep the lock closed or unlock) and sends a "message received" response to the coordinator |
 
 ###### &nbsp;
 
-### (TODO: Upload video of demosntration)
+### (TODO: Upload video of demonstration)
+
+[![RedBarBikesCommercial](http://img.youtube.com/vi/VideoID/0.jpg)](http://www.youtube.com/watch?v=VideoID)
 
 ###### *Authentication Demonstration*
 ###### &nbsp;
@@ -86,7 +105,7 @@ For additional information on our smartlock and system, please see our complete 
 
 Our lock was built to push the boundaries of the technology for stationless bikeshares. We wanted to explore the potential of the "new kid on the block" framework, Meteor; push the boundaries of XBee modules as a campus-wide mesh network; and design a user experience around a convenient and secure smartlock. While the foundation for a bikeshare, this lock would make the most sense to stationless bikeshare operators seeking to improve user value, while reducing system costs.
 
-However, if we were to build this bikelock into a bikeshare, we conducted preliminary research into initial installation costs and branding. Our brand was specific to the Maryland campus that we started on. We were inspired by the "redbars" that would appear in between classes as a warning that a student would have difficulty in arriving on time. This would often appear when a class was on North Campus, but the student's next class was on South Campus and there would only be a ten minute gap to traverse the campus. Our bikeshare was meant to solve transportation issues exactly like this.
+However, if we were to build this bike lock into a bikeshare, we conducted preliminary research into initial installation costs and branding. Our brand was specific to the Maryland campus that we started on. We were inspired by the "redbars" that would appear in between classes as a warning that a student would have difficulty in arriving on time. This would often appear when a class was on North Campus, but the student's next class was on South Campus and there would only be a ten minute gap to traverse the campus. Our bikeshare was meant to solve transportation issues exactly like this.
 
 ![RedBar Schedule](README/Technology_Images/RedBar_Schedule.png)
 
@@ -99,7 +118,7 @@ Once downloaded and unzipped, enter the directory.
 | Folder | Contents |
 | ----- |:-------:|
 | `/MeteorApp/` | The source code for the deployed web application available at [redbarbikes.com](https://redbarbikes.com) |
-| `/Raspberry_Pi_Node/` | The Node.js application that runs on the coordinator device for remote communciation to the web application |
+| `/Raspberry_Pi_Node/` | The Node.js application that runs on the coordinator device for remote communication to the web application |
 | `/Arduino_Node/` | Example Arduino code used in prototyping the smartlock |
 | `/README/` | Images and content used in the README.md page you are reading |
 
@@ -111,11 +130,11 @@ To run the Meteor application, enter the folder `cd MeteorApp`, then start the m
 
 ## /Raspberry Pi Node/
 
-> The Node.js application that runs on the coordinator device for remote communciation to the web application
+> The Node.js application that runs on the coordinator device for remote communication to the web application
 
-To run the Node application, enter the folder `cd Raspberry_Pi_Node` and install the necessary Node pacakges: `npm install`. If you don't have Node.js or NPM installed, visit https://docs.npmjs.com/getting-started/installing-node. TO run this code on a Raspberry Pi, you will need to install Node (TODO: link a guide and other notes).
+To run the Node application, enter the folder `cd Raspberry_Pi_Node` and install the necessary Node packages: `npm install`. If you don't have Node.js or NPM installed, visit https://docs.npmjs.com/getting-started/installing-node. TO run this code on a Raspberry Pi, you will need to install Node (TODO: link a guide and other notes).
 
-Once the NPM packages are isntalled, try connecting an Arduino or XBee module to your computer/Raspberry Pi via a USB cable. Start the Node application with `node init.js`. The application should recognize the USB device and will wait for incoming data. The anticipated format is:
+Once the NPM packages are installed, try connecting an Arduino or XBee module to your computer/Raspberry Pi via a USB cable. Start the Node application with `node init.js`. The application should recognize the USB device and will wait for incoming data. The anticipated format is:
 
 ```
 TODO: Add CSV Format
@@ -141,4 +160,4 @@ See screenshots of previous and current iterations of the website
 
 [Other Pages](Other.md)
 
-<!-- > [To see previous iterations of the website -> see the next README](WebsiteScreenshots.md)-->
+<!-- > [To see previous iterations of the website-> see the next README](WebsiteScreenshots.md)-->
