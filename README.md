@@ -8,11 +8,6 @@
 <!--TODO: Add better guides to Arduino and Raspberry Pi Guides-->
 <!--TODO: Share RFID's code in Arduino Folder?-->
 
-![SAMPLE](README/Technology_Images/NAME)
-
-###### *figure*
-###### &nbsp;
-
 > A bikeshare for college students by college students [redbarbikes.com](https://redbarbikes.com)
 
 # About
