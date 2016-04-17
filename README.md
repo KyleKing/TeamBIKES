@@ -29,11 +29,12 @@ In typical Gemstone fashion, our name is an acronym for: Bikeshare-Intended Keyl
 
 We hope you find this repository helpful and feel free to [open an issue](https://github.com/KyleKing/TeamBIKES/issues) to reach out to me (@kyleking) and/or the rest of the team.
 
-[![RedBarBikesCommercial](http://img.youtube.com/vi/tg4aXH1SqxQ/0.jpg)](http://www.youtube.com/watch?v=tg4aXH1SqxQ)
+<!--[![RedBarBikesCommercial](http://img.youtube.com/vi/tg4aXH1SqxQ/0.jpg)](http://www.youtube.com/watch?v=tg4aXH1SqxQ)-->
+[![RedBarBikesCommercial](README/Gifs/RedBarBikesCommercial.png)](http://www.youtube.com/watch?v=tg4aXH1SqxQ)
 
 <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/tg4aXH1SqxQ" frameborder="0" allowfullscreen></iframe>-->
 
-###### *RedBar Bikes Commercial*
+###### *RedBar Bikes Commercial (Click to Watch on Youtube)*
 ###### &nbsp;
 
 # The Technology
@@ -45,14 +46,14 @@ Our system is based on a custom smartlock that sits below the bike seat and secu
 ###### *The custom smartlock with integrated electronics*
 ###### &nbsp;
 
-[![RedBarBikesCommercial](http://img.youtube.com/vi/RxYzSXGCttM/0.jpg)](http://www.youtube.com/watch?v=RxYzSXGCttM)
+[![Smartlock Use Gif](README/Gifs/228.gif)](http://www.youtube.com/watch?v=RxYzSXGCttM)
 
 <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/RxYzSXGCttM" frameborder="0" allowfullscreen></iframe>-->
 
 ###### *Demonstration of smartlock use*
 ###### &nbsp;
 
-[![RedBarBikesCommercial](http://img.youtube.com/vi/TYa1iFifSYQ/0.jpg)](http://www.youtube.com/watch?v=TYa1iFifSYQ)
+[![Smartlock Locking Mechanism Gif](README/Gifs/LockAnimation.gif)](http://www.youtube.com/watch?v=TYa1iFifSYQ)
 
 <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/TYa1iFifSYQ" frameborder="0" allowfullscreen></iframe>-->
 
@@ -122,13 +123,13 @@ Once downloaded and unzipped, enter the directory.
 | `/Arduino_Node/` | Example Arduino code used in prototyping the smartlock |
 | `/README/` | Images and content used in the README.md page you are reading |
 
-## /MeteorApp/
+## Folder: MeteorApp
 
 > The source code for the deployed web application available at [redbarbikes.com](https://redbarbikes.com)
 
 To run the Meteor application, enter the folder `cd MeteorApp`, then start the meteor application with `meteor`. To install Meteor, visit https://www.meteor.com/. The first time loading may take some time as new packages are downloaded and the initial seed scripts are run to generate fake data.
 
-## /Raspberry Pi Node/
+## Folder: Raspberry Pi Node
 
 > The Node.js application that runs on the coordinator device for remote communication to the web application
 
@@ -140,7 +141,7 @@ Once the NPM packages are installed, try connecting an Arduino or XBee module to
 TODO: Add CSV Format
 ```
 
-## /Arduino_Node/
+## Folder: Arduino_Node
 
 > Example Arduino code used in prototyping the smartlock
  
