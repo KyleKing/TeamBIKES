@@ -93,9 +93,16 @@ Each lock is equipped with an RFID reader that approves user access using our wi
 ###### *Authentication Demonstration*
 ###### &nbsp;
 
-The web application can utilize the information received from the mesh network and display available bike locations, track user rides, and administrative tasks. To see the features and code that makes this possible [see the website guide below](#how-to-use-this-repository). To explore the features of the website, please visit [redbarbikes.com](https://redbarbikes.com). Once on the site, you can sign in as an administrator or student using the buttons on the login page. Try out exploring the [administrator dashboard](https://redbarbikes.com/Dashboard) page by searching through the tables or click on any row to open up additional features. Try reserving a bike by clicking any of the grey icons on the [map page](https://redbarbikes.com/Map).
+The web application can utilize the information received from the mesh network and display available bike locations, track user rides, and conduct administrative tasks. To explore the features and code that makes this possible [see the website guide below](#how-to-use-this-repository). To test the features of the website, please visit [redbarbikes.com](https://redbarbikes.com).
 
-![Web App Demo](README/Technology_Images/Mobile_App_Preview.png)
+Once on the site, you test different user roles by signing in as an administrator or student with the light blue buttons on the login page. Try out exploring the [administrator dashboard](https://redbarbikes.com/Dashboard) by searching each table column, then click on any row to open up an additional slide in panel. On the [map page](https://redbarbikes.com/Map), try reserving a bike by clicking any of the grey icons.
+
+<p align="center">
+  <a href="http://redbarbikes.com">
+    <img width="300" height=auto src="README/Technology_Images/Mobile_App_Preview.png">
+  </a>
+</p>
+<!--![Web App Demo](README/Technology_Images/Mobile_App_Preview.png)-->
 
 ###### *Web Application shown in an iPhone 5*
 ###### &nbsp;
@@ -108,13 +115,19 @@ Our lock was built to push the boundaries of the technology for stationless bike
 
 However, if we were to build this bike lock into a bikeshare, we conducted preliminary research into initial installation costs and branding. Our brand was specific to the Maryland campus that we started on. We were inspired by the "redbars" that would appear in between classes as a warning that a student would have difficulty in arriving on time. This would often appear when a class was on North Campus, but the student's next class was on South Campus and there would only be a ten minute gap to traverse the campus. Our bikeshare was meant to solve transportation issues exactly like this.
 
-![RedBar Schedule](README/Technology_Images/RedBar_Schedule.png)
+<p align="center">
+  <a href="http://redbarbikes.com">
+    <img width="300" height=auto src="README/Technology_Images/RedBar_Schedule.png">
+  </a>
+</p>
+
+<!--![RedBar Schedule](README/Technology_Images/RedBar_Schedule.png)-->
 
 # How to Use This Repository
 
 Download one of the version of the repository from the releases page (TODO: link). To get the most up to date version, press the `Download Zip` button above.
 
-Once downloaded and unzipped, enter the directory.
+Once downloaded and unzipped, enter the directory (i.e. `cd ~/Downloads/TeamBikes`).
 
 | Folder | Contents |
 | ----- |:-------:|
