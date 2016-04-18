@@ -9,7 +9,7 @@
 <!--
 ![SAMPLE](README/Technology_Images/NAME)
 
-###### *figure*
+<h6 align="center"><i>figure</i></h6>
 ###### &nbsp;
 -->
 
@@ -29,47 +29,82 @@ In typical Gemstone fashion, our name is an acronym for: Bikeshare-Intended Keyl
 
 We hope you find this repository helpful and feel free to [open an issue](https://github.com/KyleKing/TeamBIKES/issues) to reach out to me (@kyleking) and/or the rest of the team.
 
-<!--[![RedBarBikesCommercial](http://img.youtube.com/vi/tg4aXH1SqxQ/0.jpg)](http://www.youtube.com/watch?v=tg4aXH1SqxQ)-->
-[![RedBarBikesCommercial](README/Gifs/RedBarBikesCommercial.png)](http://www.youtube.com/watch?v=tg4aXH1SqxQ)
+<!--[![RedBarBikesCommercial](README/Gifs/RedBarBikesCommercial.png)](http://www.youtube.com/watch?v=tg4aXH1SqxQ)-->
 
-<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/tg4aXH1SqxQ" frameborder="0" allowfullscreen></iframe>-->
+<p align="center">
+  <a href="http://www.youtube.com/watch?v=tg4aXH1SqxQ">
+    <img width="600" height=auto src="README/Gifs/RedBarBikesCommercial.png">
+  </a>
+</p>
 
-###### *RedBar Bikes Commercial (Click to Watch on Youtube)*
-###### &nbsp;
+<h6 align="center"><i>RedBar Bikes Commercial (Click to Watch on Youtube)</i></h6>
+
+<!--###### &nbsp;-->
 
 # The Technology
 
 Our system is based on a custom smartlock that sits below the bike seat and securely attaches to the frame. In the final implementation it would allow for the seat to be adjustable, but would use a mechanical catch to prevent the seat post from being completely removed. Additionally, the wheels would be secured using locking skewers, which freed us to develop an extremely convenient lock that only needed to directly secure the frame. The design rotates out to be locked to a bike rack and rotates back in for riding. Behind the lock ring there is an electronic control system based on an Arduino Uno.
 
-![Lock and Electronics Photo](README/Technology_Images/Lock_and_Electronics.png)
 
-###### *The custom smartlock with integrated electronics*
+<p align="center">
+	<img width="600" height=auto src="README/Technology_Images/Lock_and_Electronics.png">
+</p>
+
+<!--![Lock and Electronics Photo](README/Technology_Images/Lock_and_Electronics.png)-->
+
+<h6 align="center"><i>The custom smartlock with integrated electronics</i></h6>
+
 ###### &nbsp;
 
-[![Smartlock Use Gif](README/Gifs/228.gif)](http://www.youtube.com/watch?v=RxYzSXGCttM)
 
-<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/RxYzSXGCttM" frameborder="0" allowfullscreen></iframe>-->
+<p align="center">
+  <a href="http://www.youtube.com/watch?v=RxYzSXGCttM">
+    <img width="600" height=auto src="README/Gifs/228.gif">
+  </a>
+</p>
 
-###### *Demonstration of smartlock use*
+<!--[![Smartlock Use Gif](README/Gifs/228.gif)](http://www.youtube.com/watch?v=RxYzSXGCttM)-->
+
+<h6 align="center"><i>Demonstration of smartlock use</i></h6>
+
 ###### &nbsp;
 
-[![Smartlock Locking Mechanism Gif](README/Gifs/LockAnimation.gif)](http://www.youtube.com/watch?v=TYa1iFifSYQ)
+<p align="center">
+  <a href="http://www.youtube.com/watch?v=TYa1iFifSYQ">
+    <img width="600" height=auto src="README/Gifs/LockAnimation.gif">
+  </a>
+</p>
 
-<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/TYa1iFifSYQ" frameborder="0" allowfullscreen></iframe>-->
+<!--[![Smartlock Locking Mechanism Gif](README/Gifs/LockAnimation.gif)](http://www.youtube.com/watch?v=TYa1iFifSYQ)-->
 
-###### *CAD Animation of Locking Mechanism*
+<h6 align="center"><i>CAD Animation of Locking Mechanism</i></h6>
+
 ###### &nbsp;
 
 Each lock is equipped with an RFID reader that approves user access using our wireless mesh network and web application. The wireless mesh network is built using XBee modules. The modules serve either as an end device on each bike, a router to send the signal over a greater distance, or attached to a Raspberry Pi as a coordinator to relay the information to the web application. This system allows for a great level of flexibility and rapid two-way communication.
 
-![Single Unit Diagram](README/Technology_Images/Mesh_Single.png)
+<p align="center">
+  <a href="http://redbarbikes.com">
+    <img width="600" height=auto src="README/Technology_Images/Mesh_Single.png">
+  </a>
+</p>
 
-###### *Single Unit Diagram*
+<!--![Single Unit Diagram](README/Technology_Images/Mesh_Single.png)-->
+
+<h6 align="center"><i>Single Unit Diagram</i></h6>
+
 ###### &nbsp;
 
-![Network Diagram](README/Technology_Images/Mesh_System.png)
+<p align="center">
+  <a href="http://redbarbikes.com">
+    <img width="600" height=auto src="README/Technology_Images/Mesh_System.png">
+  </a>
+</p>
 
-###### *Network Diagram*
+<!--![Network Diagram](README/Technology_Images/Mesh_System.png)-->
+
+<h6 align="center"><i>Network Diagram</i></h6>
+
 ###### &nbsp;
 
 ###### Authentication Protocol (Steps In Order)
@@ -86,11 +121,14 @@ Each lock is equipped with an RFID reader that approves user access using our wi
 
 ###### &nbsp;
 
-### (TODO: Upload video of demonstration)
+<p align="center">
+  <a href="http://redbarbikes.com">
+    <img width="300" height=auto src="README/WIP-AccessDemo/Access.gif">
+  </a>
+</p>
 
-[![RedBarBikesCommercial](http://img.youtube.com/vi/VideoID/0.jpg)](http://www.youtube.com/watch?v=VideoID)
+<h6 align="center"><i>Authentication Demonstration</i></h6>
 
-###### *Authentication Demonstration*
 ###### &nbsp;
 
 The web application can utilize the information received from the mesh network and display available bike locations, track user rides, and conduct administrative tasks. To explore the features and code that makes this possible [see the website guide below](#how-to-use-this-repository). To test the features of the website, please visit [redbarbikes.com](https://redbarbikes.com).
@@ -104,7 +142,8 @@ Once on the site, you test different user roles by signing in as an administrato
 </p>
 <!--![Web App Demo](README/Technology_Images/Mobile_App_Preview.png)-->
 
-###### *Web Application shown in an iPhone 5*
+<h6 align="center"><i>Web Application shown in an iPhone 5</i></h6>
+
 ###### &nbsp;
 
 For additional information on our smartlock and system, please see our complete thesis on the literature review, methodology, and design that went into developing the smartlock. [Will be available online soon]
@@ -122,6 +161,8 @@ However, if we were to build this bike lock into a bikeshare, we conducted preli
 </p>
 
 <!--![RedBar Schedule](README/Technology_Images/RedBar_Schedule.png)-->
+
+<h6 align="center"><i>UMD Student Schedule</i></h6>
 
 # How to Use This Repository
 
