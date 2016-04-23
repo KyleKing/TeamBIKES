@@ -47,7 +47,7 @@ Our system is based on a custom smartlock that sits below the bike seat and secu
 
 
 <p align="center">
-	<img width="600" height=auto src="README/Technology_Images/Lock_and_Electronics.png">
+  <img width="600" height=auto src="README/Technology_Images/Lock_and_Electronics.png">
 </p>
 
 <!--![Lock and Electronics Photo](README/Technology_Images/Lock_and_Electronics.png)-->
@@ -111,7 +111,7 @@ Each lock is equipped with an RFID reader that approves user access using our wi
 
 | Device | Operation |
 | ----- |:-------:|
-| RFID | Collects user RFID Tag |
+| RFID - Elechouse NFC | Collects user RFID Tag |
 | Arduino and XBee End Device | Sends RFID tag, location, and lock state information to nearest router |
 | XBee router(s) | Passes the received information on to the coordinator |
 | Coordinator | Receives and parses the incoming message, then calls a remote Meteor method |
@@ -127,7 +127,7 @@ Each lock is equipped with an RFID reader that approves user access using our wi
   </a>
 </p>
 
-<h6 align="center"><i>Authentication Demonstration</i></h6>
+<h6 align="center"><i>Authentication Demonstration (1/8 speed)</i></h6>
 
 ###### &nbsp;
 
@@ -170,36 +170,14 @@ Download one of the version of the repository from the releases page (TODO: link
 
 Once downloaded and unzipped, enter the directory (i.e. `cd ~/Downloads/TeamBikes`).
 
+To learn about each subfolder, visit the specific README. For example, to learn more about the Meteor Web Application, go to [`/Meteor Web Application/README.md`](https://github.com/KyleKing/TeamBIKES/blob/master/Meteor%20Web%20Application/README.md).
+
 | Folder | Contents |
 | ----- |:-------:|
-| `/MeteorApp/` | The source code for the deployed web application available at [redbarbikes.com](https://redbarbikes.com) |
-| `/Raspberry_Pi_Node/` | The Node.js application that runs on the coordinator device for remote communication to the web application |
-| `/Arduino_Node/` | Example Arduino code used in prototyping the smartlock |
-| `/README/` | Images and content used in the README.md page you are reading |
-
-## Folder: MeteorApp
-
-> The source code for the deployed web application available at [redbarbikes.com](https://redbarbikes.com)
-
-To run the Meteor application, enter the folder `cd MeteorApp`, then start the meteor application with `meteor`. To install Meteor, visit https://www.meteor.com/. The first time loading may take some time as new packages are downloaded and the initial seed scripts are run to generate fake data.
-
-## Folder: Raspberry Pi Node
-
-> The Node.js application that runs on the coordinator device for remote communication to the web application
-
-To run the Node application, enter the folder `cd Raspberry_Pi_Node` and install the necessary Node packages: `npm install`. If you don't have Node.js or NPM installed, visit https://docs.npmjs.com/getting-started/installing-node. TO run this code on a Raspberry Pi, you will need to install Node (TODO: link a guide and other notes).
-
-Once the NPM packages are installed, try connecting an Arduino or XBee module to your computer/Raspberry Pi via a USB cable. Start the Node application with `node init.js`. The application should recognize the USB device and will wait for incoming data. The anticipated format is:
-
-```
-TODO: Add CSV Format
-```
-
-## Folder: Arduino_Node
-
-> Example Arduino code used in prototyping the smartlock
- 
-This code is included for our reference, but is not well documented and may not work. We will hopefully return to clean up this section. If you would like us to add better documentation, please open up a comment! We would be happy to put more time in if people are using this repository.
+| [`/Meteor Web Application/`](https://github.com/KyleKing/TeamBIKES/blob/master/Meteor%20Web%20Application) | The source code for the deployed web application available at [redbarbikes.com](https://redbarbikes.com) |
+| [`/Coordinator_Raspberry Pi/`](https://github.com/KyleKing/TeamBIKES/tree/master/Coordinator_Raspberry%20Pi) | The Node.js application that runs on the coordinator device for remote communication to the Meteor web application |
+| [`/End Device_Arduino/`](https://github.com/KyleKing/TeamBIKES/tree/master/End%20Device_Arduino) | Example Arduino code used in prototyping the smartlock |
+| [`/README/`](https://github.com/KyleKing/TeamBIKES/blob/master/README) | Images and content used in the README.md page you are reading |
 
 # Thank you for reading this far!
 
@@ -214,5 +192,13 @@ See screenshots of previous and current iterations of the website
 [The Dashboard Pages](Dashboard.md)
 
 [Other Pages](Other.md)
+
+Explore the smartlock code
+
+[`/Meteor Web Application/`](https://github.com/KyleKing/TeamBIKES/blob/master/Meteor%20Web%20Application)
+
+[`/Coordinator_Raspberry Pi/`](https://github.com/KyleKing/TeamBIKES/tree/master/Coordinator_Raspberry%20Pi)
+
+[`/End Device_Arduino/`](https://github.com/KyleKing/TeamBIKES/tree/master/End%20Device_Arduino)
 
 <!-- > [To see previous iterations of the website-> see the next README](WebsiteScreenshots.md)-->
