@@ -1,0 +1,17 @@
+form
+	.form-group
+		label(for='bike') Bike Number
+		input#bike.form-control(type='number' placeholder='3' name='Bike')
+	.form-group
+		label(for='tag') Update Bike Tag
+		select#tag.form-control(name='Tag')
+			option(value="" disabled selected hidden) Make a selection...
+			option ToBeRedistributed
+			option RepairToBeStarted
+			option RepairInProgress
+			option WaitingOnParts
+			option Available
+	.form-group
+		label(for='note') Report Body:
+		textarea#note.form-control(rows='3' name='Notes')
+	button.btn.btn-primary(type='submit') Submit

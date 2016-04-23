@@ -1,0 +1,231 @@
+$panel-width-s = 100%
+$panel-width-m = 95%
+$panel-width-l = 80%
+$title-panel-height = 75px
+$title-panel-offset = 70px
+$base-index = 5
+
+// rem fallback - credits: http://zerosixthree.se/
+calculateRem( $size )
+	unit( $size/16, 'rem' )
+
+font-size( $size )
+	// font-size $size
+	font-size calculateRem( $size )
+	// anti-aliasing mode font rendering
+
+font-smoothing()
+	-moz-osx-font-smoothing grayscale
+	-webkit-font-smoothing antialiased
+
+// media queries
+MQ( $canvas )
+	if $canvas == S
+		@media only screen and ( max-width $desktop )
+			{block}
+	else if $canvas == M
+		@media only screen and ( min-width $desktop )
+			{block}
+
+/* --------------------------------
+
+				Primary style
+
+-------------------------------- */
+
+// Clever trick from https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+html
+	box-sizing border-box
+
+*, *:before, *:after
+	box-sizing inherit
+
+/* --------------------------------
+
+				Main components
+
+-------------------------------- */
+// html, body
+//  height 100%
+
+// .cd-main-content
+//   text-align center
+//   h1.cd
+//     font-size(20px)
+//     color lighten($secondary-bg-color, 16%)
+//     padding 4em 0
+//   .cd-btn
+//     position relative
+//     display inline-block
+//     padding 1em 2em
+//     background-color $nav-bg-color
+//     color $secondary-bg-color
+//     font-weight bold
+//     font-smoothing()
+//     border-radius 50em
+//     box-shadow inset 0 1px 0 rgba(white, 0.5), 0 0 5px rgba(black, 0.1)
+//     transition all 0.2s
+//     .no-touch &:hover
+//       box-shadow inset 0 1px 0 rgba(white, 0.5), 0 0 20px rgba(black, 0.3)
+//   +MQ(L)
+//     h1.cd
+//       font-size(32px)
+
+.noscroll
+	overflow hidden
+
+.cd-panel
+	&::after, &::before
+		content ''
+	&::after
+		/* overlay layer */
+		background rgba( black, 0 )
+		cursor pointer
+		height 100%
+		left 0
+		position absolute
+		top 0
+		transition background 0.3s 0.3s
+		width 100%
+	&.is-visible
+		transition visibility 0s 0s
+		visibility visible
+		&::after
+			background rgba( black, 0.6 )
+			transition background 0.3s 0s
+		.cd-panel-close::before
+			animation cd-close-1 0.6s 0.3s
+		.cd-panel-close::after
+			animation cd-close-2 0.6s 0.3s
+	height 100%
+	left 0
+	position fixed
+	top 0
+	transition visibility 0s 0.6s
+	visibility hidden
+	width 100%
+	z-index ( $base-index - 1 )
+
+@keyframes cd-close-1
+	0%, 50%
+		transform rotate( 0 )
+	100%
+		transform rotate( 45deg )
+
+@keyframes cd-close-2
+	0%, 50%
+		transform rotate( 0 )
+	100%
+		transform rotate( -45deg )
+
+.cd-panel-header
+	background rgba( $nav-bg-color, 0.96 )
+	box-shadow 0 1px 1px rgba( black, 0.08 )
+	height $title-panel-height
+	line-height 50px
+	margin 0
+	position fixed
+	width $panel-width-s
+	z-index ( 2 + $base-index )
+	h1.cd
+		color $secondary-bg-color
+		font-weight bold
+		// This should be vertically centered (possibly flexbox with Lost grid?):
+		margin-top ( ($title-panel-height - 50) / 2 )
+		padding-left 5%
+	.from-right &, .from-left &
+		top ( $title-panel-offset - $title-panel-height )
+		transition top 0.3s 0s
+	.from-right &
+		right 0
+	.from-left &
+		left 0
+	.is-visible &
+		+MQ( M )
+			top $title-panel-offset
+		transition top 0.3s 0.3s
+	+MQ( M )
+		width $panel-width-m
+
+.cd-panel-close
+	&::after, &::before
+		content ''
+	display inline-block
+	height 100%
+	overflow hidden
+	position absolute
+	right 5%
+	text-indent 100%
+	top ( ($title-panel-height - 50) / 2 )
+	white-space nowrap
+	width 60px
+	&::before, &::after
+		-webkit-backface-visibility hidden
+		backface-visibility hidden
+		background-color $secondary-bg-color
+		height 3px
+		left 20px
+		position absolute
+		top 22px
+		width 20px
+	&::before
+		transform( rotate(45deg) )
+	&::after
+		transform( rotate(-45deg) )
+	.no-touch &:hover
+		&::before, &::after
+			background-color $secondary-bg-color
+			transition-duration( 0.3s )
+			transition-property( transform )
+		&::before
+			transform( rotate(220deg) )
+		&::after
+			transform( rotate(135deg) )
+
+.cd-panel-container
+	+MQ( S )
+		width $panel-width-s
+	+MQ( M )
+		width $panel-width-m
+	background $nav-bg-color
+	height 100%
+	position fixed
+	top 0
+	transition-delay( 0.3s )
+	transition-duration( 0.3s )
+	transition-property( transform )
+	z-index ( 1 + $base-index )
+	.from-right &
+		right 0
+		transform(translate3d( 100%, 0, 0) )
+	.from-left &
+		left 0
+		transform(translate3d( -100%, 0, 0) )
+	.is-visible &
+		transform(translate3d( 0, 0, 0) )
+		transition-delay( 0s )
+
+.cd-panel-content
+	+MQ( M )
+		padding ( $title-panel-height+20+$title-panel-offset ) 5% 5% 5%
+	+MQ( S )
+		padding ( $title-panel-height+20 ) 5% 5% 5%
+	-webkit-overflow-scrolling touch
+	height 100%
+	left 0
+	overflow auto
+	position absolute
+	top 0
+	width 100%
+	z-index $base-index
+	p.cd
+		color $secondary-bg-color
+		font-size( 14px )
+		line-height 1.4
+		margin 2em 0
+		&:first-of-type
+			margin-top 0
+	+MQ( M )
+		p.cd
+			font-size( 16px )
+			line-height 1.6

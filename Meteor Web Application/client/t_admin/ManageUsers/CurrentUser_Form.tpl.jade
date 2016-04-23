@@ -1,0 +1,58 @@
+each UserFact
+	h2 Contact {{profile.name}}
+	p Click this link to send an email from your preferred mail application,
+		a(href='{{mailToUser}}')
+			|  {{emails.[0].address}}
+br
+table.table.table-hover.table-condensed
+	//- Labels Row
+	thead
+		tr
+			th Name
+			th createdAt
+			th Email Address
+			th Roles
+	//- Actual Bike Data
+	tbody
+		each UserFact
+			tr
+				td {{profile.name}}
+				td {{formatDate createdAt "short"}}
+				td {{emails.[0].address}}
+				td #{roles}
+				//- NOTE: Need the double {{ }}
+				//- otherwise the [0] and formatDate won't work
+
+br
+each UserFact
+	h2 Update {{profile.name}}'s roles and permissions
+.form-group
+	form
+		//- allRoles = ['User', 'Mechanic', 'Employee', 'Redistribution', 'Admin', 'Root' ]
+		.checkbox
+			label
+				input(type='checkbox' name='User' value='User' checked="{{isChecked 'UserVar'}}")
+				| User - Individual subscribers who can rent bikes and see public-data
+		.checkbox
+			label
+				input(type='checkbox' name='Mechanic' value='Mechanic' checked="{{isChecked 'MechanicVar'}}")
+				| Mechanic - Skilled technicians that serves the greater good
+		.checkbox
+			label
+				input(type='checkbox' name='Redistribution' value='Redistribution' checked="{{isChecked 'RedistributionVar'}}")
+				| Redistribution - Redistribution staff responsible for moving damaged bikes
+		.checkbox
+			label
+				input(type='checkbox' name='Employee' value='Employee' checked="{{isChecked 'EmployeeVar'}}")
+				| Employee - Role for all employees for shared access
+		.checkbox
+			label
+				input(type='checkbox' name='Admin' value='Admin' checked="{{isChecked 'AdminVar'}}")
+				| Admin - Highest level access to manage employees and users
+		if isInRole 'Root'
+			.checkbox
+				label
+					input(type='checkbox' name='Root' value='Root' checked="{{isChecked 'RootVar'}}")
+					| Root - Nearly-complete access, but only for troubleshooting critical issues
+		br
+		button(type='submit') Update Roles

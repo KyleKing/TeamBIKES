@@ -1,0 +1,64 @@
+ul.unstyled
+	list-style-type none
+
+// Midnight.js Alterations
+mix-nav-midnight( color-bg, display-type, color-main, color-bottom )
+	background-color color-bg
+	// Removed border and transparency for dashboard:
+	// bord( 0, 0, 0, 1px, solid, color-bottom )
+	// opacity 0.9
+	& .nav-brand
+		color color-main
+		display display-type
+	& a
+		color color-main
+	& li a.active
+		bord( 0, 0, 0, 3px, solid, color-main )
+
++below( $desktop )
+	.NeedRFID
+		color $brand-bright !important
+	nav.midnight-header
+		display none
++above( $desktop )
+	// Simple fixed flat bar with logo and navbar icons
+	nav.midnight-header
+		// mix-nav-midnight( none, inline-block, $nav-bg-color, green )
+		box-shadow 0 2px 3px 0 none
+		height $nav-height-calc
+		mix-nav-midnight( $nav-bg-color, inline-block, $text-color, $text-color )
+		position fixed
+		text-transform uppercase
+		width 100%
+		z-index 20
+		& .badge-notify.HaveRFID
+			display none
+		& .badge-notify.NeedRFID
+			color $brand-bright
+			position relative
+			right 15 px
+			top -5 px
+			width 0
+		// Logo
+		& .nav-brand
+			font-size 25px
+			padd( 20px, 20px, auto, 20px )
+			position relative
+			text-decoration none
+		& .nav-elements
+			display inline-block
+			float right
+		& ul
+			marg( 5px, auto, auto, 5px )
+			padding-right $nav-left-space - $nav-element-space
+			& li
+				display inline
+				& a
+					marg( $nav-top-space, $nav-element-space - $nav-active-space, $nav-element-space - $nav-active-space, 0 )
+					padd( 0, $nav-active-space, $nav-active-space, 5px )
+					text-decoration none
+
+	// Spacing for page content
+	+above( $desktop )
+		.nav-spacing
+			height $nav-height-calc + 10

@@ -1,0 +1,48 @@
+{
+	"modules" : {
+		"variables": true,
+		"mixins": true,
+
+		"normalize": true,
+		"print": true,
+		"glyphicons": true,
+
+		"scaffolding": false,
+		"utilities": true,
+		"type": false,
+		"code": false,
+		"grid": true,
+		"tables": true,
+		"forms": true,
+		"buttons": true,
+
+		"component-animations": true,
+		"dropdowns": true,
+		"button-groups": false,
+		"input-groups": false,
+		"navs": false,
+		"navbar": false,
+		"breadcrumbs": false,
+		"pagination": true,
+		"pager": false,
+		"labels": false,
+		"badges": false,
+		"jumbotron": false,
+		"thumbnails": false,
+		"alerts": false,
+		"progress-bars": false,
+		"media": false,
+		"list-group": false,
+		"panels": false,
+		"responsive-embed": false,
+		"wells": false,
+		"close": false,
+
+		"modals": false,
+		"tooltip": false,
+		"popovers": false,
+		"carousel": false,
+
+		"responsive-utilities": true
+	}
+}
