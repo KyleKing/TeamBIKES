@@ -15,4 +15,3 @@
 5. Add bold/italics for subheadings used throughout paper
 7. Check that equations are formatted correctly
 8. Check that all tables were imported and if not, rebuild in markdown format
-9. Break down iteration and Discovery by subteam to make it more readable

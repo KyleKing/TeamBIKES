@@ -24,6 +24,8 @@ Beyond the engineering required to implement a stationless bikeshare, this thesi
 
 The completed smartlock prototype and proposed implementation model demonstrate a new paradigm for stationless bikeshares utilizing a novel mesh network, a real time web application, and an innovative bike lock design. The conclusion that we drew from the process of engineering the smartlock is that the technological challenges presented by a stationless bikeshare can be overcome in order to deliver the flexibility demanded by individuals moving about on a college campus.  Removing the stations from the system greatly reduces the initial capital required for a bikeshare system and exponentially increases the user's’ freedom.
 
+&nbsp;
+
 {% youtube %}https://www.youtube.com/watch?v=tg4aXH1SqxQ{% endyoutube %}
 
 ![V. REDBAR Bikes commercial](Figures/blank.png)
