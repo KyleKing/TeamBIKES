@@ -1,4 +1,4 @@
-# Discovery
+## Discovery
 
 The Discovery section explains the evolution of Team BIKES discovery process through three key phases: decisions, exploration, and experimentation.  The decisions phase walks through how the team selected components that were going to be a part of the system.  The exploration phase includes the discussion of initial testing and introduction of core concepts.  The concepts include exploring XBee operations, building testing fixtures, NFC testing, and IRB approvals.  Lastly, the experimentation phase discusses various tests of individual components, such as lock testing, encryption protocol, and GPS experimentation.
 

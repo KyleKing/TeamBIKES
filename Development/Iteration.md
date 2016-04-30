@@ -1,4 +1,4 @@
-# Iteration
+## Iteration
 
 The iteration section addresses the evolution of the research from initial discovery into refined concepts based on user feedback.  The focus group discussion provided a majority of the feedback on the team’s experimentation.  The Locking subteam received feedback on the lock design to better accommodate the user.  The Business subteam received feedback on the type of payment that college students would find acceptable for the bikeshare.  The Access Control subteam learned the optimal placement for the NFC reader on the bike for the best user experience.  Lastly, the Geolocation subteam received feedback on the bikeshare website and what components were missing or needed improvement.
 

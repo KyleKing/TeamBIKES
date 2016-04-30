@@ -1,0 +1,20 @@
+{
+  "gitbook": "2.x.x",
+  "plugins": [
+  	"youtube",
+  	"anchors",
+  	"image-captions"
+  ],
+  "links": {
+    "sidebar": {
+      "Visit the Website": "https://redbarbikes.com/",
+      "See the Code": "https://github.com/KyleKing/TeamBIKES"
+    }
+  },
+  "pluginsConfig": {
+    "image-captions": {
+    	"attributes": { "width": "400" },
+    	"caption": "Figure _CAPTION_"
+    }
+	}
+}

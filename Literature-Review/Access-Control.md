@@ -1,4 +1,4 @@
-# Access Control
+## Access Control
 
 The three access control methods considered for the bikeshare system are Bluetooth, Radio Frequency Identification (RFID), and Near Field Communications (NFC) wireless communication technologies.  These technologies are attractive options because of their wide range of current applications in access control.  The popularity of these technologies also provides the team with options of a variety of available existing hardware and software for use.
 

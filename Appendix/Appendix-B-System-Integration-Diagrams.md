@@ -1,4 +1,4 @@
-# Appendix B – System Integration Diagrams
+## Appendix B – System Integration Diagrams
 
 ZigBee Mesh Network Components
 

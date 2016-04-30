@@ -1,4 +1,4 @@
-# Research Background
+## Research Background
 
 As global industrialization and urbanization continues, lack of convenient transportation lingers as a challenge for many individuals.  When considering the escalating environmental and monetary costs of today’s most popular modes of transportation, commuters must strive to find viable alternatives.  Municipalities first officially implemented bikeshares in 1965 to combat the problem of rising costs of public transportation (Shaheen, Guzman, & Zhang, 2010).  Today, the typical bikeshare systems operate by using bike stations dispersed throughout the surrounding popular metropolitan destinations.  During an allotted time period, users can rent a bicycle from any station, use it for any number of pursuits - be it work, leisure, or tourism - and return the bicycle to any station (Bikeshare, 2013).  However, the number and distribution of stations can limit a user’s options for his or her final destination.  A metropolitan city with a large number of stations overcomes this drawback, but the problem still exists in smaller, though populous, areas such as college campuses.
 

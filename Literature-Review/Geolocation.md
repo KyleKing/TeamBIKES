@@ -1,4 +1,4 @@
-# Geolocation
+## Geolocation
 
 In order to support a campus-wide stationless bikeshare, Team BIKES recognizes the need for a robust geolocation system.  The purpose of the system is to provide ease of access to the bikeshare for users and system administrators alike.  At a minimum, it must provide a way to measure, store, and communicate positional, usage, and maintenance data for all of the bikes that belong to the bikeshare.  Over the duration of the project, Team BIKES has thoroughly researched various existing technologies for designing and building the geolocation system, prioritizing options that offer the best mix of affordability, scalability, and reliability.
 
