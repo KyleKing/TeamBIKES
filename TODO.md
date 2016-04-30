@@ -19,5 +19,7 @@
 8. Check that all tables were imported and if not, rebuild in markdown format
 9. Break down iteration and Discovery by subteam to make it more readable
 10. Create tabs after every paragraph otherwise it becomes one non-ending line of garble
+11. Possibly add anchors as a plugin, however right now they don't disappear (https://plugins.gitbook.com/plugin/anchors)
+12. Fix image sizes and center them? Removed: "attributes": { "width": "400" },
 
 Lots of other things...
