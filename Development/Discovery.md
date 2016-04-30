@@ -50,11 +50,9 @@ Figure 12.  Comparison of tested NFC modules.
 
 XBee.  After deciding to pursue the ZigBee protocol, the team researched available modules.  The Geolocation subteam referenced the XBee Buying Guide on Sparkfun Electronics website, which aided in deciding which modules to purchase.  The system requirements that informed this decision included:
 
-Mesh network capability
-
-Sufficiently long transmission distances for a large coverage area
-
-Minimum per module cost
+* Mesh network capability
+* Sufficiently long transmission distances for a large coverage area
+* Minimum per module cost
 
 Other factors considered were the antenna type (duck, whip, or pigtail) and the frequency (2.4 GHz or 915 MHz).  Comparison of the antenna types can be seen in Figure 13.  The frequency had the most effect on the data rate.  The 2.4 GHz band had a higher data rate (250 kbps) than the 915 MHz band (up to 156 kbps).
 
@@ -97,4 +95,3 @@ Figure 19.  OnGuard K9 folding lock during testing.
 Since the U-locks were able to withstand forces of about 20 kN in both trials before failure while the folding locks were only able to withstand forces of about 7 kN, the team learned that the U-lock’s design is much more resistant to tensile forces than that of the folding lock.  The U-lock’s failure at the bent foot portion of the shackle indicates that if that side of the shackle was also secured by the U-lock’s key-actuated locking mechanism, it is likely that the lock could have withstood a greater tensile force before failure.  The team used this information to develop the Locking subteam’s preliminary designs, which will be discussed in the implementation section of the Development chapter.
 
 GPS.  In combination with a secure lock, the bikeshare will need real-time location information.  The Geolocation subteam began researching and experimenting with a GPS module.  The GPS module was connected with an Arduino and operated using the National Marine Electronics Association (NMEA) protocol.  The NMEA protocol uses a comma-separated value (CSV) string to display different strings of information.  Luckily, an existing software library allowed for easy parsing of the NMEA data received over the GPS module that allowed for fast-acquisition and accurate GPS readings.
-

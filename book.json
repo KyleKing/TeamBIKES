@@ -12,7 +12,7 @@
   },
   "pluginsConfig": {
     "image-captions": {
-    	"attributes": { "width": "400" },
+    	"attributes": { "width": "600" },
     	"caption": "Figure _CAPTION_"
     }
 	}
