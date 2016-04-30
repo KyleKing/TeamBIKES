@@ -1,7 +1,6 @@
 # Team B.I.K.E.S. (REDBAR BIKES)
 
-<!--TODO: Upload video of demonstration-->
-<!--TODO: Upload thesis, somewhere?-->
+<!--TODO: Improve demonstration video -->
 <!--TODO: Link Previous Versions in Releases Page-->
 <!--TODO: Add better guides to Arduino and Raspberry Pi Guides-->
 <!--TODO: Share RFID's code in Arduino Folder?-->
@@ -146,7 +145,7 @@ Once on the site, you test different user roles by signing in as an administrato
 
 ###### &nbsp;
 
-For additional information on our smartlock and system, please see our complete thesis on the literature review, methodology, and design that went into developing the smartlock. [Will be available online soon]
+For additional information on our smartlock and system, please see our [complete thesis on the literature review, methodology, and design that went into developing the smartlock](https://www.gitbook.com/book/kyleking/gemstone-team-bikes-2016-thesis/details).
 
 # Business Concepts
 
