@@ -12,11 +12,11 @@
     }
   },
   "styles": {
-    "website": "styles/website.sass",
-    "ebook": "styles/ebook.sass",
-    "pdf": "styles/pdf.sass",
-    "mobi": "styles/mobi.sass",
-    "epub": "styles/epub.sass"
+    "website": "./styles/website.scss",
+    "ebook": "./styles/ebook.scss",
+    "pdf": "./styles/pdf.scss",
+    "mobi": "./styles/mobi.scss",
+    "epub": "./styles/epub.scss"
   },
   "pluginsConfig": {
     "image-captions": {
