@@ -2,13 +2,21 @@
   "gitbook": "2.x.x",
   "plugins": [
   	"youtube",
-  	"image-captions"
+  	"image-captions",
+    "styles-sass"
   ],
   "links": {
     "sidebar": {
       "Visit RedBarBikes.com ⇢": "https://redbarbikes.com/",
       "See the Source Code ⇢": "https://github.com/KyleKing/TeamBIKES"
     }
+  },
+  "styles": {
+    "website": "styles/website.sass",
+    "ebook": "styles/ebook.sass",
+    "pdf": "styles/pdf.sass",
+    "mobi": "styles/mobi.sass",
+    "epub": "styles/epub.sass"
   },
   "pluginsConfig": {
     "image-captions": {
