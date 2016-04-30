@@ -26,7 +26,7 @@ As a 13-person team in the Gemstone Program at the University of Maryland, Colle
 
 In typical Gemstone fashion, our name is an acronym for: Bikeshare-Intended Keyless Encrypted Smartlocks
 
-We hope you find this repository helpful and feel free to [open an issue](https://github.com/KyleKing/TeamBIKES/issues) to reach out to me (@kyleking) and/or the rest of the team.
+We hope you find this repository helpful and feel free to [open an issue](https://github.com/KyleKing/TeamBIKES/issues) to reach out to me (@kyleking) and/or the rest of the team. For additional information on our smartlock and system, please see our [complete thesis](https://www.gitbook.com/book/kyleking/gemstone-team-bikes-2016-thesis/details) hosted as an interactive Gitbook.
 
 <!--[![RedBarBikesCommercial](README/Gifs/RedBarBikesCommercial.png)](http://www.youtube.com/watch?v=tg4aXH1SqxQ)-->
 
@@ -145,7 +145,7 @@ Once on the site, you test different user roles by signing in as an administrato
 
 ###### &nbsp;
 
-For additional information on our smartlock and system, please see our [complete thesis on the literature review, methodology, and design that went into developing the smartlock](https://www.gitbook.com/book/kyleking/gemstone-team-bikes-2016-thesis/details).
+For additional information on our smartlock and system, please see our [complete thesis](https://www.gitbook.com/book/kyleking/gemstone-team-bikes-2016-thesis/details) on the literature review, methodology, and design of the smartlock.
 
 # Business Concepts
 
