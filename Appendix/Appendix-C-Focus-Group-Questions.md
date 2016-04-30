@@ -1,4 +1,4 @@
-Appendix C - Focus Group Questions
+## Appendix C - Focus Group Questions
 
 * Do you have a bike on campus?
 * If not, why don't you have a bike on campus?
@@ -11,4 +11,3 @@ Appendix C - Focus Group Questions
 * Would you be willing to use the system for $25-30 per semester?
 * How would you solve the bike desert problem?
 * Would you like bike information to be displayed on TerpNav, Google Maps, Bing maps, or another online map service?
-*

@@ -8,5 +8,7 @@
 6. Fix spacing between paragraphs and possibly at the start of each paragraph
 7. Check that equations are formatted correctly
 8. Check that all tables were imported and if not, rebuild in markdown format
+9. Break down iteration and Discovery by subteam to make it more readable
+10. Create tabs after every paragraph otherwise it becomes one non-ending line of garble
 
 Lots of other things...
