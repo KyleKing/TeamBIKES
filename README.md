@@ -18,7 +18,7 @@ Video problems:
 [![RedBarBikesCommercial](http://img.youtube.com/vi/VideoID/0.jpg)](http://www.youtube.com/watch?v=VideoID)
 -->
 
-> A bikeshare for college students by college students [redbarbikes.com](https://redbarbikes.com)
+> A bikeshare for college students by college students previously hosted at [redbarbikes.com](https://redbarbikes.com)
 
 # About
 
@@ -83,9 +83,7 @@ Our system is based on a custom smartlock that sits below the bike seat and secu
 Each lock is equipped with an RFID reader that approves user access using our wireless mesh network and web application. The wireless mesh network is built using XBee modules. The modules serve either as an end device on each bike, a router to send the signal over a greater distance, or attached to a Raspberry Pi as a coordinator to relay the information to the web application. This system allows for a great level of flexibility and rapid two-way communication.
 
 <p align="center">
-  <a href="http://redbarbikes.com">
     <img width="600" height=auto src="README/Technology_Images/Mesh_Single.png">
-  </a>
 </p>
 
 <!--![Single Unit Diagram](README/Technology_Images/Mesh_Single.png)-->
@@ -95,9 +93,7 @@ Each lock is equipped with an RFID reader that approves user access using our wi
 ###### &nbsp;
 
 <p align="center">
-  <a href="http://redbarbikes.com">
-    <img width="600" height=auto src="README/Technology_Images/Mesh_System.png">
-  </a>
+  <img width="600" height=auto src="README/Technology_Images/Mesh_System.png">
 </p>
 
 <!--![Network Diagram](README/Technology_Images/Mesh_System.png)-->
@@ -121,9 +117,7 @@ Each lock is equipped with an RFID reader that approves user access using our wi
 ###### &nbsp;
 
 <p align="center">
-  <a href="http://redbarbikes.com">
-    <img width="300" height=auto src="README/WIP-AccessDemo/Access.gif">
-  </a>
+    <img min-width="100%" height=auto src="README/WIP-AccessDemo/Access.gif">
 </p>
 
 <h6 align="center"><i>Authentication Demonstration (1/8 speed)</i></h6>
@@ -135,9 +129,7 @@ The web application can utilize the information received from the mesh network a
 Once on the site, you test different user roles by signing in as an administrator or student with the light blue buttons on the login page. Try out exploring the [administrator dashboard](https://redbarbikes.com/Dashboard) by searching each table column, then click on any row to open up an additional slide in panel. On the [map page](https://redbarbikes.com/Map), try reserving a bike by clicking any of the grey icons.
 
 <p align="center">
-  <a href="http://redbarbikes.com">
     <img width="300" height=auto src="README/Technology_Images/Mobile_App_Preview.png">
-  </a>
 </p>
 <!--![Web App Demo](README/Technology_Images/Mobile_App_Preview.png)-->
 
@@ -154,9 +146,7 @@ Our lock was built to push the boundaries of the technology for stationless bike
 However, if we were to build this bike lock into a bikeshare, we conducted preliminary research into initial installation costs and branding. Our brand was specific to the Maryland campus that we started on. We were inspired by the "redbars" that would appear in between classes as a warning that a student would have difficulty in arriving on time. This would often appear when a class was on North Campus, but the student's next class was on South Campus and there would only be a ten minute gap to traverse the campus. Our bikeshare was meant to solve transportation issues exactly like this.
 
 <p align="center">
-  <a href="http://redbarbikes.com">
     <img width="300" height=auto src="README/Technology_Images/RedBar_Schedule.png">
-  </a>
 </p>
 
 <!--![RedBar Schedule](README/Technology_Images/RedBar_Schedule.png)-->
