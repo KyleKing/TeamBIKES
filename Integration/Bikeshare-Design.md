@@ -6,7 +6,7 @@ Operations.  Upon implementation on the campus, the university will take on the 
 
 Payment structure.  In order to continue operations, the bikeshare would need to create consistent income from the subscription type service.  An example of the payment structure of Capital Bikeshare is shown in Figure 56.
 
-Figure 56.  Membership and usage fees for users of Capital Bikeshare.
+![56.  Membership and usage fees for users of Capital Bikeshare.](../Figures/fig56.jpg)
 
 Due to the bikeshare’s target market and anticipated users, the payment structure needs to be favorable to a college student’s budget and schedule.  The challenge of the bikeshare system will be to charge enough money to operate with close to no net losses but not enough to discourage already cash-strapped college students.  This ideal pricing system will maximize the number of users on campus while satisfying the system’s monetary needs.  Furthermore, the structure and term of the subscription should be flexible enough to cater to the traditional semester college schedule.  Maryland’s Department of Transportation already offers parking via a semester-by-semester style, and this system would also work well for college students.
 
@@ -60,12 +60,12 @@ By implementing this type of bikeshare, the administrator can create and modify 
 
 Cost analysis.  Team BIKES took on the project as a means of providing a cheaper alternative to bikeshare administrators, especially college campuses.  Looking at a number of bikeshare systems around the country, the team wanted to gauge how many bikes would be needed on the University of Maryland’s campus.  Figure 57 below shows the number of bikes per 10,000 people in that bikeshare’s target population.
 
-Figure 57.  Number of bikes per 10,000 people in bikeshares around the country.
+![57.  Number of bikes per 10,000 people in bikeshares around the country.](../Figures/fig57.jpg)
 
 In order to attain a distribution level on par with metropolitan bikeshares, the team would need to purchase 80 bikes.  However, to be on par with the other college bikeshares, UBike and Zotwheels, the team would need to have 120 bikes.
 
 According the Diamondback, the University currently has plans to welcome a stationed bikeshare to campus in May, 2015.  The bikeshare has plans to construct seven stations with 120 bikes, and the school received a grant for $375,000 to help with the costs of the system (Lang, March 2016).  The breakdown of Team BIKES proposed system comes at a much cheaper cost than the grant the school was awarded.  The costs that the team used in the estimates are rough and most likely much greater than the actual costs when purchasing materials, bikes, and labor in bulk.  The costs are below in Figure 58.
 
-Figure 58.  Cost Analysis.
+![58.  Cost Analysis.](../Figures/fig58.jpg)
 
 Implementing a 120 bike system on Maryland’s campus would cost approximately $125,160, which is only 33% the cost of the grant that the university was awarded.  Without factoring in operating expenses, the costs associated with Team BIKES system is a dramatic reduction in upstart costs, and this as well as all the other benefits of the team’s proposed system make it a very attractive product.

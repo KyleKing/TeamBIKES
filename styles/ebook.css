@@ -1,0 +1,13 @@
+/* @import 'universal'; */
+p {
+  text-indent: 2em;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+td {
+  text-align: center;
+}

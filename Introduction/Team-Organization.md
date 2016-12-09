@@ -4,4 +4,4 @@ In order to delegate tasks and accomplish the goal of proving the feasibility of
 
 In addition to the three liaisons per the Gemstone Department’s guidelines, the team created the roles of project manager, to oversee the entire project and lead meetings, and system engineer, to oversee the technology subteams.  The team’s organizational tree can be found in Figure 2.
 
-Figure 2.  Team BIKES organization tree.
+![2.  Team BIKES organization tree.](../Figures/fig02.jpg)

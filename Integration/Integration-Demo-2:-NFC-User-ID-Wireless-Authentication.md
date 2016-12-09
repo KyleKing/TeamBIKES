@@ -4,7 +4,7 @@ The second demonstration aimed to create a communication protocol between the sm
 
 To start the smartlock, the user would first push a button to initiate the NFC reader.  Once the reader was active, one of the two NFC cards was placed next to the reader for communication, which would collect a hexadecimal code identifying the NFC card.  Using the protocol specified in demonstration 1, the Arduino would collect available information and create the CSV string seen in Figure 55.
 
-Figure 55.  CSV string.
+![55.  CSV string.](../Figures/fig55.jpg)
 
 Using the communication process proven in demonstration 1, the information would be relayed to the Meteor database through the XBee wireless connection and an intermediary Node.js application.  However, in this demonstration, the ability of the XBee modules to communicate bidirectionally and authenticate a user was tested.  Upon receipt of the new data, the Meteor application would determine if the NFC card identified was approved for access and would return a false value accordingly.  To monitor this process, the application included a table of received and sent values and the Arduino and NFC device would output serial data to see the data transfer in real time.
 

@@ -1,4 +1,7 @@
-# TODO
+> Fix fig 26 and 30 on iteration + continue on from there!
+
+
+# TODO - Team BIKES Gitbook Guide
 
 ## Export figures from thesis document into jpg/png format with proper numbering
 
@@ -10,6 +13,12 @@
 * Go to File->Export Selected (''). This will open up a view of your finder. Click options and change the export format from PDF to JPEG. Create a new folder and save all of the images
 * Send me the folder of the images and I can add them to the thesis!
 
+Use this regex to replace the figure comments:
+
+```
+Figure ((\d{2})\. [^\n]+)
+![$1](../Figures/fig$2.jpg)
+```
 
 3. What to do with the Table of Figures? Link to sections in the text?
 5. Add bold/italics for subheadings used throughout paper

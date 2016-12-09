@@ -18,13 +18,13 @@ For the modified U-lock concept, the participants seemed very open to the design
 
 New user onboarding.  During the focus group discussion, the team received a variety of feedback related to the website and the system operation.  The feedback focused on improving the first web page to be more informative and concise, implementing useful user features, such as a reservation system, and more clearly defining a brand identity.  Prior to the focus group, the team had created a brand using the name, RedBar.  The name was inspired by the red marks in between a student’s university schedule indicating a difficulty in arriving at a class on time, as seen in Figure 20.
 
-Figure 20.  A picture of a typical student’s schedule.
+![20.  A picture of a typical student’s schedule.](../Figures/fig20.jpeg)
 
 Many comments from the focus group discussion addressed the “About” page or the home page shown when a user first visits the website, as shown in Figures 21 and 22.  The comments focused primarily on color scheme and visual appeal of the website, and the participants also stated that the website failed to convey the team’s unique brand.  The users additionally felt that the concept of a stationless bikeshare was not effectively communicated or explained on the first page, stating that someone outside of the focus group discussion would likely be confused.  They suggested improvements such as a visual walkthrough, diagrams, or other more general text to better accomplish this goal.  This user feedback demonstrated the user focus on onboarding and highlighted an issue found on many websites.
 
-Figure 21.  The top portion of the about page with a hero image and nav bar.
+![21.  The top portion of the about page with a hero image and nav bar.](../Figures/fig21.jpeg)
 
-Figure 22.  The middle section of the about page including additional details.
+![22.  The middle section of the about page including additional details.](../Figures/fig22.jpg)
 
 Reflecting on the feedback, the team focused on the development of better content focused towards the user needs.  First, the users wanted to understand a stationless bikeshare and what makes RedBar unique.  The revised layout reflected this change by first focusing on a clear tagline for the company: “bikes on demand for the busy student.” Second, the “About” page incorporated visual content and short, well scripted text blocks to quickly explain what a bikeshare is and to introduce RedBar.  Most of the initial content prior to the focus group discussion was removed to focus on the most crucial aspects: describing a bikeshare, explaining the value proposition, and displaying the price structure.  One of the minor issues identified by the users was the need for a more cohesive color scheme and brand.  While the team originally had a logo in the top left corner and throughout the website, the users did not recognize the brand name, so the full name, “RedBar”, was highlighted, rather than obscured through a logo.
 
@@ -60,15 +60,15 @@ Implementation.  Incorporating the focus group feedback, each technical aspect o
 
 Evolution of the modified U-lock.  In parallel with the loop lock, Team BIKES decided to develop a bike lock that was based on a U-lock, the current safety standard recommended by DOTS at the University of Maryland.  Therefore, the design incorporates the structural integrity of the U-lock with a solid loop enclosure.  However, the conventional U-lock separates into two parts when opened, which is not desirable in a bikeshare system because detachable parts can be easily taken or lost.  As a result, a cable extension connecting the loop enclosure and the lock base is proposed to allow for flexibility during locking while also keeping the whole lock a single system.  The lock relies on a reel system to ensure security of the cable and for improved usability.
 
-Figure 23.  The first version of the modified U-lock.
+![23.  The first version of the modified U-lock.](../Figures/fig23.jpg)
 
 The first iteration, as shown in Figure 23, was used to gauge the shape of the locking mechanism and whether a retractable pin mechanism would work correctly.  Through FEA analysis, the team found that the design would withstand a reasonable range of forces.  After rapid prototyping, Team BIKES demonstrated the feasibility of the lock design and novel locking mechanism.  The locking mechanism consisted of two pins that were angled on one side and pushed into a locking position using a spring mechanism.  When retracted by a motor, the lock could easily be unlocked, but in the normal, passive state, the pins would prevent unwanted access, when the U-portion of the lock was re-inserted.  The pins allowed for minimal electronic interaction, which creates less power draw and longer battery life.  This prototype also led to the discovery that the cable connection between the loop enclosure and the lock housing had to be longer in order to provide proper flexibility during locking.
 
-Figure 24.  The second version of the modified U-lock.
+![24.  The second version of the modified U-lock.](../Figures/fig24.jpg)
 
 The second iteration of the modified U-lock, as shown in Figure 24, involved incorporating an electronics housing unit on top of the locking mechanism to allow for close electronics integration.  After an additional round of additive manufacturing prototyping, the team learned that the overall size would possibly restrict the cycling motion of the rider.  Since the initial placement of the lock was in the crux between the toptube and downtube of the bike, the location coupled with the size of the lock could result in undesired contact with the biker’s legs.  The team also concluded that since the top tube of the Fuji bike being used for research is curved, it would be difficult to create a proper mount for the lock.  Due to all of these factors, the team realized that it would need to relocate the lock on the bike to allow for optimal performance.  The relocation of the lock meant that the mechanism attaching the lock to the bike had to change.  Since the shape of the rear stays differ from bike to bike, the team first made a 2D prototype of the curvature of the rear stays of the particular Fuji bike selected.  The choice to 3D print a 2D model enabled faster prototyping and minimized excess material use.
 
-Figure 25.  The third version of the modified U-lock.
+![25.  The third version of the modified U-lock.](../Figures/fig25.jpg)
 
 The third iteration of the lock, as shown in Figure 25, included the relocation to the back of the bike, opposite of the drivetrain.  This location was selected to avoid interfering with the rider, have the least effect on the balance of the bike, and ensure proper locking technique.  The electronics housing box would be secured to the rear, non-drive seat stay and had a concealed shaft to the locking component so that electronic components were exposed.  Ultimately, the lock had potential as a stationless bikeshare smartlock, but was not selected due to many intricate features that would be hard to manufacture and easily exploited by bike thieves.
 
@@ -76,7 +76,7 @@ Evolution of loop lock.  During early stages of research, Team BIKES pursued loc
 
 The first iteration depended heavily on the use of two hinges, as seen in the left print in Figure 26.  These hinges were oversized to compensate for their inherent weakness.  Through FEA analysis and functional testing by means of additive manufacturing prototyping, this design was deemed non-functional.  The hinges were of great concern as they were weak to torsion and required complex machining.  The hinged loop also limited the type of bike racks the lock would fit around.  In addition, the hinge pins posed a safety concern in that each pin needed to be permanent or a potential thief could simply remove the pins, rendering the lock ineffective.  There was little confidence in the safety that this design could provide, therefore the concept was reworked for the next generation.
 
-Figure 26.  First, second, and third iterations of the Loop Lock concept.
+![26.  First, second, and third iterations of the Loop Lock concept.](../Figures/fig26.jpg)
 
 The second iteration, the middle print in Figure 26, introduced a rotating collar design.  The lock was designed in two halves, each with half of the locking loop. This concept was maintained in future iteration, as seen in the right print in Figure 26.  Each half had a large metal cylindrical collar that would fit over a bike seat post and a half loop welded onto the side.  The second iteration used thin collar walls with thin vertical pins as the locking mechanism.  While the design considerably improved from the first to second iteration, the team recognized the need for stronger pins and collars to meet the stringent security goals set by comparable bike lock manufacturers.
 
@@ -86,11 +86,11 @@ The fourth iteration, depicted in Figure 27 below, is improved from the third it
 
 The fourth iteration includes an attached electronics housing.  The electronics housing contains two bolts that are inserted from the inside of the housing into the upper collar.  There are two holes on the same face of the housing that align with the lower collar that contain spring loaded contacts in order to tell if the lock is open.  An inlaid conductive strip in the lower collar will complete a circuit to inform the software if the lock is in the closed position.  The top of this housing has access to the top of the upper collars in order to attach actuators that recess the locking pins and allow the collars to rotate and open.
 
-Figure 27.  Iteration 4 assembly.  Pictured in colors for clarity and reference.
+![27.  Iteration 4 assembly.  Pictured in colors for clarity and reference.](../Figures/fig27.jpg)
 
-Figure 28.  Upper collar (left) and lower collar (right).  Lower collar rotates around shaft on upper collar.
+![28.  Upper collar (left) and lower collar (right).  Lower collar rotates around shaft on upper collar.](../Figures/fig28.png)
 
-Figure 29.  Electronics housing (left).  Bolted to upper collar from inside housing.
+![29.  Electronics housing (left).  Bolted to upper collar from inside housing.](../Figures/fig29.png)
 
 Lower welded ring (right).  Drain holes prevent liquid and particulate buildup inside lacking mechanism.
 
@@ -104,15 +104,15 @@ The electronics box will be constructed out of sheet metal and folded into the d
 
 The sixth and final iteration, pictured in Figure 30, refines some of the finer details from the previous iteration.  The locking method with a single pin has stayed the same.  The locking arms are still being bent at 90-degree bend and welded into the collar, and the collars will both be identical to improve manufacturing efficiency.  The electronics box is still folded sheet metal that will be welded together at the edges to protect the electronics.  The pin housing is welded to the top of the electronics box depicted in Figure 31, which contains the pin, a spring system, and a servo to actuate the pin.  The pin is a simple cylinder with a slot through the side as shown in Figure 32; this slot is where the servo arm moves through to open the lock.  To conserve power, the servo is only powered when actuating, so a spring is mounted to push the pin to the locked position.  To hold the lock in the open position during riding, each collar has three sets of neodymium magnets that hold the lock in the riding position with the locking arms straight back to prevent the rider from hitting the arms.
 
-Figure 30.  Final lock prototype.
+![30.  Final lock prototype.](../Figures/fig30.jpg)
 
-Figure 31.  Electronics box (left) with pin housing.  Neodymium magnet placement (right).
+![31.  Electronics box (left) with pin housing.  Neodymium magnet placement (right).](../Figures/fig31.png)
 
-Figure 32.  Pin with slot for servo.
+![32.  Pin with slot for servo.](../Figures/fig32.jpg)
 
 NFC reader selection.  The Elechouse NFC Module V3 was selected as the NFC reader for the smartlock prototype.  The selected model provided similar functionalities to the model tested, but stood out due to the detached antennae that would best fit inside tight smartlock electronics housing.  The NFC shields with attached antennas impose the restriction that the NFC shield itself, pinned to the microcontroller, must be in close proximity to the user access control interface.  Due to the Elechouse NFC reader’s antenna configuration, the user access interface could be physically isolated from the other electronics.  Figure 33 illustrates a possible system architecture using the Elechouse NFC Module V3 and the MIFARE smart card.
 
-Figure 33.  Architecture of the NFC-based access control system.
+![33.  Architecture of the NFC-based access control system.](../Figures/fig33.jpg)
 
 Hardware-Software co-development. As new hardware modules were added to the system, the code base used to respond to these modules was updated. When system development began, the functionality programmed onto the Arduino was limited to reading a MIFARE smartcard and reporting the card’s ID via a serial monitor on connected computer. The next hardware addition was a small push button used to simulate a user activating the lock’s electronics by pressing a sensor. The pushbutton was connected to one of the Arduino Uno’s interrupt capable pins, and in software a rising-edge interrupt was enabled for this pin. As a result, when the push button is depressed, a connection across the legs of the push button is formed and this results in a logically HIGH voltage level being observed by the interrupt enabled pin and this triggers a specific software function. After adding the interrupt functionality, it became necessary to develop a more formal structure for the code running on the Arduino so that user interaction and required error checking mechanisms could be simulated.
 
@@ -141,23 +141,23 @@ To communicate in the other direction, the coordinator wraps a single byte into 
 
 After iterating through multiple techniques for methods of communications with the XBee modules, network testing was performed.  To test simple network configurations with various node types, the XBees were configured to transmit empty packets from various numbers of routers and end devices back to a single coordinator, pictured in Figure 34.  The packets were seen with a serial monitor on the coordinator.  By analyzing the MAC addresses of each packet, it was confirmed that all of the network configurations below were functional, depicted in Figure 35.
 
-Figure 34.  Example network test configuration.
+![34.  Example network test configuration.](../Figures/fig34.jpg)
 
-Figure 35.  Example XBee Packet Analysis of Various MAC Addresses.
+![35.  Example XBee Packet Analysis of Various MAC Addresses.](../Figures/fig35.jpg)
 
 XBee coverage tests.  Once a simple network was assembled to send empty packets to the coordinator in close proximity, the range and coverage of the XBee modules were explored.  The XBee range capability experiments were performed in three main steps: range, coverage, and network tests.  The range tests aimed to find the maximum range of the XBee modules in a clear line-of-sight (LOS) path.  The coverage tests were performed to find the quality of the signal in all directions including non-line-of-sight (NLOS) environments.  Finally, the network tests were performed to simulate the proposed bikeshare where nodes would be placed accordingly in order to maximize reliable communications with a defined set of bicycle racks on campus.
 
 Range tests.  The range tests were conducted using the XCTU’s built-in range testing software, depicted in Figure 36.  Within the program, two XBee modules can be selected to monitor their received signal strength indicator (RSSI) and the packet success rate over time.
 
-Figure 36.  XCTU’s Range Test Program.
+![36.  XCTU’s Range Test Program.](../Figures/fig36.jpg)
 
 The range test was first conducted at McKeldin Mall where a maximum LOS distance of approximately 1,100 ft was measured via Google Maps, depicted in Figure 37.  The range test was conducted by leaving the coordinator node stationary in front of McKeldin Library while having the end device node move farther away from crosswalk to crosswalk.  The range test was conducted at each intersection of the crosswalk.  At the initial crosswalk, the signal strength was recorded at an average value of -50 dB, and as the end device moved away the signal strength expectedly decreased.  The documentation for the XBee modules used in the experiment claim to have an acceptable RSSI range of -40 dB down to -102 dB.  By incrementing across McKeldin Mall, the modules proved to maintain a strong RSSI reading throughout the entire test.  Upon reaching the end of the Mall, at approximately 1,100 ft, the modules were still maintaining an average RSSI of approximately -70 dB, well within the documented acceptable region.
 
-Figure 37.  McKeldin Mall Range Test Site.
+![37.  McKeldin Mall Range Test Site.](../Figures/fig37.jpg)
 
 Since the initial range test occurred without achieving the goal of finding the maximum distance of connectivity, a new site was selected for an additional range test.  The next site was selected since it has the longest LOS path on campus.  This makes it the optimal test for the system since the final system will not need to reach LOS distances that cannot be reached on campus.  The test was conducted across the Chapel and Fraternity Fields, depicted in Figure 38.
 
-Figure 38.  Chapel and Fraternity Fields Test Site.
+![38.  Chapel and Fraternity Fields Test Site.](../Figures/fig38.jpg)
 
 The new test site was able to leverage the elevation difference between the entrance to Memorial Chapel and the far east edge of the Fraternity Fields to obtain a measured distance of approximately 1,650 ft.  The test was conducted in a similar fashion to the initial test with the end device moving in increments away from the coordinator.  The maximum distance of 1,650 ft returned a packet success rate of 100% while maintaining an average RSSI value of -75 dB.
 
@@ -165,31 +165,31 @@ The differences in distance and RSSI between the first two tests came out to 540
 
 Coverage tests.The coverage tests were performed in two ways.  Initially, the same XCTU range test program was used where a stationary coordinator would run tests against a moving end device.  The largest difference between the range and coverage tests had to do with the NLOS conditions.  In the coverage tests, a person carrying the mobile node would walk in all directions until the signal was lost, instead of only walking in one direction maintaining LOS, and then the person documented the location of the lost signal on a printed out map.  The test was conducted at McKeldin Mall with the coordinator located at the same location as in the initial range test.  During the test, the XBee modules appeared to drop the signal at approximately -90 dB, slightly less than the expected -102 dB claimed in the documentation.  Once the test was completed, the boundary points were entered into Google Earth to plot a rough sketch of the coverage region of a single node, depicted in Figure 39.  Note that the red dot is the location of the stationary node, and the blue region is the coverage area.  It was later discovered that the test experienced issues during the data collection in the most northeast location of McKeldin Mall.  The actual coverage information within that region extends slightly farther north and east.
 
-Figure 39.Coverage Region of Single Node.
+![39.  Coverage Region of Single Node.](../Figures/fig39.jpg)
 
 A flaw with the approach for the coverage test was that the data displayed in Figure 39 above depicts a binary representation of the coverage region, meaning either the location has connectivity to the coordinator or it does not.Given the great deal of fluctuation in RF systems, any number of conditions such as: population, weather, or device orientation, could affect the exact coverage region.  To provide more meaningful data, the signal strength should be measured at each point to provide insight into which regions are more susceptible to potential losses in the connection.  In order to more accurately display the coverage region, a heat map approach was proposed.  The heat map test would include a device that could log the GPS location and RSSI while the user carries the device around.  The device could then save the information and pass it on to a mapping library such as Leaflet or Google Maps.
 
 Building the system necessary for the heat map test presented new problems with logging the RSSI value.Within the ZigBee protocol for the XBee Series 2 modules used, the RSSI is not sent with each packet.  Instead, the receiving module measures the RSSI of the last received packet and stores it locally.  The value can then be requested locally using the ATDB command.  To implement a device that can update the RSSI values at each point, a new packet from the coordinator had to be sent repeatedly at a desired interval.  Without the coordinator constantly sending packets, the RSSI value stored on the local XBee module would remain unchanged throughout the polling period.  After learning how the RSSI value can be recovered, a device was built using a Raspberry Pi, an Adafruit Ultimate GPS Breakout Board, an Arduino Uno, an XBee end device, and a portable battery as seen in Figure 40.
 
-Figure 40.Heat Map Data Collector.
+![40.  Heat Map Data Collector.](../Figures/fig40.jpg)
 
 The heat map data collector device used the portable battery to power the Raspberry Pi, which in turn powered the Arduino and the XBee through USB connections.  The GPS board was connected to the Arduino where the TinyGPS+ library was used to parse out latitude, longitude, altitude, and time every second from the NMEA data output.  The Arduino then printed out the information in CSV format to the serial port.  On the Raspberry Pi, a python script read in the serial data from the Arduino to read back the GPS data at any given time.  The python script also utilized the XBee-Python library to interact with the XBee in order to assemble the AT command to request the RSSI.  With the walking pace set by the user holding the heat map data collector, it was found that polling the RSSI every five seconds sufficiently collected data for use in the generation of the heat map.  An important note to make is that in order to sync the RSSI data polled every five seconds and the GPS data received every second, the serial port connection with the Arduino had to be flushed to receive the latest GPS coordinates immediately following an RSSI request.
 
 After developing the heat map data collector described above, the team found that the Raspberry Pi did not provide enough feedback while the test was being conducted.The system was then simplified to include solely the Arduino, the GPS, and the XBee, where the Arduino and XBee module were connected to a laptop, rather than the Raspberry Pi, as depicted in Figure 41.
 
-Figure 41.Heat Map Data Collector Version Two.
+![41.  Heat Map Data Collector Version Two.](../Figures/fig41.jpg)
 
 With the new system assembled and ready to be used, the first heat map test was conducted at McKeldin Mall, with the coordinator located at the same position as in previous tests.The heat map data collector with the accompanying laptop was then carried around the mall in a vertical zigzag pattern.  While walking, the device collected the data needed to generate a heat map and wrote it to a file in the CSV format seen in Figure 42.
 
-Figure 42.CSV format.
+![42.  CSV format.](../Figures/fig42.jpg)
 
 At the conclusion of the test, the data was then read into a Leaflet mapping program to turn the GPS coordinates into scaled intensity values based on the RSSI.Since the RSSI is recorded as negative values ranging from approximately -30 dB (strong) to -90 dB (weak), the RSSI was mapped to the intensity factor inversely.  The result of the Leaflet map can be seen below in Figure 43.  Note that the XBee icon represents the location of the coordinator for the test.
 
-Figure 43.McKeldin Heat Map Test Leaflet Program.
+![43.  McKeldin Heat Map Test Leaflet Program.](../Figures/fig43.jpg)
 
 The same heat map with the walking path superimposed can be seen below in Figure 44.  With the walking path inserted, it can be seen that the data in the center of the triangle formed at the far right of the heat map alters from reality.  Leaflet generated the heat map by taking each individual point and applying a circle with the intensity value determined from the RSSI and then slowly reducing the intensity as the distance from the center increased.  Because of this technique, the center of the right triangle appeared to be weaker than the north east point of the triangle even though the center was closer to the coordinator.  In reality, the center of the triangle had a higher RSSI value than the north east point.
 
-Figure 44.McKeldin Heat Map Test Leaflet with Path.
+![44.  McKeldin Heat Map Test Leaflet with Path.](../Figures/fig44.jpg)
 
 Other pitfalls with the Leaflet heat map generator involved the same fading circle technique.  With the fading circle, weaker points in close proximity to stronger points were masked by the stronger point’s computer-generated coverage region.  In addition, the boundaries of the coverage area seeped into the adjacent buildings despite the reality being that there was no signal inside the buildings.  Viewers of the heat map may also find it difficult to determine where the heat map test took place due to the opacity constraints blocking out the location behind the coverage region.  One final issue with the map was that it also failed to distinguish a difference between the strongest signal near the coordinator at approximately -35 dB from the decent signal located throughout much of the Mall at about -70 dB.
 
@@ -203,13 +203,13 @@ The desired heat mapping tool would allow the user to select a source point wher
 
 Network test.  The final stage of testing for the XBee units came in the form of network connectivity tests.  The goal of the network tests was to take the information learned from the previous range and coverage tests and apply it to a selected area of campus.  This would allow the team to intelligently place the stationary nodes of the ZigBee network in order to provide coverage to all of the bicycle racks in the selected region.  To obtain the bicycle rack location information, the “UMD Campus Web Map” was used with the bicycle rack location layer turned on.  With the bicycle rack location layer on, all of the bike racks on campus appear on a map as red marks as seen in Figure 46.
 
-Figure 46.  UMD Campus Web Map Displaying Bicycle Rack Locations.
+![46.  UMD Campus Web Map Displaying Bicycle Rack Locations.](../Figures/fig46.jpg)
 
 To decide how to run the network tests, the team targeted two specific student types: freshmen and sophomores living in the Ellicott Community studying a humanities field and freshmen and sophomores living in the Cambridge Community studying a science field.  With these two subsets of students, the team could target specific areas on campus to implement a scaled down network with the limited hardware available.
 
 The first test conducted was on the first student subset: freshmen and sophomores in the Ellicott Community studying a humanities field.  To accommodate this subset of students, all of the bicycle racks in the Ellicott Community will need to be covered by a ZigBee network, as well as all of the bicycle racks near the buildings around McKeldin Mall.  Creating a connected network between the two areas posed a problem due to the distance between the two as well as the lack of any LOS path from one to the other as depicted in Figure 47.  The team considered leveraging the altitude of the high-risers in the Ellicott Community, but the inaccessibility of the rooftop of the high-risers prevented a clear test from being conducted.  Even if the module could be placed on the roof of Ellicott Hall, it remained doubtful that an elevated module on McKeldin Mall could create a clear LOS path to the Ellicott community to close the link.
 
-Figure 47.  Ellicott Community to McKeldin Mall.
+![47.  Ellicott Community to McKeldin Mall.](../Figures/fig47.jpg)
 
 Since the use of a single, connected network between the two areas seemed unlikely without a long stream of routers acting as a backbone, the idea of interoperable, yet separate networks was explored.  The proposed idea was that a single coordinator could be set up in the Ellicott Community while an additional single coordinator, operating on the same personal area network identifier (PAN ID), could be set up at McKeldin Mall.  Then, in theory, the end device units located on the bicycles could connect to both of the coordinators since they have the same PAN ID.  Unfortunately, the multi-coordinator test failed on the initial attempt due to an additional read-only XBee parameter called the 16-bit operating PAN ID.  The parameter was specific to each XBee coordinator module such that all of the nodes in the network would be specific to solely that coordinator after the network was established.  The routers and end devices on power-up first search for a coordinator on their writable PAN ID.  Should the units find a coordinator, they then set their 16-bit operating PAN ID to match that of the coordinator and remember that number so on the next power-up, they can simply attach back to the network without scanning.  Since the 16-bit operating PAN ID of both coordinators was different, the end devices that would be located on the bicycles would not be able to establish a connection with the second coordinator.
 
@@ -219,29 +219,29 @@ Since the probability of a bicycle user leaving one community and biking to a di
 
 Since the Ellicott Community and McKeldin Mall could be connected through separate networks connected through the website rather than a continuous, single mesh network, it was hypothesized that all of the bicycle racks in the two areas could be covered by simply two, intelligently-placed coordinator nodes.  To test the hypothesis, an additional heat map test was performed in the Ellicott Community.  With the coordinator placed at ground level by the north east corner of Ellicott Hall, the following heat map was created using Leaflet, depicted in Figure 48.
 
-Figure 48.  Ellicott Community Heat Map.
+![48.  Ellicott Community Heat Map.](../Figures/fig48.jpg)
 
 Taking note to visit all of the bicycle racks in the community during the test, the single node was proven to have reliable communication to all of the bicycle racks.  Again using the UMD Campus Web Map’s bicycle rack location layer, the network routing map was drawn, Figure 49.
 
-Figure 49.  Ellicott Network Routing Map.
+![49.  Ellicott Network Routing Map.](../Figures/fig49.jpg)
 
 The same network routing map was then applied to the single node covering McKeldin Mall during the earlier heat map tests to provide the following mapping, Figure 50.
 
-Figure 50.  McKeldin Network Routing Map.
+![50.  McKeldin Network Routing Map.](../Figures/fig50.jpg)
 
 With the subset of freshmen and sophomores living in the Ellicott Community studying a humanities field, it was proven that with two separate, but connected networks, 21 bicycle racks could be covered with only two XBee modules configured to act as coordinators operating on the same PAN ID.
 
 The next test involved the subset of students who were living in the Cambridge Community studying a science field.  The desired region of coverage included the Cambridge Community as well as the buildings along Regents drive.  With the close proximity of these two, it is hypothesized that the targeted coverage region can be covered through the use of a single, multi-node network as depicted in Figure 51.
 
-Figure 51.  Cambridge Community to Regents Dr. Buildings.
+![51.  Cambridge Community to Regents Dr. Buildings.](../Figures/fig51.jpg)
 
 Without being able to leverage the advantages that elevation would provide with LOS, the network was set up with the coordinator just west of the southern tip of Centerville Hall, a router slightly north east of the southern tip of Cumberland Hall (maintaining LOS with the coordinator), and a second router positioned at the intersection of Farm drive and Regents drive.  With the nodes positioned as stated, the two routers were powered via laptop USB, and the coordinator was powered by and interfacing with an additional laptop running the XCTU software.  A fourth node was set up as the mobile end device, connected to another laptop running XCTU.  The experiment was to walk the end device around to each bicycle rack in the two regions in an attempt to prove connectivity.  At each bicycle rack, the end device module was reset, to simulate the actual use in the smartlock design due to the multi-coordinator network requirements.  Then a transmission request was sent to the coordinator, to simulate the CSV formatted information to be sent from the bicycle to the website.  Upon receiving the packet, the coordinator would then send an acknowledgement packet down to the specific XBee module to simulate the response from the website to the smartlock.  Once the transmission was seen to be reliable for both directions, the coordinator would run the routing test to discover the path that it was taking to reach the end device.  At each bicycle rack, the path was documented and then the end device would move on to the next bicycle rack.
 
 After conducting the test at the Cambridge Community with the goal of reaching the buildings along Regents Dr., as well, the following network routing maps were drawn to show the connectivity between devices depicted in Figure 52 and Figure 53.
 
-Figure 52.  Cambridge to Regents Routing Map One.
+![52.  Cambridge to Regents Routing Map One.](../Figures/fig52.jpg)
 
-Figure 53.  Cambridge to Regents Routing Map Two.
+![53.  Cambridge to Regents Routing Map Two.](../Figures/fig53.jpg)
 
 Within the figures, all of the lines represent a stable communications link between the two nodes, whether it be bicycle rack to router, bicycle rack to coordinator, or router to coordinator.  Through analyzing these figures, several key aspects of the XBee modules can be observed.  First, observing the Cumberland Hall bicycle racks shows the XBee’s inability to propagate through the dormitory to reach the bicycle rack on the west side.  However, viewing the bicycle rack on the east side of Centerville Hall shows that the coordinator was successful in propagating through the dormitory.  The difference observed may be due to the amount of structure that the RF waves had to pass through due to the difference in angles between the stationary node and the bicycle rack.  Additionally, the distance from the building to the bicycle rack was further in the Cumberland case, meaning that once through the building the waves still had to propagate further to reach the bicycle racks.  The distance to wrap around the southern side of the building was also shorter in the Centerville case, which lead to the possibility of the wave reaching the destination in another fashion through leveraging multipath, or the RF signal’s ability to bounce off of objects.  Regardless, it is recommended that further network tests be completed to ensure that the link is reliable in all situations.
 
@@ -253,7 +253,7 @@ Before the proposed system problem is tackled, a quick analysis of the system se
 
 After running the small scale math on the collected data above, the proposed system was then drawn out.  Using the data collected from the coverage and range tests, the XBee modules’ ability to maintain connectivity with distant points was characterized.  In the proposed system, the model assumes that the installer has access to higher elevation areas such as rooftops or edges of buildings to enhance the LOS capabilities of the devices.  The UMD Campus Web Map was again used as a reference for the bicycle rack locations, and another note to make is that the bicycle racks located at Fraternity Row and off campus housing complexes were not considered.  The campus was then broken into subsections based on how dense the bicycle racks were.  Within each section, proposed node locations were listed as GPS coordinates that typically would be elevated to maximize coverage.  The result of the analysis is shown in the table below in Figure 54.
 
-Figure 54.  Proposed Campus-Wide Network.
+![54.  Proposed Campus-Wide Network.](../Figures/fig54.jpg)
 
 The table shows the subsections of campus, the locations of each network, the number of bicycle racks covered by the network, the total number of bicycle racks within the subsection of campus, the number of nodes in the network, and the GPS locations of each of the nodes in the network.  As seen from the table, the proposed system would include 16 interoperable networks with node amounts ranging from a single coordinator up to seven stationary nodes.  The system would cover 212 out of the 230 bicycle racks in the defined regions on campus, resulting in 92.2% coverage, exceeding the 90% requirement.  At the same estimated costs per node and extra costs per coordinator, the system came out to be approximately $2,160.  The cost per bicycle rack then was calculated to be $10.19.  The value was slightly higher than the real data test, but since the data was collected at more densely populated bicycle rack areas on campus, this result was expected.
 

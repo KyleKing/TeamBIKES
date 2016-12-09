@@ -2,8 +2,7 @@
   "gitbook": "2.x.x",
   "plugins": [
   	"youtube",
-  	"image-captions",
-    "styles-sass"
+  	"image-captions"
   ],
   "links": {
     "sidebar": {
@@ -12,11 +11,11 @@
     }
   },
   "styles": {
-    "website": "./styles/website.scss",
-    "ebook": "./styles/ebook.scss",
-    "pdf": "./styles/pdf.scss",
-    "mobi": "./styles/mobi.scss",
-    "epub": "./styles/epub.scss"
+    "website": "./styles/website.css",
+    "ebook": "./styles/ebook.css",
+    "pdf": "./styles/pdf.css",
+    "mobi": "./styles/mobi.css",
+    "epub": "./styles/epub.css"
   },
   "pluginsConfig": {
     "image-captions": {
