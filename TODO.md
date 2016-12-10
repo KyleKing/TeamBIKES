@@ -1,8 +1,3 @@
-> Fix fig 26 and 30 on iteration + continue on from there!
-
-
-# TODO - Team BIKES Gitbook Guide
-
 ## Export figures from thesis document into jpg/png format with proper numbering
 
 * Find figure in THESIS.docx. Select it and press ⌘+C, then open preview and press ⌘+N. This creates a new pdf from clipboard.
@@ -20,7 +15,10 @@ Figure ((\d{2})\. [^\n]+)
 ![$1](../Figures/fig$2.jpg)
 ```
 
-3. What to do with the Table of Figures? Link to sections in the text?
-5. Add bold/italics for subheadings used throughout paper
-7. Check that equations are formatted correctly
-8. Check that all tables were imported and if not, rebuild in markdown format
+## Other Tasks
+
+~~What to do with the Table of Figures? Link to sections in the text?~~
+
+~~Add bold/italics for subheadings used throughout paper~~
+
+TODO: (The look okay...) Check that equations are formatted correctly

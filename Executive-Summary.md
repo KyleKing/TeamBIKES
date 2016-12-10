@@ -26,6 +26,7 @@ The completed smartlock prototype and proposed implementation model demonstrate 
 
 &nbsp;
 
-{% youtube %}https://www.youtube.com/watch?v=tg4aXH1SqxQ{% endyoutube %}
+<!-- ![V. REDBAR Bikes commercial](Figures/RedBarBikesCommercial.png) -->
 
+{% youtube %}https://www.youtube.com/watch?v=tg4aXH1SqxQ{% endyoutube %}
 ![V. REDBAR Bikes commercial](Figures/blank.png)

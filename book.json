@@ -6,7 +6,6 @@
   ],
   "links": {
     "sidebar": {
-      "Visit RedBarBikes.com ⇢": "https://redbarbikes.com/",
       "See the Source Code ⇢": "https://github.com/KyleKing/TeamBIKES"
     }
   },
@@ -20,7 +19,30 @@
   "pluginsConfig": {
     "image-captions": {
     	"attributes": { "width": "600" },
-    	"caption": "Figure _CAPTION_"
+    	"caption": "Figure _CAPTION_",
+      "images": {
+        "10.1": {
+          "caption": " "
+        },
+        "11.1": {
+          "caption": " "
+        },
+        "11.2": {
+          "caption": " "
+        },
+        "11.3": {
+          "caption": " "
+        },
+        "11.4": {
+          "caption": " "
+        },
+        "11.5": {
+          "caption": " "
+        },
+        "11.6": {
+          "caption": " "
+        }
+      }
     }
 	}
 }

@@ -1,3 +1,3 @@
 ## Appendix A – Drawing
 
-One image
+![Drawing](../Figures/figa1.jpg)
