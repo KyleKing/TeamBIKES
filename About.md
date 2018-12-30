@@ -10,12 +10,10 @@
 
 # Screenshots of the Development of the About Page
 
-
 ### The Current About Page:
+
 <p align="center">
-  <a href="http://redbarbikes.com">
     <img width="300" height=auto src="README/Final_Senior_Website_Screenshots/About.png">
-  </a>
 </p>
 
 ### Prior Version: "*Custom*":
@@ -60,4 +58,4 @@
 	<img width="300" height=auto src="README/Junior_Year_Website/About.png">
 </p>
 
-The code used in this verison of the application was radically different, so I made a transition to a new repository (this one) and kept this code archived at my [testProject Repository](https://github.com/KyleKing/testProject).
+The code used in this verison of the application was radically different. The archived code can be reviewed in the original [testProject Repository](https://github.com/KyleKing/testProject).
