@@ -18,7 +18,7 @@ Video problems:
 [![RedBarBikesCommercial](http://img.youtube.com/vi/VideoID/0.jpg)](http://www.youtube.com/watch?v=VideoID)
 -->
 
-> A bikeshare for college students by college students previously hosted at [redbarbikes.com](https://redbarbikes.com)
+> A bikeshare for college students by college students previously hosted at redbarbikes.com
 
 # About
 
@@ -170,7 +170,7 @@ To learn about each subfolder, visit the specific README. For example, to learn 
 
 # Thank you for reading this far!
 
-Don't forget to visit the website at [redbarbikes.com](https://redbarbikes.com) and if you have any comments or questions, please visit [the issues section](https://github.com/KyleKing/TeamBIKES/issues) and let us know!
+If you have any comments or questions, please visit [the issues section](https://github.com/KyleKing/TeamBIKES/issues) and let us know!
 
 ## What to do next
 
